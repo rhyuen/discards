@@ -1,0 +1,346 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta name='color-scheme' content='dark light'>
+    <link rel="preconnect" href="https://fonts.gstatic.com">
+    <link href="https://fonts.googleapis.com/css2?family=Inter&display=swap" rel="stylesheet">
+    <title>1/27/22</title>
+
+
+    <style>
+        * {
+            box-sizing: border-box;
+            font-size: 16px;
+            font-family: 'Inter', sans-serif;
+            color: black;
+            --GREY: rgba(0, 0, 0, 0.1);
+            --PRIMARY_COLOR: #98E690;
+            --SECONDARY_COLOR: white;
+            --COL1: #db0a5b;
+            --COL2: #fef160;
+            --COL3: #23cba7;
+            --COL4: #3e6ceb;
+            --COL5: rgb(212, 204, 212);
+        }
+
+        ::-webkit-scrollbar {
+            width: 0.8rem;
+            height: 0.5rem;
+        }
+
+        /* Track */
+        ::-webkit-scrollbar-track {
+            background: black;
+        }
+
+        /* Handle */
+        ::-webkit-scrollbar-thumb {
+            background: var(--COL3);
+        }
+
+        /* Handle on hover */
+        ::-webkit-scrollbar-thumb:hover {
+            background: var(--COL2);
+        }
+
+
+        html,
+        body {
+            margin: 0;
+            height: 100vh;
+            background: #f3f3f3;
+        }
+
+
+        h1 {
+            margin: 0;
+            padding: 0;
+        }
+
+        figure {
+            margin: 0;
+            padding: 0;
+        }
+
+
+        ul {
+            list-style-type: none;
+        }
+
+        .red {
+            background: var(--COL1);
+            color: white;
+        }
+
+        .yellow {
+            background: var(--COL2);
+            color: black;
+        }
+
+        .green {
+            background: var(--COL3);
+            color: white;
+        }
+
+        .blue {
+            background: var(--COL4);
+            color: white;
+        }
+
+
+        main {
+            margin: 0 auto;
+            max-width: 1000px;
+        }
+
+        .month {
+            display: grid;
+            grid-template-columns: repeat(7, minmax(auto, 1fr));
+            gap: .5rem;
+        }
+
+        .header {
+            background: var(--COL2);
+            grid-column: 1/span 7;
+            font-weight: 600;
+            font-size: 2rem;
+            padding: .5rem;
+        }
+
+        .marker {
+            aspect-ratio: 5/1;
+            background-color: var(--COL4);
+        }
+
+        .cell {
+            aspect-ratio: 1;
+            background-color: var(--COL1);
+            position: relative;
+            border-radius: .5rem;
+        }
+
+        .cell:nth-child(7n+1) {
+            background-color: var(--COL3);
+        }
+
+        .cell:nth-child(7n+2) {
+            background-color: var(--COL3);
+        }
+
+        .empty {
+            aspect-ratio: 1;
+            background-color: var(--COL5);
+            border-radius: .5rem;
+        }
+
+
+        .cell--weekend {
+            background-color: var(--COL2);
+        }
+
+        .cell--empty {
+            background-color: var(--COL5);
+        }
+
+        .cell__content {
+            padding: 1rem;
+            position: absolute;
+            font-size: clamp(1.2rem, 25%, 2rem);
+            font-weight: 600;
+            inset: 0;
+            top: 0;
+            left: 0;
+            color: white;
+
+        }
+
+
+        @media screen and (min-width: 750px) and (max-width: 1099px) {}
+
+        @media screen and (min-width: 1100px) {}
+    </style>
+
+<body>
+    <main id="root">
+        <section class='month' id='month'>
+
+        </section>
+    </main>
+
+    <script>
+        window.addEventListener("keydown", function (e) {
+            if (event.keyCode == 37) {
+
+                if (state.month === 0) {
+                    state.month = 11;
+                    state.year--;
+                } else {
+                    state.month--;
+                }
+
+                clearMonth("month");
+                drawMonth("month", state);
+            }
+            if (event.keyCode == 39) {
+                if (state.month === 11) {
+                    state.month = 0;
+                    state.year++;
+                } else {
+                    state.month++;
+                }
+
+                clearMonth("month");
+                drawMonth("month", state);
+            }
+            console.log(state.month)
+        });
+
+        const month = document.getElementById("month");
+        const state = {
+            month: 99,
+            day: 31,
+            year: 0
+        };
+
+        function createDay(data) {
+            const node = document.createElement("div");
+            node.classList.add("cell");
+            const text = document.createElement("div");
+            text.classList.add("cell__content");
+            text.textContent = data;
+            node.appendChild(text);
+            return node;
+        }
+
+        function createEmptyDay() {
+            const node = document.createElement("div");
+            node.classList.add("empty");
+            // node.classList.add("cell--empty");
+            return node;
+        }
+
+        function initState() {
+            const now = new Date();
+            const month = now.getMonth();
+            const day = now.getDate();
+            state.month = month;
+            state.day = day;
+            state.year = now.getFullYear();
+        };
+
+        function clearMonth(id) {
+            const mountpoint = document.getElementById(id);
+            mountpoint.innerHTML = "";
+        }
+
+        function getLastDayOfMonth(date) {
+            const lastDayOfMonthUTC = new Date(date.year, date.month + 1, 1) - 3600;
+            const lastDayOfMonthNumber = new Date(lastDayOfMonthUTC).getDate();
+            return lastDayOfMonthNumber;
+        }
+
+        function getFirstDayOfMonth(date) {
+            const firstDayOfMonth = new Date(date.year, date.month, 1).getDay();
+            return firstDayOfMonth;
+        }
+
+        function drawDayMarker() {
+            const node = document.createElement("div");
+            node.classList.add("marker");
+            return node;
+        }
+
+        function drawMonthHeader(date) {
+            const { month, year } = date;
+            let headerString = "Month";
+            switch (month) {
+                case 0:
+                    headerString = "January";
+                    break;
+                case 1:
+                    headerString = "February";
+                    break;
+                case 2:
+                    headerString = "March";
+                    break;
+                case 3:
+                    headerString = "April";
+                    break;
+                case 4:
+                    headerString = "May";
+                    break;
+                case 5:
+                    headerString = "June";
+                    break;
+                case 6:
+                    headerString = "July";
+                    break;
+                case 7:
+                    headerString = "August";
+                    break;
+                case 8:
+                    headerString = "September";
+                    break;
+                case 9:
+                    headerString = "October";
+                    break;
+                case 10:
+                    headerString = "November";
+                    break;
+                case 11:
+                    headerString = "December";
+                    break;
+                default:
+                    headerString = "default";
+            }
+
+            const node = document.createElement("div");
+            node.classList.add("header");
+            node.textContent = `${headerString}/${year}`;
+            return node;
+        }
+
+
+        function drawMonth(id, date) {
+            const mountpoint = document.getElementById(id);
+
+
+
+            for (let i = 0; i < 7; i++) {
+                mountpoint.appendChild(drawDayMarker());
+            }
+
+
+            let padding = 0;
+            while (padding < getFirstDayOfMonth(state)) {
+                mountpoint.appendChild(createEmptyDay());
+                padding++;
+            }
+
+            for (let i = 0; i < getLastDayOfMonth(date); i++) {
+                mountpoint.appendChild(createDay(i + 1));
+                console.log(mountpoint.children.length);
+            }
+
+            while (mountpoint.children.length % 7 !== 0) {
+                mountpoint.appendChild(createEmptyDay());
+            }
+            mountpoint.prepend(drawMonthHeader(date));
+        }
+
+
+
+        initState();
+        console.dir(state)
+        drawMonth("month", state);
+
+
+
+    </script>
+</body>
+
+</html>

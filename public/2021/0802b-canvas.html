@@ -1,0 +1,232 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <link rel="preconnect" href="https://fonts.gstatic.com">
+    <link href="https://fonts.googleapis.com/css2?family=Inter&display=swap" rel="stylesheet"> 
+    <title>07 30</title>
+    
+
+        <style>
+            * {                
+                box-sizing: border-box;
+                font-size: 16px;
+                font-family: 'Inter', sans-serif;                
+                --PRIMARY_COLOR: #98E690;
+                --SECONDARY_COLOR: white;
+            }      
+
+            ::-webkit-scrollbar {                
+                width: 0.8rem;
+                height: 0.5rem;
+            }
+
+            /* Track */
+            ::-webkit-scrollbar-track {
+                background: black;
+            }
+
+            /* Handle */
+            ::-webkit-scrollbar-thumb {
+                background: rgb(209, 171, 121);
+            }
+
+            /* Handle on hover */
+            ::-webkit-scrollbar-thumb:hover {
+                background: #d3d3d3;
+            }
+                       
+
+            html, body{
+                margin: 0;
+                height: 100vh;                
+                background: #f3f3f3;                                
+            }
+
+          
+            ul{
+                margin: 0;
+                padding: 0;
+                list-style-type: none;
+            }
+            nav{
+                height: 5rem;            
+                background-color: black;                    
+                margin-bottom: 1rem;                
+            }
+            
+
+            a{
+                text-decoration: none;
+                color: black;
+            }
+
+            .container{
+                display: flex;
+                justify-content: flex-start;
+                height: 100%;
+                align-items: center;                
+                margin: 0 auto;
+                max-width: 1100px;
+            }
+
+            .container__item{
+                margin-right: 2rem;
+            }
+            .container__item:last-child{
+                margin-right: 0;
+            }
+            .container__item a{
+                color: white;
+                position: relative;
+            }
+            .container__item a:after{
+                position: absolute;
+                bottom: -.5rem;
+                left: 0;
+                width: 100%;
+                content: '';
+                height: .1rem;                                                
+                background-color: white;
+                transform-origin: center;
+                opacity: 0;
+                transform: scale(0);
+                transition: opacity .2s ease-in-out, transform .2s ease-in-out;
+            }
+
+            .container__item a:hover::after{
+                opacity: 1;
+                transform: scale(1);
+                
+            }
+
+            main{
+                margin: 0 auto;
+                max-width: 1100px;                
+            }
+
+   
+            @keyframes rotation {
+                from {
+                    transform: rotate(0deg);
+                }
+
+                to{
+                    transform: rotate(360deg);
+                }
+            }
+
+            canvas{
+                /* border: 1px solid black;          */
+                margin-bottom: 5rem;
+                transform-origin: center;
+                animation: rotation 2s infinite linear;
+                animation-play-state: running;
+                position: absolute;
+                top: 0;
+            }
+
+            .container--canvas{
+                position: relative;
+                display: flex;
+                flex-direction: column;
+                max-width: 500px;
+                height: 750px;
+            }
+
+            .container--canvas--bottom{
+                position: absolute;
+                bottom: 0;
+            }
+
+            img.pin{
+                width: 2rem;
+                height: 3rem;
+                position: absolute;
+                top: 0;                
+                left: 50%;
+                transform: translateX(-50%);
+                z-index: 2;
+            }
+                
+        </style>
+    <body>  
+        <nav>
+            <ul class='container'>
+                <li class='container__item'><a href='#'>Home</a></li>
+                <li class='container__item'><a href='#'>About</a></li>
+                <li class='container__item'><a href='#'>Contact</a></li>                
+            </ul>
+        </nav>
+        <main>
+           
+            <div class='container--canvas'>
+                <img class='pin' src='images/pin.png' alt='pointer for the spinning wheel'/>
+                <canvas id='first' height='400' width='400'>
+                </canvas>
+                <div class='container--canvas--bottom'>
+                    <input type='text' placeholder="Your name"/>
+                    <input type='text' placeholder="Your email Address"/>
+                    <input type='text' placeholder="Your Phone Number"/>
+                    <input type='submit' value='Submit'/>
+                </div>
+            </div>
+
+        </main>
+       
+        
+
+
+        <script type='text/javascript'>
+
+            function draw(){
+                const el = document.querySelector("#first");
+                const ctx = el.getContext('2d');
+                const colors = ["red", "blue", "green", "gray", "purple"];
+
+                let begin = 0;
+                let end = 0;
+                let data = [10, 10, 10, 10,10];
+                let total = 0;
+
+                for(let i=0; i < data.length; i++){
+                    total += data[i];
+                }
+                // Iterate through the angles
+                for(let i = 0; i < data.length; i++) {
+                    begin = end;
+                    end += ((Math.PI*2)*(data[i]/total));
+
+                    ctx.beginPath();
+                    
+                    ctx.fillStyle = colors[i];
+                    
+                    ctx.moveTo(200, 200);
+                    ctx.arc(200, 200, 200, begin, end);
+                    ctx.lineTo(200, 200);
+                    ctx.stroke();
+                    ctx.fill();
+
+                    
+                    let pieRadius = Math.min(ctx.canvas.width / 2, ctx.canvas.height / 2);
+                    let labelX = ctx.canvas.width / 2 + (pieRadius / 2) * Math.cos(begin + (end - begin) / 2);
+                    let labelY = ctx.canvas.height / 2 + (pieRadius / 2) * Math.sin(begin + (end - begin) / 2)
+                    console.log(labelX);
+                    console.log(labelY)
+                    ctx.fillStyle = "white";                    
+                    ctx.font = "bold 2rem Inter";
+                    ctx.fillText("test", labelX, labelY);
+                    
+                }
+            }
+            draw();
+           
+        
+            
+
+            
+        </script>
+    </body>
+</html>

@@ -1,0 +1,162 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta name='color-scheme' content='dark light'>
+    <link rel="preconnect" href="https://fonts.gstatic.com">
+    <link href="https://fonts.googleapis.com/css2?family=Inter&display=swap" rel="stylesheet">
+    <title>12 23</title>
+
+
+    <style>
+        * {
+            box-sizing: border-box;
+            font-size: 16px;
+            font-family: 'Inter', sans-serif;
+            color: black;
+            --GREY: rgba(0, 0, 0, 0.1);
+            --PRIMARY_COLOR: #98E690;
+            --SECONDARY_COLOR: white;
+            --COL1: #db0a5b;
+            --COL2: #fef160;
+            --COL3: #23cba7;
+            --COL4: #3e6ceb;
+            --COL5: #d9c8ec;
+        }
+
+        ::-webkit-scrollbar {
+            width: 0.8rem;
+            height: 0.5rem;
+        }
+
+        /* Track */
+        ::-webkit-scrollbar-track {
+            background: black;
+        }
+
+        /* Handle */
+        ::-webkit-scrollbar-thumb {
+            background: var(--COL3);
+        }
+
+        /* Handle on hover */
+        ::-webkit-scrollbar-thumb:hover {
+            background: var(--COL2);
+        }
+
+
+        html,
+        body {
+            margin: 0;
+            height: 100vh;
+            background: #f3f3f3;
+            display: grid;
+            place-items: center;
+        }
+
+
+        h1 {
+            margin: 0;
+            padding: 0;
+        }
+
+        figure {
+            margin: 0;
+            padding: 0;
+        }
+
+
+
+
+        ul {
+            list-style-type: none;
+        }
+
+        .red {
+            background: var(--COL1);
+            color: white;
+            clip-path: polygon(0 0, 100% 0, 0 100%);
+        }
+
+        .yellow {
+            background: var(--COL2);
+            color: black;
+            border: .5rem solid black;
+            display: flex;
+            justify-content: flex-end;
+            align-items: flex-end;
+        }
+
+        .green {
+            background: var(--COL3);
+            color: white;
+            display: flex;
+            justify-content: center;
+            align-items: center;
+            border-radius: 50%;
+        }
+
+        .blue {
+            background: var(--COL4);
+            color: white;
+        }
+
+
+
+
+        .grid {
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(200px, 1fr));
+            gap: .5rem;
+            max-width: 1100px;
+        }
+
+        .grid__item {
+            aspect-ratio: 1;
+            font-weight: 600;
+            font-size: 2rem;
+            padding: .5rem;
+        }
+
+        @media screen and (min-width: 750px) and (max-width: 1099px) {}
+
+        @media screen and (min-width: 1100px) {}
+    </style>
+
+<body>
+    <main class='grid' id="root">
+
+    </main>
+    <script type='text/javascript'>
+        const root = document.getElementById("root");
+        const LIMIT = 20
+        for (let i = 0; i < LIMIT; i++) {
+            root.appendChild(makeNode());
+        }
+
+        function makeNode() {
+            const node = document.createElement("div");
+            node.innerText = getRandomNumber();
+            node.classList.add("grid__item");
+            node.classList.add(addRandomColor());
+            return node;
+        }
+
+        function getRandomNumber() {
+            const rng = Math.floor(Math.random() * 100);
+            return rng;
+        }
+
+        function addRandomColor() {
+            const colors = ["red", "yellow", "green", "blue"];
+            const rng = Math.floor(Math.random() * 100) % 4;
+            return colors[rng];
+        }
+
+    </script>
+</body>
+
+</html>

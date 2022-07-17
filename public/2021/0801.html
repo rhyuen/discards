@@ -1,0 +1,187 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <link rel="preconnect" href="https://fonts.gstatic.com">
+    <link href="https://fonts.googleapis.com/css2?family=Inter&display=swap" rel="stylesheet"> 
+    <title>07 30</title>
+    
+
+        <style>
+            * {                
+                box-sizing: border-box;
+                font-size: 16px;
+                font-family: 'Inter', sans-serif;                
+                --PRIMARY_COLOR: #98E690;
+                --SECONDARY_COLOR: white;
+            }      
+
+            ::-webkit-scrollbar {                
+                width: 0.8rem;
+                height: 0.5rem;
+            }
+
+            /* Track */
+            ::-webkit-scrollbar-track {
+                background: black;
+            }
+
+            /* Handle */
+            ::-webkit-scrollbar-thumb {
+                background: rgb(209, 171, 121);
+            }
+
+            /* Handle on hover */
+            ::-webkit-scrollbar-thumb:hover {
+                background: #d3d3d3;
+            }
+                       
+
+            html, body{
+                margin: 0;
+                height: 100vh;                
+                background: #f3f3f3;                                
+            }
+
+          
+            ul{
+                margin: 0;
+                padding: 0;
+                list-style-type: none;
+            }
+            nav{
+                height: 5rem;            
+                background-color: var(--PRIMARY_COLOR);                    
+                margin-bottom: 1rem;                
+            }
+            
+
+            a{
+                text-decoration: none;
+                color: black;
+            }
+
+            .container{
+                display: flex;
+                justify-content: flex-start;
+                height: 100%;
+                align-items: center;                
+                margin: 0 auto;
+                max-width: 1100px;
+            }
+
+            .container__item{
+                margin-right: 2rem;
+            }
+            .container__item:last-child{
+                margin-right: 0;
+            }
+            .container__item a{
+                color: white;
+                position: relative;
+            }
+            .container__item a:after{
+                position: absolute;
+                bottom: -.5rem;
+                left: 0;
+                width: 100%;
+                content: '';
+                height: .1rem;                                                
+                background-color: white;
+                transform-origin: center;
+                opacity: 0;
+                transform: scale(0);
+                transition: opacity .2s ease-in-out, transform .2s ease-in-out;
+            }
+
+            .container__item a:hover::after{
+                opacity: 1;
+                transform: scale(1);
+                
+            }
+
+            main{
+                margin: 0 auto;
+                max-width: 1100px;
+                
+            }
+
+            @keyframes rotation {
+                from {
+                    transform: rotate(0deg);
+                }
+
+                to{
+                    transform: rotate(359deg);
+                }
+            }
+            
+            #mountpoint{
+                animation: rotation 1s infinite linear;
+                animation-play-state: paused;
+                transform-origin: center;
+            }
+            
+
+            
+
+
+            
+        </style>
+    <body>  
+        <nav>
+            <ul class='container'>
+                <li class='container__item'><a href='#'>Home</a></li>
+                <li class='container__item'><a href='#'>About</a></li>
+                <li class='container__item'><a href='#'>Contact</a></li>                
+            </ul>
+        </nav>
+        <main>
+            <canvas id='mountpoint' width='600' height='600'></canvas>
+        </main>                 
+        
+        <script type='text/javascript'>
+            const palette = ['#4CAF50', '#00BCD4', '#E91E63', '#FFC107', '#9E9E9E', '#CDDC39'];
+            const angles = [Math.PI * 0.4, Math.PI * 0.4, Math.PI * 0.4, Math.PI * 0.4, Math.PI * 0.4]
+            const text = ["One", "Two", "Three", "Four", "Five"];
+
+            function draw(){
+                const el = document.querySelector("#mountpoint");
+                let ctx = el.getContext('2d');
+                let offSet = 10;
+                let begin = 0;
+                let finish = 0;
+
+                let offSetX;
+                let offSetY;
+                let medianAngle;
+                
+                for(let i =0; i < angles.length; i++){
+                    begin = finish;
+                    finish += angles[i];
+
+                    medianAngle = (finish + begin)/2;
+                    offSetX = Math.cos(medianAngle) * offSet;
+                    offSetY = Math.sin(medianAngle) * offSet;
+
+
+                    ctx.beginPath();
+                    ctx.fillStyle = palette[i];
+                    ctx.moveTo(200 + offSetX, 200 + offSetY);
+                    ctx.font="16px Inter";
+                    
+                    ctx.arc(200 + offSetX, 200 + offSetY, 120, begin, finish);
+                    ctx.lineTo(200 + offSetX, 200 + offSetY);
+                    ctx.fillText(text[i], 200 + offSetX, 200 + offSetY);
+                    ctx.stroke();
+                    ctx.fill();
+                }              
+
+            }
+            
+            window.onload = draw;
+        </script>
+    </body>
+</html>

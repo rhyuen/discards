@@ -1,0 +1,198 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <link rel="preconnect" href="https://fonts.gstatic.com">
+    <link href="https://fonts.googleapis.com/css2?family=Inter&display=swap" rel="stylesheet"> 
+    <title>08 23</title>
+    
+
+        <style>
+            * {                
+                box-sizing: border-box;
+                font-size: 16px;
+                font-family: 'Inter', sans-serif;                
+                --GREY : rgba(0,0,0,0.1);
+                --PRIMARY_COLOR: #98E690;
+                --SECONDARY_COLOR: white;
+                --COL1:  #db0a5b;
+                --COL2: #fef160;
+                --COL3: #23cba7;               
+            }      
+
+            ::-webkit-scrollbar {                
+                width: 0.8rem;
+                height: 0.5rem;
+            }
+
+            /* Track */
+            ::-webkit-scrollbar-track {
+                background: black;
+            }
+
+            /* Handle */
+            ::-webkit-scrollbar-thumb {
+                background: rgb(209, 171, 121);
+            }
+
+            /* Handle on hover */
+            ::-webkit-scrollbar-thumb:hover {
+                background: #d3d3d3;
+            }
+                       
+
+            html, body{
+                margin: 0;
+                height: 100vh;                
+                background-image: linear-gradient(to right, rgb(202, 35, 90), slateblue);                                                
+                position: relative;
+            }
+      
+          
+            ul{
+                margin: 0;
+                padding: 0;
+                list-style-type: none;
+            }
+            
+            
+
+            a{
+                text-decoration: none;
+                color: black;
+            }
+
+            nav{
+                height: 10rem;
+                display: flex;
+                justify-content: space-between;
+                background-color: lavender;
+                padding: 3rem 5rem;
+            }
+
+            main{
+                padding: 3rem 5rem;
+                display: grid;                
+                grid-template-columns: repeat(auto-fit, minmax(200px, 1fr));                                                
+                grid-template-rows: repeat(auto-fit, minmax(200px, 1fr));
+                grid-auto-rows: minmax(200px, 1fr);
+                grid-gap: 1rem;
+            }
+
+            .article{
+                grid-column: span 1;                
+                position: relative;                                
+            }
+            .article::after{
+                padding-bottom: 100%;
+                display: block;
+                content: ""                
+            }
+            
+            .article--2x1{
+                grid-column: span 2;                
+            }
+            .article--2x1:after{
+                padding-bottom: 50%;
+                display: block;
+                content: "";
+            }
+
+            .article--2x2{
+                grid-column: span 2;                
+                max-height: 100%;
+            }
+
+            .content{
+                position: absolute;
+                inset: 0;
+                height: 100%;
+                width: 100%;
+                background-color: lavender;
+                border-radius: .5rem;
+            }
+            .content--1x1{
+                height: 50%;
+            }
+            .content--2x1{
+                height: 50%;
+            }
+         
+            
+
+        </style>
+    <body>
+      <nav>
+          <div>Left</div>
+          <div>Right</div>
+      </nav>
+      <main>
+          <article class='article article--2x2'>
+              <div class='content'></div>
+          </article>          
+        <article class='article'>
+            <div class='content content--1x1'></div>
+        </article>
+        <article class='article'>
+            <div class='content content--1x1'></div>
+        </article>
+        <article class='article'>
+            <div class='content content--1x1'></div>
+        </article>
+        <article class='article'>
+            <div class='content content--1x1'></div>
+        </article>
+        <article class='article'>
+            <div class='content content--1x1'></div>
+        </article>
+        <article class='article'>
+            <div class='content content--1x1'></div>
+        </article>
+        <article class='article article--2x1'>
+            <div class='content content--2x1'></div>
+        </article>
+        <article class='article article--2x1'>
+            <div class='content content--2x1'></div>
+        </article>
+        <article class='article article--2x1'>
+            <div class='content content--2x1'></div>
+        </article>
+        <article class='article article--2x1'>
+            <div class='content content--2x1'></div>
+        </article>
+        <article class='article'>
+            <div class='content content--1x1'></div>
+        </article>
+        <article class='article'>
+            <div class='content content--1x1'></div>
+        </article>
+        <article class='article'>
+            <div class='content content--1x1'></div>
+        </article>
+        <article class='article'>
+            <div class='content content--1x1'></div>
+        </article>
+        <article class='article'>
+            <div class='content content--1x1'></div>
+        </article>
+        <article class='article'>
+            <div class='content content--1x1'></div>
+        </article>
+        <article class='article'>
+            <div class='content content--1x1'></div>
+        </article>
+        <article class='article'>
+            <div class='content content--1x1'></div>
+        </article>
+        <article class='article'>
+            <div class='content content--1x1'></div>
+        </article>
+        <article class='article'>
+            <div class='content content--1x1'></div>
+        </article>
+      </main>
+       
+    </body>
+</html>

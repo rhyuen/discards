@@ -1,0 +1,236 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta name='color-scheme' content='dark light'>
+    <link rel="preconnect" href="https://fonts.gstatic.com">
+    <link href="https://fonts.googleapis.com/css2?family=Inter&display=swap" rel="stylesheet">
+    <title>11 24 </title>
+
+
+    <style>
+        * {
+            box-sizing: border-box;
+            font-size: 16px;
+            font-family: 'Inter', sans-serif;
+            --GREY: rgba(0, 0, 0, 0.1);
+            --PRIMARY_COLOR: #98E690;
+            --SECONDARY_COLOR: white;
+            --COL1: #db0a5b;
+            --COL2: #fef160;
+            --COL3: #23cba7;
+            --COL4: #3e6ceb;
+            --COL5: #d9c8ec;
+        }
+
+        ::-webkit-scrollbar {
+            width: 0.8rem;
+            height: 0.5rem;
+        }
+
+        /* Track */
+        ::-webkit-scrollbar-track {
+            background: black;
+        }
+
+        /* Handle */
+        ::-webkit-scrollbar-thumb {
+            background: lavender;
+        }
+
+        /* Handle on hover */
+        ::-webkit-scrollbar-thumb:hover {
+            background: #d3d3d3;
+        }
+
+        @keyframes rotate-y {
+            50% {
+                transform: rotateY(15deg) rotateX(-6deg);
+            }
+        }
+
+
+        html {
+            margin: 0;
+            height: 100vh;
+            background: conic-gradient(at -10% 50%, deeppink, cyan);
+            display: flex;
+            justify-content: center;
+            align-items: center;
+            perspective: 40vw;
+        }
+
+
+
+
+        main {
+            display: flex;
+            height: 100%;
+            background: var(--COL1);
+            justify-content: flex-start;
+            align-items: center;
+            padding: 5rem 0;
+        }
+
+        .threeD-button-set {
+            --y: "";
+            --x: "";
+            --distance: 1px;
+            --theme: hsl(180 100% 50%);
+            --theme-bg: hsl(180 100% 50% / 25%);
+            --theme-bg-hover: hsl(180 100% 50%/ 40%);
+            --theme-text: white;
+            --theme-shadow: hsl(180 100% 10%/25%);
+
+            --_max-rotateY: 10deg;
+            --_max-rotateX: 15deg;
+            --_btn-bg: var(--theme-bg);
+            --_btn-bg-hover: var(--theme-bg-hover);
+            --_btn-text: var(--theme-text);
+            --_btn-text-shadow: var(--theme-shadow);
+            --_bounce-ease: cubic-bezier(.5, 1.75, .75, 1.25);
+
+            margin: 0;
+            display: flex;
+            flex-direction: column;
+            align-items: flex-start;
+            gap: 2.5vh;
+
+            transform-style: preserve-3d;
+            transform: rotateY(clamp(calc(var(--_max-rotateY)*-1), var(--y), var(--_max-rotateY))) rotateX(clamp(calc(var(--_max-rotateX)*-1), var(--x), var(--_max-rotateX)));
+
+            will-change: transform;
+            transition: transform .1s ease;
+            animation: rotate-y 5s ease-in-out infinite;
+        }
+
+        .threeD-button-set>li {
+            display: inline-flex;
+            position: relative;
+            transform-style: preserve-3d;
+        }
+
+        .threeD-button-set button {
+            appearance: none;
+            outline: none;
+            border: none;
+            background-color: var(--_btn-bg);
+            color: var(--_btn-text);
+            text-shadow: 0 1px 1px var(--_btn-text-shadow);
+            font-size: 5vmin;
+            padding-block: .75ch;
+            padding-inline: 2ch;
+            /*I guess the above are in-lieu of padding: .75ch 2ch;*/
+            border-radius: 5px 20px;
+
+
+            transform: translateZ(var(--distance));
+            transform-style: preserve-3d;
+            will-change: transform;
+            transition: transform .2s ease, background-color .5s ease;
+        }
+
+        .threeD-button-set button::after,
+        .threeD-button-set button::before {
+            content: "";
+            opacity: .8;
+            position: absolute;
+            inset: 0;
+            border: 1px solid var(--theme);
+            border-radius: 5px 20px;
+            transition: transform .1s ease-out;
+
+        }
+
+        .threeD-button-set button::after {
+
+            transform: translateZ(calc(var(--distance)/3));
+            transition-duration: .5s;
+        }
+
+        .threeD-button-set button::before {
+
+            border-width: 3px;
+            transform: translateZ(calc(var(--distance)/3*-1));
+            transition-duration: .3s;
+        }
+
+        .threeD-button-set button:hover,
+        .threeD-button-set button:focus {
+            --distance: 9vmax;
+            background-color: var(--_btn-bg-hover);
+            transition-timing-function: var(--_bounce-ease);
+        }
+
+        .threeD-button-set button::before:hover,
+        .threeD-button-set button::before:focus {
+            transition-duration: .3s;
+        }
+
+        .threeD-button-set button::after:hover,
+        .threeD-button-set button::after:focus {
+            transition-duration: .5s;
+        }
+
+
+        /* @custom-media --motionOK (prefers-reduced-motion: no-preference) {
+            .threeD-button-set {
+                will-change: transform;
+                transition: transform .1s ease;
+                animation: rotate-y 5s ease-in-out infinite;
+            }
+        } */
+
+        /* @custom-media --dark (prefers-color-scheme: dark) {
+            --theme: hsl(255 53% 50%);
+            --theme-bg: hsl(255 53% 71%/25%);
+            --theme-bg-hover: hsl(255 53% 50% / 40%);
+            --theme-shadow: hsl(255 53% 10% / 25%);
+        }
+
+        @custom-media --HDcolor (dynamic-range: high) {
+            @supports(color: color(display-p3 0 0 0)) {
+                --theme: color(display-p3 .4 0 .9);
+            }
+        } */
+
+        @media screen and (min-width: 750px) and (max-width: 1099px) {}
+
+        @media screen and (min-width: 1100px) {}
+    </style>
+
+<body>
+    <ul class="threeD-button-set">
+        <li><button>New Game</button></li>
+        <li><button>Continue</button></li>
+        <li><button>Online</button></li>
+        <li><button>Settings</button></li>
+        <li><button>Quit</button></li>
+    </ul>
+
+
+    <script type='text/javascript'>
+        const menu = document.querySelector(".threeD-button-set");
+        const menuRect = menu.getBoundingClientRect();
+        const { matches: motionOK } = window.matchMedia("(prefers-reduced-motion: no-preference");
+
+        const getAngles = (clientX, clientY) => {
+            const { x, y, width, height } = menuRect;
+            const dx = clientX - (x + 0.5 * width);
+            const dy = clientY - (y + 0.5 * height);
+            return { dx, dy };
+        }
+
+        window.addEventListener("mousemove", ({ target, clientX, clientY }) => {
+            const { dx, dy } = getAngles(clientX, clientY);
+            menu.attributeStyleMap.set("--x", `${dy / 20}deg`);
+            menu.attributeStyleMap.set("--y", `${dx / 20}deg`);
+        });
+
+    </script>
+</body>
+
+</html>

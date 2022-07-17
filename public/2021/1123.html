@@ -1,0 +1,187 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta name='color-scheme' content='dark light'>
+    <link rel="preconnect" href="https://fonts.gstatic.com">
+    <link href="https://fonts.googleapis.com/css2?family=Inter&display=swap" rel="stylesheet">
+    <title>09 13 Cal</title>
+
+
+    <style>
+        * {
+            box-sizing: border-box;
+            font-size: 16px;
+            font-family: 'Inter', sans-serif;
+            --GREY: rgba(0, 0, 0, 0.1);
+            --PRIMARY_COLOR: #98E690;
+            --SECONDARY_COLOR: white;
+            --COL1: #db0a5b;
+            --COL2: #fef160;
+            --COL3: #23cba7;
+            --COL4: #3e6ceb;
+            --COL5: #d9c8ec;
+        }
+
+        ::-webkit-scrollbar {
+            width: 0.8rem;
+            height: 0.5rem;
+        }
+
+        /* Track */
+        ::-webkit-scrollbar-track {
+            background: black;
+        }
+
+        /* Handle */
+        ::-webkit-scrollbar-thumb {
+            background: lavender;
+        }
+
+        /* Handle on hover */
+        ::-webkit-scrollbar-thumb:hover {
+            background: #d3d3d3;
+        }
+
+
+        html,
+        body {
+            margin: 0;
+            height: 100vh;
+            background: #f3f3f3;
+            position: relative;
+        }
+
+        nav {
+            display: flex;
+            height: 5rem;
+            background: var(--COL1);
+            align-items: center;
+            justify-content: space-between;
+            padding: 0 2rem;
+        }
+
+        h1 {
+            margin: 0;
+            padding: 0;
+        }
+
+        ul {
+            list-style-type: none;
+        }
+
+        .red {
+            background: var(--COL1);
+        }
+
+        .yellow {
+            background: var(--COL2);
+        }
+
+        .green {
+            background: var(--COL3);
+        }
+
+        .blue {
+            background: var(--COL4);
+        }
+
+
+        main {
+            display: flex;
+            height: 100%;
+            background: var(--COL1);
+            justify-content: flex-start;
+            align-items: center;
+            padding: 5rem 0;
+        }
+
+        .list {
+            display: flex;
+            height: 65%;
+            overflow-y: hidden;
+            overflow-x: scroll;
+            padding: 3rem 0;
+            margin: 0 5rem;
+            scroll-snap-type: x mandatory;
+        }
+
+        @keyframes expand {
+            0% {
+                transform: scale(1);
+            }
+
+            50% {
+                transform: scale(1.05);
+            }
+
+            100% {
+                transform: scale(1);
+            }
+        }
+
+        .list__item {
+            flex-grow: 0;
+            aspect-ratio: 1.3/3.5;
+            background: var(--COL2);
+            color: black;
+            font-weight: 600;
+            margin-right: 3rem;
+            clip-path: polygon(50% 0, 100% 5%, 100% 95%, 50% 100%, 0 95%, 0 5%);
+            scroll-snap-align: center;
+            display: flex;
+            flex-direction: column;
+            padding-bottom: 5rem;
+            justify-content: flex-end;
+            align-items: center;
+        }
+
+
+
+        .list__item:hover {
+            animation: expand 1s linear infinite;
+        }
+
+        .list__item:first-child {
+            transform: perspective(1000px) rotateY(15deg);
+        }
+
+
+
+        @media screen and (min-width: 750px) and (max-width: 1099px) {}
+
+        @media screen and (min-width: 1100px) {}
+    </style>
+
+<body>
+    <main>
+
+        <ul class='list'>
+            <li class='list__item'>1</li>
+            <li class='list__item'>2</li>
+            <li class='list__item'>3</li>
+            <li class='list__item'>4</li>
+            <li class='list__item'>5</li>
+            <li class='list__item'>6</li>
+            <li class='list__item'>7</li>
+            <li class='list__item'>8</li>
+            <li class='list__item'>9</li>
+            <li class='list__item'>10</li>
+            <li class='list__item'>11</li>
+            <li class='list__item'>12</li>
+        </ul>
+    </main>
+
+
+
+    <script type='text/javascript'>
+
+
+
+    </script>
+</body>
+
+</html>

@@ -1,0 +1,154 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta name='color-scheme' content='dark light'>
+    <link rel="preconnect" href="https://fonts.gstatic.com">
+    <link href="https://fonts.googleapis.com/css2?family=Inter&display=swap" rel="stylesheet">
+    <title>12 23</title>
+
+
+    <style>
+        * {
+            box-sizing: border-box;
+            font-size: 16px;
+            font-family: 'Inter', sans-serif;
+            color: black;
+            --GREY: rgba(0, 0, 0, 0.1);
+            --PRIMARY_COLOR: #98E690;
+            --SECONDARY_COLOR: white;
+            --COL1: #db0a5b;
+            --COL2: #fef160;
+            --COL3: #23cba7;
+            --COL4: #3e6ceb;
+            --COL5: #d9c8ec;
+        }
+
+        ::-webkit-scrollbar {
+            width: 0.8rem;
+            height: 0.5rem;
+        }
+
+        /* Track */
+        ::-webkit-scrollbar-track {
+            background: black;
+        }
+
+        /* Handle */
+        ::-webkit-scrollbar-thumb {
+            background: var(--COL3);
+        }
+
+        /* Handle on hover */
+        ::-webkit-scrollbar-thumb:hover {
+            background: var(--COL2);
+        }
+
+
+        html,
+        body {
+            margin: 0;
+            height: 100vh;
+            background: #f3f3f3;
+
+            margin: 0 auto;
+            max-width: 600px;
+
+        }
+
+        main {
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(auto, 200px));
+        }
+
+
+
+        figure {
+            list-style-type: none;
+            border: 25px solid;
+            border-image-slice: 1;
+            border-image-source: conic-gradient(hsl(100 100% 60%), hsl(200 100% 60%), hsl(100 100% 60%));
+            aspect-ratio: 1;
+            display: flex;
+            justify-content: center;
+            font-size: 3rem;
+            font-weight: 600;
+            align-items: center;
+            margin-bottom: 1rem;
+            position: relative;
+
+
+        }
+
+        .textcorner {
+            position: absolute;
+            width: 50%;
+            height: 50%;
+            display: flex;
+            justify-content: center;
+            align-items: center;
+            font-size: 1.6rem;
+            font-weight: 600;
+        }
+
+        .topleft {
+            top: 0;
+            left: 0;
+        }
+
+        .bottomright {
+            bottom: 0;
+            right: 0;
+
+        }
+
+
+
+        @media screen and (min-width: 750px) and (max-width: 1099px) {}
+
+        @media screen and (min-width: 1100px) {}
+    </style>
+
+<body>
+    <main class='grid' id="list">
+
+
+
+
+    </main>
+    <script>
+        const list = document.getElementById("list");
+
+        function makeTextCorner(direction) {
+            const el = document.createElement("div");
+            el.classList.add("textcorner");
+            if (direction === "day") {
+                el.classList.add("bottomright");
+                el.textContent = new Date().getDate();
+            } else {
+                el.classList.add("topleft");
+                el.textContent = new Date().getMonth() + 1;
+            }
+
+            return el;
+        }
+
+        function makeItem() {
+            const el = document.createElement("figure");
+            el.appendChild(makeTextCorner("day"));
+            el.appendChild(makeTextCorner("month"));
+            return el;
+        }
+
+
+        for (let i = 0; i < 30; i++) {
+            list.appendChild(makeItem());
+        }
+
+    </script>
+</body>
+
+</html>

@@ -1,0 +1,112 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <link rel="preconnect" href="https://fonts.gstatic.com">
+    <link href="https://fonts.googleapis.com/css2?family=Inter&display=swap" rel="stylesheet"> 
+    <title>07 13</title>
+    
+
+        <style>
+            * {                
+                box-sizing: border-box;
+                font-size: 16px;
+                font-family: 'Inter', sans-serif;                
+                --PRIMARY_COLOR: #343434;
+                --SECONDARY_COLOR: palelightgreen;
+            }      
+
+            ::-webkit-scrollbar {                
+                width: 0.8rem;
+                height: 0.5rem;
+            }
+
+            /* Track */
+            ::-webkit-scrollbar-track {
+                background: black;
+            }
+
+            /* Handle */
+            ::-webkit-scrollbar-thumb {
+                background: paleturquoise;
+            }
+
+            /* Handle on hover */
+            ::-webkit-scrollbar-thumb:hover {
+                background: #d3d3d3;
+            }
+
+           
+            
+
+            html, body{
+                margin: 0;
+                min-height: 100vh;                
+                background: lavender;                                
+            }
+
+          
+            ul{
+                margin: 0;
+                padding: 0;
+                list-style-type: none;
+            }
+            nav{
+                height: 5rem;                
+                margin: 0 auto;
+            }
+
+            @keyframes rotate {
+                0%{
+                    transform: rotate(0deg);
+                }
+                25%{
+                    transform: rotate(90deg);
+                }
+
+                50%{
+                    transform: rotate(180deg);
+                }
+
+                75%{
+                    transform: rotate(270deg);
+                }
+                100%{
+                    transform: rotate(360deg);
+                }
+
+            }
+
+            .loading{
+                width: 5rem;
+                height: 5rem;
+                background-color: black;
+                border: 1rem solid palegreen;
+                border-top-color: black;
+                border-left-color: black;
+                border-bottom-color: black;
+                animation: rotate 1s infinite linear;
+                border-radius: 50%;
+            }
+
+            
+
+            .loading--2{
+                
+            }
+        </style>
+    <body>
+        <main>
+
+            <div class='loading'>
+
+            </div>
+            
+            <div class="">
+
+            </div>
+        </main>                 
+    </body>
+</html>

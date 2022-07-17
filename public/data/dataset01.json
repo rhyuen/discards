@@ -1,0 +1,76 @@
+{
+    "payload": [
+        {
+            "date": "2021-10-20",
+            "region": "Interior",
+            "sex": "M",
+            "age": "10-19"
+        },
+        {
+            "date": "2021-10-20",
+            "region": "Fraser",
+            "sex": "F",
+            "age": "0-19"
+        },
+        {
+            "date": "2021-10-20",
+            "region": "Northern",
+            "sex": "M",
+            "age": "<10"
+        },
+        {
+            "date": "2021-10-20",
+            "region": "Interior",
+            "sex": "M",
+            "age": "10-19"
+        },
+        {
+            "date": "2021-10-20",
+            "region": "Fraser",
+            "sex": "F",
+            "age": "0-49"
+        },
+        {
+            "date": "2021-10-20",
+            "region": "Interior",
+            "sex": "M",
+            "age": "10-19"
+        },
+        {
+            "date": "2021-10-20",
+            "region": "Northern",
+            "sex": "F",
+            "age": "40-49"
+        },
+        {
+            "date": "2021-10-20",
+            "region": "Fraser",
+            "sex": "M",
+            "age": "0-49"
+        },
+        {
+            "date": "2021-10-20",
+            "region": "Interior",
+            "sex": "M",
+            "age": "30-39"
+        },
+        {
+            "date": "2021-10-20",
+            "region": "Fraser",
+            "sex": "M",
+            "age": "0-69"
+        },
+        {
+            "date": "2021-10-20",
+            "region": "Fraser",
+            "sex": "M",
+            "age": "0-49"
+        },
+        {
+            "date": "2021-10-20",
+            "region": "Fraser",
+            "sex": "M",
+            "age": "0-59"
+        }
+    ]
+}

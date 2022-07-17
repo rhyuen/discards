@@ -1,0 +1,218 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta name='color-scheme' content='dark light'>
+    <link rel="preconnect" href="https://fonts.gstatic.com">
+    <link href="https://fonts.googleapis.com/css2?family=Inter&display=swap" rel="stylesheet">
+    <title>1/3/21</title>
+
+
+    <style>
+        * {
+            box-sizing: border-box;
+            font-size: 16px;
+            font-family: 'Inter', sans-serif;
+            color: black;
+            --GREY: rgba(0, 0, 0, 0.1);
+            --PRIMARY_COLOR: #98E690;
+            --SECONDARY_COLOR: white;
+            --COL1: #db0a5b;
+            --COL2: #fef160;
+            --COL3: #23cba7;
+            --COL4: #3e6ceb;
+            --COL5: #d9c8ec;
+        }
+
+        ::-webkit-scrollbar {
+            width: 0.8rem;
+            height: 0.5rem;
+        }
+
+        /* Track */
+        ::-webkit-scrollbar-track {
+            background: black;
+        }
+
+        /* Handle */
+        ::-webkit-scrollbar-thumb {
+            background: var(--COL3);
+        }
+
+        /* Handle on hover */
+        ::-webkit-scrollbar-thumb:hover {
+            background: var(--COL2);
+        }
+
+
+        html,
+        body {
+            margin: 0;
+            height: 100vh;
+            background: #f3f3f3;
+        }
+
+
+        h1 {
+            margin: 0;
+            padding: 0;
+        }
+
+        figure {
+            margin: 0;
+            padding: 0;
+        }
+
+
+        ul {
+            list-style-type: none;
+        }
+
+        .red {
+            background: var(--COL1);
+            color: white;
+        }
+
+        .yellow {
+            background: var(--COL2);
+        }
+
+        .green {
+            background: var(--COL3);
+            color: white;
+        }
+
+        .blue {
+            background: var(--COL4);
+            color: white;
+        }
+
+        .wrapper {
+            display: grid;
+            grid-template-rows: 1fr auto 1fr;
+            height: 100vh;
+            width: 100%;
+            /* background: var(--COL1); */
+
+        }
+
+        .cal {
+            display: flex;
+            grid-row: 2/span 1;
+            height: 850px;
+            max-height: 850px;
+            width: 1200px;
+            overflow-x: hidden;
+            overflow-y: hidden;
+            padding: 0;
+            scroll-snap-type: x mandatory;
+            justify-content: flex-start;
+            margin: 0 auto;
+        }
+
+
+
+
+        .cal__month {
+            scroll-snap-align: center;
+            flex-shrink: 0;
+            display: grid;
+            grid-template-columns: repeat(7, minmax(auto, 1fr));
+            grid-template-rows: repeat(5, minmax(auto, 1fr));
+
+            width: 100%;
+            height: 100%;
+            color: black;
+            gap: .5rem;
+            padding: 1rem 4rem;
+        }
+
+        .cal__month__header {
+            grid-column: span 1;
+            background: black;
+            color: white;
+            height: 1.5rem;
+            display: flex;
+            justify-content: center;
+            align-items: center;
+            font-weight: 600;
+            font-size: 1.2rem;
+        }
+
+        .cal__month__day {
+            aspect-ratio: 1;
+            position: relative;
+            /* background: var(--COL3); */
+            border: .5rem solid black;
+            width: 100%;
+            font-weight: 800;
+            font-size: 2rem;
+            padding: .5rem;
+            grid-column: span 1;
+        }
+
+
+
+
+
+        @media screen and (min-width: 750px) and (max-width: 1099px) {}
+
+        @media screen and (min-width: 1100px) {}
+    </style>
+
+<body>
+    <main class='wrapper'>
+        <ul class='cal' id="root">
+        </ul>
+    </main>
+    <script type='text/javascript'>
+
+        const root = document.getElementById("root");
+        for (let i = 0; i < 12; i++) {
+            root.appendChild(addMonth(i));
+        }
+
+        function addMonth(number) {
+            const month = document.createElement("div");
+            month.classList.add("cal__month");
+            for (let i = 0; i < 30; i++) {
+                month.appendChild(addDay(i));
+            }
+            for (let i = 0; i < 7; i++) {
+                month.prepend(addMonthHeader(i));
+            }
+            return month;
+        }
+
+        function addMonthHeader(number) {
+            const node = document.createElement("div");
+            node.classList.add("cal__month__header");
+            node.textContent = number;
+            return node;
+        }
+
+        function addDay(number) {
+            const day = document.createElement("div");
+            day.textContent = number + 1;
+            day.classList.add("cal__month__day");
+            const colors = ["red", "yellow", "green", "blue"];
+            const rng = Math.floor(Math.random() * 10) % 4;
+            console.log(colors[rng]);
+            day.classList.add(colors[rng]);
+            return day;
+        }
+
+        function addPrecedingDay() {
+            const day = document.createElement("div");
+            day.classList.add("cal__month__day");
+            day.classList.add("cal__month__day--empty");
+            return day;
+        }
+
+    </script>
+</body>
+
+</html>

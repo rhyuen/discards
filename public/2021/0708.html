@@ -1,0 +1,339 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <link rel="preconnect" href="https://fonts.gstatic.com">
+    <link href="https://fonts.googleapis.com/css2?family=Inter&display=swap" rel="stylesheet"> 
+    <title>07 06</title>
+    
+
+        <style>
+            * {                
+                box-sizing: border-box;
+                font-size: 16px;
+                font-family: 'Inter', sans-serif;;                       
+            }      
+
+            ::-webkit-scrollbar {                
+                width: 0.8rem;
+                height: 0.5rem;
+            }
+
+            /* Track */
+            ::-webkit-scrollbar-track {
+                background: black;
+            }
+
+            /* Handle */
+            ::-webkit-scrollbar-thumb {
+                background: palegreen;
+            }
+
+            /* Handle on hover */
+            ::-webkit-scrollbar-thumb:hover {
+                background: #d3d3d3;
+            }
+
+            @keyframes jiggle{
+                0%{
+                    transform: rotate(0deg);
+                }
+
+                25%{
+                    transform: rotate(-5deg);
+                }
+
+                50%{
+                    transform: rotate(0deg);
+                }
+
+                75%{
+                    transform: rotate(5deg);
+                }
+
+                100%{
+                    transform: rotate(0deg);
+                }
+            }
+           
+            
+
+            html, body{
+                margin: 0;
+                min-height: 100vh;                
+                background: #f3f3f3;                
+            }
+
+            nav{
+                height: 10rem;                                                                
+                width: 100%;
+                position: fixed;
+                top: 0;
+            }
+
+            .container{
+                display: flex;
+                height: 100%;
+                align-items: center;
+                margin-left: 10rem;
+                justify-content: flex-start;
+            }
+
+            .container__item{
+                margin-right: 2rem;
+            }
+
+            .container__item a{
+                font-size: 2rem;
+                color: black;   
+                transition: font-size .2s ease-in-out;             
+            }
+            
+
+            .container__item a:hover{
+                font-size: 3rem;                
+            }
+
+        
+
+            ul{
+                margin: 0;
+                padding: 0;
+                list-style-type: none;
+            }
+            a{
+                text-decoration: none;
+            }
+
+           main{                
+                height: 100vh;
+                width: 100vw;
+                display: flex;
+                flex-direction: column;
+                justify-content: center;
+                align-items: center;
+           }
+
+           .scroll-container{
+               max-width: 80%;
+               width: 80%;                       
+               overflow-x: scroll;                   
+               display: flex;                 
+               flex-wrap: nowrap;             
+               scroll-behavior: smooth;
+               scroll-snap-type: x mandatory;
+               
+           }
+           .scroll-container__item{
+                scroll-snap-align: center;
+                flex-shrink: 0;
+                width: 20rem;                                                
+                position: relative;
+                margin: 1rem .5rem      ;                
+           }
+           .scroll-container__item:focus{
+               /* scroll-snap-align: center; */
+           }
+
+           .scroll-container__item:hover{
+               animation: jiggle 0.4s ease-in-out;
+           }
+           .scroll-container__item:first-child{
+                margin-left: 30rem;
+           }
+           .scroll-container__item:last-child{
+               margin-right: 30rem;
+           }
+           
+           .scroll-container__item:after{
+               content: '';
+               display: block;
+               padding-bottom: 100%;
+           }
+           .scroll-container__item__content{
+               position: absolute;
+               inset: 0;               
+               display: flex;
+               justify-content: center;
+               align-items: center;                              
+               
+           }      
+           .scroll-container__item__content img{
+                border-radius: .5rem;                
+                height: 100%;
+                width: 100%;
+                object-fit: cover;
+           }
+           .scroll-container__item__content h3{
+               position: absolute;
+               background: rgba(0, 0, 0, 0.4);
+               width: 100%;
+               padding: 1.5rem;
+               font-size: 1.25rem;
+               color: white;
+               font-weight: 600;
+               bottom:0;
+               margin: 0;
+           }
+
+           button{
+               border: 2px solid transparent;
+               margin: 1rem;
+               font-weight: 600;
+               color: black;
+               font-size: 2rem;               
+               height: 4rem;
+               width: 4rem;               
+               border-radius: 50%;
+               position: relative;
+           }
+           button:after{
+               padding-bottom: 100%;
+               display: block;
+               content: '';
+           }
+
+           .slidebar{
+               padding-top: 2rem;                              
+               width: 100%;
+               display: flex;
+               justify-content: flex-end;
+           }           
+           
+           .rect{
+               position: absolute;
+               inset: 0;               
+               border-top: .5rem solid black;                              
+               border-right: .5rem solid black;               
+           }
+           
+           .rect--left{
+                transform: rotate(-135deg);
+           }
+           .rect--right{
+               transform: rotate(45deg);
+           }
+        
+
+        </style>
+    </head>
+    <body> 
+       <main>
+            <nav>
+                <ul class="container">
+                    <li class='container__item'><a href='#home'>Home</a></li>
+                    <li class='container__item'><a href='#about'>About</a></li>
+                    <li class='container__item'><a href='#contact'>Contact</a></li>
+                </ul>
+            </nav>
+            <ul class='scroll-container' id='horizontalbar'>
+                <li class='scroll-container__item'>
+                    <a href='#' class='scroll-container__item__content'>                        
+                        <img src='images/61.jpg' alt='blah'/>
+                        <h3>Wolverine through the ages</h3>
+                    </a>
+                </li>
+                <li class='scroll-container__item'>
+                    <a href='#' class='scroll-container__item__content'>
+                        <img src='images/60.jpg' alt='blah'/>
+                        <h3>Doom</h3>
+                    </a>
+                </li>
+                <li class='scroll-container__item'>
+                    <a href='#' class='scroll-container__item__content'>
+                        <img src='images/59.jpg' alt='blah'/>
+                        <h3>More Doom</h3>
+                    </a>
+                </li>
+                <li class='scroll-container__item'>
+                    <a href='#' class='scroll-container__item__content'>
+                        <img src='images/58.jpg' alt='blah'/>
+                        <h3>Doom blast</h3>
+                    </a>
+                </li>
+                <li class='scroll-container__item'>
+                    <a href='#' class='scroll-container__item__content'>
+                        <img src='images/57.jpg' alt='blah'/>
+                        <h3>The Unworthy</h3>
+                    </a>
+                </li>
+                <li class='scroll-container__item'>
+                    <a href='#' class='scroll-container__item__content'>
+                        <img src='images/56.jpg' alt='blah'/>
+                        <h3>More Unworthy</h3>
+                    </a>
+                </li>
+                <li class='scroll-container__item'>
+                    <a href='#' class='scroll-container__item__content'>
+                        <img src='images/one.jpg' alt='blah'/>
+                        <h3>Thor</h3>
+                    </a>
+                </li>
+                <li class='scroll-container__item'>
+                    <a href='#' class='scroll-container__item__content'>
+                        <img src='images/two.jpg' alt='blah'/>
+                        <h3>Spidey</h3>
+                    </a>
+                </li>
+                <li class='scroll-container__item'>
+                    <a href='#' class='scroll-container__item__content'>
+                        <img src='images/three.jpg' alt='blah'/>
+                        <h3>Thors</h3>
+                    </a>
+                </li>
+                <li class='scroll-container__item'>
+                    <a href='#' class='scroll-container__item__content'>
+                        <img src='images/four.jpg' alt='blah'/>
+                        <h3>Psychic</h3>
+                    </a>
+                </li>
+                <li class='scroll-container__item'>
+                    <a href='#' class='scroll-container__item__content'>
+                        <img src='images/six.jpg' alt='blah'/>
+                        <h3>Avengers</h3>
+                    </a>
+                </li>
+                <li class='scroll-container__item'>
+                    <a href='#' class='scroll-container__item__content'>
+                        <img src='images/five.jpg' alt='blah'/>
+                        <h3>Web blast</h3>
+                    </a>
+                </li>
+            </ul>            
+                <div class='slidebar'>
+                    <button id='left' type='button' onClick="handleScroll('left')">
+                        
+                        <div class='rect rect--left'>
+
+                        </div>
+                    </button>
+                    <button id='right' type='button' onClick="handleScroll('right')">
+                        
+                        <div class='rect rect--right'>
+
+                        </div>
+                    </button>
+                </div>
+            
+       </main>    
+       
+       <script type='text/javascript'>
+        function handleScroll(direction){
+            console.log(direction)
+            const selector = "#horizontalbar";
+            const el = document.querySelector(selector);
+            console.log(el);
+            if(direction==='left'){                
+                el.scrollBy(-425,0);
+            }else if(direction==='right'){                
+                el.scrollBy(425,0);                
+            }
+            
+            
+        }
+    
+       </script>
+    </body>
+</html>

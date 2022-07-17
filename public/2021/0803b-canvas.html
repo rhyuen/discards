@@ -1,0 +1,198 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <link rel="preconnect" href="https://fonts.gstatic.com">
+    <link href="https://fonts.googleapis.com/css2?family=Inter&display=swap" rel="stylesheet"> 
+    <title>07 30</title>
+    
+
+        <style>
+            * {                
+                box-sizing: border-box;
+                font-size: 16px;
+                font-family: 'Inter', sans-serif;                
+                --PRIMARY_COLOR: #98E690;
+                --SECONDARY_COLOR: white;
+            }      
+
+            ::-webkit-scrollbar {                
+                width: 0.8rem;
+                height: 0.5rem;
+            }
+
+            /* Track */
+            ::-webkit-scrollbar-track {
+                background: black;
+            }
+
+            /* Handle */
+            ::-webkit-scrollbar-thumb {
+                background: rgb(209, 171, 121);
+            }
+
+            /* Handle on hover */
+            ::-webkit-scrollbar-thumb:hover {
+                background: #d3d3d3;
+            }
+                       
+
+            html, body{
+                margin: 0;
+                height: 100vh;                
+                background: #f3f3f3;                                
+            }
+
+          
+            ul{
+                margin: 0;
+                padding: 0;
+                list-style-type: none;
+            }
+            nav{
+                height: 5rem;            
+                background-color: black;                    
+                margin-bottom: 1rem;                
+            }
+            
+
+            a{
+                text-decoration: none;
+                color: black;
+            }
+
+            .container{
+                display: flex;
+                justify-content: flex-start;
+                height: 100%;
+                align-items: center;                
+                margin: 0 auto;
+                max-width: 1100px;
+            }
+
+            .container__item{
+                margin-right: 2rem;
+            }
+            .container__item:last-child{
+                margin-right: 0;
+            }
+            .container__item a{
+                color: white;
+                position: relative;
+            }
+            .container__item a:after{
+                position: absolute;
+                bottom: -.5rem;
+                left: 0;
+                width: 100%;
+                content: '';
+                height: .1rem;                                                
+                background-color: white;
+                transform-origin: center;
+                opacity: 0;
+                transform: scale(0);
+                transition: opacity .2s ease-in-out, transform .2s ease-in-out;
+            }
+
+            .container__item a:hover::after{
+                opacity: 1;
+                transform: scale(1);
+                
+            }
+
+            main{
+                margin: 0 auto;
+                max-width: 1100px; 
+                min-height: 500px;
+                display: flex;               
+                flex-direction: column;
+                align-items: center;
+                justify-content: center;
+            }
+
+            
+
+            .pie{
+                position: relative;
+                height: calc(var(--size, 200)*1px);
+                width: calc(var(--size, 200)*1px);
+                border-radius: 100%;
+                background-color: #639;                
+                overflow: hidden;
+            }
+           
+      
+            
+
+            /*transform-origin value is by default center*/
+            /**center is not equivalent to 0, 0
+                center is 50% 50%
+                0, 0 is top left
+                I think successive transforms are applied from right to left.
+            */
+
+            .pie__segment{                
+                height:100%;
+                width: 100%;
+                position: absolute;                
+                overflow: hidden;
+                content: '';                
+                transform: translate(0,-50%) rotate(90deg); 
+                transform-origin: 50% 100%;               
+            }
+
+            .pie__segment:before{
+                height: 100%;
+                width: 100%;
+                content: '';
+                background-color: palegreen;
+                transform-origin: 50% 0;             
+                transform: translate(0, 100%) rotate(90deg);
+                position: absolute;
+            }
+   
+            .pie__label{
+                bottom: 0;
+                left: 0;
+                position: absolute;
+                text-align: center;
+                width: 50%;
+                z-index: 2;
+                color: black;
+            }
+
+                
+        </style>
+    <body>  
+        <nav>
+            <ul class='container'>
+                <li class='container__item'><a href='#'>Home</a></li>
+                <li class='container__item'><a href='#'>About</a></li>
+                <li class='container__item'><a href='#'>Contact</a></li>                
+            </ul>
+        </nav>
+        <main>
+           <div class='pie'>
+               <div class='pie__segment' >
+                    <div class='pie__label'>hi</div>
+                </div>
+               <div class='pie__segment' >
+                    
+                </div>
+                <div class='pie__segment'>
+                    
+                </div>
+                <div class='pie__segment'>
+                    
+                </div>                          
+           </div>
+         
+
+        </main>
+       
+        
+
+    </body>
+</html>

@@ -1,0 +1,295 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <link rel="preconnect" href="https://fonts.gstatic.com">
+    <link href="https://fonts.googleapis.com/css2?family=Inter&display=swap" rel="stylesheet"> 
+    <title>08 14</title>
+    
+
+        <style>
+            * {                
+                box-sizing: border-box;
+                font-size: 16px;
+                font-family: 'Inter', sans-serif;                
+                --GREY : rgba(0,0,0,0.1);
+                --PRIMARY_COLOR: #98E690;
+                --SECONDARY_COLOR: white;
+                --COL1:  #db0a5b;
+                --COL2: #fef160;
+                --COL3: #23cba7;               
+            }      
+
+            ::-webkit-scrollbar {                
+                width: 0.8rem;
+                height: 0.5rem;
+            }
+
+            /* Track */
+            ::-webkit-scrollbar-track {
+                background: black;
+            }
+
+            /* Handle */
+            ::-webkit-scrollbar-thumb {
+                background: rgb(209, 171, 121);
+            }
+
+            /* Handle on hover */
+            ::-webkit-scrollbar-thumb:hover {
+                background: #d3d3d3;
+            }
+                       
+
+            html, body{
+                margin: 0;
+                height: 100vh;                
+                background: var(--COL3);                                
+            }
+
+            main{
+                margin: 0 auto;
+                max-width: 1100px;
+                background-color: #f3f3f3;    
+                display:grid;
+                grid-template-columns: 1fr 3fr;
+                min-height: 100vh;                
+            }
+
+            nav{
+                display: flex;
+                background-color: var(--COL3);                
+                flex-direction: column;
+                justify-content: space-between;
+                align-items: flex-end;
+                padding-right: 2rem;
+            }
+
+            .nav__header{
+                color: white;
+                font-size: 1.2rem;
+                font-weight: 600;
+                text-align: right;
+                user-select: none;
+            }
+            .nav__subheader{
+                color: #f3f3f3;
+                font-weight: 400;
+                text-align: right;
+                user-select: none;
+            }
+          
+            ul{
+                margin: 0;
+                padding: 0;
+                list-style-type: none;
+            }
+            
+            
+
+            a{
+                text-decoration: none;
+                color: black;
+            }
+
+            .menu{
+                position: relative;
+                width: 3rem; 
+                border-radius: 50%;               
+            }
+
+            .menu:after{
+                padding-bottom: 100%;
+                display: block;
+                content: '';
+            }           
+
+            .menu__container{
+                border-radius: 50%;
+                width: 100%;
+                height: 100%;
+                position: absolute;
+                display: flex;
+                justify-content: center;
+                align-items: center;
+                flex-direction: column;
+                inset: 0;
+                transition: all .5s ease-in-out;                
+            }
+            .menu__container:hover{
+                background-color: rgba(0,0,0,0.1);              
+                transform: rotate(180deg);
+            }
+
+            .menu__line{
+                width: 60%;
+                content: '';
+                background: white;
+                height: .25rem;
+                border-radius: 2rem;
+                margin: .15rem;
+            }
+
+
+
+            .list{
+                margin: 2rem;
+            }
+
+            .list__item{
+                margin: 2rem 0;
+                border: 1px solid rgba(0,0,0,0.1);
+                padding: 2rem;
+                border-radius: 1rem;
+                transition: background-color .2s ease-in-out;
+            }
+            .list__item:hover{
+                background-color: rgba(0,0,0,0.1);
+            }
+
+            .feed{
+                position: relative;
+            }
+
+            .feed__forwardbutton{
+                position: absolute;
+                margin-right: 1rem;
+                right: 0;
+                top: 50%;
+                transform: translateY(-50%);
+                width: 3rem;
+                background-color: var(--COL1);
+                border-radius: 50%;
+            }
+
+            .feed__forwardbutton:after{
+                padding-bottom: 100%;
+                content: "";
+                display: block;
+            }
+
+            .feed__forwardbutton__content{
+                position: absolute;
+                inset: 0;
+                width: 40%;
+                height: 40%;
+                left: 50%;
+                top: 50%;
+                transform: translate(-50%, -50%) rotate(45deg);
+                display: flex;
+                border-top: .25rem solid white;
+                border-right: .25rem solid white;
+                justify-content: center;
+                align-items: center;
+                transition: all .2s ease-in-out;
+            }
+            .feed__forwardbutton:hover .feed__forwardbutton__content{
+                border-top: .5rem solid white;
+                border-right: .5rem solid white;
+            }
+
+            .feed__ornament{
+                position: absolute;
+                top: 0;
+                right: 10%;                
+                height: 10rem;
+                width: 10rem;  
+                display: flex;                                
+            }
+            .feed__ornament__line{
+                height: 100%;
+                width: 2rem;
+                background-color: var(--COL1);
+                content: "";
+                margin-right:2rem;
+                clip-path: polygon(0 0, 100% 0, 100% 100%, 0 95%);
+            }
+            .feed__ornament__line:nth-child(2n){
+                height: 75%;
+            }
+            .feed__ornament__line:nth-child(3n){
+                height: 40%;
+                border: .2rem solid var(--COL2);
+            }
+
+            
+
+        
+            @media screen and (min-width: 550px) and (max-width: 1099px){
+
+            }
+
+            @media screen and (min-width: 1100px) {
+                
+            }
+           
+        </style>
+    <body>  
+        <main>
+            <nav aria-labelledby="desktop-nav">
+                <a href='#' class='menu'>
+                    <div class='menu__container'>
+                        <div class='menu__line'></div>
+                        <div class='menu__line'></div>
+                        <div class='menu__line'></div>
+                    </div>
+                </a>
+                <span>
+                    <h1 class='nav__header'>the holy hander</h1>
+                    <h2 class='nav__subheader'>hallelujah</h2>
+                </span>
+            </nav>
+            <section class='feed'>
+                <div class='feed__ornament'>
+                    <div class='feed__ornament__line'></div>
+                    <div class='feed__ornament__line'></div>
+                    <div class='feed__ornament__line'></div>
+                </div>
+                <div class='feed__forwardbutton'>
+                    <div class='feed__forwardbutton__content'>
+                        
+                    </div>
+                </div>
+                <ul class='list'>
+                    <li class='list__item'>
+                        <a href='#'>
+                            <h3 class='list__item__header'>August 15, 2021 - A recap</h3>
+                            <p class='list__item__body'>
+                                I mean there is a pandemic going on.  But no one behaves as if there's a pandemic going on.  And bad things will happen but if we can all just do our favourite things that we don't really enjoy all that much as if there isn't a pandemic going on then... things will continue to get worse, faster because reasons.
+                            </p>
+                        </a>
+                    </li>
+                    <li class='list__item'>
+                        <a href='#'>
+                            <h3 class='list__item__header'>August 15, 2021 - A recap</h3>
+                            <p class='list__item__body'>
+                                Everything is on fire and it's all fine.  And it's August, so things are literally on fire.
+                            </p>
+                        </a>
+                    </li>
+                    <li class='list__item'>
+                        <a href='#'>
+                            <h3 class='list__item__header'>August 15, 2021 - A recap</h3>
+                            <p class='list__item__body'>
+                                My god, the willful blindness.
+                            </p>
+                        </a>
+                    </li>
+                    <li class='list__item'>
+                        <a href='#'>
+                            <h3 class='list__item__header'>August 15, 2021 - A recap</h3>
+                            <p class='list__item__body'>
+                                The world is going to hel in a handbasket.  It's hel because Loki just ended and Thor comes next year.
+                            </p>
+                        </a>
+                    </li>
+                </ul>
+            </section>
+        </main>
+
+
+
+    </body>
+</html>

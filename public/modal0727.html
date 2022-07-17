@@ -1,0 +1,291 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <link rel="preconnect" href="https://fonts.gstatic.com">
+    <link href="https://fonts.googleapis.com/css2?family=Inter&display=swap" rel="stylesheet"> 
+    <title>07 26</title>
+    
+
+        <style>
+            * {                
+                box-sizing: border-box;
+                font-size: 16px;
+                font-family: 'Inter', sans-serif;                
+                --PRIMARY_COLOR: #c50006;
+                --SECONDARY_COLOR: #3ab4bf;
+                --HOVER_COLOR: #0f2231;
+            }      
+
+            ::-webkit-scrollbar {                
+                width: 0.8rem;
+                height: 0.5rem;
+            }
+
+            /* Track */
+            ::-webkit-scrollbar-track {
+                background: black;
+            }
+
+            /* Handle */
+            ::-webkit-scrollbar-thumb {
+                background: rgb(209, 171, 121);
+            }
+
+            /* Handle on hover */
+            ::-webkit-scrollbar-thumb:hover {
+                background: #d3d3d3;
+            }
+                       
+
+            html, body{
+                margin: 0;
+                height: 100vh;                
+                min-height: 100vh;
+                background: #f3f3f3;                                
+            }
+
+          
+            ul{
+                margin: 0;
+                padding: 0;
+                list-style-type: none;
+            }
+            nav{
+                height: 5rem;                                
+            }
+
+            a{
+                text-decoration: none;
+                color: black;
+            }
+
+            main{
+                width: 100%;
+                height: 100%;
+                display: flex;
+                justify-content: center;
+                align-items: center;
+                background: rgba(0,0,0,0.4);
+            }
+
+            @keyframes rotation {
+                from {
+                    transform: rotate(0deg);
+                }
+                to{
+                    transform: rotate(359deg);
+                }
+            }
+
+            .circle{
+                background: #aaa;
+                position: relative;
+                width: 20rem;
+                height: 20rem;
+                margin: 0 auto;
+                overflow: hidden;
+                border-radius: 50%;
+                /* animation: rotation 10s infinite linear; */
+            }
+
+            .inner-circle{
+                position: absolute;
+                z-index: 10;
+                background: black;
+                width: 5rem;
+                height: 5rem;               
+                inset: 0;
+                margin: auto auto;
+                border-radius: 50%;                
+            }
+
+            .circle__slice{
+                position: absolute;
+                overflow: hidden;
+                background-color: grey;
+                width: 10rem;
+                height: 10rem;
+                /*the black border*/
+                border-bottom: 1rem solid black;
+                transform-origin: 100% 100%;
+            }
+            .circle__slice--1{
+                z-index: 1;
+                transform: rotate(60deg);
+                background-color: powderblue;
+            }
+            .circle__slice--2{
+                z-index: 2;
+                transform: rotate(120deg);
+                background-color: red;
+            }
+            .circle__slice--3{
+                z-index: 3;
+                transform: rotate(180deg);
+                background-color: greenyellow;
+            }
+            .circle__slice--4{
+                z-index: 4;
+                transform: rotate(240deg);
+                background-color: white;
+            }
+            .circle__slice--5{
+                z-index: 5;
+                transform: rotate(300deg);
+                background-color: lavender;                
+                
+            }
+
+            .circle__slice__special{
+                position: absolute;
+                width: 10rem;
+                height: 10rem;
+                overflow: hidden;
+                transform-origin: 100% 100%;                                
+            }
+
+            .circle__slice--6{
+                z-index: 6;
+                transform: rotate(-30deg);
+                background-color: purple;                                                
+            }
+
+            .circle__slice__content{                
+                width: 100%;
+                height: 100%;                
+                
+                font-size: 2rem;                                
+            }
+            .circle__slice__content--1{                
+                /* top: 3rem;
+                left: 2rem; */
+                background: palevioletred;                                
+                transform: rotate(-60deg);
+            }
+            .circle__slice__content--2{
+                /* top: 1rem;                
+                left: 4rem; */
+                transform: rotate(-120deg);
+            }
+            .circle__slice__content--3{
+                /* top: -1rem;
+                left: 1rem; */
+                transform: rotate(-180deg);
+            }
+            .circle__slice__content--4{
+                /* top: -1rem;
+                left: -4rem; */                
+                transform: rotate(-240deg);
+            }
+            .circle__slice__content--5{
+                /* top: 1rem;
+                left: -1rem; */                
+                transform: rotate(-300deg);
+            }
+            .circle__slice__content--6{
+                /* top: 2rem;
+                left: -2rem; */
+                transform: rotate(30deg);
+            }
+
+            .circle__slice__content__center{
+                position: absolute;
+                inset: 0;
+                height: 100%;
+                width: 100%;                
+                background: pink;
+                display: flex;
+                font-size: 2rem;
+                line-height: 5rem;
+            }
+            .circle__slice__content__center--1{              
+                flex-direction: column;
+                justify-content: center;
+                align-items: center;
+            }
+            .circle__slice__content__center--2{               
+                flex-direction: column;
+                justify-content: center;
+                align-items: center;
+            }
+            .circle__slice__content__center--3{
+                flex-direction: column;
+                justify-content: center;
+                align-items: center;
+               
+            }
+            .circle__slice__content__center--4{
+                flex-direction: column;
+                justify-content: center;
+                align-items: center;
+              
+            }
+            .circle__slice__content__center--5{
+                flex-direction: column;
+                justify-content: center;
+                align-items: center;
+            }
+            .circle__slice__content__center--6{
+                flex-direction: column;
+                justify-content: center;
+                align-items: center;
+            }
+         
+        </style>
+    <body>  
+        <main>
+            <div class='circle'>                
+                <div class='circle__slice circle__slice--1'>
+                    <div class='circle__slice__content circle__slice__content--1'>
+                        <div class='circle__slice__content__center circle__slice__content__center--1'>
+                            $0
+                        </div>
+                        
+                    </div>
+                </div>
+                <div class='circle__slice circle__slice--2'>
+                    <div class='circle__slice__content circle__slice__content--2'>
+                        <div class='circle__slice__content__center circle__slice__content__center--2'>
+                            $150
+                        </div>
+                    </div>
+                </div>
+                <div class='circle__slice circle__slice--3'>
+                    <div class='circle__slice__content circle__slice__content--3'>
+                        <div class='circle__slice__content__center circle__slice__content__center--3'>
+                            $150
+                        </div>
+                    </div>
+                </div>
+                <div class='circle__slice circle__slice--4'>
+                    <div class='circle__slice__content circle__slice__content--4'>
+                        <div class='circle__slice__content__center circle__slice__content__center--4'>
+                            $150
+                        </div>
+                    </div>
+                </div>
+                <div class='circle__slice circle__slice--5'>
+                    <div class='circle__slice__content circle__slice__content--5'>
+                        <div class='circle__slice__content__center circle__slice__content__center--5'>
+                            $150
+                        </div>
+                    </div>
+                </div>
+                <div class='circle__slice__special'>
+                    <div class='circle__slice circle__slice--6'>
+                        <div class='circle__slice__content circle__slice__content--6'>
+                            <div class='circle__slice__content__center circle__slice__content__center--6'>
+                                $150
+                            </div>
+                        </div>
+                    </div>
+                </div>
+                
+                <div class='inner-circle'></div>
+            </div>
+        </main>
+    </body>
+</html>

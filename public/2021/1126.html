@@ -1,0 +1,213 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta name='color-scheme' content='dark light'>
+    <link rel="preconnect" href="https://fonts.gstatic.com">
+    <link href="https://fonts.googleapis.com/css2?family=Inter&display=swap" rel="stylesheet">
+    <title>11 26 stories</title>
+
+
+    <style>
+        * {
+            box-sizing: border-box;
+            font-size: 16px;
+            font-family: 'Inter', sans-serif;
+            --GREY: rgba(0, 0, 0, 0.1);
+            --PRIMARY_COLOR: #98E690;
+            --SECONDARY_COLOR: white;
+            --COL1: #db0a5b;
+            --COL2: #fef160;
+            --COL3: #23cba7;
+            --COL4: #3e6ceb;
+            --COL5: #d9c8ec;
+        }
+
+        ::-webkit-scrollbar {
+            width: 0.8rem;
+            height: 0.5rem;
+        }
+
+        /* Track */
+        ::-webkit-scrollbar-track {
+            background: black;
+        }
+
+        /* Handle */
+        ::-webkit-scrollbar-thumb {
+            background: lavender;
+        }
+
+        /* Handle on hover */
+        ::-webkit-scrollbar-thumb:hover {
+            background: #d3d3d3;
+        }
+
+
+        html,
+        body {
+            margin: 0;
+            height: 100vh;
+            background: #f3f3f3;
+            position: relative;
+            display: grid;
+            place-items: center;
+        }
+
+
+        h1 {
+            margin: 0;
+            padding: 0;
+        }
+
+        ul {
+            list-style-type: none;
+        }
+
+        .red {
+            background: var(--COL1);
+        }
+
+        .yellow {
+            background: var(--COL2);
+        }
+
+        .green {
+            background: var(--COL3);
+        }
+
+        .blue {
+            background: var(--COL4);
+        }
+
+
+
+        .stories {
+            inline-size: 100vw;
+            block-size: 100vh;
+            display: grid;
+            grid: 1fr/auto-flow 100%;
+            gap: 1ch;
+            border-radius: 1rem;
+
+            overflow-x: auto;
+            scroll-snap-type: x mandatory;
+            overscroll-behavior: contain;
+            touch-action: pan-x;
+        }
+
+        .user {
+            display: grid;
+            grid: [story] 1fr / [story] 1fr;
+            scroll-snap-align: start;
+            scroll-snap-stop: always;
+        }
+
+        .story {
+            grid-area: story;
+            background-size: cover;
+            background-image: var(--bg), linear-gradient(to top, lch(98 0 0), lch(90 0 0));
+            user-select: none;
+            touch-action: manipulation;
+            transition: opacity .3s cubic-bezier(.4, 0, 1, 1);
+        }
+
+        .story.seen {
+            opacity: 0;
+            pointer-events: none;
+        }
+
+
+        @media screen and (min-width: 480px) {
+            .stories {
+                max-inline-size: 480px;
+                max-block-size: 848px;
+            }
+        }
+
+        /* @media screen and (min-width: 750px) and (max-width: 1099px) {}
+
+        @media screen and (min-width: 1100px) {} */
+    </style>
+
+<body>
+
+    <div class="stories">
+        <section class="user">
+            <article class="story" style="background-size: cover; background-image: url(../images/57.jpg);"></article>
+            <article class="story" style="background-size: cover; background-image: url(../images/58.jpg); "></article>
+        </section>
+        <section class="user">
+            <article class="story" style="background-size: cover; background-image: url(../images/59.jpg);"></article>
+        </section>
+        <section class="user">
+            <article class="story" style="background-size: cover; background-image: url(../images/60.jpg);"></article>
+        </section>
+        <section class="user">
+            <article class="story" style="background-size: cover; background-image: url(../images/61.jpg);"></article>
+            <article class="story" style="background-size: cover; background-image: url(../images/62.jpg);"></article>
+            <article class="story" style="background-size: cover; background-image: url(../images/63.jpg);"></article>
+        </section>
+    </div>
+
+    <script type='text/javascript'>
+        const stories = document.querySelector(".stories");
+        const media = stories.offsetLeft + (stories.clientWidth / 2);
+        const state = {
+            current_story: stories.firstElementChild.lastElementChild
+        };
+
+        stories.addEventListener('click', e => {
+            if (e.target.nodeName !== 'ARTICLE') {
+                return;
+            }
+
+            navigateStories(e.clientX > media ? 'next' : 'prev');
+        });
+
+        document.addEventListener('keydown', ({ key }) => {
+            if (key !== 'ArrowDown' || key !== 'ArrowUp') {
+                navigateStories(key === 'ArrowDown' ? 'next' : 'prev');
+            }
+        });
+
+        const navigateStories = direction => {
+            const story = state.current_story;
+            const lastItemInUserStory = story.parentNode.firstElementChild;
+            const firstItemInUserStory = story.parentNode.lastElementChild;
+            const hasNextUserStory = story.parentElement.nextElementSibling;
+            const hasPrevUserStory = story.parentElement.previousElementSibling;
+
+            if (direction === 'next') {
+                if (lastItemInUserStory === story && !hasNextUserStory) {
+                    return;
+                } else if (lastItemInUserStory === story && hasNextUserStory) {
+                    state.current_story = story.parentElement.nextElementSibling.lastElementChild;
+                    story.parentElement.nextElementSibling.scrollIntoView({
+                        behavior: 'smooth'
+                    });
+                } else {
+                    story.classList.add('seen');
+                    state.current_story = story.previousElementSibling;
+                }
+            } else if (direction === 'prev') {
+                if (firstItemInUserStory === story && !hasPrevUserStory) {
+                    return;
+                } else if (firstItemInUserStory === story && hasPrevUserStory) {
+                    state.current_story = story.parentElement.previousElementSibling.firstElementChild;
+                    story.parentElement.previousElementSibling.scrollIntoView({
+                        behavior: 'smooth'
+                    });
+                } else {
+                    story.nextElementSibling.classList.remove('seen');
+                    state.current_story = story.nextElementSibling;
+                }
+            }
+        }
+    </script>
+</body>
+
+</html>

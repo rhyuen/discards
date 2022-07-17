@@ -1,0 +1,181 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>may 18, five graph</title>
+    <style>
+        * {
+            box-sizing: border-box;
+            font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;            
+        }
+
+        .maincontainer{
+            display:grid;
+            grid-template-columns: repeat(auto-fit, minmax(300px, 1fr));
+                max-width: 1100px;
+                margin: 0 auto;
+            grid-template-rows: repeat(auto-fit, minmax(300px, 1fr));
+        }
+
+        .container{
+           max-height: 500px;
+           max-width: 500px;
+        }
+    </style>
+</head>
+<body>
+    <div class="maincontainer">          
+        <div class="container">
+            <canvas id="fourthteenthChart"></canvas>
+        </div>
+        
+    </div>
+    <script src="https://cdn.jsdelivr.net/npm/chart.js"></script>
+    <script type="text/javascript">
+    
+    const labels = [
+        'January',
+        'February',
+        'March',
+        'April',
+        'May',
+        'June',
+        'July',
+        'August',
+        'September',
+        'October',
+        'November',
+        'December',
+    ];
+          
+
+    const twelfthChartData = {
+        labels: ['Fraser Health', 'Vancouver Coastal Health', 'Interior Health', 'Northern Health', 'Vancouver Island Health'],
+        datasets: [
+            {
+            label: 'BC - Covid19 MAY 20/21',
+            data: [240, 84, 58, 31, 7],
+            backgroundColor: [
+                "indigo",
+                "orange",
+                "palegreen",
+                "blue",
+                "purple"
+            ],
+            }
+        ]
+    };
+        
+
+    function makeScatterData(data){
+        return {            
+            datasets: [...data]
+        };
+    }
+
+
+    const eOneData = {
+        label: 'Dataset 1',
+        data: [{x: 22, y: 25}, {x: 24, y: 26}, {x: 35, y: 39}, {x: 45, y: 55}, {x: 48, y: 65}],
+        borderColor: "red",
+        backgroundColor: "palevioletred",
+    };
+    const eTwoData = {
+        label: 'Dataset 2',
+        data: [{x: 31, y: 21}, {x: 51, y: 41}, {x: 61, y: 61}, {x: 81, y: 81}],
+        borderColor: "purple",
+        backgroundColor: "lavender",
+    };
+    const eleventhData = [eOneData,eTwoData];
+
+
+    const tOneData = {
+        label: 'flat line',
+        data: [{x: 1, y: 50}, {x: 100, y: 50}],
+        borderColor: "black",
+        backgroundColor: "black",
+    };
+
+    const tTwoData = {
+        label: 'Moving Data',
+        data: [{x: 0, y: 21}, {x: 51, y: 41}, {x: 52, y: 47}, {x: 22, y: 1}, {x: 61, y: 61}, {x: 100, y: 81}],
+        borderColor: "purple",
+        backgroundColor: "lavender",
+    };
+
+   const thirteenthData = [tOneData, tTwoData];
+        
+
+
+   const fourteenOneData = {
+        label: 'flat line',
+        data: [{x: 1, y: 50}, {x: 100, y: 50}],
+        type: 'line',
+        borderColor: "black",
+        backgroundColor: "black",
+    };
+
+    const fourteenTwoData = {
+        label: 'Moving Data',
+        data: [{x: 0, y: 21}, {x: 51, y: 41}, {x: 52, y: 47}, {x: 22, y: 1}, {x: 61, y: 61}, {x: 100, y: 81}],
+        type: 'scatter',
+        borderColor: "purple",
+        backgroundColor: "lavender",
+    };
+
+    const fourteenData = [fourteenOneData, fourteenTwoData]
+
+
+    function makeChart(id, type, data, label){
+        const config = {
+            type: type,
+            data: data,
+            options: {                         
+                responsive: true,
+                plugins: {
+                    legend: {
+                        position: 'top',
+                    },
+                    title: {
+                        display: true,
+                        text: label
+                    }
+                }
+            },
+        };
+
+        return new Chart(
+            document.getElementById(id),
+            config
+        )        
+    }
+
+
+    function makeMixedChart(id, data, title){
+        const config = {            
+            data: data,
+            options: {                         
+                responsive: true,
+                plugins: {
+                    legend: {
+                        position: 'top',
+                    },
+                    title: {
+                        display: true,
+                        text: title
+                    }
+                }
+            },
+        };
+
+        return new Chart(document.getElementById(id), config);
+    }
+       
+    let twelve = makeChart("twelfthChart", "doughnut", twelfthChartData, "may 20th/21, Covid 19");    
+    let fourteen = makeMixedChart("fourthteenthChart", makeScatterData(fourteenData), "Acutal Mix with flat line 2");
+    </script>
+    
+</body>
+</html>

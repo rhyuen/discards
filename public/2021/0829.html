@@ -1,0 +1,181 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <link rel="preconnect" href="https://fonts.gstatic.com">
+    <link href="https://fonts.googleapis.com/css2?family=Inter&display=swap" rel="stylesheet"> 
+    <title>08 23</title>
+    
+
+        <style>
+            * {                
+                box-sizing: border-box;
+                font-size: 16px;
+                font-family: 'Inter', sans-serif;                
+                --GREY : rgba(0,0,0,0.1);
+                --PRIMARY_COLOR: #98E690;
+                --SECONDARY_COLOR: white;
+                --COL1:  #db0a5b;
+                --COL2: #fef160;
+                --COL3: #23cba7;  
+                --COL4: #3e6ceb;  
+                --COL5: #d9c8ec;
+            }      
+
+            ::-webkit-scrollbar {                
+                width: 0.8rem;
+                height: 0.5rem;
+            }
+
+            /* Track */
+            ::-webkit-scrollbar-track {
+                background: black;
+            }
+
+            /* Handle */
+            ::-webkit-scrollbar-thumb {
+                background: rgb(209, 171, 121);
+            }
+
+            /* Handle on hover */
+            ::-webkit-scrollbar-thumb:hover {
+                background: #d3d3d3;
+            }
+                       
+
+            html, body{
+                margin: 0;
+                height: 100vh;                
+                background: #f3f3f3;
+                position: relative;
+            }
+      
+            h1{
+                margin: 0;
+                padding: 0;
+            }
+          
+            ul{
+                margin: 0;
+                padding: 0;
+                list-style-type: none;
+            }
+            
+            
+
+            a{
+                text-decoration: none;
+                color: black;
+            }
+
+            nav{
+                width: 100%;
+                height: 5rem;
+                display: flex;
+                background: lavender;
+                position: fixed;
+                top: 0;
+            }
+
+            nav > a{
+                height: 100%;
+                flex-grow: 1;
+            }
+
+            .scroll-container{
+                width: 100vw;
+                height: 100vh;
+                background: #98E690;
+                display: flex;
+                overflow-y: hidden;
+                overflow-x: hidden;        
+                scroll-snap-type: x mandatory;
+            }
+            .scroll-container__item{
+                height: 100%;
+                width: 100%;
+                flex-shrink: 0;
+                scroll-snap-align: center;                
+                display: flex;
+                align-items: center;
+                justify-content: center;
+                flex-direction: column;
+                padding: 2rem;                                
+            }
+          
+            .red{
+                background: var(--COL1);
+            }
+            .yellow{
+                background: var(--COL2);
+            }
+            .green{
+                background: var(--COL3);
+            }
+            .blue{
+                background: var(--COL4);
+            }
+
+            .article{
+                display: flex;
+                flex-direction: column;
+                max-width: 600px;
+                margin: 0 auto;
+                margin-bottom: 2rem;
+            }
+
+            .article__title{
+                font-size: 2rem;                
+            }
+
+            .article__body{
+                line-height: 1.5;               
+            }
+
+        </style>
+    <body> 
+      <main>
+          <nav>
+            <a href='#red' class='red'></a>
+            <a href='#yellow' class='yellow'></a>
+            <a href='#green' class='green'></a>
+            <a href='#blue' class='blue'></a>
+          </nav>
+        <div class='scroll-container'>
+            <section class='scroll-container__item red' id='red'>
+                <article class='article'>
+                    <h1 class='article__title'>A Title goes here</h1>
+                    <p class='article__body'>The rising ocean swamped the barrier island of Grand Isle. The hurricane was churning through the far southern Louisiana wetlands, with the more than two million people living in and around New Orleans and Baton Rouge up next.</p>
+                </article>
+            </section>
+            <section class='scroll-container__item yellow' id='yellow'>
+                <article class='article'>
+                    <h1 class='article__title'>A Title goes here</h1>
+                    <p class='article__body'>The powerful Category 4 storm with winds of 230 km/h hit on the same date Hurricane Katrina ravaged Louisiana and Mississippi 16 years earlier, coming ashore about 72 kilometres west of where Category 3 Katrina first struck land.</p>
+                </article>
+                <article class='article'>
+                    <h1 class='article__title'>A Title goes here</h1>
+                    <p class='article__body'>The rising ocean swamped the barrier island of Grand Isle. The hurricane was churning through the far southern Louisiana wetlands, with the more than two million people living in and around New Orleans and Baton Rouge up next.</p>
+                </article>
+            </section>
+            <section class='scroll-container__item green' id='green'>
+                <article class='article'>
+                    <h1 class='article__title'>A Title goes here</h1>
+                    <p class='article__body'>Earthworms are not native to most of North America. Until about 10,000 years ago, a vast ice sheet covered the northern third of the North American continent. Scientists think it killed off the earthworms that may have inhabited the area before the last glaciation.
+                    </p>
+                </article>
+            </section>
+            <section class='scroll-container__item blue' id='blue'>
+                <article class='article'>
+                    <h1 class='article__title'>A Housing goes here</h1>
+                    <p class='article__body'>With many prospective homebuyers feeling squeezed out of the market, and others struggling to find reasonably priced rent in cities across the country, housing affordability has emerged as a key issue for voters ahead of the Sept. 20 election.</p>
+                </article>
+            </section>
+        </div>
+        
+      </main>
+       
+    </body>
+</html>

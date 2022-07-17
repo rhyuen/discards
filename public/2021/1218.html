@@ -1,0 +1,281 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta name='color-scheme' content='dark light'>
+    <link rel="preconnect" href="https://fonts.gstatic.com">
+    <link href="https://fonts.googleapis.com/css2?family=Inter&display=swap" rel="stylesheet">
+    <title>toast notifications</title>
+
+
+    <style>
+        * {
+            box-sizing: border-box;
+            font-size: 16px;
+            font-family: 'Inter', sans-serif;
+            color: black;
+            --GREY: rgba(0, 0, 0, 0.1);
+            --PRIMARY_COLOR: #98E690;
+            --SECONDARY_COLOR: white;
+            --COL1: #db0a5b;
+            --COL2: #fef160;
+            --COL3: #23cba7;
+            --COL4: #3e6ceb;
+            --COL5: #d9c8ec;
+        }
+
+        ::-webkit-scrollbar {
+            width: 0.8rem;
+            height: 0.5rem;
+        }
+
+        /* Track */
+        ::-webkit-scrollbar-track {
+            background: black;
+        }
+
+        /* Handle */
+        ::-webkit-scrollbar-thumb {
+            background: var(--COL3);
+        }
+
+        /* Handle on hover */
+        ::-webkit-scrollbar-thumb:hover {
+            background: var(--COL2);
+        }
+
+
+        html,
+        body {
+            margin: 0;
+            height: 100vh;
+            background: #f3f3f3;
+        }
+
+
+        h1 {
+            margin: 0;
+            padding: 0;
+        }
+
+        .fixed-header {
+            font-size: 3rem;
+            font-weight: 800;
+            position: fixed;
+            user-select: none;
+            color: var(--COL1);
+            top: 2rem;
+            left: 2rem;
+        }
+
+        .fixed-header:before {
+            display: inline-block;
+            aspect-ratio: 1;
+            height: 3rem;
+            content: "";
+            background: var(--COL1);
+            margin: 0;
+            left: 0;
+        }
+
+
+
+        ul {
+            list-style-type: none;
+        }
+
+        .red {
+            background: var(--COL1);
+        }
+
+        .yellow {
+            background: var(--COL2);
+        }
+
+        .green {
+            background: var(--COL3);
+        }
+
+        .blue {
+            background: var(--COL4);
+        }
+
+
+        @keyframes fade-in {
+            from {
+                opacity: 0;
+            }
+        }
+
+        @keyframes fade-out {
+            to {
+                opacity: 0;
+            }
+        }
+
+        @keyframes slide-in {
+            from {
+                transform: translateY(var(--_travel-distance, 10px));
+            }
+        }
+
+        main {
+            display: grid;
+            place-items: center;
+            height: 100%;
+            width: min(65ch, 100%);
+            margin: 0 auto;
+        }
+
+        .gui-toast-group {
+            position: fixed;
+            z-index: 1;
+            inset-block-end: 0;
+            inset-inline: 0;
+            padding-block-end: 5vh;
+
+            display: grid;
+            justify-items: center;
+            justify-content: center;
+            gap: 1vh;
+            pointer-events: none;
+        }
+
+        .gui-toast {
+            --_bg-lightness: 90%;
+            --_duration: 3s;
+            --_travel-distance: 0;
+            color: black;
+            background: hsl(0 0% var(--_bg-lightness)/90%);
+
+            font-size: 1rem;
+            border-radius: 3px;
+            padding-inline: 1ch;
+            padding-block: .5ch;
+            max-inline-size: min(25ch, 90vw);
+
+            will-change: transform;
+            animation:
+                fade-in .3s ease,
+                slide-in .3s ease,
+                fade-out .3s ease var(--_duration);
+        }
+
+        @media (prefers-color-scheme: dark) {
+            .gui-toast {
+                color: white;
+                --_bg-lightness: 20%;
+            }
+        }
+
+        @media(prefers-reduced-motion: no-preference) {
+            .gui-toast {
+                --_travel-distance: 5vh;
+            }
+
+        }
+
+        @media screen and (min-width: 750px) and (max-width: 1099px) {}
+
+        @media screen and (min-width: 1100px) {}
+    </style>
+
+<body>
+    <!-- <section class='gui-toast-group'>
+        <output role='status' class='gui-toast'>
+            Wizard Rose added to cart.
+        </output>
+        <output role='status' class='gui-toast'>
+            Self Watering Pot added to cart.
+        </output>
+        <output role='status' class='gui-toast'>
+            Magical wish cat added to cart.
+        </output>
+    </section> -->
+    <main>
+        <div>
+            <h1>Notifications</h1>
+            <p>So, there should be some notifications at the bottom. Just because we need more distractions in the world
+                and
+                to
+                game artificial metrics up.</p>
+            <p>
+                I followed the tutorial from <a href='https://web.dev/building-a-toast-component/'>here</a>. I wasn't
+                entirely thrilled with the JS parts but I thought the DOM creation functions were cool and I'll try to
+                incorporate them into my own code.
+            </p>
+        </div>
+    </main>
+
+
+    <script type='text/javascript'>
+        const init = () => {
+            console.log('init')
+            const node = document.createElement("section");
+            node.classList.add("gui-toast-group");
+            document.firstElementChild.insertBefore(node, document.body);
+            return node;
+        };
+
+        const Toaster = init();
+
+        const createToast = text => {
+            const node = document.createElement("output");
+            node.innerText = text;
+            node.classList.add("gui-toast");
+            node.setAttribute("role", "status");
+            return node;
+        };
+
+        const addToast = toast => {
+            const { matches: motionOK } = window.matchMedia(
+                "(prefers-reduced-motion: no-preference"
+            );
+
+            Toaster.children.length && motionOK ? flipToast(toast) : Toaster.appendChild(toast);
+        };
+
+        const flipToast = toast => {
+            const first = Toaster.offsetHieght;
+            Toaster.appendChild(toast);
+            const last = Toaster.offsetHeight;
+            const invert = last - first;
+            const animation = Toaster.animate([
+                { transform: `translateY(${invert}px)` },
+                { transform: `translateY(0)` }
+            ], {
+                duration: 150,
+                easing: `ease-out`
+            });
+        };
+
+        const Toast = text => {
+            let toast = createToast(text);
+            addToast(toast);
+            return new Promise(async (resolve, reject) => {
+                await Promise.allSettled(
+                    toast.getAnimations().map(animation => animation.finished)
+                );
+                Toaster.removeChild(toast);
+                resolve();
+            });
+        };
+
+
+        let list = [
+            0, 1, 2, 3, 4, 5, 6, 7, 8, 9
+        ];
+
+        setInterval(() => {
+            const number = Math.floor(Math.random() * 100);
+            Toast(`I have ${number} cats.`);
+        }, 2500);
+
+
+    </script>
+</body>
+
+</html>

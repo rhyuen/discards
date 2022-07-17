@@ -1,0 +1,218 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <link rel="preconnect" href="https://fonts.gstatic.com">
+    <link href="https://fonts.googleapis.com/css2?family=Inter&display=swap" rel="stylesheet"> 
+    <title>06 24</title>
+
+        <style>
+            * {                
+                box-sizing: border-box;
+                font-size: 16px;
+                font-family: 'Inter', sans-serif;;       
+                
+            }      
+            html, body{
+                margin: 0;
+                min-height: 100vh;                
+                background: #f3f3f3;
+                
+            }
+            ::-webkit-scrollbar {                
+                width: 0.8rem;
+                height: 0.5rem;
+            }
+
+            /* Track */
+            ::-webkit-scrollbar-track {
+                background: black;
+            }
+
+            /* Handle */
+            ::-webkit-scrollbar-thumb {
+                background: white;
+            }
+
+            /* Handle on hover */
+            ::-webkit-scrollbar-thumb:hover {
+                background: #d3d3d3;
+            }
+
+ 
+
+            ul{
+                margin: 0;
+                padding: 0;
+                list-style-type: none;
+            }
+
+            a{
+                text-decoration: none;                
+                color: palevioletred;                           
+            }
+
+            main{
+                display: grid;
+                grid-template-columns: repeat(auto-fit, minmax(250px,1fr));
+                grid-row-gap: 1rem;
+                max-width: 1000px;
+                margin: 0 auto;
+            }
+
+            .scroll-container{                
+                grid-column: 1/-1;
+                width: 100%;
+                height: 20vh;                
+                display: flex;
+                overflow-x: scroll;
+                scroll-snap-type: x mandatory;     
+            }
+
+            .scroll-container__item{
+                height: 100%;      
+                display: flex;
+                justify-content: center;   
+                align-items: center;
+                flex: 0 0 100%;                
+                background: palegreen;
+                scroll-snap-align: center;
+            }
+            .scroll-container__item:nth-child(2n){
+                background: paleturquoise;
+            }
+            .scroll-container__item:nth-child(3n){
+                background: pink;
+            }
+
+            .hero{
+                grid-column: 1/-1;      
+                position: relative;                          
+            }
+            .hero__image{                                                
+                object-fit: contain;
+                width: 100%;
+                height: 100%;
+            }
+            .hero__group{
+                position: absolute;
+                bottom: 15%;
+                left: 15%;
+            }
+
+            .hero__group h2{
+                color: white;
+            }
+            .hero__group p{
+                color: white;
+                margin-bottom: 2rem;
+            }
+
+            .button{
+                border: 2px solid white;
+                border-radius: .5rem;
+                padding: .5rem 1.5rem;
+                color: black;
+                font-weight: 600;
+                transition: all 0.2s cubic-bezier(0.075, 0.82, 0.165, 1);
+            }
+            .button:hover{
+                border-color: black;
+                color: white;
+                background: black;
+            }
+
+            nav{
+                height: 5rem;
+                background: -webkit-linear-gradient(right, #da0050, #8e2b88);
+                margin-bottom: 1rem;
+            }
+
+            .container{
+                max-width: 1200px;
+                display: flex;
+                margin: 0 auto;
+                height: 100%;
+                align-items: center;                
+            }
+
+            .container__item{
+                margin: 1rem;
+            }
+            .container__item:last-child{
+                margin-right: 0;
+            }
+            .container__item a{
+                color: white;
+                font-weight: 600;
+                padding-bottom: 0.5rem;
+                position: relative;
+            }
+            .container__item a:after {
+                position: absolute;
+                bottom: 0;
+                content: '';
+                display: block;
+                height: 0.2rem;                
+                width: 100%;
+                opacity: 1;
+                background-color: white;                    
+                transform-origin: center;
+                transform: scale(0);
+                transition: transform 0.2s ease-in-out;
+            }
+
+
+            .container__item a:hover:after{
+                transform: scale(1);
+            }
+
+        </style>
+    </head>
+    <body> 
+        <nav>
+            <ul class='container'>
+                <li class='container__item'><a href='#'>Home</a></li>
+                <li class='container__item'><a href='#'>About</a></li>
+                <li class='container__item'><a href='#'>Contact</a></li>
+            </ul>
+        </nav>
+        <main>
+            <section class='hero'>
+                <img class='hero__image' src='images/fw2.jpg' alt='firewatch pic'/>
+                <div class='hero__group'>
+                    <h2>Object Title</h2>
+                    <p>A brief non-sensical description</p>
+                    <button type='button' class='button'>
+                        Action
+                    </button>
+                </div>
+            </section>
+            <ul class='scroll-container'>
+                <li class='scroll-container__item'><a href='#'>Two</a></li>
+                <li class='scroll-container__item'><a href='#'>One</a></li>
+                <li class='scroll-container__item'><a href='#'>three</a></li>
+                <li class='scroll-container__item'><a href='#'>four</a></li>
+                <li class='scroll-container__item'><a href='#'>five</a></li>                
+            </ul>            
+            <ul class='scroll-container'>
+                <li class='scroll-container__item'><a href='#'>Two</a></li>
+                <li class='scroll-container__item'><a href='#'>One</a></li>
+                <li class='scroll-container__item'><a href='#'>three</a></li>
+                <li class='scroll-container__item'><a href='#'>four</a></li>
+                <li class='scroll-container__item'><a href='#'>five</a></li>                
+            </ul>            
+            <ul class='scroll-container'>
+                <li class='scroll-container__item'><a href='#'>Two</a></li>
+                <li class='scroll-container__item'><a href='#'>One</a></li>
+                <li class='scroll-container__item'><a href='#'>three</a></li>
+                <li class='scroll-container__item'><a href='#'>four</a></li>
+                <li class='scroll-container__item'><a href='#'>five</a></li>                
+            </ul>            
+        </main>        
+    
+      
+    </body>
+</html>

@@ -1,0 +1,376 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta name='color-scheme' content='dark light'>
+    <link rel="preconnect" href="https://fonts.gstatic.com">
+    <link href="https://fonts.googleapis.com/css2?family=Inter&display=swap" rel="stylesheet">
+    <title>4/23/22</title>
+
+
+    <style>
+        * {
+            box-sizing: border-box;
+            font-size: 16px;
+            font-family: 'Inter', sans-serif;
+            color: black;
+            --GREY: rgba(0, 0, 0, 0.1);
+            --PRIMARY_COLOR: #98E690;
+            --SECONDARY_COLOR: white;
+            --COL1: #db0a5b;
+            --COL2: #fef160;
+            --COL3: #23cba7;
+            --COL4: #3e6ceb;
+            --COL5: rgb(212, 204, 212);
+        }
+
+        ::-webkit-scrollbar {
+            width: 0.8rem;
+            height: 0.5rem;
+        }
+
+        /* Track */
+        ::-webkit-scrollbar-track {
+            background: black;
+        }
+
+        /* Handle */
+        ::-webkit-scrollbar-thumb {
+            background: var(--COL3);
+        }
+
+        /* Handle on hover */
+        ::-webkit-scrollbar-thumb:hover {
+            background: var(--COL2);
+        }
+
+
+        html,
+        body {
+            margin: 0;
+            height: 100vh;
+            background: #f3f3f3;
+        }
+
+
+        h1 {
+            margin: 0;
+            padding: 0;
+        }
+
+        figure {
+            margin: 0;
+            padding: 0;
+        }
+
+        a {
+            color: var(--COL3);
+            font-weight: 800;
+        }
+
+
+        ul {
+            list-style-type: none;
+            margin: 0;
+        }
+
+        .red {
+            background: var(--COL1);
+            color: white;
+        }
+
+        .yellow {
+            background: var(--COL2);
+            color: black;
+        }
+
+        .green {
+            background: var(--COL3);
+            color: white;
+        }
+
+        .blue {
+            background: var(--COL4);
+            color: white;
+        }
+
+        main {
+            display: grid;
+            grid-template-columns: 1fr [content-start] min(65ch, 100%) [content-end] 1fr;
+            min-height: 100vh;
+        }
+
+        main>figure {
+            grid-column: 1/-1;
+            margin-bottom: 2rem;
+        }
+
+        main>figure::after {
+            display: block;
+            position: absolute;
+            bottom: 0rem;
+            right: 0;
+            content: "";
+            height: 4rem;
+            width: 4rem;
+            clip-path: polygon(0 0, 100% 0%, 100% 100%);
+            background: var(--COL3);
+        }
+
+        figure.hero {
+            position: relative;
+        }
+
+        figure.hero>img {
+            width: 100%;
+            max-height: 30rem;
+            object-fit: cover;
+            filter: grayscale(100%);
+        }
+
+        figure.hero>.hero-text {
+            position: absolute;
+            left: 50%;
+            top: 50%;
+            transform: translate(-50%, -50%);
+            z-index: 2;
+        }
+
+        figure>figcaption {
+            margin: 1rem;
+            margin-bottom: 0;
+            background: var(--COL3);
+            width: fit-content;
+            color: white;
+            font-weight: 600;
+            padding: 1rem;
+        }
+
+        .hero-text {
+            width: min(65ch, 100%);
+        }
+
+        .hero-text h1,
+        .hero-text h2 {
+            background: var(--COL1);
+            color: white;
+            width: fit-content;
+            padding: 1rem;
+            text-align: center;
+        }
+
+        .hero-text h1 {
+            font-size: 2rem;
+        }
+
+        .hero-text h2 {
+            font-weight: 400;
+            font-size: .9rem;
+            line-height: 1.5;
+        }
+
+        main>* {
+            grid-column: content-start/content-end;
+        }
+
+        main>p {
+            line-height: 2;
+            margin-bottom: 2rem;
+            padding: 0 1rem;
+        }
+
+        main>p>.first-letter {
+            font-size: 4rem;
+            line-height: 4rem;
+            color: var(--COL1)
+        }
+
+        .first-letter-second::first-letter {
+            font-size: 400%;
+            float: left;
+            line-height: 4rem;
+            color: var(--COL1);
+            font-weight: 800;
+        }
+
+
+        main>p::selection {
+            background: var(--COL1);
+            color: white;
+        }
+
+        footer {
+            margin-top: 2rem;
+            display: grid;
+            grid-template-columns: 1fr [content-start] min(65ch, 100%) [content-end] 1fr;
+            background-color: #db0a5b;
+            padding: 4rem 1rem;
+        }
+
+        footer>* {
+            color: white;
+            grid-column: content-start/content-end;
+        }
+
+        footer li {
+            color: white;
+        }
+
+        footer li::before {
+            display: inline-block;
+            content: "";
+            width: .5rem;
+            height: .5rem;
+            margin-right: 1rem;
+            background: var(--COL2);
+        }
+
+        q {
+            font-size: 1.2rem;
+            max-width: 50%;
+            border-top: .5rem solid var(--COL3);
+            border-bottom: .5rem solid var(--COL3);
+            padding: 2rem 0;
+            margin: 2rem;
+            font-weight: 600;
+            color: var(--COL1);
+            line-height: 1.2;
+        }
+
+        q.align-right {
+            float: right;
+            margin-right: 0;
+        }
+
+        q.align-left {
+            float: left;
+            margin-left: 0;
+        }
+    </style>
+</head>
+
+<body>
+    <main>
+        <figure class="hero">
+            <div class="hero-text">
+                <h1>Why the WHO took two years to say COVID is airborne</h1>
+                <h2>Early in the pandemic, the World Health Organization stated that SARS-CoV-2 was not transmitted
+                    through the air. That mistake and the prolonged process of correcting it sowed confusion and raises
+                    questions about what will happen in the next pandemic.</h2>
+            </div>
+            <img src="https://images.unsplash.com/photo-1649181014223-69dec3d72ac3?ixlib=rb-1.2.1&ixid=MnwxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8&auto=format&fit=crop&w=1469&q=80"
+                alt="a mountain landscape">
+            <figcaption>A mountain landscape from unsplash.</figcaption>
+        </figure>
+        <p>
+            <span class="first-letter">A</span>s 2021 drew to a close, the highly contagious Omicron variant of the
+            pandemic virus was racing around the
+            globe, forcing governments to take drastic actions once again. The Netherlands ordered most businesses to
+            close on 19 December, Ireland set curfews and many countries imposed travel bans in the hope of taming the
+            tsunami of COVID-19 cases filling hospitals. Amid the wave of desperate news around the year-end holidays,
+            one group of researchers hailed a development that had seemed as though it might never arrive. On 23
+            December, the World Health Organization (WHO) uttered the one word it had previously seemed incapable of
+            applying to the virus SARS-CoV-2: ‘airborne’.
+        </p>
+        <p>
+            On its website, a page titled ‘Coronavirus disease (COVID-19): How is it transmitted?’ <q
+                class="align-left">Coronavirus disease (COVID-19): How is it transmitted?</q>was quietly edited to
+            state that a person can be infected “when infectious particles that pass through the air are inhaled at
+            short range”, a process otherwise known as “short-range aerosol or short-range airborne transmission”. The
+            website says that transmission can occur through “long-range airborne transmission” in poorly ventilated or
+            crowded indoor settings “because aerosols can remain suspended in the air or travel farther than
+            conversational distance”.
+        </p>
+        <p>
+
+            “It was a relief to see them finally use the word ‘airborne’, and to say clearly that airborne transmission
+            and aerosol transmission are synonyms,” <q class="align-right">
+                It was a relief to see them finally use the word ‘airborne’, and to say clearly that airborne
+                transmission
+                and aerosol transmission are synonyms,
+            </q>says aerosol chemist Jose-Luis Jimenez at the University of Colorado
+            Boulder.
+        </p>
+        <p>
+            The seemingly uncontroversial statement marked a clear shift for the Switzerland-based WHO, which had
+            tweeted categorically early in the pandemic, “FACT: #COVID19 is NOT airborne,” casting the negative in
+            capital letters as if to remove any doubt. At that time, the agency maintained that the virus spreads mainly
+            through droplets produced when a person coughs, sneezes or speaks, an assumption based on decades-old
+            infection-control teachings about how respiratory viruses generally pass from one person to another. The
+            guidance recommended distancing of more than one metre — within which these droplets were thought to fall to
+            the ground — along with hand washing and surface disinfection to stop transfer of droplets to the eyes, nose
+            and mouth.
+        </p>
+
+        <figure class="hero">
+            <img src="https://images.unsplash.com/photo-1648969745116-826052a8782a?ixlib=rb-1.2.1&ixid=MnwxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8&auto=format&fit=crop&w=1104&q=80"
+                alt="An orange suset with a yellow sun.  the forest is black.">
+            <figcaption>A sunset from unsplash.</figcaption>
+        </figure>
+        <p class="first-letter-second">
+            It took until 20 October 2020 for the agency to acknowledge that aerosols — tiny specks of fluid — can
+            transmit the virus, but the WHO said this was a concern only in specific settings, such as indoor, crowded
+            and inadequately ventilated spaces. Over the next six months, the agency gradually altered its advice to say
+            that aerosols could carry the virus for more than a metre and remain in the air (see ‘Changing views of how
+            COVID spreads’).
+        </p>
+        <p class="first-letter-second">
+            But this latest tweak is the WHO’s clearest statement yet about airborne transmission of SARS-CoV-2. And it
+            places the virus among a select group of ‘airborne’ infections, a label long reserved for just a handful of
+            the world’s most virulent pathogens, including measles, chickenpox and tuberculosis.
+        </p>
+        <p>
+            The change brings the WHO’s messaging in line with what a chorus of aerosol and public-health experts have
+            been trying to get it to say since the earliest days of the outbreak. Many decry the agency’s slowness in
+            stating — unambiguously — that SARS-CoV-2 is airborne. Interviews conducted by Nature with dozens of
+            specialists on disease transmission suggest that the WHO’s reluctance to accept and communicate evidence for
+            airborne transmission was based on a series of problematic assumptions about how respiratory viruses spread.
+        </p>
+        <p class="first-letter-second">
+            For example, even in the middle of the fast-moving epidemic, the WHO dismissed field epidemiology reports as
+            proof of airborne transmission because the evidence was not definitive, something that is difficult to
+            achieve quickly during an outbreak. Other criticisms are that the WHO relies on a narrow band of experts,
+            many of whom haven’t studied airborne transmission, and that it eschews a precautionary approach that could
+            have protected countless people in the early stages of the pandemic.
+        </p>
+        <p>
+            Critics say that inaction at the agency led to national and local health agencies around the world being
+            similarly sluggish in addressing the airborne threat. Having shifted its position incrementally over the
+            past two years, the WHO also failed to adequately communicate its changing position, they say. As a result,
+            it didn’t emphasize early enough and clearly enough the importance of ventilation and indoor masking, key
+            measures that can prevent airborne spread of the virus. Lidia Morawska, an aerosol scientist at the
+            Queensland University of Technology in Brisbane, Australia, spearheaded several efforts to convince the WHO
+            and other health agencies of the airborne threat. She says that airborne transmission was “so obvious” as
+            far back as February 2020, and that omitting it from official guidelines was disastrous.
+        </p>
+
+    </main>
+    <footer>
+        <p>
+            Styled and on April 23, 2022.
+        </p>
+        <p>
+            Attempted the following: <br />
+        <ul>
+            <li>Filters for images</li>
+            <li>Making the first letter of a paragraph larger</li>
+            <li>Pretentious elements, that serve no purpose, after the images</li>
+        </ul>
+        </p>
+        <p>
+            Article (partially copied) by Dyani Lewis from Nature <a
+                href="https://www.nature.com/articles/d41586-022-00925-7">here</a>.
+        </p>
+    </footer>
+
+
+    <script>
+
+
+    </script>
+</body>
+
+</html>

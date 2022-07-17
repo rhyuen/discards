@@ -1,0 +1,284 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta name='color-scheme' content='dark light'>
+    <link rel="preconnect" href="https://fonts.gstatic.com">
+    <link href="https://fonts.googleapis.com/css2?family=Inter&display=swap" rel="stylesheet">
+    <title>4/23/22</title>
+
+
+    <style>
+        * {
+            box-sizing: border-box;
+            font-size: 16px;
+            font-family: 'Inter', sans-serif;
+            color: black;
+            --GREY: rgba(0, 0, 0, 0.1);
+            --PRIMARY_COLOR: #98E690;
+            --SECONDARY_COLOR: white;
+            --COL1: #db0a5b;
+            --COL2: #fef160;
+            --COL3: #23cba7;
+            --COL4: #3e6ceb;
+            --COL5: rgb(212, 204, 212);
+        }
+
+        ::-webkit-scrollbar {
+            width: 0.8rem;
+            height: 0.5rem;
+        }
+
+        /* Track */
+        ::-webkit-scrollbar-track {
+            background: black;
+        }
+
+        /* Handle */
+        ::-webkit-scrollbar-thumb {
+            background: var(--COL3);
+        }
+
+        /* Handle on hover */
+        ::-webkit-scrollbar-thumb:hover {
+            background: var(--COL2);
+        }
+
+
+        html,
+        body {
+            margin: 0;
+            height: 100vh;
+            background: #f3f3f3;
+            width: 100vw;
+        }
+
+
+        h1 {
+            margin: 0;
+            padding: 0;
+        }
+
+        @keyframes fadein {
+            from {
+                opacity: 0;
+            }
+        }
+
+        figure {
+            margin: 0;
+            padding: 0;
+            animation: fadein .4s .4s linear;
+        }
+
+        a {
+            color: var(--COL3);
+
+            text-decoration: none;
+        }
+
+
+        ul {
+            list-style-type: none;
+            margin: 0;
+        }
+
+
+
+        .red {
+            background: var(--COL1);
+            color: white;
+        }
+
+        .yellow {
+            background: var(--COL2);
+            color: black;
+        }
+
+        .green {
+            background: var(--COL3);
+            color: white;
+        }
+
+        .blue {
+            background: var(--COL4);
+            color: white;
+        }
+
+
+        main {
+            height: 90vh;
+            display: flex;
+            flex-direction: column;
+            justify-content: center;
+
+        }
+
+        .horizontal-bar {
+            display: flex;
+            overflow-x: scroll;
+            scroll-snap-type: x mandatory;
+            padding: 4rem 2rem;
+            scroll-behavior: smooth;
+            margin: 0 4rem;
+            position: relative;
+            cursor: grab;
+        }
+
+        .horizontal-bar>li {
+            transition: all .2s ease-in-out;
+            scroll-snap-align: center;
+        }
+
+        .horizontal-bar>li:hover {
+            transform: translateY(-2rem);
+            filter: drop-shadow(0 40mm 4mm rgba(0, 0, 0, 0.2));
+        }
+
+        .horizontal-bar>li:last-child {
+            margin-right: 0;
+        }
+
+        .horizontal-bar>li>a {
+            user-select: none;
+        }
+
+        .horizontal-bar>li>a:focus {
+            filter: drop-shadow(0 20mm 4mm rgba(0, 0, 0, 0.1));
+        }
+
+
+        figure {
+            aspect-ratio: 2/3;
+            width: 25rem;
+            margin-right: 4rem;
+        }
+
+
+        img {
+            width: 100%;
+            height: 100%;
+            object-fit: cover;
+            padding-bottom: 1rem;
+        }
+
+        figcaption {
+            width: 75%;
+        }
+
+        footer {
+            margin: 0 auto;
+            padding: 0 6rem;
+            height: 5vh;
+        }
+    </style>
+</head>
+
+<body>
+    <main>
+        <ul id="mp" class="horizontal-bar">
+        </ul>
+
+    </main>
+    <footer>
+        <p>Done on April 27, 2022</p>
+        <p>Images from Unsplash.</p>
+    </footer>
+
+    <script>
+
+        const mp = document.getElementById("mp");
+        const data = [{
+            src: "https://images.unsplash.com/photo-1650832509092-8ea993c41975?ixlib=rb-1.2.1&ixid=MnwxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8&auto=format&fit=crop&w=687&q=80",
+            alt: "A camera lens.",
+            caption: "A camera lens."
+        }, {
+            src: "https://images.unsplash.com/photo-1650848800724-efc1c7279acc?ixlib=rb-1.2.1&ixid=MnwxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8&auto=format&fit=crop&w=1636&q=80",
+            alt: "A sunset with mountains.",
+            caption: "A sunset with mountains."
+        }, {
+            src: "https://images.unsplash.com/photo-1650853282913-9a3ecb60aa53?ixlib=rb-1.2.1&ixid=MnwxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8&auto=format&fit=crop&w=1471&q=80",
+            alt: "A sunset with roads and a body of water.",
+            caption: "A sunset with roads and a body of water."
+        }, {
+            src: "https://images.unsplash.com/photo-1650873797988-abf1338073ca?ixlib=rb-1.2.1&ixid=MnwxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8&auto=format&fit=crop&w=688&q=80",
+            alt: "A path to a beach.",
+            caption: "A path to a beach."
+        }, {
+            src: "https://images.unsplash.com/photo-1650871604168-2e8b22829db8?ixlib=rb-1.2.1&ixid=MnwxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8&auto=format&fit=crop&w=1412&q=80",
+            alt: "A green and gray staircase or post-its.",
+            caption: "A green and gray staircase or post-its."
+        }, {
+            src: "https://images.unsplash.com/photo-1650871669661-8914cf440a4a?ixlib=rb-1.2.1&ixid=MnwxMjA3fDB8MHx0b3BpYy1mZWVkfDd8NnNNVmpUTFNrZVF8fGVufDB8fHx8&auto=format&fit=crop&w=500&q=60",
+            alt: "A bank of snow on a cliff.",
+            caption: "A bank of snow on a cliff."
+        }, {
+            src: "https://images.unsplash.com/photo-1650869739665-6e3b7ec3dd8f?ixlib=rb-1.2.1&ixid=MnwxMjA3fDB8MHx0b3BpYy1mZWVkfDExfDZzTVZqVExTa2VRfHxlbnwwfHx8fA%3D%3D&auto=format&fit=crop&w=500&q=60",
+            alt: "Looking up whilst in a canyon.",
+            caption: "Looking up whilst in a canyon."
+        }, {
+            src: "https://images.unsplash.com/photo-1650575185249-2b6a65f92d6c?ixlib=rb-1.2.1&ixid=MnwxMjA3fDB8MHx0b3BpYy1mZWVkfDl8NnNNVmpUTFNrZVF8fGVufDB8fHx8&auto=format&fit=crop&w=500&q=60",
+            alt: "A tall cactus.",
+            caption: "A tall cactus."
+        }, {
+            src: "https://images.unsplash.com/photo-1650830248740-7d1e07ca2b76?ixlib=rb-1.2.1&ixid=MnwxMjA3fDB8MHx0b3BpYy1mZWVkfDE0fDZzTVZqVExTa2VRfHxlbnwwfHx8fA%3D%3D&auto=format&fit=crop&w=500&q=60",
+            alt: "A shooting star",
+            caption: "A shooting star"
+        }, {
+            src: "https://images.unsplash.com/photo-1650790109039-0eff445a65f3?ixlib=rb-1.2.1&ixid=MnwxMjA3fDB8MHx0b3BpYy1mZWVkfDIxfDZzTVZqVExTa2VRfHxlbnwwfHx8fA%3D%3D&auto=format&fit=crop&w=500&q=60",
+            alt: "A desert with some sparse trees.",
+            caption: "A desert with some sparse trees."
+        }, {
+            src: "https://images.unsplash.com/photo-1650564365557-b987ac5d219e?ixlib=rb-1.2.1&ixid=MnwxMjA3fDB8MHx0b3BpYy1mZWVkfDI1fDZzTVZqVExTa2VRfHxlbnwwfHx8fA%3D%3D&auto=format&fit=crop&w=500&q=60",
+            alt: "A sun in the sky with a mountain range and palm tree visible.",
+            caption: "A sun in the sky with a mountain range and palm tree visible."
+        }, {
+            src: "https://images.unsplash.com/photo-1625514279739-1a56cea485f9?ixlib=rb-1.2.1&ixid=MnwxMjA3fDB8MHx0b3BpYy1mZWVkfDMyfDZzTVZqVExTa2VRfHxlbnwwfHx8fA%3D%3D&auto=format&fit=crop&w=500&q=60",
+            alt: "A small island of trees in a body of water.",
+            caption: "A small island of trees in a body of water."
+        }, {
+            src: "https://images.unsplash.com/photo-1650400716131-12a410e12975?ixlib=rb-1.2.1&ixid=MnwxMjA3fDB8MHx0b3BpYy1mZWVkfDM2fDZzTVZqVExTa2VRfHxlbnwwfHx8fA%3D%3D&auto=format&fit=crop&w=500&q=60",
+            alt: "A forest with an open space.  There's snow.",
+            caption: "A forest with an open space.  There's snow."
+        }, {
+            src: "https://images.unsplash.com/photo-1650374471470-a46867a3ce06?ixlib=rb-1.2.1&ixid=MnwxMjA3fDB8MHx0b3BpYy1mZWVkfDU3fDZzTVZqVExTa2VRfHxlbnwwfHx8fA%3D%3D&auto=format&fit=crop&w=500&q=60",
+            alt: "A sunset with a boat on open water.",
+            caption: "A sunset with a boat on open water."
+        }, {
+            src: "https://images.unsplash.com/photo-1650324705564-2eb0b6b23954?ixlib=rb-1.2.1&ixid=MnwxMjA3fDB8MHx0b3BpYy1mZWVkfDY3fDZzTVZqVExTa2VRfHxlbnwwfHx8fA%3D%3D&auto=format&fit=crop&w=500&q=60",
+            alt: "A tree with a body of water.",
+            caption: "A tree with a body of water."
+        }, {
+            src: "https://images.unsplash.com/photo-1650059331311-3f2e54dc2af6?ixlib=rb-1.2.1&ixid=MnwxMjA3fDB8MHx0b3BpYy1mZWVkfDcyfDZzTVZqVExTa2VRfHxlbnwwfHx8fA%3D%3D&auto=format&fit=crop&w=500&q=60",
+            alt: "A forested mountain side with a body of water preceding it.",
+            caption: "A forested mountain side with a body of water preceding it."
+        }];
+
+        for (let i = 0; i < data.length; i++) {
+            const { src, alt, caption } = data[i];
+
+            const listItem = document.createElement("li");
+            const anchor = document.createElement("a");
+            anchor.href = "#";
+            const figure = document.createElement("figure");
+            const img = document.createElement("img");
+            img.src = src;
+            img.alt = alt;
+            const figcap = document.createElement("figcaption");
+            figcap.textContent = caption;
+            figure.appendChild(img);
+            figure.appendChild(figcap);
+            anchor.appendChild(figure);
+            listItem.appendChild(anchor);
+
+            mp.appendChild(listItem);
+        }
+
+
+    </script>
+</body>
+
+</html>

@@ -1,0 +1,400 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <link rel="preconnect" href="https://fonts.gstatic.com">
+    <link href="https://fonts.googleapis.com/css2?family=Inter&display=swap" rel="stylesheet"> 
+    <title>07 30</title>
+    
+
+        <style>
+            * {                
+                box-sizing: border-box;
+                font-size: 16px;
+                font-family: 'Inter', sans-serif;                
+                --PRIMARY_COLOR: #c23b22;
+                --SECONDARY_COLOR: white;
+            }      
+
+            ::-webkit-scrollbar {                
+                width: 0.8rem;
+                height: 0.5rem;
+            }
+
+            /* Track */
+            ::-webkit-scrollbar-track {
+                background: black;
+            }
+
+            /* Handle */
+            ::-webkit-scrollbar-thumb {
+                background: rgb(209, 171, 121);
+            }
+
+            /* Handle on hover */
+            ::-webkit-scrollbar-thumb:hover {
+                background: #d3d3d3;
+            }
+                       
+
+            html, body{
+                margin: 0;
+                height: 100vh;                
+                background: #f3f3f3;                                
+            }
+
+          
+            ul{
+                margin: 0;
+                padding: 0;
+                list-style-type: none;
+            }
+            nav{
+                height: 5rem;            
+                background-color: var(--PRIMARY_COLOR);                    
+                margin-bottom: 1rem;                
+            }
+            
+
+            a{
+                text-decoration: none;
+                color: black;
+            }
+
+            .container{
+                display: flex;
+                justify-content: flex-start;
+                height: 100%;
+                align-items: center;                
+                margin: 0 auto;
+                max-width: 1100px;
+            }
+
+            .container__item{
+                margin-right: 2rem;
+            }
+            .container__item:last-child{
+                margin-right: 0;
+            }
+            .container__item a{
+                color: white;
+                position: relative;
+            }
+            .container__item a:after{
+                position: absolute;
+                bottom: -.5rem;
+                left: 0;
+                width: 100%;
+                content: '';
+                height: .1rem;                                                
+                background-color: white;
+                transform-origin: center;
+                opacity: 0;
+                transform: scale(0);
+                transition: opacity .2s ease-in-out, transform .2s ease-in-out;
+            }
+
+            .container__item a:hover::after{
+                opacity: 1;
+                transform: scale(1);
+                
+            }
+
+            main{
+                display: grid;        
+                margin: 0 auto;
+                max-width: 1100px;                        
+                grid-gap: 1rem;
+                grid-template-columns: repeat(auto-fit, minmax(250px, 1fr));
+            }
+            
+
+            a.grid__item{
+                grid-column: span 1;
+                position: relative;
+            }
+            a.grid__item:after{
+                content: '';
+                padding-bottom: 100%;
+                display: block;
+                background-color: var(--PRIMARY_COLOR);
+            }
+            .grid__item__content{
+                background-color: white;                
+                height: 100%;
+                width: 100%;              
+                display: flex;
+                justify-content: center;  
+                align-items: center;
+                position: absolute;
+                font-size: 3rem;
+                font-weight: 800;
+                inset: 0;                                
+            }
+
+            
+
+
+            
+        </style>
+    <body>  
+        <nav>
+            <ul class='container'>
+                <li class='container__item'><a href='#'>Home</a></li>
+                <li class='container__item'><a href='#'>About</a></li>
+                <li class='container__item'><a href='#'>Contact</a></li>                
+            </ul>
+        </nav>
+        <main>
+            <a href='#' class='grid__item'>
+                <div class='grid__item__content'>
+                    <canvas id='first'></canvas>
+                </div>                
+            </a>
+            <a href='#' class='grid__item'>
+                <div class='grid__item__content'>
+                    <canvas id='second'></canvas>
+                </div>                
+            </a>
+            <a href='#' class='grid__item'>
+                <div class='grid__item__content'>
+                    <canvas id='third'></canvas>
+                </div>                
+            </a>
+            <a href='#' class='grid__item'>
+                <div class='grid__item__content'>
+                    <canvas id='fourth'></canvas>
+                </div>                
+            </a>
+            <a href='#' class='grid__item'>
+                <div class='grid__item__content'>
+                    <canvas id='fifth'></canvas>
+                </div>                
+            </a>
+            <a href='#' class='grid__item'>
+                <div class='grid__item__content'>
+                    <canvas id='sixth'></canvas>
+                </div>                
+            </a>
+            <a href='#' class='grid__item'>
+                <div class='grid__item__content'>
+                    <canvas id='seventh'></canvas>
+                </div>                
+            </a>
+        </main>                 
+        <script src="https://cdn.jsdelivr.net/npm/chart.js"></script>
+        <script type='text/javascript'>
+        let config = {
+            type: 'bar',
+            data: {
+                labels: ['Red', 'Blue', 'Yellow', 'Green', 'Purple', 'Orange'],
+                datasets: [{
+                    label: '# of Votes',
+                    data: [12, 19, 3, 5, 2, 3],
+                    backgroundColor: [
+                        'rgba(255, 99, 132, 0.2)',
+                        'rgba(54, 162, 235, 0.2)',
+                        'rgba(255, 206, 86, 0.2)',
+                        'rgba(75, 192, 192, 0.2)',
+                        'rgba(153, 102, 255, 0.2)',
+                        'rgba(255, 159, 64, 0.2)'
+                    ],
+                    borderColor: [
+                        'rgba(255, 99, 132, 1)',
+                        'rgba(54, 162, 235, 1)',
+                        'rgba(255, 206, 86, 1)',
+                        'rgba(75, 192, 192, 1)',
+                        'rgba(153, 102, 255, 1)',
+                        'rgba(255, 159, 64, 1)'
+                    ],
+                    borderWidth: 1
+                }]
+            },
+            options: {
+                scales: {
+                    y: {
+                        beginAtZero: true
+                    }
+                }
+            }
+        };
+        let blah = new Chart(document.getElementById("first"), config);
+
+
+        let secondConfig = {
+            type: 'bar',
+            data: {
+                labels: ['Red', 'Blue', 'Yellow', 'Green', 'Purple', 'Orange'],
+                datasets: [{
+                    label: '# of Votes',
+                    data: [12, 19, 3, 5, 2, 3],
+                    backgroundColor: [
+                        'rgba(255, 99, 132, 0.2)',
+                        'rgba(54, 162, 235, 0.2)',
+                        'rgba(255, 206, 86, 0.2)',
+                        'rgba(75, 192, 192, 0.2)',
+                        'rgba(153, 102, 255, 0.2)',
+                        'rgba(255, 159, 64, 0.2)'
+                    ]                    
+                }]
+            },
+            options: {
+                scales: {
+                    y: {
+                        beginAtZero: true
+                    }
+                }
+            }
+        };
+
+        let second = new Chart(document.getElementById('second'), secondConfig);
+
+        const thirdData = {
+            labels: [
+                'Red',
+                'Blue',
+                'Yellow'
+            ],
+            datasets: [{
+                label: 'My third Dataset',
+                data: [300, 50, 100],
+                backgroundColor: [
+                    'rgb(255, 99, 132)',
+                    'rgb(54, 162, 235)',
+                    'rgb(255, 205, 86)'
+                ],
+                hoverOffset: 4
+            }]
+        };
+        const thirdConfig = {
+            type: 'pie',
+            data: thirdData,
+        }
+        let third = new Chart(document.getElementById("third"), thirdConfig);
+
+
+        const fourthData= {
+            labels: [
+                'Red',
+                'Blue',
+                'Yellow'
+            ],
+            datasets: [{
+                label: 'My First Dataset',
+                data: [300, 50, 100],
+                backgroundColor: [
+                'rgb(255, 99, 132)',
+                'rgb(54, 162, 235)',
+                'rgb(255, 205, 86)'
+                ],
+                hoverOffset: 4
+            }]
+        };
+        const fourthConfig = {
+            type: "doughnut",
+            data: fourthData
+        };
+        let fourth = new Chart(document.getElementById('fourth'), fourthConfig);
+
+        const fifthData = {
+            labels: [
+                'Red',
+                'Green',
+                'Yellow',
+                'Grey',
+                'Blue'
+            ],
+            datasets: [{
+                label: 'My fifth Dataset',
+                data: [11, 16, 7, 3, 14],
+                backgroundColor: [
+                'rgb(255, 99, 132)',
+                'rgb(75, 192, 192)',
+                'rgb(255, 205, 86)',
+                'rgb(201, 203, 207)',
+                'rgb(54, 162, 235)'
+                ]
+            }]
+        };;
+        const fifthConfig = {
+            type: 'polarArea',
+            data: fifthData,
+            options: {}
+        };
+        let fifth = new Chart(document.getElementById('fifth'), fifthConfig);
+
+
+        const sixthData  = {
+            labels: [
+                'Eating',
+                'Drinking',
+                'Sleeping',
+                'Designing',
+                'Coding',
+                'Cycling',
+                'Running'
+            ],
+            datasets: [{
+                label: 'My First Dataset',
+                data: [65, 59, 90, 81, 56, 55, 40],
+                fill: true,
+                backgroundColor: 'rgba(255, 99, 132, 0.2)',
+                borderColor: 'rgb(255, 99, 132)',
+                pointBackgroundColor: 'rgb(255, 99, 132)',
+                pointBorderColor: '#fff',
+                pointHoverBackgroundColor: '#fff',
+                pointHoverBorderColor: 'rgb(255, 99, 132)'
+            }, {
+                label: 'My Second Dataset',
+                data: [28, 48, 40, 19, 96, 27, 100],
+                fill: true,
+                backgroundColor: 'rgba(54, 162, 235, 0.2)',
+                borderColor: 'rgb(54, 162, 235)',
+                pointBackgroundColor: 'rgb(54, 162, 235)',
+                pointBorderColor: '#fff',
+                pointHoverBackgroundColor: '#fff',
+                pointHoverBorderColor: 'rgb(54, 162, 235)'
+            }]
+            };
+        const sixthConfig = {
+            type: 'radar',
+            data: sixthData,
+            options: {
+                elements: {
+                    line: {
+                        borderWidth: 3
+                    }
+                }
+            },
+        };
+        let sixth = new Chart(document.getElementById('sixth'), sixthConfig);
+
+        let seventhConfig = {
+            type: 'bar',
+            data: {
+                labels: ['Red', 'Blue', "Blue2", "green"],
+                datasets: [{
+                    label: ['# of Votes'],
+                    data: [50, 100, 25, 57],
+                    backgroundColor: [
+                        'rgba(255, 99, 132, 0.2)',
+                        'rgba(54, 162, 235, 0.2)',
+                        'rgba(54, 162, 235, 0.2)',
+                        'green'
+                    ]                    
+                }]
+            },
+            options: {
+                scales: {
+                    y: {
+                        beginAtZero: true
+                    }
+                }
+            }
+        };
+        let seventh = new Chart(document.getElementById("seventh"), seventhConfig);
+        </script>
+    </body>
+</html>

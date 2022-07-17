@@ -1,0 +1,404 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta name='color-scheme' content='dark light'>
+    <link rel="preconnect" href="https://fonts.gstatic.com">
+    <link href="https://fonts.googleapis.com/css2?family=Inter&display=swap" rel="stylesheet">
+    <title>4/23/22</title>
+
+
+    <style>
+        * {
+            box-sizing: border-box;
+            font-size: 16px;
+            font-family: 'Inter', sans-serif;
+            color: black;
+            --GREY: rgba(0, 0, 0, 0.1);
+            --PRIMARY_COLOR: #98E690;
+            --SECONDARY_COLOR: white;
+            --COL1: #db0a5b;
+            --COL2: #fef160;
+            --COL3: #23cba7;
+            --COL4: #3e6ceb;
+            --COL5: rgb(212, 204, 212);
+        }
+
+        ::-webkit-scrollbar {
+            width: 0.8rem;
+            height: 0.5rem;
+        }
+
+        /* Track */
+        ::-webkit-scrollbar-track {
+            background: black;
+        }
+
+        /* Handle */
+        ::-webkit-scrollbar-thumb {
+            background: var(--COL3);
+        }
+
+        /* Handle on hover */
+        ::-webkit-scrollbar-thumb:hover {
+            background: var(--COL2);
+        }
+
+
+        html,
+        body {
+            margin: 0;
+            overflow-x: hidden;
+            background: #f3f3f3;
+            width: 100vw;
+
+        }
+
+
+
+        h1 {
+            font-size: 3rem;
+            margin: 0;
+            padding: 0;
+        }
+
+
+        @keyframes fadein {
+            from {
+                opacity: 0;
+            }
+        }
+
+        figure {
+            margin: 0;
+            padding: 0;
+            animation: fadein .4s .4s linear;
+        }
+
+        a {
+            color: var(--COL3);
+
+            text-decoration: none;
+        }
+
+
+        ul {
+            list-style-type: none;
+            margin: 0;
+        }
+
+
+
+        .red {
+            background: var(--COL1);
+            color: white;
+        }
+
+        .yellow {
+            background: var(--COL2);
+            color: black;
+        }
+
+        .green {
+            background: var(--COL3);
+            color: white;
+        }
+
+        .blue {
+            background: var(--COL4);
+            color: white;
+        }
+
+        main {
+
+            display: grid;
+            grid-template-columns: 2fr [content-start] min(65ch, 100%) [content-end] min(30ch, 100%) [image-end] 2fr;
+        }
+
+        main>* {
+            grid-column: content-start/content-end;
+            margin-bottom: 2rem;
+            padding: 0 1rem;
+        }
+
+        h2 {
+            font-size: 1.5rem;
+            border-bottom: .4rem solid var(--COL3);
+            width: fit-content;
+            line-height: 1.5;
+            padding: 1rem 0;
+            color: var(--COL1);
+            font-weight: 800;
+            margin-left: 1rem;
+        }
+
+        main>p {
+            line-height: 2;
+        }
+
+        figure {
+            width: 100%;
+            height: 20rem;
+            grid-column: content-start/image-end;
+            margin-bottom: 4rem;
+        }
+
+        img {
+            object-fit: cover;
+            height: 100%;
+            width: 100%;
+        }
+
+        figcaption {
+            background-color: var(--COL3);
+            width: fit-content;
+            padding: .5rem 1rem;
+            color: white;
+        }
+
+        .double {
+            display: flex;
+            flex-direction: column;
+            grid-column: content-start/image-end;
+        }
+
+        .double>* {
+            margin-right: 1rem;
+        }
+
+        .double>:last-child {
+            margin-right: 0;
+        }
+
+        figure.content-size {
+            grid-column: content-start/content-end;
+        }
+
+        footer {
+            display: grid;
+            grid-template-columns: 2fr [content-start] min(65ch, 100%) min(30ch, 100%) [content-end] 2fr;
+            padding: 4rem 1rem;
+        }
+
+        footer>* {
+            grid-column: content-start/content-end;
+        }
+
+        @media screen and (min-width: 800px) {
+            .double {
+                flex-direction: row;
+            }
+        }
+    </style>
+</head>
+
+<body>
+    <main>
+        <figure>
+            <img src="https://images.unsplash.com/photo-1650848800724-efc1c7279acc?ixlib=rb-1.2.1&ixid=MnwxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8&auto=format&fit=crop&w=1636&q=80"
+                alt="sunset with mountains">
+            <figcaption>A sunset with mountains.</figcaption>
+        </figure>
+        <h1>Vancouver police 'fear-mongering' by highlighting violent crime, expert says</h1>
+        <p>
+            Data provided by the Vancouver Police Department doesn't support the notion that there has been a
+            significant spike in violent crime in the city recently, according to an expert who has been looking at
+            trends for the past 25 years.
+        </p>
+        <p>
+            Professor Martin Andresen, a criminologist at SFU, says the notion that the city has become less safe has
+            been shaped, at least in part, by the communications coming from the Vancouver Police Department (VPD)
+            through press releases and social media posts that have emphasized random acts of violence.
+        </p>
+        <p>
+            "The cops, I think they have got a political agenda here. I don't think they're doing the public a proper
+            service by doing what they're doing -- they're fear-mongering," he says.
+        </p>
+        <p>
+            "Here's my hypothesis: What's happening is VPD is doing their best right now to literally scare the public
+            because they were facing a budget reduction from the City of Vancouver."
+        </p>
+        <div class="double">
+            <figure>
+                <img src="https://images.unsplash.com/photo-1650873797988-abf1338073ca?ixlib=rb-1.2.1&ixid=MnwxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8&auto=format&fit=crop&w=688&q=80"
+                    alt="A path to a beach.">
+                <figcaption>A path to a beach.</figcaption>
+            </figure>
+            <figure>
+                <img src="https://images.unsplash.com/photo-1650871669661-8914cf440a4a?ixlib=rb-1.2.1&ixid=MnwxMjA3fDB8MHx0b3BpYy1mZWVkfDd8NnNNVmpUTFNrZVF8fGVufDB8fHx8&auto=format&fit=crop&w=500&q=60"
+                    alt="Snow on a cliff.">
+                <figcaption>Snow on a cliff.</figcaption>
+            </figure>
+        </div>
+        <h2>
+            VPD BUDGET DEBATE, DECISION
+        </h2>
+        <p>
+            Last month, the province ordered City Council to reverse a decision not to increase the force's operating
+            budget by $5.7 million for 2021.
+        </p>
+        <p>
+            Responding to the decision, Chief Adam Palmer said restoring the funding will allow the department to meet
+            the city's "complex policing needs" by hiring more officers, referring to increased demands on the
+            department in the wake of council making the move in 2020.
+        </p>
+        <p>
+            "Since that time, Vancouver has been gripped by an abundance of public safety challenges, including the
+            ongoing Lower Mainland gang conflict, a surge in violent street crime, nearly 1,000 protests, concerning
+            levels of hate crime, and a growing number of people who tell us they just don’t feel as safe as they used
+            to, " Palmer wrote.
+        </p>
+        <p>
+            Asked whether the VPD's communication about violent crime in the city has been in any way shaped by this
+            budget decision, spokesperson Sgt. Steve Addison said, "No."
+        </p>
+        <p>
+            He said several factors go into deciding which crimes to publicize by issuing press releases or posting on
+            social media. The need to solicit the public's help with an investigation of a crime that has not been
+            solved is one. Appeals for witnesses, or distributing sketches or video of suspects are examples of this.
+        </p>
+        <p>
+            Alerting the public to crimes that have been solved, even when an arrest was made at the scene is also
+            something Addison says is part of the force's job.
+        </p>
+        <p>
+            "The citizens of Vancouver deserve to know what the Vancouver Police Department is doing to keep them safe,
+            and to apprehend offenders," he said.
+        </p>
+        <h2>
+            POLICE-PROVIDED DATA ON CRIME
+        </h2>
+        <p>
+            Last week, the Vancouver Police Department published its report on public safety indicators in the city for
+            the first quarter of 2022.
+        </p>
+        <p>
+            Overall, reported incidents of violent crime have remained relatively unchanged when compared to the same
+            time last year, and are down from the same time in 2020.
+        </p>
+        <p>
+            However, the report to the board also compares this year's numbers to the three-year average from 2017 to
+            2019.
+        </p>
+        <p>
+            "These numbers show that many serious crimes are on the rise, compared to pre-pandemic levels," the
+            department said in a tweet accompanied by an image showing percentage increases and decreases for some types
+            of crime.
+        </p>
+        <p>
+            But Andresen says when looking at these reports, it's important to look beyond percentages and focus on the
+            actual numbers.
+        </p>
+        <p>
+            "Are these changes really changing risk?" he asks
+        </p>
+        <p>
+            In Q1 2022, there was a 0.8 per cent decrease in police-reported violent crime compared to the same time
+            last year. That works out to 11 fewer incidents. Compared to 2020, the number is down to 1,397 from 1,451 –
+            a decrease of 54 incidents, or 3.7 per cent. Using that figure as a basis for comparison, the report shows
+            an increase of 147 incidents, or 12 per cent.
+            This increase translates into an average of 1.6 more reports per day. All crimes are bad, especially violent
+            crimes. Nobody wants to be a victim of violent crime, I don't want to
+            minimize that," Andresen says. "There aren't that many of these crimes when you consider the grand scheme of
+            what police end up working with. He points out that, over all, violent crime makes up just a small fraction
+            of what police are called
+            to respond to, and says the most violent crimes make up a mere fraction of calls for service.
+        </p>
+        <h2>OVERALL CALLS FOR SERVICE DOWN</h2>
+        <p>
+            The department says, in its report, that calls for service include 911 reports, calls to the non-emergency
+            line and online crime reporting.
+
+            The VPD received 51,870 calls for service in the first quarter of 2022. Of those 1,397 were reports of
+            violent crime, which means those reports comprised about 2.5 per cent of the total.
+
+            The report does not compare the total number of calls for service in Q1 of 2022 with the pre-pandemic time
+            period. However, that three-year average from 2017 to 2019 is 61,831. That works out to 9,961 fewer calls
+            for service in the first quarter of this year -- or 110 per day on average.
+        </p>
+        <figure class="content-size">
+            <img src="https://images.unsplash.com/photo-1650871604168-2e8b22829db8?ixlib=rb-1.2.1&ixid=MnwxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8&auto=format&fit=crop&w=1412&q=80"
+                alt="A staircase of post-its">
+            <figcaption>A staircase of post-its.</figcaption>
+        </figure>
+        <p>
+            The VPD's focus on an increase in violent crime, Andresen maintains, can't and shouldn’t be abstracted from
+            other public debates and conversations on the role of police, particularly the only recently-resolved matter
+            of the budget and the proposition of "defunding the police" by investing money in health, housing, and
+            social services.
+        </p>
+        <p>
+            "I think that this is highly political, to basically scare the public into supporting them to increase
+            police funding."
+        </p>
+        <h2>
+            POLICE CITE CONCERNING INCREASE IN MOST SERIOUS ASSAULTS
+        </h2>
+        <p>
+            An increase in serious assaults, which includes assault with a weapon, assault causing bodily harm, and
+            aggravated assault is something the police have said is a particularly troubling trend.
+
+            "It's a huge concern to the residents and the business community and the police. So that's an area that we
+            are concentrating a lot of resources on," Chief Adam Palmer said during February's board meeting, adding the
+            data available to the public does not fully capture " the random nature of a lot of the assaults and also
+            the violent shoplifting."
+
+            While 2022 shows a five per cent decrease in these crimes from 2021, and a 3.2 per cent decrease from 2020
+            the number of reports when compared to the three-year pre-pandemic timeframe is up 36.1 per cent.
+
+            That works out to an increase of 111 incidents, an average increase of 1.2 per day.
+        </p>
+        <figure class="content-size">
+            <img src="https://images.unsplash.com/photo-1650871604168-2e8b22829db8?ixlib=rb-1.2.1&ixid=MnwxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8&auto=format&fit=crop&w=1412&q=80"
+                alt="A staircase of post-its">
+            <figcaption>A staircase of post-its.</figcaption>
+        </figure>
+        <p>
+            Andresen agrees with Palmer that the data does not tell the entire story.
+
+            "Who are these people who are in our communities committing these assaults? Are these people who are not
+            getting the social services they need? Are they in mental health crisis? Are they in addiction crisis? Do
+            they need these additional social services that aren't being given to them because money is going into the
+            police budge instead of the public health budget?" Andresen asks.
+
+            Information about both victims and perpetrators is not immediately or publicly available – including data
+            about how many assaults are perpetrated by strangers.
+
+            Also missing is data about how many of these violent assaults were instances of domestic violence. The
+            increase in intimate partner violence has been called the "shadow pandemic," with organizations that work
+            with victims in B.C. and beyond reporting a spike in demand for their services amid COVID-19 restrictions.
+
+            That surge was particularly pronounced during the early days of the pandemic. Data from 17 police forces
+            across the country show that calls related to domestic disturbances - which could involve anything from a
+            verbal quarrel to reports of violence - rose by nearly 12 per cent between March and June of 2020 compared
+            to the same four months in 2019, according to a Statistics Canada analysis.
+        </p>
+    </main>
+    <footer>
+        <p>
+            Styled on April 30, 2022.
+        </p>
+        <p>
+            Article (copied in part by me ) by <a href="https://bc.ctvnews.ca/lisa-steacy-1.5850156">Lisa Steacy</a>
+            from <a
+                href="https://bc.ctvnews.ca/fear-mongering-vancouver-police-data-does-not-show-a-surge-in-violent-crime-expert-says-1.5875553">CTV
+                News</a>.
+        </p>
+        <p>
+            Images from unsplash.
+        </p>
+    </footer>
+
+    <script>
+
+
+
+
+
+    </script>
+</body>
+
+</html>

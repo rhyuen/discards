@@ -1,0 +1,219 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta name='color-scheme' content='dark light'>
+    <link rel="preconnect" href="https://fonts.gstatic.com">
+    <link href="https://fonts.googleapis.com/css2?family=Inter&display=swap" rel="stylesheet">
+    <title>1/27/22</title>
+
+
+    <style>
+        * {
+            box-sizing: border-box;
+            font-size: 16px;
+            font-family: 'Inter', sans-serif;
+            color: black;
+            --GREY: rgba(0, 0, 0, 0.1);
+            --PRIMARY_COLOR: #98E690;
+            --SECONDARY_COLOR: white;
+            --COL1: #db0a5b;
+            --COL2: #fef160;
+            --COL3: #23cba7;
+            --COL4: #3e6ceb;
+            --COL5: rgb(212, 204, 212);
+        }
+
+        ::-webkit-scrollbar {
+            width: 0.8rem;
+            height: 0.5rem;
+        }
+
+        /* Track */
+        ::-webkit-scrollbar-track {
+            background: black;
+        }
+
+        /* Handle */
+        ::-webkit-scrollbar-thumb {
+            background: var(--COL3);
+        }
+
+        /* Handle on hover */
+        ::-webkit-scrollbar-thumb:hover {
+            background: var(--COL2);
+        }
+
+
+        html,
+        body {
+            margin: 0;
+            height: 100vh;
+            background: #f3f3f3;
+        }
+
+
+        h1 {
+            margin: 0;
+            padding: 0;
+        }
+
+        figure {
+            margin: 0;
+            padding: 0;
+        }
+
+
+        ul {
+            list-style-type: none;
+            margin: 0;
+        }
+
+        .red {
+            background: var(--COL1);
+            color: white;
+        }
+
+        .yellow {
+            background: var(--COL2);
+            color: black;
+        }
+
+        .green {
+            background: var(--COL3);
+            color: white;
+        }
+
+        .blue {
+            background: var(--COL4);
+            color: white;
+        }
+
+        main {
+            display: grid;
+            grid-template-columns: 1fr [image-begin] 1fr [content-begin] min(600px, 100%) [content-end] 1fr [image-end] 1fr;
+        }
+
+        main>p {
+            grid-column: content-begin/content-end;
+            line-height: 2;
+            padding: 0 1rem;
+        }
+
+        .image {
+            object-fit: cover;
+            width: 100%;
+            height: 100%;
+            max-height: 50vh;
+            background: var(--COL1);
+            margin: 4rem 0;
+        }
+
+        .image:first-child {
+            margin-top: 0;
+        }
+
+        main>.image--full-width {
+            grid-column: image-begin/image-end;
+            border-left: 1rem solid #db0a5b;
+            border-right: 1rem solid #db0a5b;
+        }
+
+        main>.image--left-width {
+            grid-column: image-begin/content-end;
+            border-right: 1rem solid #db0a5b;
+        }
+
+        main>.image--right-width {
+            grid-column: content-begin/image-end;
+            border-left: 1rem solid #db0a5b;
+        }
+
+        footer {
+            display: grid;
+            grid-template-columns: 1fr [image-begin] 1fr [content-begin] min(600px, 100%) [content-end] 1fr [image-end] 1fr;
+            background: var(--COL2);
+            padding: 4rem;
+            margin-top: 4rem;
+        }
+
+        footer>p {
+            grid-column: image-begin/content-end;
+            font-family: 600;
+            font-size: 1.2rem;
+
+        }
+    </style>
+</head>
+
+<body>
+    <main>
+        <img class="image image--full-width" src="/public/images/64.jpg" alt="full page cover for an x-men comic book.">
+        <p>
+            The hope is that the half-million drone-planted seedlings will help the scorched forest rebound more quickly
+            than it could on its own. “If it’s a kilometer to the nearest living tree, it’s going to be a long time
+            before seed can get there, and so that’s where humans can step in, including with drone technology, to just
+            accelerate the recovery and long-term development of the area,” says John Bailey, a professor at Oregon
+            State University’s College of Forestry.
+        </p>
+        <p>
+            Drones take a different approach. For the pilot program, Guichon’s group and the government reporting entity
+            Forest Enhancement Society of British Columbia purchased fir and pine seeds from a nursery in California and
+            sent them to DroneSeed, a Seattle-based agrotech startup. “They put the seeds in the small vessel, the puck,
+            which contains a mix of soil and nutrients to give the seeds the best chance at germination,” Guichon says.
+        </p>
+        <img class="image image--left-width" src="/public/images/63.jpg" alt="full page cover for an x-men comic book.">
+        <p>
+            Bailey says there are key things to take into consideration when using drones to reseed forests. Some areas
+            in particular might not be hospitable to the seeded pucks. “Lower elevation, lower latitudes, south-facing,
+            steep slopes: they can get very hot, as well, and if you’ve lost all or most of the canopy cover to mediate
+            the heat, that can be a really harsh environment, even for a seedling that you plant in the ground, much
+            less a new seed germinating,” Bailey says.
+        </p>
+        <img class="image image--right-width" src="/public/images/62.jpg"
+            alt="full page cover for an x-men comic book.">
+        <p>
+            Trees can normally regenerate due to the scatterings of pine cones by the wind or with the help of animals.
+            But when a fire burns too hot, there is no way for seeds to survive and trees to grow back naturally in
+            charred soils. To help forests rebuild, communities are turning to technological alternatives — including
+            drones.
+        </p>
+        <p>
+            2017 was one of the worst fire seasons on record in British Columbia. Nearly 800,000 hectares went up in
+            smoke, taking with them homes, cars, and trees. For the local residents and First Nations communities in the
+            area, it was devastating. During that season, 20 different fires merged to form the Plateau Complex. (At the
+            time, it was the largest recorded fire in the province’s history.) While forest fires are a naturally
+            occurring hazard that have been happening for millennia, climate change and human activity have increased
+            the prevalence of wildfires in recent decades, in addition to exacerbating how severely they scorch.
+        </p>
+        <p>
+            “A lot of these areas where there have been wildfires, some of these areas have burnt so hot that there’s no
+            regeneration of seedlings,” Percy Guichon says. Guichon is the director of the Central Chilcotin
+            Rehabilitation, a reforestation and land management company in British Columbia. He is from the Tŝideldel
+            First Nation community that works in conjunction with the Tl’etinqox First Nations Government to reseed the
+            forests where the Plateau Complex fire burned. Both are local communities that were affected by the
+            devastating fires.
+        </p>
+    </main>
+    <footer>
+        <p>Made by Robert on April 18, 22</p>
+        <p>The above text is copied (out of order from the original) and is by <a
+                href="https://www.theverge.com/users/AshleyFranzen">Ashley Franzen</a>
+            from <a href="https://www.theverge.com/23022323/drones-wildfire-first-nation-british-columbia">The
+                Verge</a>.</p>
+        <p>Why? Just to practice using Grid. There was an article by Josh Comeau that demonstrated how to do something
+            similar and it has been a while since I had practiced it. Also, the design keeps popping up on sites like
+            TheVerge and The Guardian.</p>
+    </footer>
+
+
+    <script>
+
+
+    </script>
+</body>
+
+</html>

@@ -1,0 +1,200 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta name='color-scheme' content='dark light'>
+    <link rel="preconnect" href="https://fonts.gstatic.com">
+    <link href="https://fonts.googleapis.com/css2?family=Inter&display=swap" rel="stylesheet">
+    <title>1/27/22</title>
+
+
+    <style>
+        * {
+            box-sizing: border-box;
+            font-size: 16px;
+            font-family: 'Inter', sans-serif;
+            color: black;
+            --GREY: rgba(0, 0, 0, 0.1);
+            --PRIMARY_COLOR: #98E690;
+            --SECONDARY_COLOR: white;
+            --COL1: #db0a5b;
+            --COL2: #fef160;
+            --COL3: #23cba7;
+            --COL4: #3e6ceb;
+            --COL5: rgb(212, 204, 212);
+        }
+
+        ::-webkit-scrollbar {
+            width: 0.8rem;
+            height: 0.5rem;
+        }
+
+        /* Track */
+        ::-webkit-scrollbar-track {
+            background: black;
+        }
+
+        /* Handle */
+        ::-webkit-scrollbar-thumb {
+            background: var(--COL3);
+        }
+
+        /* Handle on hover */
+        ::-webkit-scrollbar-thumb:hover {
+            background: var(--COL2);
+        }
+
+
+        html,
+        body {
+            margin: 0;
+            height: 100vh;
+            background: #f3f3f3;
+        }
+
+
+        h1 {
+            margin: 0;
+            padding: 0;
+        }
+
+        figure {
+            margin: 0;
+            padding: 0;
+        }
+
+
+        ul {
+            list-style-type: none;
+            margin: 0;
+        }
+
+        .red {
+            background: var(--COL1);
+            color: white;
+        }
+
+        .yellow {
+            background: var(--COL2);
+            color: black;
+        }
+
+        .green {
+            background: var(--COL3);
+            color: white;
+        }
+
+        .blue {
+            background: var(--COL4);
+            color: white;
+        }
+
+        @keyframes fadein {
+            from {
+                opacity: 0;
+            }
+        }
+
+        dialog {
+            position: fixed;
+            width: 100vw;
+            height: 100vh;
+            display: none;
+            justify-content: center;
+            align-items: center;
+            background-color: transparent;
+            border: none;
+        }
+
+        form {
+            display: flex;
+            flex-direction: column;
+            align-items: flex-start;
+            justify-content: center;
+            width: 600px;
+            height: 10rem;
+            margin: 0 auto;
+            background-color: white;
+            border: .2rem solid #db0a5b;
+            border-radius: .5rem;
+            padding: 2rem;
+            animation: fadein .5s .1s both;
+        }
+
+        input[type='text'] {
+            background-color: white;
+            width: 100%;
+            padding: .5rem 1rem;
+            border: .2rem solid #db0a5b;
+            border-radius: .5rem;
+            margin: 1rem 0;
+        }
+
+        input[type='submit'] {
+            color: white;
+            font-weight: 600;
+            padding: .5rem 1rem;
+            border-radius: .5rem;
+            background: var(--COL1);
+            border: .2rem solid var(--COL1);
+        }
+    </style>
+</head>
+
+<body>
+    <main>
+        <dialog id="main-dialog">
+            <form id="modal-form">
+                <input type="text" id="modal-form-text" />
+                <input type="submit" value="Go">
+            </form>
+        </dialog>
+    </main>
+
+
+    <script>
+        const mainDialog = document.getElementById('main-dialog');
+        const modalForm = document.getElementById("modal-form");
+        const modalFormText = document.getElementById("modal-form-text");
+
+        modalForm.addEventListener("onsubmit", function (e) {
+            try {
+                console.log('sumibt');
+                e.preventDefault();
+
+            } catch (e) {
+                console.log(e)
+            }
+        })
+
+
+
+
+        window.addEventListener("keydown", function (e) {
+            // e.key is case sensitive, "Escape" works but "ESCAPE" does not.
+            if (e.key === 'Escape') {
+                console.log('escape');
+                mainDialog.style.display = "none";
+
+            }
+            if (e.ctrlKey && e.key === ' ') {
+                console.log('hi')
+                mainDialog.style.display = "flex";
+                modalFormText.value = window.location.href;
+                modalFormText.focus();
+                modalFormText.select();
+            }
+        });
+
+        modalFormText.addEventListener("click", function () {
+            this.select();
+        });
+
+
+    </script>
+</body>
+
+</html>

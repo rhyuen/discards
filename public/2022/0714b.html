@@ -1,0 +1,215 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta name='color-scheme' content='dark light'>
+    <link rel="preconnect" href="https://fonts.gstatic.com">
+    <link href="https://fonts.googleapis.com/css2?family=Inter&display=swap" rel="stylesheet">
+    <title>12 23</title>
+
+
+    <style>
+        * {
+            box-sizing: border-box;
+            font-size: 16px;
+            font-family: 'Inter', sans-serif;
+            color: black;
+            --GREY: rgba(0, 0, 0, 0.1);
+            --PRIMARY_COLOR: #98E690;
+            --SECONDARY_COLOR: white;
+            --COL1: #db0a5b;
+            --COL2: #fef160;
+            --COL3: #23cba7;
+            --COL4: #3e6ceb;
+            --COL5: #d9c8ec;
+        }
+
+        ::-webkit-scrollbar {
+            width: 0.8rem;
+            height: 0.5rem;
+        }
+
+        /* Track */
+        ::-webkit-scrollbar-track {
+            background: black;
+        }
+
+        /* Handle */
+        ::-webkit-scrollbar-thumb {
+            background: var(--COL3);
+        }
+
+        /* Handle on hover */
+        ::-webkit-scrollbar-thumb:hover {
+            background: var(--COL2);
+        }
+
+
+        html,
+        body {
+            margin: 0;
+            height: 100vh;
+            background: #f3f3f3;
+
+        }
+
+        nav {
+            display: flex;
+            justify-content: center;
+            padding: 1rem;
+        }
+
+        main {
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(auto, 200px));
+        }
+
+        ul {
+            margin: 0;
+            padding: 0;
+            display: flex;
+            overflow-x: scroll;
+        }
+
+        li {
+            list-style-type: none;
+            flex-shrink: 0;
+            width: clamp(500px, 43%, 700px);
+            background-color: rgb(151, 151, 228);
+            padding-top: 1rem;
+            border-right: 1px solid white;
+        }
+
+        figure {
+            display: flex;
+        }
+
+        figure>img {
+            width: 12rem;
+            height: 18rem;
+            object-fit: cover;
+            margin-right: 2rem;
+            filter: drop-shadow(0 0 0.75rem rgba(0, 0, 0, 0.4));
+            flex-grow: 1;
+            transition: all .2s ease-in-out;
+        }
+
+        figure>img:hover {
+            transform: scale(1.1);
+        }
+
+        figure>article {
+            flex-grow: 2;
+        }
+
+        article>p,
+        h4 {
+            color: white;
+        }
+
+        h4 {
+            margin: 0;
+            font-size: 1.5rem;
+        }
+
+        p {
+            font-size: 0.9rem;
+            line-height: 1.5;
+        }
+
+        button {
+            margin-top: 1rem;
+            width: 200px;
+            padding: .8rem 2rem;
+            background-color: white;
+            border: none;
+            border-radius: 2rem;
+            font-size: .9rem;
+            font-weight: 600;
+            color: inherit;
+        }
+
+
+
+        @media screen and (min-width: 750px) and (max-width: 1099px) {}
+
+        @media screen and (min-width: 1100px) {}
+    </style>
+
+<body>
+    <nav>
+        <h1>verbnoun</h1>
+
+    </nav>
+    <section>
+        <ul>
+            <li>
+                <figure>
+                    <img src="../images/00g.jpg">
+                    <article>
+                        <h4>Title One</h4>
+                        <p>by First Last</p>
+                        <p>You make a modal appear but the page that the modal appears on is larger than the modal. As a
+                            result, the user can still scroll whilst the modal is visible.</p>
+                        <button>More Details</button>
+                    </article>
+                </figure>
+            </li>
+            <li>
+                <figure>
+                    <img src="../images/01g.jpg">
+                    <article>
+                        <h4>Title One</h4>
+                        <p>by First Last</p>
+                        <p>You make a modal appear but the page that the modal appears on is larger than the modal. As a
+                            result, the user can still scroll whilst the modal is visible.</p>
+                        <button>More Details</button>
+                    </article>
+                </figure>
+            </li>
+            <li>
+                <figure>
+                    <img src="../images/02g.jpg">
+                    <article>
+                        <h4>Title One</h4>
+                        <p>by First Last</p>
+                        <p>You make a modal appear but the page that the modal appears on is larger than the modal. As a
+                            result, the user can still scroll whilst the modal is visible.</p>
+                    </article>
+                </figure>
+            </li>
+            <li>
+                <figure>
+                    <img src="../images/03g.jpg">
+                    <article>
+                        <h4>Title One</h4>
+                        <p>by First Last</p>
+                        <p>You make a modal appear but the page that the modal appears on is larger than the modal. As a
+                            result, the user can still scroll whilst the modal is visible.</p>
+                    </article>
+                </figure>
+            </li>
+            <li>
+                <figure>
+                    <img src="../images/04g.jpg">
+                    <article>
+                        <h4>Title One</h4>
+                        <p>by First Last</p>
+                        <p>You make a modal appear but the page that the modal appears on is larger than the modal. As a
+                            result, the user can still scroll whilst the modal is visible.</p>
+                    </article>
+                </figure>
+            </li>
+        </ul>
+    </section>
+
+    <script>
+
+
+    </script>
+</body>
+
+</html>

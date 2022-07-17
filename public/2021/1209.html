@@ -1,0 +1,215 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta name='color-scheme' content='dark light'>
+    <link rel="preconnect" href="https://fonts.gstatic.com">
+    <link href="https://fonts.googleapis.com/css2?family=Inter&display=swap" rel="stylesheet">
+    <title>Holy Grail Layout</title>
+
+
+    <style>
+        * {
+            box-sizing: border-box;
+            font-size: 16px;
+            font-family: 'Inter', sans-serif;
+            color: black;
+            --GREY: rgba(0, 0, 0, 0.1);
+            --PRIMARY_COLOR: #98E690;
+            --SECONDARY_COLOR: white;
+            --COL1: #db0a5b;
+            --COL2: #fef160;
+            --COL3: #23cba7;
+            --COL4: #3e6ceb;
+            --COL5: #d9c8ec;
+        }
+
+        ::-webkit-scrollbar {
+            width: 0.8rem;
+            height: 0.5rem;
+        }
+
+        /* Track */
+        ::-webkit-scrollbar-track {
+            background: black;
+        }
+
+        /* Handle */
+        ::-webkit-scrollbar-thumb {
+            background: lavender;
+        }
+
+        /* Handle on hover */
+        ::-webkit-scrollbar-thumb:hover {
+            background: #d3d3d3;
+        }
+
+
+        html,
+        body {
+            margin: 0;
+            height: 100vh;
+            background: #f3f3f3;
+        }
+
+
+        h1 {
+            margin: 0;
+            padding: 0;
+            font-size: 1.5rem;
+        }
+
+        h1>a {
+            font-size: 1.5rem;
+        }
+
+        ul {
+            list-style-type: none;
+        }
+
+        .red {
+            background: var(--COL1);
+        }
+
+        .yellow {
+            background: var(--COL2);
+        }
+
+        .green {
+            background: var(--COL3);
+        }
+
+        .blue {
+            background: var(--COL4);
+        }
+
+
+        .wrapper {
+            display: grid;
+            grid-template-columns: 1fr min(65ch, 100%) 1fr;
+
+        }
+
+        .wrapper>* {
+            grid-column: 2/span 1;
+            padding: 0 1rem;
+        }
+
+        .wrapper>p {
+            line-height: 1.5;
+            user-select: var(--COL2);
+        }
+
+        .wrapper>p::selection {
+            background: var(--COL1);
+            color: white;
+        }
+
+        h1 {
+            font-size: 1.75rem;
+        }
+
+        h1>a {
+            font-size: 1.75rem;
+        }
+
+        .wrapper h2 {
+            font-weight: 400;
+            background: var(--COL1);
+            padding: 1rem;
+            margin: 1rem;
+            border-radius: .5rem;
+            color: white;
+        }
+
+        .full-bleed {
+            width: 100%;
+            padding: 0;
+            grid-column: 1/-1;
+            height: 20rem;
+            object-fit: cover;
+            position: relative;
+            margin: 2rem 0;
+            overflow: hidden;
+        }
+
+        .full-bleed:first-child {
+            margin-top: 0;
+        }
+
+        .full-bleed__image {
+            height: 100%;
+            width: 100%;
+            object-fit: cover;
+            transition: transform .5s ease-in-out;
+        }
+
+        .full-bleed__image:hover {
+            transform: scale(1.2);
+        }
+
+        .full-bleed__caption {
+            position: absolute;
+            bottom: 2rem;
+            right: 2rem;
+            font-size: 2rem;
+            color: white;
+            font-weight: 600;
+            user-select: none;
+        }
+
+
+
+
+        @media screen and (min-width: 750px) and (max-width: 1099px) {}
+
+        @media screen and (min-width: 1100px) {}
+    </style>
+
+<body>
+    <main class='wrapper'>
+        <figure class='full-bleed'>
+            <img class="full-bleed__image" alt="a firewatch screenshot" src="images/fw3.jpg">
+            <figcaption class='full-bleed__caption'>A firewatch screenshot</figcaption>
+        </figure>
+        <h1>A more rigid copy of <a href="https://www.joshwcomeau.com/css/full-bleed/">this document</a>.</h1>
+        <h2>The text below denotes what I recalled and learned as I read the document.</h2>
+        <p>The associated content to the document.</p>
+        <p>A fun tidbit mentioned in the article the 'ch' unit is based on the '0' character. It then follows that 65 ch
+            is equal in length to 65 '0' characters.</p>
+        <p>I thought the select .wrapper > * {grid-column: 2;} was a really elegant solution to having all the immediate
+            children in the main tag centred in the document.</p>
+        <p>The research tidbit on "Wildcard Permorance" was also nice to know. I didn't know that using the * selector
+            in css was considered a bad practice by developers. Now, I know that it isn't!</p>
+        <figure class='full-bleed'>
+            <img class="full-bleed__image" alt="a firewatch screenshot" src="images/fw5.jpg">
+            <figcaption class='full-bleed__caption'>Another firewatch screenshot</figcaption>
+        </figure>
+        <p>
+            The mention of calc() being able to do math with different kinds of units was something I didn't know.
+            However, the example he demonstrated with calc(100% - 32px) didn't work as expected on this page so I just
+            used padding.
+        </p>
+        <p>
+            The document constrains the width of the document to 65ch or 100%, whichever is the lesser of the two
+            because having too many characters on one line is sub-optimal for the reading experience. Images, however,
+            are under no such constraint, hence they they extend the width of the document in all circumstances.
+        </p>
+        <p>
+            It turns out that the 'figure' tag has margins by default.
+        </p>
+        <footer>
+            <h3>A webpage by Robert</h3>
+            <p><a href="/">Home</a></p>
+        </footer>
+    </main>
+
+    <script type='text/javascript'>
+
+    </script>
+</body>
+
+</html>

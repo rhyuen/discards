@@ -1,0 +1,368 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta name='color-scheme' content='dark light'>
+    <link rel="preconnect" href="https://fonts.gstatic.com">
+    <link href="https://fonts.googleapis.com/css2?family=Inter&display=swap" rel="stylesheet">
+    <title>12 23</title>
+
+
+    <style>
+        * {
+            box-sizing: border-box;
+            font-size: 16px;
+            font-family: 'Inter', sans-serif;
+            color: black;
+            --GREY: rgba(0, 0, 0, 0.1);
+            --PRIMARY_COLOR: #98E690;
+            --SECONDARY_COLOR: white;
+            --COL1: #db0a5b;
+            --COL2: #fef160;
+            --COL3: #23cba7;
+            --COL4: #3e6ceb;
+            --COL5: #d9c8ec;
+        }
+
+        ::-webkit-scrollbar {
+            width: 0.8rem;
+            height: 0.5rem;
+        }
+
+        /* Track */
+        ::-webkit-scrollbar-track {
+            background: black;
+        }
+
+        /* Handle */
+        ::-webkit-scrollbar-thumb {
+            background: var(--COL3);
+        }
+
+        /* Handle on hover */
+        ::-webkit-scrollbar-thumb:hover {
+            background: var(--COL2);
+        }
+
+
+        html,
+        body {
+            margin: 0;
+            height: 100vh;
+            background: #f3f3f3;
+        }
+
+
+        h1 {
+            margin: 0;
+            padding: 0;
+        }
+
+        figure {
+            margin: 0;
+            padding: 0;
+        }
+
+
+
+
+        ul {
+            list-style-type: none;
+        }
+
+        .red {
+            background: var(--COL1);
+        }
+
+        .yellow {
+            background: var(--COL2);
+        }
+
+        .green {
+            background: var(--COL3);
+        }
+
+        .blue {
+            background: var(--COL4);
+        }
+
+
+        .wrapper {
+            display: grid;
+            grid-template-columns: [edge-start] 1fr [content-start] min(100%, 1000px) [content-end] 1fr [edge-end];
+        }
+
+        .wrapper>* {
+            grid-column: content-start/content-end;
+        }
+
+        .bleed {
+            grid-column: edge-start/edge-end;
+            background: var(--COL1);
+        }
+
+        .hero-banner {
+            max-height: 85vh;
+        }
+
+        .hero-banner-figure {
+            width: 100%;
+            height: 100%;
+            position: relative;
+        }
+
+        .hero-banner-figure img {
+            filter: brightness(50%);
+            width: 100%;
+            height: 100%;
+            object-fit: cover;
+
+        }
+
+        .hero-banner-figure figcaption {
+            position: absolute;
+            bottom: clamp(2rem, 20%, 10rem);
+            left: clamp(2rem, 25%, 5rem);
+            max-height: 50%;
+        }
+
+        .hero-banner-figure figcaption h2 {
+            color: white;
+            font-size: 2rem;
+        }
+
+        .hero-banner-figure figcaption p {
+            color: white;
+            font-size: 1.5rem;
+        }
+
+        nav {
+            padding: 2.5rem;
+        }
+
+        nav .list {
+            display: flex;
+            max-width: 1000px;
+            align-items: center;
+            justify-content: flex-start;
+            height: 100%;
+            margin: 0 auto;
+        }
+
+        nav .list li {
+            margin-right: 2rem;
+        }
+
+        nav .list li a {
+            color: white;
+            text-decoration: none;
+            font-weight: 600;
+            font-size: 1.2rem;
+        }
+
+        .card-list {
+            padding-top: 4rem;
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(auto, 50%));
+        }
+
+        .card-list a {
+            grid-column: span 1;
+            aspect-ratio: 2/3;
+            width: 100%;
+        }
+
+        .card-list a:hover img {
+            filter: brightness(1.25);
+        }
+
+        .card-list a:hover h3,
+        .card-list a:hover p {
+            color: var(--COL1);
+        }
+
+        .card-list a:nth-child(2n+1) {
+            transform: translateY(4rem);
+        }
+
+        .card-list a:nth-child(2n+1) figure figcaption {
+            background-color: var(--COL2);
+        }
+
+        .card-list a figure {
+            width: 100%;
+            height: 100%;
+            position: relative;
+        }
+
+        .card-list a figure img {
+            object-fit: cover;
+            width: 100%;
+            height: 100%;
+            transition: all .5s ease-in-out;
+        }
+
+
+        .card-list a figure figcaption {
+            position: absolute;
+            bottom: 0;
+            background: white;
+            width: 100%;
+            padding: 3rem 2rem;
+            clip-path: polygon(0 0, 100% 15%, 100% 100%, 0 100%);
+        }
+
+
+
+        .card-list a figure figcaption h3 {
+            font-size: 1.75rem;
+            font-weight: 800;
+            text-transform: uppercase;
+            margin: 0;
+            padding: 0;
+        }
+
+        .card-list a figure figcaption p {
+            font-size: .9rem;
+            margin: 0;
+        }
+
+        .content {
+            display: grid;
+            grid-template-columns: 2fr;
+        }
+
+        aside {
+            display: none;
+            grid-column: span 1;
+            margin-top: 4rem;
+            margin-left: 4rem;
+            flex-direction: column;
+        }
+
+        aside h3 {
+            color: black;
+            font-size: 2rem;
+            font-weight: 600;
+            margin: 0;
+            padding: 0;
+        }
+
+        aside p {
+            line-height: 1.5;
+            font-size: .9rem;
+        }
+
+
+        @media screen and (min-width: 750px) and (max-width: 1099px) {}
+
+        @media screen and (min-width: 1100px) {
+            aside {
+                display: flex;
+            }
+
+            .content {
+                display: grid;
+                grid-template-columns: 2fr 1fr;
+            }
+        }
+    </style>
+
+<body>
+    <main class='wrapper'>
+        <a href="#" class='hero-banner bleed'>
+            <figure class='hero-banner-figure'>
+                <img src="../images/64.jpg">
+                <figcaption>
+                    <h2>A heading for a thing that comes out soon</h2>
+                    <p>More information for the thing above.</p>
+                </figcaption>
+            </figure>
+        </a>
+        <nav class="bleed">
+            <ul class='list'>
+                <li>
+                    <a href='#'>Home</a>
+                </li>
+                <li>
+                    <a href='#'>About</a>
+                </li>
+                <li>
+                    <a href='#'>Contact</a>
+                </li>
+            </ul>
+        </nav>
+        <section class='content' role="main-content goes here">
+            <div class='card-list'>
+                <a href="#" class='card-list__item'>
+                    <figure>
+                        <img src="../images/60.jpg">
+                        <figcaption>
+                            <h3>One</h3>
+                            <p>Some text goes here.</p>
+                        </figcaption>
+                    </figure>
+                </a>
+                <a href="#" class='card-list__item'>
+                    <figure>
+                        <img src="../images/59.jpg">
+                        <figcaption>
+                            <h3>Two</h3>
+                            <p>Some text goes here.</p>
+                        </figcaption>
+                    </figure>
+                </a>
+                <a href="#" class='card-list__item'>
+                    <figure>
+                        <img src="../images/58.jpg">
+                        <figcaption>
+                            <h3>Three</h3>
+                            <p>Some text goes here.</p>
+                        </figcaption>
+                    </figure>
+                </a>
+                <a href="#" class='card-list__item'>
+                    <figure>
+                        <img src="../images/57.jpg">
+                        <figcaption>
+                            <h3>Three</h3>
+                            <p>Some text goes here.</p>
+                        </figcaption>
+                    </figure>
+                </a>
+                <a href="#" class='card-list__item'>
+                    <figure>
+                        <img src="../images/61.jpg">
+                        <figcaption>
+                            <h3>Five</h3>
+                            <p>Some text goes here.</p>
+                        </figcaption>
+                    </figure>
+                </a>
+                <a href="#" class='card-list__item'>
+                    <figure>
+                        <img src="../images/56.jpg">
+                        <figcaption>
+                            <h3>SIX</h3>
+                            <p>Some text goes here.</p>
+                        </figcaption>
+                    </figure>
+                </a>
+            </div>
+            <aside>
+                <h3>Filler</h3>
+                <p>There are often extraneous words that go here. They are often of little to no value; however, it is
+                    often better than leaving it blank, otherwise it seems as if something is amiss.</p>
+                <p>Also, I should solicit the reader here for some money or their personal data as is the case for all
+                    websites.</p>
+                <p>Thanks for your time and scarce resources.</p>
+            </aside>
+        </section>
+    </main>
+
+</body>
+
+</html>

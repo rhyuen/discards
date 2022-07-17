@@ -1,0 +1,218 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>layout</title>
+    <style>
+        * {
+            box-sizing: border-box;
+            font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
+            font-size: 16px;
+            --GRID_COL: 12;
+        }
+
+        body{
+            width: 100%;
+            min-height: 100vh;
+            background: paleturquoise;
+            margin: 0;
+        }
+
+        a {
+            text-decoration: none;
+            font-size: 1.1rem;
+            font-weight: 600;
+            margin-right: 1rem;
+        }
+
+        ul{
+            padding-left: 0;
+        }
+        li{
+            list-style-type: none;
+            padding: 2.5rem 0;
+            background: white;
+            margin-bottom: 1rem;
+            border-bottom: 2px solid rgba(0,0,0,0.1);
+        }
+
+        .item{
+            display: flex;
+        }
+
+        .item__image{
+            width: 8rem;
+            height: 8rem;
+            background-color: rgb(31, 133, 133);            
+            margin-right: 1rem;
+            position: relative;
+        }
+        
+
+        .item__image::before{
+            content: "";
+            position: absolute;
+            bottom: 0;
+            left: 0;         
+            width: 0; 
+            border-bottom: 1.5rem solid white;
+            border-right: 1.5rem solid rgb(31, 133, 133);            
+        }
+
+        .item__image:after{
+            position: absolute;
+            top: 0;
+            right: 0;
+            width: 0; 
+            content: "";
+            border-top: 1.5rem solid white;
+            border-left: 1.5rem solid rgb(31, 133, 133);
+            
+            
+        }
+
+        .item__text{
+            border-bottom: 10px solid rgb(31, 133, 133);
+        }
+        
+        .root{
+            margin: 0 auto;
+            background-color: white;
+            max-width: 1100px;
+            display: grid;
+            grid-template-columns: repeat(12, 1fr);            
+        }
+
+        nav{
+            grid-column: 1/-1;
+            padding: 2rem;
+        }
+
+        main{
+            grid-column: 1/-1;
+            display: flex;
+            flex-direction: column;            
+            padding: 2rem;
+            
+        }
+
+        aside{
+            display: none;    
+            background-color: aquamarine;      
+        }
+
+        footer{
+            grid-column: 1/-1;
+            background-color: papayawhip;
+            padding: 2rem;
+        }
+
+        @media screen and (min-width: 550px) and (max-width: 1099px){
+                        
+            
+        }
+
+        @media screen and (min-width: 1100px){
+            *{
+                --GRID_COL: 12;
+            }
+
+            main{
+                grid-column: 1/span 8;           
+            }
+
+            aside{            
+                display: flex;
+                flex-direction: column;
+                grid-column: 9/span 4;  
+                padding: 2rem;          
+            }
+        }
+    </style>
+</head>
+<body>
+    <div class="root">
+        <nav>
+            <a href="/">Home</a>
+            <a href="/">About</a>
+            <a href="/">Contact</a>
+        </nav>
+        <main>
+            <ul>
+                <li class='item'>
+                    <span class="item__image">
+                    </span>
+                    <span class="item__text">
+                        <h3>Item One</h3>
+                        <p>
+                            Descriptor Text
+                        </p>
+                    </span>
+                </li>
+                <li class='item'>
+                    <span class="item__image">
+                    </span>
+                    <span class="item__text">
+                        <h3>Item One</h3>
+                        <p>
+                            Descriptor Text
+                        </p>
+                    </span>
+                </li>
+                <li class='item'>
+                    <span class="item__image">
+                    </span>
+                    <span class="item__text">
+                        <h3>Item One</h3>
+                        <p>
+                            Descriptor Text
+                        </p>
+                    </span>
+                </li>
+                <li class='item'>
+                    <span class="item__image">
+                    </span>
+                    <span class="item__text">
+                        <h3>Item One</h3>
+                        <p>
+                            Descriptor Text
+                        </p>
+                    </span>
+                </li>
+                <li class='item'>
+                    <span class="item__image">
+                    </span>
+                    <span class="item__text">
+                        <h3>Item One</h3>
+                        <p>
+                            Descriptor Text
+                        </p>
+                    </span>
+                </li>
+              
+            </ul>
+        </main>
+        <aside>
+            <ul>
+                <li>Item One</li>
+                <li>Item Two</li>
+                <li>Item Three</li>
+                <li>Item Fourt</li>
+                <li>Item Five</li>
+            </ul>
+        </aside>
+        <footer>
+            By Robert, a human.<br/>
+            He, who is extra human
+        </footer>
+    </div>
+
+
+    <script type="text/javascript">
+
+    </script>
+    
+</body>
+</html>

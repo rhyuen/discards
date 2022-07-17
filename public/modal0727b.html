@@ -1,0 +1,328 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <link rel="preconnect" href="https://fonts.gstatic.com">
+    <link href="https://fonts.googleapis.com/css2?family=Inter&display=swap" rel="stylesheet"> 
+    <title>07 26</title>
+    
+
+        <style>
+            * {                
+                box-sizing: border-box;
+                font-size: 16px;
+                font-family: 'Inter', sans-serif;                
+                --PRIMARY_COLOR: #c50006;
+                --SECONDARY_COLOR: #3ab4bf;
+                --HOVER_COLOR: #0f2231;
+            }      
+
+            ::-webkit-scrollbar {                
+                width: 0.8rem;
+                height: 0.5rem;
+            }
+
+            /* Track */
+            ::-webkit-scrollbar-track {
+                background: black;
+            }
+
+            /* Handle */
+            ::-webkit-scrollbar-thumb {
+                background: rgb(209, 171, 121);
+            }
+
+            /* Handle on hover */
+            ::-webkit-scrollbar-thumb:hover {
+                background: #d3d3d3;
+            }
+                       
+
+            html, body{
+                margin: 0;
+                height: 100vh;                
+                min-height: 100vh;
+                background: #f3f3f3;                                
+            }
+
+          
+            ul{
+                margin: 0;
+                padding: 0;
+                list-style-type: none;
+            }
+            nav{
+                height: 5rem;                                
+            }
+
+            a{
+                text-decoration: none;
+                color: black;
+            }
+
+            main{
+                width: 100%;
+                height: 100%;
+                display: flex;
+                justify-content: center;
+                align-items: center;
+                background: rgba(0,0,0,0.4);
+            }
+
+            .modal{
+                background: var(--PRIMARY_COLOR);
+                width: 20rem;
+                height: 30rem;
+                position: relative;                
+                border-radius: .5rem;
+                display: flex;
+                flex-direction: column;
+                justify-content: flex-end;
+                padding-bottom: 1rem;
+            }
+       
+
+            .modal__close{  
+                position: absolute;     
+                top: -.5rem;
+                right: -.5rem;
+                width: 2rem;
+                cursor: pointer;
+            }
+            .modal__close:after{
+                padding-bottom: 100%;
+                content: '';
+                display: block;
+                border-radius: 50%;
+                background:white;
+                transition: background .2s ease-in-out, color .2s ease-in-out;                
+            }
+            .modal__close:hover::after{
+                background: black;
+                color: white;
+            }
+
+
+            .modal__close__content{
+                position: absolute;
+                display: flex;
+                justify-content: center;
+                align-items: center;
+                inset: 0;
+                color: var(--PRIMARY_COLOR);
+                font-weight: 600;
+            }
+
+            .modal__row{
+                display: flex;
+                margin: .5rem 2rem;
+            }
+
+            .modal__row--trucks{
+                position: relative;
+            }
+
+            .modal__row__text{
+                color: white;
+                margin: 0 auto;
+                width: 75%;
+                font-size: .9rem;
+                text-align: center;                
+            }
+
+            .modal__row__text__link{
+                color: white;
+                font-size: .9rem;
+            }
+
+            .modal__input{                
+                
+                width: 100%;
+                margin-right: 1rem;
+                padding: .75rem;
+                border: 0;
+                border-radius: .25rem;
+            }
+            .modal__input:last-child{
+                margin-right: 0;
+            }
+
+            .modal__submit{
+                font-size: 1.2rem;
+                background-color: var(--SECONDARY_COLOR);
+                color: white;
+                display: flex;
+                border: none;
+                width: 100%;
+                padding: .5rem 2rem;
+                border-radius: 1rem;
+                justify-content: center;
+                transition: background-color .2s ease-in-out;
+            }
+
+            .modal__submit:hover{
+                background-color: var(--HOVER_COLOR);
+            }
+
+            @keyframes spinner {
+                from {
+                    transform: rotate(0deg);
+                }
+
+                to{
+                    tranform: rotate(359deg);
+                }
+            }
+
+            
+
+            .circle{
+                position: relative;
+                margin: 0 auto;
+                width: 90%;                
+            }
+            .circle:after{
+                content: '';
+                padding-bottom: 100%;
+                display: block;
+                border-radius: 50%;                
+            }
+            img.trucks{                                
+                position: absolute;
+                inset: 0;
+                transform: scale(.65);                                
+                z-index: 1000;      
+            }
+
+            .circle__content{
+                
+                position:absolute;
+                inset: 0;
+                overflow: hidden;
+                background: white;
+                width: 100%;
+                height: 100%;
+                border-radius: 50%;                
+                display: flex;
+                justify-content: center;                
+                padding: .5rem;    
+            }
+            .circle__content__knob{
+                position: absolute;                
+            }
+
+            .circle__content__slice{                                                
+                position: absolute;
+                top: 0;
+                right: 0;
+                background: paleturquoise;
+                width: 50%;
+                overflow: hidden;
+                height: 50%;
+                display: flex;
+                justify-content: center;
+                align-items: center;
+                color: white;
+                transform-origin: 0% 100%;
+            }
+            
+
+
+            .circle__content__slice--rotate-60{
+                transform: rotate(60deg) skewY(150deg);
+                background-color: #0f2231;                
+            }
+            .circle__content__slice--rotate-60 span{
+                transform: skewY(-150deg);                     
+            }
+            .circle__content__slice--rotate-120{
+                transform: rotate(120deg) skewY(150deg);                
+                background-color: rebeccapurple;
+            }
+            .circle__content__slice--rotate-120 span{
+                transform: skewY(-150deg);                                
+            }
+            .circle__content__slice--rotate-180{
+                transform: rotate(180deg) skewY(150deg);
+                background-color: goldenrod;          
+            }
+            .circle__content__slice--rotate-180 span{
+                transform: skewY(-150deg);                
+            }
+            .circle__content__slice--rotate-240{
+                transform: rotate(240deg) skewY(150deg);      
+                background-color: palevioletred;          
+            }
+            .circle__content__slice--rotate-300{
+                transform: rotate(300deg) skewY(150deg);
+                background-color: lavender;
+            }            
+        </style>
+    <body>  
+        <main>
+            <form class='modal'>                                    
+                <div class='modal__close'>
+                    <div class='modal__close__content'>
+                        &#x2716;
+                    </div>
+                </div>
+
+                <div class="circle">
+                    <div class='circle__content'>
+                        
+                        <div class='circle__content__slice'>
+                            <span class='circle__content__slice__content'>0</span>
+                        </div>
+                        <div class='circle__content__slice circle__content__slice--rotate-60'>
+                            <span class='circle__content__slice__content'>100</span>
+                        </div>
+                        <div class='circle__content__slice circle__content__slice--rotate-120'>
+                            <span class='circle__content__slice__content'>200</span>
+                        </div>
+                        <div class='circle__content__slice circle__content__slice--rotate-180'>
+                            <span class='circle__content__slice__content'>300</span>
+                        </div>
+                        <div class='circle__content__slice circle__content__slice--rotate-240'>
+                            <span class='circle__content__slice__content'>400</span>
+                        </div>
+                        <div class='circle__content__slice circle__content__slice--rotate-300'>
+                            <span class='circle__content__slice__content'>500</span>
+                        </div>
+                        
+                    </div>
+                    
+                </div>
+
+                <div class='modal__row modal__row--trucks'>
+                    <img src="images/trucks.png" alt='trucks'/>
+                </div>
+                    
+                <div class='modal__row'>
+                    <div class='modal__row__text'>
+                        Show your SpinToWin Text Message to a Dealership Representative to Claim Your Winnings.
+                    </div>
+                </div>
+                <div class='modal__row'>
+                    <input class='modal__input' type='string' placeholder="First Name">
+                    <input class='modal__input' type='string' placeholder="Last Name">
+                </div>
+                <div class='modal__row'>
+                    <input class='modal__input' type='text' placeholder="Phone Number"/>
+                    <input class='modal__input' type='email' placeholder="Email Address"/>
+                </div>
+                <div class='modal__row'>
+                    <input class='modal__submit' type='submit' value="Spin Now">
+                </div>
+                <div class='modal__row'>
+                    <div class='modal__row__text'>
+                        <a class='modal__row__text__link' href='#'>View Disclaimer</a>
+                    </div>
+                </div>
+                
+                
+            </form>
+        </main>                 
+    </body>
+</html>

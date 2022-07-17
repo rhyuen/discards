@@ -1,0 +1,220 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <link rel="preconnect" href="https://fonts.gstatic.com">
+    <link href="https://fonts.googleapis.com/css2?family=Inter&display=swap" rel="stylesheet"> 
+    <title>07 13</title>
+    
+
+        <style>
+            * {                
+                box-sizing: border-box;
+                font-size: 16px;
+                font-family: 'Inter', sans-serif;                
+                --PRIMARY_COLOR: #343434;
+                --SECONDARY_COLOR: palelightgreen;
+            }      
+
+            ::-webkit-scrollbar {                
+                width: 0.8rem;
+                height: 0.5rem;
+            }
+
+            /* Track */
+            ::-webkit-scrollbar-track {
+                background: black;
+            }
+
+            /* Handle */
+            ::-webkit-scrollbar-thumb {
+                background: paleturquoise;
+            }
+
+            /* Handle on hover */
+            ::-webkit-scrollbar-thumb:hover {
+                background: #d3d3d3;
+            }
+
+           
+            
+
+            html, body{
+                margin: 0;
+                min-height: 100vh;                
+                background: #f3f3f3;                                
+            }
+
+          
+            ul{
+                margin: 0;
+                padding: 0;
+                list-style-type: none;
+            }
+            nav{
+                height: 5rem;                
+                margin: 0 auto;
+            }
+
+            nav.nav--mobile{
+                width: 100%;
+            }
+
+            nav.nav--desktop{
+                display: none;                
+                max-width: 1100px;
+            }
+
+            a{
+                color: black;
+                text-decoration: none;                
+            } 
+
+            .list-container{
+                display: flex;
+                justify-content: flex-start;
+                align-items: center;
+            }
+            .list-container__item{
+                margin-right: 2rem;
+            }
+            .list-container__item:last-child(){
+                margin-right: 0;
+            }
+            
+            .list-container--mobile{
+                display: flex;
+                justify-content: space-between;
+                align-items: center;                
+                background-color: white;;
+                height: 5rem;                
+                border-bottom: 1px solid rgba(0, 0, 0, .4);
+            }            
+
+            .list-container__icon--mobile{
+                border-radius: 50%;                
+                width: 2rem;
+                position: relative;
+                transition: background-color .2s ease-in-out;
+            }
+            .list-container__icon--mobile:after{
+                padding-bottom: 100%;
+                content: '';
+                display: block;
+            }
+            .list-container__icon--mobile:hover{
+                background-color: rgba(0, 0, 0, .2);
+            }
+
+            .list-container__icon--mobile > * {
+                position: absolute;
+                display: flex;
+                justify-content: center;
+                align-items: center;
+                height: 100%;
+                width: 100%;
+            }
+
+            .list-container__dropdown--mobile{
+                display: none;
+            }
+            .list-container__dropdown--mobile:target{                
+                display: flex;
+                flex-direction: column;             
+                background: white;
+                border-bottom: 1px solid rgba(0, 0, 0, .4);   
+            }
+            .list-container__dropdown__item--mobile{                
+                padding: 1rem;
+            }
+
+            .link-button{
+                font-weight: 600;
+                padding: .5rem 2rem;                
+                display: flex;
+                justify-content: center;
+                color: white;
+                background-color:black;
+                border: 2px solid black;
+            }
+            .link-button:hover{
+                background-color: white;
+                color: black;
+            }
+
+            .link-button--secondary{
+                color: black;
+                background: white;
+            }
+            .link-button--secondary:hover{
+                color: white;
+                background: rgba(0, 0, 0, .4);
+            }
+
+                     
+
+            
+
+            
+            
+
+            
+
+            @media screen and (min-width: 550px) and (max-width: 999px){
+
+            }
+
+            @media screen and (min-width: 1000px){
+                nav.nav--desktop{
+                    display: flex;
+                }
+
+                nav.nav--mobile{
+                    display: none;
+                }
+            }
+
+        </style>
+    </head>
+    <body>    
+        <nav class='nav--desktop' aria-labelledby="desktop-nav">
+            <ul class="list-container">
+                <li class='list-container__item'><a href='#'>Home</a></li>
+                <li class='list-container__item'><a href='#'>About</a></li>
+                <li class='list-container__item'><a href='#'>Contact</a></li>
+            </ul>
+        </nav>     
+        <nav class='nav--mobile' aria-labelledby="mobile-nav">
+            <div class='list-container--mobile'>
+                <span class='list-container__icon--mobile'>
+                    <a href='#'>&#11044;</a>
+                </span>
+                <span class='list-container__icon--mobile'>
+                    <a href='#menu-mobile'>&#x2630;</a>
+                </span>
+            </div>
+            <ul id='menu-mobile' class='list-container__dropdown--mobile'>
+                <li class='list-container__dropdown__item--mobile'><a href='#'>Home</a></li>
+                <li class='list-container__dropdown__item--mobile'><a href='#'>About</a></li>
+                <li class='list-container__dropdown__item--mobile'><a href='#'>Contact</a></li>
+                <li class='list-container__dropdown__item--mobile'><a href='#' class='link-button link-button--secondary'>Login</a></li>
+                <li class='list-container__dropdown__item--mobile'><a href='#' class='link-button'>Signup</a></li>
+            </ul>
+        </nav>     
+
+       
+   
+        <script type='text/javascript'>            
+
+            function handleScroll(direction){
+                console.log(direction);                
+                const vector = direction ==='left' ? -300 : 300;
+                const el = document.querySelector('#media');
+                console.log(vector);
+                el.scrollBy(vector, 0);                                
+            }
+        </script>
+    </body>
+</html>

@@ -1,0 +1,180 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta name='color-scheme' content='dark light'>
+    <link rel="preconnect" href="https://fonts.gstatic.com">
+    <link href="https://fonts.googleapis.com/css2?family=Inter&display=swap" rel="stylesheet">
+    <title>1/27/22</title>
+
+
+    <style>
+        * {
+            box-sizing: border-box;
+            font-size: 16px;
+            font-family: 'Inter', sans-serif;
+            color: black;
+            --GREY: rgba(0, 0, 0, 0.1);
+            --PRIMARY_COLOR: #98E690;
+            --SECONDARY_COLOR: white;
+            --COL1: #db0a5b;
+            --COL2: #fef160;
+            --COL3: #23cba7;
+            --COL4: #3e6ceb;
+            --COL5: rgb(212, 204, 212);
+        }
+
+        ::-webkit-scrollbar {
+            width: 0.8rem;
+            height: 0.5rem;
+        }
+
+        /* Track */
+        ::-webkit-scrollbar-track {
+            background: black;
+        }
+
+        /* Handle */
+        ::-webkit-scrollbar-thumb {
+            background: var(--COL3);
+        }
+
+        /* Handle on hover */
+        ::-webkit-scrollbar-thumb:hover {
+            background: var(--COL2);
+        }
+
+
+        html,
+        body {
+            margin: 0;
+            height: 100vh;
+            background: #f3f3f3;
+        }
+
+
+        h1 {
+            margin: 0;
+            padding: 0;
+        }
+
+        figure {
+            margin: 0;
+            padding: 0;
+        }
+
+
+        ul {
+            list-style-type: none;
+            margin: 0;
+        }
+
+        .red {
+            background: var(--COL1);
+            color: white;
+        }
+
+        .yellow {
+            background: var(--COL2);
+            color: black;
+        }
+
+        .green {
+            background: var(--COL3);
+            color: white;
+        }
+
+        .blue {
+            background: var(--COL4);
+            color: white;
+        }
+
+        main {
+            width: 100vw;
+            height: 100vh;
+            background: var(--COL1);
+            padding-top: 2rem;
+        }
+
+        button {
+            background: white;
+            border: .2rem solid var(--COL1);
+            font-size: 1.2rem;
+            font-weight: 600;
+            border-radius: 2rem;
+            padding: 1rem 2rem;
+            transition: border-color .2s ease-in-out, background-color .2s ease-in-out, color .2s ease-in-out;
+        }
+
+        button:hover {
+            border-color: white;
+            background-color: var(--COL1);
+            color: white;
+        }
+
+        @keyframes fadein {
+            from {
+                opacity: 0;
+            }
+        }
+
+        dialog {
+            display: none;
+            flex-direction: column;
+            max-width: 600;
+            position: fixed;
+            background: white;
+            border: none;
+            border-radius: .2rem;
+            animation: fadein 0.5s 0.1s both;
+        }
+    </style>
+</head>
+
+<body>
+    <main>
+        <h1>HTML and Javascript Keyboard shortcuts</h1>
+        <h2>April 8, 2022</h2>
+        <p>To make the dialog appear, press the <kbd>Alt</kbd> and <kbd>a</kbd> keys together.</p>
+        <p>To make the control dialog appear, press the <kbd>Ctrl</kbd> and <kbd>Space</kbd> keys together.</p>
+        <dialog id="main-dialog">
+            <h2>Welcome to my MAIN dialog</h2>
+            <p>In this we're pressing Alt + a to get this to appear.</p>
+            <p>Press the Escape Key to leave.</p>
+        </dialog>
+        <dialog id="control-dialog">
+            <h2>Welcome to my CONTROL dialog</h2>
+            <p>In this we're pressing <kbd>Ctrl</kbd> + <kbd>space</kbd> to get this to appear.</p>
+            <p>Press the Escape Key to leave.</p>
+        </dialog>
+    </main>
+
+
+    <script>
+        const mainDialog = document.getElementById("main-dialog");
+        const controlDialog = document.getElementById("control-dialog");
+        document.addEventListener("keydown", function (e) {
+            if (e.altKey && e.which === 65) {
+                mainDialog.style.display = "flex";
+            }
+
+            if (e.ctrlKey && e.key === " ") {
+                controlDialog.style.display = "flex";
+                console.log('hi')
+            }
+
+            if (e.key === 'Escape') {
+                mainDialog.style.display = "none";
+                controlDialog.style.display = "none";
+            }
+
+        });
+
+
+    </script>
+</body>
+
+</html>

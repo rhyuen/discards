@@ -1,0 +1,294 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta name='color-scheme' content='dark light'>
+    <link rel="preconnect" href="https://fonts.gstatic.com">
+    <link href="https://fonts.googleapis.com/css2?family=Inter&display=swap" rel="stylesheet">
+    <title>4/21/22</title>
+
+
+    <style>
+        * {
+            box-sizing: border-box;
+            font-size: 16px;
+            font-family: 'Inter', sans-serif;
+            color: black;
+            --GREY: rgba(0, 0, 0, 0.1);
+            --PRIMARY_COLOR: #98E690;
+            --SECONDARY_COLOR: white;
+            --COL1: #db0a5b;
+            --COL2: #fef160;
+            --COL3: #23cba7;
+            --COL4: #3e6ceb;
+            --COL5: rgb(212, 204, 212);
+        }
+
+        ::-webkit-scrollbar {
+            width: 0.8rem;
+            height: 0.5rem;
+        }
+
+        /* Track */
+        ::-webkit-scrollbar-track {
+            background: black;
+        }
+
+        /* Handle */
+        ::-webkit-scrollbar-thumb {
+            background: var(--COL3);
+        }
+
+        /* Handle on hover */
+        ::-webkit-scrollbar-thumb:hover {
+            background: var(--COL2);
+        }
+
+
+        html,
+        body {
+            margin: 0;
+            height: 100vh;
+            background: #f3f3f3;
+        }
+
+
+        h1 {
+            margin: 0;
+            padding: 0;
+        }
+
+        figure {
+            margin: 0;
+            padding: 0;
+        }
+
+
+        ul {
+            list-style-type: none;
+            margin: 0;
+        }
+
+        .red {
+            background: var(--COL1);
+            color: white;
+        }
+
+        .yellow {
+            background: var(--COL2);
+            color: black;
+        }
+
+        .green {
+            background: var(--COL3);
+            color: white;
+        }
+
+        .blue {
+            background: var(--COL4);
+            color: white;
+        }
+
+        main {
+            display: grid;
+            grid-template-columns: 1fr [image-start] 1fr [content-start] min(75ch, 100%) [content-end] 1fr [image-end] 1fr;
+        }
+
+        main>figure {
+            grid-column: image-start/image-end;
+            margin: 2rem 0;
+        }
+
+        main>figure:first-child {
+            margin-top: 0;
+            grid-column: 1/-1;
+            position: relative;
+        }
+
+
+        .header-container {
+            position: absolute;
+            max-width: 600px;
+            left: 50%;
+            top: 50%;
+            transform: translate(-50%, -50%);
+        }
+
+        .header-container>* {
+            color: white;
+            text-align: center;
+        }
+
+        .header-container>h1 {
+            font-size: min(1.5rem, 2rem);
+        }
+
+        .header-container>h2 {
+            font-size: min(1rem, 1.5rem);
+            font-weight: 400;
+        }
+
+
+
+
+        main>p {
+            grid-column: content-start/content-end;
+            line-height: 2;
+            padding: 0 1rem;
+        }
+
+        main>p::selection {
+            background: var(--COL1);
+            color: white;
+        }
+
+        main>p>q {
+            font-size: 2rem;
+            float: right;
+            text-transform: uppercase;
+            color: var(--COL1);
+            max-width: 100%;
+            line-height: 1.5;
+            border: .2rem solid var(--COL3);
+            padding: 1rem;
+            text-align: center;
+            font-size: 1.5rem;
+            margin: 2rem;
+        }
+
+        figure img {
+            object-fit: cover;
+            width: 100%;
+            max-height: 25rem;
+        }
+
+        figure figcaption {
+            margin: 1rem 0;
+            font-size: .9rem;
+            padding: 1rem;
+            padding-top: 0;
+            color: var(--COL1);
+            border: 1px solid var(--COL1);
+            border-top-color: transparent;
+            border-right-color: transparent;
+        }
+
+        footer {
+            display: grid;
+            grid-template-columns: 1fr [image-start] 1fr [content-start] min(75ch, 100%) [content-end] 1fr [image-end] 1fr;
+            background-color: #db0a5b;
+            margin-top: 2rem;
+            padding: 4rem 0;
+        }
+
+        footer>p {
+            grid-column: image-start/image-end;
+            color: white;
+            padding: 0 1rem;
+        }
+
+        footer>p>a {
+            color: var(--COL3);
+        }
+    </style>
+</head>
+
+<body>
+    <main>
+        <figure>
+            <div class="header-container">
+                <h1>Jupiter’s moon Europa may have water where life could exist, say scientists</h1>
+                <h2>Surface features similar to ones seen on Greenland ice sheet suggest underground liquid water that
+                    could
+                    host organic matter</h2>
+            </div>
+            <img
+                src="https://images.unsplash.com/photo-1433838552652-f9a46b332c40?ixlib=rb-1.2.1&ixid=MnwxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8&auto=format&fit=crop&w=870&q=80">
+            <figcaption>A green expanse with numerous yellow blimps flying in the air.</figcaption>
+        </figure>
+        <p>
+            Evidence for the shallow pools, not far beneath the frozen surface of the Jovian moon, emerged when
+            scientists noticed that giant parallel ridges stretching for hundreds of miles on Europa were strikingly
+            similar to surface features discovered on the Greenland ice sheet.
+        </p>
+        <p>
+            If the extensive ice ridges that crisscross Europa formed in a similar way to those in Greenland, then
+            pockets of subsurface water may be ubiquitous on the body and help circulate chemicals necessary for life
+            from the icy shell down to the salty ocean that lurks far beneath.
+        </p>
+        <p>
+            “Liquid water near to the surface of the ice shell is a really provocative and promising place to imagine
+            life having a shot,” said Dustin Schroeder, an associate professor of geophysics at Stanford University.
+            “The idea that we could find a signature that would suggest a promising pocket of water like this might
+            exist, I think, is very exciting.”
+        </p>
+        <p>
+            At 2,000 miles wide, Europa is slightly smaller than Earth’s moon. It became a leading contender in the
+            search for life elsewhere when observations from ground-based telescopes and passing space probes found
+            evidence of a deep ocean 10 to 15 miles beneath its icy surface.
+        </p>
+        <figure>
+            <img
+                src="https://images.unsplash.com/photo-1511884642898-4c92249e20b6?ixlib=rb-1.2.1&ixid=MnwxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8&auto=format&fit=crop&w=870&q=80">
+            <figcaption>A green forest bisectedwith a ravine running be</figcaption>
+        </figure>
+        <p>
+            Writing in Nature Communications, the researchers describe how Greenland’s double ice ridges, which are
+            about 50 times smaller than those on Europa, formed when shallow pools of subsurface water froze and
+            fractured the surface time and time again, steadily driving up the twin ridges. “It’s like when you put a
+            can of soda in the freezer and it explodes. It’s that kind of pressure that pushes up the ridges on the
+            surface,” said Culberg.
+        </p>
+        <p>
+            In Greenland, water drains into the underground pockets from surface lakes, but on Europa the scientists
+            <q>
+                Water drains into the underground pockets from surface lakes
+            </q>
+            suspect liquid water is forced up towards the surface from the underlying ocean through fractures in the ice
+            shell. For all that is known about Europa, images of the frigid body have thrown up longstanding mysteries.
+            One is the presence of vast double ridges that cover the surface like scars. The ridges can reach up to 300
+            metres (1,000ft) high and are separated by valleys half a mile wide.
+
+        </p>
+        <p>
+            But questions remain. “I do wonder why the features are so much smaller on Earth,” he said. While Earth’s
+            stronger gravity could explain why the ridges are lower here than on Europa, it is unclear why the valleys
+            between them are narrower too.
+        </p>
+        <figure>
+            <img
+                src="https://images.unsplash.com/photo-1468276311594-df7cb65d8df6?ixlib=rb-1.2.1&ixid=MnwxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8&auto=format&fit=crop&w=1470&q=80">
+            <figcaption>A sunset over a body of water.</figcaption>
+        </figure>
+        <p>
+            At 2,000 miles wide, Europa is slightly smaller than Earth’s moon. It became a leading contender in the
+            search for life elsewhere when observations from ground-based telescopes and passing space probes found
+            evidence of a deep ocean 10 to 15 miles beneath its icy surface.
+        </p>
+        <p>
+            Europa’s ocean is estimated at 40 to 100 miles deep, so even though it is one-quarter the width of Earth, it
+            may hold twice as much water as all of Earth’s oceans combined.
+        </p>
+    </main>
+    <footer>
+        <p>
+            Something I styled on April 21, 2022.
+        </p>
+        <p>
+            Article from <a
+                href="https://www.theguardian.com/science/2022/apr/19/jupiters-moon-europa-may-have-water-life-could-exist">here</a>
+            by Ian Sample.
+        </p>
+    </footer>
+
+
+    <script>
+
+
+    </script>
+</body>
+
+</html>

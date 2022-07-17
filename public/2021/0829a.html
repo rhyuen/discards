@@ -1,0 +1,129 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <link rel="preconnect" href="https://fonts.gstatic.com">
+    <link href="https://fonts.googleapis.com/css2?family=Inter&display=swap" rel="stylesheet"> 
+    <title>08 23</title>
+    
+
+        <style>
+            * {                
+                box-sizing: border-box;
+                font-size: 16px;
+                font-family: 'Inter', sans-serif;                
+                --GREY : rgba(0,0,0,0.1);
+                --PRIMARY_COLOR: #98E690;
+                --SECONDARY_COLOR: white;
+                --COL1:  #db0a5b;
+                --COL2: #fef160;
+                --COL3: #23cba7;  
+                --COL4: #3e6ceb;  
+                --COL5: #d9c8ec;
+            }      
+
+            ::-webkit-scrollbar {                
+                width: 0.8rem;
+                height: 0.5rem;
+            }
+
+            /* Track */
+            ::-webkit-scrollbar-track {
+                background: black;
+            }
+
+            /* Handle */
+            ::-webkit-scrollbar-thumb {
+                background: rgb(209, 171, 121);
+            }
+
+            /* Handle on hover */
+            ::-webkit-scrollbar-thumb:hover {
+                background: #d3d3d3;
+            }
+                       
+
+            html, body{
+                margin: 0;
+                height: 100vh;                
+                background: #f3f3f3;
+                position: relative;                
+            }
+      
+            h1{
+                margin: 0;
+                padding: 0;
+            }
+          
+            ul{
+                margin: 0;
+                padding: 0;
+                list-style-type: none;
+            }
+            
+            
+
+            a{
+                text-decoration: none;
+                color: black;
+            }
+
+          
+            .red{
+                background: var(--COL1);
+            }
+            .yellow{
+                background: var(--COL2);
+            }
+            .green{
+                background: var(--COL3);
+            }
+            .blue{
+                background: var(--COL4);
+            }
+
+         
+
+            main{
+                display: grid;
+                grid-template-columns: repeat(4, 100vw);
+                grid-template-rows: repeat(4, 100vh);
+                overflow: hidden;
+                scroll-snap-type: both mandatory;
+                max-height: 100vh;                
+                
+            }
+
+            section{
+                grid-column: span 1;
+                grid-row: span 1;
+                scroll-snap-align: center;
+                display: flex;
+                flex-direction: column;
+                justify-content: center;
+                align-items: center;
+                font-size: 2rem;
+                font-weight: 600;
+            }
+        </style>
+    <body> 
+        <main>
+
+        </main>
+        <script type='text/javascript'>
+            const main = document.querySelector("main");
+        
+            const list = ["red", "yellow", "green", "blue", "red", "yellow", "green", "blue", "red", "yellow", "green", "blue", "red", "yellow", "green", "blue"];
+            for(let i = 0 ; i < list.length; i++){
+                const section = document.createElement("section");
+                const text = document.createTextNode(i);
+                section.classList = list[i];
+                section.appendChild(text);
+                main.appendChild(section);
+            }
+                        
+        </script>
+    </body>
+</html>

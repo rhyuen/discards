@@ -1,0 +1,158 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>06 17</title>
+
+        <style>
+            * {                
+                box-sizing: border-box;
+                font-size: 16px;
+                font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;                
+            }      
+            html, body{
+                margin: 0;
+                min-height: 100vh;
+                width: 100%;  
+            }
+
+            ::-webkit-scrollbar {
+                width: 0.5rem;
+                }
+
+                /* Track */
+            ::-webkit-scrollbar-track {
+                border-radius: 5px;
+            }
+
+                /* Handle */
+            ::-webkit-scrollbar-thumb {
+                background: lavender;
+                border-radius: 5px;
+            }
+    
+            ul{
+                margin: 0;
+                padding: 0;
+                list-style-type: none;
+            }
+            main{
+                display: flex;
+                justify-content: center;
+                align-items: center;
+                background-color: black;
+                min-height: 100vh;
+            }
+
+            .container{
+                position: relative;
+                scroll-snap-type: x mandatory;
+                overflow-x: scroll;
+                display: flex;          
+                scroll-behavior: smooth;      
+                height: 80vh;
+                width: 100vw;                
+            }
+
+            .cursor{
+                position: fixed;
+                top: 50%;
+                border-radius: 50%;                                
+                background-color: black;
+                color: white;
+                display: flex;
+                font-weight: 600;
+                font-size: 3rem;
+                height: 3rem;
+                width: 3rem;
+                padding: 2rem;
+                justify-content: center;
+                align-items: center;     
+                border: 2px solid transparent;           
+            }
+            .cursor:focus{
+                border: 2px solid palegoldenrod;
+            }
+            
+
+            .cursor--left{
+                left: 0;
+            }
+
+            .cursor--right{
+                right: 0;
+            }
+        
+            .container img{
+                scroll-snap-align: center;
+                object-fit: contain;
+                width: 100vw;
+                height: 100%;
+                
+                margin: 0 5rem;
+            }
+            .container img:last-child{
+                margin: 0 5rem;
+                margin-right: 20rem;
+            }
+        </style>
+</head>
+<body> 
+    <main>        
+        <ul class='container'>            
+            
+            <button class="cursor cursor--left" onclick="container_scroll('l')"> L </button>
+            <button class="cursor cursor--right" onclick="container_scroll('r')"> R </button>
+
+            <li>
+                <img src='images/eleven.jpg'>
+            </li>
+            <li>
+                <img src='images/twelve.jpg'>
+            </li>
+            <li>
+                <img src='images/one.jpg'>
+            </li>
+            <li>
+                <img src='images/nine.jpg'>
+            </li>
+            <li>
+                <img src='images/ten.jpg'>
+            </li>
+            <li><img src='images/four.jpg'></li>
+            <li><img src='images/five.jpg'></li>
+            <li><img src='images/six.jpg'></li>
+            <li><img src='images/seven.jpg'></li>
+            <li><img src='images/eight.jpg'></li>
+            <li><img src='images/56.jpg'></li>
+            <li><img src='images/57.jpg'></li>
+            <li><img src='images/58.jpg'></li>
+            <li><img src='images/59.jpg'></li>
+            <li><img src='images/60.jpg'></li>
+            <li><img src='images/61.jpg'></li>
+            <li><img src='images/62.jpg'></li>            
+
+        </ul>
+    </main>
+    <script type='text/javascript'>
+
+        function container_scroll(direction){
+            if(direction === 'l'){
+                console.log('scroll left');   
+                document.querySelector('.container').scrollBy(-200, 0); 
+            }
+
+            else if(direction ==='r'){
+                
+                console.log('scroll right');
+                document.querySelector('.container').scrollBy(200, 0); 
+            }
+                             
+        }
+        
+
+    </script>
+</body>
+</html>

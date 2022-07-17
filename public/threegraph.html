@@ -1,0 +1,191 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>three graph</title>
+    <style>
+        * {
+            box-sizing: border-box;
+            font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;            
+        }
+
+        .maincontainer{
+            display:flex;
+        }
+
+        .container{
+            max-width: 500px;
+            max-height: 500px;
+        }
+    </style>
+</head>
+<body>
+    <div class="maincontainer">
+        <div class="container">
+            <canvas id="myChart"></canvas>
+        </div>
+        <div class="container">
+            <canvas id="secondChart"></canvas>
+        </div>
+        <div class="container">
+            <canvas id="thirdChart"></canvas>
+        </div>
+        <div class="container">
+            <canvas id="fourthChart"></canvas>
+        </div>
+        <div class="container">
+            <canvas id="fifthChart"></canvas>
+        </div>
+        <div class="container">
+            <canvas id="sixthChart"></canvas>
+        </div>
+    </div>
+    <script src="https://cdn.jsdelivr.net/npm/chart.js"></script>
+    <script type="text/javascript">
+    
+    const labels = [
+        'January',
+        'February',
+        'March',
+        'April',
+        'May',
+        'June',
+        'July',
+        'August',
+        'September',
+        'October',
+        'November',
+        'December',
+    ];
+
+    const data = {
+        labels: labels,
+        datasets: [{
+            label: 'second dataset',
+            backgroundColor: 'palevioletred',
+            borderColor: 'papayawhip',
+            data: [0, 10, 5, 2, 20, 30, 45, 9, 100, 9, 12, 3],
+        }]
+    };
+
+    const config = {
+        type: 'line',
+        data,
+        options: {}
+    };
+
+    const barConfig = {
+        type: "bar",
+        data, 
+        options: {}
+    }
+
+    
+
+    var myChart = new Chart(
+        document.getElementById('myChart'),
+        config
+    );
+
+    let secondChart = new Chart(
+        document.getElementById("secondChart"),
+        barConfig
+    );
+
+    let thirdChart = new Chart(
+        document.getElementById("thirdChart"),
+        config
+    );
+
+  
+    const fourthChartData = {
+        labels: ['Red', 'Orange', 'Yellow', 'Green', 'Blue'],
+        datasets: [
+            {
+            label: 'Dataset 1',
+            data: [12, 11, 10, 22, 14],
+            backgroundColor: Object.values({
+                'Red': "#343434",
+                "Orange": "#ffaa23",
+                "Yellow": "#ffaa23",
+                "Green": "#dc1a23",
+                "Blue": "#abab23"
+            }),
+            }
+        ]
+    };
+    
+
+
+    const fifthChartData = {
+        labels: ['Fraser Health', 'Vancouver Coastal Health', 'Interior Health', 'Northern Health', 'Vancouver Island Health'],
+        datasets: [
+            {
+            label: 'covid may 11, 21',
+            data: [300, 116, 65, 12, 20],
+            backgroundColor: Object.values({
+                'Red': "#343434",
+                "Orange": "#ffaa23",
+                "Yellow": "#00eaff",
+                "Green": "#dc1a23",
+                "Blue": "#abab23"
+            }),
+            }
+        ]
+    };
+
+    const sixthChartData = {
+        labels: ['Fraser Health', 'Vancouver Coastal Health', 'Interior Health', 'Northern Health', 'Vancouver Island Health'],
+        datasets: [
+            {
+            label: 'covid may 12, 21',
+            data: [394, 150, 39, 9, 8],
+            backgroundColor: [
+                "lavender",
+                "#ffaa23",
+                "blue",
+                "#dc1a23",
+                "#abab23"
+            ],
+            }
+        ]
+    };
+    
+
+
+
+  
+
+    function makeChart(id, type, data, label){
+        const config = {
+            type: type,
+            data: data,
+            options: {
+                responsive: true,
+                plugins: {
+                    legend: {
+                        position: 'top',
+                    },
+                    title: {
+                        display: true,
+                        text: label
+                    }
+                }
+            },
+        };
+
+        return new Chart(
+            document.getElementById(id),
+            config
+        )        
+    }
+
+    let fourthChart = makeChart("fourthChart", "doughnut", fourthChartData, "fourth");
+    let fifthChart = makeChart("fifthChart", "doughnut", fifthChartData, "may 11, covid 19");
+    let sixthChart = makeChart("sixthChart", "doughnut", sixthChartData, "may 12th, 21, covid 19")
+    </script>
+    
+</body>
+</html>

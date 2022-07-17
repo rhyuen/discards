@@ -1,0 +1,259 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <link rel="preconnect" href="https://fonts.gstatic.com">
+    <link href="https://fonts.googleapis.com/css2?family=Inter&display=swap" rel="stylesheet"> 
+    <title>07 06</title>
+    
+
+        <style>
+            * {                
+                box-sizing: border-box;
+                font-size: 16px;
+                font-family: 'Inter', sans-serif;                
+            }      
+
+            ::-webkit-scrollbar {                
+                width: 0.8rem;
+                height: 0.5rem;
+            }
+
+            /* Track */
+            ::-webkit-scrollbar-track {
+                background: black;
+            }
+
+            /* Handle */
+            ::-webkit-scrollbar-thumb {
+                background: palegreen;
+            }
+
+            /* Handle on hover */
+            ::-webkit-scrollbar-thumb:hover {
+                background: #d3d3d3;
+            }
+
+           
+            
+
+            html, body{
+                margin: 0;
+                min-height: 100vh;                
+                background: #f3f3f3;                
+            }
+
+            ul{
+                margin: 0;
+                padding: 0;
+                list-style-type: none;
+            }
+            
+
+            a{
+                color: black;
+                text-decoration: none;                
+            }          
+         
+
+            .nav--desktop{
+                display: none;
+                height: 5rem;     
+                background-color: aquamarine;                
+                width: 100%
+            }
+
+            .nav--mobile{                
+                border-bottom: 1px solid rgba(0, 0, 0, 0.1);                
+                display: grid;                
+                grid-template-columns: 2rem 1fr 2rem;
+                grid-template-rows: 5rem;
+                grid-auto-rows: 5rem;                       
+            }
+            
+
+            .nav--mobile__home{       
+                margin-left: 2rem;                         
+                grid-column: 1/span 1;
+                display: flex;
+                justify-content: center;                
+                align-items: center;
+                border-radius: 50%;
+                font-size: 1.5rem;        
+                transition: transform .2s ease-in-out;        
+            }
+            .nav--mobile__home:hover, .nav--mobile__menu:hover{
+                transform: scale(1.2);
+            }
+
+            .nav--mobile__menu{
+                margin-right: 2rem;
+                grid-column: 3/span 1;
+                display: flex;
+                font-size: 1.5rem;
+                justify-content: center;                
+                align-items: center;                                                
+                transition: transform .2s ease-in-out;        
+            }
+
+
+
+            .container{
+                height: 100%;
+                display: flex;
+                max-width: 1100px;
+                margin: 0 auto;
+                align-items: center;
+                justify-content: flex-start;
+            }
+
+            .container__item{
+                font-weight: 600;
+                font-size: 1.2rem;                
+                margin-right: 1rem;
+            }
+
+            .m-container{
+                display: none;                
+            }
+            .m-container:target{                 
+                grid-column: 1/-1;         
+                grid-row: 2/span 3;       
+                display: flex;        
+                justify-content: flex-start;            
+                align-items: flex-start;                
+                margin: 0;                
+                flex-direction: column;     
+                position: fixed;       
+                background-color: white;         
+                inset: 0;
+                top: 5rem;
+            }
+
+            .m-container__item{
+                display: flex;                   
+                justify-content: flex-start;
+                align-items: center;
+                width: 100%;                
+                padding: 1rem;                                
+                
+            }
+
+            .m-container__item--button{
+                justify-content: center;
+            }
+
+            .link--button{                                
+                padding: 1rem;
+                background: black;
+                width: 100%;
+                border-radius: .5rem;                
+                color: white;
+                text-align: center;
+                font-weight: 600;
+                border: .2rem solid black;
+                transition: all .4 ease-in-out;
+            }
+
+            .link--button-secondary{
+                background-color: white;
+                color: black;
+            }
+
+            .link--button:hover{
+                color: black;
+                background: white;
+            }
+
+            .link--button-secondary:hover{
+                color: white;
+                background-color: rgba(0, 0, 0, 0.4);
+            }
+
+            main{
+                max-width: 1100px;
+                display: grid;
+                grid-template-columns: repeat(auto-fit, minmax(250px, 1fr));
+                margin: 0 auto;                
+            }
+
+            section{
+                margin: 1rem;
+                margin-bottom: 5rem;
+                grid-column: 1/-1;
+            }
+
+            footer{
+                margin: 0 auto;
+                max-width: 1100px;
+                border-top: 1px solid black;
+                padding: 2rem;
+            }
+            
+
+            @media screen and (min-width: 1000px){
+                .nav--mobile{
+                    display: none;
+                }
+                .nav--desktop{
+                    display: block;
+                }
+            }
+        </style>
+    </head>
+    <body> 
+        <nav class='nav--mobile' aria-label="Mobile Navigation Bar">
+            <a href='#' class='nav--mobile__home'>&#11044;</a>
+            <a href='#nav_mobile' class='nav--mobile__menu'>                
+                &#x2630;
+            </a>   
+            <ul class='m-container' id='nav_mobile'>                
+                <li class='m-container__item'><a href='#'>About</a></li>
+                <li class='m-container__item'><a href='#'>Contact</a></li>
+                <li class='m-container__item m-container__item--button'><a href='#' class='link--button'>Signup</a></li>
+                <li class='m-container__item m-container__item--button'><a href='#' class='link--button link link--button-secondary'>Login</a></li>
+            </ul>        
+        </nav>
+      
+        <nav class='nav--desktop' aria-label='Desktop Navigation Bar'>
+            <ul class='container'>
+                <li class='container__item'><a href='#'>Home</a></li>
+                <li class='container__item'><a href='#'>About</a></li>
+                <li class='container__item'><a href='#'>Contact</a></li>
+            </ul>
+        </nav>
+        <main>
+            <section class='hero'>
+                <h1>Human.</h1>
+                <p>Are you tired of being sad because *gestures around* people being people?</p>
+                <br/>
+                <a href='#' class='link--button'>
+                    Signup
+                </a>
+            </section>
+            <section>
+                <h2>Reasons</h2>
+                <p>Are you sure you're not willing to accept your lord and saviour 'Mr Wiggles'?</p>
+                <p>He's a pretty spiffy cat.</p>
+                <br/>
+                <a href='#' class='link--button'>
+                    For the cat.
+                </a>
+            </section>            
+        </main>
+        <footer>
+            A fictional product by Robert
+        </footer>
+        <script type='text/javascript'>
+            function handleScroll(direction){
+                console.log(direction);                
+                const vector = direction ==='left' ? -300 : 300;
+                const el = document.querySelector('#media');
+                console.log(vector);
+                el.scrollBy(vector, 0);                                
+            }
+        </script>
+    </body>
+</html>

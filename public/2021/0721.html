@@ -1,0 +1,410 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <link rel="preconnect" href="https://fonts.gstatic.com">
+    <link href="https://fonts.googleapis.com/css2?family=Inter&display=swap" rel="stylesheet"> 
+    <title>07 13</title>
+    
+
+        <style>
+            * {                
+                box-sizing: border-box;
+                font-size: 16px;
+                font-family: 'Inter', sans-serif;                
+                --PRIMARY_COLOR: #343434;
+                --SECONDARY_COLOR: palelightgreen;
+            }      
+
+            ::-webkit-scrollbar {                
+                width: 0.8rem;
+                height: 0.5rem;
+            }
+
+            /* Track */
+            ::-webkit-scrollbar-track {
+                background: black;
+            }
+
+            /* Handle */
+            ::-webkit-scrollbar-thumb {
+                background: rgb(209, 171, 121);
+            }
+
+            /* Handle on hover */
+            ::-webkit-scrollbar-thumb:hover {
+                background: #d3d3d3;
+            }
+
+           
+            
+
+            html, body{
+                margin: 0;
+                min-height: 100vh;                
+                background: #f3f3f3;                                
+            }
+
+          
+            ul{
+                margin: 0;
+                padding: 0;
+                list-style-type: none;
+            }
+            nav{
+                height: 5rem;                                
+            }
+
+            a{
+                text-decoration: none;
+                color: black;
+            }
+
+            .container{
+                max-width: 1000px;
+                display: flex;
+                align-items: center;
+                justify-content: flex-start;
+                margin: 0 auto;
+                height: 100%;
+                align-items: center;
+            }
+            .container__item{
+                margin-right: 2rem;                
+            }
+
+            .container__item a{
+                position: relative;                                
+            }
+            .container__item a:after{
+                transition: transform .2s ease-in-out, opacity .2s ease-in-out;
+                transform-origin: center;                                                
+                position: absolute; 
+                transform: scale(0);               
+                opacity: 0;
+                bottom: -1rem;
+                left: 0;
+                width: 100%;
+                background-color: black;
+                height: .2rem;
+                content: "";                      
+            }
+            .container__item a:hover::after{                
+                opacity: 1;
+                transform: scale(1);
+            }
+            
+
+            .container__item:last-child{
+                margin-right: 0;
+            }
+
+            .media{
+                max-width: 700px;
+                margin: 0 auto;
+                display: grid;
+                grid-template-columns: repeat(auto-fit, minmax(200px, 1fr));                                                     
+                overflow-x: scroll;
+                overflow-y: hidden;
+                max-height: 250px;
+                scroll-snap-type: x mandatory;
+                scroll-snap-align: center;                
+            }
+
+            a.media__item{
+                position: relative;
+                overflow: hidden;
+            }
+            a.media__item:after{
+                padding-bottom: 100%;
+                content: '';
+                display: block;
+            }
+            a.media__item > img{
+                position: absolute;
+                inset: 0;
+                height: 100%;
+                width: 100%;
+                object-fit: cover;
+                transform: scale(1.0);
+                transition: transform .2s ease-in-out;                
+                
+            }
+            a.media__item > img:hover{
+                transform: scale(1.2);
+            }
+            
+            main{
+                display: grid;
+                grid-template-columns: 2fr 1fr;                
+                margin: 2rem auto;
+                grid-gap: 2rem;
+                max-width: 1000px;
+            }
+            .feed{
+                display: flex;
+                flex-direction: column;                
+                grid-column: 1/-1;
+            }
+
+            .ads{
+                display: none;                
+            }
+
+            h2{
+                margin-bottom: 2rem;
+            }
+
+            
+
+            .card__item__header{
+                display: flex;
+                justify-content: space-between;
+                align-items: center;
+                padding: 0 2rem;
+            }
+
+            .card__item{
+                transition: background-color .2s ease-in-out;
+                padding: 2rem 0;
+                border-radius: .5rem;
+                background-color: white;
+                margin-bottom: 2rem;
+                display: flex;
+                flex-direction: column;                
+            }
+            .card__item:hover{
+                background-color: rgba(0, 0, 0, .1);
+            }
+
+            .card__item__text{
+                padding: 0 2rem;
+            }
+
+            .card__item img{
+                margin: 2rem 0;
+                object-fit: cover;
+                max-width: 100%;
+            }
+
+            .card__item__header__icons{                
+                display: flex;
+                justify-content: flex-end;
+            }
+
+            icon{
+                position: relative;                
+                width: 2rem;
+                background-color: #ff6161;
+                height: 2rem;
+                text-align: center;                
+                margin-left: 1rem;
+                border-radius: 50%;                
+            }
+            icon:after{
+                padding-bottom: 100%;
+                border-radius: 50%;                
+                content: "";
+                background-color: #ff6161; 
+            }
+            icon:hover{
+                background-color: greenyellow;
+            }
+
+            @media screen and (min-width: 800px) and (max-width: 1399px){
+                .media{
+                    max-width: 1000px;
+                    margin: 0 auto;
+                    display: grid;
+                    grid-template-columns: repeat(auto-fit, minmax(200px, 1fr));                                     
+                    overflow-x: scroll;
+                    overflow-y: hidden;
+                    max-height: 250px;
+                    scroll-snap-type: x mandatory;
+                    scroll-snap-align: center;
+
+                }
+
+                .feed{
+                    grid-column: 1/span 1;
+                }
+                .ads{
+                    display: flex;
+                    flex-direction: column;
+                    grid-column: 2/span 1;
+                }
+            }
+
+            @media screen and (min-width: 1400px){
+                .media{
+                    max-width: 1400px;
+                    margin: 0 auto;
+                    display: grid;
+                    max-height: none;
+                    grid-template-columns: repeat(auto-fit, minmax(200px, 1fr));                                     
+                }
+
+                .feed{
+                    grid-column: 1/span 1;
+                }
+                .ads{
+                    display: flex;
+                    flex-direction: column;
+                    grid-column: 2/span 1;
+                }
+            }
+   
+        </style>
+    <body>
+        <nav>
+            <ul class='container'>
+                <li class='container__item'><a href='#'>Home</a></li>
+                <li class='container__item'><a href='#'>About</a></li>
+                <li class='container__item'><a href='#'>Contact</a></li>
+            </ul>
+        </nav>
+        <section class='media'>            
+            <a href='#' class='media__item'>
+                <img src='images/57.jpg' alt='blah'/>
+            </a>     
+            <a href='#' class='media__item'>
+                <img src='images/eight.jpg' alt='blah'/>
+            </a>   
+            <a href='#' class='media__item'>
+                <img src='images/eleven.jpg' alt='blah'/>
+            </a>   
+            <a href='#' class='media__item'>
+                <img src='images/twelve.jpg' alt='blah'/>
+            </a>   
+            <a href='#' class='media__item'>
+                <img src='images/xmenred.jpg' alt='blah'/>
+            </a>          
+            <a href='#' class='media__item'>
+                <img src='images/58.jpg' alt='blah'/>
+            </a>            
+            <a href='#' class='media__item'>
+                <img src='images/59.jpg' alt='blah'/>
+            </a>            
+            <a href='#' class='media__item'>
+                <img src='images/60.jpg' alt='blah'/>
+            </a>            
+            <a href='#' class='media__item'>
+                <img src='images/61.jpg' alt='blah'/>
+            </a>            
+            <a href='#' class='media__item'>
+                <img src='images/two.jpg' alt='blah'/>
+            </a>            
+            <a href='#' class='media__item'>
+                <img src='images/three.jpg' alt='blah'/>
+            </a>            
+            <a href='#' class='media__item'>
+                <img src='images/four.jpg' alt='blah'/>
+            </a>            
+            <a href='#' class='media__item'>
+                <img src='images/five.jpg' alt='blah'/>
+            </a>            
+            <a href='#' class='media__item'>
+                <img src='images/six.jpg' alt='blah'/>
+            </a>     
+        </section>     
+        <main>
+            <section class='feed'>
+                <h2>Things for dopamine hits.</h2>
+                <ul class='card'>
+                    <li class='card__item'>
+                        <a href='#'>
+                            <h3 class='card__item__header'>
+                                <span>Item One</span>
+                                <span class='card__item__header__icons'>
+                                    <icon>a</icon>
+                                    <icon>b</icon>
+                                    <icon>c</icon>
+                                </span></h3>
+                            <img src='images/fw2.jpg' alt='blah'/>
+                            <p class='card__item__text'>Some text describing the above goes here.</p>
+                        </a>
+                    </li>
+                    <li class='card__item'>
+                        <a href='#'>
+                            <h3 class='card__item__header'>
+                                <span>Item two</span>
+                                <span class='card__item__header__icons'>
+                                    <icon></icon>
+                                    <icon></icon>
+                                    <icon></icon>
+                                </span>
+                            </h3>
+                            <img src='images/fw3.jpg' alt='blah'/>
+                            <p class='card__item__text'>Some text describing the above goes here.</p>
+                        </a>
+                    </li>
+                    <li class='card__item'>
+                        <a href='#'>
+                            <h3 class='card__item__header'>
+                                <span>Item four</span>
+                                <span class='card__item__header__icons'>
+                                    <icon></icon>
+                                    <icon></icon>
+                                    <icon></icon>
+                                </span>
+                            </h3>
+                            <img src='images/xforce.jpg' alt='blah'/>
+                            <p class='card__item__text'>Some text describing the above goes here.</p>
+                        </a>
+                    </li>
+                    <li class='card__item'>
+                        <a href='#'>
+                            <h3 class='card__item__header'>
+                                <span>Item four</span>
+                                <span class='card__item__header__icons'>
+                                    <icon></icon>
+                                    <icon></icon>
+                                    <icon></icon>
+                                </span>
+                            </h3>
+                            <img src='images/fw5.jpg' alt='blah'/>
+                            <p class='card__item__text'>Some text describing the above goes here.</p>
+                        </a>
+                    </li>
+                </ul>
+            </section>
+            <aside class='ads'>
+                <h2>Stuff you might like</h2>
+                <ul class='card'>
+                    <li class='card__item'>
+                        <a href='#'>
+                            <h3>First Last</h3>
+                            <p>A blurb about above</p>
+                        </a>
+                    </li>
+                    <li class='card__item'>
+                        <a href='#'>
+                            <h3>First Last</h3>
+                            <p>A blurb about above</p>
+                        </a>
+                    </li>
+                    <li class='card__item'>
+                        <a href='#'>
+                            <h3>First Last</h3>
+                            <p>A blurb about above</p>
+                        </a>
+                    </li>
+                    <li class='card__item'>
+                        <a href='#'>
+                            <h3>First Last</h3>
+                            <p>A blurb about above</p>
+                        </a>
+                    </li>
+                    <li class='card__item'>
+                        <a href='#'>
+                            <h3>First Last</h3>
+                            <p>A blurb about above</p>
+                        </a>
+                    </li>
+                </ul>
+            </aside>
+        </main>                 
+    </body>
+</html>

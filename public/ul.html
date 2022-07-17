@@ -1,0 +1,294 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>ul test</title>
+    <style>
+        * {
+            box-sizing: border-box;
+            font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;     
+            font-size: 16px;       
+        }
+
+        html, body{
+            margin: 0;            
+            min-height: 100vh;
+            width:100%;
+        }
+
+        nav{
+            background-color: white;                        
+            display: flex;
+            justify-content: space-between;
+            border-bottom: 1px solid rgba(0, 0, 0, 0.1);
+            padding: 1rem 2rem;
+        }
+
+        .nav__section{
+            display: flex;            
+        }
+
+        .nav__section span{
+            text-transform: uppercase;
+            font-weight: 600;
+            font-size: 1.2rem;
+            color: #343434;
+            margin: 1rem;
+            display: flex;
+            justify-content: center;
+            align-items: center;
+        }
+
+        button{
+            background-color: #ea4c89;
+            border: 2px solid #ea4c89;
+            padding: 0.5rem 1rem;
+            color: white;
+            font-weight: 600;
+            font-size: 1.2rem;
+            border-radius: 1rem;
+            transition: background-color cubic-bezier(0.075, 0.82, 0.165, 1) 0.5s;
+        }
+        button:hover{
+            color: #ea4c89;
+            background-color: white;
+        }
+
+
+        .hero{
+            background: #f3f3f3;            
+            padding: 10rem 5rem;
+        }
+        .hero__container{
+            margin: 0 auto;
+            max-width: 1400px;            
+        }
+        .hero__container__header{
+            font-size: 3rem;
+            font-weight: 600;
+            max-width: clamp(50%, 80%, 100%);
+            margin: 0;
+        }
+        .hero__container__text{
+            max-width: clamp(50%, 80%, 100%);
+            line-height: 2;
+        }
+
+
+        ul.gallery{
+            list-style-type: none;
+            padding: 0;
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(400px, 1fr));            
+            grid-auto-rows: 400px;
+            grid-gap: 4rem ; 
+            margin: 2rem;
+        }
+        li.gallery__item{            
+            display: flex;
+            flex-direction: column;
+            justify-content: center;            
+            align-items: center;
+            border-radius: 20px;
+            
+        }
+        .gallery__item__meta{
+            
+            bottom: 0;
+            margin: 1rem;
+            display: flex;
+            width: 100%;
+            justify-content: space-between;
+            font-weight: 600;
+            padding: 0 1rem;
+        }
+
+        img{
+            object-fit: cover;
+            width: 100%;
+            height: 100%;            
+            border-radius: 20px;
+            background-color: #ea4c89;
+        }
+        
+
+
+    </style>
+</head>
+<body>
+    <nav>
+        <div class="nav__section">
+            <span>One</span>
+            <span>Two</span>
+                       
+        </div>
+        <div class="nav__section">            
+            <span>three</span>
+            <span><button type="button">Login</button></span>            
+        </div>
+    </nav>
+    <main>
+        <section class="hero">
+            <div class="hero__container">
+                <h1 class="hero__container__header">Discover the world’s top designers & creatives</h1>
+                <p class="hero__container__text">Dribbble is the leading destination to find & showcase creative work and home to the world's best design professionals.</p>
+                <button type="button">Signup</button>
+            </div>
+        </section>
+        <ul class="gallery">
+            <li class="gallery__item">
+                <img src="images/seven.jpg" alt="sunrise">
+                <div class="gallery__item__meta">
+                    <div class="gallery__item__meta__left">
+                        <icon>F</icon>
+                        <span>First Last</span>
+                        <icon>ADJ</icon>
+                    </div>
+                    <div class="gallery__item__meta__right">
+                        <icon>A</icon>
+                        <span>99</span>
+                        <icon>H</icon>
+                        <span>24</span>
+                    </div>
+                </div>
+            </li>
+            <li class="gallery__item">
+                <img src="images/eight.jpg" alt="sunrise">
+                <div class="gallery__item__meta">
+                    <div class="gallery__item__meta__left">
+                        <icon>F</icon>
+                        <span>First Last</span>
+                        <icon>ADJ</icon>
+                    </div>
+                    <div class="gallery__item__meta__right">
+                        <icon>A</icon>
+                        <span>99</span>
+                        <icon>H</icon>
+                        <span>24</span>
+                    </div>
+                </div>
+            </li>            
+   
+          
+            <li class="gallery__item"> 
+                <img src="images/five.jpg" alt="sunrise">
+                <div class="gallery__item__meta">
+                    <div class="gallery__item__meta__left">
+                        <icon>F</icon>
+                        <span>First Last</span>
+                        <icon>ADJ</icon>
+                    </div>
+                    <div class="gallery__item__meta__right">
+                        <icon>A</icon>
+                        <span>99</span>
+                        <icon>H</icon>
+                        <span>24</span>
+                    </div>
+                </div>
+            </li>
+            <li class="gallery__item"> 
+                <img src="images/four.jpg" alt="sunrise">
+                <div class="gallery__item__meta">
+                    <div class="gallery__item__meta__left">
+                        <icon>F</icon>
+                        <span>First Last</span>
+                        <icon>ADJ</icon>
+                    </div>
+                    <div class="gallery__item__meta__right">
+                        <icon>A</icon>
+                        <span>99</span>
+                        <icon>H</icon>
+                        <span>24</span>
+                    </div>
+                </div>
+            </li>
+            <li class="gallery__item"> 
+                <img src="images/three.jpg" alt="sunrise">
+                <div class="gallery__item__meta">
+                    <div class="gallery__item__meta__left">
+                        <icon>F</icon>
+                        <span>First Last</span>
+                        <icon>ADJ</icon>
+                    </div>
+                    <div class="gallery__item__meta__right">
+                        <icon>A</icon>
+                        <span>99</span>
+                        <icon>H</icon>
+                        <span>24</span>
+                    </div>
+                </div>
+            </li>
+            <li class="gallery__item">
+                <img src="images/two.jpg" alt="sunrise">
+                <div class="gallery__item__meta">
+                    <div class="gallery__item__meta__left">
+                        <icon>F</icon>
+                        <span>First Last</span>
+                        <icon>ADJ</icon>
+                    </div>
+                    <div class="gallery__item__meta__right">
+                        <icon>A</icon>
+                        <span>99</span>
+                        <icon>H</icon>
+                        <span>24</span>
+                    </div>
+                </div>
+            </li>
+            <li class="gallery__item">
+                <img src="images/one.jpg" alt="sunrise">
+                <div class="gallery__item__meta">
+                    <div class="gallery__item__meta__left">
+                        <icon>F</icon>
+                        <span>First Last</span>
+                        <icon>ADJ</icon>
+                    </div>
+                    <div class="gallery__item__meta__right">
+                        <icon>A</icon>
+                        <span>99</span>
+                        <icon>H</icon>
+                        <span>24</span>
+                    </div>
+                </div>
+            </li>
+           
+          
+            <li class="gallery__item">
+                <img src="images/two.jpg" alt="sunrise">
+                <div class="gallery__item__meta">
+                    <div class="gallery__item__meta__left">
+                        <icon>F</icon>
+                        <span>First Last</span>
+                        <icon>ADJ</icon>
+                    </div>
+                    <div class="gallery__item__meta__right">
+                        <icon>A</icon>
+                        <span>99</span>
+                        <icon>H</icon>
+                        <span>24</span>
+                    </div>
+                </div>
+            </li>
+            <li class="gallery__item">
+                <img src="images/three.jpg" alt="sunrise">
+                <div class="gallery__item__meta">
+                    <div class="gallery__item__meta__left">
+                        <icon>F</icon>
+                        <span>First Last</span>
+                        <icon>ADJ</icon>
+                    </div>
+                    <div class="gallery__item__meta__right">
+                        <icon>A</icon>
+                        <span>99</span>
+                        <icon>H</icon>
+                        <span>24</span>
+                    </div>
+                </div>
+            </li>
+            
+
+        </ul>
+    </main>
+</body>
+</html>

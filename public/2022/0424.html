@@ -1,0 +1,385 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta name='color-scheme' content='dark light'>
+    <link rel="preconnect" href="https://fonts.gstatic.com">
+    <link href="https://fonts.googleapis.com/css2?family=Inter&display=swap" rel="stylesheet">
+    <title>4/23/22</title>
+
+
+    <style>
+        * {
+            box-sizing: border-box;
+            font-size: 16px;
+            font-family: 'Inter', sans-serif;
+            color: black;
+            --GREY: rgba(0, 0, 0, 0.1);
+            --PRIMARY_COLOR: #98E690;
+            --SECONDARY_COLOR: white;
+            --COL1: #db0a5b;
+            --COL2: #fef160;
+            --COL3: #23cba7;
+            --COL4: #3e6ceb;
+            --COL5: rgb(212, 204, 212);
+        }
+
+        ::-webkit-scrollbar {
+            width: 0.8rem;
+            height: 0.5rem;
+        }
+
+        /* Track */
+        ::-webkit-scrollbar-track {
+            background: black;
+        }
+
+        /* Handle */
+        ::-webkit-scrollbar-thumb {
+            background: var(--COL3);
+        }
+
+        /* Handle on hover */
+        ::-webkit-scrollbar-thumb:hover {
+            background: var(--COL2);
+        }
+
+
+        html,
+        body {
+            margin: 0;
+            height: 100vh;
+            background: #f3f3f3;
+        }
+
+
+        h1 {
+            margin: 0;
+            padding: 0;
+        }
+
+        figure {
+            margin: 0;
+            padding: 0;
+        }
+
+        a {
+            color: var(--COL3);
+            font-weight: 800;
+        }
+
+
+        ul {
+            list-style-type: none;
+            margin: 0;
+        }
+
+        .red {
+            background: var(--COL1);
+            color: white;
+        }
+
+        .yellow {
+            background: var(--COL2);
+            color: black;
+        }
+
+        .green {
+            background: var(--COL3);
+            color: white;
+        }
+
+        .blue {
+            background: var(--COL4);
+            color: white;
+        }
+
+        main {
+            display: grid;
+            grid-template-columns: 2fr [content-start] min(65ch, 100%) [content-end] 3fr;
+        }
+
+        main>* {
+            grid-column: content-start/content-end;
+
+        }
+
+        main>p {
+            line-height: 2;
+            padding: 1rem;
+        }
+
+        main>p::selection {
+            background: var(--COL2);
+        }
+
+        .full-bleed {
+            grid-column: 1/-1;
+        }
+
+        .hero-container {
+            position: relative;
+            background-color: var(--COL1);
+            margin: 2rem 0;
+        }
+
+        .hero-container:first-child {
+            margin-top: 0;
+        }
+
+        .hero-container>img {
+            width: 100%;
+            object-fit: cover;
+            height: 40rem;
+        }
+
+        .hero-container>figcaption {
+            position: absolute;
+            bottom: 0;
+            right: 0;
+            background-color: var(--COL1);
+            padding: 2rem;
+            color: white;
+            font-weight: 600;
+            font-size: .9rem;
+            max-width: 35ch;
+        }
+
+        .hero-container__text-container {
+            position: absolute;
+            left: 45%;
+            top: 50%;
+            transform: translate(-50%, -50%);
+            width: min(65ch, 100%);
+            padding: 2rem;
+        }
+
+        .hero-container__text-container>* {
+            color: white;
+            margin-left: 1rem;
+        }
+
+        .hero-container__text-container>h1 {
+            font-size: 2rem;
+        }
+
+        .hero-container__text-container>p {
+            font-size: .9rem;
+        }
+
+        .paragraph--italic {
+            font-style: italic;
+            font-family: 'Times New Roman', Times, serif;
+            margin: 0;
+        }
+
+        .paragraph--first-letter::first-letter {
+            font-size: 2rem;
+            font-weight: 600;
+            color: var(--COL1);
+            margin-right: .5rem;
+            border: 2px solid var(--COL1);
+            padding: .5rem;
+        }
+
+        q {
+            border: .2rem solid var(--COL4);
+            max-width: 40%;
+            background: var(--COL4);
+            color: white;
+            font-style: italic;
+            text-transform: uppercase;
+            padding: 1rem;
+            margin: 2rem;
+        }
+
+        .quote--left {
+            float: left;
+            margin-left: 0;
+        }
+
+        .quote--right {
+            float: right;
+            margin-right: 0;
+        }
+
+        footer {
+            display: grid;
+            grid-template-columns: 2fr [content-start] min(65ch, 100%) [content-end] 3fr;
+            padding: 2rem 0;
+        }
+
+        footer>* {
+            grid-column: content-start/content-end;
+            background: var(--COL2);
+            margin-bottom: 1rem;
+            padding: 1rem;
+        }
+
+        footer>*:first-child {
+            border-top: 3px solid var(--COL1);
+        }
+    </style>
+</head>
+
+<body>
+    <main>
+        <figure class="hero-container full-bleed">
+            <div class="hero-container__text-container">
+                <h1>A Plant That Sterilizes Medical Equipment Spews Cancer-Causing Pollution on Tens of Thousands of
+                    Schoolchildren</h1>
+                <p>Nobody told Yaneli Ortiz’s family that the factory they lived near emitted ethylene oxide. Not when
+                    the
+                    EPA found it causes cancer. Not when she was diagnosed with leukemia. And not when Texas moved to
+                    allow
+                    polluters to emit more of the chemical.</p>
+            </div>
+            <img src="https://images.unsplash.com/photo-1502481851512-e9e2529bfbf9?ixlib=rb-1.2.1&ixid=MnwxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8&auto=format&fit=crop&w=2069&q=80"
+                alt="Mountain range at night with stars visible and reflected in a body of water." />
+            <figcaption>
+                Mountain range at night with stars visible and reflected in a body of water.
+            </figcaption>
+        </figure>
+        <p class="paragraph--italic">
+            ProPublica is a nonprofit newsroom that investigates abuses of power. Sign up to receive our biggest stories
+            as soon as they’re published.
+        </p>
+        <p class="paragraph--italic">
+            This article is co-published with The Texas Tribune, a nonprofit, nonpartisan local newsroom that informs
+            and engages with Texans. Sign up for The Brief Weekly to get up to speed on their essential coverage of
+            Texas issues.
+        </p>
+        <p class="paragraph--italic">
+            Update, Jan. 31, 2022: In late January, as part of a sweeping announcement detailing strategies to crack
+            down on toxic industrial air pollution, the U.S. Environmental Protection Agency promised to keep
+            communities “informed and engaged” as it works to address
+            toxic ethylene oxide pollution across the country.
+            The agency also said it was moving to formally reject Texas’ less protective standard for the chemical.
+        </p>
+        <p class="paragraph--first-letter">
+            Jennifer Jinot didn’t expect to retire early from her role as an environmental health scientist for the
+            federal government. She’d spent 26 years assessing the dangers of toxic chemicals for the U.S. Environmental
+            Protection Agency. The job could be frustrating but, more than that, rewarding.
+        </p>
+        <p>
+            Early in her career, Jinot evaluated the health impacts of secondhand smoke exposure. It took four years — a
+            pace she remembers thinking was “crazy slow” — to develop a final risk assessment, published in 1993, that
+            determined secondhand smoke causes lung cancer in adults and impairs the respiratory systems of children.
+            The tobacco industry sued the agency. But, in the end, her work spurred changes to the law. The victory was
+            invigorating for Jinot, who had long dreamed of doing what she calls “socially useful” science.
+        </p>
+        <p>
+            In 2002, Jinot joined an EPA team that was evaluating new research to determine whether ethylene oxide, one
+            of the world’s most widely used chemicals, caused cancer. A key building block for an endless array of
+            consumer goods and a common product used for sterilizing medical equipment, the colorless, low-odor gas
+            wafts out of at least 160 facilities across America. Jinot’s colleagues had already spent four years reading
+            studies, scrutinizing data and consulting with experts. She was hopeful it wouldn’t take much longer. The
+            team published a draft assessment in 2006 that found the chemical was significantly more carcinogenic than
+            the agency had previously concluded and especially damaging to children.
+        </p>
+        <p>
+            Jinot believed the science begged for urgent action to strengthen existing environmental regulations. But
+            industry lobbyists and company executives attacked the draft. Audry E. Eldridge, then-president of the
+            Missouri-based Midwest Sterilization Corporation, argued in a 2006 letter that an “extensive database of
+            toxicological and epidemiological studies” showed the EPA’s findings were flawed. Eldridge, who helped found
+            the Ethylene Oxide Sterilization Association, a trade group that lobbies on behalf of sterilizer companies,
+            didn’t name any specific studies, but said in the letter that the cancer risk posed by the chemical was
+            “thousands of times less than portrayed in EPA’s risk estimates.”
+        </p>
+        <figure class="full-bleed hero-container">
+            <img src="https://images.unsplash.com/photo-1451187580459-43490279c0fa?ixlib=rb-1.2.1&ixid=MnwxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8&auto=format&fit=crop&w=2072&q=80"
+                alt="Globe with lights on the planet" />
+            <figcaption>Globe with lights on the planet.</figcaption>
+        </figure>
+        <p class="paragraph--first-letter">
+            Amid pressure from industry groups, the agency agreed to another round of scrutiny from independent
+            scientists and the public before finalizing its findings. “They don’t want to put out anything that gets
+            attacked,” <q class="quote--right">They don’t want to put out anything that gets
+                attacked</q>Jinot said of the EPA in a recent interview. The EPA defended its process for evaluating
+            harmful
+            environmental chemicals as “strong” in a statement to ProPublica and The Texas Tribune.
+        </p>
+        <p>
+            A process that, according to a director for the U.S. Government Accountability Office, should last no more
+            than four years ended up taking another decade. In 2016, the EPA published the final version of its
+            assessment. It concluded that ethylene oxide was 30 times more carcinogenic to people who continuously
+            inhale it as adults and 50 times more carcinogenic to those who are exposed since birth than the agency
+            previously thought. The chemical, which alters DNA in the human body and increases the risk of certain types
+            of cancer such as leukemia, is particularly harmful to children because their developing bodies can’t mend
+            the genetic damage as effectively as adult bodies.
+        </p>
+        <figure class="hero-container">
+            <img src="https://images.unsplash.com/photo-1508739773434-c26b3d09e071?ixlib=rb-1.2.1&ixid=MnwxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8&auto=format&fit=crop&w=1470&q=80"
+                alt="A mountain range with the sun rising from the left.  The opposite side is shaded." />
+            <figcaption>A mountain range with the sun rising from the left. The opposite side is shaded.</figcaption>
+        </figure>
+        <p class="paragraph--first-letter">
+            In the decade it took for the federal agency to finalize what its frustrated scientists already knew,
+            Eldridge’s sterilization company dramatically expanded its new facility in the border city of Laredo, Texas.
+            The facility, a ProPublica analysis determined, emitted far more ethylene oxide than any other sterilizer
+            plant in the country that reports emissions to the EPA.
+        </p>
+        <p>
+            Simultaneously, families along its fence line were raising a generation of children who would grow up in the
+            plant’s shadow.
+        </p>
+        <p>
+            Karla and Cesar Ortiz had a baby girl they named Yaneli, after a Spanish-language television character who
+            embodied kindness and humility, traits they hoped their daughter would share. Through the years, their
+            smiley, curly-haired little girl grew to love arts and crafts, became a fan of ’80s music and K-pop and
+            watched over her two little brothers in their home, located less than 5 miles from Midwest.
+        </p>
+        <figure class="hero-container">
+            <img src="https://images.unsplash.com/photo-1508163223045-1880bc36e222?ixlib=rb-1.2.1&ixid=MnwxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8&auto=format&fit=crop&w=1471&q=80"
+                alt="A forest with homes.  A pink sunset with birds flying." />
+            <figcaption>A forest with homes. A pink sunset with birds flying.</figcaption>
+        </figure>
+        <p class="paragraph--first-letter">
+            Around the same time, Nidia and Rafael Nevares were raising their two boys, Rafael Jr. and Juan Jose, or JJ,
+            about 2 miles from the plant. The younger of the two, JJ was more outgoing and quick to make friends. Among
+            his favorite things to do was pulling his older brother away from the computer to play hide-and-seek in the
+            front yard.
+        </p>
+        <p>
+            The EPA’s 2016 ethylene oxide report would not be legally enforceable until the agency incorporated it into
+            new regulations. <q class="quote--left">The EPA’s 2016 ethylene oxide report would not be legally
+                enforceable until the agency incorporated it into
+                new regulations.</q> Even so, it inspired many states to crack down on industrial facilities that
+            emitted the
+            chemical — through lawsuits, stricter state regulations, air monitoring and cancer cluster studies. But
+            Texas went in the other direction, becoming the only state to officially reject the agency’s conclusions. In
+            August 2017, the Texas Commission on Environmental Quality, the state’s environmental regulatory agency,
+            announced it would launch a review of EPA’s science; it eventually ruled that the chemical was significantly
+            less toxic than the federal agency had found. That resulted in Texas enacting a new standard that could
+            allow plants to emit more of the chemical.
+        </p>
+        <p>
+            In 2018, two years after the EPA published its final report, JJ was diagnosed with acute lymphocytic
+            leukemia, a cancer that has been linked to ethylene oxide exposure. He turned 6 years old a month later.
+        </p>
+
+    </main>
+    <footer>
+        <p>
+            Styled on April 24, 2022.
+        </p>
+        <p>
+            Article (copied in part) by Kiah Collier, ProPublica and The Texas Tribune, and Maya Miller from
+            ProPublica.<br /><br />
+            Source is <a
+                href="https://www.propublica.org/article/a-plant-that-sterilizes-medical-equipment-spews-cancer-causing-pollution-on-tens-of-thousands-of-schoolchildren">here</a>.
+        </p>
+
+    </footer>
+
+
+    <script>
+
+
+    </script>
+</body>
+
+</html>

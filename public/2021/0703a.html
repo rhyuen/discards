@@ -1,0 +1,195 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <link rel="preconnect" href="https://fonts.gstatic.com">
+    <link href="https://fonts.googleapis.com/css2?family=Inter&display=swap" rel="stylesheet"> 
+    <title>06 24</title>
+
+        <style>
+            * {                
+                box-sizing: border-box;
+                font-size: 16px;
+                font-family: 'Inter', sans-serif;;       
+                
+            }      
+            html, body{
+                margin: 0;
+                min-height: 100vh;                
+                background: #f3f3f3;
+                
+            }
+
+            ::-webkit-scrollbar {                
+                width: 0.8rem;
+                height: 0.5rem;
+            }
+
+            /* Track */
+            ::-webkit-scrollbar-track {
+            background: black;
+            }
+
+            /* Handle */
+            ::-webkit-scrollbar-thumb {
+            background: white;
+            }
+
+            /* Handle on hover */
+            ::-webkit-scrollbar-thumb:hover {
+            background: palevioletred;
+            }
+
+            ul{
+                margin: 0;
+                padding: 0;
+                list-style-type: none;
+            }
+
+            a{
+                text-decoration: none;                
+                color: white;                           
+            }
+
+            .grid{
+                display: grid;
+                max-width: 800px;
+                grid-template-columns: repeat(auto-fit, minmax(250px, 1fr));                
+                grid-gap: 0.5rem;
+            }
+            .grid__item{
+                background: white;                
+            }
+            .grid__item:after{
+                padding-bottom: 100%;
+                content: '';
+                display: block;
+            }
+                        
+    
+            
+            
+            .scroll-container{       
+                display: flex;         
+                overflow-x:scroll;
+                overflow-y: hidden;
+                width: 100vw;
+                height: 100vh;
+                scroll-snap-type: x mandatory;
+                scroll-behavior: smooth;
+            }
+
+
+
+            .scroll-container>section {                
+                height: 100vh;
+                min-width: 100vw;
+                scroll-snap-align: center;
+                display: flex;
+                flex-direction: column;
+                justify-content: center;
+                align-items: center;
+            }
+            .green{
+                background-color: palegreen;
+            }
+            .red{
+                background-color: palevioletred;
+            }
+            .blue{
+                background-color: paleturquoise;
+            }
+            .yellow{
+                background-color: papayawhip;
+            }
+            .pink{
+                background-color: pink;
+            }
+
+            
+
+            .button{
+                position: absolute;
+                height: 100%;
+                display: flex;
+                justify-content: center;
+                align-items: center;
+                background-color: black;
+                border: 0;
+                color: white;
+                font-weight: 600;
+                font-size: 3rem;
+                padding: 2rem;
+                transition: background 0.2s ease-in-out, color 0.2s ease-in-out;
+            }
+            .button:hover{
+                background: white;
+                color: black;
+            }
+
+            .button--left{
+                left:0;
+            }
+            .button--right{
+                right: 0;
+            }
+            
+
+        </style>
+    </head>
+    <body> 
+        <main class='scroll-container' id='human'>
+            <button class='button button--left' onClick="handleScroll('left')">&larr;</button>
+            <button class='button button--right' onClick="handleScroll('right')">&rarr;</button>
+
+            <section class='green'>
+                <h2>getting the window to stay 100% was the hardest part</h2>
+                <ul class='grid'>
+                    <li class='grid__item'><a href='#'>blah</a></li>
+                    <li class='grid__item'><a href='#'>blah</a></li>
+                    <li class='grid__item'><a href='#'>blah</a></li>
+                    <li class='grid__item'><a href='#'>blah</a></li>
+                </ul>
+            </section>
+            <section class='red'>
+                <h2>second</h2>
+                <ul class='grid'>
+                    <li class='grid__item'><a href='#'>blah</a></li>
+                    <li class='grid__item'><a href='#'>blah</a></li>
+                    <li class='grid__item'><a href='#'>blah</a></li>
+                    <li class='grid__item'><a href='#'>blah</a></li>
+                    <li class='grid__item'><a href='#'>blah</a></li>
+                    <li class='grid__item'><a href='#'>blah</a></li>
+                </ul>
+            </section>
+            <section class='blue'>
+                <h2>scroll container on body doesn't see to work.</h2>
+            </section>
+            <section class='yellow'>
+                <h2>four</h2>
+            </section>
+            <section class='pink'>
+                <h2>five</h2>
+            </section>
+            
+        </main>        
+    
+        <script type='text/javascript'>
+        
+        function handleScroll(direction){
+            const el = document.querySelector("#human");
+            if(direction==='right'){
+                el.scrollBy(1000,0);
+            }
+            else if(direction==='left'){
+                el.scrollBy(-1000,0);
+            }
+            
+                        
+        }
+
+        </script>
+    </body>
+</html>

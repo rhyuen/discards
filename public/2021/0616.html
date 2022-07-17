@@ -1,0 +1,645 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>06 16</title>
+
+        <style>
+            * {                
+                box-sizing: border-box;
+                font-size: 16px;
+                font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;                
+            }      
+            html, body{
+                margin: 0;
+                min-height: 100vh;
+                width: 100%;  
+            }
+    
+            ul{
+                margin: 0;
+                padding: 0;
+                list-style-type: none;
+               }
+            
+            a {
+                text-decoration: none;                    
+                font-weight: 600;
+                color:rgba(0, 0, 0, 0.4);
+            }
+            
+            .container{
+                display: grid;
+                grid-template-columns: 1fr 3fr;
+                margin: 15rem auto;
+                max-width: 1100px;
+                scroll-snap-type: y mandatory;  
+                scroll-snap-align: center;
+                
+            }
+            .meta{
+                grid-column: 1/span 1;
+                background-color: lightcyan;
+                overflow: hidden;
+                position: relative;
+            }
+            .meta__header{
+                font-size: 4rem;
+                position: absolute;
+                bottom: 0;
+                left: 0;
+                color:rgba(0, 0, 0, 0.4);
+                /* transform: rotate(-90deg); */
+                text-transform: uppercase;
+                margin: 0;
+                padding: 0;
+            }
+
+            .list{
+                grid-column: 2 /span 3;
+                display: grid;
+                grid-gap: 0.5rem;
+                grid-template-columns: repeat(7, minmax(auto, 1fr));
+            }
+
+            .list__item{                
+                position: relative;                
+            }
+
+            .list__item:after{
+                padding-bottom: 100%;
+                display: block;
+                content: '';
+            }
+
+            .list__item__container{
+                
+                position:absolute;
+                top: 0;
+                left: 0;
+                width: 100%;
+                height: 100%;
+                display: flex;
+                font-size: 3rem;
+                font-weight: 600;
+                color: rgba(0, 0, 0, 0.4);
+                justify-content: center;
+                align-items: center;
+                background-color: lavenderblush;
+                transition: color background-color 0.2s ease-in-out;
+            }    
+
+            .list__item__container:hover{
+                color: white;
+                background-color: rgba(0, 0, 0, 0.4);
+            }
+
+            #child{
+                display: none; 
+                width: 100vw;
+                height: 100vh;
+                position: fixed;
+                top: 0;
+                left: 0;
+                right: 0;
+                bottom: 0;
+                grid-template-columns: 1fr 500px;
+                background: rgba(0, 0, 0, 0.4);     
+                z-index: 2;    
+                animation: circle-in-center 1s;               
+            }
+
+
+
+            @keyframes circle-in-center {
+                from {
+                    clip-path: circle(0%);
+                }
+                to {
+                    clip-path: circle(125%);
+                }
+            }
+
+            [transition-style="in:circle:center"] {
+                animation: 2.5s cubic-bezier(.25, 1, .30, 1) circle-in-center both;
+            }    
+
+
+
+
+
+
+            #child:target{
+                display: grid;
+            }
+
+            .panel{
+                background: white;
+                grid-column: 2 / span 1;
+                width: 100%;
+                display: flex;
+                flex-direction: column;
+                padding: 2rem;
+            }
+
+            .y.mandatory-scroll-snapping {
+              scroll-snap-type: y mandatory;
+            }
+        </style>
+</head>
+<body>
+    
+    <aside id="child">
+        <div class="panel">
+            <a href="#">Back</a>
+            <h2>Panel Header</h2>
+            <ul>
+                <li>Item one</li>
+                <li>Item one</li>
+                <li>Item one</li>
+                <li>Item one</li>
+                <li>Item one</li>
+                <li>Item one</li>
+                <li>Item one</li>
+            </ul>
+        </div>
+    </aside>
+
+    <main>
+        <section class='container'>
+            <div class='meta'>
+                <h2 class='meta__header'>January 2021</h2>
+            </div>
+            <ul class='list'>
+                <li class='list__item'>
+                    <a class='list__item__container' href="#child">
+                        1
+                    </a>
+                </li>
+                <li class='list__item'>
+                    <div class='list__item__container'>
+                        2
+                    </div>
+                </li>
+                <li class='list__item'>
+                    <div class='list__item__container'>
+                        3
+                    </div>
+                </li>
+                <li class='list__item'>
+                    <div class='list__item__container'>
+                        4
+                    </div>
+                </li>
+                <li class='list__item'>
+                    <div class='list__item__container'>
+                        5
+                    </div>
+                </li>
+                <li class='list__item'>
+                    <div class='list__item__container'>
+                        6
+                    </div>
+                </li>
+                <li class='list__item'>
+                    <div class='list__item__container'>
+                        7
+                    </div>
+                </li>
+                <li class='list__item'>
+                    <div class='list__item__container'>
+                        8
+                    </div>
+                </li>
+                <li class='list__item'>
+                    <div class='list__item__container'>
+                        9
+                    </div>
+                </li>
+                <li class='list__item'>
+                    <div class='list__item__container'>
+                        10
+                    </div>
+                </li>
+                <li class='list__item'>
+                    <div class='list__item__container'>
+                        11
+                    </div>
+                </li>
+                <li class='list__item'>
+                    <div class='list__item__container'>
+                        12
+                    </div>
+                </li>
+                <li class='list__item'>
+                    <div class='list__item__container'>
+                        13
+                    </div>
+                </li>
+                <li class='list__item'>
+                    <div class='list__item__container'>
+                        14
+                    </div>
+                </li>
+                <li class='list__item'>
+                    <div class='list__item__container'>
+                        15
+                    </div>
+                </li>
+                <li class='list__item'>
+                    <div class='list__item__container'>
+                        16
+                    </div>
+                </li>
+                <li class='list__item'>
+                    <div class='list__item__container'>
+                        17
+                    </div>
+                </li>
+                <li class='list__item'>
+                    <div class='list__item__container'>
+                        18
+                    </div>
+                </li>
+                <li class='list__item'>
+                    <div class='list__item__container'>
+                        19
+                    </div>
+                </li>
+                <li class='list__item'>
+                    <div class='list__item__container'>
+                        20
+                    </div>
+                </li>
+                <li class='list__item'>
+                    <div class='list__item__container'>
+                        21
+                    </div>
+                </li>
+                <li class='list__item'>
+                    <div class='list__item__container'>
+                        22
+                    </div>
+                </li>
+                <li class='list__item'>
+                    <div class='list__item__container'>
+                        23
+                    </div>
+                </li>
+                <li class='list__item'>
+                    <div class='list__item__container'>
+                        24
+                    </div>
+                </li>
+                <li class='list__item'>
+                    <div class='list__item__container'>
+                        25
+                    </div>
+                </li>
+                <li class='list__item'>
+                    <div class='list__item__container'>
+                        26
+                    </div>
+                </li>
+                <li class='list__item'>
+                    <div class='list__item__container'>
+                        27
+                    </div>
+                </li>
+                <li class='list__item'>
+                    <div class='list__item__container'>
+                        28
+                    </div>
+                </li>
+                <li class='list__item'>
+                    <div class='list__item__container'>
+                        29
+                    </div>
+                </li>
+                <li class='list__item'>
+                    <div class='list__item__container'>
+                        30
+                    </div>
+                </li>
+            </ul>
+        </section>
+        <section class='container'>
+            <div class='meta'>
+                <h2 class='meta__header'>FEB 2021</h2>
+            </div>
+            <ul class='list'>
+                <li class='list__item'>
+                    <div class='list__item__container'>
+                        1
+                    </div>
+                </li>
+                <li class='list__item'>
+                    <div class='list__item__container'>
+                        2
+                    </div>
+                </li>
+                <li class='list__item'>
+                    <div class='list__item__container'>
+                        3
+                    </div>
+                </li>
+                <li class='list__item'>
+                    <div class='list__item__container'>
+                        4
+                    </div>
+                </li>
+                <li class='list__item'>
+                    <div class='list__item__container'>
+                        5
+                    </div>
+                </li>
+                <li class='list__item'>
+                    <div class='list__item__container'>
+                        6
+                    </div>
+                </li>
+                <li class='list__item'>
+                    <div class='list__item__container'>
+                        7
+                    </div>
+                </li>
+                <li class='list__item'>
+                    <div class='list__item__container'>
+                        8
+                    </div>
+                </li>
+                <li class='list__item'>
+                    <div class='list__item__container'>
+                        9
+                    </div>
+                </li>
+                <li class='list__item'>
+                    <div class='list__item__container'>
+                        10
+                    </div>
+                </li>
+                <li class='list__item'>
+                    <div class='list__item__container'>
+                        11
+                    </div>
+                </li>
+                <li class='list__item'>
+                    <div class='list__item__container'>
+                        12
+                    </div>
+                </li>
+                <li class='list__item'>
+                    <div class='list__item__container'>
+                        13
+                    </div>
+                </li>
+                <li class='list__item'>
+                    <div class='list__item__container'>
+                        14
+                    </div>
+                </li>
+                <li class='list__item'>
+                    <div class='list__item__container'>
+                        15
+                    </div>
+                </li>
+                <li class='list__item'>
+                    <div class='list__item__container'>
+                        16
+                    </div>
+                </li>
+                <li class='list__item'>
+                    <div class='list__item__container'>
+                        17
+                    </div>
+                </li>
+                <li class='list__item'>
+                    <div class='list__item__container'>
+                        18
+                    </div>
+                </li>
+                <li class='list__item'>
+                    <div class='list__item__container'>
+                        19
+                    </div>
+                </li>
+                <li class='list__item'>
+                    <div class='list__item__container'>
+                        20
+                    </div>
+                </li>
+                <li class='list__item'>
+                    <div class='list__item__container'>
+                        21
+                    </div>
+                </li>
+                <li class='list__item'>
+                    <div class='list__item__container'>
+                        22
+                    </div>
+                </li>
+                <li class='list__item'>
+                    <div class='list__item__container'>
+                        23
+                    </div>
+                </li>
+                <li class='list__item'>
+                    <div class='list__item__container'>
+                        24
+                    </div>
+                </li>
+                <li class='list__item'>
+                    <div class='list__item__container'>
+                        25
+                    </div>
+                </li>
+                <li class='list__item'>
+                    <div class='list__item__container'>
+                        26
+                    </div>
+                </li>
+                <li class='list__item'>
+                    <div class='list__item__container'>
+                        27
+                    </div>
+                </li>
+                <li class='list__item'>
+                    <div class='list__item__container'>
+                        28
+                    </div>
+                </li>
+                <li class='list__item'>
+                    <div class='list__item__container'>
+                        29
+                    </div>
+                </li>
+                <li class='list__item'>
+                    <div class='list__item__container'>
+                        30
+                    </div>
+                </li>
+            </ul>
+        </section>
+        <section class='container'>
+            <div class='meta'>
+                <h2 class='meta__header'>MAR 2021</h2>
+            </div>
+            <ul class='list'>
+                <li class='list__item'>
+                    <div class='list__item__container'>
+                        1
+                    </div>
+                </li>
+                <li class='list__item'>
+                    <div class='list__item__container'>
+                        2
+                    </div>
+                </li>
+                <li class='list__item'>
+                    <div class='list__item__container'>
+                        3
+                    </div>
+                </li>
+                <li class='list__item'>
+                    <div class='list__item__container'>
+                        4
+                    </div>
+                </li>
+                <li class='list__item'>
+                    <div class='list__item__container'>
+                        5
+                    </div>
+                </li>
+                <li class='list__item'>
+                    <div class='list__item__container'>
+                        6
+                    </div>
+                </li>
+                <li class='list__item'>
+                    <div class='list__item__container'>
+                        7
+                    </div>
+                </li>
+                <li class='list__item'>
+                    <div class='list__item__container'>
+                        8
+                    </div>
+                </li>
+                <li class='list__item'>
+                    <div class='list__item__container'>
+                        9
+                    </div>
+                </li>
+                <li class='list__item'>
+                    <div class='list__item__container'>
+                        10
+                    </div>
+                </li>
+                <li class='list__item'>
+                    <div class='list__item__container'>
+                        11
+                    </div>
+                </li>
+                <li class='list__item'>
+                    <div class='list__item__container'>
+                        12
+                    </div>
+                </li>
+                <li class='list__item'>
+                    <div class='list__item__container'>
+                        13
+                    </div>
+                </li>
+                <li class='list__item'>
+                    <div class='list__item__container'>
+                        14
+                    </div>
+                </li>
+                <li class='list__item'>
+                    <div class='list__item__container'>
+                        15
+                    </div>
+                </li>
+                <li class='list__item'>
+                    <div class='list__item__container'>
+                        16
+                    </div>
+                </li>
+                <li class='list__item'>
+                    <div class='list__item__container'>
+                        17
+                    </div>
+                </li>
+                <li class='list__item'>
+                    <div class='list__item__container'>
+                        18
+                    </div>
+                </li>
+                <li class='list__item'>
+                    <div class='list__item__container'>
+                        19
+                    </div>
+                </li>
+                <li class='list__item'>
+                    <div class='list__item__container'>
+                        20
+                    </div>
+                </li>
+                <li class='list__item'>
+                    <div class='list__item__container'>
+                        21
+                    </div>
+                </li>
+                <li class='list__item'>
+                    <div class='list__item__container'>
+                        22
+                    </div>
+                </li>
+                <li class='list__item'>
+                    <div class='list__item__container'>
+                        23
+                    </div>
+                </li>
+                <li class='list__item'>
+                    <div class='list__item__container'>
+                        24
+                    </div>
+                </li>
+                <li class='list__item'>
+                    <div class='list__item__container'>
+                        25
+                    </div>
+                </li>
+                <li class='list__item'>
+                    <div class='list__item__container'>
+                        26
+                    </div>
+                </li>
+                <li class='list__item'>
+                    <div class='list__item__container'>
+                        27
+                    </div>
+                </li>
+                <li class='list__item'>
+                    <div class='list__item__container'>
+                        28
+                    </div>
+                </li>
+                <li class='list__item'>
+                    <div class='list__item__container'>
+                        29
+                    </div>
+                </li>
+                <li class='list__item'>
+                    <div class='list__item__container'>
+                        30
+                    </div>
+                </li>
+            </ul>
+        </section>
+    </main>
+    
+</body>
+</html>

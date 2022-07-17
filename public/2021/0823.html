@@ -1,0 +1,302 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <link rel="preconnect" href="https://fonts.gstatic.com">
+    <link href="https://fonts.googleapis.com/css2?family=Inter&display=swap" rel="stylesheet"> 
+    <title>08 23</title>
+    
+
+        <style>
+            * {                
+                box-sizing: border-box;
+                font-size: 16px;
+                font-family: 'Inter', sans-serif;                
+                --GREY : rgba(0,0,0,0.1);
+                --PRIMARY_COLOR: #98E690;
+                --SECONDARY_COLOR: white;
+                --COL1:  #db0a5b;
+                --COL2: #fef160;
+                --COL3: #23cba7;               
+            }      
+
+            ::-webkit-scrollbar {                
+                width: 0.8rem;
+                height: 0.5rem;
+            }
+
+            /* Track */
+            ::-webkit-scrollbar-track {
+                background: black;
+            }
+
+            /* Handle */
+            ::-webkit-scrollbar-thumb {
+                background: rgb(209, 171, 121);
+            }
+
+            /* Handle on hover */
+            ::-webkit-scrollbar-thumb:hover {
+                background: #d3d3d3;
+            }
+                       
+
+            html, body{
+                margin: 0;
+                height: 100vh;                
+                background: #f3f3f3;                                                
+                position: relative;
+            }
+      
+          
+            ul{
+                margin: 0;
+                padding: 0;
+                list-style-type: none;
+            }
+            
+            
+
+            a{
+                text-decoration: none;
+                color: black;
+            }
+
+ 
+            main{
+                max-width: 1000px;
+                margin: 0 auto;
+                display: flex;
+                flex-direction: column;
+                justify-content: flex-start;
+            }
+
+            .circle{
+                width: 10rem;
+                position: relative;
+                background-color: slateblue;
+                border-radius: 50%;
+                border: .2rem solid black;
+                overflow: hidden;
+            }
+            .circle::after{
+                padding-bottom: 100%;
+                display: block;
+                content: "";
+            }
+
+            .circle__container{
+                position: absolute;
+                height: 100%;
+                width: 100%;      
+                
+                animation: rotation .5s infinite linear;                        
+                animation-play-state: paused;
+                animation-fill-mode: both;             
+            }            
+            
+
+            .circle__container__segment{
+                width: 50%;
+                height: 50%;                
+                position: absolute;                
+            }
+
+            .circle__container__segment--1{                                
+                background-color: paleturquoise;
+                border-bottom: .2rem solid black;
+                border-right: .2rem solid black;
+                top: 0;
+                left: 0;
+            }
+            .circle__container__segment--2{
+                background-color: tomato;
+                border-left: .2rem solid black;
+                border-bottom: .2rem solid black;
+                top: 0;
+                right: 0;
+            }
+            .circle__container__segment--3{
+                background-color: lavender;
+                border-top: .2rem solid black;
+                border-right: .2rem solid black;
+                bottom: 0;
+                left: 0;
+            }
+            .circle__container__segment--4{
+                background-color: mediumvioletred;
+                border-top: .2rem solid black;
+                border-left: .2rem solid black;
+                bottom: 0; 
+                right: 0;
+            }
+
+            .circle__container__segment__content{
+                display: flex;
+                justify-content: center;
+                align-items: center;                                
+                height: 100%;
+                width: 100%;
+                font-weight: 600;
+                font-size: 1.2rem;                
+            }
+
+            .circle__container__segment__content--1{                
+                transform: rotate(-45deg);                
+            }
+            .circle__container__segment__content--2{
+                transform: rotate(45deg);
+            }
+            .circle__container__segment__content--3{
+                transform: rotate(-135deg);
+            }
+            .circle__container__segment__content--4{
+                transform: rotate(135deg);
+            }
+
+            @keyframes rotation {
+                from {
+                    transform: rotate(0deg);
+                }
+                to{
+                    transform: rotate(360deg);
+                }
+            }
+
+            .circle__marker{
+                position: absolute;
+                top: -10px;
+                z-index: 2;
+                left: 50%;
+                transform: translate(-50%);
+                content: "";
+                width: 2rem;
+                height: 2rem;
+                background-color: black;
+                clip-path: polygon(0 0, 100% 0, 50% 100%);
+            }
+
+            .circle__center{
+                width: 3rem;
+                height: 3rem;
+                background: white;
+                background-image: linear-gradient(to right, palegreen, palevioletred);
+                position: absolute;
+                top: 50%;
+                left: 50%;
+                transform: translate(-50%, -50%);
+                border: .2rem solid black;
+                border-radius: 50%;
+                z-index: 2;
+            }
+
+            .disclaimer{
+                display: none;
+                padding: 2rem;
+                border: .2rem solid black;
+                margin-top: 1rem;
+                width: fit-content;
+                border-radius: 1rem;
+            }
+
+            .disclaimer--success{
+                border-color: green;
+                background-color: palegreen;
+            }
+            .disclaimer--error{
+                background-color: peachpuff;
+                border-color: palevioletred;
+            }
+        </style>
+    <body>
+      
+        <main>
+            <h1>rotation and canvas stuff.</h1>
+            <div class='circle'>
+                <div class='circle__marker'>
+
+                </div>
+                <div class='circle__center'>
+
+                </div>
+                <div class='circle__container'>
+                    <div class='circle__container__segment circle__container__segment--1'>
+                        <div class='circle__container__segment__content circle__container__segment__content--1'>100</div>
+                    </div>
+                    <div class='circle__container__segment circle__container__segment--2'>
+                        <div class='circle__container__segment__content circle__container__segment__content--2'>200</div>
+                    </div>
+                    <div class='circle__container__segment circle__container__segment--3'>
+                        <div class='circle__container__segment__content circle__container__segment__content--3'>300</div>
+                    </div>
+                    <div class='circle__container__segment circle__container__segment--4'>
+                        <div class='circle__container__segment__content circle__container__segment__content--4'>400</div>
+                    </div>
+                </div>
+            </div>
+            <div class='circle-controller'>
+                <button type = "button" id="start">Start</button>
+                <button type = "button" id="stop">Stop</button>
+                <button type = "button" id="server">Server</button>
+            </div>
+            <div class='disclaimer disclaimer--success' id='success-message'>
+                You've won X dollars.
+            </div>
+            <div class='disclaimer disclaimer--error' id='error-message'>
+                Something has gone wrong.
+            </div>
+        </main>
+        
+
+        
+       <script type='text/javascript'>
+           const startButton = document.getElementById("start");
+           const stopButton =document.getElementById("stop");
+           const serverButton = document.getElementById('server');
+           
+           const circle = document.querySelector(".circle__container");
+           startButton.addEventListener("click", () => {
+                circle.style.animationPlayState='running';
+                setTimeout(function(){
+                    circle.style.animationPlayState = 'paused';
+                }, 2000);         
+           });
+
+
+
+           stopButton.addEventListener("click", () => {
+               circle.style.animationPlayState = "paused";
+           });
+
+           serverButton.addEventListener("click", () => {
+                const url = "http://localhost:3000/api/spintowin";
+                const options = {
+                    method: "POST"                    
+                };
+                fetch(url, options).then(res => {
+                    if(res.ok){
+                        return res;
+                    }else{
+                        throw new Error("something has gone wrong");
+                    }
+                }).then(res => {
+                    console.log(res);                    
+                    console.log('success');
+                    const successMessage =document.getElementById('success-message');
+                    successMessage.style.display='flex';
+                }).catch(e => {
+                    console.log(e);
+                    console.log("something went wrong.");
+                    const errorMessage = document.getElementById("error-message");
+                    errorMessage.style.display='flex';
+                });
+           });
+
+
+           
+
+       </script> 
+    </body>
+</html>

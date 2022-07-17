@@ -1,0 +1,350 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <link rel="preconnect" href="https://fonts.gstatic.com">
+    <link href="https://fonts.googleapis.com/css2?family=Inter&display=swap" rel="stylesheet"> 
+    <title>09 07 Robert Start</title>
+    
+
+        <style>
+            * {                
+                box-sizing: border-box;
+                font-size: 16px;
+                font-family: 'Inter', sans-serif;                
+                --GREY : rgba(0,0,0,0.1);
+                --PRIMARY_COLOR: #98E690;
+                --SECONDARY_COLOR: white;
+                --COL1:  #db0a5b;
+                --COL2: #fef160;
+                --COL3: #23cba7;  
+                --COL4: #3e6ceb;  
+                --COL5: #d9c8ec;
+            }      
+
+            ::-webkit-scrollbar {                
+                width: 0.8rem;
+                height: 0.5rem;
+            }
+
+            /* Track */
+            ::-webkit-scrollbar-track {
+                background: black;
+            }
+
+            /* Handle */
+            ::-webkit-scrollbar-thumb {
+                background: rgb(209, 171, 121);
+            }
+
+            /* Handle on hover */
+            ::-webkit-scrollbar-thumb:hover {
+                background: #d3d3d3;
+            }
+                       
+
+            html, body{
+                margin: 0;
+                height: 100vh;                
+                background: #f3f3f3;
+                position: relative;                
+            }
+      
+            h1{
+                margin: 0;
+                padding: 0;
+            }
+          
+            ul{
+                margin: 0;
+                padding: 0;
+                list-style-type: none;
+            }
+            
+            
+
+            a{
+                text-decoration: none;
+                color: black;
+            }
+
+          
+            .red{
+                background: var(--COL1);
+            }
+            .yellow{
+                background: var(--COL2);
+            }
+            .green{
+                background: var(--COL3);
+            }
+            .blue{
+                background: var(--COL4);
+            }
+        
+
+            main{
+                display: grid;
+                grid-template-columns: repeat(auto-fit, minmax(250px, 1fr));
+                grid-auto-flow: dense;
+                grid-gap: .75rem;
+                max-width: 1100px;
+                margin: 0 auto;
+            }
+            .item{
+                grid-column: span 1;
+                position: relative;                
+            }
+            .item::after{
+                padding-bottom: 100%;
+                display: block;
+                content: "";
+            }
+            .item__content{
+                position: absolute;
+                inset: 0;
+                border-radius: .5rem;
+                height: 100%;
+                width: 100%;
+                background: var(--COL3);
+            }
+            .item--col2{
+                grid-column: span 2;                
+            }
+            .item--col2:after{
+                padding-bottom: 50%;
+                display: block;
+                content: "";
+            }
+            .item--col3{
+                grid-column: span 3;                
+            }
+            .item--col3:after{
+                padding-bottom: 33%;
+                display: block;
+                content: "";
+            }
+
+            nav{
+                height: 10rem;                
+                display: flex;
+                flex-direction: column;
+                margin-bottom: 1rem;
+                background: #f3f3f3;
+            }
+
+            .container{
+                display: flex;
+                justify-content: space-between;
+                align-items: center;
+                height: 5rem;
+            }
+
+            .container--fullscreenwidth{
+                margin: 0 2rem;
+            }
+            .container--fullcontentwidth{                
+                max-width: 1100px;
+                width: 100%;
+                margin: 0 auto;                
+            }
+
+            .search{
+                border: 0;
+                padding: .5rem 1rem;
+                border-radius: 2rem;
+                width: 30rem;                
+            }
+            .search:focus{
+                filter: drop-shadow(0 0 0.75rem rgba(0,0,0,.4));
+                outline: none;
+            }
+
+            .button{
+                border: 2px solid black;
+                border-radius: 2rem;
+                padding: .5rem 1rem;
+                font-weight: 600;
+                background: white;
+                transition: background .2s ease-in-out;
+            }
+            .button:hover{
+                background: var(--COL2);
+            }
+
+            .list{
+                display: flex;
+                justify-content: flex-start;                                
+            }
+            .list__item{
+                margin-right: 1rem;
+            }
+            .list__item:last-child{
+                margin-right: 0;
+            }
+            .list__item > *{
+                font-weight: 600;
+            }
+
+            .icon{
+                width: 2rem;
+                position: relative;
+            }            
+
+            .icon::before{
+                padding-bottom: 100%;
+                display: block;
+                
+                transform: translateY(1rem);
+                border-radius: 50%;
+                background: var(--COL4);
+                content: "";
+            }
+            .icon::after{
+                background: var(--COL2);
+                border-radius: 50%;
+                padding-bottom: 100%;
+                display: block;
+                content: "";
+            }          
+            
+            /* .icon__content{
+                position: absolute;
+                inset: 0;
+                height: 100%;
+                width: 100%;      
+                border-radius: 50%;          
+                background: var(--COL2);
+            } */
+
+            .menu{
+                width: 2rem;
+                position: relative;
+                border-radius: 50%;                
+            }
+            .menu::after{
+                padding-bottom: 100%;
+                display: block;
+                content: '';
+            }
+            .menu__content{
+                position:absolute;
+                display: flex;
+                flex-direction: column;
+                justify-content: center;
+                align-items: center;
+                inset: 0;
+                height: 100%;
+                width: 100%;
+                border-radius: 50%;
+                background: inherit;
+                transition: background .3s ease-in-out;
+            }
+            .menu__content:hover{
+                background: rgba(0,0,0,0.1);                
+            }
+            .menu__content__bar{                
+                content: "";
+                height: 30%;
+                width: 70%;
+                margin: .15rem 0;
+                border-radius: .5rem;
+                background: var(--COL3);                
+            }
+
+            footer{
+                max-width: 1100px;
+                margin-top: 2rem;
+                margin: 0 auto;
+                display: flex;
+                flex-direction: column;
+                align-items: flex-start;
+                padding: 2rem 0;
+            }            
+
+            .footer__header{
+
+            }
+            .footer__body{
+
+            }
+
+            @media screen and (min-width: 750px) and (max-width: 1099px){
+
+            }
+
+            @media screen and (min-width: 1100px){
+
+            }
+        </style>
+    <body> 
+        <nav>
+            <div class='container container--fullscreenwidth'>
+                <a href='#' class='icon'>
+                    <div class='icon__content'>
+
+                    </div>
+                </a>
+                <input type='text' class='search' placeholder="find things here.">
+
+                </input>
+                <a href='#menu' class='menu'>
+                    <div class='menu__content'>
+                        <div class='menu__content__bar'></div>
+                        <div class='menu__content__bar'></div>
+                        <div class='menu__content__bar'></div>
+                    </div>
+                </a>
+              
+            </div>
+            <div class='container container--fullcontentwidth'>
+                <ul class='list'>
+                    <li class='list__item'>
+                        <a href='#first'>First</a>
+                    </li>
+                    <li class='list__item'>
+                        <a href='#second'>Second</a>
+                    </li>
+                    <li class='list__item'>
+                        <a href='#third'>Third</a>
+                    </li>
+                    <li class='list__item'>
+                        <a href='#four'>Four</a>
+                    </li>                    
+                </ul>
+                <button class='button'>
+                    Dismiss
+                </button>
+            </div>
+        </nav>
+        <main>
+
+        </main>
+        <footer>
+            <h2 class='footer__header'>Robert Start</h2>
+            <p class='footer__body'>Robert Start by Robert<br/>Based on Microsoft Start</p>
+        </footer>
+
+        <script type='text/javascript'>
+            const main = document.querySelector("main");
+            for(let i = 0; i < 16; i++){
+              
+                const item = document.createElement("article");
+                item.classList.add("item");
+                if(i === 0){
+                    item.classList.add('item--col3');
+                }
+                if(i % 7 === 0){
+                    item.classList.add('item--col2');
+                }
+                const itemContent = document.createElement("div");
+                itemContent.classList.add('item__content');
+                item.appendChild(itemContent)
+                main.appendChild(item);
+            }
+            
+        </script>
+    </body>
+</html>

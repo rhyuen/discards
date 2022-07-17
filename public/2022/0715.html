@@ -1,0 +1,172 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta name='color-scheme' content='dark light'>
+    <link rel="preconnect" href="https://fonts.gstatic.com">
+    <link href="https://fonts.googleapis.com/css2?family=Inter&display=swap" rel="stylesheet">
+    <title>12 23</title>
+
+
+    <style>
+        * {
+            box-sizing: border-box;
+            font-size: 16px;
+            font-family: 'Inter', sans-serif;
+            color: black;
+            --GREY: rgba(0, 0, 0, 0.1);
+            --PRIMARY_COLOR: #98E690;
+            --SECONDARY_COLOR: white;
+            --COL1: #db0a5b;
+            --COL2: #fef160;
+            --COL3: #23cba7;
+            --COL4: #3e6ceb;
+            --COL5: #d9c8ec;
+        }
+
+        ::-webkit-scrollbar {
+            width: 0.8rem;
+            height: 0.5rem;
+        }
+
+        /* Track */
+        ::-webkit-scrollbar-track {
+            background: black;
+        }
+
+        /* Handle */
+        ::-webkit-scrollbar-thumb {
+            background: var(--COL3);
+        }
+
+        /* Handle on hover */
+        ::-webkit-scrollbar-thumb:hover {
+            background: var(--COL2);
+        }
+
+
+        html,
+        body {
+            margin: 0;
+            height: 100vh;
+            background: #f3f3f3;
+
+        }
+
+
+        main {
+            display: flex;
+            flex-direction: column;
+            max-width: 800px;
+            margin: 0 auto;
+        }
+
+        h2,
+        h4,
+        h3 {
+            margin: 0;
+            padding: 0;
+            font-size: 1.2rem;
+        }
+
+        ul {
+            margin: 0;
+            padding: 0;
+        }
+
+        li {
+            list-style-type: none;
+            display: flex;
+            width: 100%;
+            height: 10rem;
+
+            border-top: 1px solid rgba(0, 0, 0, 0.4);
+            margin-bottom: 1rem;
+
+        }
+
+        li>img {
+            object-fit: cover;
+            height: 100%;
+            width: clamp(15rem, 25%, 15rem);
+        }
+
+        li>div {
+            margin: 1rem;
+        }
+
+        p {
+            color: rgba(0, 0, 0, 0.6);
+            font-family: 'Times New Roman', Times, serif;
+        }
+
+
+        @media screen and (min-width: 750px) and (max-width: 1099px) {}
+
+        @media screen and (min-width: 1100px) {}
+    </style>
+
+<body>
+    <main>
+        <ul id="list">
+
+        </ul>
+    </main>
+
+    <script>
+        const list = document.getElementById("list");
+
+        function makeItem(details) {
+            const { title, author, image } = details;
+            const el = document.createElement("li");
+            const img = document.createElement("img");
+            img.src = image;
+            const container = document.createElement("div");
+            const header = document.createElement("h3");
+            header.textContent = title;
+            const text = document.createElement("p");
+            text.textContent = `By ${author} | ${new Date().getMonth() + 1} / ${new Date().getDate()}`;
+            container.appendChild(header);
+            container.appendChild(text);
+            el.appendChild(img);
+            el.appendChild(container);
+            return el;
+        }
+
+        const data = [{
+            title: "I know nothing.",
+            author: "Jon snow",
+            image: "../images/00g.jpg"
+        }, {
+            title: "The consequences of my actions.",
+            author: "Rob Stark",
+            image: "../images/01g.jpg"
+        }, {
+            title: "The things I do for love.",
+            author: "Jamie Lannister",
+            image: "../images/02g.jpg"
+        }, {
+            title: "I demand trial by combat.",
+            author: "Tyrion Lannister",
+            image: "../images/03g.jpg"
+        }, {
+            title: "Run to your Brother",
+            author: "Rickon Stark",
+            image: "../images/04g.jpg"
+        }, {
+            title: "The White Walkers are Coming",
+            author: "Bran Stark",
+            image: "../images/05g.jpg"
+        }]
+        for (let i = 0; i < data.length; i++) {
+            const latest = makeItem(data[i]);
+            list.appendChild(latest);
+        }
+
+    </script>
+</body>
+
+</html>

@@ -1,0 +1,172 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta name='color-scheme' content='dark light'>
+    <link rel="preconnect" href="https://fonts.gstatic.com">
+    <link href="https://fonts.googleapis.com/css2?family=Inter&display=swap" rel="stylesheet">
+    <title>1/27/22</title>
+
+
+    <style>
+        * {
+            box-sizing: border-box;
+            font-size: 16px;
+            font-family: 'Inter', sans-serif;
+            color: black;
+            --GREY: rgba(0, 0, 0, 0.1);
+            --PRIMARY_COLOR: #98E690;
+            --SECONDARY_COLOR: white;
+            --COL1: #db0a5b;
+            --COL2: #fef160;
+            --COL3: #23cba7;
+            --COL4: #3e6ceb;
+            --COL5: rgb(212, 204, 212);
+        }
+
+        ::-webkit-scrollbar {
+            width: 0.8rem;
+            height: 0.5rem;
+        }
+
+        /* Track */
+        ::-webkit-scrollbar-track {
+            background: black;
+        }
+
+        /* Handle */
+        ::-webkit-scrollbar-thumb {
+            background: var(--COL3);
+        }
+
+        /* Handle on hover */
+        ::-webkit-scrollbar-thumb:hover {
+            background: var(--COL2);
+        }
+
+
+        html,
+        body {
+            margin: 0;
+            height: 100vh;
+            background: #f3f3f3;
+        }
+
+
+        h1 {
+            margin: 0;
+            padding: 0;
+        }
+
+        figure {
+            margin: 0;
+            padding: 0;
+        }
+
+
+        ul {
+            list-style-type: none;
+            margin: 0;
+        }
+
+        .red {
+            background: var(--COL1);
+            color: white;
+        }
+
+        .yellow {
+            background: var(--COL2);
+            color: black;
+        }
+
+        .green {
+            background: var(--COL3);
+            color: white;
+        }
+
+        .blue {
+            background: var(--COL4);
+            color: white;
+        }
+
+        dialog {
+            background: rgba(0, 0, 0, 0.1);
+            position: fixed;
+            width: 100vw;
+            height: 100vh;
+            display: grid;
+            border: none;
+            place-items: center;
+        }
+
+        .dialog-form {
+            background: white;
+            width: 40rem;
+            padding: 2rem;
+            border-radius: .2rem;
+        }
+
+        .dialog-form__input[type='text'] {
+            background-color: white;
+            border: .2rem solid #db0a5b;
+            border-radius: .2rem;
+            padding: .5rem 1rem;
+            width: 100%;
+            margin-bottom: 1rem;
+        }
+
+        .dialog-form__input:focus {
+            border-color: var(--COL3);
+            outline: .2rem solid var(--COL3);
+        }
+
+        .dialog-form__length-container {
+            display: flex;
+            justify-content: space-between;
+        }
+    </style>
+</head>
+
+<body>
+
+    <!-- <dialog>
+        <form class="dialog-form">
+            <input type="text" class="dialog-form__input" id="search-bar"><br />
+            <div class="dialog-form__length-container">
+                <input type="submit" class="dialog-form__submit">
+
+            </div>
+        </form>
+    </dialog> -->
+
+    <button id="fullscreen-button">FullScreen</button>
+    <script>
+        const search = document.getElementById("search-bar");
+        const fullscreen = document.getElementById("fullscreen-button");
+
+        // window.addEventListener("load", function () {
+        //     console.log('hi')
+        //     search.value = window.location.href;
+        // });
+
+        // search.addEventListener("focus", function (e) {
+        //     this.select();
+        // });
+
+        fullscreen.addEventListener("click", function () {
+            document.body.requestFullscreen({ navigationUI: "hide" })
+                .then(() => {
+                    console.log("succ");
+                }).catch(e => {
+                    console.log(e)
+                });
+        });
+
+
+    </script>
+</body>
+
+</html>

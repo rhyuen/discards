@@ -1,0 +1,215 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <link rel="preconnect" href="https://fonts.gstatic.com">
+    <link href="https://fonts.googleapis.com/css2?family=Inter&display=swap" rel="stylesheet"> 
+    <title>06 24</title>
+
+        <style>
+            * {                
+                box-sizing: border-box;
+                font-size: 16px;
+                font-family: 'Inter', sans-serif;;       
+                
+            }      
+            html, body{
+                margin: 0;
+                min-height: 100vh;                
+                background: #f3f3f3;
+                
+            }
+
+            nav{
+                position: fixed;                
+                height: 5rem;            
+                width: 100vw;
+                display: flex;                
+                align-items: center;                
+                justify-content: space-around;     
+                z-index: 2;                 
+            }             
+
+            ul{
+                margin: 0;
+                padding: 0;
+                list-style-type: none;
+            }
+
+            h1{
+                font-size: 3rem;
+                color: white;
+                margin: 0;
+            }
+
+            
+
+            p{
+                color: white;
+            }
+
+            a{
+                text-decoration: none;                
+                color: white;                           
+            } 
+            ::placeholder{
+                color: rgba(255, 255, 255, 0.5);
+            }
+
+            input[type='text']{
+                background: rgba(0,0,0,0.2);
+                border: 0;
+                padding: .5rem;
+                border-radius: .5rem;                
+            }
+            input[type='text']:focus{
+                background: white;
+            }
+
+            .button{
+                padding: .5rem 1rem;
+                font-weight: 600;
+                font-size: 1.2rem;       
+                background-color: palegreen;         
+                border-radius: 0.4rem;
+                text-align: center;
+                color: black;
+                margin: .5rem 0;
+            }
+
+            
+            .scroll-container{
+                height: 100vh;                
+                overflow-y: scroll;
+                scroll-snap-type: y mandatory;
+                overflow-x: hidden;
+            }
+            
+
+            .scroll-container__item{
+                scroll-snap-align: center;
+                height: 100vh;
+                width: 100vw;
+                background-color: pink;
+                display: flex;
+                justify-content: center;
+                align-items: center;
+            }
+            .scroll-container__item:first-child{
+                position: relative;
+                background-image: url('images/fw2.jpg');                
+            }
+            .scroll-container__item:nth-child(2n){
+                position: relative;
+                background-image: url('images/fw5.jpg');                
+            }
+            .scroll-container__item:last-child{                
+                background-image: url('images/fw3.jpg');                 
+            }
+            
+
+            .scroll-container__item__center{
+                display: flex;
+                width: 20rem;
+                flex-direction: column;    
+                text-align: center;            
+            }
+            .scroll-container__item__twocol{
+                display: flex;                
+                max-width: 1000px;
+            }
+            .scroll-container__item__twocol__column{                
+                margin-right: 2rem;
+            }
+            .scroll-container__item__twocol__column:last-child{                
+                margin-right: 0;
+            }
+            
+
+            footer{
+                position: absolute;
+                bottom: 0;
+                left: 0;
+            }
+
+            footer li{
+                margin-bottom: 0.5rem;
+            }
+            footer a{
+                font-weight: 600;
+                color: white;
+                margin: 1rem;
+            }
+
+
+            img{
+                object-fit: contain;
+                width: 100%;
+                height: 100%;                
+            }
+
+            .blue{
+                background: paleturquoise;
+            }
+ 
+
+        </style>
+    </head>
+    <body> 
+        <nav>
+            <div>
+                <a href='#'>
+                    <icon></icon>
+                </a>
+                <input type='text' placeholder='Search'/>
+            </div>
+            <div>
+                <a href='#' class='button green'>Log in</a>
+                <a href='#' class='button blue'>Signup</a>
+            </div>
+        </nav>
+        <main class='scroll-container'>
+           <section class='scroll-container__item'>
+               <div class='scroll-container__item__center'>
+                   <h1>riddleme</h1>
+                   <p>Ask questions, answer questions, blahrgh. I don't know</p>
+                   <a class='button' href='#'>Signup</a>
+                   <a class='button blue' href='#'>Login</a>
+                   <a href='#'>What's happenin'</a>
+               </div>
+                <footer>
+                    <ul>
+                        <li><a href='#'>Terms</a></li>
+                        <li><a href='#'>Privacy</a></li>
+                        <li><a href='#'>Support</a></li>                   
+                    </ul>
+                </footer>
+           </section>
+           <section class='scroll-container__item'>
+                <div class='scroll-container__item__twocol'>
+                    <div class='scroll-container__item__twocol__column'>
+                      <img src='images/60.jpg' alt='doom'/>
+                    </div>
+                    <div class='scroll-container__item__twocol__column'>
+                        <h1>Aboot</h1>
+                        <p> She has the probe's AI build itself based on her personality, which also conveniently saves her from the virus that is spammed to all humans by the technology zealots.</p>                    
+                        <a href='#'>What's happenin'</a>
+                    </div>
+                </div>          
+            </section>
+            <section class='scroll-container__item'>
+                <div class='scroll-container__item__center'>
+                    <h1>Back to the beginning</h1>
+                    <p>But no, not really.  Just vomitting text.</p>
+                    <a class='button' href='#'>Signup</a>
+                    <a class='button blue' href='#'>Login</a>
+                    <a href='#'>What's happenin'</a>
+                </div>               
+            </section>
+        </main>        
+    
+      
+    </body>
+</html>

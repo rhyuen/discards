@@ -1,0 +1,237 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>dribble may 26, 21</title>
+    <style>
+         * {
+            box-sizing: border-box;
+            font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;     
+            font-size: 16px;       
+        }
+
+        html, body{
+            margin: 0;
+            background-color: bisque;
+            min-height: 100vh;
+            width:100%;
+        }
+
+        nav{
+            display: flex;
+            justify-content: space-between;
+            height: 5rem;
+            margin: 0 1rem;
+            align-items: center;
+        }
+
+        ul{
+            padding: 0;
+            list-style-type: none;
+        }
+
+        .nav__section{
+            display: flex;            
+        }
+
+        .nav__section span{
+            text-transform: uppercase;
+            font-weight: 600;
+            font-size: 1.2rem;
+            color: #343434;
+            margin: 1rem;
+        }
+
+        .hero{
+            background-color: rgba(0, 0, 0, 0.1);
+            width: 100%;
+        }
+        .hero__container{
+            max-width: 1400px;
+            background-color: skyblue;
+            margin: 0 auto;
+        }
+
+        .control{
+            display: flex;
+            justify-content: space-between;
+            align-items: center;
+            background-color: palevioletred;
+        }
+        .control__list{
+            display: flex;            
+        }
+        .control__list__item{
+            margin-right: 2rem;
+        }
+
+        main{
+            background-color: white;
+        }
+
+        .gallery{
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(250px 1fr));
+            grid-auto-rows: minmax(250px, 1fr);
+            grid-gap: 1rem;
+            background-color: slateblue;
+        }
+
+        .gallery__item{           
+            display: flex;
+            flex-direction: column;            
+            margin: 1rem;
+            border-radius: 1rem;
+        }
+
+        .gallery__item__img{
+            border-radius: 1rem 1rem 0 0;
+            object-fit: fill;
+            width: 100%;
+            height: 100%;            
+        }
+
+        .gallery__item__meta{
+            color: black;
+            background-color: white;
+            border-radius: 0 0 1rem 1rem;
+        }
+    </style>
+</head>
+<body>
+    <nav>
+        <div class="nav__section">
+            <span>One</span>
+            <span>Two</span>
+            <span>three</span>
+            <span>Four</span>            
+        </div>
+        <div class="nav__section">
+            <span>One</span>
+            <span>Two</span>
+            <span>three</span>
+            <span>Four</span>            
+        </div>
+    </nav>
+    <main>
+        <section class="hero">
+            <div class="hero__container">
+                <h1>Discover the world’s top designers & creatives</h1>
+                <h2>Dribbble is the leading destination to find & showcase creative work and home to the world's best design professionals.</h2>
+                <button type="button">Signup</button>
+            </div>
+        </section>
+        <div class="control">
+            <button type="button">Filter</button>
+            <ul class="control__list">
+                <li class="control__list__item">One</li>
+                <li class="control__list__item">two</li>
+                <li class="control__list__item">three</li>
+                <li class="control__list__item">four</li>
+                <li class="control__list__item">five</li>                
+            </ul>
+            <button type="button">Category</button>
+        </div>
+        <ul class="gallery">
+            <li class="gallery__item">                  
+                <img class="gallery__item__img" src="images/sunrise.jpg" alt="picture of a sunrise">                                
+                <div class="gallery__item__meta">
+                    <div class="gallery__item__meta__left">
+                        <icon>F</icon>
+                        <span>First Last</span>
+                        <icon>ADJ</icon>
+                    </div>
+                    <div class="gallery__item__meta__right">
+                        <icon>A</icon>
+                        <span>99</span>
+                        <icon>H</icon>
+                        <span>24</span>
+                    </div>
+                </div>
+            </li>
+            <li class="gallery__item">
+                <img class="gallery__item__img" src="images/sunrise.jpg" alt="picture of a sunrise">
+                <div class="gallery__item__meta">
+                    <div class="gallery__item__meta__left">
+                        <icon>F</icon>
+                        <span>First Last</span>
+                        <icon>ADJ</icon>
+                    </div>
+                    <div class="gallery__item__meta__right">
+                        <icon>A</icon>
+                        <span>99</span>
+                        <icon>H</icon>
+                        <span>24</span>
+                    </div>
+                </div>
+            </li>
+            <li class="gallery__item">
+                <img class="gallery__item__img" src="images/sunrise.jpg" alt="picture of a sunrise">
+                <div class="gallery__item__meta">
+                    <div class="gallery__item__meta__left">
+                        <icon>F</icon>
+                        <span>First Last</span>
+                        <icon>ADJ</icon>
+                    </div>
+                    <div class="gallery__item__meta__right">
+                        <icon>A</icon>
+                        <span>99</span>
+                        <icon>H</icon>
+                        <span>24</span>
+                    </div>
+                </div>
+            </li>
+            <li class="gallery__item">
+                <img class="gallery__item__img" src="images/sunrise.jpg" alt="picture of a sunrise">
+                <div class="gallery__item__meta">
+                    <div class="gallery__item__meta__left">
+                        <icon>F</icon>
+                        <span>First Last</span>
+                        <icon>ADJ</icon>
+                    </div>
+                    <div class="gallery__item__meta__right">
+                        <icon>A</icon>
+                        <span>99</span>
+                        <icon>H</icon>
+                        <span>24</span>
+                    </div>
+                </div>
+            </li>
+            <li class="gallery__item">
+                <img class="gallery__item__img" src="images/sunrise.jpg" alt="picture of a sunrise">
+                <div class="gallery__item__meta">
+                    <div class="gallery__item__meta__left">
+                        <icon>F</icon>
+                        <span>First Last</span>
+                        <icon>ADJ</icon>
+                    </div>
+                    <div class="gallery__item__meta__right">
+                        <icon>A</icon>
+                        <span>99</span>
+                        <icon>H</icon>
+                        <span>24</span>
+                    </div>
+                </div>
+            </li>
+            <li class="gallery__item">
+                <img class="gallery__item__img" src="images/sunrise.jpg" alt="picture of a sunrise">
+                <div class="gallery__item__meta">
+                    <div class="gallery__item__meta__left">
+                        <icon>F</icon>
+                        <span>First Last</span>
+                        <icon>ADJ</icon>
+                    </div>
+                    <div class="gallery__item__meta__right">
+                        <icon>A</icon>
+                        <span>99</span>
+                        <icon>H</icon>
+                        <span>24</span>
+                    </div>
+                </div>
+            </li>
+        </ul>
+    </main>
+</body>
+</html>

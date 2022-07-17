@@ -1,0 +1,182 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <link rel="preconnect" href="https://fonts.gstatic.com">
+    <link href="https://fonts.googleapis.com/css2?family=Inter&display=swap" rel="stylesheet"> 
+    <title>07 26</title>    
+    <style>
+
+        * {                
+            box-sizing: border-box;
+            font-size: 16px;
+            font-family: 'Inter', sans-serif;                
+            --PRIMARY_COLOR: #c50006;
+            --SECONDARY_COLOR: #3ab4bf;
+            --HOVER_COLOR: #0f2231;
+        }      
+
+@keyframes rotation{
+  from {
+    transform: rotate(0deg);
+  }
+  to{
+    transform: rotate(359deg);
+  }
+}
+
+#menu {    
+    position: relative;
+    width: 20rem;
+    height: 20rem;
+    margin: 0 auto;
+    overflow: hidden;
+    border-radius: 50%;
+        
+}
+#center {
+    position: absolute;
+    inset: 0;
+    margin: auto auto;
+    width: 5rem;
+    height: 5rem;
+    z-index: 10;    
+    background: white;
+    border-radius: 50%;
+    
+}
+#center a {
+    display: block;
+    width: 100%;
+    height: 100%
+}
+.item {
+    background: palevioletred;
+    overflow: hidden;
+    position: absolute;
+    width: 10rem;
+    height: 10rem;
+    transform-origin: 100% 100%;  
+    transition: background .5s;    
+}
+.item:hover {
+    background: #eee
+}
+.item1 {
+    z-index: 1;
+    transform: rotate(60deg);   
+}
+.item2 {
+    z-index: 2;
+    transform: rotate(120deg);   
+}
+.item3 {
+    z-index: 3;
+    transform: rotate(180deg);
+    
+}
+.item4 {
+    z-index: 4;
+    transform: rotate(240deg);    
+    background-color: palegoldenrod;
+}
+.item5 {
+    z-index: 5;
+    transform: rotate(300deg);
+    background-color: pink;    
+}
+.item6 {
+    border: none;
+    position: absolute;
+    z-index: 6;
+    transform: rotate(-30deg);
+    -moz-transform: rotate(-30deg);
+    -webkit-transform: rotate(-30deg);
+}
+#wrapper6 {
+    position: absolute;
+    width: 10rem;
+    height: 10rem;
+    overflow: hidden;
+    transform-origin: 100% 100%;    
+}
+.item1 .content {
+    left: -1rem;
+    top: 1rem;    
+    transform: rotate(-60deg);  
+}
+.item2 .content {
+    left: -1rem;
+    top: 1rem;
+    transform: rotate(-120deg);  
+}
+.item3 .content {
+    left: -1rem;
+    top: 1rem;
+    transform: rotate(-180deg);    
+}
+.item4 .content {
+    left: 1;
+    top: 1rem;
+    transform: rotate(-240deg);    
+}
+.item5 .content {
+    left: -1rem;
+    top: 2rem;
+    transform: rotate(-300deg);    
+}
+.item6 .content {
+    left: 1rem;
+    top: -1rem;
+    transform: rotate(30deg);    
+}
+.content, .content a {
+    width: 100%;
+    height: 100%;    
+    text-align: center
+}
+.content {
+    position: absolute;
+}
+.content a {
+    line-height: 10rem;
+    color: black;
+    font-weight: 600;
+    text-transform: uppercase;    
+    text-decoration: none;
+    font-family: "Inter";
+    font-size: 2rem;    
+}
+
+
+</style>
+    <body>  
+        <div id="menu">
+            <div class="item1 item">
+                <div class="content"><a href="#one">$0</a></div>
+            </div>
+            <div class="item2 item">
+                <div class="content"><a href="#two">$100</a></div>
+            </div>
+            <div class="item3 item">
+                <div class="content"><a href="#three">$250</a></div>
+            </div>
+            <div class="item4 item">
+                <div class="content"><a href="#four">$0</a></div>
+            </div>
+            <div class="item5 item">
+                <div class="content"><a href="#five">$750</a></div>
+            </div>
+            <div id="wrapper6">
+                <div class="item6 item">
+                    <div class="content"><a href="#six">$500</a></div>
+                </div>
+            </div>
+            <div id="center">
+                <a href="#"></a>
+            </div>
+        </div>
+    </body>
+</html>

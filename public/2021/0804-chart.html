@@ -1,0 +1,814 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <link rel="preconnect" href="https://fonts.gstatic.com">
+    <link href="https://fonts.googleapis.com/css2?family=Inter&display=swap" rel="stylesheet">
+    <title>07 30</title>
+
+
+    <style>
+        * {
+            box-sizing: border-box;
+            font-size: 16px;
+            font-family: 'Inter', sans-serif;
+            --PRIMARY_COLOR: #98E690;
+            --SECONDARY_COLOR: white;
+        }
+
+        ::-webkit-scrollbar {
+            width: 0.8rem;
+            height: 0.5rem;
+        }
+
+        /* Track */
+        ::-webkit-scrollbar-track {
+            background: black;
+        }
+
+        /* Handle */
+        ::-webkit-scrollbar-thumb {
+            background: rgb(209, 171, 121);
+        }
+
+        /* Handle on hover */
+        ::-webkit-scrollbar-thumb:hover {
+            background: #d3d3d3;
+        }
+
+
+        html,
+        body {
+            margin: 0;
+            height: 100vh;
+            background: #f3f3f3;
+        }
+
+
+        ul {
+            margin: 0;
+            padding: 0;
+            list-style-type: none;
+        }
+
+        nav {
+            height: 5rem;
+            margin-bottom: 1rem;
+        }
+
+
+        a {
+            text-decoration: none;
+            color: black;
+        }
+
+        .container {
+            display: flex;
+            justify-content: flex-start;
+            height: 100%;
+            align-items: center;
+            margin: 0 auto;
+            max-width: 1100px;
+        }
+
+        .container__item {
+            margin-right: 2rem;
+        }
+
+        .container__item:last-child {
+            margin-right: 0;
+        }
+
+        .container__item a {
+            color: black;
+            position: relative;
+            font-weight: 600;
+        }
+
+        .container__item a:after {
+            position: absolute;
+            bottom: -.5rem;
+            left: 0;
+            width: 100%;
+            content: '';
+            height: .1rem;
+            background-color: black;
+            transform-origin: center;
+            opacity: 0;
+            transform: scale(0);
+            transition: opacity .2s ease-in-out, transform .2s ease-in-out;
+        }
+
+        .container__item a:hover::after {
+            opacity: 1;
+            transform: scale(1);
+
+        }
+
+        main.grid {
+            margin: 0 auto;
+            max-width: 1100px;
+            min-height: 500px;
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(250px, 1fr));
+            grid-gap: 1rem;
+        }
+
+        .grid__item {
+            grid-column: span 1;
+            position: relative;
+        }
+
+        .grid__item:after {
+            content: "";
+            display: block;
+            padding-bottom: 100%;
+            background: white;
+            border-radius: 1rem;
+        }
+
+        .grid__item--row {
+            grid-column: 1/-1;
+            position: relative;
+            border-radius: 1rem;
+            background: white;
+        }
+
+        .grid__item--row:after {
+            padding-bottom: 250px;
+            display: block;
+            content: '';
+        }
+
+
+
+        .grid__item__content {
+            position: absolute;
+            inset: 0;
+            height: 100%;
+            width: 100%;
+            padding: 1rem;
+        }
+
+        .grid__item__content--row {
+            position: absolute;
+            inset: 0;
+
+            width: 100%;
+            max-height: 250px;
+            padding: 1rem;
+        }
+    </style>
+
+<body>
+    <nav>
+        <ul class='container'>
+            <li class='container__item'><a href='#'>Home</a></li>
+            <li class='container__item'><a href='#'>About</a></li>
+            <li class='container__item'><a href='#'>Contact</a></li>
+        </ul>
+    </nav>
+    <main class='grid' id='gridder'>
+        <div class='grid__item--row'>
+            <canvas id='daily-counts-over-time' class='grid__item__content--row'>
+
+            </canvas>
+        </div>
+        <div class='grid__item--row'>
+            <canvas id='totals-over-time' class='grid__item__content--row'>
+
+            </canvas>
+        </div>
+        <div class='grid__item--row'>
+            <canvas id='all-regions-totals-over-time' class='grid__item__content--row'>
+
+            </canvas>
+        </div>
+    </main>
+
+
+    <script src="https://cdn.jsdelivr.net/npm/chart.js"></script>
+    <script type='text/javascript'>
+
+
+        let healthRegionsXData = ['VCH', 'Fraser', 'Interior', 'Island', 'North'];
+
+
+        let dataWithMore = {
+            "080421": {
+                url: "https://www.cbc.ca/news/canada/british-columbia/covid-19-update-aug-4-1.6128995",
+                total: [258, 388, 945, 109, 52],
+                daily: [57, 66, 171, 32, 13]
+            },
+            "080521": {
+                daily: [41, 82, 234, 25, 20],
+                total: [290, 449, 1121, 127, 67],
+                url: "https://www.cbc.ca/news/canada/british-columbia/covid-19-update-aug5-1.6131345"
+            },
+            "080621": {
+                daily: [60, 72, 275, 27, 29],
+                total: [324, 486, 1356, 145, 88],
+                url: "https://www.cbc.ca/news/canada/british-columbia/covid-19-update-aug-6-1.6132981"
+            },
+            "080721": {
+                daily: [142, 258, 587, 62, 30],
+                total: [387, 586, 1755, 188, 108],
+                url: "https://www.cbc.ca/news/canada/british-columbia/covid-19-update-aug9-1.6134699"
+            },
+            "081021": {
+                daily: [61, 100, 187, 31, 15],
+                total: [430, 619, 1893, 218, 111],
+                url: "https://www.cbc.ca/news/canada/british-columbia/covid-19-update-aug10-1.6135948"
+            },
+            "081121": {
+                daily: [105, 135, 258, 26, 12],
+                total: [493, 699, 2045, 222, 116],
+                url: "https://www.cbc.ca/news/canada/british-columbia/covid-19-update-aug11-1.6137288"
+            },
+            "081221": {
+                daily: [92, 108, 271, 29, 13],
+                total: [539, 750, 2199, 220, 116],
+                url: "https://www.cbc.ca/news/canada/british-columbia/covid-19-update-aug12-1.6138779"
+            },
+            "081321": {
+                daily: [198, 316, 734, 112, 74],
+                total: [715, 882, 2982, 307, 197],
+                url: "https://www.cbc.ca/news/canada/british-columbia/covid-19-update-aug-16-1.6142425"
+            },
+            "081721": {
+                daily: [92, 139, 205, 28, 35],
+                total: [758, 932, 3084, 307, 206],
+                url: "https://www.cbc.ca/news/canada/british-columbia/covid-19-update-aug-17-1.6143668"
+            },
+            "081821": {
+                daily: [97, 152, 230, 38, 36],
+                total: [811, 990, 3203, 227, 230],
+                url: "https://www.cbc.ca/news/canada/british-columbia/covid-19-update-aug18-1.6144952"
+            },
+            "081921": {
+                daily: [123, 219, 278, 42, 27],
+                total: [908, 1112, 3368, 346, 239],
+                url: "https://www.cbc.ca/news/canada/british-columbia/covid-19-update-aug-19-1.6146117"
+            },
+            "082021": {
+                daily: [135, 162, 274, 54, 38],
+                total: [1018, 1169, 3504, 391, 254],
+                url: "https://www.cbc.ca/news/canada/british-columbia/covid-19-bc-update-aug-20-1.6147651"
+            },
+            "082321": {
+                daily: [290, 419, 768, 133, 100],
+                total: [1223, 1194, 1930, 401, 298],
+                url: "https://www.cbc.ca/news/canada/british-columbia/covid-19-update-aug-23-1.6149917"
+            },
+            "082421": {
+                daily: [125, 149, 273, 53, 39],
+                total: [1330, 1223, 2054, 430, 308],
+                url: "https://www.cbc.ca/news/canada/british-columbia/covid-19-update-aug-24-1.6151240"
+            },
+            "082521": {
+                daily: [129, 203, 252, 69, 45],
+                total: [1347, 1294, 1911, 470, 322],
+                url: "https://www.cbc.ca/news/canada/british-columbia/bc-covid-19-update-aug-25-1.6153477"
+            },
+            "082621": {
+                daily: [142, 185, 271, 64, 62],
+                total: [1432, 1319, 2014, 502, 361],
+                url: "https://www.cbc.ca/news/canada/british-columbia/bc-covid-update-aug-26-1.6154114"
+            },
+            "082721": {
+                daily: [165, 228, 350, 63, 61],
+                total: [1132, 1377, 2190, 555, 393],
+                url: "https://www.cbc.ca/news/canada/british-columbia/bc-covid-update-august-27-1.6156023"
+            },
+            "083021": {
+                daily: [295, 531, 707, 178, 142],
+                total: [1076, 1371, 2424, 587, 453],
+                url: "cbc.ca/news/canada/british-columbia/covid-19-update-aug-30-1.6158122"
+            },
+            "083121": {
+                daily: [99, 186, 242, 68, 60],
+                total: [1026, 1418, 2495, 620, 479],
+                url: "https://www.cbc.ca/news/canada/british-columbia/covid-19-update-aug-31-1.6159635"
+            },
+            "090121": {
+                daily: [110, 246, 266, 69, 94],
+                total: [1042, 1504, 2299, 538, 483],
+                url: "https://www.cbc.ca/news/canada/british-columbia/covid-19-update-sept-1-1.6161157"
+            },
+            "090221": {
+                daily: [128, 267, 237, 66, 103],
+                total: [1102, 1616, 2112, 541, 553],
+                url: "https://www.cbc.ca/news/canada/british-columbia/covid-19-update-sept-2-1.6162507"
+            },
+            "090321": {
+                daily: [78, 230, 230, 44, 89],
+                total: [1077, 1689, 1965, 539, 595],
+                url: "https://www.cbc.ca/news/canada/british-columbia/covid-19-update-sept-3-1.6163634"
+            },
+            "090721": {
+                daily: [368, 705, 838, 202, 312],
+                total: [1010, 1530, 1714, 501, 703],
+                url: "https://www.cbc.ca/news/canada/british-columbia/covid-19-update-sept7-1.6166859"
+            },
+            "090821": {
+                daily: [135, 241, 272, 90, 72],
+                total: [939, 1601, 1793, 485, 721],
+                url: "https://www.cbc.ca/news/canada/british-columbia/covid-19-update-sept8-1.6167993"
+            },
+            "090921": {
+                daily: [123, 233, 253, 65, 98],
+                total: [926, 1669, 1747, 487, 752],
+                url: "https://www.cbc.ca/news/canada/british-columbia/covid-19-update-sept9-1.6169575"
+            },
+            "091021": {
+                daily: [112, 264, 253, 90, 101],
+                total: [938, 1750, 1828, 539, 782],
+                url: "https://www.cbc.ca/news/canada/british-columbia/covid-19-update-sept10-1.6170980"
+            },
+            "091321": {
+                daily: [319, 609, 542, 220, 294],
+                total: [945, 1711, 1618, 607, 931],
+                url: "https://www.cbc.ca/news/canada/british-columbia/covid-19-update-sept-13-1.6174599"
+            },
+            "091421": {
+                daily: [102, 237, 153, 86, 99],
+                total: [1030, 1948, 1583, 627, 964],
+                url: "https://www.cbc.ca/news/canada/british-columbia/covid-19-update-sept14-1.6175088"
+            },
+            "091521": {
+                daily: [99, 237, 196, 66, 62],
+                total: [1037, 1744, 1536, 615, 849],
+                url: "https://www.cbc.ca/news/canada/british-columbia/covid-19-update-sept15-1.6176981"
+            },
+            "091621": {
+                daily: [105, 203, 213, 81, 104],
+                total: [1051, 1784, 1504, 638, 857],
+                url: "https://www.cbc.ca/news/canada/british-columbia/covid-19-update-sept-16-1.6177974"
+            },
+            "091721": {
+                daily: [83, 239, 183, 102, 161],
+                total: [1043, 1846, 1499, 700, 933],
+                url: "https://www.cbc.ca/news/canada/british-columbia/covid-19-update-sept17-1.6179944"
+            },
+            "092021": {
+                daily: [239, 533, 371, 204, 345],
+                total: [988, 1732, 1183, 661, 1037],
+                url: "https://www.cbc.ca/news/canada/british-columbia/covid-19-update-sept20-1.6182401"
+            },
+            "092121": {
+                daily: [51, 187, 147, 61, 79],
+                total: [822, 1711, 1167, 619, 921],
+                url: "https://www.cbc.ca/news/canada/british-columbia/covid-19-update-sept21-1.6184017"
+            },
+            "092221": {
+                daily: [101, 214, 233, 79, 129],
+                total: [877, 1734, 1223, 636, 943],
+                url: "https://www.cbc.ca/news/canada/british-columbia/covid-19-update-sept22-1.6185402"
+            },
+            "092321": {
+                daily: [114, 377, 153, 71, 117],
+                total: [909, 1932, 1181, 654, 977],
+                url: "https://www.cbc.ca/news/canada/british-columbia/covid-19-update-sept23-1.6186831"
+            },
+            "092421": {
+                daily: [111, 292, 177, 57, 106],
+                total: [955, 2029, 1268, 660, 1023],
+                url: "https://www.cbc.ca/news/canada/british-columbia/covid-19-update-sept24-1.6179888"
+            },
+            "092721": {
+                daily: [256, 857, 525, 230, 358],
+                total: [843, 2218, 1159, 657, 1165],
+                url: "https://www.cbc.ca/news/canada/british-columbia/covid-19-bc-update-sept-27-1.6190984"
+            },
+            "092821": {
+                daily: [70, 219, 162, 82, 117],
+                total: [903, 2249, 1176, 677, 929],
+                url: "https://www.cbc.ca/news/canada/british-columbia/covid-19-update-sept-28-1.6192818"
+            },
+            "092921": {
+                daily: [102, 303, 208, 82, 118],
+                total: [911, 2316, 1281, 704, 915],
+                url: "https://www.cbc.ca/news/canada/british-columbia/covid-19-bc-update-sept-28-1.6193393"
+            },
+            "100121": {
+                daily: [73, 274, 205, 56, 106],
+                total: [889, 2353, 1360, 614, 1043],
+                url: "https://www.cbc.ca/news/canada/british-columbia/covid-19-update-oct1-1.6196337"
+            },
+            "100421": {
+                daily: [226, 782, 414, 218, 346],
+                total: [859, 2333, 1132, 640, 965],
+                url: "https://www.cbc.ca/news/canada/british-columbia/covid-19-update-oct-4-1.6199043"
+            },
+            "100521": {
+                daily: [68, 203, 128, 107, 87],
+                total: [869, 2300, 1151, 723, 836],
+                url: "https://www.cbc.ca/news/canada/british-columbia/covid-19-update-oct5-1.6200222"
+            },
+            "100621": {
+                daily: [85, 297, 164, 76, 130],
+                total: [824, 2349, 1142, 743, 829],
+                url: "https://www.cbc.ca/news/canada/british-columbia/covid-19-update-oct-6-1.6201601"
+            },
+            "100721": {
+                daily: [78, 258, 118, 79, 91],
+                total: [823, 2323, 1142, 779, 813],
+                url: "https://www.cbc.ca/news/canada/british-columbia/covid-19-update-oct7-1.6203427"
+            },
+            // "101321": {
+            //     daily: [],
+            //     total: [],
+            //     url: "https://www.cbc.ca/news/canada/british-columbia/covid-19-update-oct-13-1.6209222"
+            // },
+            // "101421": {
+            //     daily: [],
+            //     total: [],
+            //     url: "https://www.cbc.ca/news/canada/british-columbia/covid-19-update-oct14-1.6211115"
+            // },
+            "101521": {
+                daily: [75, 246, 101, 59, 184],
+                total: [724, 2221, 817, 572, 734],
+                url: "https://www.cbc.ca/news/canada/british-columbia/covid-19-update-oct15-1.6212312"
+            },
+            "101821": {
+                daily: [212, 737, 322, 169, 406],
+                total: [642, 2039, 777, 521, 880],
+                url: "https://www.cbc.ca/news/canada/british-columbia/covid-19-update-oct18-1.6214894"
+            },
+            "101921": {
+                daily: [80, 208, 79, 61, 131],
+                total: [717, 2052, 772, 516, 797],
+                url: "https://www.cbc.ca/news/canada/british-columbia/covid-19-update-oct19-1.6216422"
+            },
+            "102021": {
+                daily: [76, 252, 118, 59, 191],
+                total: [724, 1929, 795, 517, 864],
+                url: "https://www.cbc.ca/news/canada/british-columbia/covid-19-update-oct-20-1.6217851"
+            },
+            "102221": {
+                daily: [61, 281, 88, 89, 130],
+                total: [693, 2051, 778, 545, 980],
+                url: "https://www.cbc.ca/news/canada/british-columbia/covid-19-update-oct22-1.6221090"
+            },
+            "102621": {
+                daily: [61, 176, 83, 55, 82],
+                total: [670, 2002, 642, 579, 877],
+                url: "https://www.cbc.ca/news/canada/british-columbia/covid-19-update-oct-26-1.6225256"
+            },
+            "102721": {
+                daily: [79, 257, 92, 55, 126],
+                total: [676, 2043, 642, 524, 804],
+                url: "https://www.cbc.ca/news/canada/british-columbia/covid-19-update-oct27-1.6227068"
+            },
+            "102821": {
+                daily: [74, 329, 108, 114, 133],
+                total: [678, 2153, 664, 586, 821],
+                url: "https://www.cbc.ca/news/canada/british-columbia/covid-19-update-oct28-1.6228406"
+            },
+            "110121": {
+                daily: [124, 603, 222, 218, 203],
+                total: [570, 2024, 588, 663, 764],
+                url: "https://cbc.ca/news/canada/british-columbia/covid-19-update-nov1-1.6232692"
+            },
+            "110221": {
+                daily: [41, 133, 95, 51, 86],
+                total: [607, 2157, 613, 652, 606],
+                url: "https://www.cbc.ca/news/canada/british-columbia/covid-19-update-nov2-1.6233974"
+            },
+            "110321": {
+                daily: [56, 202, 88, 47, 37],
+                total: [603, 1891, 638, 632, 550],
+                url: "https://www.cbc.ca/news/canada/british-columbia/covid-19-update-nov3-1.6235454"
+            },
+            "110421": {
+                daily: [46, 222, 115, 54, 159],
+                total: [565, 1927, 666, 618, 616],
+                url: "https://www.cbc.ca/news/canada/british-columbia/covid-19-update-nov4-1.6236919"
+            },
+            "110521": {
+                daily: [78, 184, 110, 73, 102],
+                total: [601, 1903, 686, 605, 627],
+                url: "https://www.cbc.ca/news/canada/british-columbia/covid-19-update-nov5-1.6238378"
+            },
+            "110821": {
+                daily: [155, 575, 321, 221, 166],
+                total: [485, 1832, 683, 615, 608],
+                url: "https://www.cbc.ca/news/canada/british-columbia/covid-19-update-nov8-1.6241150"
+            },
+            "110921": {
+                daily: [48, 152, 121, 76, 103],
+                total: [527, 1800, 745, 613, 557],
+                url: "https://www.cbc.ca/news/canada/british-columbia/covid-19-update-nov-9-1.6242496"
+            },
+            "111021": {
+                daily: [50, 197, 114, 88, 106],
+                total: [505, 1820, 766, 598, 573],
+                url: "https://www.cbc.ca/news/canada/british-columbia/covid-19-update-nov-10-1.6243905"
+            },
+            "111221": {
+                daily: [117, 308, 263, 138, 166],
+                total: [510, 1575, 862, 614, 645],
+                url: "https://www.cbc.ca/news/canada/british-columbia/covid-19-update-nov-11-1.6247781"
+            },
+            "111521": {
+                daily: [121, 417, 275, 183, 274],
+                total: [474, 1325, 762, 576, 641],
+                url: "https://www.cbc.ca/news/canada/british-columbia/covid-19-update-nov-15-1.6249881"
+            },
+            "111621": {
+                daily: [40, 39, 160, 42, 57],
+                total: [506, 1297, 683, 513, 510],
+                url: "https://www.cbc.ca/news/canada/british-columbia/covid-19-update-nov-16-1.6251002"
+            },
+            "111721": {
+                daily: [60, 108, 50, 33, 73],
+                total: [492, 1211, 622, 479, 507],
+                url: "https://www.cbc.ca/news/canada/british-columbia/covid-19-update-nov-17-1.6250821"
+            },
+            "111821": {
+                daily: [69, 173, 85, 72, 68],
+                total: [505, 1220, 612, 460, 489],
+                url: "https://www.cbc.ca/news/canada/british-columbia/covid-19-update-nov-18-1.6253894"
+            },
+            "111921": {
+                daily: [64, 138, 146, 71, 78],
+                total: [511, 1244, 657, 454, 498],
+                url: "https://www.cbc.ca/news/canada/british-columbia/covid-19-update-nov-19-1.6255337"
+            },
+            "112221": {
+                daily: [125, 345, 227, 159, 196],
+                total: [436, 1148, 589, 426, 528],
+                url: "https://www.cbc.ca/news/canada/british-columbia/covid-19-update-nov-22-1.6258254"
+            },
+            "112321": {
+                daily: [38, 102, 77, 36, 60],
+                total: [472, 1115, 595, 472, 444],
+                url: "https://www.cbc.ca/news/canada/british-columbia/covid-19-update-nov-23-1.6259654"
+            },
+            "112421": {
+                daily: [50, 100, 86, 42, 44],
+                total: [472, 1095, 606, 421, 415],
+                url: "https://www.cbc.ca/news/canada/british-columbia/covid-19-update-nov24-1.6260778"
+            },
+            "112621": {
+                daily: [62, 140, 93, 63, 66],
+                total: [512, 1092, 608, 429, 414],
+                url: "https://www.cbc.ca/news/canada/british-columbia/covid-19-update-nov-25-1.6262914"
+            },
+            "112921": {
+                daily: [103, 306, 189, 238, 134],
+                total: [396, 1015, 534, 539, 398],
+                url: "https://www.cbc.ca/news/canada/british-columbia/covid-19-update-nov-29-1.6266722"
+            },
+            "113021": {
+                daily: [53, 107, 85, 57, 56],
+                total: [443, 1018, 552, 539, 337],
+                url: "https://www.cbc.ca/news/canada/british-columbia/covid-19-update-nov-30-1.6268117"
+            },
+            "120121": {
+                daily: [70, 98, 69, 76, 62],
+                total: [476, 994, 537, 569, 360],
+                url: "https://www.cbc.ca/news/canada/british-columbia/covid-19-update-dec-1-1.6269802"
+            },
+            "120221": {
+                daily: [48, 90, 101, 88, 40],
+                total: [485, 1003, 578, 602, 351],
+                url: "https://www.cbc.ca/news/canada/british-columbia/covid-19-update-dec-2-1.6270832"
+            }
+
+        };
+
+        const labels = Object.keys(dataWithMore);
+        let regionData = {
+            vch: [],
+            fraser: [],
+            interior: [],
+            island: [],
+            north: []
+        };
+
+        for (let i = 0; i < labels.length; i++) {
+            let { vch, fraser, interior, island, north } = regionData;
+            vch.push(dataWithMore[labels[i]].daily[0]);
+            fraser.push(dataWithMore[labels[i]].daily[1]);
+            interior.push(dataWithMore[labels[i]].daily[2]);
+            island.push(dataWithMore[labels[i]].daily[3]);
+            north.push(dataWithMore[labels[i]].daily[4]);
+        }
+
+        let totalsByRegionData = {
+            vch: [],
+            fraser: [],
+            interior: [],
+            island: [],
+            north: []
+        }
+
+
+        for (let i = 0; i < labels.length; i++) {
+            let { vch, fraser, interior, island, north } = totalsByRegionData;
+            vch.push(dataWithMore[labels[i]].total[0]);
+            fraser.push(dataWithMore[labels[i]].total[1]);
+            interior.push(dataWithMore[labels[i]].total[2]);
+            island.push(dataWithMore[labels[i]].total[3]);
+            north.push(dataWithMore[labels[i]].total[4]);
+        }
+
+        let infectedInAllRegionsData = {
+            daily: [],
+            total: []
+        }
+        for (let i = 0; i < labels.length; i++) {
+
+            infectedInAllRegionsData.daily.push(dataWithMore[labels[i]].daily.reduce((a, b) => {
+                return a + b;
+            }, 0));
+            infectedInAllRegionsData.total.push(dataWithMore[labels[i]].total.reduce((a, b) => {
+                return a + b;
+            }, 0));
+        }
+
+
+
+
+
+
+
+        function makeSingleLineGraph(selector, title, xData, yData) {
+            const lineData = {
+                labels: xData,
+                datasets: [{
+                    label: "current people infected",
+                    backgroundColor: "black",
+                    borderColor: 'black',
+                    data: yData.total
+                }, {
+                    label: "daily people in all regions infected",
+                    backgroundColor: "slateblue",
+                    borderColor: 'slateblue',
+                    data: yData.daily
+                }]
+            }
+
+            const lineConfig = {
+                type: 'line',
+                data: lineData,
+                options: {
+                    responsive: true,
+                    maintainAspectRatio: false,
+                    plugins: {
+                        title: {
+                            display: true,
+                            text: title
+                        }
+                    }
+                }
+            };
+            const lineChart = new Chart(document.getElementById(selector), lineConfig);
+        }
+
+
+        function makeLineGraph(selector, title, xData, yData) {
+            const lineData = {
+                labels: xData,
+                datasets: [{
+                    label: 'VCH',
+                    backgroundColor: 'rgb(255, 99, 132)',
+                    borderColor: 'rgb(255, 99, 132)',
+                    data: yData.vch,
+                }, {
+                    label: 'Fraser',
+                    backgroundColor: 'rgb(75, 192, 192)',
+                    borderColor: 'rgb(75, 192, 192)',
+                    data: yData.fraser,
+                }, {
+                    label: 'Interior',
+                    backgroundColor: 'rgb(255, 205, 86)',
+                    borderColor: 'rgb(255, 205, 86)',
+                    data: yData.interior,
+                }, {
+                    label: 'Island',
+                    backgroundColor: 'rgb(201, 203, 207)',
+                    borderColor: 'rgb(201, 203, 207)',
+                    data: yData.island,
+                }, {
+                    label: 'North',
+                    backgroundColor: 'rgb(54, 162, 235)',
+                    borderColor: 'rgb(54, 162, 235)',
+                    data: yData.north,
+                }]
+            };
+            const lineConfig = {
+                type: 'line',
+                data: lineData,
+                options: {
+                    responsive: true,
+                    maintainAspectRatio: false,
+                    plugins: {
+                        title: {
+                            display: true,
+                            text: title
+                        }
+                    }
+                }
+            };
+            const lineChart = new Chart(document.getElementById(selector), lineConfig);
+        }
+
+        makeLineGraph('daily-counts-over-time', "Daily Covid Counts by Health Region over time.", labels, regionData);
+        makeLineGraph('totals-over-time', "Daily Covid Totals by Health Region over time.", labels, totalsByRegionData);
+        makeSingleLineGraph("all-regions-totals-over-time", "All Health Regions Current Infected over Time", labels, infectedInAllRegionsData);
+
+
+        const root = document.getElementById('gridder');
+
+        for (let i = 0; i < Object.keys(dataWithMore).length; i++) {
+            const currentDate = Object.keys(dataWithMore)[i];
+            const currentDateLessYear = currentDate.slice(0, 4);
+            const dataForCurrentDate = dataWithMore[currentDate].daily;
+            // console.log(currentDate);
+            // console.log(currentDateLessYear);
+            // console.log(data[currentDate]);
+
+            for (let j = 0; j < 3; j++) {
+
+                const outer = document.createElement("a");
+                outer.className = 'grid__item';
+                outer.setAttribute("href", dataWithMore[currentDate].url);
+                const graph = document.createElement("canvas");
+                graph.className = 'grid__item__content';
+                if (j === 0) {
+                    graph.setAttribute("id", `${currentDateLessYear}polar`);
+                } else if (j === 1) {
+                    graph.setAttribute("id", `${currentDateLessYear}pie`);
+                } else {
+                    graph.setAttribute("id", `${currentDateLessYear}doughnut`);
+                }
+                outer.appendChild(graph);
+                root.appendChild(outer);
+            }
+
+            const link = document.createElement("a");
+            link.className = "grid__item";
+            link.setAttribute('href', dataWithMore[currentDate].url);
+            const content = document.createElement("div");
+            content.className = "grid__item__content";
+            const text = document.createTextNode(dataWithMore[currentDate].total);
+            content.appendChild(text);
+            link.appendChild(content);
+            root.appendChild(link);
+
+
+
+
+            makeNewPolarPieOrDoughnutChart(`${currentDateLessYear}polar`, "polarArea", `covid ${currentDate} polar`, healthRegionsXData, dataForCurrentDate);
+            makeNewPolarPieOrDoughnutChart(`${currentDateLessYear}pie`, "pie", `Covid19 ${currentDate} PIE`, healthRegionsXData, dataForCurrentDate);
+            makeNewPolarPieOrDoughnutChart(`${currentDateLessYear}doughnut`, "doughnut", `Covid19 ${currentDate} doughtnut`, healthRegionsXData, dataForCurrentDate);
+        }
+
+
+
+        function makeNewPolarPieOrDoughnutChart(selector, type, title, xData, yData) {
+            const graphData = {
+                labels: xData,
+                datasets: [{
+                    label: 'My First Dataset',
+                    data: yData,
+                    backgroundColor: [
+                        'rgb(255, 99, 132)',
+                        'rgb(75, 192, 192)',
+                        'rgb(255, 205, 86)',
+                        'rgb(201, 203, 207)',
+                        'rgb(54, 162, 235)'
+                    ],
+                    hoverOffset: 4
+                }]
+            };
+            const graphConfig = {
+                type: type,
+                data: graphData,
+                options: {
+                    responsive: true,
+                    plugins: {
+                        legend: {
+                            position: 'top',
+                        },
+                        title: {
+                            display: true,
+                            text: title
+                        }
+                    }
+                },
+            };
+
+            return new Chart(document.getElementById(selector), graphConfig);
+        }
+
+
+    </script>
+</body>
+
+</html>

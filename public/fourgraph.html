@@ -1,0 +1,223 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>three graph</title>
+    <style>
+        * {
+            box-sizing: border-box;
+            font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;            
+        }
+
+        .maincontainer{
+           display: flex;
+           flex-direction: column;
+            max-width: 1100px;
+            margin: 0 auto;
+        }
+
+        .container{
+           max-height: 500px;
+           max-width: 500px;
+        }
+    </style>
+</head>
+<body>
+    <div class="maincontainer">
+        <div class="container">
+            <canvas id="firstChart"></canvas>
+        </div>
+        <div class="container">
+            <canvas id="secondChart"></canvas>
+        </div>
+        <div class="container">
+            <canvas id="thirdChart"></canvas>
+        </div>
+        <div class="container">
+            <canvas id="fourthChart"></canvas>
+        </div>
+        <div class="container">
+            <canvas id="fifthChart"></canvas>
+        </div>
+        <div class="container">
+            <canvas id="sixthChart"></canvas>
+        </div>
+        <div class="container">
+            <canvas id="seventhChart"></canvas>
+        </div>
+        <div class="container">
+            <canvas id="eighthChart"></canvas>
+        </div>
+        <div class="container">
+            <canvas id="ninthChart"></canvas>
+        </div>
+        <div class="container">
+            <canvas id="tenthChart"></canvas>
+        </div>
+    </div>
+    <script src="https://cdn.jsdelivr.net/npm/chart.js"></script>
+    <script type="text/javascript">
+    
+    const labels = [
+        'January',
+        'February',
+        'March',
+        'April',
+        'May',
+        'June',
+        'July',
+        'August',
+        'September',
+        'October',
+        'November',
+        'December',
+    ];
+
+    const data = {
+        labels: labels,
+        datasets: [{
+            label: 'second dataset',
+            backgroundColor: 'palevioletred',
+            borderColor: 'papayawhip',
+            data: [0, 10, 5, 2, 20, 30, 45, 9, 100, 9, 12, 3],
+        }]
+    };
+    
+  
+    const fourthChartData = {
+        labels: ['Red', 'Orange', 'Yellow', 'Green', 'Blue'],
+        datasets: [
+            {
+            label: 'Dataset 1',
+            data: [12, 11, 10, 22, 14],
+            backgroundColor: Object.values({
+                'Red': "#343434",
+                "Orange": "#ffaa23",
+                "Yellow": "#ffaa23",
+                "Green": "#dc1a23",
+                "Blue": "#abab23"
+            }),
+            }
+        ]
+    };
+    
+
+
+    const fifthChartData = {
+        labels: ['Fraser Health', 'Vancouver Coastal Health', 'Interior Health', 'Northern Health', 'Vancouver Island Health'],
+        datasets: [
+            {
+            label: 'covid may 11, 21',
+            data: [300, 116, 65, 12, 20],
+            backgroundColor: Object.values({
+                'Red': "#343434",
+                "Orange": "#ffaa23",
+                "Yellow": "#00eaff",
+                "Green": "#dc1a23",
+                "Blue": "#abab23"
+            }),
+            }
+        ]
+    };
+
+    const sixthChartData = {
+        labels: ['Fraser Health', 'Vancouver Coastal Health', 'Interior Health', 'Northern Health', 'Vancouver Island Health'],
+        datasets: [
+            {
+            label: 'covid may 12, 21',
+            data: [394, 150, 39, 9, 8],
+            backgroundColor: [
+                "lavender",
+                "#ffaa23",
+                "blue",
+                "#dc1a23",
+                "#abab23"
+            ],
+            }
+        ]
+    };
+
+    const eighthChartData = {
+        labels: ['Fraser Health', 'Vancouver Coastal Health', 'Interior Health', 'Northern Health', 'Vancouver Island Health'],
+        datasets: [
+            {
+            label: 'BC - Covid19 MAY 13/21',
+            data: [365, 126, 60, 15, 21],
+            backgroundColor: [
+                "lavender",
+                "#ffaa23",
+                "palegreen",
+                "#dc1a23",
+                "#abab23"
+            ],
+            }
+        ]
+    };
+    
+    const seventhData = {
+        label: 'Dataset 1',
+        data: [{x: 1, y: 1}, {x: 2, y: 2}, {x: 3, y: 3}, {x: 4, y: 4}],
+        borderColor: "red",
+        backgroundColor: "palevioletred",
+    };
+    const ninthData = {
+        label: 'Dataset 2',
+        data: [{x: 3, y: 2}, {x: 5, y: 4}, {x: 6, y: 6}, {x: 8, y: 8}],
+        borderColor: "blue",
+        backgroundColor: "palegreen",
+    };
+
+    const tenthData = [seventhData, ninthData];
+
+    function makeScatterData(data){
+        return {            
+            datasets: [...data]
+        };
+    }
+
+
+   
+        
+
+
+
+    function makeChart(id, type, data, label){
+        const config = {
+            type: type,
+            data: data,
+            options: {                         
+                responsive: true,
+                plugins: {
+                    legend: {
+                        position: 'top',
+                    },
+                    title: {
+                        display: true,
+                        text: label
+                    }
+                }
+            },
+        };
+
+        return new Chart(
+            document.getElementById(id),
+            config
+        )        
+    }
+
+    let firstChart = makeChart("firstChart", "line", data, "first")
+    let secondChart = makeChart("secondChart", "line", data, "second")
+    let thirdChart = makeChart("thirdChart", "bar", data, "third")
+    let fourthChart = makeChart("fourthChart", "doughnut", fourthChartData, "fourth");
+    let fifthChart = makeChart("fifthChart", "doughnut", fifthChartData, "may 11, covid 19");
+    let sixthChart = makeChart("sixthChart", "doughnut", sixthChartData, "may 12th, 21, covid 19");
+    let seventhChart = makeChart("seventhChart", "scatter", makeScatterData([seventhData]), "First Scatter");
+    let eightChart = makeChart("eighthChart", "doughnut", eighthChartData, "may 13th/21, covid 19");
+    let ninthChart = makeChart("ninthChart", "scatter", makeScatterData([ninthData]), "Second Scatter");
+    let tenthChart = makeChart("tenthChart", "scatter", makeScatterData(tenthData), "Two Datasets");
+    </script>
+    
+</body>
+</html>

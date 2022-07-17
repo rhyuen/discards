@@ -1,0 +1,173 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta name='color-scheme' content='dark light'>
+    <link rel="preconnect" href="https://fonts.gstatic.com">
+    <link href="https://fonts.googleapis.com/css2?family=Inter&display=swap" rel="stylesheet">
+    <title>1/27/22</title>
+
+
+    <style>
+        * {
+            box-sizing: border-box;
+            font-size: 16px;
+            font-family: 'Inter', sans-serif;
+            color: black;
+            --GREY: rgba(0, 0, 0, 0.1);
+            --PRIMARY_COLOR: #98E690;
+            --SECONDARY_COLOR: white;
+            --COL1: #db0a5b;
+            --COL2: #fef160;
+            --COL3: #23cba7;
+            --COL4: #3e6ceb;
+            --COL5: rgb(212, 204, 212);
+        }
+
+        ::-webkit-scrollbar {
+            width: 0.8rem;
+            height: 0.5rem;
+        }
+
+        /* Track */
+        ::-webkit-scrollbar-track {
+            background: black;
+        }
+
+        /* Handle */
+        ::-webkit-scrollbar-thumb {
+            background: var(--COL3);
+        }
+
+        /* Handle on hover */
+        ::-webkit-scrollbar-thumb:hover {
+            background: var(--COL2);
+        }
+
+
+        html,
+        body {
+            margin: 0;
+            height: 100vh;
+            background: #f3f3f3;
+        }
+
+
+        h1 {
+            margin: 0;
+            padding: 0;
+        }
+
+        figure {
+            margin: 0;
+            padding: 0;
+        }
+
+
+        ul {
+            list-style-type: none;
+        }
+
+        .red {
+            background: var(--COL1);
+            color: white;
+        }
+
+        .yellow {
+            background: var(--COL2);
+            color: black;
+        }
+
+        .green {
+            background: var(--COL3);
+            color: white;
+        }
+
+        .blue {
+            background: var(--COL4);
+            color: white;
+        }
+    </style>
+</head>
+
+<body>
+    <main>
+        <div>
+            blah
+        </div>
+        <div>
+            blah222
+        </div>
+        <div>
+            blah222
+        </div>
+        <div>
+            blah222
+        </div>
+        <div>
+            blah222
+        </div>
+        <div>
+            blah222
+            <div>
+                nested
+                <div>
+                    ioer
+                </div>
+            </div>
+        </div>
+        <div>
+            <div>
+                Sibling1
+            </div>
+            <div>
+                Sibling2
+            </div>
+        </div>
+        </div>
+
+        <div>
+            <div>
+                Parentage
+            </div>
+            <div>
+                <div>
+                    One Nested Child Only
+                </div>
+            </div>
+        </div>
+
+        <div>
+            blah222
+        </div>
+
+    </main>
+    <script>
+        const xpath = "//div[normalize-space()='ioer']";
+        const el = document.evaluate(xpath, document, null, XPathResult.FIRST_ORDERED_NODE_TYPE, null).singleNodeValue;
+        console.log(el.parentNode);
+        //console.dir(el.innerText);
+        console.log('hi')
+
+        const xpathSiblingOne = "//div[normalize-space()='Sibling1']";
+        const elSiblingOne = document.evaluate(xpathSiblingOne, document, null, XPathResult.FIRST_ORDERED_NODE_TYPE, null).singleNodeValue;
+        console.dir(elSiblingOne);
+        const siblingOneParent = elSiblingOne.parentNode;
+        const siblingTwo = siblingOneParent.children[1];
+        console.log(siblingTwo.innerText);
+
+
+        const xpathParentage = "//div[normalize-space()='Parentage']";
+        const parentage = document.evaluate(xpathParentage, document, null, XPathResult.FIRST_ORDERED_NODE_TYPE, null).singleNodeValue;
+        const parentOfSingleton = parentage.parentNode.children[1];
+        console.dir(parentOfSingleton);
+        const onechildonly = parentOfSingleton.children[0].innerText;
+        console.log(onechildonly)
+
+    </script>
+</body>
+
+</html>

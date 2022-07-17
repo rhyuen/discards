@@ -1,0 +1,290 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta name='color-scheme' content='dark light'>
+    <link rel="preconnect" href="https://fonts.gstatic.com">
+    <link href="https://fonts.googleapis.com/css2?family=Inter&display=swap" rel="stylesheet">
+    <title>1/25/22</title>
+
+
+    <style>
+        * {
+            box-sizing: border-box;
+            font-size: 16px;
+            font-family: 'Inter', sans-serif;
+            color: black;
+            --GREY: rgba(0, 0, 0, 0.1);
+            --PRIMARY_COLOR: #98E690;
+            --SECONDARY_COLOR: white;
+            --COL1: #db0a5b;
+            --COL2: #fef160;
+            --COL3: #23cba7;
+            --COL4: #3e6ceb;
+            --COL5: #d9c8ec;
+        }
+
+        ::-webkit-scrollbar {
+            width: 0.8rem;
+            height: 0.5rem;
+        }
+
+        /* Track */
+        ::-webkit-scrollbar-track {
+            background: black;
+        }
+
+        /* Handle */
+        ::-webkit-scrollbar-thumb {
+            background: var(--COL3);
+        }
+
+        /* Handle on hover */
+        ::-webkit-scrollbar-thumb:hover {
+            background: var(--COL2);
+        }
+
+
+        html,
+        body {
+            margin: 0;
+            height: 100vh;
+            background: #f3f3f3;
+        }
+
+
+        h1 {
+            margin: 0;
+            padding: 0;
+        }
+
+        figure {
+            margin: 0;
+            padding: 0;
+        }
+
+
+        ul {
+            list-style-type: none;
+        }
+
+        .red {
+            background: var(--COL1);
+            color: white;
+        }
+
+        .yellow {
+            background: var(--COL2);
+            color: black;
+        }
+
+        .green {
+            background: var(--COL3);
+            color: white;
+        }
+
+        .blue {
+            background: var(--COL4);
+            color: white;
+        }
+
+
+        main {
+            display: grid;
+            grid-template-columns: repeat(4, 100vw);
+            grid-template-rows: repeat(4, 100vh);
+            grid-auto-rows: 100vh;
+            grid-auto-columns: 100vw;
+            height: 100vh;
+            /*An explicit height is required for the scroll snapping to work*/
+            overflow: hidden;
+            /*this property is required for scroll snapping to work.  it can be scroll or hidden*/
+            scroll-snap-type: both mandatory;
+            scroll-padding: 1rem;
+        }
+
+        .cell {
+            scroll-snap-align: center;
+            grid-column: span 1;
+            grid-row: span 1;
+            font-size: 2rem;
+            font-weight: 600;
+            display: grid;
+            place-items: center;
+        }
+
+        .map {
+            position: fixed;
+            bottom: 0;
+            right: 0;
+            aspect-ratio: 1;
+            width: 4rem;
+            gap: .2rem;
+            background: black;
+            display: grid;
+            grid-template-columns: repeat(4, 1fr);
+            grid-template-rows: repeat(4, 1fr);
+            border: .2rem solid black;
+        }
+
+        .map__cell {
+            grid-column: span 1;
+            grid-row: span 1;
+            background: white;
+        }
+
+        @keyframes blinking {
+            0% {
+                background-color: white;
+            }
+
+            50% {
+                background-color: var(--COL1);
+            }
+        }
+
+        .map__cell--selected {
+            animation: blinking 2s linear infinite;
+        }
+
+
+
+        @media screen and (min-width: 750px) and (max-width: 1099px) {}
+
+        @media screen and (min-width: 1100px) {}
+    </style>
+
+<body>
+    <main id="root">
+        <section class='map' id='map'>
+
+        </section>
+    </main>
+
+    <script>
+        const root = document.getElementById("root");
+        const map = document.getElementById("map");
+
+        for (let i = 0; i < 16; i++) {
+            map.appendChild(getMapCell());
+        }
+
+        for (let i = 0; i < 16; i++) {
+            root.appendChild(getCell(i));
+        }
+
+
+
+        class Position {
+            constructor(xLimit, yLimit) {
+                this.x = 0;
+                this.y = 0;
+                this.xLimit = xLimit;
+                this.yLimit = yLimit;
+            }
+
+            getPosition() {
+                return this;
+            }
+
+            updatePosition(direction) {
+                if (direction === "left") {
+                    if (this.x === 0) {
+                        return;
+                    } else {
+                        this.x = this.x - 1;
+                    }
+                }
+                if (direction === "right") {
+                    if (this.x === 3) {
+                        console.log("right fail")
+                        return;
+                    } else {
+                        console.log("right succ")
+                        this.x = this.x + 1;
+                    }
+                }
+                if (direction === "down") {
+                    if (this.y === 3) {
+                        return;
+                    } else {
+                        this.y = this.y + 1;
+                    }
+                }
+                if (direction === "up") {
+                    if (this.y === 0) {
+                        return;
+                    } else {
+                        this.y = this.y - 1;
+                    }
+                }
+            }
+        }
+
+        let mapPosition = new Position(4, 4);
+
+
+        document.addEventListener("keydown", function (e) {
+            if (event.keyCode == 37) {
+                console.log('left arrow pressed');
+                mapPosition.updatePosition("left");
+            }
+            if (event.keyCode == 38) {
+                console.log('up arrow pressed');
+                mapPosition.updatePosition("up");
+            }
+            if (event.keyCode == 39) {
+                console.log('right arrow pressed');
+                mapPosition.updatePosition("right");
+            }
+            if (event.keyCode == 40) {
+                console.log('down arrow pressed');
+                mapPosition.updatePosition("down");
+            }
+
+            updateMap();
+            console.log(`x: ${mapPosition.getPosition().x}`);
+            console.log(`y: ${mapPosition.getPosition().y}`);
+        });
+
+
+        function updateMap() {
+            const map = document.getElementById("map");
+            const children = map.children;
+            for (let i = 0; i < children.length; i++) {
+                console.log(children[i]);
+                children[i].classList.remove("map__cell--selected");
+            }
+
+            for (let i = 0; i < children.length; i++) {
+                const { x, y } = mapPosition.getPosition();
+
+                const index = x + (4 * y);
+                children[index].classList.add("map__cell--selected");
+            }
+        }
+
+
+        function getCell(text) {
+            const node = document.createElement("div");
+            node.textContent = text;
+            node.classList.add("cell");
+            const rng = Math.floor(Math.random() * 100) % 4;
+            const colors = ["red", "yellow", "green", "blue"];
+            node.classList.add(colors[rng]);
+            return node;
+        }
+
+        function getMapCell() {
+            const node = document.createElement("div");
+            node.classList.add("map__cell");
+            node.classList.add("map__cell--selected");
+            return node;
+        }
+    </script>
+</body>
+
+</html>

@@ -1,0 +1,347 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <link rel="preconnect" href="https://fonts.gstatic.com">
+    <link href="https://fonts.googleapis.com/css2?family=Inter&display=swap" rel="stylesheet"> 
+    <title>08 23</title>
+    
+
+        <style>
+            * {                
+                box-sizing: border-box;
+                font-size: 16px;
+                font-family: 'Inter', sans-serif;                
+                --GREY : rgba(0,0,0,0.1);
+                --PRIMARY_COLOR: #98E690;
+                --SECONDARY_COLOR: white;
+                --COL1:  #db0a5b;
+                --COL2: #fef160;
+                --COL3: #23cba7;               
+            }      
+
+            ::-webkit-scrollbar {                
+                width: 0.8rem;
+                height: 0.5rem;
+            }
+
+            /* Track */
+            ::-webkit-scrollbar-track {
+                background: black;
+            }
+
+            /* Handle */
+            ::-webkit-scrollbar-thumb {
+                background: rgb(209, 171, 121);
+            }
+
+            /* Handle on hover */
+            ::-webkit-scrollbar-thumb:hover {
+                background: #d3d3d3;
+            }
+                       
+
+            html, body{
+                margin: 0;
+                height: 100vh;                
+                background-image: linear-gradient(to right, rgb(202, 35, 90), slateblue);                                                
+                position: relative;
+            }
+      
+          
+            ul{
+                margin: 0;
+                padding: 0;
+                list-style-type: none;
+            }
+            
+            
+
+            a{
+                text-decoration: none;
+                color: black;
+            }
+
+            nav{
+                height: 10rem;
+                display: flex;
+                justify-content: space-between;
+                background-image: linear-gradient(to right, slateblue, palevioletred);
+                padding: 3rem 5rem;
+            }
+
+            main{
+                padding: 3rem 5rem;
+                display: grid;                
+                grid-template-columns: repeat(auto-fit, minmax(200px, 1fr));                                                
+                grid-template-rows: repeat(auto-fit, minmax(200px, 1fr));
+                grid-auto-rows: minmax(200px, 1fr);
+                grid-gap: 1rem;
+            }
+            
+            .item{
+                position: relative;
+                grid-column: span 1;                
+            }    
+            .item:after{
+                padding-bottom: 100%;
+                content: '';
+                display: block;                
+            }
+            .item--spacer{
+               visibility: hidden;
+            }
+            .item__content{
+                position: absolute;
+                inset: 0;
+                height: 100%;
+                width: 100%;
+                background: var(--COL3);
+                border-radius: .5rem;
+                overflow: hidden;
+            }
+
+            .item__content__text{
+                position: absolute;
+                bottom: -100%;
+                width: 100%;
+                height: clamp(5rem, 25%, 10rem);
+                background: var(--COL2);
+                padding: 1rem;
+                font-weight: 600;
+                font-size: 1.2rem;
+                transition: inset .2s ease-in-out;
+            }
+            .item__content:hover .item__content__text{
+                bottom: 0;
+            }
+            
+
+            .item--2x2{
+                grid-column: span 2;
+                grid-row: span 2;                
+            }
+
+            .item--2x1{
+                grid-column: span 2;
+                grid-row: span 1;
+            }
+            .item--2x1:after{
+                padding-bottom: 50%;
+                display: block;
+                content: '';
+            }
+            .item--4x1{
+                grid-column: span 4;
+                grid-row: span 1;
+            }
+            .item--4x1:after{
+                padding-bottom: 25%;
+                display: block;
+                content: '';
+            }
+          
+            .icon{
+                position: relative;
+                border-radius: 50%;
+                width: 4rem;
+                background: white;
+                margin-right: 1rem;
+            }
+
+            .icon--smaller{
+                width: 4rem;
+                transform: scale(.8);
+                background: rgba(0,0,0,0.5);                
+            }
+            .icon:last-child{
+                margin-right: 0;
+            }
+
+
+            .icon:after{
+                padding-bottom: 100%;
+                display: block;
+                content: '';
+            }
+            .icon__content{
+                position: absolute;
+                inset: 0;
+                height: 100%;
+                width: 100%;
+                display: flex;
+                justify-content: center;
+                align-items: center;
+                font-size: 2rem;
+                font-weight: 600;
+                color: black;
+            }
+
+            .nav__section{
+                display: flex;                
+            }
+            .nav__section__details{
+                display: flex;
+                flex-direction: column;
+                justify-content: space-between;
+                margin-left: 2rem;
+            }
+            .nav__section__details__item{
+                font-size: 1.5rem;
+                font-weight: 600;
+                color: white;
+            }
+
+            .nav__section__details__item--secondary{
+                font-weight: 400;
+            }
+
+            img{
+                object-fit: cover;
+                height: 100%;
+                width: 100%;
+                border-radius: .5rem;
+            }
+
+        </style>
+    <body>
+      <nav>
+          <div class='nav__section'>
+              <div class='icon'>
+                <div class='icon__content'>
+                    R
+                </div>                
+              </div>
+              <div class='nav__section__details'>
+                  <div class='nav__section__details__item nav__section__details__item--secondary'>
+                    first last
+                  </div>
+                  <div class='nav__section__details__item'>
+                    9999
+                  </div>
+              </div>
+          </div>
+          <div class='nav__section'>
+            <div class='icon icon--smaller'>
+                <div class='icon__content'>
+                    R
+                </div>                
+              </div>
+              <div class='icon icon--smaller'>
+                <div class='icon__content'>
+                    1
+                </div>                
+              </div>
+              <div class='icon icon--smaller'>
+                <div class='icon__content'>
+                    O
+                </div>                
+              </div>
+          </div>
+      </nav>
+      <main>
+        <article class='item item--2x2'>
+            <div class='item__content'>
+                <img src='images/61.jpg' alt='blah'>
+                <div class='item__content__text'>
+                    Some text goes here.
+                </div>
+            </div>
+        </article>
+
+
+        <article class='item item--spacer'>
+            <div class='item__content'>                
+            </div>
+        </article>
+        <article class='item item--spacer'>
+            <div class='item__content'></div>
+        </article>
+        <article class='item item--spacer'>
+            <div class='item__content'></div>
+        </article>
+        <article class='item item--spacer'>
+            <div class='item__content'></div>
+        </article>
+        <article class='item item--spacer'>
+            <div class='item__content'></div>
+        </article>
+        <article class='item item--spacer'>
+            <div class='item__content'></div>
+        </article>
+        
+
+
+        <article class='item'>
+            <div class='item__content'>
+                <img src='images/60.jpg' alt='blah'>
+                <div class='item__content__text'>
+                    Some text goes .
+                </div>
+            </div>
+        </article>
+        <article class='item'>
+            <div class='item__content'>
+                <img src='images/59.jpg' alt='blah'>
+                <div class='item__content__text'>
+                    Some text goes .
+                </div>
+            </div>
+        </article>
+        <article class='item'>
+            <div class='item__content'></div>
+        </article>
+        <article class='item'>
+            <div class='item__content'></div>
+        </article>
+        <article class='item'>
+            <div class='item__content'></div>
+        </article>
+        <article class='item'>
+            <div class='item__content'></div>
+        </article>
+        
+        <article class='item item--2x1'>
+            <div class='item__content'></div>
+        </article>
+        <article class='item item--2x1'>
+            <div class='item__content'></div>
+        </article>
+        <article class='item item--2x1'>
+            <div class='item__content'>
+                <img src='images/63.jpg' alt='blah'>
+                <div class='item__content__text'>
+                    Some text goes .
+                </div>
+            </div>
+        </article>
+        <article class='item item--2x1'>
+            <div class='item__content'></div>
+        </article>
+        
+        <article class='item item--2x1'>
+            <div class='item__content'>
+                <img src='images/57.jpg' alt='blah'>
+                <div class='item__content__text'>
+                    Some text goes .
+                </div>
+            </div>
+        </article>
+        <article class='item item--4x1'>
+            <div class='item__content'>
+                <img src='images/60.jpg' alt='blah'>
+                <div class='item__content__text'>
+                    Some text goes .
+                </div>
+            </div>
+        </article>        
+        <article class='item item--2x1'>
+            <div class='item__content'></div>
+        </article>
+        
+      </main>
+       
+    </body>
+</html>

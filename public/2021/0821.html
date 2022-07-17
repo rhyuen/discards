@@ -1,0 +1,166 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <link rel="preconnect" href="https://fonts.gstatic.com">
+    <link href="https://fonts.googleapis.com/css2?family=Inter&display=swap" rel="stylesheet"> 
+    <title>08 20</title>
+    
+
+        <style>
+            * {                
+                box-sizing: border-box;
+                font-size: 16px;
+                font-family: 'Inter', sans-serif;                
+                --GREY : rgba(0,0,0,0.1);
+                --PRIMARY_COLOR: #98E690;
+                --SECONDARY_COLOR: white;
+                --COL1:  #db0a5b;
+                --COL2: #fef160;
+                --COL3: #23cba7;               
+            }      
+
+            ::-webkit-scrollbar {                
+                width: 0.8rem;
+                height: 0.5rem;
+            }
+
+            /* Track */
+            ::-webkit-scrollbar-track {
+                background: black;
+            }
+
+            /* Handle */
+            ::-webkit-scrollbar-thumb {
+                background: rgb(209, 171, 121);
+            }
+
+            /* Handle on hover */
+            ::-webkit-scrollbar-thumb:hover {
+                background: #d3d3d3;
+            }
+                       
+
+            html, body{
+                margin: 0;
+                height: 100vh;                
+                background: #f3f3f3;                                                
+                position: relative;
+            }
+      
+          
+            ul{
+                margin: 0;
+                padding: 0;
+                list-style-type: none;
+            }
+            
+            
+
+            a{
+                text-decoration: none;
+                color: black;
+            }
+
+            main{                
+                max-width: 1100px;
+                margin: 0 auto;
+                display: grid;
+                grid-gap: 1rem;
+                grid-template-columns: repeat(7, minmax(auto , 1fr));
+            }      
+
+            .item{
+                grid-column: span 1;
+                clip-path: polygon(0 0, 50% 0, 100% 50%, 100% 100%, 50% 100%, 0 50%);
+                position: relative;
+                cursor: pointer;
+                user-select: none;
+            }
+            .item:after{
+                padding-bottom: 100%;
+                display: block;
+                content: '';
+            }
+            .item__content{
+                position: absolute;
+                inset: 0;
+                height: 100%;
+                width: 100%;                
+                background: black;    
+                transition: all .5s ease-in-out;            
+            }
+            .item__content:hover{
+                background-image: linear-gradient(to bottom , palegreen, palevioletred);
+            }
+
+            .item__content__cell{
+                position: absolute;
+                display: flex;
+                justify-content: center;
+                align-items: center;
+                font-weight: 600;
+                font-size: 3rem;
+                color: white;
+                height: 50%;
+                width: 50%;
+            }
+
+            .item__content__cell--topleft{              
+                top: 0;
+                left: 0;
+                color: black;
+                background-color: palegreen;
+            }
+
+            .item__content__cell--bottomright{              
+                bottom: 0;
+                right: 0;          
+                background-color: palevioletred;
+            }
+
+        </style>
+    <body>
+        <main id='main'>
+            <article class='item'>
+                <div class='item__content'>
+                    <div class='item__content__cell item__content__cell--topleft'>
+                        12
+                    </div>
+                    <div class='item__content__cell item__content__cell--bottomright'>
+                        44
+                    </div>
+                </div>
+            </article>
+        </main>
+        
+        
+
+        
+        
+       <script type='text/javascript'>
+            const root = document.getElementById("main");
+
+            for(let i = 0; i < 32 ; i++){
+                const outer = document.createElement("article");
+                outer.className = "item";
+                const content = document.createElement("div");
+                content.className = "item__content";
+                const topLeft =document.createElement("div");
+                topLeft.className = "item__content__cell item__content__cell--topleft";
+                topLeftText = document.createTextNode(i);
+                topLeft.appendChild(topLeftText);
+                const bottomRight = document.createElement("div");
+                bottomRight.className = "item__content__cell item__content__cell--bottomright";
+                bottomRightText = document.createTextNode(i);
+                bottomRight.appendChild(bottomRightText);
+                content.appendChild(topLeft);
+                content.appendChild(bottomRight);
+                outer.appendChild(content);
+                root.appendChild(outer);
+            }
+       </script> 
+    </body>
+</html>

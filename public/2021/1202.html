@@ -1,0 +1,377 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta name='color-scheme' content='dark light'>
+    <link rel="preconnect" href="https://fonts.gstatic.com">
+    <link href="https://fonts.googleapis.com/css2?family=Inter&display=swap" rel="stylesheet">
+    <title>12 02 netflix</title>
+
+
+    <style>
+        * {
+            box-sizing: border-box;
+            font-size: 16px;
+            font-family: 'Inter', sans-serif;
+            color: black;
+            --GREY: rgba(0, 0, 0, 0.1);
+            --PRIMARY_COLOR: #98E690;
+            --SECONDARY_COLOR: white;
+            --COL1: #db0a5b;
+            --COL2: #fef160;
+            --COL3: #23cba7;
+            --COL4: #3e6ceb;
+            --COL5: #d9c8ec;
+            --sm-space: 1rem;
+            --md-space: 2rem;
+        }
+
+        ::-webkit-scrollbar {
+            width: 0.8rem;
+            height: 0.5rem;
+        }
+
+        /* Track */
+        ::-webkit-scrollbar-track {
+            background: black;
+        }
+
+        /* Handle */
+        ::-webkit-scrollbar-thumb {
+            background: lavender;
+        }
+
+        /* Handle on hover */
+        ::-webkit-scrollbar-thumb:hover {
+            background: #d3d3d3;
+        }
+
+
+        html {
+            block-size: 100%;
+        }
+
+
+        body {
+            margin: 0;
+            min-block-size: 100%;
+            background: #f3f3f3;
+            display: flex;
+            flex-direction: column;
+            align-items: flex-start;
+            gap: var(--md-space);
+            padding-block-start: calc(var(--md-space)*2);
+            padding-block-end: var(--md-space);
+        }
+
+
+        h1 {
+            font-size: 2rem;
+            margin: 2rem 0;
+            padding: 0;
+        }
+
+        h2 {
+            font-size: var(--md-space);
+            font-weight: 800;
+            letter-spacing: .75px;
+        }
+
+        h3 {
+            font-weight: 400;
+            letter-spacing: .75px;
+        }
+
+
+        main {
+            padding: 2rem;
+        }
+
+        section {
+            --gap: var(--md-space);
+            display: grid;
+            gap: var(--gap);
+        }
+
+        section header {
+            padding-inline: var(--gap);
+            display: grid;
+            gap: calc(var(--sm-space)/2);
+        }
+
+        section header:is(h2, h3) {
+            margin: 0;
+        }
+
+
+        .red {
+            background: var(--COL1);
+        }
+
+        .yellow {
+            background: var(--COL2);
+        }
+
+        .green {
+            background: var(--COL3);
+        }
+
+        .blue {
+            background: var(--COL4);
+        }
+
+
+        .horizontal-media-scroller {
+            --size: 150px;
+            display: grid;
+            grid-auto-flow: column;
+            gap: calc(var(--gap)/2);
+            margin: 0;
+            overflow-x: auto;
+            overscroll-behavior-inline: contain;
+
+            padding-inline: var(--gap);
+            scroll-padding-inline: var(--gap);
+            padding-block: calc(var(--gap)/2);
+        }
+
+        .horizontal-media-scroller a {
+            outline-offset: 12px;
+            transition: outline-offset .25s ease;
+
+            display: inline-block;
+            text-decoration: none;
+            color: inherit;
+        }
+
+        .horizontal-media-scroller a:focus {
+            outline-offset: 7px;
+        }
+
+        .horizontal-media-scroller>li {
+            display: inline-block;
+        }
+
+        .horizontal-media-scroller figure {
+            scroll-snap-align: start;
+        }
+
+        .horizontal-media-scroller>li:last-of-type figure {
+            position: relative;
+        }
+
+        .horizontal-media-scroller>li:last-of-type figure:after {
+            content: "";
+            position: absolute;
+            inline-size: var(--gap);
+            block-size: 100%;
+            inset-block-start: 0;
+            inset-inline-end: calc(var(--gap)*-1);
+        }
+
+        .horizontal-media-scroller picture {
+            inline-size: var(--size);
+            block-size: var(--size);
+        }
+
+        figure {
+            display: grid;
+            gap: calc(var(--gap)/2);
+            margin: 0;
+            cursor: pointer;
+            user-select: none;
+        }
+
+        figure>picture {
+            inline-size: var(--size);
+            block-size: var(--size);
+        }
+
+        figure img {
+            inline-size: 100%;
+            block-size: 100%;
+            object-fit: cover;
+            border-radius: 1ex;
+            overflow: hidden;
+            background-image: linear-gradient(to bottom,
+                    hsl(0 0% 40%),
+                    hsl(0 0% 20%));
+        }
+
+        figure>figcaption {
+            font-size: 1.75rem;
+            font-weight: 300;
+            word-break: break-word;
+        }
+
+        @supports (aspect-ratio: 1) {
+            .horizontal-media-scroller figure>picture {
+                inline-size: auto;
+                aspect-ratio: 1;
+            }
+        }
+    </style>
+
+<body>
+    <section>
+        <header>
+            <h2>Titles</h2>
+        </header>
+
+        <ul class='horizontal-media-scroller'>
+            <li>
+                <a href='#'>
+                    <figure>
+                        <picture>
+                            <img alt="..." loading="lazy" src="https://picsum.photos/500/500?1">
+                        </picture>
+                        <figcaption>Legends</figcaption>
+                    </figure>
+
+                </a>
+            </li>
+            <li>
+                <a href='#'>
+                    <figure>
+                        <picture>
+                            <img alt="..." loading="lazy" src="https://picsum.photos/500/500?2">
+                        </picture>
+                        <figcaption>New Mutants</figcaption>
+                    </figure>
+
+                </a>
+            </li>
+            <li>
+                <a href='#'>
+                    <figure>
+                        <picture>
+                            <img alt="..." loading="lazy" src="https://picsum.photos/500/500?3">
+                        </picture>
+                        <figcaption>Agents of Shield</figcaption>
+                    </figure>
+
+                </a>
+            </li>
+            <li>
+                <a href='#'>
+                    <figure>
+                        <picture>
+                            <img alt="..." loading="lazy" src="https://picsum.photos/500/500?4">
+                        </picture>
+                        <figcaption>Green Lantern</figcaption>
+                    </figure>
+
+                </a>
+            </li>
+            <li>
+                <a href='#'>
+                    <figure>
+                        <picture>
+                            <img alt="..." loading="lazy" src="https://picsum.photos/500/500?2">
+                        </picture>
+                        <figcaption>Blackest Night</figcaption>
+                    </figure>
+
+                </a>
+            </li>
+            <li>
+                <a href='#'>
+                    <figure>
+                        <picture>
+                            <img alt="..." loading="lazy" src="https://picsum.photos/500/500?3">
+                        </picture>
+                        <figcaption>Fantastic 4X</figcaption>
+                    </figure>
+
+                </a>
+            </li>
+            <li>
+                <a href='#'>
+                    <figure>
+                        <picture>
+                            <img alt="..." loading="lazy" src="https://picsum.photos/500/500?4">
+                        </picture>
+                        <figcaption>The Lord of the Rings: The Return of the King</figcaption>
+                    </figure>
+
+                </a>
+            </li>
+            <li>
+                <a href='#'>
+                    <figure>
+                        <picture>
+                            <img alt="..." loading="lazy" src="https://picsum.photos/500/500?5">
+                        </picture>
+                        <figcaption>CapitalInthe21stCentury</figcaption>
+                    </figure>
+
+                </a>
+            </li>
+            <li>
+                <a href='#'>
+                    <figure>
+                        <picture>
+                            <img alt="..." loading="lazy" src="https://picsum.photos/500/500?6">
+                        </picture>
+                        <figcaption>Legends</figcaption>
+                    </figure>
+
+                </a>
+            </li>
+            <li>
+                <a href='#'>
+                    <figure>
+                        <picture>
+                            <img alt="..." loading="lazy" src="https://picsum.photos/500/500?7">
+                        </picture>
+                        <figcaption>Legends</figcaption>
+                    </figure>
+
+                </a>
+            </li>
+            <li>
+                <a href='#'>
+                    <figure>
+                        <picture>
+                            <img alt="..." loading="lazy" src="https://picsum.photos/500/500?8">
+                        </picture>
+                        <figcaption>Legends</figcaption>
+                    </figure>
+
+                </a>
+            </li>
+            <li>
+                <a href='#'>
+                    <figure>
+                        <picture>
+                            <img alt="..." loading="lazy" src="https://picsum.photos/500/500?9">
+                        </picture>
+                        <figcaption>Legends</figcaption>
+                    </figure>
+
+                </a>
+            </li>
+            <li>
+                <a href='#'>
+                    <figure>
+                        <picture>
+                            <img alt="..." loading="lazy" src="https://picsum.photos/500/500?10">
+                        </picture>
+                        <figcaption>Legends</figcaption>
+                    </figure>
+
+                </a>
+            </li>
+        </ul>
+    </section>
+
+    <script type='text/javascript'>
+
+
+    </script>
+</body>
+
+</html>

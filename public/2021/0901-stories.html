@@ -1,0 +1,269 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <link rel="preconnect" href="https://fonts.gstatic.com">
+    <link href="https://fonts.googleapis.com/css2?family=Inter&display=swap" rel="stylesheet"> 
+    <title>09 01</title>
+    
+
+        <style>
+            * {                
+                box-sizing: border-box;
+                font-size: 16px;
+                font-family: 'Inter', sans-serif;                
+                --GREY : rgba(0,0,0,0.1);
+                --PRIMARY_COLOR: #98E690;
+                --SECONDARY_COLOR: white;
+                --COL1:  #db0a5b;
+                --COL2: #fef160;
+                --COL3: #23cba7;  
+                --COL4: #3e6ceb;  
+                --COL5: #d9c8ec;
+            }      
+
+            ::-webkit-scrollbar {                
+                width: 0.8rem;
+                height: 0.5rem;
+            }
+
+            /* Track */
+            ::-webkit-scrollbar-track {
+                background: black;
+            }
+
+            /* Handle */
+            ::-webkit-scrollbar-thumb {
+                background: rgb(209, 171, 121);
+            }
+
+            /* Handle on hover */
+            ::-webkit-scrollbar-thumb:hover {
+                background: #d3d3d3;
+            }
+                       
+
+            html, body{
+                margin: 0;
+                height: 100vh;                
+                background: #f3f3f3;
+                position: relative;                
+            }
+      
+            h1{
+                margin: 0;
+                padding: 0;
+            }
+          
+            ul{
+                margin: 0;
+                padding: 0;
+                list-style-type: none;
+            }
+            
+            
+
+            a{
+                text-decoration: none;
+                color: black;
+            }
+
+          
+            .red{
+                background: var(--COL1);
+            }
+            .yellow{
+                background: var(--COL2);
+            }
+            .green{
+                background: var(--COL3);
+            }
+            .blue{
+                background: var(--COL4);
+            }
+
+            main{
+                width: 100vw;
+                height: 100vh;                
+                background-color: #98E690;
+                display: grid;
+                overflow: hidden;
+                scroll-snap-type: x mandatory;
+                grid-template-columns: repeat(5, 100vw);
+                max-width: 100vw;
+            }
+
+            section {
+                scroll-snap-align: center;
+                position: relative;
+            }
+
+            img{
+                position: absolute;
+                inset: 0;
+                height: 100%;
+                width: 100%;
+                object-fit: cover;
+            }
+
+            .section__text{
+                user-select: none;
+                color: white;
+                background: rgba(0,0,0,0.7);
+                margin: 0;
+                position: absolute;
+                left: 50%;        
+                top: 50%;              
+                font-weight: 600;
+                font-size: 2rem;
+                transform: translate(-50%, -50%);
+                display: flex;
+                justify-content: center;
+                align-items: center;
+                width: 100%;
+                height: 20%;
+                z-index: 2;
+
+            }   
+
+            .button{
+                position: fixed;
+                z-index: 3;
+                height: 100%;
+                width: 10%;
+                background-color: transparent;
+                border: none;
+                transition: background-color .2s ease-in-out;
+                cursor: pointer;
+            }
+            .button:hover{
+                background-color: rgba(255,255,255,0.1);
+            }
+            .button--left{
+                left: 0;
+                border-top-right-radius: 40%;
+                border-bottom-right-radius: 40%;
+            }
+            .button--right{
+                right: 0;
+                border-top-left-radius: 40%;
+                border-bottom-left-radius: 40%;
+            }
+
+            .duration{
+                position: fixed;                                
+                width: 100%;
+                top: 0;                
+                height: 5rem;                
+                background: rgba(0,0,0,0.3);                
+                content: '';                
+                z-index: 2;
+            }
+
+            .duration__container{
+                height: 100%;
+                margin: 0 1rem;
+                display: flex;
+                justify-content: center;                
+                align-items: center;                
+            }
+            .duration__container__item{
+                display: block;
+                content: '';
+                background: rgba(0,0,0,0.3);
+                width: 100%;
+                height: 1rem;
+                margin-right: 1rem;
+                border-radius: .2rem;               
+                position: relative;              
+            }
+            .duration__container__item:after{
+                position: absolute;
+                width: 100%;
+                height: 100%;
+                background: white;
+                transform: scaleX(0);
+                transform-origin: left;
+                transition: transform 1s ease-in-out;
+                content: "";
+            }
+
+
+            .duration__container:hover .duration__container__item:after{
+                transform: scaleX(1);
+            }
+
+            .duration__container__item:last-child{
+                margin-right: 0;
+            }
+
+
+        </style>
+    <body> 
+        <main>
+            <div class='duration'>
+                <ul class='duration__container'>
+                    <li class='duration__container__item'></li>
+                    <li class='duration__container__item'></li>
+                    <li class='duration__container__item'></li>
+                    <li class='duration__container__item'></li>
+                </ul>
+            </div>
+            <button type='button' class='button button--left' id='left-button'></button>
+            <button type='button' class='button button--right' id='right-button'></button>
+            <section class='red'>
+                <img src='images/61.jpg' alt='image'/>
+                <p class='section__text'>
+                    The best there is at what he does.
+                </p>
+            </section>
+            <section class='yellow'>
+                <img src='images/59.jpg' alt='image'/>
+                <p class='section__text'>
+                    Who dares?  Doom dares.
+                </p>
+            </section>
+            <section class='green'>
+                <img src='images/60.jpg' alt='image'/>
+                <p class='section__text'>
+                    Some text goes here.
+                </p>
+            </section>
+            <section class='blue'>
+                <img src='images/62.jpg' alt='image'/>
+                <p class='section__text'>
+                    Some text goes here.
+                </p>
+            </section>
+        </main>
+
+        <script type='text/javascript'>
+            const main = document.querySelector("main");
+            const leftButton = document.getElementById("left-button");
+            leftButton.addEventListener("click", function(){                                
+                main.scrollBy({                    
+                    left: -1000,
+                    behavior: 'smooth'
+                });
+            });
+            const rightButton = document.getElementById("right-button");
+            rightButton.addEventListener("click", function(){                
+                main.scrollBy({                    
+                    left: 1000,
+                    behavior: 'smooth'
+                });
+            });
+
+            //slide show auto advance.
+            // setTimeout(function(){
+                
+            // }, 1000);
+
+            
+        
+            
+        </script>
+    </body>
+</html>

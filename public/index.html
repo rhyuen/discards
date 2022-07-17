@@ -1,0 +1,493 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <link rel="preconnect" href="https://fonts.gstatic.com">
+    <link href="https://fonts.googleapis.com/css2?family=Inter&display=swap" rel="stylesheet">
+    <title>10 15 </title>
+
+
+    <style>
+        * {
+            box-sizing: border-box;
+            font-size: 16px;
+            font-family: 'Inter', sans-serif;
+            --GREY: rgba(0, 0, 0, 0.1);
+            --PRIMARY_COLOR: #98E690;
+            --SECONDARY_COLOR: white;
+            --COL1: #2e0515;
+            --COL2: #fef160;
+            --COL3: #23cba7;
+            --COL4: #3e6ceb;
+            --COL5: #d9c8ec;
+        }
+
+        ::-webkit-scrollbar {
+            width: 0.8rem;
+            height: 0.5rem;
+        }
+
+        /* Track */
+        ::-webkit-scrollbar-track {
+            background: black;
+        }
+
+        /* Handle */
+        ::-webkit-scrollbar-thumb {
+            background: lavender;
+        }
+
+        /* Handle on hover */
+        ::-webkit-scrollbar-thumb:hover {
+            background: #d3d3d3;
+        }
+
+
+        html,
+        body {
+            margin: 0;
+            height: 100vh;
+            background: #f3f3f3;
+            position: relative;
+        }
+
+        h1 {
+            margin: 0;
+            padding: 0;
+            font-size: 2rem;
+        }
+
+        h2 {
+            font-size: 2rem;
+        }
+
+        .header-text {
+            font-size: 3rem;
+            font-weight: 600;
+        }
+
+        .subheader-text {
+            font-size: 1.5rem;
+            font-weight: 400;
+        }
+
+        ul {
+            margin: 0;
+            padding: 0;
+            list-style-type: none;
+            display: flex;
+            flex-direction: column-reverse;
+        }
+
+
+
+
+
+
+        .red {
+            background: var(--COL1);
+        }
+
+        .yellow {
+            background: var(--COL2);
+        }
+
+        .green {
+            background: var(--COL3);
+        }
+
+        .blue {
+            background: var(--COL4);
+        }
+
+        a {
+            font-size: 1.2rem;
+            color: black;
+            text-decoration: none;
+            font-weight: bolder;
+        }
+
+        li {
+            margin-bottom: 2rem;
+
+        }
+
+        li>p {
+            font-size: .9rem;
+            color: grey;
+        }
+
+        main {
+            display: grid;
+            grid-template-columns: 1fr [content-start] min(65ch, 100%) [content-end] 1fr;
+            padding: 1rem;
+        }
+
+        main>* {
+            grid-column: content-start/content-end;
+        }
+
+        section {
+            margin: 2rem 0;
+        }
+    </style>
+
+<body>
+    <main>
+        <section>
+            <h1>Robert's Discards</h1>
+            <p>A place where I make stuff with HTML/CSS/JS.</p>
+            <p>Yes, most of it is not very good. It's sorted by year and date.</p>
+        </section>
+        <section>
+            <h2>2022</h2>
+            <ul id="2022"></ul>
+        </section>
+
+        <section>
+            <h2>2021</h2>
+            <ul id="2021">
+            </ul>
+        </section>
+
+    </main>
+    <script type='text/javascript'>
+        const list22 = [
+            {
+                month: 1,
+                day: 1,
+                year: 2022,
+                link: "/2022/0101.html",
+                description: "Shapes. Inspired by this mondrian codepen that I saw on generative art.  I do not recall the link.",
+                reference: []
+            },
+            {
+                month: 1,
+                day: 2,
+                year: 2022,
+                link: "/2022/0102.html",
+                description: "Calendar with scroll snap again.  Done in around 90 minutes.  Numbers on Calendar are not placed in correct positions and Months and day headings are not present or correct, respectively.",
+                reference: []
+            },
+            {
+                month: 1,
+                day: 25,
+                year: 2022,
+                link: "/2022/0125.html",
+                description: "2d Scroll Snap",
+                reference: [
+                    "https://css-tricks.com/practical-css-scroll-snapping/"
+                ]
+            },
+            {
+                month: 1,
+                day: 26,
+                year: 2022,
+                link: "/2022/0126.html",
+                description: "1d Scroll Snap.  Like a slideshow.",
+                reference: [
+                    "https://css-tricks.com/practical-css-scroll-snapping/"
+                ]
+            },
+            {
+                month: 1,
+                day: 27,
+                year: 2022,
+                link: "/2022/0127.html",
+                description: "Calendar with nth-child(7n+1) and nth-child(7n+2) for the weekends.  Redraws the month on arrow key press.",
+                reference: [
+                ]
+            },
+            {
+                month: 3,
+                day: 17,
+                year: 2022,
+                link: "/2022/0317.html",
+                description: "Horizontal list with links.  On focus, drop shadow and an attempt at drag to scroll that failed to work.",
+                reference: [
+                ]
+            },
+            {
+                month: 4,
+                day: 8,
+                year: 2022,
+                link: "/2022/0408.html",
+                description: "Using Javascript to use Keyboard Shortcuts to make forms appear.  Uses 'Alt' and 'Ctrl'.",
+                reference: [
+                ]
+            },
+            {
+                month: 4,
+                day: 18,
+                year: 2022,
+                link: "/2022/0418.html",
+                description: "Blog post (1) layout with borrowed text and images.",
+                reference: [
+                ]
+            },
+            {
+                month: 4,
+                day: 21,
+                year: 2022,
+                link: "/2022/0421.html",
+                description: "Blog post (2) layout.  This time with a quote and centered text.  Issue: there is a horizontal scrolling issue that I can't seem to resolve.",
+                reference: [
+                ]
+            },
+            {
+                month: 4,
+                day: 23,
+                year: 2022,
+                link: "/2022/0423.html",
+                description: "Another Blog post (3) layout.  The above issue is min(65ch, 100%).  Attempts: Filters for images, Making the first letter of a paragraph larger, Pretentious elements, that serve no purpose, after the images.",
+                reference: [
+                ]
+            },
+            {
+                month: 4,
+                day: 24,
+                year: 2022,
+                link: "/2022/0424.html",
+                description: "Another blog post (4) layout.",
+                reference: [
+                ]
+            },
+            {
+                month: 4,
+                day: 25,
+                year: 2022,
+                link: "/2022/0425.html",
+                description: "Modal no scroll on visible. Shortcuts to make a modal appear.",
+                reference: [
+                ]
+            },
+            {
+                month: 4,
+                day: 26,
+                year: 2022,
+                link: "/2022/0426.html",
+                description: "Masonry (1) layout with some images.  Mobile-friendly.",
+                reference: [
+                ]
+            },
+            {
+                month: 4,
+                day: 27,
+                year: 2022,
+                link: "/2022/0427.html",
+                description: "Horizontal Media Bar (1).  Kind-of Mobile-friendly.  Attempted Drag and Drop but it didn't work.",
+                reference: [
+                ]
+            },
+            {
+                month: 4,
+                day: 30,
+                year: 2022,
+                link: "/2022/0430.html",
+                description: "Another Blog post layout (5).  This time with side by side images that are kind of responsive, but not really.",
+                reference: [
+                ]
+            },
+            {
+                month: 7,
+                day: 14,
+                year: 2022,
+                link: "/2022/0714.html",
+                description: "Conic gradient border, with text inside.  It's pretty bad.",
+                reference: [
+                    "https://web.dev/conic-gradient-border/"
+                ]
+            },
+            {
+                month: 7,
+                day: 14,
+                year: 2022,
+                link: "/2022/0714b.html",
+                description: "The media bar from a BookStore UI. I couldn't really get the image to extend outside of its container.  Drop shadow on the image wasn't great either.",
+                reference: [
+                    "https://codepen.io/TurkAysenur/pen/JjGKKrP"
+                ]
+            },
+            {
+                month: 7,
+                day: 15,
+                year: 2022,
+                link: "/2022/0715.html",
+                description: "Just a mediocre list, copies Polygon.",
+                reference: [
+                    "https://www.polygon.com/"
+                ]
+            },
+            {
+                month: 7,
+                day: 16,
+                year: 2022,
+                link: "/2022/0716.html",
+                description: "A table of contents of a book in 'Holy Grail' layout.",
+                reference: [
+                    "https://www.goodreads.com/en/book/show/52639323", "https://www.joshwcomeau.com/css/full-bleed/"
+                ]
+            },
+        ]
+        const list21 = [
+            {
+                month: 10,
+                day: 12,
+                year: 2021,
+                link: "1012.html",
+                description: "pulsing loading indicator"
+            },
+            {
+                month: 10,
+                day: 18,
+                year: 2021,
+                link: "1018.html",
+                description: "scroll snap 1d slide grid. Drag to Scroll."
+            },
+            {
+                month: 10,
+                day: 19,
+                year: 2021,
+                link: "1019.html",
+                description: "2d Grid with Slides and Scroll Snap, buttons to scroll."
+            },
+            {
+                month: 11,
+                day: 24,
+                year: 2021,
+                link: "1124.html",
+                description: "video game menu",
+                reference: [
+                    "https://web.dev/building-a-3d-game-menu-component/"
+                ]
+            },
+            {
+                month: 11,
+                day: 26,
+                year: 2021,
+                link: "1126.html",
+                description: "stories",
+                reference: [
+                    "https://web.dev/building-a-stories-component/",
+                    "https://web.dev/codelab-building-a-stories-component/"
+                ]
+            },
+            {
+                month: 11,
+                day: 28,
+                year: 2021,
+                link: "1128.html",
+                description: "Some notes on building accessible forms and an accessible form.",
+                reference: [
+                    "https://web.dev/learn/forms/accessibility/"
+                ]
+            },
+            {
+                month: 11,
+                day: 29,
+                year: 2021,
+                link: "1129.html",
+                description: "An iteration on an accessible form.  Busy work with error handling, string validation and mobile friendly.",
+                reference: [
+                    "https://web.dev/learn/forms/accessibility/"
+                ]
+            },
+            {
+                month: 12,
+                day: 2,
+                year: 2021,
+                link: "1202.html",
+                description: "netflix media scroller tutorial",
+                reference: []
+            },
+            {
+                month: 12,
+                day: 8,
+                year: 2021,
+                link: "1208.html",
+                description: "Full bleed document.",
+                reference: [
+                    "https://www.joshwcomeau.com/css/full-bleed/"
+                ]
+            },
+            {
+                month: 12,
+                day: 9,
+                year: 2021,
+                link: "1209.html",
+                description: "Another full bleed document. This time with figures and figcaptions.",
+                reference: [
+                    "https://www.joshwcomeau.com/css/full-bleed/"
+                ]
+            },
+            {
+                month: 12,
+                day: 16,
+                year: 2021,
+                link: "1216.html",
+                description: "Horizontal list trying out border-image property.  Border-radius and border-image seems to not work well together.  When using translateY/X and wanting a smooth transition, use the 'transform' property.  Also, this uses aspect ratio.",
+                reference: [
+                    "https://codepen.io/argyleink/pen/LYzxbyE"
+                ]
+            },
+            {
+                month: 12,
+                day: 18,
+                year: 2021,
+                link: "1218.html",
+                description: "Notifications",
+                reference: [
+                    "https://web.dev/building-a-toast-component/"
+                ]
+            },
+            {
+                month: 12,
+                day: 23,
+                year: 2021,
+                link: "1223.html",
+                description: "A First Attempt at the AIPT Comics Layout.  Used filter:brightness to handle the dark grey filter for the banner image and the onhover card images.",
+                reference: [
+                    "aiptcomics.com"
+                ]
+            }
+        ];
+
+        window.addEventListener("load", () => {
+            const root = document.getElementById("2021");
+            const root22 = document.getElementById("2022");
+
+            for (let i = 0; i < list21.length; i++) {
+                root.appendChild(makeListItem(list21[i]));
+            };
+
+            for (let i = 0; i < list22.length; i++) {
+                root22.appendChild(makeListItem(list22[i]));
+            };
+        });
+
+        function makeListItem(data) {
+            const { month, day, year, link, description } = data;
+            const item = document.createElement("li");
+            const anchor = document.createElement("a");
+            const textblurb = document.createElement("p");
+            textblurb.textContent = description;
+            if (year === 2022) {
+                anchor.href = `/public${data.link}`;
+            } else {
+                anchor.href = `/public/2021/${data.link}`;
+            }
+
+            anchor.textContent = `${month}/${day}`;
+
+            console.log(anchor.href);
+            item.appendChild(anchor);
+            item.appendChild(textblurb);
+            return item;
+        }
+    </script>
+</body>
+
+</html>

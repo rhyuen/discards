@@ -1,0 +1,171 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <link rel="preconnect" href="https://fonts.gstatic.com">
+    <link href="https://fonts.googleapis.com/css2?family=Inter&display=swap" rel="stylesheet"> 
+    <title>09 07 Robert Start</title>
+    
+
+        <style>
+            * {                
+                box-sizing: border-box;
+                font-size: 16px;
+                font-family: 'Inter', sans-serif;                
+                --GREY : rgba(0,0,0,0.1);
+                --PRIMARY_COLOR: #98E690;
+                --SECONDARY_COLOR: white;
+                --COL1:  #db0a5b;
+                --COL2: #fef160;
+                --COL3: #23cba7;  
+                --COL4: #3e6ceb;  
+                --COL5: #d9c8ec;
+            }      
+
+            ::-webkit-scrollbar {                
+                width: 0.8rem;
+                height: 0.5rem;
+            }
+
+            /* Track */
+            ::-webkit-scrollbar-track {
+                background: black;
+            }
+
+            /* Handle */
+            ::-webkit-scrollbar-thumb {
+                background: rgb(209, 171, 121);
+            }
+
+            /* Handle on hover */
+            ::-webkit-scrollbar-thumb:hover {
+                background: #d3d3d3;
+            }
+                       
+
+            html, body{
+                margin: 0;
+                height: 100vh;                
+                background: #f3f3f3;
+                position: relative;                
+            }
+      
+            h1{
+                margin: 0;
+                padding: 0;
+            }
+          
+            ul{
+                margin: 0;
+                padding: 0;
+                list-style-type: none;
+            }
+            
+            
+
+            a{
+                text-decoration: none;
+                color: black;
+            }
+
+            a:focus{
+                outline: none;
+                filter: drop-shadow(0 0 1rem rgba(0,0,0,0.4)); 
+            }
+
+          
+            .red{
+                background: var(--COL1);
+            }
+            .yellow{
+                background: var(--COL2);
+            }
+            .green{
+                background: var(--COL3);
+            }
+            .blue{
+                background: var(--COL4);
+            }
+        
+            #nav-top{
+                max-width: 1100px;
+                display: flex;
+                justify-content: space-between;
+                align-items: center;                
+                background: var(--COL2);
+                margin: 0 auto;
+                height: 5rem;                
+            }
+            #nav-slideout{
+                display: none;
+                position: fixed;                            
+                height: 100vh;
+                background: rgba(0,0,0,0.4);
+                width: 100vw;
+                inset: 0;                
+            }
+
+
+           #nav-slideout:target{
+                display: grid;                
+                grid-template-columns: 1fr 2fr;
+            }
+
+            .nav-slideout__list{
+                height: 100%;
+                background: var(--COL2);
+                grid-column: span 1;                
+            }
+
+            .nav-slideout__close{
+                height: 100%;
+                grid-column: span 1;
+            }
+            
+            
+     
+            
+            
+            
+
+            @media screen and (min-width: 750px) and (max-width: 1099px){
+
+            }
+
+            @media screen and (min-width: 1100px){
+
+            }
+        </style>
+    <body> 
+       
+        <nav id='nav-top' aria-labelledby="navigation at the top.">            
+            <section class='nav__section'>
+                <a href='#nav-slideout'>
+                    A
+                </a>
+            </section>
+            <section class='nav__section'>
+                <a href='#nav'>
+                    B
+                </a>
+            </section>
+        </nav>
+        <nav id='nav-slideout' aria-labelledby="slide out navigation on click">
+            <ul class='nav-slideout__list'>
+                <li>
+                    hi
+                </li>
+            </ul>
+            <a href='#' class='nav-slideout__close'>
+
+            </a>
+        </nav>
+        
+        <script type='text/javascript'>
+            
+           
+        </script>
+    </body>
+</html>

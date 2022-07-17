@@ -1,0 +1,280 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <link rel="preconnect" href="https://fonts.gstatic.com">
+    <link href="https://fonts.googleapis.com/css2?family=Inter&display=swap" rel="stylesheet"> 
+    <title>09 13 Cal</title>
+    
+
+        <style>
+            * {                
+                box-sizing: border-box;
+                font-size: 16px;
+                font-family: 'Inter', sans-serif;                
+                --GREY : rgba(0,0,0,0.1);
+                --PRIMARY_COLOR: #98E690;
+                --SECONDARY_COLOR: white;
+                --COL1:  #db0a5b;
+                --COL2: #fef160;
+                --COL3: #23cba7;  
+                --COL4: #3e6ceb;  
+                --COL5: #d9c8ec;
+            }      
+
+            ::-webkit-scrollbar {                
+                width: 0.8rem;
+                height: 0.5rem;
+            }
+
+            /* Track */
+            ::-webkit-scrollbar-track {
+                background: black;
+            }
+
+            /* Handle */
+            ::-webkit-scrollbar-thumb {
+                background: rgb(209, 171, 121);
+            }
+
+            /* Handle on hover */
+            ::-webkit-scrollbar-thumb:hover {
+                background: #d3d3d3;
+            }
+                       
+
+            html, body{
+                margin: 0;
+                height: 100vh;                
+                background: #f3f3f3;
+                position: relative;                
+            }
+      
+            h1{
+                margin: 0;
+                padding: 0;
+            }
+          
+            ul{
+                margin: 0;
+                padding: 0;
+                list-style-type: none;
+            }
+            
+            
+
+            a{
+                text-decoration: none;
+                color: black;
+            }
+
+            a:focus, a:hover{
+                outline: none;
+                filter: drop-shadow(0 0 1rem rgba(0,0,0,0.4)); 
+            }
+
+          
+            .red{
+                background: var(--COL1);
+            }
+            .yellow{
+                background: var(--COL2);
+            }
+            .green{
+                background: var(--COL3);
+            }
+            .blue{
+                background: var(--COL4);
+            }
+
+            main{
+                display: grid;
+                grid-template-rows: minmax(10rem, 1fr) auto auto auto 1fr;                
+                grid-gap: 5rem;
+                background:lavender;
+                height: 100%;
+                overflow-y: scroll;
+                scroll-behavior: smooth;
+                scroll-snap-type: y mandatory;                
+            }
+        
+            .row{
+                grid-row: span 1;
+                display: flex;
+                flex-direction: column;
+                position: relative;
+                scroll-snap-align: center;
+            }
+            .row--1{
+                grid-row-start: 2;
+            }
+            .row--2{
+                grid-row-start: 3;
+            }
+            .row--3{
+                grid-row-start: 4;
+            }
+            .row__header{
+                width: 90vw;
+                margin: 0 auto;
+                display: flex;
+                padding: 0 2rem;
+                justify-content: flex-start;
+                font-size: 2rem;                
+            }
+            .row__button{
+                position: absolute;
+                right: 4%;
+                top: 50%;
+                transform: translateY(-50%);
+                z-index: 2;
+                filter: drop-shadow(0 0 0.75rem rgba(0,0,0,0.1));
+                border: 0;
+                background: white;  
+                width: 4rem;
+                height: 4rem;
+                content: '';
+                border-radius: 50%;
+            }
+            .row__button:hover, .row__button:focus{
+                outline: none;
+                filter: drop-shadow(0 0 1.5rem rgba(0,0,0,0.4));
+            }
+
+            .list{
+                display: flex;
+                margin: 0 auto;
+                justify-content: flex-start;                
+                width: 90vw;
+                height: 70vh;
+                scroll-behavior: smooth;
+                overflow: hidden;                
+                scroll-snap-type: x mandatory;
+                padding: 4rem 2rem;
+                
+            }
+
+            .list__item{
+                position: relative;   
+                scroll-snap-align: center;
+                width: 25rem;             
+                flex-shrink: 0;
+                flex-grow: 0;
+                margin-right: 2rem;
+                
+            }
+            .list__item::after{
+                padding-bottom: 100%;
+                display: block;
+                content: '';
+            }
+            .list__item__content{
+                position: absolute;
+                background: var(--COL5);
+                inset: 0;
+                height: 100%;
+                width: 100%;
+            }
+            .list__item__content__image{
+                object-fit: cover;     
+                width: 100%;           
+                height: 100%;
+                
+            }
+            
+            
+
+
+
+            @media screen and (min-width: 750px) and (max-width: 1099px){
+
+            }
+
+            @media screen and (min-width: 1100px){
+
+            }
+        </style>
+    <body> 
+       <main>
+           <section class='row row--1'>
+                <h1 class='row__header'>Doom Beckons</h1>
+                <ul class='list' id='doom'>                
+                </ul>           
+                <button class='row__button'>
+                </button>                
+           </section>
+           <section class='row row--2'>
+                <h1 class='row__header'>Batman always wins.</h1>
+                    <ul class='list' id='bat'>                
+                    </ul>           
+                <button class='row__button'>
+                </button>                
+            </section>
+            <section class='row row--3'>
+                <h1 class='row__header'>I hunger.</h1>
+                    <ul class='list' id='silver'>                
+                    </ul>           
+                <button class='row__button'>
+                </button>                
+            </section>
+        
+       
+           
+            
+
+       </main>
+       
+        
+        <script type='text/javascript'>
+            const doomRow = document.getElementById("doom");
+            const doomImageCount = 13;
+            for(let i = 1; i <= doomImageCount; i++){
+                let listItem = document.createElement("li");
+                listItem.classList.add("list__item");
+                let anchor = document.createElement("a");
+                anchor.href = "#";
+                anchor.classList.add("list__item__content");
+                let image = document.createElement("img");
+                image.classList.add("list__item__content__image");
+                image.src = `images/mdoom${i}.png`;
+                anchor.appendChild(image);
+                listItem.appendChild(anchor);
+                doomRow.appendChild(listItem);
+            }
+            const batRow = document.getElementById("bat");
+            const batImageCount = 8;
+            for(let i = 1; i <= batImageCount; i++){
+                let listItem = document.createElement("li");
+                listItem.classList.add("list__item");
+                let anchor = document.createElement("a");
+                anchor.href = "#";
+                anchor.classList.add("list__item__content");
+                let image = document.createElement("img");
+                image.classList.add("list__item__content__image");
+                image.src = `images/mbatman${i}.png`;
+                anchor.appendChild(image);
+                listItem.appendChild(anchor);
+                batRow.appendChild(listItem);
+            }
+
+            const silverRow = document.getElementById("silver");
+            const silverImageCount = 8;
+            for(let i = 1; i <= silverImageCount; i++){
+                let listItem = document.createElement("li");
+                listItem.classList.add("list__item");
+                let anchor = document.createElement("a");
+                anchor.href = "#";
+                anchor.classList.add("list__item__content");
+                let image = document.createElement("img");
+                image.classList.add("list__item__content__image");
+                image.src = `images/msilver${i}.png`;
+                anchor.appendChild(image);
+                listItem.appendChild(anchor);
+                silverRow.appendChild(listItem);
+            }
+ 
+        </script>
+    </body>
+</html>

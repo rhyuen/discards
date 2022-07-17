@@ -1,0 +1,189 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <link rel="preconnect" href="https://fonts.gstatic.com">
+    <link href="https://fonts.googleapis.com/css2?family=Inter&display=swap" rel="stylesheet"> 
+    <title>06 20</title>
+
+        <style>
+            * {                
+                box-sizing: border-box;
+                font-size: 16px;
+                font-family: 'Inter', sans-serif;;                
+            }      
+            html, body{
+                margin: 0;
+                min-height: 100vh;
+                width: 100%;  
+            }
+
+            ul{
+                margin: 0;
+                padding: 0;
+                list-style-type: none;
+            }
+            
+            a {
+                color: rgba(0,0,0,0.6);
+                text-decoration: none;
+                font-weight: 400;                
+                transition: color 0.2s ease-in-out;
+            }
+            a:hover{
+                color: black;
+            }            
+        
+            nav{                
+                height: 4rem;                                                                
+                justify-content: space-between;
+            }
+
+            nav.mobile{
+                display: flex;
+            }
+            nav.desktop{
+                display: none;
+            }
+
+            h1.hero{
+                font-size: clamp(6rem, 6rem, 9rem);
+                text-align: center;
+                padding: 0;
+                line-height: 1;
+                font-weight: 800;         
+                user-select: none;                       
+            }
+            
+
+            .list{                                
+                max-width: 1000px;
+                margin: 0 auto;
+                display: flex;                
+            }
+
+            .list--nav{
+                height: 100%;
+                align-items: center;
+            }
+
+            .list__item{
+                margin-right: 2rem;
+            }
+            .list__item:last-child{
+                margin-right: 0;
+            }
+            
+            .list__item__link--glyph{
+                font-size: 2rem;
+            }
+
+            .link{
+                border-radius: .5rem;
+                padding: 1rem 4rem;
+                background: black;
+                color: white;
+                border: 1px solid black;
+                margin-right: 1rem;
+                transition: all 0.2s ease-in-out;
+            }
+            .link:last-child{
+                margin-right: 0;
+            }
+
+            .link:hover{
+                background: white;
+                color: black;
+            }
+
+            .link--nav{
+                padding: 0.5rem 1.5rem;
+            }
+
+            .link--cancel{
+                background: white;
+                color: rgba(0,0,0,0.4);
+                border: 1px solid rgba(0,0,0,0.2);
+            }
+            .link--cancel:hover{
+                border: 1px solid black;
+                color: black;
+            }
+            
+            main{
+                display: flex;
+                max-width: 1100px;
+                flex-direction: column;
+                justify-content: center;
+                align-items: center;
+                margin: 0 auto;   
+                min-height: 90vh;             
+            }
+
+            .main__container{
+               
+            }
+
+            .main__body{            
+                margin-top: 5rem;    
+                text-align: center;
+                font-size: 1.2rem;
+                line-height: 2;
+                color: rgba(0,0,0,0.8);
+                letter-spacing: 0.05rem;
+                font-weight: 600;
+            }
+
+            @media screen and (min-width: 650px){
+                nav.mobile{
+                    display: none;
+                }
+                nav.desktop{
+                    display: flex;
+                }
+            }
+          
+        </style>
+</head>
+<body> 
+    <nav class='mobile'>        
+        <ul class="list list--nav ">
+            <li class="list__item"><a href='#' class='list__item__link--glyph'>&#9650;</a></li>                          
+        </ul>
+        <ul class="list list--nav ">            
+            <li class="list__item"><a href='#' class='list__item__link--glyph'> &#9776;</a></li>            
+        </ul>
+    </nav>
+
+    <nav class='desktop'>
+        <ul class="list list--nav">
+            <li class="list__item"><a href='#'>Home</a></li>
+            <li class="list__item"><a href='#'>About</a></li>
+            <li class="list__item"><a href='#'>Contact</a></li>
+        </ul>
+        <ul class="list list--nav">
+            <li class="list__item"><a href='#'>Login</a></li>
+            <li class="list__item"><a href='#' class='link link--nav'>Sign up</a></li>            
+        </ul>
+    </nav>    
+    <main>
+        <h1 class='hero'>
+            Consume.<br/>
+            A Lot Less.<br/>
+            Meat.
+        </h1>
+        <div class='main__container'>
+            <a href='#' class='link link--confirm'>Begin Action</a>
+            <a href='#' class='link link--cancel'>Look Around</a>
+        </div>        
+        <p class="main__body">
+            A brief summary on the purpose of this endeavour.<br/>        
+            But mainly, what's in it for you?
+        </p>
+    </main>
+    
+
+</body>
+</html>

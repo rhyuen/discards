@@ -1,0 +1,129 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <link rel="preconnect" href="https://fonts.gstatic.com">
+    <link href="https://fonts.googleapis.com/css2?family=Inter&display=swap" rel="stylesheet">
+    <title>10 22</title>
+
+
+    <style>
+        * {
+            box-sizing: border-box;
+            font-size: 16px;
+            font-family: 'Inter', sans-serif;
+            --GREY: rgba(0, 0, 0, 0.1);
+            --PRIMARY_COLOR: #98E690;
+            --SECONDARY_COLOR: white;
+            --COL1: #db0a5b;
+            --COL2: #fef160;
+            --COL3: #23cba7;
+            --COL4: #3e6ceb;
+            --COL5: #d9c8ec;
+        }
+
+        ::-webkit-scrollbar {
+            width: 0.8rem;
+            height: 0.5rem;
+        }
+
+        /* Track */
+        ::-webkit-scrollbar-track {
+            background: black;
+        }
+
+        /* Handle */
+        ::-webkit-scrollbar-thumb {
+            background: lavender;
+        }
+
+        /* Handle on hover */
+        ::-webkit-scrollbar-thumb:hover {
+            background: #d3d3d3;
+        }
+
+
+        html,
+        body {
+            margin: 0;
+            height: 100vh;
+            background: #f3f3f3;
+            position: relative;
+        }
+
+        h1 {
+            margin: 0;
+            padding: 0;
+        }
+
+        .header-text {
+            font-size: 3rem;
+            font-weight: 600;
+        }
+
+        .subheader-text {
+            font-size: 1.5rem;
+            font-weight: 400;
+        }
+
+        ul {
+            margin: 0;
+            padding: 0;
+            list-style-type: none;
+        }
+
+
+
+        a {
+            text-decoration: none;
+            outline-color: var(--COL4);
+            outline-width: 5px;
+        }
+
+
+
+
+        .red {
+            background: var(--COL1);
+        }
+
+        .yellow {
+            background: var(--COL2);
+        }
+
+        .green {
+            background: var(--COL3);
+        }
+
+        .blue {
+            background: var(--COL4);
+        }
+    </style>
+
+<body>
+    <h1>Oh look, a tire fire.</h1>
+    <main>
+        <section id="mountpoint">
+
+        </section>
+    </main>
+    <script type='text/javascript'>
+        fetch("/public/data/dataset01.json")
+            .then(res => res.json())
+            .then(res => {
+                const mp = document.getElementById("mountpoint");
+                const text = JSON.stringify(res.payload);
+                const words = document.createTextNode(text);
+                mp.appendChild(words);
+                console.log(JSON.stringify(res.payload));
+            }).catch(e => {
+                console.log(e);
+            });
+
+    </script>
+</body>
+
+</html>

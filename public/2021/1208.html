@@ -1,0 +1,165 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta name='color-scheme' content='dark light'>
+    <link rel="preconnect" href="https://fonts.gstatic.com">
+    <link href="https://fonts.googleapis.com/css2?family=Inter&display=swap" rel="stylesheet">
+    <title>11 28 AX Form</title>
+
+
+    <style>
+        * {
+            box-sizing: border-box;
+            font-size: 16px;
+            font-family: 'Inter', sans-serif;
+            color: black;
+            --GREY: rgba(0, 0, 0, 0.1);
+            --PRIMARY_COLOR: #98E690;
+            --SECONDARY_COLOR: white;
+            --COL1: #db0a5b;
+            --COL2: #fef160;
+            --COL3: #23cba7;
+            --COL4: #3e6ceb;
+            --COL5: #d9c8ec;
+        }
+
+        ::-webkit-scrollbar {
+            width: 0.8rem;
+            height: 0.5rem;
+        }
+
+        /* Track */
+        ::-webkit-scrollbar-track {
+            background: black;
+        }
+
+        /* Handle */
+        ::-webkit-scrollbar-thumb {
+            background: lavender;
+        }
+
+        /* Handle on hover */
+        ::-webkit-scrollbar-thumb:hover {
+            background: #d3d3d3;
+        }
+
+
+        html,
+        body {
+            margin: 0;
+            height: 100vh;
+            background: #f3f3f3;
+        }
+
+
+        h1 {
+            margin: 0;
+            padding: 0;
+            font-size: 1.5rem;
+        }
+
+        h1>a {
+            font-size: 1.5rem;
+        }
+
+        ul {
+            list-style-type: none;
+        }
+
+        .red {
+            background: var(--COL1);
+        }
+
+        .yellow {
+            background: var(--COL2);
+        }
+
+        .green {
+            background: var(--COL3);
+        }
+
+        .blue {
+            background: var(--COL4);
+        }
+
+        p {
+            line-height: 1.5;
+        }
+
+
+        .wrapper {
+            display: grid;
+            grid-template-columns: 1fr [content-start] min(65ch, 100%) [content-end] 1fr;
+
+        }
+
+        .wrapper>* {
+            grid-column: content-start/content-end;
+            padding: 1rem;
+        }
+
+        .fullbleed {
+            width: 100%;
+            max-height: 20rem;
+            grid-column: 1/-1;
+            object-fit: cover;
+            background: var(--COL1);
+        }
+
+
+
+
+        @media screen and (min-width: 750px) and (max-width: 1099px) {}
+
+        @media screen and (min-width: 1100px) {}
+    </style>
+
+<body>
+    <main class='wrapper'>
+        <h1>
+            A blog content layout thing that I copied from <a
+                href="https://www.joshwcomeau.com/css/full-bleed/">here</a>.
+        </h1>
+        <p>
+            Sometimes, i am super lazy. More like all the time, amirite? Oh, by the way, there's a cat on your head. It
+            looks angry. Perhaps, you should give him a treat or a head scratch.
+        </p>
+        <img src="images/62.jpg" class='fullbleed'>
+        <p>
+            Here's some more text. Did you know that people don't do things without a prompt or a reminder? I read that
+            in a book called "Tiny Habits";however, I didn't manage to finish the book despite borrowing it from the
+            library more than three times.
+        </p>
+        <p>
+            Did you know that if you don't equitably deploy vaccines to everywhere country on the planet, then the
+            coronavirus will only mutate and become more resilient to the vaccine? The coronavirus mutates each time it
+            finds a new host to incubate itself in.
+        </p>
+        <p>
+            Furthermore, it seems it helps quite significantly to stifling transmission of the virus in the outdoors if
+            you're wearing mask. It appears that social distancing without masks is more dangerous than previously
+            thought, especially if you're talking to the other party(s). You can be infected in five minutes of maskless
+            talking whilst social distancing (1.5m). I was under the impression that it was overwhelmingly difficult to
+            catch the virus in the outdoors, provided there's sufficient distancing between the parties.
+        </p>
+        <img src="images/fw2.jpg" class='fullbleed'>
+        <p>
+            With all of the supply chain problems, I wonder how high inflation will get? Will companies and governments
+            learn their lessons and build more resilience in their mission-critical supply chains in order to address
+            the expected and unexpected variance climate change introduces?
+        </p>
+        <footer>
+            <h3>A website by Robert</h3>
+            <p>Click <a href="/">here</a> to go back.</p>
+        </footer>
+    </main>
+    <script type='text/javascript'>
+
+    </script>
+</body>
+
+</html>

@@ -1,0 +1,163 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <link rel="preconnect" href="https://fonts.gstatic.com">
+    <link href="https://fonts.googleapis.com/css2?family=Inter&display=swap" rel="stylesheet"> 
+    <title>08 30</title>
+    
+
+        <style>
+            * {                
+                box-sizing: border-box;
+                font-size: 16px;
+                font-family: 'Inter', sans-serif;                
+                --GREY : rgba(0,0,0,0.1);
+                --PRIMARY_COLOR: #98E690;
+                --SECONDARY_COLOR: white;
+                --COL1:  #db0a5b;
+                --COL2: #fef160;
+                --COL3: #23cba7;  
+                --COL4: #3e6ceb;  
+                --COL5: #d9c8ec;
+            }      
+
+            ::-webkit-scrollbar {                
+                width: 0.8rem;
+                height: 0.5rem;
+            }
+
+            /* Track */
+            ::-webkit-scrollbar-track {
+                background: black;
+            }
+
+            /* Handle */
+            ::-webkit-scrollbar-thumb {
+                background: rgb(209, 171, 121);
+            }
+
+            /* Handle on hover */
+            ::-webkit-scrollbar-thumb:hover {
+                background: #d3d3d3;
+            }
+                       
+
+            html, body{
+                margin: 0;
+                height: 100vh;                
+                background: #f3f3f3;
+                position: relative;                
+            }
+      
+            h1{
+                margin: 0;
+                padding: 0;
+            }
+          
+            ul{
+                margin: 0;
+                padding: 0;
+                list-style-type: none;
+            }
+            
+            
+
+            a{
+                text-decoration: none;
+                color: black;
+            }
+
+          
+            .red{
+                background: var(--COL1);
+            }
+            .yellow{
+                background: var(--COL2);
+            }
+            .green{
+                background: var(--COL3);
+            }
+            .blue{
+                background: var(--COL4);
+            }
+
+            main{
+                display: grid;
+                grid-template-columns: repeat(4, 100vw);
+                grid-template-rows: repeat(4, 100vh);
+                background-color: lavender;  
+                /*the scorlling behaviour even works if the below value is overflow: hidden*/   
+                overflow: hidden;
+                scroll-snap-type: both mandatory;
+                /*the max-height value is key for getting the vertical scroll to work, otherwise only the horizontal scroll works*/
+                max-height: 100vh;
+            }
+
+            section{
+                display: flex;
+                justify-content: center;
+                align-items: center;
+                font-weight: 800;
+                font-size: 3rem;
+                scroll-snap-align: center;
+            }
+
+            .pos-2-2{
+                grid-column: 2/span 1;
+                grid-row: 2/span 1;
+                background-color: lightgreen;
+            }
+
+            .pos-2-4{
+                grid-column: 4/span 1;
+                grid-row: 2/span 1;
+                background-color: lightseagreen;
+            }
+            .pos-3-2{
+                grid-column: 2/span 1;
+                grid-row: 3/span 1;
+                background-color: lightpink;
+            }
+
+
+
+        </style>
+    <body> 
+        <main>
+            <section class='pos-2-2'>
+                2/2
+            </section>
+            <section class='pos-3-2'>
+                3/2
+            </section>
+            <section class='pos-2-4'>
+                2/4
+            </section>
+        </main>
+        <script type='text/javascript'>
+            const main = document.querySelector("main");
+        
+            const list = ["red", "yellow", "green", "blue"];
+            //const list = ["red", "yellow", "green", "blue", "red", "yellow", "green", "blue", "red", "yellow", "green", "blue", "red", "yellow", "green", "blue"];
+            for(let i = 0 ; i < list.length; i++){
+                const section = document.createElement("section");
+                const til = "grid does not work for doing a maze like sliding experience.  need js and need to count positioning of where the user is.";
+                const text = i === 0 ? document.createTextNode(til) : document.createTextNode(i);
+                section.classList = list[i];
+                section.appendChild(text);
+                main.appendChild(section);
+            }
+       
+            window.addEventListener("keydown", ()=>{
+                console.log(window.screen.width);
+                console.log(window.screen.height);
+                console.log(window.scrollX);
+                console.log(window.scrollY);
+                console.dir(window.screen);
+            });
+        </script>
+    </body>
+</html>

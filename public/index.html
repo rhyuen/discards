@@ -331,6 +331,16 @@
                     "https://www.goodreads.com/en/book/show/52639323", "https://www.joshwcomeau.com/css/full-bleed/"
                 ]
             },
+            {
+                month: 7,
+                day: 17,
+                year: 2022,
+                link: "/2022/0717.html",
+                description: "Scroll left to right with drag and drop and scroll-snap.  Uses 'holy grail' layout.",
+                reference: [
+                    "https://htmldom.dev/drag-to-scroll/", "https://www.joshwcomeau.com/css/full-bleed/"
+                ]
+            },
         ]
         const list21 = [
             {
@@ -480,7 +490,7 @@
                 anchor.href = `/public/2021/${data.link}`;
             }
 
-            anchor.textContent = `${month}/${day}`;
+            anchor.textContent = `${month} . ${day}`;
 
             console.log(anchor.href);
             item.appendChild(anchor);

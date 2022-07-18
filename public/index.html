@@ -485,9 +485,18 @@
             const textblurb = document.createElement("p");
             textblurb.textContent = description;
             if (year === 2022) {
-                anchor.href = `/public${data.link}`;
+                if (location.hostname.includes("localhost")) {
+                    anchor.href = `/public${data.link}`;
+                } else {
+                    anchor.href = `/${data.link}`;
+                }
+
             } else {
-                anchor.href = `/public/2021/${data.link}`;
+                if (location.hostname.includes("localhost")) {
+                    anchor.href = `/public/2021/${data.link}`;
+                } else {
+                    anchor.href = `/2021/${data.link}`;
+                }
             }
 
             anchor.textContent = `${month} . ${day}`;

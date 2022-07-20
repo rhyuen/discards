@@ -1,0 +1,294 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta name='color-scheme' content='dark light'>
+    <link rel="preconnect" href="https://fonts.gstatic.com">
+    <link href="https://fonts.googleapis.com/css2?family=Inter&display=swap" rel="stylesheet">
+    <title>12 23</title>
+
+
+    <style>
+        * {
+            box-sizing: border-box;
+            font-size: 16px;
+            font-family: 'Inter', sans-serif;
+            color: black;
+            --GREY: rgba(0, 0, 0, 0.1);
+            --PRIMARY_COLOR: #98E690;
+            --SECONDARY_COLOR: white;
+            --COL1: #db0a5b;
+            --COL2: #fef160;
+            --COL3: #23cba7;
+            --COL4: #3e6ceb;
+            --COL5: #d9c8ec;
+        }
+
+        ::-webkit-scrollbar {
+            width: 0.8rem;
+            height: 0.5rem;
+        }
+
+        /* Track */
+        ::-webkit-scrollbar-track {
+            background: black;
+        }
+
+        /* Handle */
+        ::-webkit-scrollbar-thumb {
+            background: var(--COL3);
+        }
+
+        /* Handle on hover */
+        ::-webkit-scrollbar-thumb:hover {
+            background: var(--COL2);
+        }
+
+        h1,
+        h2,
+        h3,
+        h4 {
+            margin: 0;
+            padding: 0;
+        }
+
+        h1 {
+            font-size: 2rem;
+        }
+
+        * {
+            user-select: none;
+        }
+
+        html,
+        body {
+            margin: 0;
+            height: 100vh;
+            background: #f3f3f3;
+
+        }
+
+        nav{
+            width: min(65ch, 100%);
+            margin: 0 auto;
+            padding: 2rem 1rem;
+        }
+
+        main {
+            display: grid;
+            grid-template-columns: 1fr min(65ch, 100%) 1fr;
+            padding: 0 1rem;
+        }
+
+        main>* {
+            grid-column: 2/span 1;
+        }
+
+        p {
+            line-height: 2;
+        }
+
+        .subtitle{
+            font-size: .9rem;
+            color: gray;
+            margin-bottom: 4rem;
+        }
+
+        quote{
+            font-style: italic;
+        }
+
+        a {
+            font-weight: 800;
+        }
+
+        #fr {
+            display: none;
+            grid-template-columns: 1fr min(65ch, 100%) 1fr;
+        }
+
+        #en {
+            display: grid;
+            grid-template-columns: 1fr min(65ch, 100%) 1fr;
+        }
+
+        input[type='checkbox']{
+            appearance: none;
+        }
+
+        input[type='checkbox']::before{
+            display: block;
+            content: "";    
+            width: 2rem;
+            height: 1rem;
+            background: gray;
+            border-radius: .5rem;
+            margin-right: 1rem;
+            margin-top: 1rem;
+            
+        }
+
+        input[type='checkbox']:checked::before{
+            
+            background: red;
+        }
+
+        footer{
+            padding-top: 4rem;
+            width: min(65ch, 100%);
+            margin: 0 auto;
+        }
+
+        footer > *{
+            font-size: .9rem;
+            color: gray;
+        }
+
+        footer a {
+            font-size: .9rem;
+        }
+
+
+
+        @media screen and (min-width: 750px) and (max-width: 1099px) {}
+
+        @media screen and (min-width: 1100px) {}
+    </style>
+
+<body>
+    <nav>
+        <input id="language" type="checkbox"><label for="language">English/French</label>
+    </nav>
+    <main id="en">
+
+        <h1>
+            Diagnosed with monkeypox, he felt pain, exhaustion — and was frustrated by the lack of support
+
+        </h1>
+        <p class='subtitle'>
+            Len Tooley became very sick in mid-June, and then noticed a pox appear. He still has symptoms and says
+            sufferers lack daily guidance and care.
+        </p>
+        <p>
+            He was just so tired.
+        </p>
+        <p>
+            That’s the first thing Len Tooley remembers of the signs that he might be sick.
+        </p>
+        <p>
+            Weeks later, he can’t remember the TV he tried to stream before crashing into a heavy sleep. For two days,
+            even sending a text felt like a battle. He had body aches. A splitting headache left him vomiting.
+        </p>
+        <p>
+            Then came a pox. Or at least, what seemed like a pox.
+        </p>
+        <p>
+            <quote>“I saw this little pimple show up on my butt,”</quote> he says. <quote>“And it was on Monday that I thought, ‘I think I
+            have monkeypox.’</quote> ”
+        </p>
+        <p>
+            Tooley is one of at least 539 Canadians who have contracted monkeypox in the past two months. He’s going
+            public, to let others know that they aren’t alone.
+        </p>
+        <p>
+            He says the community of gay and bisexual men currently most at risk for monkeypox has largely been left in
+            the dark by public health when it comes to how to take care of themselves if they become sick.
+        </p>
+        <p>
+            <quote>
+                “There’s really no information. People can be really on their own.”
+            </quote>
+        </p>
+        <p>
+            Also, with people faced with weeks of missed work after a monkeypox diagnosis, Tooley says the province’s
+            sick days are inadequate and two years into a pandemic, the health-care system is still not built up to care
+            for those with unpredictable illness.
+        </p>
+        <p>
+            Tooley says he’s spent any down time — when not exhausted — to create a website with information about his
+            experience and what care has worked. He’s spent hours pouring everything he knows about the illness into the
+            site <a href="https://www.igotmpox.com/" target="_blank"
+                rel="noopener noreferrer">https://www.igotmpox.com/</a>
+        </p>
+        <footer>
+            <p>Made on July 19/20 2022</p>
+            <p>Article copied in part from the The Star.  The original is <a target="_blank" rel="noopener noreferrer" href="https://www.thestar.com/news/canada/2022/07/18/diagnosed-with-monkeypox-he-felt-pain-exhaustion-and-was-frustrated-by-the-lack-of-support.html">here</a>.</p>
+            <p>I tried to do the sliding toggle with the checkbox using only css and appearance none, but I don't really know how to get the circle in the input element. I imagine another element can go in the input checkbox and you can just change the appearance for that?  Something to try for the next Discard.</p>
+            <p>I also had to look up using rel="noopener noreferrer" when using target="_blank" for opening links in a new tab.</p>
+        </footer>
+    </main>
+    <main id="fr">
+        <h1>Diagnostiqué avec la variole du singe, il ressentait de la douleur, de l'épuisement - et était frustré par
+            le manque de soutien</h1>
+        <p class="subtitle">Len Tooley est tombé très malade à la mi-juin, puis a remarqué l'apparition d'une variole. Il a encore des
+            symptômes et dit
+            les malades manquent de conseils et de soins quotidiens.</p>
+        <p>Il était tellement fatigué.</p>
+        <p>C'est la première chose dont Len Tooley se souvient des signes qu'il pourrait être malade.</p>
+        <p>Des semaines plus tard, il ne se souvient plus de la télévision qu'il a essayé de diffuser avant de
+            s'endormir profondément. Pendant deux jours,
+            même l'envoi d'un texte ressemblait à une bataille. Il avait des courbatures. Un violent mal de tête le fit
+            vomir.</p>
+        <p>Puis vint une vérole. Ou du moins, ce qui ressemblait à une vérole.</p>
+        <p><quote>"J'ai vu ce petit bouton apparaître sur mes fesses"</quote>, dit-il. <quote>"Et c'est lundi que j'ai pensé:" Je pense que je
+            avoir la variole du singe.’</quote> »</p>
+        <p>Tooley est l'un des 539 Canadiens au moins qui ont contracté la variole du singe au cours des deux derniers
+            mois. Il va
+            public, pour faire savoir aux autres qu'ils ne sont pas seuls.</p>
+        <p>
+            Il dit que la communauté des hommes gais et bisexuels actuellement les plus à risque de monkeypox a été en
+            grande partie laissée dans
+            l'obscurité par la santé publique lorsqu'il s'agit de prendre soin d'eux-mêmes s'ils tombent malades.
+        </p>
+        <p>
+            <quote>"Il n'y a vraiment aucune information. Les gens peuvent être vraiment seuls."</quote>
+        </p>
+        <p>
+            De plus, avec des personnes confrontées à des semaines de travail manqué après un diagnostic de monkeypox,
+            Tooley dit que la province
+            les jours de maladie sont insuffisants et deux ans après le début d'une pandémie, le système de santé n'est
+            toujours pas en mesure de prendre en charge
+            pour ceux qui ont une maladie imprévisible.
+        </p>
+        <p>
+            Tooley dit qu'il a passé du temps - lorsqu'il n'est pas épuisé - à créer un site Web avec des informations
+            sur son
+            expérience et quels soins ont fonctionné. Il a passé des heures à déverser tout ce qu'il sait sur la maladie
+            dans le
+            site <a href="https://www.igotmpox.com/" target="_blank"
+                rel="noopener noreferrer">https://www.igotmpox.com/</a>
+        </p>
+        <footer>
+            <p>Fait le 19/20 juillet 2022</p>
+            <p>Article copié en partie du The Star. L'original est <a target="_blank" rel="noopener noreferrer" href="https://www.thestar.com/news/canada/2022/07/18/diagnosed-with-monkeypox-he-felt-pain -épuisé-et-était-frustré-par-le-manque-de-support.html">ici</a>.</p>
+            <p>J'ai essayé de faire la bascule coulissante avec la case à cocher en utilisant uniquement css et aucune apparence, mais je ne sais pas vraiment comment obtenir le cercle dans l'élément d'entrée. J'imagine qu'un autre élément peut aller dans la case à cocher d'entrée et vous pouvez simplement changer l'apparence pour cela ? Quelque chose à essayer pour le prochain écart.</p>
+            <p>J'ai également dû rechercher en utilisant rel="noopener noreferrer" lors de l'utilisation de target="_blank" pour ouvrir des liens dans un nouvel onglet.</p>
+        </footer>
+    </main>
+    <footer>
+
+    
+    </footer>
+
+    <script>
+
+        const checkbox = document.getElementById("language");
+        const fr = document.getElementById("fr");
+        const en = document.getElementById("en");
+        checkbox.addEventListener("click", () => {
+            if(checkbox.checked === true){
+                en.style.display = "none";
+                fr.style.display = "grid";                
+            }else{
+                en.style.display = "grid";
+                fr.style.display = "none";
+            }
+        })
+
+    </script>
+</body>
+
+</html>

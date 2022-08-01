@@ -1,0 +1,175 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta name='color-scheme' content='dark light'>
+    <link rel="preconnect" href="https://fonts.gstatic.com">
+    <link href="https://fonts.googleapis.com/css2?family=Inter&display=swap" rel="stylesheet">
+    <title>12 23</title>
+
+
+    <style>
+        * {
+            box-sizing: border-box;
+            font-size: 16px;
+            font-family: 'Inter', sans-serif;
+            color: black;
+            --GREY: rgba(0, 0, 0, 0.1);
+            --PRIMARY_COLOR: #98E690;
+            --SECONDARY_COLOR: white;
+            --COL1: #db0a5b;
+            --COL2: #fef160;
+            --COL3: #23cba7;
+            --COL4: #3e6ceb;
+            --COL5: #d9c8ec;
+            
+        }
+
+        ::-webkit-scrollbar {
+            width: 0.8rem;
+            height: 0.5rem;
+        }
+
+        /* Track */
+        ::-webkit-scrollbar-track {
+            background: black;
+        }
+
+        /* Handle */
+        ::-webkit-scrollbar-thumb {
+            background: var(--COL3);
+        }
+
+        /* Handle on hover */
+        ::-webkit-scrollbar-thumb:hover {
+            background: var(--COL2);
+        }
+
+        h1,
+        h2,
+        h3,
+        h4 {
+            margin: 0;
+            padding: 0;
+        }
+
+        h1 {
+            font-size: 2rem;
+        }
+
+        * {
+            user-select: none;
+        }
+
+        html,
+        body {
+            margin: 0;
+            height: 100vh;
+            background: #f3f3f3;
+
+        }
+
+        main {
+            display: grid;
+
+            /*It's min and NOT minmax...this took a while to debug.*/
+            grid-template-columns: 1fr [content-start] min(65ch, 100%) [content-end] 1fr;
+            grid-auto-rows: 90vh;
+        }
+
+        main>* {
+            grid-column: content-start/content-end;
+        }
+
+  
+
+        .full-bleed {
+            grid-column: 1/-1;
+        
+            background-image: url("https://images.unsplash.com/photo-1656890612031-699e56451ea8?ixlib=rb-1.2.1&ixid=MnwxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8&auto=format&fit=crop&w=2070&q=80");
+            background-size: cover;
+            display: grid;
+            place-items: center;
+        }
+
+        .full-bleed__container {
+            max-width: 55ch;
+            margin: 2rem;
+        }
+
+        .hero > h1,p{
+            color: black;
+        }
+
+        .hero h1{
+            font-size: 3rem;
+        }
+
+        .hero button{
+            margin-top: 1rem;
+            padding: .5rem 1.5rem;
+            background: rgb(255, 81, 0);
+            border-radius: 1rem;
+            color: white;
+            font-weight: 600;
+            border: none;
+            transition: background .2s ease-in-out, color .2s ease-in-out;
+        }
+        .hero button:hover{
+            background: white;
+            color: red;
+        }
+
+        footer{
+            margin: 0 auto;
+            width: min(65ch, 100%);
+        }
+     
+
+
+
+
+
+        @media screen and (min-width: 750px) and (max-width: 1099px) {}
+
+        @media screen and (min-width: 1100px) {}
+    </style>
+
+<body>
+    <main>
+        <section class="full-bleed">
+            
+            <div class="full-bleed__container hero">
+                <h1>Hot? It's only getting worse.</h1>
+                <p>Stop consuming beef and pork now to lessen the heat.</p>
+                <button>Learn more</button>
+            </div>
+        </section>
+        <section>
+            <h2>Leading causes of emissions</h2>
+            <ul>
+                <li>Meat Production</li>
+                <li>Oil and Gas usage from Transportation</li>
+                <li>Producing Carbon for Energy</li>
+            </ul>
+        </section>
+    </main>
+    <footer>
+        <h4>Comments</h4>
+        <p>Made on July 21, 2022</p>
+        <p>Struggled with using minmax() instead of min(), which caused a lot of responsive-ness/mobile issues.  Twas annoying.</p>
+        <p>Used filter: brightness(50%) to add a filter to an image using css to darken it.  However, I learned that the filter also applies to any child elements, which was not what I wanted.</p>
+    </footer>
+
+
+    <script>
+
+
+
+    </script>
+</body>
+
+</html>

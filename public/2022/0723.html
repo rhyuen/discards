@@ -1,0 +1,305 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta name='color-scheme' content='dark light'>
+    <link rel="preconnect" href="https://fonts.gstatic.com">
+    <link href="https://fonts.googleapis.com/css2?family=Inter&display=swap" rel="stylesheet">
+    <title>12 23</title>
+
+
+    <style>
+        * {
+            box-sizing: border-box;
+            font-size: 16px;
+            font-family: 'Inter', sans-serif;
+            color: black;
+            --GREY: rgba(0, 0, 0, 0.1);
+            --PRIMARY_COLOR: #98E690;
+            --SECONDARY_COLOR: white;
+            --COL1: #db0a5b;
+            --COL2: #fef160;
+            --COL3: #23cba7;
+            --COL4: #3e6ceb;
+            --COL5: #d9c8ec;
+            
+        }
+
+        ::-webkit-scrollbar {
+            width: 0.8rem;
+            height: 0.5rem;
+        }
+
+        /* Track */
+        ::-webkit-scrollbar-track {
+            background: black;
+        }
+
+        /* Handle */
+        ::-webkit-scrollbar-thumb {
+            background: var(--COL3);
+        }
+
+        /* Handle on hover */
+        ::-webkit-scrollbar-thumb:hover {
+            background: var(--COL2);
+        }
+
+      
+
+     
+
+        * {
+            user-select: none;
+        }
+
+        html,
+        body {
+            margin: 0;
+            height: 100vh;
+            background: #f3f3f3;
+
+        }
+
+        main{
+            width: 100%;
+            height: 100%;
+            display: grid;
+            overflow: hidden;
+            place-items: center;
+        }
+
+        ul {
+            display: flex;
+            overflow-x: hidden;
+            scroll-snap-type: x mandatory;
+            width: 100vw;
+            height: 60vh;
+            margin: 2rem;
+            padding: 2rem;
+            padding-top: 5.5rem;
+            padding-bottom: 12rem;
+            margin-right: 4rem;
+            padding-right: 4rem;
+            padding-left: 0;
+        }
+
+        li{
+            height: 100%;
+            scroll-snap-align: center;
+            flex-shrink: 0;
+            padding: 0;
+            margin: 0;
+            margin-right: 4rem;
+            list-style-type: none;
+            transition: all .2s ease-in-out;
+        }
+
+        li:hover{
+            transform: translateY(-5rem);
+        }
+
+        li:last-child{
+            margin-right: 0;
+        }
+
+        figure{
+            height: 100%;
+            aspect-ratio: 2/3;
+            padding: 0;
+            margin: 0;
+        }
+
+        figure img{
+            
+            width: 100%;
+            height: 100%;
+            object-fit: cover;
+        }
+
+        figcaption p{
+            padding: 1rem;
+        }
+
+        figcaption quote {
+            font-style: italic;
+            font-weight: 400;
+            font-size: .9rem;
+            line-height: 1.5;
+            
+
+        }
+
+
+        h1{
+            display: flex;
+            
+            width: 100%;
+            font-size: 3rem;
+            padding: 2rem;
+            margin: 0;
+            justify-content: flex-start;
+        }
+
+        footer{
+            display: flex;            
+            flex-direction: column;
+            width: 100%;
+            padding: 2rem;
+        }
+
+        footer p {
+            line-height: 1.5;
+            margin: 0;
+            font-size: .9rem;
+        }
+
+        footer a{
+            font-weight: 600;
+            font-size: .9rem;
+        }
+
+        @media screen and (min-width: 750px) and (max-width: 1099px) {}
+
+        @media screen and (min-width: 1100px) {}
+    </style>
+
+<body>
+    <main>
+        <h1>Superhero Gallery</h1>
+        <ul id="list">
+           
+        </ul>
+        <footer>
+            <p>Made on July 23, 2022.</p>
+            <p>A failed attempt at scroll snap with 8 elements per slide.</p>
+            <p>
+                Most of the quotes are from <a href="https://www.cbr.com/greatest-doctor-doom-quotes/">here</a>.
+            </p>
+            <p>
+                Pictures are from Alex Maleev's Twitter feed <a href="https://twitter.com/alexmaleev">here</a>.
+            </p>
+            </p>
+        </footer>
+    </main>
+
+
+    <script>
+        const list = document.getElementById("list");
+
+        const data = [
+                {
+                    title: "Batman 1",
+                    text: "Ladies. Gentlemen. You Have Eaten Well. You’ve Eaten Gotham’s Wealth... Its Spirit. Your Feast Is Nearly Over. From This Moment On... None Of You Are Safe.",
+                    image: "mbatman1.png"
+                },
+                {
+                    title: "Batman 2",
+                    text: "I am still here.",
+                    image: "mbatman2.png"
+                },
+                {
+                    title: "Batman 3",
+                    text: "I’m The Goddamn Batman",
+                    image: "mbatman3.png"
+                },
+                {
+                    title: "Batman 4",
+                    text: "If You Are Good, The Shadow's Wings Are A Welcome, Protective Blanket. If You Are Bad, You Know Its Touch As A Black Splinter Of Fear.",
+                    image: "mbatman4.png"
+                },
+                {
+                    title: "Batman 5",
+                    text: "I Wear A Mask. And That Mask, It’s Not To Hide Who I Am, But To Create What I Am.",
+                    image: "mbatman5.png"
+                },
+                {
+                    title: "Batman 6",
+                    text: "Maybe That's What Batman Is About. Not Winning. But Failing, And Getting Back Up. Knowing He'll Fail, Fail A Thousand Times, But Still Won't Give Up.",
+                    image: "mbatman6.png"
+                },
+                {
+                    title: "Batman 7",
+                    text: "You Can Never Escape Me. Bullets Don't Harm Me. Nothing Harms Me. But I Know Pain. I KNOW Pain. Sometimes I Share It. With Someone Like You.",
+                    image: "mbatman7.png"
+                },
+                {
+                    title: "Batman 8",
+                    text: "All Men Have Limits. They Learn What They Are And Learn Not To Exceed Them. I Ignore Mine.",
+                    image: "mbatman8.png"
+                },
+                {
+                    title: "Doom 1",
+                    text: "Who dares? Doom dares.",
+                    image: "mdoom1.png"
+                },
+                {
+                    title: "Doom 2",
+                    text: "I Deny You, Death! Victor Von Doom Must Not Die!",
+                    image: "mdoom2.png"
+                },
+                {
+                    title: "Doom 3",
+                    text: "Doctor Doom does not beg.",
+                    image: "mdoom3.png"
+                },
+                {
+                    title: "Doom 4",
+                    text: "Pain? That is for lesser men. From this day on I know no pain.",
+                    image: "mdoom4.png"
+                },
+                {
+                    title: "Doom 5",
+                    text: "This world is mine to rule, and mine alone. These... reptiles may not have it.",
+                    image: "mdoom5.png"
+                },
+                {
+                    title: "Doom 6",
+                    text: "Doom is no man’s second choice.",
+                    image: "mdoom6.png"
+                },
+                {
+                    title: "Doom 7",
+                    text: "I was a God, Valeria. I found it... beneath me.",
+                    image: "mdoom7.png"
+                },
+                {
+                    title: "Doom 8",
+                    text: "Now, let mankind beware, for Doctor Doom has attained powers without limit - power enough to challenge Galactus himself!",
+                    image: "mdoom8.png"
+                }
+            ]
+
+        function makeItem(data){
+            const {title, text, image} = data;
+
+            const li = document.createElement("li");
+            const figure = document.createElement("figure");
+            const img = document.createElement("img");
+            const p = document.createElement("p");
+            const quote = document.createElement("quote");
+            const figcaption = document.createElement("figcaption");
+
+            quote.textContent = text;
+            p.appendChild(quote);
+            img.src= `../images/${image}`;
+
+            figcaption.appendChild(p);
+            figure.appendChild(img);
+            figure.appendChild(figcaption);
+            li.appendChild(figure);
+            return li;
+        }
+
+        for(let i = 0; i < data.length; i++){
+            list.appendChild(makeItem(data[i]));
+        }
+
+
+    </script>
+</body>
+
+</html>

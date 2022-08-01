@@ -1,0 +1,269 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta name='color-scheme' content='dark light'>
+    <link rel="preconnect" href="https://fonts.gstatic.com">
+    <link href="https://fonts.googleapis.com/css2?family=Inter&display=swap" rel="stylesheet">
+    <title>07/24/22</title>
+
+
+    <style>
+        * {
+            box-sizing: border-box;
+            font-size: 16px;
+            font-family: 'Inter', sans-serif;
+            color: black;
+            --GREY: rgba(0, 0, 0, 0.1);
+            --PRIMARY_COLOR: #98E690;
+            --SECONDARY_COLOR: white;
+            --COL1: #db0a5b;
+            --COL2: #fef160;
+            --COL3: #23cba7;
+            --COL4: #3e6ceb;
+            --COL5: #d9c8ec;
+
+        }
+
+        ::-webkit-scrollbar {
+            width: 0.8rem;
+            height: 0.5rem;
+        }
+
+        /* Track */
+        ::-webkit-scrollbar-track {
+            background: black;
+        }
+
+        /* Handle */
+        ::-webkit-scrollbar-thumb {
+            background: var(--COL3);
+        }
+
+        /* Handle on hover */
+        ::-webkit-scrollbar-thumb:hover {
+            background: var(--COL2);
+        }
+
+
+
+
+
+        * {
+            user-select: none;
+        }
+
+        html,
+        body {
+            margin: 0;
+            height: 100vh;
+            background: #f3f3f3;
+
+
+        }
+
+        li {
+            list-style-type: none;
+        }
+
+        
+
+        main{
+            display: grid;
+            grid-template-columns: 1fr [start] min(85ch, 100%) [end] 1fr;
+            
+        }
+
+        main > * {
+            grid-column: start/end;
+        }
+
+        .full-bleed{
+            grid-column: 1/-1;
+            height: 100%;
+            width: 100%;
+        }
+    
+        .full-bleed img{
+            width: 100%;
+            height: 100%;
+            object-fit: cover;
+        }
+
+        .pancake{
+            display: flex;
+            flex-wrap: wrap;
+            justify-content: center;
+        }
+
+        .hero-container{
+            position: relative;
+        }
+
+        .hero-container img {
+            filter: grayscale(0.6);
+        }
+
+
+        .hero-text h1{
+            font-size: 2.5rem;
+            color: white;
+            margin-bottom: 0;
+            
+        }
+
+        .hero-text p {
+            color: var(--COL1);
+            font-size: 1.5rem;
+            font-weight: 600;
+            margin-top: .5rem;
+        }
+
+        button {
+            padding: .5rem 1rem;
+            color: white;
+            font-weight: 800;
+            width: fit-content;
+        }
+
+      
+
+        
+
+        .hero-container .hero-text{
+            position: absolute;
+            top: 50%;
+            left: 50%;
+            transform: translate(-50%, -50%);
+            display: flex;
+            flex-direction: column;
+        }
+
+        figure{
+            padding: 0;
+            margin: 0;
+        }        
+
+        .pancake__layer img{
+            object-fit: cover;
+            width: 100%;
+            height: auto;
+            margin: 0;
+            padding: 0;
+        }
+
+        .pancake__layer{
+            flex: 1 1 250px;
+            background: white;
+            padding: 1.5rem;
+        }
+
+        .cta-section{
+            display: flex;
+            flex-direction: column;
+            justify-content: flex-start;
+            
+            margin: 8rem 0;
+            padding: 1rem;
+        }
+        .cta-section h2 {
+            font-size: 1.5rem;
+        }
+        .cta-section p {
+            margin-bottom: 2rem;
+        }
+        
+
+        .cta-section--align-right{
+            align-items: flex-end;
+        }
+
+        .cta-section--align-right h2 {
+            text-align: end;
+        }
+
+        footer{
+            margin: 8rem 0;
+            padding: 0 1rem;
+        }
+
+        footer * {
+            font-size: .9rem;
+        }
+        
+        footer a {
+            font-weight: 800;
+        }
+
+
+        @media screen and (min-width: 750px) and (max-width: 1099px) {}
+
+        @media screen and (min-width: 1100px) {}
+    </style>
+
+<body>
+    <main>
+        <section class="full-bleed hero-container">
+            <figure>
+                <img src="../images/fw5.jpg"/>
+                
+            </figure>
+            <div class="hero-text">
+                <h1>Explore the world of the wilds!</h1>
+                <p>Experience FireWatch today!</p>
+                <button>Learn More!</button>
+            </div>
+        </section>
+        <section class="cta-section">
+            <h2>Explore the wilds from the comfort of your own home.</h2>
+            <p>Light things on fire without the risk of a lawsuit!</p>
+            <button>Try it today!</button>
+        </section>
+        <h2>Features of the Firewatch</h2>
+        <section class="pancake">
+            <figure class="pancake__layer">
+                <img src="../images/fw2.jpg"/>
+                <figcaption>
+                    <h3>Sunset</h3>
+                    <p>A digital sunset.  Prepare for the nighttime shenanigans before they all go off at once!</p>
+                </figcaption>
+            </figure>
+            <figure class="pancake__layer">
+                <img src="../images/fw3.jpg"/>
+                <figcaption>
+                    <h3>Moon</h3>
+                    <p>A digital moon, where the animals come out after a blistering heat.  Watch yourselves!  Or you'll become a snack!</p>
+                </figcaption>
+            </figure>
+            <figure class="pancake__layer">
+                <img src="../images/fw5.jpg"/>
+                <figcaption>
+                    <h3>Landscape</h3>
+                    <p>A digital, green Landscape. A world full of possibility and intrigue!</p>
+                </figcaption>
+            </figure>
+            
+        </section>
+        <section class="cta-section cta-section--align-right">
+            <h2>You've seen enough of Firewatch <br/> to make an informed decision right?</h2>
+            <button>I'm coming!</button>
+        </section>
+        <footer>
+            <p>Made on July 31, 2022 and a bit on August 1, 2022</p>
+            <p>Images from the game Firewatch.</p>
+            <p>This was an attempt at making the Accordion feature commonly seen on marking sites.</p>
+            <p>The reference I used for it was from web.dev <a href="https://web.dev/one-line-layouts/">here</a>, number 02: 'the deconstructed pancake'.</p>
+            <p>The mobile version of the hero text goes everywhere.  Not quite sure how to do it better.</p>
+        </footer>
+    </main>
+    <script>
+
+
+
+    </script>
+</body>
+
+</html>

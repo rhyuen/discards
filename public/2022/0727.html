@@ -1,0 +1,278 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta name='color-scheme' content='dark light'>
+    <link rel="preconnect" href="https://fonts.gstatic.com">
+    <link href="https://fonts.googleapis.com/css2?family=Inter&display=swap" rel="stylesheet">
+    <title>07/24/22</title>
+
+
+    <style>
+        * {
+            box-sizing: border-box;
+            font-size: 16px;
+            font-family: 'Inter', sans-serif;
+            color: black;
+            --GREY: rgba(0, 0, 0, 0.1);
+            --PRIMARY_COLOR: #98E690;
+            --SECONDARY_COLOR: white;
+            --COL1: #db0a5b;
+            --COL2: #fef160;
+            --COL3: #23cba7;
+            --COL4: #3e6ceb;
+            --COL5: #d9c8ec;
+
+        }
+
+        ::-webkit-scrollbar {
+            width: 0.8rem;
+            height: 0.5rem;
+        }
+
+        /* Track */
+        ::-webkit-scrollbar-track {
+            background: black;
+        }
+
+        /* Handle */
+        ::-webkit-scrollbar-thumb {
+            background: var(--COL3);
+        }
+
+        /* Handle on hover */
+        ::-webkit-scrollbar-thumb:hover {
+            background: var(--COL2);
+        }
+
+
+
+
+
+        * {
+            user-select: none;
+        }
+
+        html,
+        body {
+            margin: 0;
+            height: 100vh;
+            background: #f3f3f3;
+            width: 100vw;
+            overflow-x: hidden;
+        }
+
+        main {
+        
+            max-width: min(100%, 1200px);
+            margin: 0 auto;
+            
+        }
+
+
+
+        .grid {
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(200px, 1fr));
+            grid-auto-rows: minmax(100px, 1fr);
+            
+            gap: 2rem;
+            padding: 1rem;
+            /* background-color: #fef160; */
+        }
+
+        .grid>* {
+            grid-column: span 1;
+            grid-row: span 1;
+            background-color: #23cba7;
+            content: "";
+            border-radius: .2rem;
+        }
+
+        .row-1-col-1 {
+            grid-column: span 1;
+            content: "";
+            grid-column: span 1;
+            
+            background-color: #23cba7;
+        }
+
+        .row-2-col-2 {
+            grid-column: span 2;
+            grid-row: span 2;
+            background-color: #db0a5b;
+            aspect-ratio: 1;
+        }
+
+        .col-2 {
+            grid-column: span 2;
+            grid-row: span 1;
+            content: "";
+            
+            background-color: #3e6ceb;
+
+        }
+
+        .col-6 {
+            grid-column: span 2;
+            grid-row: span 1;
+        }
+
+        .empty {
+            background-color: inherit;
+            display: none;
+        }
+
+        h2{
+            font-size: 2rem;
+            margin-left: 1rem;
+        }
+
+        section{
+            margin: 4rem 0; 
+            margin-bottom: 8rem;   
+        }
+
+        a{
+            text-decoration: none;
+            position: relative;
+        }
+
+        a:focus{
+            outline: 5px solid blueviolet;
+            outline-offset: 4px;    
+        }
+        a > div{
+            position: absolute;
+            right: 0;
+            bottom: 0;
+            font-size: 1.2rem;
+            color: white;
+            font-weight: 800;
+            padding: .5rem;
+            height: clamp(2rem, 5rem,40%);
+            display: flex;
+            align-items: center;
+            justify-content: flex-end;
+            width: 100%;
+            background-color: rgba(0, 0, 0, 0.5);
+            text-align: right;
+        }
+        
+
+        @media screen and (min-width: 750px) and (max-width: 1099px) {}
+
+        @media screen and (min-width: 1100px) {
+            .grid {
+                display: grid;
+                grid-template-columns: repeat(8, minmax(100px, 1fr));
+                grid-template-rows: repeat(2, 1fr);
+                grid-auto-rows: 1fr;
+                gap: 2rem;
+
+                /* background-color: #fef160; */
+            }
+
+            .col-6 {
+                grid-column: span 6;
+                grid-row: span 1;
+            }
+
+            .empty{
+                display: block;
+            }
+        }
+    </style>
+
+<body>
+    <main>
+        <section class="grid">
+            <a href="/" class="row-2-col-2"></a>
+            <div href="/" class="col-6 empty"></div>
+            <a href="/" class="col-1"></a>
+            <a href="/" class="col-1"></a>
+            <a href="/" class="col-1"></a>
+            <a href="/" class="col-1"></a>
+            <a href="/" class="col-1"></a>
+            <a href="/" class="col-1"></a>
+            <a href="/" class="col-2"></a>
+            <a href="/" class="col-2"></a>
+            <a href="/" class="col-2"></a>
+            <a href="/" class="col-2"></a>
+
+
+        </section>
+
+        <h2>Less Important</h2>
+        <section class="grid">
+            
+            <a href="/" class="col-2"></a>
+            <a href="/" class="col-2"></a>
+            <a href="/" class="col-2"></a>
+            <a href="/" class="row-2-col-2"></a>
+            <a href="/" class="col-2"></a>
+            
+            <a href="/" class="col-2"></a>
+            <a href="/" class="col-2"></a>
+        
+
+        </section>
+        <h2>Moderate Important</h2>
+        <section class="grid">
+            
+            <a href="/" class="row-1-col-1"></a>
+            <a href="/" class="row-1-col-1"></a>
+            <a href="/" class="col-2"></a>
+            <a href="/" class="row-2-col-2"></a>
+            <a href="/" class="col-2"></a>
+            
+            <a href="/" class="col-2"></a>
+            
+            <a href="/" class="col-2"></a>
+            <a href="/" class="col-2"></a>
+            
+
+
+        </section>
+        <h2>Entirely Forgettable</h2>
+        <section class="grid">
+            <a href="/" class="row-1-col-1"></a>
+            <a href="/" class="row-1-col-1"></a>
+            
+            <a href="/" class="col-2">1</a>
+            
+            <a href="/" class="col-2"></a>
+            
+            <a href="/" class="col-2"></a>
+            
+            <a href="/" class="col-2"></a>
+            <a href="/" class="col-2"></a>
+            
+
+
+        </section>
+    </main>
+
+
+    <script>
+        const anchors = document.getElementsByTagName("a");
+        
+        function makeChild(text){
+            const p = document.createElement("div");
+            p.textContent=text;
+            return p;
+        }
+
+        for(let i = 0; i < anchors.length; i++){
+            console.log(i)
+            anchors[i].appendChild(makeChild(i));
+        }
+
+
+    </script>
+</body>
+
+</html>

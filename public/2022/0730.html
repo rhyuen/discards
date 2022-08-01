@@ -1,0 +1,209 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta name='color-scheme' content='dark light'>
+    <link rel="preconnect" href="https://fonts.gstatic.com">
+    <link href="https://fonts.googleapis.com/css2?family=Inter&display=swap" rel="stylesheet">
+    <title>07/24/22</title>
+
+
+    <style>
+        * {
+            box-sizing: border-box;
+            font-size: 16px;
+            font-family: 'Inter', sans-serif;
+            color: black;
+            --GREY: rgba(0, 0, 0, 0.1);
+            --PRIMARY_COLOR: #98E690;
+            --SECONDARY_COLOR: white;
+            --COL1: #db0a5b;
+            --COL2: #fef160;
+            --COL3: #23cba7;
+            --COL4: #3e6ceb;
+            --COL5: #d9c8ec;
+
+        }
+
+        ::-webkit-scrollbar {
+            width: 0.8rem;
+            height: 0.5rem;
+        }
+
+        /* Track */
+        ::-webkit-scrollbar-track {
+            background: black;
+        }
+
+        /* Handle */
+        ::-webkit-scrollbar-thumb {
+            background: var(--COL3);
+        }
+
+        /* Handle on hover */
+        ::-webkit-scrollbar-thumb:hover {
+            background: var(--COL2);
+        }
+
+
+
+
+
+        * {
+            user-select: none;
+        }
+
+        html,
+        body {
+            margin: 0;
+            height: 100vh;
+            background: #f3f3f3;
+
+
+        }
+
+        li {
+            list-style-type: none;
+        }
+
+        main {
+            display: grid;
+            place-items: center;
+            height: 80vh;
+        }
+
+        .slide-wrapper {
+            --size-content-3: 25rem;
+            --size-4: 20rem
+            
+            width: 100%;
+            max-inline-size: var(--size-content-3);
+            overflow: hidden;
+            
+            mask: linear-gradient(90deg, transparent 0,black 15% 85%, transparent) 0 50% / 100% calc(100% - (2 * var(--size-4))) no-repeat,
+							linear-gradient(0deg, black, black) 50% 0 / 100% var(--size-4) no-repeat,
+							linear-gradient(0deg, black, black) 50% 100% / 100% var(--size-4) no-repeat;
+        }
+
+        img{
+            height: 100%;
+            width: 100%;
+        }
+        
+
+        .slide-container {
+            --size: 25rem;
+            --size-4: 1.5rem;
+            
+            padding: 0;
+            margin: 0;
+
+            height: var(--size);    
+            width: 100%;
+            display: flex;
+            overflow: auto;
+            gap: var(--size-4);
+            list-style-type: none;
+            margin: 0;
+
+            padding: var(--size-4) 33%;
+            scroll-snap-type: x mandatory;
+            mask: radial-gradient(#0000 0 30%, #000 30%) 50% 20vmin / 240% 100%;
+
+            /* mask: radial-gradient(#0000 0 30%, #000 30%) 50% calc(var(--size) * 0.5) / 250% 100%,
+                linear-gradient(0deg, black, black) 50% 0 / 100% var(--size-4) no-repeat,
+                linear-gradient(0deg, black, black) 50% 100% / 100% var(--size-4) no-repeat; */
+        }
+
+        .slide__item {
+            height: 100%;
+            aspect-ratio: 1;
+            scroll-snap-align: center;
+            
+        }
+
+
+        footer{
+            margin: 0 auto;
+            width: min(65ch, 100%);
+            padding-bottom: 2rem;
+        }
+
+        footer > p {
+            font-size: .9rem;
+        }
+
+        footer > p > a {
+            font-size: .9rem;
+            font-weight: 800;
+        }
+
+        @media screen and (min-width: 750px) and (max-width: 1099px) {}
+
+        @media screen and (min-width: 1100px) {}
+    </style>
+
+<body>
+    <main>
+        <div class="slide-wrapper">
+            <ul class="slide-container">
+                <li class="slide__item">
+                    <img src="https://images.unsplash.com/photo-1523437237164-d442d57cc3c9" alt="" width="500"
+                        height="300" />
+                </li>
+                <li class="slide__item">
+                    <img src="https://images.unsplash.com/photo-1421930866250-aa0594cea05c" alt="" width="500"
+                        height="300" />
+                </li>
+                <li class="slide__item">
+                    <img src="https://images.unsplash.com/photo-1536152470836-b943b246224c" alt="" width="500"
+                        height="300" />
+                </li>
+                <li class="slide__item">
+                    <img src="https://images.unsplash.com/photo-1491824989090-cc2d0b57eb0d" alt="" width="500"
+                        height="300" />
+                </li>
+                <li class="slide__item">
+                    <img src="https://images.unsplash.com/photo-1518717202715-9fa9d099f58a" alt="" width="500"
+                        height="300" />
+                </li>
+                <li class="slide__item">
+                    <img src="https://images.unsplash.com/photo-1523437237164-d442d57cc3c9" alt="" width="500"
+                        height="300" />
+                </li>
+                <li class="slide__item">
+                    <img src="https://images.unsplash.com/photo-1421930866250-aa0594cea05c" alt="" width="500"
+                        height="300" />
+                </li>
+                <li class="slide__item">
+                    <img src="https://images.unsplash.com/photo-1536152470836-b943b246224c" alt="" width="500"
+                        height="300" />
+                </li>
+                <li class="slide__item">
+                    <img src="https://images.unsplash.com/photo-1491824989090-cc2d0b57eb0d" alt="" width="500"
+                        height="300" />
+                </li>
+                <li class="slide__item">
+                    <img src="https://images.unsplash.com/photo-1518717202715-9fa9d099f58a" alt="" width="500"
+                        height="300" />
+                </li>
+            </ul>
+        </div>
+    </main>
+    <footer>
+        <p>An attempt at the 3d media scroller. Done on July 30, 2022. Most of the code is lifted from the CodePen referenced below.</p>
+        <p>Original is <a href="https://codepen.io/jh3y/pen/gOeXgXv?editors=0100">here</a>.</p>
+        <p>I couldn't get it to work.  I don't understand how to use `mask` and/or radial-gradient well enough to get it to work.</p>
+    </footer>
+
+    <script>
+
+
+
+    </script>
+</body>
+
+</html>

@@ -1,0 +1,265 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta name='color-scheme' content='dark light'>
+    <link rel="preconnect" href="https://fonts.gstatic.com">
+    <link href="https://fonts.googleapis.com/css2?family=Inter&display=swap" rel="stylesheet">
+    <title>07/24/22</title>
+
+
+    <style>
+        * {
+            box-sizing: border-box;
+            font-size: 16px;
+            font-family: 'Inter', sans-serif;
+            color: black;
+            --GREY: rgba(0, 0, 0, 0.1);
+            --PRIMARY_COLOR: #98E690;
+            --SECONDARY_COLOR: white;
+            --COL1: #db0a5b;
+            --COL2: #fef160;
+            --COL3: #23cba7;
+            --COL4: #3e6ceb;
+            --COL5: #d9c8ec;
+            
+        }
+
+        ::-webkit-scrollbar {
+            width: 0.8rem;
+            height: 0.5rem;
+        }
+
+        /* Track */
+        ::-webkit-scrollbar-track {
+            background: black;
+        }
+
+        /* Handle */
+        ::-webkit-scrollbar-thumb {
+            background: var(--COL3);
+        }
+
+        /* Handle on hover */
+        ::-webkit-scrollbar-thumb:hover {
+            background: var(--COL2);
+        }
+
+      
+
+     
+
+        * {
+            user-select: none;
+        }
+
+        html,
+        body {
+            margin: 0;
+            height: 100vh;
+            background: #f3f3f3;
+
+        }
+
+        main {
+            display: grid;
+            height: 100%;
+            place-items: center;
+        }
+
+        button{
+            background-color: inherit;
+        }
+
+        .theme-toggle{
+            --size: 2rem;
+            inline-size: var(--size);
+            block-size: var(--size);
+            aspect-ratio: 1;
+            border-radius: 50%;
+
+            background-color: none;
+            padding: 0;
+            border: none;
+
+            cursor: pointer;
+            touch-action: manipulation;
+            -webkit-tap-highlight-color: transparent;
+            outline-offset: 5px;
+
+            
+        }
+
+        @media (hover: none){
+            .theme-toggle{
+                --size: 48px;
+            }
+        }
+
+        .theme-toggle > svg{
+            inline-size: 100%;
+            block-size: 100%;
+            stroke-linecap: round;
+        }
+
+       
+        /* .sun-and-moon{
+
+        }
+
+       
+
+        @supports (cx:1){
+            [data-theme="dark"] > .moon > circle{
+        
+                transform: translateX(0);
+                cx:17;
+            }                   
+        }
+       
+
+        .sun-and-moon > :is(.moon, .sun, .sun-beams){
+            transform-origin: center center;
+        }
+
+        .sun-and-moon > :is(.moon, .sun){
+            fill: var(--icon-fill);
+        }
+
+        .theme-toggle:is(:hover, :focus-visible) > .sun-and-moon{
+            fill: var(--icon-fill-hover);
+        }
+
+        .sun-and-moon > .sun-beams {
+            stroke: var(--icon-fill);
+            stroke-width: 2px;
+        }
+
+        
+
+        .theme-toggle:is(:hover, :focus-visible) .sun-and-moon > .sun-beams{
+            stroke: var(--icon-fill-hover);
+        }
+
+
+
+
+
+
+        .sun-and-moon > .sun{
+            transition: transform .5s ease-in-out;
+        }
+
+        .sun-and-moon > .sun-beams{
+            transition: transform .5s ease-in-out, opacity .5s ease-in-out;
+        }
+
+
+
+        [data-theme="dark"] .sun-and-moon {
+
+        }
+
+        [data-theme="dark"] .sun-and-moon > .sun{
+            transform: scale(1.75);
+            transition-timing-function: ease-in-out;
+            transition-duration: .25s;
+        }
+
+        [data-theme="dark"] .sun-and-moon > .sun-beams{
+            opacity: 0;
+            transform: rotateZ(-25deg);
+            transition-duration: .15s;
+        }
+
+        [data-theme="dark"] .sun-and-moon > .moon > circle{
+            transform: translateX(-7px);
+
+        
+        } */
+
+
+
+
+        @media screen and (min-width: 750px) and (max-width: 1099px) {}
+
+        @media screen and (min-width: 1100px) {}
+    </style>
+
+<body>
+  
+    <main>
+        <button class="theme-toggle" 
+            id="theme-toggle" 
+            title = "Switches between Dark and Light theme" 
+            aria-label="auto"
+            aria-live="polite">
+            <svg class="sun-and-moon" aria-hidden="true" width="24" height="24" viewBox="0 0 24 24">
+                <circle class="sun" cx="12" cy="12" r="6" mask="url(#moon-mask)" fill="currentColor"/>
+                <g class="sun-beams" stroke="currentColor">
+                    <line x1="12" y1="1" x2="12" y2="3"/>
+                    <line x1="12" y1="21" x2="12" y2="23"/>
+                    <line x1="4.22" y1="4.22" x2="5.64" y2="5.64"/>
+                    <line x1="18.36" y1="18.36" x2="19.78" y2="19.78"/>
+                    <line x1="1" y1="12" x2="3" y2="12"/>
+                    <line x1="21" y1="12" x2="23" y2="12"/>
+                    <line x1="4.22" y1="19.78" x2="5.64" y2="18.36"/>
+                    <line x1="18.36" y1="5.64" x2="19.78" y2="4.22"/>
+                    
+                </g>
+                <mask class="moon" id="moon-mask">
+                    <rect x="0" y="0" width="100%" height="100%" fill="white"/>
+                    <circle cx="24" cy="10" r="6" fill="black"/>
+                </mask>
+            </svg>
+        </button>
+    </main>
+
+    <script>
+       const storageKey = "theme-preferences";
+
+       const getColorPreference = () => {
+           if(localStorage.getItem(storageKey)){
+               return localStorage.getItem(storageKey);
+           }else{
+               return window.matchMedia('(prefers-color-scheme: dark)').matches ? 'dark': 'light';
+           }
+       };
+
+       const setPreference = () => {
+           localStorage.setItem(storageKey, theme.value);
+           reflectPreference();
+       };
+
+       const reflectPreference = () => {
+           document.firstElementChild.setAttribute("data-theme", theme.value);
+           document.querySelector("#theme-toggle")
+            ?.setAttribute("aria-label", theme.value);
+       };
+
+       const onClick = () => {
+           theme.value = theme.value === 'light' ? 'dark' : 'light';
+           setPreference();
+       }
+
+       window.onload = () => {
+           reflectPreference();
+           document
+            .getElementById("theme-toggle")
+            .addEventListener("click", onClick);
+       };
+
+       window.matchMedia('(prefers-color-scheme: dark)')
+        .addEventListener('change', ({matches: isDark}) => {
+            theme.value = isDark ? 'dark' : 'light';
+            setPreference();
+        });
+
+
+    </script>
+</body>
+
+</html>

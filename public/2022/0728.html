@@ -1,0 +1,272 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta name='color-scheme' content='dark light'>
+    <link rel="preconnect" href="https://fonts.gstatic.com">
+    <link href="https://fonts.googleapis.com/css2?family=Inter&display=swap" rel="stylesheet">
+    <title>07/24/22</title>
+
+
+    <style>
+        * {
+            box-sizing: border-box;
+            font-size: 16px;
+            font-family: 'Inter', sans-serif;
+            color: black;
+            --GREY: rgba(0, 0, 0, 0.1);
+            --PRIMARY_COLOR: #98E690;
+            --SECONDARY_COLOR: white;
+            --COL1: #db0a5b;
+            --COL2: #fef160;
+            --COL3: #23cba7;
+            --COL4: #3e6ceb;
+            --COL5: #d9c8ec;
+
+        }
+
+        ::-webkit-scrollbar {
+            width: 0.8rem;
+            height: 0.5rem;
+        }
+
+        /* Track */
+        ::-webkit-scrollbar-track {
+            background: black;
+        }
+
+        /* Handle */
+        ::-webkit-scrollbar-thumb {
+            background: var(--COL3);
+        }
+
+        /* Handle on hover */
+        ::-webkit-scrollbar-thumb:hover {
+            background: var(--COL2);
+        }
+
+
+
+
+
+        * {
+            user-select: none;
+        }
+
+        html,
+        body {
+            margin: 0;
+            height: 100vh;
+            background: #f3f3f3;
+
+
+        }
+
+        main {
+            display: grid;
+            grid-template-columns: 1fr [content-start] min(65ch, 100%) [content-end] 1fr;
+            
+            padding-top: 10rem;
+
+        }
+
+        
+
+        main>* {
+            grid-column: content-start/content-end;
+            padding: 1.5rem;
+        }
+
+
+        main>section {
+            display: flex;
+            flex-direction: column;
+            
+        }
+
+        h1 {
+            font-size: 2rem;
+            margin-bottom: .5rem;
+        }
+
+        h2{
+            font-size: 1.75rem;
+        }
+
+        h2::before, h2::after{
+            content: "";
+            background-color: #23cba7;
+            display: inline-block;
+            vertical-align: center;
+            width: 2rem;
+            height: .5rem;
+            margin: .25rem;
+        }
+
+        p{
+            line-height: 1.75;
+            
+        }
+
+
+        .subtitle {
+            margin: 0;
+        }
+
+        ul{
+            
+            padding: 0;
+        }
+
+        li {
+            list-style-type: none;
+            margin-top: 1.5rem;
+            
+        }
+
+        footer {
+            display: grid;
+            border-top: .5rem solid #db0a5b;
+            margin-left: 1.5rem;
+            margin-right: 1.5rem;
+            grid-template-columns: 1fr [content-start] min(65ch, 100%) [content-end] 1fr;
+            margin-top: 4rem;
+            padding-top: 4rem;
+
+        }
+
+        footer>* {
+            grid-column: content-start/content-end;
+            
+
+        }
+
+        footer > p {
+            font-size: .9rem;
+        }
+
+        footer > p > a{
+            font-size: .9rem;
+            font-weight: 600;
+        }
+
+        .sun{
+           vertical-align: center;
+           margin-left: .5rem;
+           
+        }
+
+        .sun-circle{
+            fill: #eb876e;
+        }
+
+        .sun-beams{
+            stroke: #db0a5b;
+            stroke-linecap: round;
+        }
+
+
+
+        @media screen and (min-width: 750px) and (max-width: 1099px) {}
+
+        @media screen and (min-width: 1100px) {
+
+
+        }
+    </style>
+
+<body>
+    <main>
+        <section>
+            <div>
+                <h1>How High We Go in the Dark</h1>
+                <p class="subtitle">by <strong>Sequoia Nagamatsu</strong></p>
+                <p>Beginning in 2030, a grieving archeologist arrives in the Arctic Circle to continue the work of his
+                    recently deceased daughter at the Batagaika crater, where researchers are studying long-buried
+                    secrets
+                    now revealed in melting permafrost, including the perfectly preserved remains of a girl who appears
+                    to
+                    have died of an ancient virus.</p>
+                <p>
+                    Once unleashed, the Arctic Plague will reshape life on earth for generations to come, quickly
+                    traversing
+                    the globe, forcing humanity to devise a myriad of moving and inventive ways to embrace possibility
+                    in
+                    the face of tragedy. In a theme park designed for terminally ill children, a cynical employee falls
+                    in
+                    love with a mother desperate to hold on to her infected son. A heartbroken scientist searching for a
+                    cure finds a second chance at fatherhood when one of his test subjects—a pig—develops the capacity
+                    for
+                    human speech. A widowed painter and her teenaged granddaughter embark on a cosmic quest to locate a
+                    new
+                    home planet.
+                </p>
+                <p>
+                    From funerary skyscrapers to hotels for the dead to interstellar starships, Sequoia Nagamatsu takes
+                    readers on a wildly original and compassionate journey, spanning continents, centuries, and even
+                    celestial bodies to tell a story about the resiliency of the human spirit, our infinite capacity to
+                    dream, and the connective threads that tie us all together in the universe.
+                    <svg class="sun" aria-hidden="true" width="24" height="24" viewBox="0 0 24 24">
+                        <circle class="sun-circle" cx="12" cy="12" r="6" mask="url(#moon-mask)" fill="currentColor"/>
+                        <g class="sun-beams" stroke="currentColor">
+                            <line x1="12" y1="1" x2="12" y2="3"/>
+                            <line x1="12" y1="21" x2="12" y2="23"/>
+                            <line x1="4.22" y1="4.22" x2="5.64" y2="5.64"/>
+                            <line x1="18.36" y1="18.36" x2="19.78" y2="19.78"/>
+                            <line x1="1" y1="12" x2="3" y2="12"/>
+                            <line x1="21" y1="12" x2="23" y2="12"/>
+                            <line x1="4.22" y1="19.78" x2="5.64" y2="18.36"/>
+                            <line x1="18.36" y1="5.64" x2="19.78" y2="4.22"/>
+                            
+                        </g>
+                        
+                    </svg>
+                </p>
+
+            </div>
+            <div>
+                <h2>Table of Contents</h2>
+                <ul>
+                    <li>30,000 Years beneath a Eulogy</li>
+                    <li>City of Laughter</li>
+                    <li>Through the Garden of Memory</li>
+                    <li>Pig Son</li>
+                    <li>Elegy Hotel</li>
+                    <li>Speak, Fetch, Say I Love You</li>
+                    <li>Songs of Your Decay</li>
+                    <li>Life around the Event Horizon</li>
+                    <li>A Gallery a Century, a Cry a Millenium</li>
+                    <li>The Used-to-Be Party</li>
+                    <li>Melancholy Nights in a Tokyo Virtual Cafe</li>
+                    <li>
+                        Before You Melt Into the Sea
+                    </li>
+                    <li>
+                        Grave Friends
+                    </li>
+                    <li>
+                        The Scope of Possibility
+                    </li>
+                </ul>
+            </div>
+        </section>
+    </main>
+    <footer>
+        <p>Made on July 28, 29/2022</p>
+        <p>I added the Star Svg from 97/26 and changed the colours.  I added the green bars around Table of Contents.</p> 
+        <p>Plot synopsis from <a href="https://www.goodreads.com/book/show/57850265-how-high-we-go-in-the-dark">here</a>.</p>
+        <p>Table of Contents from the book itself.</p>
+    </footer>
+
+
+    <script>
+
+
+
+    </script>
+</body>
+
+</html>

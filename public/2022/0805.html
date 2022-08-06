@@ -1,0 +1,213 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta name='color-scheme' content='dark light'>
+    <link rel="preconnect" href="https://fonts.gstatic.com">
+    <link href="https://fonts.googleapis.com/css2?family=Inter&display=swap" rel="stylesheet">
+    <title>08/01/22</title>
+
+
+    <style>
+        * {
+            box-sizing: border-box;
+            font-size: 16px;
+            font-family: 'Inter', sans-serif;
+            color: black;
+            --GREY: rgba(0, 0, 0, 0.1);
+            --PRIMARY_COLOR: #98E690;
+            --SECONDARY_COLOR: white;
+            --COL1: #db0a5b;
+            --COL2: #fef160;
+            --COL3: #23cba7;
+            --COL4: #3e6ceb;
+            --COL5: #d9c8ec;
+
+        }
+
+        ::-webkit-scrollbar {
+            width: 0.8rem;
+            height: 0.5rem;
+        }
+
+        /* Track */
+        ::-webkit-scrollbar-track {
+            background: black;
+        }
+
+        /* Handle */
+        ::-webkit-scrollbar-thumb {
+            background: var(--COL3);
+        }
+
+        /* Handle on hover */
+        ::-webkit-scrollbar-thumb:hover {
+            background: var(--COL2);
+        }
+
+
+
+
+
+        * {
+            user-select: none;
+        }
+
+        html,
+        body {
+            margin: 0;
+            height: 100vh;
+            background-color: #f3f3f3;
+
+        }
+
+        ul{
+            margin: 0;
+            padding: 0;
+        }
+
+        li {
+            list-style-type: none;
+        }
+
+
+        h1{
+            font-size: 2rem;
+        }
+
+        main {
+        
+        
+
+        }
+
+        .scroller{
+            display: flex;
+            overflow-x: scroll;
+            overflow-y: hidden;
+            scroll-snap-type: x mandatory;
+            
+            width: 100vw;
+            height: 100vh;
+        }
+        .scroller__item{
+            background: #db0a5b;   
+            scroll-snap-align: center;
+            width: 100%;
+            flex-shrink: 0;
+            /* display: grid;
+            place-items: center; */
+            position: relative;
+            
+        }
+
+
+        .pencil-effect{
+            background: url("../images/fw5.jpg"), url("../images/fw5.jpg");
+            background-size: cover;
+            background-blend-mode: difference;
+            background-position: calc(50% - 1px) calc(50% - 1px), calc(50% + 1px) calc(50% + 1px);
+            filter: brightness(3) invert(1) grayscale(1);
+            width: 100%;
+            height: 100%;
+        }
+
+        .chalk-effect{
+            background: url("../images/fw3.jpg"), url("../images/fw3.jpg");
+            background-size: cover;
+            background-blend-mode: difference;
+            background-position: calc(50% - 1px) calc(50% - 1px), calc(50% + 1px) calc(50% + 1px);
+            filter: brightness(3) grayscale(1);
+            width: 100%;
+            height: 100%;
+        }
+
+        .night-vision{
+            background: url("../images/fw2.jpg") ,
+                radial-gradient(rgba(0,255,0, 0.8), black),
+                repeating-linear-gradient(
+                    transparent 0,
+                    rgba(0,0,0, 0.2) 3px,
+                    transparent 6px
+                );
+            background-blend-mode: overlay;
+            background-size: cover;
+            background-position: center;
+            
+            width: 100%;
+            height: 100%;
+        }
+
+        .text-container{
+            position: absolute;
+            top: 50%;
+            left: 50%;
+            transform: translate(-50%, -50%);
+            background: white;
+            padding: 2rem;
+            border-radius: .5rem;
+            border: 1px solid rgba(0,0,0, 0.4);
+            color: black;
+            width: min(65ch, 100%);
+            margin: 1rem;
+        }
+
+        a {
+            font-weight: 800;
+            background-color: lavender;
+        }
+
+        @media screen and (min-width: 750px) and (max-width: 1099px) {}
+
+        @media screen and (min-width: 1100px) {}
+    </style>
+
+<body>
+    <main>
+        
+        <ul class="scroller">
+            <li class="scroller__item">
+                <img class="pencil-effect">
+                <div class="text-container">
+                    <h1>A Sketch Outline: An attempt at CSS Background Blend Modes.</h1>
+                    
+                    <p>CSS Background Blend Mode applied to images.</p>
+                    <p>I followed the steps from <a href="https://blog.logrocket.com/advanced-effects-with-css-background-blend-modes-4b750198522a/">here</a>.</p>
+                    <p>The steps were relatively straight forward and everything worked on the first try.</p>
+                    <p>The image is a screenshot from the game 'Firewatch'.  I did not take the screenshot myself.</p>
+                    <p>Subsequent images are made using the same sources.  Scroll right or push the 'right' arrow key.</p>
+                    <p>Made on August 5,6 2022.</p>
+                </div>
+            </li>
+            <li class="scroller__item">
+                <img class="chalk-effect"/>
+                <div class="text-container">
+                    <h1>A Chalk Outline</h1>
+                    <p>Attempt two at using background-blend-mode in CSS.</p>
+                    <p>I had to use different elements for the image transforms and the text.</p>
+                    <p>If I used the text and the image transform in the same element, then the transforms applied to the text as well.</p>
+                    <p>So, the parent element to both the image and the text is 'position: relative' and this text-container is 'position: absolute' and centered using 'top: 50%', 'left: -50%' and 'transform: translate(-50%, -50%)'.</p>
+                </div>
+            </li>
+            <li class="scroller__item">
+                <img class="night-vision"/>
+                <div class="text-container">
+                    <h1>A Night Vision Outline</h1>
+                    <p>Attempt three at using background-blend-mode in CSS.</p>
+                
+                </div>
+            </li>
+            
+        </ul>
+    </main>
+    <script>
+
+
+
+    </script>
+</body>
+
+</html>

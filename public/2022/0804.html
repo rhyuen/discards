@@ -1,0 +1,335 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta name='color-scheme' content='dark light'>
+    <link rel="preconnect" href="https://fonts.gstatic.com">
+    <link href="https://fonts.googleapis.com/css2?family=Inter&display=swap" rel="stylesheet">
+    <title>08/01/22</title>
+
+
+    <style>
+        * {
+            box-sizing: border-box;
+            font-size: 16px;
+            font-family: 'Inter', sans-serif;
+            color: black;
+            --GREY: rgba(0, 0, 0, 0.1);
+            --PRIMARY_COLOR: #98E690;
+            --SECONDARY_COLOR: white;
+            --COL1: #db0a5b;
+            --COL2: #fef160;
+            --COL3: #23cba7;
+            --COL4: #3e6ceb;
+            --COL5: #d9c8ec;
+
+        }
+
+        ::-webkit-scrollbar {
+            width: 0.8rem;
+            height: 0.5rem;
+        }
+
+        /* Track */
+        ::-webkit-scrollbar-track {
+            background: black;
+        }
+
+        /* Handle */
+        ::-webkit-scrollbar-thumb {
+            background: var(--COL3);
+        }
+
+        /* Handle on hover */
+        ::-webkit-scrollbar-thumb:hover {
+            background: var(--COL2);
+        }
+
+
+
+
+
+        * {
+            user-select: none;
+        }
+
+        html,
+        body {
+            margin: 0;
+            height: 100vh;
+
+
+        }
+
+        li {
+            list-style-type: none;
+        }
+
+
+
+        main {
+            display: grid;
+            grid-template-columns: [edge-start] 1fr [content-start] min(85ch, 100%) [content-end] 1fr [edge-end];
+
+        }
+
+        main>section {
+            grid-column: content-start/content-end;
+            padding: 2rem;
+        }
+
+        .spectrum-background {
+            background: linear-gradient(red, transparent),
+                linear-gradient(to top left, lime, transparent),
+                linear-gradient(to top right, blue, transparent);
+            background-blend-mode: screen;
+        }
+
+        .hero {
+            grid-column: edge-start/edge-end;
+            display: grid;
+            grid-template-columns: 1fr [text-start] min(85ch, 100%) [text-end] 1fr;
+            height: 90vh;
+            place-items: center;
+        }
+
+        .hero-text {
+            grid-column: text-start/text-end;
+        }
+
+        .hero-text h1 {
+            font-size: 3rem;
+            font-weight: 600;
+            color: white;
+            margin: 0;
+        }
+
+        .hero-text p {
+            margin-bottom: 2rem;
+            color: white;
+            font-size: 1.5rem;
+        }
+
+
+
+        button {
+            background: white;
+            font-weight: 800;
+            font-size: 1.2rem;
+            border: white;
+            border-radius: .5rem;
+            padding: .5rem 2rem;
+            transition: background .4s ease-in-out, color .4s ease-in-out;
+        }
+
+        button:hover{
+            color: white;
+            background: linear-gradient(red, transparent),
+                linear-gradient(to top left, lime, transparent),
+                linear-gradient(to top right, blue, transparent);
+            background-blend-mode: screen;
+        }
+
+        .align-right {
+            
+            
+            text-align: right;
+            
+        }
+
+
+        .content {
+            display: flex;
+            flex-direction: column;
+            margin-bottom: 8rem;
+        }
+
+        .content * {
+            color: white;
+        }
+
+        .content h2 {
+            font-size: 2.5rem;
+        }
+
+        .content p {
+            line-height: 1.5;
+        }
+
+        .content .spectrum-background{
+            padding: 2rem;
+            border-radius: 1rem;
+        }
+
+        .content quote {
+            font-style: italic;
+            font-size: 2.5rem;
+        }
+
+        .pancake {
+            display: flex;
+            flex-wrap: wrap;
+            justify-content: space-between;
+        }
+
+        .pancake__item:nth-child(2n):before{
+            content: "2";
+            background: gray;
+            height: 2rem;
+            width: 2rem;
+            font-weight: 800;
+            border-radius: 50%;
+            display: flex;
+            text-align: center;
+            margin-bottom: 2rem;;
+            justify-content: center;
+            align-items: center;
+
+        }
+
+        .pancake__item:nth-child(3n):before{
+            content: "3";
+            background: gray;
+            height: 2rem;
+            width: 2rem;
+            font-weight: 800;
+            border-radius: 50%;
+            display: flex;
+            text-align: center;
+            margin-bottom: 2rem;;
+            justify-content: center;
+            align-items: center;
+
+        }
+
+        .pancake__item:first-child:before{
+            content: "1";
+            background: gray;
+            height: 2rem;
+            width: 2rem;
+            font-weight: 800;
+            border-radius: 50%;
+            display: flex;
+            text-align: center;
+            margin-bottom: 2rem;;
+            justify-content: center;
+            align-items: center;
+
+        }
+
+        .pancake__item {
+            flex: 0 1 225px;
+            margin-right: 1rem;
+        }
+
+        .pancake__item:last-child {
+            margin-right: 0;
+        }
+
+        footer {
+            margin: 0 auto;
+            padding: 4rem 2rem;
+            width: min(85ch, 100%);
+        }
+
+        footer * {
+            color: white;
+            font-size: .9rem;
+        }
+
+        footer a {
+            font-weight: 800;
+        }
+
+
+        @media screen and (min-width: 750px) and (max-width: 1099px) {}
+
+        @media screen and (min-width: 1100px) {}
+    </style>
+
+<body>
+    <main>
+        <section class="hero">
+            <div class="hero-text">
+                <h1>The world is in the middle of the first energy crisis of the 21st century.
+                </h1>
+                <p>High energy prices, especially for oil, gas, and coal, are driving decades-high inflation in various
+                    countries, some of which are also experiencing energy shortages.</p>
+                <button>Learn more.</button>
+            </div>
+        </section>
+        <section class="content">
+            <h2>
+                Oil Production: OPEC Countries vs. Rest of the World
+
+            </h2>
+            <p>The OPEC countries are the largest oil producers collectively, with Saudi Arabia alone making up
+                one-third of OPEC production. It’s also important to note that OPEC production remains below
+                pre-pandemic levels after the organization reduced its output by an unprecedented 10 million barrels per
+                day (B/D) in 2020.
+
+            </p>
+        </section>
+        <section class="content">
+            <h2>
+                The Largest Oil Producers in 2021
+            </h2>
+            <div class="pancake">
+                <p class="pancake__item">Roughly 43% of the world’s oil production came from just three countries in
+                    2021—the U.S., Saudi
+                    Arabia,
+                    and Russia. Together, these three countries produced more oil than the rest of the top 10 combined.
+                </p>
+                <p class="pancake__item">
+                    Following the OPEC countries, the U.S., Canada, and Mexico accounted for just over a quarter of
+                    global
+                    oil production in 2021. Nearly 70% of North American oil production came from the U.S., the world’s
+                    largest oil producer.
+                </p>
+                <p class="pancake__item">Similarly, within the CIS—an organization of post-Soviet Union countries—Russia
+                    was by far the
+                    largest
+                    producer, accounting for 80% of total CIS production.
+                </p>
+            </div>
+        </section>
+        <section class="content align-right">
+            <h2>
+                How the Energy Crisis is Affecting Oil Production
+            </h2>
+            <p>To combat the oil crunch, the rest of the world is ramping up oil supply through increased production or
+                releasing strategic petroleum reserves (SPRs). U.S. oil production is expected to rise by 1 million B/D
+                in 2022 to a record-high. Simultaneously, Western nations are calling on OPEC members to increase their
+                output to ease prices. However, OPEC nations are sticking to their planned production hikes, with output
+                still below early 2020 levels.
+
+            </p>
+        </section>
+        <section class="content">
+            <div class="spectrum-background">
+                <h2>
+                    <quote>It's part of our 'Climate Plan'. </quote>
+                </h2>
+
+                <p>-- Generic Canadian Politican, On Canada's continued investment in Fossil Fuels</p>
+            </div>
+        </section>
+    </main>
+    <footer>
+        <p>Made on August 4/5, 2022</p>
+        <p>Text from Visual Capitalist <a
+                href="https://www.visualcapitalist.com/visualizing-the-worlds-largest-oil-producers/">here</a>.</p>
+        <p>An attempt at CSS Background blends.</p>
+        <p><a href="https://blog.logrocket.com/advanced-effects-with-css-background-blend-modes-4b750198522a/">This</a> was used as a reference.</p>
+    </footer>
+    <script>
+
+
+
+    </script>
+</body>
+
+</html>

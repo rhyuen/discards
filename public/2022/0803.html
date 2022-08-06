@@ -1,0 +1,265 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta name='color-scheme' content='dark light'>
+    <link rel="preconnect" href="https://fonts.gstatic.com">
+    <link href="https://fonts.googleapis.com/css2?family=Inter&display=swap" rel="stylesheet">
+    <title>08/01/22</title>
+
+
+    <style>
+        * {
+            box-sizing: border-box;
+            font-size: 16px;
+            font-family: 'Inter', sans-serif;
+            color: black;
+            --GREY: rgba(0, 0, 0, 0.1);
+            --PRIMARY_COLOR: #98E690;
+            --SECONDARY_COLOR: white;
+            --COL1: #db0a5b;
+            --COL2: #fef160;
+            --COL3: #23cba7;
+            --COL4: #3e6ceb;
+            --COL5: #d9c8ec;
+
+        }
+
+        ::-webkit-scrollbar {
+            width: 0.8rem;
+            height: 0.5rem;
+        }
+
+        /* Track */
+        ::-webkit-scrollbar-track {
+            background: black;
+        }
+
+        /* Handle */
+        ::-webkit-scrollbar-thumb {
+            background: var(--COL3);
+        }
+
+        /* Handle on hover */
+        ::-webkit-scrollbar-thumb:hover {
+            background: var(--COL2);
+        }
+
+
+
+
+
+        * {
+            user-select: none;
+        }
+
+        html,
+        body {
+            margin: 0;
+            height: 100vh;
+            background: #f3f3f3;
+
+
+        }
+
+        li {
+            list-style-type: none;
+        }
+
+
+
+        main {
+            display: grid;
+            grid-template-columns: [edge-start] 1fr [content-start] min(85ch, 100%) [content-end] 1fr [edge-end];
+            
+        }
+
+        .full-bleed{
+            grid-column: edge-start/edge-end;
+        }
+
+        .hero-image{
+            background-image: url("../images/fw2.jpg");
+            background-size: cover;
+            height: 90vh;
+            display: grid;
+            place-items: center;
+        }
+
+        .hero-text{
+            display: flex;
+            flex-direction: column;
+            width: min(60ch, 100%);
+            margin: 0 auto;
+            
+        }
+
+        .hero-text h1{
+            font-size: 3.5rem;
+            background-color: rgba(0, 0, 0, 0.4);
+            width: fit-content;
+            padding: 1rem;
+            color: white;
+            margin: 0;
+        }
+
+        .hero-text p{
+            background-color: rgba(0, 0, 0, 0.4);
+            width: fit-content;
+            padding: 1rem;
+            margin-top: .5rem;
+            margin-bottom: 2rem;
+            color: var(--COL3);
+        }
+
+        button{
+            width: fit-content;
+            padding: .5rem 2rem;
+            border-radius: .5rem;
+            border: .2rem solid #db0a5b;
+            color: #db0a5b;
+            font-weight: 800;
+            background-color: white;
+            transition: background-color .4s ease-in-out, color .4s ease-in-out;
+        }
+
+        button:hover{
+            background-color: #db0a5b;
+            color: white;
+        }
+
+        .hero-image button{
+            margin-left: 1rem;
+        }
+
+
+        main > section{
+            grid-column: content-start/content-end;
+        }
+
+        h2 {
+            font-size: 2.5rem;
+            color: #db0a5b;
+        }
+
+        .content{
+            margin: 4rem 1rem;
+        }
+
+        .pancake{
+            margin-top: 4rem;
+            display: flex;
+            flex-wrap: wrap;
+            justify-content: space-around;
+        }
+
+        .pancake__item{
+            flex: 0 1 250px;
+            margin-right: 1rem;
+            margin-bottom: 2rem;
+        }
+
+        .pancake__item:last-child{
+            margin-right: 0;
+        }
+        
+        .pancake__item__placeholder {
+            aspect-ratio: 1;
+            content: '';
+            display: block;
+            background: #db0a5b;
+            border-radius: .5rem;
+        }
+
+        footer {
+            margin: 4rem auto;
+            width: min(85ch, 100%);
+            padding: 4rem 1rem;
+        }
+
+        footer  * {
+            font-size: .8rem;
+            color: var(--COL1);
+        }
+
+
+
+
+        @media screen and (min-width: 750px) and (max-width: 1099px) {}
+
+        @media screen and (min-width: 1100px) {}
+    </style>
+
+<body>
+    <main>
+        <section class="full-bleed hero-image">
+            <div class="hero-text">
+                <h1>Avoid the Pox!</h1>
+                <p>Cover your face holes!</p>
+                <button>Learn more.</button>
+            </div>
+        </section>
+        <section class="content">
+            <h2>The Pox</h2>
+            <p>The Pox of causes oozing sores all over your body.</p>
+            <p>It lasts for up to seven weeks and contagious!</p>
+            <p>You can spread it just by breathing in the same room as people!</p>
+            <p>Or if people touch your new wet bits from the Pox.</p>
+        </section>
+        <section class="content">
+            <h2>Symptoms</h2>
+            <div class="pancake">
+                <div class="pancake__item">
+                    <div class="pancake__item__placeholder"></div>
+                    <p>Red sores on your body.</p>
+                </div>
+                <div class="pancake__item">
+                    <div class="pancake__item__placeholder"></div>
+                    <p>Intense pain from sores.</p>
+                </div>
+                <div class="pancake__item">
+                    <div class="pancake__item__placeholder"></div>
+                    <p>The sores pussing and scabbing over.</p>
+                </div>
+            </div>
+        </section>
+        <section class="content">
+            <h2>Cleaning of Infected areas</h2>
+            <p>Areas with POX have POX stable on them for weeks or years and makes humans susceptible to POX infection.</p>
+            <p>Soap and water doesn't cut it.</p>
+            <div class="pancake">
+                <div class="pancake__item">
+                    <div class="pancake__item__placeholder blue"></div>
+                    <p>Clean with a light Peroxide solution, for fruits/vegetables that you don't cook.</p>
+                </div>
+                <div class="pancake__item">
+                    <div class="pancake__item__placeholder"></div>
+                    <p>UV-C Light.</p>
+                </div>
+                <div class="pancake__item">
+                    <div class="pancake__item__placeholder"></div>
+                    <p>I think hand sanitizer might do the job, but possibly not?</p>
+                </div>
+            </div>
+
+            
+        </section>
+    </main>
+    <footer>
+        <p>Made on August 3, 2022</p>
+        <p>Just some facts I recalled about Monkeypox that I'm calling, 'THE POX'.</p>
+        <p>Facts above may or may not be accurate, so go read some medical documents for real information.</p>
+        <p>Some statements are overlapping because I haven't read much on the topic.</p>
+        <p>You need flex-wrap: wrap for the pancake elements to collapse.  Which was why the pancake from 2 days ago didn't work as expected.</p>
+    </footer>
+        <script>
+
+
+
+        </script>
+</body>
+
+</html>

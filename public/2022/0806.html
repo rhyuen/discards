@@ -1,0 +1,264 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta name='color-scheme' content='dark light'>
+    <link rel="preconnect" href="https://fonts.gstatic.com">
+    <link href="https://fonts.googleapis.com/css2?family=Inter&display=swap" rel="stylesheet">
+    <title>08/01/22</title>
+
+
+    <style>
+        * {
+            box-sizing: border-box;
+            font-size: 16px;
+            font-family: 'Inter', sans-serif;
+            color: black;
+            --GREY: rgba(0, 0, 0, 0.1);
+            --PRIMARY_COLOR: #98E690;
+            --SECONDARY_COLOR: white;
+            --COL1: #db0a5b;
+            --COL2: #fef160;
+            --COL3: #23cba7;
+            --COL4: #3e6ceb;
+            --COL5: #d9c8ec;
+
+        }
+
+        ::-webkit-scrollbar {
+            width: 0.8rem;
+            height: 0.5rem;
+        }
+
+        /* Track */
+        ::-webkit-scrollbar-track {
+            background: black;
+        }
+
+        /* Handle */
+        ::-webkit-scrollbar-thumb {
+            background: var(--COL3);
+        }
+
+        /* Handle on hover */
+        ::-webkit-scrollbar-thumb:hover {
+            background: var(--COL2);
+        }
+
+
+
+
+
+        * {
+            user-select: none;
+        }
+
+        html,
+        body {
+            margin: 0;
+            height: 100vh;
+            background-color: #f3f3f3;
+
+        }
+
+        ul {
+            margin: 0;
+            padding: 0;
+        }
+
+        li {
+            list-style-type: none;
+        }
+
+        figure{
+            margin: 0;
+            margin-right: .5rem;
+        }
+
+        h1 {
+            font-size: 2rem;
+            margin: 0;
+            padding: 0;
+        }
+
+        .title-header{
+            margin:4rem 2rem;
+        }
+
+        main {
+            display: flex;
+            flex-direction: column;
+            justify-content: space-around;
+            height: 90vh;
+        }
+
+
+        .scroller {
+            display: flex;
+            scroll-snap-type: x mandatory;
+            
+            overflow-x: scroll;
+            overflow-y: hidden;
+            height: 75vh;
+            padding: 2rem;
+        
+        }
+
+
+
+        .scroller__item {
+            scroll-snap-align: center;
+            flex-shrink: 0;
+            aspect-ratio: 3/5;
+            margin-right: 2rem;
+        }
+
+        .scroller__item figure{
+            height: 80%;
+        }
+
+        .scroller__item h2{
+            font-size: 1.5rem;
+        }
+
+        .scroller__item p {
+            font-size: .9rem;
+        }
+
+        /* .scroller__item:is(:first-of-type, :last-of-type){
+            scroll-snap-align: none;
+        } */
+
+        /* .scroller__item:is(:first-of-type){
+            margin-left: 5rem;
+            padding-left: 5rem;
+        }
+
+        .scroller__item:is(:last-of-type){
+            margin-right: 5rem;
+            padding-right: 5rem;
+        } */
+
+        .scroller img{
+            height: 100%;
+            width: 100%;
+            object-fit: cover;
+            border-radius: .5rem;
+        }
+
+        footer {
+            padding: 4rem 2rem;
+        }
+
+        footer * {
+            font-size: .9rem;
+        }
+
+        footer a {
+            font-size: .9rem;
+            font-weight: 800;
+            background: var(--COL2);
+        }
+
+
+
+        @media screen and (min-width: 750px) and (max-width: 1099px) {}
+
+        @media screen and (min-width: 1100px) {}
+    </style>
+
+<body>
+    <main>
+        <h1 class="title-header"> Horizontal Scroller</h1>
+        <ul class="scroller" id="scroller">
+            
+
+        </ul>
+
+    </main>
+    <footer>
+        <p>Made on August 6,7 2022.</p>
+        <p>A horizontal scroller with scroll snap.  I tried to get the bounceback effect at the ends of the scroller to work.  However, if I did, then you wouldn't be able to highlight the first and last items, so I disabled it.</p>
+        <p>I followed <a href="https://twitter.com/jh3yy/status/1556030016311283713?s=20&t=hLwBJiyvSPzmk0Th2Xh6Tw">this</a> for reference.</p>
+        <p>Images are from <a href="https://unsplash.com">Unsplash</a>.</p>
+        <p>Adding extra padding and margin to the first and last items also seems to make them smaller than the rest of the elements.</p>
+        <p>If you set the 'overflow: hidden' then you can no longer scroll the item, but the Arrow Keys still work.</p>
+    </footer>
+    <script>
+        const data = [
+            {
+                src: "https://images.unsplash.com/photo-1659402882702-29dd07ba0581?ixlib=rb-1.2.1&ixid=MnwxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8&auto=format&fit=crop&w=1015&q=80",
+                title: "Desert",
+                description: "A portrait view from a high altitude of a desert.  The sky is overcast."
+
+            },
+            {
+                src: "https://images.unsplash.com/photo-1659439927054-665e92d46745?ixlib=rb-1.2.1&ixid=MnwxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8&auto=format&fit=crop&w=2787&q=80",
+                title: "Green Leaf",
+                description: "A portrait view of a series of Green leaves with bright yellow veins still appended to the body of the plant.  The main body of the plant is obscured."
+
+            }, {
+                src: "https://images.unsplash.com/photo-1659636688047-65f34ef54da7?ixlib=rb-1.2.1&ixid=MnwxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8&auto=format&fit=crop&w=987&q=80",
+                title: "Mountain",
+                description: "A mountain with snow on it.  The Sky is blue and there's a dear in front of the mountain, on another mountain."
+            },
+            {
+                src: "https://images.unsplash.com/photo-1659516343047-3874589888d4?ixlib=rb-1.2.1&ixid=MnwxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8&auto=format&fit=crop&w=1014&q=80",
+                title: "Monument",
+                description: "A portrait view from a high altitude of a desert.  The sky is overcast. It is dusk and there are stars visible in the sky."
+            },
+            {
+                src: "https://images.unsplash.com/photo-1659347257477-c965ea8aff9d?ixlib=rb-1.2.1&ixid=MnwxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8&auto=format&fit=crop&w=987&q=80",
+                title: "Lake",
+                description: "Forests are preceded by a tranquil body of water.  There are mountains in the distance with snow on them.  The sky is a light blue with a few tufts of clouds."
+            },
+            {
+                src: "https://images.unsplash.com/photo-1659221483823-b9dcb02dc6c3?ixlib=rb-1.2.1&ixid=MnwxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8&auto=format&fit=crop&w=987&q=80",
+                title: "Mountain 2",
+                description: "Another mountain with snow on it, but not a lot.  There are ochre coloured rocks preceding the mountain."
+            },
+            {
+                src: "https://images.unsplash.com/photo-1659077545364-817dc936837b?ixlib=rb-1.2.1&ixid=MnwxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8&auto=format&fit=crop&w=987&q=80",
+                title: "Green plant",
+                description: "A green plant with green leaves.  A green fruit wet with dew is prominently featured."
+            }
+        ];
+
+        const scroller = document.getElementById("scroller");
+
+        function makeScrollerItem(data) {
+            const { src, title, description } = data;
+            const figure = document.createElement("figure");
+            const caption = document.createElement("figcaption");
+            const header = document.createElement("h2");
+            header.textContent = title;
+            const text = document.createElement("p");
+            text.textContent = description;
+            const listItem = document.createElement("li");
+            listItem.classList.add("scroller__item");
+            const image = document.createElement("img");
+            image.src = src;
+
+            caption.appendChild(header);
+            caption.appendChild(text);
+
+            figure.appendChild(image);
+            figure.appendChild(caption);
+            listItem.appendChild(figure);
+
+            return listItem;
+        }
+
+
+        for (let i = 0; i < data.length; i++) {
+            scroller.appendChild(makeScrollerItem(data[i]));
+        }
+
+
+    </script>
+</body>
+
+</html>

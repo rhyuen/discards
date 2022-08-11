@@ -1,0 +1,269 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta name='color-scheme' content='dark light'>
+    <link rel="preconnect" href="https://fonts.gstatic.com">
+    <link href="https://fonts.googleapis.com/css2?family=Inter&display=swap" rel="stylesheet">
+    <title>08/01/22</title>
+
+
+    <style>
+        * {
+            box-sizing: border-box;
+            font-size: 16px;
+            font-family: 'Inter', sans-serif;
+            color: black;
+            --GREY: rgba(0, 0, 0, 0.1);
+            --PRIMARY_COLOR: #98E690;
+            --SECONDARY_COLOR: white;
+            --COL1: #db0a5b;
+            --COL2: #fef160;
+            --COL3: #23cba7;
+            --COL4: #3e6ceb;
+            --COL5: #d9c8ec;
+
+        }
+
+        ::-webkit-scrollbar {
+            width: 0.8rem;
+            height: 0.5rem;
+        }
+
+        /* Track */
+        ::-webkit-scrollbar-track {
+            background: black;
+        }
+
+        /* Handle */
+        ::-webkit-scrollbar-thumb {
+            background: var(--COL3);
+        }
+
+        /* Handle on hover */
+        ::-webkit-scrollbar-thumb:hover {
+            background: var(--COL2);
+        }
+
+
+
+
+
+        * {
+            user-select: none;
+        }
+
+        html,
+        body {
+            margin: 0;
+            height: 100vh;
+            background-color: #f3f3f3;
+
+
+        }
+
+        ul {
+            margin: 0;
+            padding: 0;
+        }
+
+        li {
+            list-style-type: none;
+        }
+
+
+
+        h1 {
+            font-size: 2rem;
+            margin: 0;
+            padding: 0;
+        }
+
+
+        main {
+            display: grid;
+            grid-template-columns: 1fr [content-start] min(65ch, 100%) [content-end] 1fr;
+
+        }
+
+
+        main>* {
+            grid-column: content-start/content-end
+        }
+
+        .full-bleed {
+            grid-column: 1/-1;
+        }
+
+        .hero {
+            background-image: url("../images/fw2.jpg");
+            display: grid;
+            grid-template-columns: 1fr [text-start] min(65ch, 100%) [text-end] 1fr;
+            align-items: center;
+            height: 70vh;
+        }
+
+        .hero__container {
+            grid-column: text-start/text-end;
+            padding: 0 1rem;
+        }
+
+        .hero__container h1 {
+            color: white;
+            font-size: 3rem;
+        }
+
+        .hero__container p {
+            color: white;
+            margin-bottom: 3rem;
+        }
+
+        footer {
+            width: min(65ch, 100%);
+            margin: 0 auto;
+            padding: 4rem 1rem;
+        }
+
+        footer>* {
+            font-size: .9rem;
+        }
+
+        footer a {
+            font-size: .9rem;
+            font-weight: 800;
+            background-color: #fef160;
+        }
+
+        button {
+            padding: .5rem 2rem;
+            background-color: white;
+            border: 2px solid black;
+            border-radius: .5rem;
+            font-size: 1.2rem;
+            font-weight: 800;
+            width: fit-content;
+            transition: all .3s ease-in-out;
+        }
+
+        button:hover{
+            background-color: #db0a5b;
+            border-color: #db0a5b;
+            color: white;
+        }
+
+        section{
+            padding: 1rem;
+            margin-bottom: 4rem;
+        }
+
+        h2{
+            font-size: 2rem;
+        }
+
+        .pancake{
+            display: flex;
+            flex-wrap: wrap;
+            justify-content: space-between;
+            padding: 2rem 0;
+        }
+
+        .pancake__item{
+            flex: 1 1 220px;
+            margin-right: 1rem;
+            margin-bottom: 2rem;
+        }
+
+        .pancake__item img{
+            object-fit: cover;
+            width: 100%;
+            aspect-ratio: 2/3;
+        }
+
+        .pancake__item p{
+            font-size: .95rem;
+            line-height: 1.5;
+        }
+
+        .cta{
+            display: flex;
+            flex-direction: column;
+        }
+
+        .cta--align-right{
+            align-items: flex-end;
+            text-align: right;
+        }
+
+        .cta button{
+            margin-top: 2rem;
+        }
+
+
+        @media screen and (min-width: 750px) and (max-width: 1099px) {}
+
+        @media screen and (min-width: 1100px) {}
+    </style>
+
+<body>
+    <main>
+        <section class="full-bleed hero">
+            <div class="hero__container">
+                <h1>Rain, it's coming!</h1>
+                <p>The moisture will be coming in the next one to two months!</p>
+                <button>Learn more!</button>
+            </div>
+        </section>
+        <section class="cta">
+            <h2>Rainwater is hazardous for consumption!</h2>
+            <p>A newly released study suggests that rainwater contains hazardous quantities of chemicals that persist in your body, forever!</p>
+            <button>Read More!</button>
+        </section>
+        <section class="cta cta--align-right">
+            <h2>Fracked water is hazardous for consumption!</h2>
+            <p>As evidenced by the unnatural smell and odd colour!</p>
+            <button>Read More!</button>
+        </section>
+        <section>
+            <h2>Product Features</h2>
+            <ul class="pancake">
+                <li class="pancake__item">
+                    <img src="../images/msilver1.png"/>
+                    <h3>Feature One</h3>
+                    <p>Some text about feature one</p>
+                    <p>More factoids about the aforementioned feature so that you give us your financial details.</p>
+                </li>
+                <li class="pancake__item">
+                    <img src="../images/msilver2.png"/>
+                    <h3>Feature two</h3>
+                    <p>More factoids about the aforementioned feature so that you give us your financial details.</p>
+                </li>
+                <li class="pancake__item">
+                    <img src="../images/msilver3.png"/>
+                    <h3>Feature three</h3>
+                    <p>Some text about feature three</p>
+                </li>
+                <li class="pancake__item">
+                    <img src="../images/msilver4.png"/>
+                    <h3>Feature Four</h3>
+                    <p>The fantastic four are coming to the MCU within the next four years!</p>
+                </li>
+            </ul>
+        </section>
+        <section class="cta cta--align-right">
+            <h2>More text just to pad out the appearance of the page.</h2>
+            <p>Books are good and books are great.</p>
+            <button>Read More!</button>
+        </section>
+    </main>
+    <footer>
+        <p>Created on August 10/2022</p>
+        <p>Reason for existing: Another Marketing Page: Just practice with the Pancake Component and Centering text in the hero image.</p>
+        <p>Pictures from Alex Maleev's Twitter <a href="https://twitter.com/alexmaleev">here</a>.</p>
+        <p>Large image above is a Firewatch Screenshot.</p>
+    </footer>
+</body>
+
+</html>

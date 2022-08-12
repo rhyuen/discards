@@ -1,0 +1,211 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta name='color-scheme' content='dark light'>
+    <link rel="preconnect" href="https://fonts.gstatic.com">
+    <link href="https://fonts.googleapis.com/css2?family=Inter&display=swap" rel="stylesheet">
+    <title>08/01/22</title>
+
+
+    <style>
+        * {
+            box-sizing: border-box;
+            font-size: 16px;
+            font-family: 'Inter', sans-serif;
+            color: black;
+            --GREY: rgba(0, 0, 0, 0.1);
+            --PRIMARY_COLOR: #98E690;
+            --SECONDARY_COLOR: white;
+            --COL1: #db0a5b;
+            --COL2: #fef160;
+            --COL3: #23cba7;
+            --COL4: #3e6ceb;
+            --COL5: #d9c8ec;
+
+        }
+
+        ::-webkit-scrollbar {
+            width: 0.8rem;
+            height: 0.5rem;
+        }
+
+        /* Track */
+        ::-webkit-scrollbar-track {
+            background: black;
+        }
+
+        /* Handle */
+        ::-webkit-scrollbar-thumb {
+            background: var(--COL3);
+        }
+
+        /* Handle on hover */
+        ::-webkit-scrollbar-thumb:hover {
+            background: var(--COL2);
+        }
+
+
+
+
+
+        * {
+            user-select: none;
+        }
+
+        html,
+        body {
+            margin: 0;
+            height: 100vh;
+            background-color: #f3f3f3;
+
+
+        }
+
+        ul {
+            margin: 0;
+            padding: 0;
+        }
+
+        li {
+            list-style-type: none;
+        }
+
+
+
+        h1 {
+            font-size: 2rem;
+            margin: 0;
+            padding: 0;
+        }
+
+        main {
+            display: grid;
+            place-items: center;
+            height: 60vh;
+        }
+
+
+
+        .container {
+            display: grid;
+            width: min(105ch, 100%);
+            margin: 0 auto;
+            grid-template-columns: repeat(auto-fit, 1rem);
+            grid-template-rows: repeat(7, 1rem);
+            gap: .2rem;
+            grid-auto-flow: column;
+
+        }
+
+        .container__item {
+            grid-column: span 1;
+            grid-row: span 1;
+            background-color: rgba(0, 0, 0, 0.3);
+            position: relative;
+            border-radius: 2px;
+        }
+
+        .container__item--today {
+            background-color: #db0a5b;
+        }
+
+
+
+        .container__item__window {
+            position: absolute;
+            display: none;
+            bottom: 1.5rem;
+            left: 0;
+            width: 8rem;
+            height: 3rem;
+            background: black;
+            padding: .5rem;
+            justify-content: center;
+            align-items: center;
+            color: white;
+            font-weight: 600;
+            border-radius: .5rem;
+            z-index: 2;
+        }
+
+        .container__item:hover{
+            background-color: #db0a5b;
+        }
+
+        .container__item:hover .container__item__window {
+            display: flex;
+
+        }
+
+        footer {
+            margin: 0 auto;
+            width: min(85ch, 100%);
+        }
+
+        footer * {
+            font-size: .9rem;
+        }
+
+
+
+        @media screen and (min-width: 750px) and (max-width: 1099px) {}
+
+        @media screen and (min-width: 1100px) {}
+    </style>
+
+<body>
+    <main>
+        <h1>Most of the Days in the Year</h1>
+        <ul class="container" id="mountpoint">
+
+        </ul>
+
+    </main>
+    <footer>
+        <p>Created on August 11/2022</p>
+        <p>Github Contribution graph clone.</p>
+        <p>Reason: I've been thinking about it lately.</p>
+        <h3>Issues</h3>
+        <ul>
+            <li>Days are not aligned with the rows.</li>
+            <li>Today is not a different colour.</li>
+            <li>Width of container is not responsive and truncates content. Not mobile friendly.</li>
+            <li>Title of the document is not appropriately aligned with the graph.</li>
+            <li>Day of the Week is not present in the hover window.</li>
+        </ul>
+    </footer>
+    <script>
+        const mp = document.getElementById("mountpoint");
+        const today = new Date(2022, 7, 11);
+
+        function makeDayNodeWindow(text) {
+            const node = document.createElement("div");
+            node.classList.add("container__item__window");
+            node.textContent = `${text.getMonth() + 1} / ${text.getDate()} / ${text.getFullYear()}`;
+            // node.textContent = text;
+            return node;
+        }
+
+        function makeDayNode(data) {
+            const node = document.createElement("li");
+            node.classList.add("container__item");
+            node.appendChild(makeDayNodeWindow(data));
+            return node;
+
+        }
+
+
+        for (let i = -185; i < 185; i++) {
+            mp.appendChild(makeDayNode(new Date(2022, 7, 11 + i)));
+        }
+
+    
+
+    </script>
+</body>
+
+</html>

@@ -1,0 +1,247 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta name='color-scheme' content='dark light'>
+    <link rel="preconnect" href="https://fonts.gstatic.com">
+    <link href="https://fonts.googleapis.com/css2?family=Inter&display=swap" rel="stylesheet">
+    <title>08/01/22</title>
+
+
+    <style>
+        * {
+            box-sizing: border-box;
+            font-size: 16px;
+            font-family: 'Inter', sans-serif;
+            color: black;
+            --GREY: rgba(0, 0, 0, 0.1);
+            --PRIMARY_COLOR: #98E690;
+            --SECONDARY_COLOR: white;
+            --COL1: #db0a5b;
+            --COL2: #fef160;
+            --COL3: #23cba7;
+            --COL4: #3e6ceb;
+            --COL5: #d9c8ec;
+
+        }
+
+        ::-webkit-scrollbar {
+            width: 0.8rem;
+            height: 0.5rem;
+        }
+
+        /* Track */
+        ::-webkit-scrollbar-track {
+            background: black;
+        }
+
+        /* Handle */
+        ::-webkit-scrollbar-thumb {
+            background: var(--COL3);
+        }
+
+        /* Handle on hover */
+        ::-webkit-scrollbar-thumb:hover {
+            background: var(--COL2);
+        }
+
+
+
+
+
+        * {
+            user-select: none;
+        }
+
+        html,
+        body {
+            margin: 0;
+            height: 100vh;
+            background-color: #f3f3f3;
+
+
+        }
+
+        ul {
+            margin: 0;
+            padding: 0;
+        }
+
+        li {
+            list-style-type: none;
+        }
+
+
+
+        h1 {
+            font-size: 2rem;
+            margin: 0;
+            padding: 0;
+            grid-column: 1/-1;
+        }
+
+        main {
+            padding: 4rem 1rem;
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(200px, 1fr));
+            /* background-color: #3e6ceb; */
+            margin: 0 auto;
+            width: min(500px, 100%);
+            gap: 2rem;
+            
+        }
+
+        .month{
+            width: fit-content;
+            padding: 2rem;
+            /* margin: 0 auto; */
+            background-color: white;
+            display: grid;
+            grid-column: span 1;
+            border-radius: .5rem;
+            border: 1px solid rgba(0, 0, 0, 0.1);
+            /* grid-row: span 1; */
+            grid-auto-flow: column;
+            grid-template-rows: repeat(7, 1rem);
+            grid-auto-columns: 1rem;
+            gap: .5rem;
+            position: relative;
+        }
+
+
+
+        .day{
+            aspect-ratio: 1;
+            --WIDTH: 1.25rem;
+            width: var(--WIDTH);
+            height: var(--WIDTH);
+            background: #db0a5b;
+            background-color: #f3f3f3;
+            gap: 1rem;
+            grid-column: span 1;
+            grid-row: span 1;
+            font-size: .6rem;
+            color: black;
+            font-weight: 600;
+            display: grid;
+            place-items: center;
+            border-radius: 4px;
+        }
+
+        .day:hover{
+            background-color: #23cba7;
+            color: white;
+        }
+
+        .day--empty{
+            background: inherit;
+            color: transparent;
+        }
+
+        .day--today{
+            background-color: #db0a5b;
+            color: white;
+        }
+
+        footer {
+            padding: 4rem 2rem;
+            margin: 0 auto;
+            width: min(500px, 100%);
+        }
+
+        footer * {
+            font-size: .8rem;
+        }
+
+
+
+        @media screen and (min-width: 750px) and (max-width: 1099px) {
+            main {
+                width: min(750px, 100%);
+            }
+        }
+
+        @media screen and (min-width: 1100px) {
+            main {
+                width: min(1100px, 100%);
+            }
+        }
+    </style>
+
+<body>
+    <main id="root">
+        <h1>Calendar</h1>
+    </main>
+    <footer>
+       <p>Created on August 12,13 2022</p>
+       <p>An iteration on yesterday's calendar.</p>
+       <p>This time with the appropriate number of days in each month.</p>
+       <p>Also, the months are responsive.</p>
+    </footer>
+    <script>
+        const root = document.getElementById("root");
+        const currentYear = new Date().getFullYear();
+        const currentMonth = new Date().getMonth();
+        const currentDay = new Date().getDate();
+
+        function createDay(data, currentMonth=false){
+            const li = document.createElement("li");
+            
+            if(currentMonth && data+1 === currentDay){
+                li.classList.add("day--today");
+            }
+
+            li.classList.add("day");
+            li.textContent = parseInt(data) + 1;
+            return li;
+        }
+
+        function getLastDayInMonth(data){
+            const lastHourOfMonth = new Date(currentYear, data + 1) - 3600000;
+            const lastDayOfMonth = new Date(lastHourOfMonth).getDate(); 
+            return lastDayOfMonth;
+        }
+
+        function createEmptyDay(){
+            const li = document.createElement("li");
+            li.classList.add("day");
+            li.classList.add("day--empty");
+            return li;
+        }
+
+        function createMonth(data){
+            const ul = document.createElement("ul");
+            ul.classList.add("month");
+
+            const firstDayInMonth = data.getDay();
+            const lastDayInMonth = getLastDayInMonth(data.getMonth());
+
+            for(let i = 0; i < lastDayInMonth; i++){
+                ul.appendChild(createDay(i, data.getMonth() === currentMonth));
+            }
+
+            for(let j = 0; j < firstDayInMonth; j++){
+                if(firstDayInMonth === 0){
+                    break;
+                }
+                
+                ul.prepend(createEmptyDay());
+            }
+            return ul;
+        }
+
+        for(let i = 0; i < 12; i++){
+            const currentDay = new Date(currentYear, i);
+            root.appendChild(createMonth(currentDay));
+
+        }
+        
+    
+
+    </script>
+</body>
+
+</html>

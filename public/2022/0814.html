@@ -1,0 +1,397 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta name='color-scheme' content='dark light'>
+    <link rel="preconnect" href="https://fonts.gstatic.com">
+    <link href="https://fonts.googleapis.com/css2?family=Inter&display=swap" rel="stylesheet">
+    <title>08/01/22</title>
+
+
+    <style>
+        * {
+            box-sizing: border-box;
+            font-size: 16px;
+            font-family: 'Inter', sans-serif;
+            color: black;
+            --GREY: rgba(0, 0, 0, 0.1);
+            --PRIMARY_COLOR: #98E690;
+            --SECONDARY_COLOR: white;
+            --COL1: #db0a5b;
+            --COL2: #fef160;
+            --COL3: #23cba7;
+            --COL4: #3e6ceb;
+            --COL5: #d9c8ec;
+
+        }
+
+        ::-webkit-scrollbar {
+            width: 0.8rem;
+            height: 0.5rem;
+        }
+
+        /* Track */
+        ::-webkit-scrollbar-track {
+            background: black;
+        }
+
+        /* Handle */
+        ::-webkit-scrollbar-thumb {
+            background: var(--COL3);
+        }
+
+        /* Handle on hover */
+        ::-webkit-scrollbar-thumb:hover {
+            background: var(--COL2);
+        }
+
+
+
+
+
+        * {
+            user-select: none;
+        }
+
+        html,
+        body {
+            margin: 0;
+            height: 100vh;
+            background-color: #f3f3f3;
+
+
+        }
+
+        ul {
+            margin: 0;
+            padding: 0;
+        }
+
+        li {
+            list-style-type: none;
+        }
+
+
+
+        h1 {
+            font-size: 3rem;
+            margin: 0;
+            padding: 0;
+        }
+
+        main {}
+
+        .slide__container {
+            display: grid;
+            overflow: scroll;
+            height: 100vh;
+            grid-template-columns: repeat(4, 100vw);
+            grid-template-rows: repeat(3, 100vh);
+            scroll-snap-type: both mandatory;
+        }
+
+        .slide__item {
+            scroll-snap-align: center;
+            background-color: white;
+            width: 100%;
+            height: 100%;
+            grid-column: span 1;
+            grid-row: span 1;
+            color: black;
+            font-size: 4rem;
+            display: grid;
+        }
+
+        .slide__item__content {
+            width: min(65ch, 100%);
+            display: flex;
+            flex-direction: column;
+            margin: 0 auto;
+            padding: 2rem;
+        }
+
+        .slide__item__content--center {
+            justify-content: center;
+            align-items: center;
+        }
+
+        .slide__item__content--text{
+            overflow-y: scroll;
+            
+            margin-top: 10rem;
+        }
+
+        .pancake {
+            display: flex;
+            flex-wrap: wrap;
+
+        }
+
+        .pancake__item {
+            flex: 1 1 250px;
+            display: flex;
+            flex-direction: column;
+            margin-right: 1rem;
+        }
+        .pancake__item:last-child{
+            margin-right: 0;
+        }
+
+        img {
+            width: 100%;
+            
+            object-fit: cover;
+        }
+
+        p {
+            padding: 0;
+            margin-bottom: 1rem;
+            font-size: .9rem;
+        }
+
+        h2 {
+            font-size: 2rem;
+        }
+
+        footer {
+            margin-top: 2rem;
+            font-size: .9rem;
+        }
+
+        footer a {
+            font-size: .9rem;
+            font-weight: 800;
+            background-color: #fef160;
+        }
+
+        .subtitle {}
+
+        @media screen and (min-width: 750px) and (max-width: 1099px) {}
+
+        @media screen and (min-width: 1100px) {}
+    </style>
+
+<body>
+    <main>
+        <div class="slide__container">
+            <div class="slide__item">
+                <div class="slide__item__content slide__item__content--center">
+                    <h1>Just Some Slides</h1>
+                    <p>An explicit width is required for vertical scroll snapping to occur, even if the element in
+                        question is display: grid;</p>
+                    <p>I made it because I put it on my TODO list and I want to check it off.</p>
+                    <footer>
+                        <p>Created on August 14, 2022</p>
+                        <p>Largely Mobile Friendly.</p>
+                        <p>Images from <a href="https://twitter.com/alexmaleev">Alex Maleev's Twitter</a></p>
+                    </footer>
+                </div>
+
+            </div>
+            <div class="slide__item">
+                <div class="slide__item__content slide__item__content--text">
+                    <h2>Hotter summers to fuel increase in skin cancers, doctors warn
+                    </h2>
+                    <p class="subtitle">Higher summer temperatures caused by climate crisis will lead to more cases of
+                        melanoma, say
+                        medics
+                    </p>
+                    <p>Experts have said higher summer temperatures caused by the climate crisis will fuel an increase
+                        in cases of potentially deadly skin cancers such as melanoma. </p>
+                    <p>The UK recorded its highest ever temperature of 40.2C last month, as climate scientists stressed
+                        the heatwave was not a one-off and high temperatures were likely to become more frequent. </p>
+                    <p>Now medics are warning that the changing climate will cast a long shadow should people spend more
+                        time in the sun and have greater exposure to UV radiation.
+                    </p>
+                    <p>
+                        “As a clinician treating patients with melanoma, I am definitely concerned that a sustained
+                        trend in hotter summers will lead to more cases of melanoma and more deaths from melanoma,” said
+                        Sarah Danson, a professor of medical oncology at the University of Sheffield.
+                    </p>
+                    <p>
+                        Julia Newton-Bishop, a clinician scientist leading the melanoma research group at the University
+                        of Leeds, said: “Melanoma is caused essentially by sunburn, and this weather is so extreme that
+                        I am concerned that sunburns will increase and later so will the incidence of melanoma.”
+                    </p>
+                    <p>
+                        According to data from Cancer Research UK, skin cancer death rates among men in the UK have more
+                        than tripled since the 1970s, with increases also recorded among women. It is thought the rise
+                        may be down to a number of factors including greater sun exposure due to package holidays, with
+                        Michelle Mitchell, the chief executive of Cancer Research UK, warning that getting sunburn just
+                        once every two years can triple the risk of skin cancer.
+                    </p>
+                    <p>
+                        Prof Dann Mitchell, an expert in climate science at the University of Bristol, noted that the
+                        relationship between warmer weather and health could be indirect.
+                    </p>
+                    <p>
+                        “One of the clearest signals of climate change is hotter temperatures, not just in summer, but
+                        all year around,” he said. “This shift in temperatures also shifts behavioural patterns, and
+                        people in the UK tend to go outside more when the temperatures are warm. This leads to more
+                        exposure to sunlight throughout the year, and crucially more exposure to the UV part of that
+                        sunlight, which is a known risk factor for skin cancer.”
+                    </p>
+                    <p>
+                        Mitchell added that long-term health consequences of the climate crisis were not discussed
+                        enough.
+                    </p>
+                    <p>
+                        “This is because we cannot say a specific heatwave caused a specific cancer. Rather, we link the
+                        increased risk of cancer to the integration of many warmer days, with these warmer days made
+                        more likely due to human-induced climate change,” he said, adding that more research in the area
+                        was needed.
+                    </p>
+                    <p>
+                        Karis Betts, a senior health information manager at Cancer Research UK, said it was too early to
+                        know the impact of the recent heatwaves on skin cancer cases as cancer usually takes many years
+                        to develop.
+                    </p>
+                    <p>
+                        But she added: “It’s important to remember that it’s the ultraviolet rays from the sun rather
+                        than its heat that cause sunburn and skin cancer. The sun can be strong enough to burn from
+                        mid-March to mid-October here in the UK, whether it’s a heatwave or not.”
+                    </p>
+
+                    <p>
+                        Danson said there were a number of steps that could be take to reduce sun exposure and avoid
+                        getting sunburn, including staying out of the sun completely from 11am to 3pm, sitting in the
+                        shade, covering up with shirts and hats, and wearing and reapplying sunscreen.
+                    </p>
+                    <p>
+                        “Anyone with concerns about a new or changing mole should seek advice from their GP immediately
+                        as early diagnosis is really important and we have treatments available,” she said.
+                    </p>
+                    <footer>
+                        <p>Article from <a
+                                href="https://www.theguardian.com/society/2022/aug/14/hotter-summers-fuel-increase-skin-cancers-melanoma">here
+                                (The Guardian)</a></p>
+                    </footer>
+                </div>
+            </div>
+            <div class="slide__item">
+                <div class="slide__item__content slide__item__content--center">
+                    <img src="../images/msilver1.png" />
+                </div>
+            </div>
+            <div class="slide__item">
+                
+                <div class="slide__item__content">
+                    <img src="../images/msilver7.png" />
+                </div>
+            </div>
+            <div class="slide__item">
+                <div class="slide__item__content">
+                    <h1>Slides, a second attempt</h1>
+                    <p>There's more text and an attempt at filler content in the slides.</p>
+                    <p>The pancake component was attempted.</p>
+                    <p>The Pancake Component with images was attempted.</p>
+                    <p>All have varying degrees of success and failure.</p>
+                </div>
+            </div>
+            <div class="slide__item">
+                <div class="slide__item__content slide__item__content--center">
+                    <div class="pancake">
+                        <div class="pancake__item">
+                            <img src="../images/msilver1.png" />
+                            <p>When Megan Ansems received an email this spring from Nova Scotia's Department of
+                                Education and Early Childhood Development containing her teacher licence number, you
+                                might say she was excited.
+                            </p>
+                        </div>
+                        <div class="pancake__item">
+                            <img src="../images/msilver2.png" />
+                            <p>Ansems, who graduated this spring from Halifax's Mount Saint Vincent University with a
+                                Bachelor of Education, got a jump start on her career when Nova Scotia gave early
+                                certification to nearly 300 teacher-candidates just shy of graduation, so they could
+                                fill in as substitute teachers during another wave of COVID-19.
+                            </p>
+                        </div>
+                        <div class="pancake__item">
+                            <img src="../images/msilver3.png" />
+                            <p>A shortage of teachers as well as certified substitutes to fill in for them emerged as a
+                                major disruption to Canadian classrooms in past waves of the pandemic, and is also
+                                expected to continue this fall. But there's a fresh cohort of new educators — like
+                                Ansems — eager to fill the gaps this coming school year, especially after many saw
+                                first-hand the last few years how much they're needed.
+                            </p>
+                        </div>
+                    </div>
+                </div>
+            </div>
+            <div class="slide__item">
+                <div class="slide__item__content slide__item__content--center">
+                    <img src="../images/mdoom8.png"/>
+                </div>
+            </div>
+            <div class="slide__item">
+                <div class="slide__item__content slide__item__content--center">
+                    <img src="../images/mdoom9.png"/>
+                </div>
+            </div>
+            <div class="slide__item">
+                <div class="slide__item__content slide__item__content--center">
+                    <div class="pancake">
+                        <div class="pancake__item">
+                            <h3>Text For a Title</h3>
+                            <p>For most people finding your passion is a fool's errand. There are outliers, however.
+                                Finding your passion suggests that if you're not happy all the time while doing your job
+                                there's the implicit notion that you're missing out or something better is out there. As
+                                a result, you may, impractically, leave your job to find said passion/'dream job' and/or
+                                never develop any skills that require extended practice and usage to develop.</p>
+                        </div>
+                        <div class="pancake__item">
+                            <h3>Text For a Title</h3>
+                            <p>For most people finding your passion is a fool's errand. There are outliers, however.
+                                Finding your passion suggests that if you're not happy all the time while doing your job
+                                there's the implicit notion that you're missing out or something better is out there. As
+                                a result, you may, impractically, leave your job to find said passion/'dream job</p>
+                        </div>
+                        <div class="pancake__item">
+                            <h3>Text</h3>
+                            <p>In order to do good work that you can be proud of, you need marketable skills, which this
+                                book calls 'career capital'. One must use deliberate practice to become the best one can
+                                be. Doing the same thing with little variation isn't good enough. One needs to be doing
+                                strenuous mental activitiy. It's like working out for your brain/skills instead of your
+                                physical body.
+                            </p>
+                        </div>
+                    </div>
+                </div>
+            </div>
+            <div class="slide__item">
+                <div class="slide__item__content slide__item__content--center">
+                    <img src="../images/mdoom7.png"/>
+                </div>
+            </div>
+            <div class="slide__item">
+                <div class="slide__item__content">
+                    <img src="../images/mdoom6.png"/>
+                </div>
+            </div>
+            <div class="slide__item">
+                <div class="slide__item__content slide__item__content--center">
+                    <div class="pancake">
+                        <div class="pancake__item">
+                            <img src="../images/mdoom3.png"/>
+                        </div>
+                        <div class="pancake__item">
+                            <img src="../images/mdoom4.png"/>
+                        </div>
+                       
+                    </div>
+                </div>
+            </div>
+        </div>
+    </main>
+    <script>
+
+
+
+
+    </script>
+</body>
+
+</html>

@@ -499,6 +499,15 @@
                 reference: [
                 ]
             },
+            {
+                month: 8,
+                day: 14,
+                year: 2022,
+                link: "/2022/0814.html",
+                description: "Slides, 2x2 with some components.",
+                reference: [
+                ]
+            },
         ]
         const list21 = [
             {
@@ -643,10 +652,11 @@
             const textblurb = document.createElement("p");
             textblurb.textContent = description;
             if (year === 2022) {
+                console.log(data.link);
                 if (location.hostname.includes("localhost")) {
                     anchor.href = `/public${data.link}`;
                 } else {
-                    anchor.href = `/${data.link}`;
+                    anchor.href = `${data.link}`;
                 }
 
             } else {
@@ -659,7 +669,7 @@
 
             anchor.textContent = `${month} . ${day}`;
 
-            console.log(anchor.href);
+            //console.log(anchor.href);
             item.appendChild(anchor);
             item.appendChild(textblurb);
             return item;

@@ -1,0 +1,28 @@
+{
+    "nature": [
+        {
+            "url": "https://images.unsplash.com/photo-1660866838821-62258896aa8d?ixlib=rb-1.2.1&ixid=MnwxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8&auto=format&fit=crop&w=1974&q=80",
+            "description": "An image looking down a road on an orange mountain range."
+        },
+        {
+            "url": "https://images.unsplash.com/photo-1660750259832-d9340cadfedd?ixlib=rb-1.2.1&ixid=MnwxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8&auto=format&fit=crop&w=1935&q=80",
+            "description": "Looking towards the sky from within a mountain's crevice. The sides of the mountain are bright red and orange.  The sky is a bright blue."
+        },
+        {
+            "url": "https://images.unsplash.com/photo-1660554969989-99b47174f499?ixlib=rb-1.2.1&ixid=MnwxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8&auto=format&fit=crop&w=1974&q=80",
+            "description": "A river snaking through a green landscape populated with a lot of trees.  A slight mountain is visible in the nearby distance."
+        },
+        {
+            "url": "https://images.unsplash.com/photo-1626548583108-54f960b1e8db?ixlib=rb-1.2.1&ixid=MnwxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8&auto=format&fit=crop&w=2006&q=80",
+            "description": "A half moon in the night sky."
+        },
+        {
+            "url": "https://images.unsplash.com/photo-1660665508252-29c504d48ce8?ixlib=rb-1.2.1&ixid=MnwxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8&auto=format&fit=crop&w=1974&q=80",
+            "description": "A frozen tundra with mountains visible in the distance.  Orange pylons are scattered in an arranged fashion."
+        },
+        {
+            "url": "https://images.unsplash.com/photo-1660866838157-f971aaa5de88?ixlib=rb-1.2.1&ixid=MnwxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8&auto=format&fit=crop&w=1974&q=80",
+            "description": "A grayscale image of a porous stone structure on a porous mountain."
+        }
+    ]
+}

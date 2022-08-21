@@ -1,213 +1,226 @@
 <!DOCTYPE html>
 <html lang="en">
+
 <head>
     <meta charset="UTF-8">
     <meta http-equiv="X-UA-Compatible" content="IE=edge">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>06 17</title>
 
-        <style>
-            * {                
-                box-sizing: border-box;
-                font-size: 16px;
-                font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;                
-            }      
-            html, body{
-                margin: 0;
-                min-height: 100vh;
-                width: 100%;  
-            }
+    <style>
+        * {
+            box-sizing: border-box;
+            font-size: 16px;
+            font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
+        }
 
-            ul{
-                margin: 0;
-                padding: 0;
-                list-style-type: none;
-            }
-            
-            a {
-                color: black;
-                text-decoration: none;
-                font-weight: 400;
-            }
-            a:visited{
-                color: black;
-            }          
-        
-            nav{                
-                height: 4rem;
-                box-shadow:  1px 1px 3px rgba(0,0,0,0.1);               
-            }
+        html,
+        body {
+            margin: 0;
+            min-height: 100vh;
+            width: 100%;
+        }
 
+        ul {
+            margin: 0;
+            padding: 0;
+            list-style-type: none;
+        }
 
-            main{
-                display: grid;
-                max-width: 1100px;
-                grid-template-columns: 1fr;
-                margin: 0 auto;                
-            }
+        a {
+            color: black;
+            text-decoration: none;
+            font-weight: 400;
+        }
 
-            .list{
-                display: flex;
-                justify-content: flex-start;
-            }
+        a:visited {
+            color: black;
+        }
 
-            .list--nav{
-                margin: 0 auto;
-                max-width: 1100px;
-                height: 100%;
-                align-items: center;
-            }
-
-            .list--secondary{
-                flex-wrap: wrap;
-            }
-
-            .list__item{
-                margin-right: 2rem;                
-            }
-            
-            
-            .primary{                
-                display: flex;
-                flex-direction: column;                  
-                margin-left: 3rem;
-                margin-right: 3rem;              
-            }
-
-            .secondary{           
-                display: none;
-                padding-left: 3rem;
-                border-left:1px solid rgba(0,0,0, .1);
-            }
-
-            .section{
-                margin-top: 2rem;
-                border-bottom: 1px solid rgba(0,0,0, .3);
-                padding-bottom: 2rem;
-            }
-
-            .subheading{
-                text-transform: uppercase;
-                color:rgba(0,0,0, .5);
-                font-weight: 400;                
-                margin-bottom: 2rem;              
-            }
-
-            .subheading--primary{
-                padding-bottom: 2rem;
-                border-bottom: 1px solid rgba(0,0,0,0.1);
-            }
-
-            .container {
-                display: flex;
-                flex-direction: column;
-            }
-
-            .container__item{
-                display: flex;                   
-                height: 12rem;             
-                justify-content: space-between;
-                margin-bottom: 2rem;
-            }
-
-            .container__item--secondary{
-                height: 2rem;
-                margin-bottom: 1rem;
-            }
-
-            .container__item:first-child{
-                margin-top: 2rem;
-            }
-
-            .container__item__image{
-                width: 50%;          
-                position: relative;      
-            }
-
-            .container__item__image:after{
-                content: "";
-                display: block;
-                padding-bottom: 100%;
-            }
-
-            .container__item__image img{
-                position: absolute;
-                object-fit: cover;
-                height: 100%;
-                width: 100%;
-            }
-
-            .container__item__body{
-                display: flex;
-                flex-direction: column;
-                justify-content: space-between;
-                margin-right: 2rem;
-            }
-          .container__item__body__category{
-              font-size: 0.8rem;
-              font-weight: 600;
-          }
-          
-
-          .container__item__body__header{
-              font-size: 1.4rem;
-              font-weight: 800;
-              margin: 0;                  
-          }
-          .container__item__body__header--secondary{
-              font-size: 1rem;
-              font-weight: 700;          
-              line-height: 2;    
-          }
+        nav {
+            height: 4rem;
+            box-shadow: 1px 1px 3px rgba(0, 0, 0, 0.1);
+        }
 
 
-          .container__item__body__text{
-              margin: 0;              
-              color: rgba(117, 117, 117, 1);
-          }
-          .container__item__body__meta{
-              display: flex; 
-              justify-content: space-between;
-            }
-          .container__item__body__meta__details{
-                color: rgba(117, 117, 117, 1);
-                font-size: 0.8rem;
-          }
-          .container__item__body__meta__actions{
-              width: 0.6rem;
-          }
-          .container__item__body__meta__actions:after{
-              padding-bottom: 100%;
-              border-radius: 50%;              
-              display: block;
-              content: "";
-              background: rgba(0,0,0, .3);
-          }
+        main {
+            display: grid;
+            max-width: 1100px;
+            grid-template-columns: 1fr;
+            margin: 0 auto;
+        }
+
+        .list {
+            display: flex;
+            justify-content: flex-start;
+        }
+
+        .list--nav {
+            margin: 0 auto;
+            max-width: 1100px;
+            height: 100%;
+            align-items: center;
+        }
+
+        .list--secondary {
+            flex-wrap: wrap;
+        }
+
+        .list__item {
+            margin-right: 2rem;
+        }
+
+
+        .primary {
+            display: flex;
+            flex-direction: column;
+            margin-left: 3rem;
+            margin-right: 3rem;
+        }
+
+        .secondary {
+            display: none;
+            padding-left: 3rem;
+            border-left: 1px solid rgba(0, 0, 0, .1);
+        }
+
+        .section {
+            margin-top: 2rem;
+            border-bottom: 1px solid rgba(0, 0, 0, .3);
+            padding-bottom: 2rem;
+        }
+
+        .subheading {
+            text-transform: uppercase;
+            color: rgba(0, 0, 0, .5);
+            font-weight: 400;
+            margin-bottom: 2rem;
+        }
+
+        .subheading--primary {
+            padding-bottom: 2rem;
+            border-bottom: 1px solid rgba(0, 0, 0, 0.1);
+        }
+
+        .container {
+            display: flex;
+            flex-direction: column;
+        }
+
+        .container__item {
+            display: flex;
+            height: 12rem;
+            justify-content: space-between;
+            margin-bottom: 2rem;
+        }
+
+        .container__item--secondary {
+            height: 2rem;
+            margin-bottom: 1rem;
+        }
+
+        .container__item:first-child {
+            margin-top: 2rem;
+        }
+
+        .container__item__image {
+            width: 50%;
+            position: relative;
+        }
+
+        .container__item__image:after {
+            content: "";
+            display: block;
+            padding-bottom: 100%;
+        }
+
+        .container__item__image img {
+            position: absolute;
+            object-fit: cover;
+            height: 100%;
+            width: 100%;
+        }
+
+        .container__item__body {
+            display: flex;
+            flex-direction: column;
+            justify-content: space-between;
+            margin-right: 2rem;
+        }
+
+        .container__item__body__category {
+            font-size: 0.8rem;
+            font-weight: 600;
+        }
+
+
+        .container__item__body__header {
+            font-size: 1.4rem;
+            font-weight: 800;
+            margin: 0;
+        }
+
+        .container__item__body__header--secondary {
+            font-size: 1rem;
+            font-weight: 700;
+            line-height: 2;
+        }
+
+
+        .container__item__body__text {
+            margin: 0;
+            color: rgba(117, 117, 117, 1);
+        }
+
+        .container__item__body__meta {
+            display: flex;
+            justify-content: space-between;
+        }
+
+        .container__item__body__meta__details {
+            color: rgba(117, 117, 117, 1);
+            font-size: 0.8rem;
+        }
+
+        .container__item__body__meta__actions {
+            width: 0.6rem;
+        }
+
+        .container__item__body__meta__actions:after {
+            padding-bottom: 100%;
+            border-radius: 50%;
+            display: block;
+            content: "";
+            background: rgba(0, 0, 0, .3);
+        }
 
 
 
-          .bubbles{
-              padding: 0.5rem 1rem;
-              background:rgba(0,0,0, 0.1);
-              border-radius: 2rem;
-              margin-right: 1rem;
-              margin-bottom: 1rem;              
-          }
+        .bubbles {
+            padding: 0.5rem 1rem;
+            background: rgba(0, 0, 0, 0.1);
+            border-radius: 2rem;
+            margin-right: 1rem;
+            margin-bottom: 1rem;
+        }
 
-          @media screen and (min-width: 800px){
-            main{
+        @media screen and (min-width: 800px) {
+            main {
                 grid-template-columns: 2fr 1fr;
             }
-            .primary{
+
+            .primary {
                 margin-left: 0;
             }
-            .secondary{
+
+            .secondary {
                 display: block;
             }
-          }
-        </style>
+        }
+    </style>
 </head>
-<body> 
+
+<body>
     <nav>
         <ul class="list list--nav">
             <li class="list__item"><a href='#'>Home</a></li>
@@ -215,88 +228,100 @@
             <li class="list__item"><a href='#'>Contact</a></li>
         </ul>
     </nav>
-    <main>        
+    <main>
         <div class='primary'>
             <section class='section'>
-                <h2 class='subheading subheading--primary'>FOLLOWING  |  Recommended for you</h2>
-            
-            <ul class='container'>
-                <li>
-                    <a href='#' class='container__item'>
-                        <div class='container__item__body'>
-                            <div class='container__item__body__category'>Cateogry</div>
-                            <h2 class="container__item__body__header">Introducing the Jericho</h2>
-                            <p class="container__item__body__text">…for a long, straight shadow edge, this should create a color transition the length of the blur distance that is perpendicular to ...</p>
-                            <div class="container__item__body__meta">
-                                <div class="container__item__body__meta__details">Jun 19 * 5 min read * Blah * Group</div>
-                                <div class="container__item__body__meta__actions"></div>
+                <h2 class='subheading subheading--primary'>FOLLOWING | Recommended for you</h2>
+
+                <ul class='container'>
+                    <li>
+                        <a href='#' class='container__item'>
+                            <div class='container__item__body'>
+                                <div class='container__item__body__category'>Cateogry</div>
+                                <h2 class="container__item__body__header">Introducing the Jericho</h2>
+                                <p class="container__item__body__text">…for a long, straight shadow edge, this should
+                                    create a color transition the length of the blur distance that is perpendicular to
+                                    ...</p>
+                                <div class="container__item__body__meta">
+                                    <div class="container__item__body__meta__details">Jun 19 * 5 min read * Blah * Group
+                                    </div>
+                                    <div class="container__item__body__meta__actions"></div>
+                                </div>
                             </div>
-                        </div>
-                        <div class='container__item__image'>
-                            <img src='images/58.jpg'/>
-                        </div>                        
-                    </a>
-                </li>
-                <li>
-                    <a href='#' class='container__item'>
-                        <div class='container__item__body'>
-                            <div class='container__item__body__category'>Cateogry</div>
-                            <h2 class="container__item__body__header">Introducing the Jericho</h2>
-                            <p class="container__item__body__text">…for a long, straight shadow edge, this should create a color transition the length of the blur distance that is perpendicular to ...</p>
-                            <div class="container__item__body__meta">
-                                <div class="container__item__body__meta__details">Jun 19 * 5 min read * Blah * Group</div>
-                                <div class="container__item__body__meta__actions"></div>
+                            <div class='container__item__image'>
+                                <img src='../images/58.jpg' />
                             </div>
-                        </div>
-                        <div class='container__item__image'>
-                            <img src='images/61.jpg'/>
-                        </div>                        
-                    </a>
-                </li>
-                <li>
-                    <a href='#' class='container__item'>
-                        <div class='container__item__body'>
-                            <div class='container__item__body__category'>Cateogry</div>
-                            <h2 class="container__item__body__header">Introducing the Batman</h2>
-                            <p class="container__item__body__text">…for a long, straight shadow edge, this should create a color transition the length of the blur distance that is perpendicular to ...</p>
-                            <div class="container__item__body__meta">
-                                <div class="container__item__body__meta__details">Jun 19 * 5 min read * Blah * Group</div>
-                                <div class="container__item__body__meta__actions"></div>
+                        </a>
+                    </li>
+                    <li>
+                        <a href='#' class='container__item'>
+                            <div class='container__item__body'>
+                                <div class='container__item__body__category'>Cateogry</div>
+                                <h2 class="container__item__body__header">Introducing the Jericho</h2>
+                                <p class="container__item__body__text">…for a long, straight shadow edge, this should
+                                    create a color transition the length of the blur distance that is perpendicular to
+                                    ...</p>
+                                <div class="container__item__body__meta">
+                                    <div class="container__item__body__meta__details">Jun 19 * 5 min read * Blah * Group
+                                    </div>
+                                    <div class="container__item__body__meta__actions"></div>
+                                </div>
                             </div>
-                        </div>
-                        <div class='container__item__image'>
-                            <img src='images/59.jpg'/>
-                        </div>                        
-                    </a>
-                </li>
-                <li>
-                    <a href='#' class='container__item'>
-                        <div class='container__item__body'>
-                            <div class='container__item__body__category'>Cateogry</div>
-                            <h2 class="container__item__body__header">Introducing the Amor</h2>
-                            <p class="container__item__body__text">…for a long, straight shadow edge, this should create a color transition the length of the blur distance that is perpendicular to ...</p>
-                            <div class="container__item__body__meta">
-                                <div class="container__item__body__meta__details">Jun 19 * 5 min read * Blah * Group</div>
-                                <div class="container__item__body__meta__actions"></div>
+                            <div class='container__item__image'>
+                                <img src='../images/61.jpg' />
                             </div>
-                        </div>
-                        <div class='container__item__image'>
-                            <img src='images/60.jpg'/>
-                        </div>                        
-                    </a>
-                </li>
-            </ul>
-        </section>
+                        </a>
+                    </li>
+                    <li>
+                        <a href='#' class='container__item'>
+                            <div class='container__item__body'>
+                                <div class='container__item__body__category'>Cateogry</div>
+                                <h2 class="container__item__body__header">Introducing the Batman</h2>
+                                <p class="container__item__body__text">…for a long, straight shadow edge, this should
+                                    create a color transition the length of the blur distance that is perpendicular to
+                                    ...</p>
+                                <div class="container__item__body__meta">
+                                    <div class="container__item__body__meta__details">Jun 19 * 5 min read * Blah * Group
+                                    </div>
+                                    <div class="container__item__body__meta__actions"></div>
+                                </div>
+                            </div>
+                            <div class='container__item__image'>
+                                <img src='../images/59.jpg' />
+                            </div>
+                        </a>
+                    </li>
+                    <li>
+                        <a href='#' class='container__item'>
+                            <div class='container__item__body'>
+                                <div class='container__item__body__category'>Cateogry</div>
+                                <h2 class="container__item__body__header">Introducing the Amor</h2>
+                                <p class="container__item__body__text">…for a long, straight shadow edge, this should
+                                    create a color transition the length of the blur distance that is perpendicular to
+                                    ...</p>
+                                <div class="container__item__body__meta">
+                                    <div class="container__item__body__meta__details">Jun 19 * 5 min read * Blah * Group
+                                    </div>
+                                    <div class="container__item__body__meta__actions"></div>
+                                </div>
+                            </div>
+                            <div class='container__item__image'>
+                                <img src='../images/60.jpg' />
+                            </div>
+                        </a>
+                    </li>
+                </ul>
+            </section>
         </div>
         <div class='secondary'>
             <section class='section'>
                 <h2 class='subheading'>Recommended Topics</h2>
-                <ul class='list list--secondary'>                    
+                <ul class='list list--secondary'>
                     <li class='bubbles'><a href="#">Money</a></li>
                     <li class='bubbles'><a href="#">Bidness</a></li>
                     <li class='bubbles'><a href="#">IMmortal</a></li>
                     <li class='bubbles'><a href="#">Neuro</a></li>
-                    <li class='bubbles'><a href="#">Crypto</a></li>                  
+                    <li class='bubbles'><a href="#">Crypto</a></li>
                 </ul>
             </section>
             <section class='section'>
@@ -304,55 +329,60 @@
             </section>
             <section class='section'>
                 <h2 class='subheading'>Reading List</h2>
-                <ul class='container'>                               
+                <ul class='container'>
                     <li>
                         <a href='#' class='container__item container__item--secondary'>
                             <div class='container__item__body container__item__body--secondary'>
                                 <div class='container__item__body__category'>First Last</div>
-                                <h2 class="container__item__body__header container__item__body__header--secondary">Introducing the Amor</h2>                            
+                                <h2 class="container__item__body__header container__item__body__header--secondary">
+                                    Introducing the Amor</h2>
                                 <div class="container__item__body__meta">
-                                    <div class="container__item__body__meta__details">Jun 22</div>                                
+                                    <div class="container__item__body__meta__details">Jun 22</div>
                                 </div>
-                            </div>                        
+                            </div>
                         </a>
                     </li>
                     <li>
                         <a href='#' class='container__item container__item--secondary'>
                             <div class='container__item__body container__item__body--secondary'>
                                 <div class='container__item__body__category'>First Last</div>
-                                <h2 class="container__item__body__header container__item__body__header--secondary">Introducing the Amor</h2>                            
+                                <h2 class="container__item__body__header container__item__body__header--secondary">
+                                    Introducing the Amor</h2>
                                 <div class="container__item__body__meta">
-                                    <div class="container__item__body__meta__details">Jun 22</div>                                
+                                    <div class="container__item__body__meta__details">Jun 22</div>
                                 </div>
-                            </div>                        
+                            </div>
                         </a>
                     </li>
                     <li>
                         <a href='#' class='container__item container__item--secondary'>
                             <div class='container__item__body container__item__body--secondary'>
                                 <div class='container__item__body__category'>First Last</div>
-                                <h2 class="container__item__body__header container__item__body__header--secondary">Introducing the Amor</h2>                            
+                                <h2 class="container__item__body__header container__item__body__header--secondary">
+                                    Introducing the Amor</h2>
                                 <div class="container__item__body__meta">
-                                    <div class="container__item__body__meta__details">Jun 22</div>                                
+                                    <div class="container__item__body__meta__details">Jun 22</div>
                                 </div>
-                            </div>                        
+                            </div>
                         </a>
                     </li>
                     <li>
                         <a href='#' class='container__item container__item--secondary'>
                             <div class='container__item__body container__item__body--secondary'>
                                 <div class='container__item__body__category'>First Last</div>
-                                <h2 class="container__item__body__header container__item__body__header--secondary">Introducing the Amor</h2>                            
+                                <h2 class="container__item__body__header container__item__body__header--secondary">
+                                    Introducing the Amor</h2>
                                 <div class="container__item__body__meta">
-                                    <div class="container__item__body__meta__details">Jun 22</div>                                
+                                    <div class="container__item__body__meta__details">Jun 22</div>
                                 </div>
-                            </div>                        
+                            </div>
                         </a>
                     </li>
-                </section>
+            </section>
             </ul>
         </div>
     </main>
 
 </body>
+
 </html>

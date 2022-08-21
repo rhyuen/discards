@@ -1,313 +1,324 @@
 <!DOCTYPE html>
 <html lang="en">
+
 <head>
     <meta charset="UTF-8">
     <meta http-equiv="X-UA-Compatible" content="IE=edge">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <link rel="preconnect" href="https://fonts.gstatic.com">
-    <link href="https://fonts.googleapis.com/css2?family=Inter&display=swap" rel="stylesheet"> 
+    <link href="https://fonts.googleapis.com/css2?family=Inter&display=swap" rel="stylesheet">
     <title>06 23</title>
 
-        <style>
-            * {                
-                box-sizing: border-box;
-                font-size: 16px;
-                font-family: 'Inter', sans-serif;;                
-            }      
-            html, body{
-                margin: 0;
-                min-height: 100vh;
-                width: 100%;  
-                background: #f3f3f3;
-            }
+    <style>
+        * {
+            box-sizing: border-box;
+            font-size: 16px;
+            font-family: 'Inter', sans-serif;
+            ;
+        }
 
-            ul{
-                margin: 0;
-                padding: 0;
-                list-style-type: none;
-            }
+        html,
+        body {
+            margin: 0;
+            min-height: 100vh;
+            width: 100%;
+            background: #f3f3f3;
+        }
 
-            a{
-                text-decoration: none;
-                color: black;
-            }
+        ul {
+            margin: 0;
+            padding: 0;
+            list-style-type: none;
+        }
+
+        a {
+            text-decoration: none;
+            color: black;
+        }
 
 
-            nav.mobile{
+        nav.mobile {
+            display: flex;
+            justify-content: space-between;
+            align-items: center;
+
+            padding: 0.5rem;
+            height: 6rem;
+        }
+
+        nav.mobile>a {
+            font-size: 2rem;
+            padding: 1rem;
+            line-height: 2rem;
+            border-radius: 50%;
+            background-color: inherit;
+        }
+
+        nav.mobile>a:hover {
+            background: rgba(0, 0, 0, 0.1);
+        }
+
+        nav.desktop {
+            display: none;
+            justify-content: space-between;
+            align-items: center;
+            background-color: white;
+            padding: 0.5rem;
+            height: 4rem;
+        }
+
+        .input--nav {
+            padding: 0.75rem;
+            background: rgb(246, 247, 248);
+            border-radius: 5px;
+            border: rgb(237, 239, 241);
+            min-width: 400px;
+        }
+
+        main {
+            display: grid;
+            max-width: 1000px;
+            margin: 0 auto;
+            grid-template-rows: auto 1fr;
+            grid-template-columns: 1fr;
+            grid-gap: 1rem;
+            background-color: #f3f3f3;
+        }
+
+        .link {
+            padding: 0.5rem 1rem;
+            border-radius: 2rem;
+            background: palevioletred;
+            color: white;
+            font-weight: 600;
+            border: 1px solid palevioletred;
+            transition: all 0.2s ease-in-out;
+            margin-right: 1rem;
+            text-align: center;
+        }
+
+        .link:last-child {
+            margin-right: 0;
+        }
+
+
+
+
+        .link--opposite {
+            background: white;
+            color: palevioletred;
+        }
+
+
+        .media {
+            display: flex;
+            flex-direction: column;
+            grid-row: span 1;
+            grid-column: 1/-1;
+            margin-bottom: 2rem;
+        }
+
+        .media h2 {
+            margin-bottom: 2rem;
+        }
+
+        .media__item {
+            position: relative;
+            overflow: hidden;
+        }
+
+        .media__item::after {
+            padding-bottom: 100%;
+            content: '';
+            display: block;
+        }
+
+        .media__item img {
+            border-radius: 5px;
+            position: absolute;
+            height: 100%;
+            width: 100%;
+            object-fit: cover;
+            top: 0;
+            left: 0;
+            right: 0;
+            bottom: 0;
+            transition: all 0.2s ease-in-out;
+        }
+
+        .media__item img:hover {
+            transform: scale(1.1);
+        }
+
+        .media__item__text {
+            z-index: 2;
+            position: absolute;
+            bottom: 0;
+            width: 100%;
+            padding-left: 1rem;
+            background: rgba(0, 0, 0, 0.4);
+            border-bottom-left-radius: 5px;
+            border-bottom-right-radius: 5px;
+        }
+
+        .media__item__text h3 {
+            color: white;
+        }
+
+        .media__item__text p {
+            color: white;
+        }
+
+
+
+        .list {
+            display: flex;
+            flex-direction: column;
+        }
+
+        .mediabar {
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(200px, 1fr));
+            grid-gap: 1rem;
+        }
+
+        .feed {
+            grid-column: 1/-1;
+        }
+
+        .card {
+            padding: 2rem 1rem;
+            border: 2px solid rgb(246, 247, 248);
+            border-radius: 5px;
+            margin-bottom: 2rem;
+            background: white;
+            display: flex;
+            flex-direction: column;
+        }
+
+        .card--feed {
+            flex-direction: row;
+            justify-content: flex-start;
+        }
+
+        .card__count {
+            font-weight: 600;
+        }
+
+        .card__body {
+            display: flex;
+            flex-direction: column;
+            margin: 0 1rem;
+        }
+
+        .card__body__meta {
+            display: flex;
+            justify-content: flex-start;
+        }
+
+        .card__body__meta__item {
+            margin-right: 1rem;
+            font-weight: 500;
+            color: #343434;
+            font-size: 0.8rem;
+            display: flex;
+            align-items: center;
+        }
+
+        .card__body__meta__item--actionable {
+            background: rgb(246, 247, 248);
+            color: rgba(0, 0, 0, 0.4);
+            font-weight: 600;
+            border: 2px solid rgb(237, 239, 241);
+            transition: all 0.2s ease-in-out;
+            padding: 0.25rem 0.5rem;
+            border-radius: 5px;
+        }
+
+        .card__body__meta__item--actionable:hover {
+            color: black;
+            border-color: black;
+        }
+
+        .card__body__actions button:hover {
+            color: black;
+
+        }
+
+        .card__body__text {}
+
+        .card__body__actions button {
+            background: rgb(246, 247, 248);
+            color: rgba(0, 0, 0, 0.4);
+            font-weight: 600;
+            border: 1px solid rgb(237, 239, 241);
+            transition: all 0.2s ease-in-out;
+        }
+
+        .card__body__actions button:hover {
+            color: black;
+        }
+
+        .card__image {
+            position: relative;
+
+
+        }
+
+        .card__image::after {
+            padding-bottom: 100%;
+            content: "";
+            display: block;
+        }
+
+        .card__image>img {
+            position: absolute;
+            top: 0;
+            left: 0;
+            width: 100%;
+            object-fit: fill;
+
+        }
+
+        .feed__control {
+            margin: 2rem 0;
+        }
+
+        aside {
+            display: none;
+            margin-left: 1rem;
+        }
+
+        footer * {
+
+            font-size: 0.9rem;
+        }
+
+        @media screen and (min-width: 1000px) {
+            nav.desktop {
                 display: flex;
-                justify-content: space-between;
-                align-items: center;
-                
-                padding: 0.5rem;
-                height: 6rem;
             }
 
-            nav.mobile > a{
-                font-size: 2rem;
-                padding: 1rem;
-                line-height: 2rem;
-                border-radius: 50%;
-                background-color: inherit;
-            }
-
-            nav.mobile > a:hover{
-                background: rgba(0, 0, 0, 0.1);
-            }
-
-            nav.desktop{
+            nav.mobile {
                 display: none;
-                justify-content: space-between;
-                align-items: center;
-                background-color: white;
-                padding: 0.5rem;
-                height: 4rem;
             }
 
-            .input--nav{
-                padding: 0.75rem;
-                background: rgb(246, 247, 248);
-                border-radius: 5px;
-                border: rgb(237, 239, 241);    
-                min-width: 400px;
-            }
-            
-            main{
-                display: grid;
-                max-width: 1000px;
-                margin: 0 auto;
-                grid-template-rows: auto 1fr;
-                grid-template-columns: 1fr;
-                grid-gap: 1rem;   
-                background-color: #f3f3f3;             
+            main {
+                grid-template-columns: 2fr 1fr;
             }
 
-            .link{
-                padding: 0.5rem 1rem;
-                border-radius: 2rem;
-                background: palevioletred;
-                color: white;
-                font-weight: 600;
-                border: 1px solid palevioletred;
-                transition: all 0.2s ease-in-out;
-                margin-right: 1rem;
-                text-align: center;
-            }
-            .link:last-child{
-                margin-right: 0;
+            .feed {
+                grid-column: 1/span 1;
             }
 
-            
-
-
-            .link--opposite{
-                background: white;
-                color: palevioletred;
-            }
-
-
-            .media{
-                display: flex;
-                flex-direction: column;
-                grid-row: span 1;
-                grid-column: 1/-1;                
-                margin-bottom: 2rem;
-            }
-
-            .media h2{
-                margin-bottom: 2rem;
-            }
-
-            .media__item{
-                position: relative;
-                overflow: hidden;
-            }
-            .media__item::after{
-                padding-bottom: 100%;
-                content: '';
+            aside {
                 display: block;
             }
+        }
+    </style>
+</head>
 
-            .media__item img{
-                border-radius: 5px;
-                position: absolute;
-                height: 100%;
-                width: 100%;
-                object-fit: cover;
-                top: 0;
-                left: 0;
-                right: 0;
-                bottom: 0;                
-                transition: all 0.2s ease-in-out;
-            }
-
-            .media__item img:hover{
-                transform: scale(1.1);
-            }
-
-            .media__item__text{
-                z-index: 2;
-                position: absolute;
-                bottom: 0;                
-                width: 100%;
-                padding-left: 1rem;
-                background: rgba(0, 0, 0, 0.4);
-                border-bottom-left-radius: 5px;
-                border-bottom-right-radius: 5px;
-            }
-
-            .media__item__text h3{
-                color: white;
-            }
-            .media__item__text p{
-                color: white;
-            }
-
-
-
-            .list{
-                display: flex;
-                flex-direction: column;
-            }
-
-            .mediabar{
-                display: grid;
-                grid-template-columns: repeat(auto-fit, minmax(200px, 1fr));
-                grid-gap: 1rem;
-            }
-
-            .feed{                
-                grid-column: 1/-1;
-            }
-
-            .card{
-                padding: 2rem 1rem;
-                border: 2px solid rgb(246, 247, 248);
-                border-radius: 5px;
-                margin-bottom: 2rem;
-                background: white;                
-                display: flex;
-                flex-direction: column;
-            }
-
-            .card--feed{
-                flex-direction: row;       
-                justify-content: flex-start;         
-            }
-
-            .card__count{                
-                font-weight: 600;
-            }
-
-            .card__body{
-                display: flex;
-                flex-direction: column;
-                margin: 0 1rem;
-            }
-
-            .card__body__meta{
-                display: flex;
-                justify-content: flex-start;
-            }
-            .card__body__meta__item{
-                margin-right: 1rem;
-                font-weight: 500;
-                color: #343434;
-                font-size: 0.8rem;
-                display: flex;
-                align-items: center;
-            }
-
-            .card__body__meta__item--actionable{
-                background: rgb(246, 247, 248);                
-                color: rgba(0, 0, 0, 0.4);    
-                font-weight: 600;
-                border: 2px solid rgb(237, 239, 241);  
-                transition: all 0.2s ease-in-out;   
-                padding: 0.25rem 0.5rem;   
-                border-radius: 5px;
-            }
-            .card__body__meta__item--actionable:hover{
-                color: black;
-                border-color: black;
-            }
-
-            .card__body__actions button:hover{
-                color: black;
-               
-            }
-
-            .card__body__text{
-
-            }
-            .card__body__actions button{                
-                background: rgb(246, 247, 248);                
-                color: rgba(0, 0, 0, 0.4);    
-                font-weight: 600;
-                border: 1px solid rgb(237, 239, 241);  
-                transition: all 0.2s ease-in-out;              
-            }
-            .card__body__actions button:hover{
-                color: black;
-            }
-
-            .card__image{
-                position: relative;
-                
-
-            }
-
-            .card__image::after{
-                padding-bottom: 100%;
-                content: "";
-                display: block;
-            }
-
-            .card__image > img{
-                position: absolute;
-                top: 0;                 
-                left: 0;               
-                width: 100%;                                 
-                object-fit: fill;
-               
-            }
-
-            .feed__control{         
-                margin: 2rem 0;         
-            }
-
-            aside{ 
-                display: none;
-                margin-left: 1rem;
-            }
-
-            footer *{
-
-                font-size: 0.9rem;
-            }
-
-            @media screen and (min-width: 1000px){
-                nav.desktop{
-                    display: flex;
-                }
-                nav.mobile{
-                    display: none;
-                }
-
-                main{
-                    grid-template-columns: 2fr 1fr;
-                }
-
-                .feed{
-                    grid-column: 1/span 1;
-                }
-
-                aside{
-                    display: block;
-                }                
-            }
-        </style>
-    </head>
-    <body> 
+<body>
     <nav class='mobile'>
         <a href='#'>&#11044;</a>
         <a href=''>&#x2630;</a>
@@ -316,13 +327,13 @@
         <div>
             <a href='#'>&#11044;</a>
         </div>
-        <input type='text' placeholder='Search' class='input input--nav'/>
+        <input type='text' placeholder='Search' class='input input--nav' />
         <div>
             <a href='#' class='link link--opposite'>Login</a>
             <a href='#' class='link'>Signup</a>
         </div>
 
-    </nav>     
+    </nav>
     <main>
         <section class='media'>
             <h2>Trending Today</h2>
@@ -330,7 +341,7 @@
                 <li class='list__item'>
                     <a href='#'>
                         <div class='media__item'>
-                            <img src='images/59.jpg' alt='blah'/>
+                            <img src='../images/59.jpg' alt='blah' />
                             <div class='media__item__text'>
                                 <h3>Title Here</h3>
                                 <p>some ttext here</p>
@@ -341,7 +352,7 @@
                 <li class='list__item'>
                     <a href='#'>
                         <div class='media__item'>
-                            <img src='images/60.jpg' alt='blah'/>
+                            <img src='../images/60.jpg' alt='blah' />
                             <div class='media__item__text'>
                                 <h3>Best Bub</h3>
                                 <p>Doom dares.</p>
@@ -352,7 +363,7 @@
                 <li class='list__item'>
                     <a href='#'>
                         <div class='media__item'>
-                            <img src='images/61.jpg' alt='blah'/>
+                            <img src='../images/61.jpg' alt='blah' />
                             <div class='media__item__text'>
                                 <h3>Shinkt</h3>
                                 <p>Yello Wolve</p>
@@ -363,7 +374,7 @@
                 <li class='list__item'>
                     <a href='#'>
                         <div class='media__item'>
-                            <img src='images/62.jpg' alt='blah'/>
+                            <img src='../images/62.jpg' alt='blah' />
                             <div class='media__item__text'>
                                 <h3>X-nem</h3>
                                 <p>A house exists.</p>
@@ -397,7 +408,7 @@
                             </ul>
                         </div>
                         <div class='card__image'>
-                            <img src='images/fw2.jpg' alt='blah'/>
+                            <img src='../images/fw2.jpg' alt='blah' />
                         </div>
                     </a>
                 </li>
@@ -421,7 +432,7 @@
                             </ul>
                         </div>
                         <div class='card__image'>
-                            <img src='images/eleven.jpg' alt='blah'/>
+                            <img src='../images/eleven.jpg' alt='blah' />
                         </div>
                     </a>
                 </li>
@@ -445,7 +456,7 @@
                             </ul>
                         </div>
                         <div class='card__image'>
-                            <img src='images/59.jpg' alt='blah'/>
+                            <img src='../images/59.jpg' alt='blah' />
                         </div>
                     </a>
                 </li>
@@ -469,7 +480,7 @@
                             </ul>
                         </div>
                         <div class='card__image'>
-                            <img src='images/61.jpg' alt='blah'/>
+                            <img src='../images/61.jpg' alt='blah' />
                         </div>
                     </a>
                 </li>
@@ -493,7 +504,7 @@
                             </ul>
                         </div>
                         <div class='card__image'>
-                            <img src='images/62.jpg' alt='blah'/>
+                            <img src='../images/62.jpg' alt='blah' />
                         </div>
                     </a>
                 </li>
@@ -517,7 +528,7 @@
                             </ul>
                         </div>
                         <div class='card__image'>
-                            <img src='images/60.jpg' alt='blah'/>
+                            <img src='../images/60.jpg' alt='blah' />
                         </div>
                     </a>
                 </li>
@@ -526,30 +537,30 @@
         <aside>
             <div class='card'>
                 <p>Text coaxing you into doing something not in your best interest.</p>
-                <br/>
+                <br />
                 <a href='#' class='link'>Give me Money</a>
             </div>
             <footer class='card'>
                 <ul class='list'>
                     <li>
                         <a href="#">
-                           User Agreement
-                         </a>
+                            User Agreement
+                        </a>
                     </li>
                     <li>
                         <a href="#">
-                           Content Policy
-                         </a>
+                            Content Policy
+                        </a>
                     </li>
                     <li>
                         <a href="#">
-                          Privacy Policy
-                         </a>
+                            Privacy Policy
+                        </a>
                     </li>
                     <li>
                         <a href="#">
-                           Die in a fire Policy
-                         </a>
+                            Die in a fire Policy
+                        </a>
                     </li>
                 </ul>
                 <h4>Legelese that is a waste of everyone's time.</h4>
@@ -557,8 +568,9 @@
         </aside>
     </main>
 
-    
-    
 
-    </body>
+
+
+</body>
+
 </html>

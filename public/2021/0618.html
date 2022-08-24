@@ -1,193 +1,202 @@
 <!DOCTYPE html>
 <html lang="en">
+
 <head>
     <meta charset="UTF-8">
     <meta http-equiv="X-UA-Compatible" content="IE=edge">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>06 17</title>
 
-        <style>
-            * {                
-                box-sizing: border-box;
-                font-size: 16px;
-                font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;                
-            }      
-            html, body{
-                margin: 0;
-                min-height: 100vh;
-                width: 100%;  
-            }
+    <style>
+        * {
+            box-sizing: border-box;
+            font-size: 16px;
+            font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
+        }
 
-            ul{
-                margin: 0;
-                padding: 0;
-                list-style-type: none;
-            }
-            
-            a {
-                color: black;
-                text-decoration: none;
-                font-weight: 400;
-            }
-            a:visited{
-                color: black;
-            }
+        html,
+        body {
+            margin: 0;
+            min-height: 100vh;
+            width: 100%;
+        }
 
-            nav{
-                display: flex;
-                flex-direction: column;                
-            }
+        ul {
+            margin: 0;
+            padding: 0;
+            list-style-type: none;
+        }
 
-            nav > div{
-                height: 5vh;
-                background: palevioletred;
-                border-bottom: 1px solid white;
-            }
-        
-            main{
-                display: grid;
-                max-width: 1250px;
-                grid-template-columns: 2fr 1fr 1fr;
-                margin: 0 auto;
-                margin-top: 1.5rem;
-            }
+        a {
+            color: black;
+            text-decoration: none;
+            font-weight: 400;
+        }
 
-            .item {
-                display: flex;
-            }
+        a:visited {
+            color: black;
+        }
 
-            .item--primary{
-                flex-direction: column;
-            }
+        nav {
+            display: flex;
+            flex-direction: column;
+        }
 
-            .item--secondary{
-                flex-direction: row;
-            }            
+        nav>div {
+            height: 5vh;
+            background: palevioletred;
+            border-bottom: 1px solid white;
+        }
 
-            .sixty{
-                grid-column: 1/span 1;                
-                margin-right: 2rem;
-            }
+        main {
+            display: grid;
+            max-width: 1250px;
+            grid-template-columns: 2fr 1fr 1fr;
+            margin: 0 auto;
+            margin-top: 1.5rem;
+        }
 
-            .item{
-                margin-bottom: 2rem;                
-                border-bottom: 1px solid rgba(0, 0, 0, 0.1);
-            }
+        .item {
+            display: flex;
+        }
 
-            .twenty .item{
-                margin-bottom: 1rem;
-                padding-bottom: 1rem;
-            }
+        .item--primary {
+            flex-direction: column;
+        }
 
-            .item__image > img{
-                width: 100%;
-                max-height: 400px;
-                object-fit: cover;
-            }
+        .item--secondary {
+            flex-direction: row;
+        }
 
-            .item__body__category{
-                text-transform: uppercase;
-                color: palevioletred;
-                font-weight: 600;
-            }
+        .sixty {
+            grid-column: 1/span 1;
+            margin-right: 2rem;
+        }
 
-            .item__body__title{
-                font-size: 1rem;
-                font-weight: 600;
-            }
+        .item {
+            margin-bottom: 2rem;
+            border-bottom: 1px solid rgba(0, 0, 0, 0.1);
+        }
 
-            .item__body__title--primary{
-                font-size: 1.2rem;
-            }
+        .twenty .item {
+            margin-bottom: 1rem;
+            padding-bottom: 1rem;
+        }
 
-            .item__body__title--trending{
-                font-size: .9rem;                
-            }
+        .item__image>img {
+            width: 100%;
+            max-height: 400px;
+            object-fit: cover;
+        }
+
+        .item__body__category {
+            text-transform: uppercase;
+            color: palevioletred;
+            font-weight: 600;
+        }
+
+        .item__body__title {
+            font-size: 1rem;
+            font-weight: 600;
+        }
+
+        .item__body__title--primary {
+            font-size: 1.2rem;
+        }
+
+        .item__body__title--trending {
+            font-size: .9rem;
+        }
 
 
-            
 
-            .item__body__meta{
-                margin-top: 1rem;
-                font-family: 'Trebuchet MS', 'Lucida Sans Unicode', 'Lucida Grande', 'Lucida Sans', Arial, sans-serif;
-                font-size: 0.8rem;
-                color: rgba(0, 0, 0, 0.6);
-            }
 
-            .twenty{
-                grid-column: span 1;                
-                margin-right: 2rem;
-            }
+        .item__body__meta {
+            margin-top: 1rem;
+            font-family: 'Trebuchet MS', 'Lucida Sans Unicode', 'Lucida Grande', 'Lucida Sans', Arial, sans-serif;
+            font-size: 0.8rem;
+            color: rgba(0, 0, 0, 0.6);
+        }
 
-            .trending{
-                grid-column: span 1;                
-                display: flex;
-                flex-direction: column;
-            }
-            .trending__header{
-                font-weight: 600;
-                font-size: 1.5rem;
-                margin: 2rem 0;
-            }
+        .twenty {
+            grid-column: span 1;
+            margin-right: 2rem;
+        }
 
-            .trending__number{
-                margin: 0;
-                padding: 0;
-                font-size: 2rem;
-                font-weight: 600;;
-                margin-right: 1rem;
-                position: relative;
-                top: -.5rem;
-            }
-            
-            .spacer{
-                width: 100%;    
-                position: relative;       
-                background: papayawhip;     
-                margin-bottom: 1rem;
-            }
-            .spacer:after{
-                content: "";
-                display: block;
-                padding-bottom: 100%;
-            }
-            .spacer__content{
-                position: absolute;
-                height: 100%;
-                width: 100%;
-                display: flex;
-                justify-content: center;
-                align-items: center;
-            }
+        .trending {
+            grid-column: span 1;
+            display: flex;
+            flex-direction: column;
+        }
 
-            @media screen and (min-width: 700px) and (max-width: 1000px){
+        .trending__header {
+            font-weight: 600;
+            font-size: 1.5rem;
+            margin: 2rem 0;
+        }
 
-            }
+        .trending__number {
+            margin: 0;
+            padding: 0;
+            font-size: 2rem;
+            font-weight: 600;
+            ;
+            margin-right: 1rem;
+            position: relative;
+            top: -.5rem;
+        }
 
-            @media screen and (min-width: 1250px){
+        .spacer {
+            width: 100%;
+            position: relative;
+            background: papayawhip;
+            margin-bottom: 1rem;
+        }
 
-            }
-        </style>
+        .spacer:after {
+            content: "";
+            display: block;
+            padding-bottom: 100%;
+        }
+
+        .spacer__content {
+            position: absolute;
+            height: 100%;
+            width: 100%;
+            display: flex;
+            justify-content: center;
+            align-items: center;
+        }
+
+        @media screen and (min-width: 700px) and (max-width: 1000px) {}
+
+        @media screen and (min-width: 1250px) {}
+    </style>
 </head>
-<body> 
+
+<body>
     <nav>
         <div></div>
         <div></div>
         <div></div>
     </nav>
-    <main>        
+    <main>
         <ul class='sixty'>
             <li>
                 <a href='#' class='item item--primary'>
                     <div class='item__image'>
-                        <img src='images/59.jpg' alt='blah'/>
+                        <img src='../images/59.jpg' alt='blah' />
                     </div>
                     <div class='item__body'>
                         <p class='item__body__category'>Cateogry</p>
-                        <h2 class='item__body__title item__body__title--primary'>Why covid may hnow lee like a bad cold with headcache runny nose among most-reported sytmsptels</h2>
-                        <p class='item__body__text'>The most-reported symptoms of COVID-19 are now a headache, sore throat, and runny nose, according to the research team behind a U.K. symptom tracking app, and medical experts here in Canada say various factors could be causing the illness to feel more like a common cold.</p>
+                        <h2 class='item__body__title item__body__title--primary'>Why covid may hnow lee like a bad cold
+                            with headcache runny nose among most-reported sytmsptels</h2>
+                        <p class='item__body__text'>The most-reported symptoms of COVID-19 are now a headache, sore
+                            throat, and runny nose, according to the research team behind a U.K. symptom tracking app,
+                            and medical experts here in Canada say various factors could be causing the illness to feel
+                            more like a common cold.</p>
                         <p class='item__body__meta'>
-                            Meta | 10 Hours Ago 
+                            Meta | 10 Hours Ago
                         </p>
                     </div>
                 </a>
@@ -195,179 +204,195 @@
 
             <li>
                 <a href='#' class="item item--secondary">
-                  
-                    <div class='item__body'>                        
-                        <h2 class='item__body__title'>Why covid may hnow lee like a bad cold with headcache runny nose among most-reported sytmsptels</h2>
-                        <p class='item__body__text'>The most-reported symptoms of COVID-19 are now a headache, sore throat, and runny nose, according to the research team behind a U.K. symptom tracking app, and medical experts here in Canada say various factors could be causing the illness to feel more like a common cold.</p>
+
+                    <div class='item__body'>
+                        <h2 class='item__body__title'>Why covid may hnow lee like a bad cold with headcache runny nose
+                            among most-reported sytmsptels</h2>
+                        <p class='item__body__text'>The most-reported symptoms of COVID-19 are now a headache, sore
+                            throat, and runny nose, according to the research team behind a U.K. symptom tracking app,
+                            and medical experts here in Canada say various factors could be causing the illness to feel
+                            more like a common cold.</p>
                         <p class='item__body__meta'>
-                            Meta | 10 Hours Ago 
+                            Meta | 10 Hours Ago
                         </p>
                     </div>
                     <div class='item__image'>
-                        <img src='images/nine.jpg' alt='blah'/>
+                        <img src='../images/nine.jpg' alt='blah' />
                     </div>
                 </a>
             </li>
 
             <li>
                 <a href='#' class="item item--secondary">
-                  
-                    <div class='item__body'>                        
-                        <h2 class='item__body__title'>Why covid may hnow lee like a bad cold with headcache runny nose among most-reported sytmsptels</h2>
-                        <p class='item__body__text'>The most-reported symptoms of COVID-19 are now a headache, sore throat, and runny nose, according to the research team behind a U.K. symptom tracking app, and medical experts here in Canada say various factors could be causing the illness to feel more like a common cold.</p>
+
+                    <div class='item__body'>
+                        <h2 class='item__body__title'>Why covid may hnow lee like a bad cold with headcache runny nose
+                            among most-reported sytmsptels</h2>
+                        <p class='item__body__text'>The most-reported symptoms of COVID-19 are now a headache, sore
+                            throat, and runny nose, according to the research team behind a U.K. symptom tracking app,
+                            and medical experts here in Canada say various factors could be causing the illness to feel
+                            more like a common cold.</p>
                         <p class='item__body__meta'>
-                            Meta | 10 Hours Ago 
+                            Meta | 10 Hours Ago
                         </p>
                     </div>
                     <div class='item__image'>
-                        <img src='images/58.jpg' alt='blah'/>
+                        <img src='../images/58.jpg' alt='blah' />
                     </div>
                 </a>
             </li>
         </ul>
         <ul class='twenty'>
             <li>
-                <a href='#' class="item item--secondary">                  
-                    <div class='item__body'>                  
-                        <p class='item__body__category'>Cateogry</p>      
-                        <h2 class='item__body__title'>Why covid may hnow lee like a bad cold with headcache runny nose among most-reported sytmsptels</h2>                        
+                <a href='#' class="item item--secondary">
+                    <div class='item__body'>
+                        <p class='item__body__category'>Cateogry</p>
+                        <h2 class='item__body__title'>Why covid may hnow lee like a bad cold with headcache runny nose
+                            among most-reported sytmsptels</h2>
                         <p class='item__body__meta'>
-                            Meta | 10 Hours Ago 
+                            Meta | 10 Hours Ago
                         </p>
-                    </div>                    
+                    </div>
                 </a>
             </li>
             <li>
-                <a href='#' class="item item--secondary">                  
-                    <div class='item__body'>                  
-                        <p class='item__body__category'>idgaf</p>      
-                        <h2 class='item__body__title'>Bungie is actually releasing a Destiny-themed toaster</h2>                        
+                <a href='#' class="item item--secondary">
+                    <div class='item__body'>
+                        <p class='item__body__category'>Halo</p>
+                        <h2 class='item__body__title'>Bungie is actually releasing a Destiny-themed toaster</h2>
                         <p class='item__body__meta'>
-                            Meta | 10 Hours Ago 
+                            Meta | 10 Hours Ago
                         </p>
-                    </div>                    
+                    </div>
                 </a>
             </li>
             <li>
-                <a href='#' class="item item--secondary">                  
-                    <div class='item__body'>                  
-                        <p class='item__body__category'>climate</p>      
-                        <h2 class='item__body__title'>Earth has been trapping heat at an alarming new rate, study finds</h2>                        
+                <a href='#' class="item item--secondary">
+                    <div class='item__body'>
+                        <p class='item__body__category'>climate</p>
+                        <h2 class='item__body__title'>Earth has been trapping heat at an alarming new rate, study finds
+                        </h2>
                         <p class='item__body__meta'>
-                            Meta | 10 Hours Ago 
+                            Meta | 10 Hours Ago
                         </p>
-                    </div>                    
+                    </div>
                 </a>
             </li>
             <li>
-                <a href='#' class="item item--secondary">                  
-                    <div class='item__body'>                  
-                        <p class='item__body__category'>climate</p>      
-                        <h2 class='item__body__title'>Earth ends in 2026</h2>                        
+                <a href='#' class="item item--secondary">
+                    <div class='item__body'>
+                        <p class='item__body__category'>climate</p>
+                        <h2 class='item__body__title'>Earth ends in 2026</h2>
                         <p class='item__body__meta'>
-                            Meta | 13 Hours Ago 
+                            Meta | 13 Hours Ago
                         </p>
-                    </div>                    
+                    </div>
                 </a>
             </li>
             <li>
-                <a href='#' class="item item--secondary">                  
-                    <div class='item__body'>                  
-                        <p class='item__body__category'>climate</p>      
-                        <h2 class='item__body__title'>Earth drought in 2024</h2>                        
+                <a href='#' class="item item--secondary">
+                    <div class='item__body'>
+                        <p class='item__body__category'>climate</p>
+                        <h2 class='item__body__title'>Earth drought in 2024</h2>
                         <p class='item__body__meta'>
-                            Meta | 19 Hours Ago 
+                            Meta | 19 Hours Ago
                         </p>
-                    </div>                    
+                    </div>
                 </a>
             </li>
             <li>
-                <a href='#' class="item item--secondary">                  
-                    <div class='item__body'>                  
-                        <p class='item__body__category'>cat</p>      
-                        <h2 class='item__body__title'>Cats resurgent and stand on hind legs</h2>                        
+                <a href='#' class="item item--secondary">
+                    <div class='item__body'>
+                        <p class='item__body__category'>cat</p>
+                        <h2 class='item__body__title'>Cats resurgent and stand on hind legs</h2>
                         <p class='item__body__meta'>
-                            Meta | 24 Hours Ago 
+                            Meta | 24 Hours Ago
                         </p>
-                    </div>                    
+                    </div>
                 </a>
             </li>
         </ul>
         <section class='trending'>
-            <div class='spacer'>  
-                <div class="spacer__content">ad</div>              
-            </div>           
+            <div class='spacer'>
+                <div class="spacer__content">ad</div>
+            </div>
             <h3 class='trending__header'>Trending</h3>
             <ul>
-                <li>                    
-                    <a href='#' class="item item--secondary">                  
+                <li>
+                    <a href='#' class="item item--secondary">
                         <div class='trending__number'>1</div>
-                        <div class='item__body'>                                          
-                            <h2 class='item__body__title item__body__title--trending'>Cats resurgent and stand on hind legs</h2>                        
+                        <div class='item__body'>
+                            <h2 class='item__body__title item__body__title--trending'>Cats resurgent and stand on hind
+                                legs</h2>
                             <p class='item__body__meta'>
-                                111 reading now 
+                                111 reading now
                             </p>
-                        </div>                    
+                        </div>
                     </a>
                 </li>
-                <li>                    
-                    <a href='#' class="item item--secondary">                  
+                <li>
+                    <a href='#' class="item item--secondary">
                         <div class='trending__number'>2</div>
-                        <div class='item__body'>                                          
-                            <h2 class='item__body__title item__body__title--trending'>Cats resurgent and stand on hind legs</h2>                        
+                        <div class='item__body'>
+                            <h2 class='item__body__title item__body__title--trending'>Cats resurgent and stand on hind
+                                legs</h2>
                             <p class='item__body__meta'>
-                                34 reading now 
+                                34 reading now
                             </p>
-                        </div>                    
+                        </div>
                     </a>
                 </li>
                 <li>
-                    
-                    <a href='#' class="item item--secondary">                  
+
+                    <a href='#' class="item item--secondary">
                         <div class='trending__number'>3</div>
-                        <div class='item__body'>                                          
-                            
-                            <h2 class='item__body__title item__body__title--trending'>Cats resurgent and stand on hind legs</h2>                        
+                        <div class='item__body'>
+
+                            <h2 class='item__body__title item__body__title--trending'>Cats resurgent and stand on hind
+                                legs</h2>
                             <p class='item__body__meta'>
-                                77 reading now 
+                                77 reading now
                             </p>
-                        </div>                    
+                        </div>
                     </a>
                 </li>
                 <li>
-                    
-                    <a href='#' class="item item--secondary">                  
+
+                    <a href='#' class="item item--secondary">
                         <div class='trending__number'>4</div>
-                        <div class='item__body'>                                          
-                            <h2 class='item__body__title item__body__title--trending'>Cats resurgent and stand on hind legs</h2>                        
+                        <div class='item__body'>
+                            <h2 class='item__body__title item__body__title--trending'>Cats resurgent and stand on hind
+                                legs</h2>
                             <p class='item__body__meta'>
-                                89 reading now 
+                                89 reading now
                             </p>
-                        </div>                    
+                        </div>
                     </a>
                 </li>
                 <li>
-                    
-                    <a href='#' class="item item--secondary">                  
+
+                    <a href='#' class="item item--secondary">
                         <div class='trending__number'>5</div>
-                        <div class='item__body'>                  
-                            <div class='item__body__category'>cat</div>      
-                            <h2 class='item__body__title item__body__title--trending'>Cats resurgent and stand on hind legs</h2>                        
+                        <div class='item__body'>
+                            <div class='item__body__category'>cat</div>
+                            <h2 class='item__body__title item__body__title--trending'>Cats resurgent and stand on hind
+                                legs</h2>
                             <p class='item__body__meta'>
-                                111 reading now 
+                                111 reading now
                             </p>
-                        </div>                    
+                        </div>
                     </a>
                 </li>
             </ul>
-            <div class='spacer'>  
-                <div class="spacer__content">AD2</div>              
-            </div>   
-            <div class='spacer'>  
-                <div class="spacer__content">AD3</div>              
-            </div>   
+            <div class='spacer'>
+                <div class="spacer__content">AD2</div>
+            </div>
+            <div class='spacer'>
+                <div class="spacer__content">AD3</div>
+            </div>
         </section>
     </main>
 
 </body>
+
 </html>

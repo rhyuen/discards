@@ -1,213 +1,224 @@
 <!DOCTYPE html>
 <html lang="en">
+
 <head>
     <meta charset="UTF-8">
     <meta http-equiv="X-UA-Compatible" content="IE=edge">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <link rel="preconnect" href="https://fonts.gstatic.com">
-    <link href="https://fonts.googleapis.com/css2?family=Inter&display=swap" rel="stylesheet"> 
+    <link href="https://fonts.googleapis.com/css2?family=Inter&display=swap" rel="stylesheet">
     <title>06 20</title>
 
-        <style>
-            * {                
-                box-sizing: border-box;
-                font-size: 16px;
-                font-family: 'Inter', sans-serif;;                
-            }      
-            html, body{
-                margin: 0;
-                min-height: 100vh;
-                width: 100%;  
-            }
+    <style>
+        * {
+            box-sizing: border-box;
+            font-size: 16px;
+            font-family: 'Inter', sans-serif;
+            ;
+        }
 
-            ul{
-                margin: 0;
-                padding: 0;
-                list-style-type: none;
-            }
-            
-            a {
-                color: white;
-                text-decoration: none;
-                font-weight: 400;                
-                transition: color 0.2s ease-in-out;
-            }
-   
-            main{
-                max-width: 1100px;
-                margin: 0 auto;
-                display: grid;
-                grid-template-columns: repeat(auto-fill, minmax(250px, 1fr));
-                grid-gap: 0.5rem;
-            }
+        html,
+        body {
+            margin: 0;
+            min-height: 100vh;
+            width: 100%;
+        }
 
-            nav.mobile{
-                height: 5rem;                
-                background: -webkit-linear-gradient(right, #da0050, #8e2b88);
-                margin-bottom: 2rem;
-                display: flex;   
-                justify-content: space-between;             
-                align-items: center;
-            }            
-            nav.mobile > a{
-                margin: 1rem;
-                font-size: 2rem;
-            }
+        ul {
+            margin: 0;
+            padding: 0;
+            list-style-type: none;
+        }
 
-            #menu{
-                display: none;                                 
-            }
-            #menu:target{
-                position: fixed;
-                display: flex;
-                justify-items: center;
-                align-items: center;
-                height: 100vh;                
-                width: 100vw;
-                top: 0;
-                left: 0;
-                right: 0;
-                bottom: 0;
-                z-index: 3;  
-            }
-                        
+        a {
+            color: white;
+            text-decoration: none;
+            font-weight: 400;
+            transition: color 0.2s ease-in-out;
+        }
 
-            .mobile__modal__background{
-                position: fixed;                                
-                height: 100vh;
-                width: 100vw;
-                top: 0;
-                left: 0;
-                right: 0;
-                bottom: 0;
-                background: rgba(0, 0, 0, 0.8);  
-                z-index: 3;   
-            }
-            
-            .mobile__modal__menu{
-                position: absolute;
-                top: 20%;
-                left: 20%;
-                width: 50%;
-                background: white;
-                z-index: 4;     
-                padding: 5rem;
-                height: 40%;
-                display: flex;
-                flex-direction: column;                
-            }
+        main {
+            max-width: 1100px;
+            margin: 0 auto;
+            display: grid;
+            grid-template-columns: repeat(auto-fill, minmax(250px, 1fr));
+            grid-gap: 0.5rem;
+        }
 
-            .mobile__modal__menu li {
-                margin-bottom: 2rem;
-                text-align: center;
-            }
-            .mobile__modal__menu a {
-                color: palevioletred;
-                font-weight: 600;                
-                font-size: 2rem;                      
-            }
-         
+        nav.mobile {
+            height: 5rem;
+            background: -webkit-linear-gradient(right, #da0050, #8e2b88);
+            margin-bottom: 2rem;
+            display: flex;
+            justify-content: space-between;
+            align-items: center;
+        }
+
+        nav.mobile>a {
+            margin: 1rem;
+            font-size: 2rem;
+        }
+
+        #menu {
+            display: none;
+        }
+
+        #menu:target {
+            position: fixed;
+            display: flex;
+            justify-items: center;
+            align-items: center;
+            height: 100vh;
+            width: 100vw;
+            top: 0;
+            left: 0;
+            right: 0;
+            bottom: 0;
+            z-index: 3;
+        }
 
 
-            nav.desktop{
-                height: 5rem;
-                background: -webkit-linear-gradient(right, #da0050, #8e2b88);
-                margin-bottom: 2rem;
-                display: none;
-            }
+        .mobile__modal__background {
+            position: fixed;
+            height: 100vh;
+            width: 100vw;
+            top: 0;
+            left: 0;
+            right: 0;
+            bottom: 0;
+            background: rgba(0, 0, 0, 0.8);
+            z-index: 3;
+        }
 
-            .navcontainer{
-                margin: 0 auto;
-                max-width: 1100px;
-                height: 100%;                
-                color: white;                
-                display: flex;
-                align-items: center;
-            }
+        .mobile__modal__menu {
+            position: absolute;
+            top: 20%;
+            left: 20%;
+            width: 50%;
+            background: white;
+            z-index: 4;
+            padding: 5rem;
+            height: 40%;
+            display: flex;
+            flex-direction: column;
+        }
 
-            .navcontainer__item{
-                margin-right: 1rem;
-            }
-            .navcontainer__item:last-child{
-                margin-right: 0rem;
-            }
+        .mobile__modal__menu li {
+            margin-bottom: 2rem;
+            text-align: center;
+        }
 
-            .navcontainer a{
-                color: white;
-                font-weight: 600;
-            }
+        .mobile__modal__menu a {
+            color: palevioletred;
+            font-weight: 600;
+            font-size: 2rem;
+        }
 
-            .sectioncontainer{   
-                margin: 0 auto;
-                max-width: 1100px;                
-                color: white;                
-                display: flex;          
-                flex-direction: column;
-            }
 
-            .imgcontainer{
-                position: relative;                
-                background-color: black;
-                grid-column: span 1;  
-                overflow: hidden;                 
-            }
-          
-           
 
-            .imgcontainer__text{
-                position: absolute;
-                background:rgba(0, 0, 0, 0.4);
-                bottom: 0;
-                width: 100%;
-                color: white;
-                font-weight: 600;
-                padding: 1rem;                
-                z-index: 2;
-            }
-            
+        nav.desktop {
+            height: 5rem;
+            background: -webkit-linear-gradient(right, #da0050, #8e2b88);
+            margin-bottom: 2rem;
+            display: none;
+        }
 
-            .imgcontainer--span-2{
-                grid-column: span 2;                
-            }
+        .navcontainer {
+            margin: 0 auto;
+            max-width: 1100px;
+            height: 100%;
+            color: white;
+            display: flex;
+            align-items: center;
+        }
 
-            .imgcontainer:after{
-                padding-bottom: 100%;
-                content: '';
+        .navcontainer__item {
+            margin-right: 1rem;
+        }
+
+        .navcontainer__item:last-child {
+            margin-right: 0rem;
+        }
+
+        .navcontainer a {
+            color: white;
+            font-weight: 600;
+        }
+
+        .sectioncontainer {
+            margin: 0 auto;
+            max-width: 1100px;
+            color: white;
+            display: flex;
+            flex-direction: column;
+        }
+
+        .imgcontainer {
+            position: relative;
+            background-color: black;
+            grid-column: span 1;
+            overflow: hidden;
+        }
+
+
+
+        .imgcontainer__text {
+            position: absolute;
+            background: rgba(0, 0, 0, 0.4);
+            bottom: 0;
+            width: 100%;
+            color: white;
+            font-weight: 600;
+            padding: 1rem;
+            z-index: 2;
+        }
+
+
+        .imgcontainer--span-2 {
+            grid-column: span 2;
+        }
+
+        .imgcontainer:after {
+            padding-bottom: 100%;
+            content: '';
+            display: block;
+        }
+
+        .imgcontainer img {
+            position: absolute;
+            width: 100%;
+            height: 100%;
+            object-fit: cover;
+            background-color: black;
+            transition: transform 0.4s ease-in-out;
+        }
+
+        .imgcontainer img:hover {
+            transform: scale(1.1);
+        }
+
+        footer {
+            margin-top: 2rem;
+            padding: 5rem;
+            background: -webkit-linear-gradient(right, #da0050, #8e2b88);
+        }
+
+        @media screen and (min-width: 1000px) {
+            nav.desktop {
                 display: block;
             }
-            .imgcontainer img{
-                position: absolute;
-                width: 100%;
-                height: 100%;
-                object-fit: cover;
-                background-color: black;                
-                transition: transform 0.4s ease-in-out;
-            }
-            .imgcontainer img:hover{
-                transform: scale(1.1);
-            }
 
-            footer{          
-                margin-top: 2rem;                
-                padding: 5rem;                     
-                background: -webkit-linear-gradient(right, #da0050, #8e2b88);
+            nav.mobile {
+                display: none;
             }
-
-            @media screen and (min-width: 1000px){
-                nav.desktop{
-                    display: block;
-                }
-
-                nav.mobile{
-                    display: none;
-                }
-            }
-        </style>
+        }
+    </style>
 </head>
-<body> 
+
+<body>
     <nav class='mobile'>
         <a href='#'>&#11044;</a>
-        <a href='#menu'>&#x2630;</a>        
+        <a href='#menu'>&#x2630;</a>
         <div id='menu' class='mobile__modal'>
             <a href='#' class='mobile__modal__background'></a>
             <ul class='mobile__modal__menu'>
@@ -215,8 +226,8 @@
                 <li><a href='#'>About</a></li>
                 <li><a href='#'>Contact</a></li>
             </ul>
-        </li>
-    </nav>    
+            </li>
+    </nav>
     <nav class='desktop'>
         <ul class='navcontainer'>
             <li class='navcontainer__item'><a href='#'>Home</a></li>
@@ -227,71 +238,72 @@
 
     <main>
         <a href='#' class='imgcontainer'>
-            <img src='images/nine.jpg' alt='nine'/>
+            <img src='../images/nine.jpg' alt='nine' />
             <div class='imgcontainer__text'>
                 <h3>Sunset</h3>
                 <p>A sunset from firewatch, the game.</p>
             </div>
         </a>
         <a href='#' class='imgcontainer imgcontainer--span-2'>
-            <img src='images/ten.jpg' alt='nine'/>
+            <img src='../images/ten.jpg' alt='nine' />
             <div class='imgcontainer__text'>
                 <h3>Sunset</h3>
                 <p>A sunset from firewatch, the game.</p>
             </div>
         </a>
         <a href='#' class='imgcontainer'>
-            <img src='images/eleven.jpg' alt='nine'/>
+            <img src='../images/eleven.jpg' alt='nine' />
             <div class='imgcontainer__text'>
                 <h3>Sunset</h3>
                 <p>A sunset from firewatch, the game.</p>
             </div>
         </a>
         <a href='#' class='imgcontainer'>
-            <img src='images/twelve.jpg' alt='nine'/>
+            <img src='../images/twelve.jpg' alt='nine' />
             <div class='imgcontainer__text'>
                 <h3>Sunset</h3>
                 <p>A sunset from firewatch, the game.</p>
             </div>
         </a>
         <a href='#' class='imgcontainer'>
-            <img src='images/three.jpg' alt='nine'/>
+            <img src='../images/three.jpg' alt='nine' />
             <div class='imgcontainer__text'>
                 <h3>Sunset</h3>
                 <p>A sunset from firewatch, the game.</p>
             </div>
         </a>
         <a href='#' class='imgcontainer'>
-            <img src='images/60.jpg' alt='nine'/>
+            <img src='../images/60.jpg' alt='nine' />
             <div class='imgcontainer__text'>
                 <h3>Sunset</h3>
                 <p>A sunset from firewatch, the game.</p>
             </div>
         </a>
         <a href='#' class='imgcontainer imgcontainer--span-2'>
-            <img src='images/two.jpg' alt='nine'/>
+            <img src='../images/two.jpg' alt='nine' />
             <div class='imgcontainer__text'>
                 <h3>Sunset</h3>
                 <p>A sunset from firewatch, the game.</p>
             </div>
         </a>
         <a href='#' class='imgcontainer imgcontainer--span-2'>
-            <img src='images/four.jpg' alt='nine'/>
+            <img src='../images/four.jpg' alt='nine' />
             <div class='imgcontainer__text'>
                 <h3>Sunset</h3>
                 <p>A sunset from firewatch, the game.</p>
             </div>
         </a>
         <a href='#' class='imgcontainer imgcontainer--span-2'>
-            <img src='images/two.jpg' alt='nine'/>
+            <img src='../images/two.jpg' alt='nine' />
         </a>
     </main>
     <footer>
         <div class='sectioncontainer'>
-            <h3>By Robert</h3> 
+            <h3>By Robert</h3>
             <p>An attempt at grids and responsive squares.</p>
             <p>Made on June 24, 21</p>
         </div>
     </footer>
 </body>
+
 </html>

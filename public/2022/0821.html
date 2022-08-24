@@ -1,0 +1,404 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta name='color-scheme' content='dark light'>
+    <link rel="preconnect" href="https://fonts.gstatic.com">
+    <link href="https://fonts.googleapis.com/css2?family=Inter&display=swap" rel="stylesheet">
+    <title>08/16/22</title>
+
+
+    <style>
+        * {
+            box-sizing: border-box;
+            font-size: 16px;
+            font-family: 'Inter', sans-serif;
+            color: black;
+            --GREY: rgba(0, 0, 0, 0.1);
+            --PRIMARY_COLOR: #98E690;
+            --SECONDARY_COLOR: white;
+            --COL1: #db0a5b;
+            --COL2: #fef160;
+            --COL3: #23cba7;
+            --COL4: #3e6ceb;
+            --COL5: #d9c8ec;
+
+        }
+
+        ::-webkit-scrollbar {
+            width: 0.8rem;
+            height: 0.5rem;
+        }
+
+        /* Track */
+        ::-webkit-scrollbar-track {
+            background: black;
+        }
+
+        /* Handle */
+        ::-webkit-scrollbar-thumb {
+            background: var(--COL3);
+        }
+
+        /* Handle on hover */
+        ::-webkit-scrollbar-thumb:hover {
+            background: var(--COL2);
+        }
+
+
+
+
+
+        * {
+            user-select: none;
+        }
+
+        html,
+        body {
+            margin: 0;
+            height: 100vh;
+            background-color: #f3f3f3;
+
+
+        }
+
+        ul {
+            margin: 0;
+            padding: 0;
+        }
+
+        li {
+            list-style-type: none;
+        }
+
+
+        h1 {
+            font-size: 3rem;
+            margin: 0;
+            padding: 0;
+        }
+
+        main {
+            width: min(65ch, 100%);
+            margin: 0 auto;
+        }
+
+        section,
+        footer {
+            display: flex;
+            flex-direction: column;
+            padding: 4rem 1rem;
+        }
+
+        footer * {
+            font-size: .9rem;
+        }
+
+        footer p {
+            margin: 0;
+            margin-bottom: .5rem;
+        }
+
+        input[type='text'] {
+            width: 100%;
+            padding: .5rem;
+            font-size: 1.2rem;
+            border-radius: .5rem;
+            margin-bottom: .5rem;
+            border: .2rem solid rgba(0, 0, 0, 0.2);
+            background-color: white;
+        }
+
+        input[type='text']:focus {
+            border-color: #23cba7;
+            outline: .1rem solid #23cba7;
+        }
+
+        input[type='submit'] {
+            padding: .5rem 1rem;
+            color: white;
+            background-color: #23cba7;
+            border-radius: .5rem;
+            border: 2px solid #23cba7;
+            transition: all .2s ease-in-out;
+            font-weight: 800;
+            font-size: 1.2rem;
+        }
+
+        input[type='submit']:hover {
+            background-color: white;
+            color: #23cba7;
+        }
+
+        .form__row {
+            display: flex;
+            flex-direction: column;
+            margin-bottom: .5rem;
+        }
+
+        .form__row label {
+            font-weight: 600;
+            margin-bottom: .5rem;
+        }
+
+        @keyframes fadein {
+            from {
+                opacity: 0;
+
+            }
+
+            to {
+                opacity: 1;
+            }
+        }
+
+        @keyframes fadeout {
+            from {
+                opacity: 1;
+
+            }
+
+            to {
+                opacity: 0;
+            }
+        }
+
+        .fadeout {
+            animation: fadeout .3s linear;
+        }
+
+
+
+        .list__item {
+            animation: fadein .2s linear;
+            display: flex;
+            margin-bottom: .5rem;
+            justify-content: space-between;
+            padding: 1rem;
+            border-radius: .5rem;
+        }
+
+        .list__item:hover {
+            background-color: white;
+        }
+
+
+        .list__item input[type='checkbox'] {
+            appearance: none;
+            width: 1.2rem;
+            height: 1.2rem;
+            border: 2px solid black;
+            border-radius: .2rem;
+            margin-right: .5rem;
+            position: relative;
+            transition: background-color .2s ease-in-out;
+            cursor: pointer;
+        }
+
+
+        .list__item input[type='checkbox']:checked {
+            background-color: #23cba7;
+        }
+
+
+
+
+
+        .list__item__left-section {
+            align-items: center;
+            display: flex;
+        }
+
+        .list__item__left-section label {
+            cursor: pointer;
+        }
+
+
+
+        .close-button {
+            --width: 1.2rem;
+            width: var(--width);
+            height: var(--width);
+            border: 2px solid #db0a5b;
+            border-radius: 50%;
+            background-color: #db0a5b;
+            position: relative;
+            transition: all .2s ease-in-out;
+            cursor: pointer;
+        }
+
+        @keyframes growup {
+            0% {
+                border: 2px solid #db0a5b;
+
+            }
+
+            50% {
+                border: 4px solid #db0a5b;
+            }
+
+            100% {
+                border: 2px solid #db0a5b;
+
+            }
+        }
+
+        .close-button:hover {
+            background-color: white;
+            animation: growup .5s linear;
+        }
+
+
+
+
+
+
+        @media screen and (min-width: 750px) and (max-width: 1099px) {}
+
+        @media screen and (min-width: 1100px) {}
+    </style>
+
+<body>
+    <main>
+        <section>
+            <form id="form">
+                <div class="form__row">
+                    <label for="new-task">New Task</label>
+                    <input type="text" id="new-task" placeholder="e.g. Pick up eggs." />
+                </div>
+                <div class="form__row">
+                    <label for="task-time">Task Duration</label>
+                    <input type="text" id="task-time" placeholder="e.g. 10s" value="10" />
+                </div>
+                <div class="form__row">
+                    <input type="submit" value="Add Task">
+                </div>
+            </form>
+        </section>
+        <section>
+            <ul class="list" id="task-list">
+
+            </ul>
+        </section>
+        <footer>
+            <p>Made on August 21, 2022</p>
+            <p>The Tasks are deletable</p>
+            <p>Tasks disappear after N seconds.</p>
+            <p>Future: Add two columns, one for active and one for done.</p>
+            <p>Future: Show Time left for task on hover.</p>
+        </footer>
+    </main>
+
+
+    <script>
+        const data = [
+            {
+                title: "Take a break",
+                duration: 20
+            },
+            {
+                title: "Do a task",
+                duration: 20
+            },
+            {
+                title: "Practice Mindfulness",
+                duration: 20
+            },
+            {
+                title: "Go for a walk",
+                duration: 30
+            },
+            {
+                title: "Have a snack.",
+                duration: 30
+            }
+        ]
+
+        const form = document.getElementById("form");
+        const taskList = document.getElementById("task-list");
+        const newTask = document.getElementById("new-task");
+        const taskTime = document.getElementById("task-time");
+
+
+
+        function createTaskItem(data) {
+            const li = document.createElement("li");
+            const checkbox = document.createElement("input");
+            const label = document.createElement("label");
+            const closeButton = document.createElement("button");
+
+            closeButton.classList.add("close-button");
+
+            function removeListItem() {
+                li.classList.add("fadeout");
+                li.remove();
+            }
+
+            closeButton.addEventListener("click", removeListItem);
+
+            li.classList.add("list__item");
+
+            const leftSection = document.createElement("div");
+            leftSection.classList.add("list__item__left-section");
+
+            checkbox.type = "checkbox";
+            checkbox.id = data.title;
+            label.textContent = data.title;
+            label.htmlFor = data.title;
+
+            leftSection.appendChild(checkbox);
+            leftSection.appendChild(label);
+
+            li.appendChild(leftSection);
+            li.appendChild(closeButton);
+
+            return li;
+        }
+
+        form.addEventListener("submit", e => {
+            e.preventDefault();
+
+            if (newTask.value === "" || taskTime.value === "") {
+                return;
+            }
+
+            const payload = {
+                title: newTask.value,
+                duration: taskTime.value
+            };
+
+            data.push(payload);
+
+            const newItem = createTaskItem(payload)
+
+            setTimeout(() => {
+                newItem.remove();
+            }, taskTime.value * 1000);
+
+            taskList.appendChild(newItem);
+
+            newTask.value = "";
+            taskTime.value = "";
+
+        });
+
+        function startTimers(item, duration) {
+            setTimeout(() => {
+                item.remove();
+            }, duration * 1000);
+        }
+
+        for (let i = 0; i < data.length; i++) {
+            const latestItem = createTaskItem(data[i]);
+            taskList.appendChild(latestItem);
+
+            startTimers(latestItem, data[i].duration);
+        }
+
+    </script>
+</body>
+
+</html>

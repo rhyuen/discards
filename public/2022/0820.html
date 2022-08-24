@@ -1,0 +1,178 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta name='color-scheme' content='dark light'>
+    <link rel="preconnect" href="https://fonts.gstatic.com">
+    <link href="https://fonts.googleapis.com/css2?family=Inter&display=swap" rel="stylesheet">
+    <title>08/16/22</title>
+
+
+    <style>
+        * {
+            box-sizing: border-box;
+            font-size: 16px;
+            font-family: 'Inter', sans-serif;
+            color: black;
+            --GREY: rgba(0, 0, 0, 0.1);
+            --PRIMARY_COLOR: #98E690;
+            --SECONDARY_COLOR: white;
+            --COL1: #db0a5b;
+            --COL2: #fef160;
+            --COL3: #23cba7;
+            --COL4: #3e6ceb;
+            --COL5: #d9c8ec;
+
+        }
+
+        ::-webkit-scrollbar {
+            width: 0.8rem;
+            height: 0.5rem;
+        }
+
+        /* Track */
+        ::-webkit-scrollbar-track {
+            background: black;
+        }
+
+        /* Handle */
+        ::-webkit-scrollbar-thumb {
+            background: var(--COL3);
+        }
+
+        /* Handle on hover */
+        ::-webkit-scrollbar-thumb:hover {
+            background: var(--COL2);
+        }
+
+
+
+
+
+        * {
+            user-select: none;
+        }
+
+        html,
+        body {
+            margin: 0;
+            height: 100vh;
+            background-color: #f3f3f3;
+
+
+        }
+
+        ul {
+            margin: 0;
+            padding: 0;
+        }
+
+        li {
+            list-style-type: none;
+        }
+
+
+        h1 {
+            font-size: 3rem;
+            margin: 0;
+            padding: 0;
+        }
+
+        :root {
+            --zoom: 6;
+            --gap: 1vmin;
+            --transition: .5s;
+        }
+
+        main {
+            display: grid;
+            place-items: center;
+            min-height: 100vh;
+            background-color: #f3f3f3;
+        }
+
+        .container {
+            width: 80vw;
+            height: 50vmin;
+            /*if viewport height is smaller than the width, then 1 vmin = 1% of viewport height*/
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            gap: var(--gap);
+        }
+
+        img {
+            --width: calc(100%/var(--count));
+            --brightness: .75;
+            --grayscale: 1;
+            filter: grayscale(var(--grayscale)) brightness(var(--brightness));
+            width: var(--width);
+            height: 100%;
+            overflow: hidden;
+            object-fit: cover;
+            transition: width var(--transition), filter var(--transition);
+        }
+
+        .container:hover {
+            /*shrinks the other elements by a greater amount on hover.*/
+            --width: calc(100%/(var(--count) + (var(--zoom)/2)));
+        }
+
+        .container:hover img:hover {
+            /*increases  img width of the hovered element by the zoom multiplier.*/
+            --width: calc((100% / (var(--count) + (var(--zoom)/2))) * var(--zoom));
+            --brightness: 1.15;
+            --grayscale: 0;
+        }
+
+        footer {
+            width: min(60ch, 100%);
+            margin: 0 auto;
+            padding: 4rem 0;
+        }
+
+        footer * {
+            font-size: .9rem;
+        }
+
+        footer a {
+            font-weight: 800;
+            background-color: #fef160;
+        }
+
+
+        @media screen and (min-width: 750px) and (max-width: 1099px) {}
+
+        @media screen and (min-width: 1100px) {}
+    </style>
+
+<body>
+    <main>
+        <div class="container" style="--count:6;">
+            <img
+                src="https://images.unsplash.com/photo-1660866838821-62258896aa8d?ixlib=rb-1.2.1&ixid=MnwxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8&auto=format&fit=crop&w=1974&q=80" />
+            <img
+                src="https://images.unsplash.com/photo-1660750259832-d9340cadfedd?ixlib=rb-1.2.1&ixid=MnwxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8&auto=format&fit=crop&w=1935&q=80" />
+            <img
+                src="https://images.unsplash.com/photo-1660554969989-99b47174f499?ixlib=rb-1.2.1&ixid=MnwxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8&auto=format&fit=crop&w=1974&q=80" />
+            <img
+                src="https://images.unsplash.com/photo-1626548583108-54f960b1e8db?ixlib=rb-1.2.1&ixid=MnwxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8&auto=format&fit=crop&w=2006&q=80" />
+            <img
+                src="https://images.unsplash.com/photo-1660665508252-29c504d48ce8?ixlib=rb-1.2.1&ixid=MnwxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8&auto=format&fit=crop&w=1974&q=80" />
+            <img
+                src="https://images.unsplash.com/photo-1660866838157-f971aaa5de88?ixlib=rb-1.2.1&ixid=MnwxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8&auto=format&fit=crop&w=1974&q=80" />
+        </div>
+    </main>
+    <footer>
+        <p>Made on August 20, 2022</p>
+        <p>Copied the code from <a href="https://codepen.io/jh3y/pen/RwQYVZz">here</a>.</p>
+        <p>Pictures are from <a href="https://unsplash.com">Unsplash</a>.</p>
+    </footer>
+
+
+</body>
+
+</html>

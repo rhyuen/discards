@@ -1,0 +1,321 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta name='color-scheme' content='dark light'>
+    <link rel="preconnect" href="https://fonts.gstatic.com">
+    <link href="https://fonts.googleapis.com/css2?family=Inter&display=swap" rel="stylesheet">
+    <title>08/16/22</title>
+
+
+    <style>
+        * {
+            box-sizing: border-box;
+            font-size: 16px;
+            font-family: 'Inter', sans-serif;
+            color: black;
+            --GREY: rgba(0, 0, 0, 0.1);
+            --PRIMARY_COLOR: #98E690;
+            --SECONDARY_COLOR: white;
+            --COL1: #db0a5b;
+            --COL2: #fef160;
+            --COL3: #23cba7;
+            --COL4: #3e6ceb;
+            --COL5: #d9c8ec;
+
+        }
+
+        ::-webkit-scrollbar {
+            width: 0.8rem;
+            height: 0.5rem;
+        }
+
+        /* Track */
+        ::-webkit-scrollbar-track {
+            background: black;
+        }
+
+        /* Handle */
+        ::-webkit-scrollbar-thumb {
+            background: var(--COL3);
+        }
+
+        /* Handle on hover */
+        ::-webkit-scrollbar-thumb:hover {
+            background: var(--COL2);
+        }
+
+
+
+
+
+        * {
+            user-select: none;
+        }
+
+        html,
+        body {
+            margin: 0;
+            height: 100vh;
+            background-color: #f3f3f3;
+
+
+        }
+
+        ul {
+            margin: 0;
+            padding: 0;
+        }
+
+        li {
+            list-style-type: none;
+        }
+
+
+        h1 {
+            font-size: 3rem;
+            margin: 0;
+            padding: 0;
+
+        }
+
+
+        main {
+            display: grid;
+            grid-template-columns: 1fr [content-start] min(65ch, 100%) [content-end] 1fr;
+        }
+
+        main>* {
+            grid-column: content-start/content-end;
+        }
+
+        section {
+            display: flex;
+            flex-direction: column;
+            padding: 2rem 1rem;
+        }
+
+        input[type='text'] {
+            width: 100%;
+            padding: 1rem;
+            background-color: white;
+            border: 2px solid rgba(0, 0, 0, 0.1);
+            border-radius: .5rem;
+        }
+
+        input[type='submit'] {
+            font-weight: 800;
+            font-size: 1rem;
+            border-radius: .5rem;
+            padding: .5rem 1rem;
+            background-color: #23cba7;
+            border: 2px solid #23cba7;
+            color: white;
+            transition: background-color .3s ease-in-out, color .3s ease-in-out;
+        }
+
+        input[type='submit']:hover {
+            background-color: white;
+            color: #23cba7;
+        }
+
+        .form-row {
+            margin-bottom: 1rem;
+        }
+
+        .list{
+            display: flex;
+            flex-direction: column-reverse;
+        }
+
+        .list__item{
+            padding: 1rem;
+            display: flex;
+            align-items: center;
+            border-radius: .5rem;
+        }
+        .list__item:hover{
+            background-color: white;
+        }
+
+        .list__item__checkbox{
+            appearance: none;
+            width: 1.5rem;
+            height: 1.5rem;
+            border: 2px solid black;
+            border-radius: .2rem;
+            margin-right: 1rem;
+            transition: all .3s ease-in-out;
+        }
+        .list__item__checkbox:checked{
+            background-color: #23cba7;
+
+        }
+
+        .list__item__label{
+            font-size: 1.2rem;
+            width: 100%;
+            cursor: pointer;
+        }
+
+        footer{
+            position: relative;
+        }
+
+        footer p {
+            font-size: .9rem;
+        }
+
+        footer button{
+            position: absolute;
+            top: .25rem;
+            right: .5rem;
+            background-color: inherit;
+            border: none;
+            border-radius: 50%;
+            display: flex;
+            justify-content: center;
+            align-items: center;
+            transition: all .3s ease-in-out;
+            cursor: pointer;
+        }
+        footer button:hover{
+            background-color: #db0a5b;
+            color: white;
+            animation: jiggle .3s;
+        }
+
+        @keyframes jiggle {
+            /* 0%{
+                transform: rotate(0);
+            } */
+
+            25% {
+                transform: rotate(45deg);
+            }
+
+            50% {
+                transform: rotate(0deg);
+
+            }
+
+            75% {
+                transform: rotate(-45deg);
+            }
+
+            /* 100% {
+                transform: rotate(0deg);
+            } */
+        }
+
+        @media screen and (min-width: 750px) and (max-width: 1099px) {}
+
+        @media screen and (min-width: 1100px) {}
+    </style>
+
+<body>
+    <main>
+        <section>
+            <h1>The Blipping List</h1>
+        </section>
+        <section>
+            <form id="new-todo">
+                <div class="form-row">
+                    <input id="todo-title" type="text" placeholder="e.g. Be a cat." />
+                </div>
+                <div class="form-row">
+                    <input type="submit" value="Submit" />
+                </div>
+            </form>
+        </section>
+        <section>
+            <ul class="list" id="todo-list">
+                <!-- <li class="list__item">
+                    <input type="checkbox" id="check-01"><label for="check-01">Super important Email</label>
+                </li> -->
+
+            </ul>
+        </section>
+        <section id="footer-section">
+            <footer>
+                <button id="close-button"> &#x2716</button>
+                <p>Made on August 17, 2022</p>
+                <p>Reason: Saw a Twitter post on making disappearing todo lists, so that you're not just drowning in things you haven't done.</p>
+                <P>Things that haven't been done in X amount of time probably isn't that important, is the rationale behind disappearing todos.</P>
+                <p>Currently, it's only a todo list that doesn't delete stuff.</p>
+            </footer>
+        </section>
+    </main>
+    <script>
+        const data = [{
+            title: "Send important Email",
+            time: 120
+        }, {
+            title: "Get Groceries",
+            time: 200
+        },
+        {
+            title: "Be a Cat.",
+            time: 200
+        }
+        ]
+
+        const form = document.getElementById("new-todo");
+        const list = document.getElementById("todo-list");
+        const newTitle = document.getElementById("todo-title");
+        const closeButton = document.getElementById("close-button");
+        const footerSection = document.getElementById("footer-section");
+
+        closeButton.addEventListener("click", () => {
+            footerSection.style.display = "none";
+        });
+
+
+        window.addEventListener("load", () => {
+            for(let i = 0; i < data.length; i++){
+                list.appendChild(createNewTodo(data[i].title));
+            }
+
+            
+        })
+
+
+        function createNewTodo(data) {
+            const li = document.createElement("li");
+            li.classList.add("list__item");
+            const checkbox = document.createElement("input");
+            checkbox.type = "checkbox";
+            checkbox.id = data;
+            checkbox.classList.add("list__item__checkbox");
+            const label = document.createElement("label");
+            label.htmlFor = data;
+            label.textContent = data;
+            label.classList.add("list__item__label");
+            li.appendChild(checkbox);
+            li.appendChild(label);
+            return li;
+        }
+
+        form.addEventListener("submit", e => {
+            e.preventDefault();
+
+            if(newTitle.value === ""){
+                return;
+            }
+
+            console.log(newTitle.value);
+            list.appendChild(createNewTodo(newTitle.value));
+            newTitle.value = "";
+        });
+    </script>
+
+
+
+
+
+</body>
+
+</html>

@@ -1,0 +1,407 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta name='color-scheme' content='dark light'>
+    <link rel="preconnect" href="https://fonts.gstatic.com">
+    <link href="https://fonts.googleapis.com/css2?family=Inter&display=swap" rel="stylesheet">
+    <title>08/24/22</title>
+
+
+    <style>
+        * {
+            box-sizing: border-box;
+            font-size: 16px;
+            font-family: 'Inter', sans-serif;
+            color: black;
+            --GREY: rgba(0, 0, 0, 0.1);
+            --PRIMARY_COLOR: #98E690;
+            --SECONDARY_COLOR: white;
+            --COL1: #db0a5b;
+            --COL2: #fef160;
+            --COL3: #23cba7;
+            --COL4: #3e6ceb;
+            --COL5: #d9c8ec;
+
+        }
+
+        ::-webkit-scrollbar {
+            width: 0.8rem;
+            height: 0.5rem;
+        }
+
+        /* Track */
+        ::-webkit-scrollbar-track {
+            background: black;
+        }
+
+        /* Handle */
+        ::-webkit-scrollbar-thumb {
+            background: var(--COL3);
+        }
+
+        /* Handle on hover */
+        ::-webkit-scrollbar-thumb:hover {
+            background: var(--COL2);
+        }
+
+
+
+
+
+        * {
+            user-select: none;
+        }
+
+        html,
+        body {
+            margin: 0;
+            height: 100vh;
+            background-color: #f3f3f3;
+        }
+
+        ul {
+            margin: 0;
+            padding: 0;
+        }
+
+        li {
+            list-style-type: none;
+        }
+
+
+        h1 {
+            font-size: 3rem;
+            margin: 0;
+            padding: 0;
+        }
+
+        main {
+            display: grid;
+            grid-template-columns: 1fr [content-start] min(65ch, 100%) [content-end] 2fr;
+        }
+
+        main>* {
+            grid-column: content-start/content-end;
+            padding: 0 1rem;
+        }
+
+        .full-bleed {
+            grid-column: 1/-1;
+        }
+
+        img {
+            object-fit: cover;
+            height: 100%;
+            width: 100%;
+        }
+
+        .hero {
+            height: 75vh;
+            filter: grayscale(.5);
+            background-image: url("https://images.unsplash.com/photo-1661344662921-c711ebd1a295?ixlib=rb-1.2.1&ixid=MnwxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8&auto=format&fit=crop&w=2070&q=80");
+            background-size: cover;
+            display: grid;
+            grid-template-columns: 1fr min(65ch, 100%) 2fr;
+            align-items: center;
+            margin-bottom: 4rem;
+        }
+
+        .hero__container {
+            grid-column: 2/span 1;
+            background-color: rgba(0, 0, 0, 0.1);
+            width: fit-content;
+            padding: 1rem;
+            backdrop-filter: blur(30px);
+        }
+
+        .hero__container h1 {
+            color: white;
+        }
+
+        .hero__container p {
+            color: white;
+        }
+
+        .block-quote {
+            font-size: 2.2rem;
+            font-weight: 800;
+            color: var(--COL1);
+            border-top: 2px solid var(--COL3);
+            border-bottom: 2px solid var(--COL3);
+            padding: 2rem 0;
+            margin: 2rem 0;
+            font-style: italic;
+        }
+
+        section {
+            display: flex;
+            flex-direction: column;
+        }
+
+        section p {
+            line-height: 2;
+            margin-bottom: 2rem;
+        }
+
+        .inline-quote {
+            font-style: italic;
+            background-color: #fef160;
+        }
+
+        figure {
+            margin: 2rem 0;
+            margin-bottom: 4rem;
+            position: relative;
+        }
+
+        figure img {
+            border-radius: .5rem;
+            filter: grayscale(.5);
+        }
+
+        figure figcaption {
+            position: absolute;
+            top: 50%;
+            left: 50%;
+            transform: translate(-50%, -50%);
+            font-size: 1rem;
+            font-weight: 600;
+            color: white;
+            padding: 1rem;
+            background-color: rgba(0, 0, 0, 0.3);
+            backdrop-filter: blur(10px);
+        }
+
+        h2 {
+            font-size: 2.5rem;
+        }
+
+        footer {
+            margin: 4rem 0;
+            padding: 4rem 1rem;
+            border-top: .5rem solid black;
+        }
+
+        footer * {
+            font-size: .9rem;
+        }
+
+        footer a {
+            font-weight: 800;
+            padding: 0 .5rem;
+            background-color: #23cba7;
+        }
+
+
+
+
+
+
+        @media screen and (min-width: 750px) and (max-width: 1099px) {}
+
+        @media screen and (min-width: 1100px) {}
+    </style>
+
+<body>
+    <main>
+        <section class="full-bleed hero">
+            <div class="hero__container">
+                <h1>Jamaican migrant workers in Ontario pen open letter likening conditions to 'systematic slavery'</h1>
+                <p>Letter written to Jamaican labour minister before his visit to Canadian farms</p>
+            </div>
+        </section>
+        <section>
+            <p>
+                Jamaican migrant farm workers in Niagara Region wrote an open letter to Jamaica's Ministry of Labour
+                requesting more support in the face of what they call "systematic slavery," days before a migrant worker
+                died in Norfolk County.
+            </p>
+            <p>Garvin Yapp, 57, of St. James, Jamaica, was killed last Sunday in an accident with a tobacco harvester at
+                Berlo's Best Farm in Norfolk County, two hours southwest of Toronto.</p>
+            <p>The province has confirmed his death. The Van Berlo family, who runs Berlo's Best, said they were
+                devastated by Yapp's death, adding <quote class="inline-quote">"they did not lose an employee, but they
+                    lost a person they
+                    considered a member of their family,"</quote> the family's lawyer Bernard Cummins told CBC Toronto.
+            </p>
+            <figure>
+                <img src="https://images.unsplash.com/photo-1482203460252-be3456f7c8d8?ixlib=rb-1.2.1&ixid=MnwxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8&auto=format&fit=crop&w=2070&q=80"
+                    alt="A picture of a mountain" onerror="this.src='../images/59.png'; this.setAttribute('alt', '');">
+                <figcaption>Feels like we are in prison.</figcaption>
+            </figure>
+            <p>In a statement on Tuesday, the Jamaican Ministry of Labour expressed "deep sadness" and said Jamaican
+                Labour Minister Karl Samuda will be visiting and touring farms in Canada employing Jamaican workers
+                under the Seasonal Agricultural Worker Program (SAWP) this week.</p>
+            <p>The Canadian government, meanwhile, said in a statement it "expresses its deepest condolences" to Yapp's
+                family, friends and co-workers, and added that the investigation into the death is a provincial matter.
+            </p>
+            <p>In its own statement, the Ontario Ministry of Labour, whom it falls on to investigate the matter, said
+                the investigation is ongoing.</p>
+            <p>According to Migrant Workers Alliance for Change (MWAC), three other workers have died in Ontario in the
+                last week alone. The workers who penned the open letter are members of MWAC.
+            </p>
+            <p>
+                CBC News has not independently confirmed those three deaths.
+            </p>
+            <quote class="block-quote">
+                Feels like we are in prison
+            </quote>
+        </section>
+        <figure class="full-bleed">
+            <img
+                src="https://images.unsplash.com/photo-1530095599355-7c8de69d6826?ixlib=rb-1.2.1&ixid=MnwxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8&auto=format&fit=crop&w=1991&q=80">
+            <figcaption>As it currently stands, the Seasonal Agricultural Workers Program (SAWP) is systematic slavery
+            </figcaption>
+        </figure>
+        <section>
+            <p>
+                <quote class="inline-quote">"As it currently stands, the Seasonal Agricultural Workers Program (SAWP) is
+                    systematic slavery,"</quote> the
+                workers wrote in their open letter.
+            </p>
+            <quote class="block-quote">
+                As it currently stands, the Seasonal Agricultural Workers Program (SAWP) is systematic slavery
+            </quote>
+            <p>
+                The letter was sent to the Jamaican Observer, where excerpts of it were published on Monday. The workers
+                said they sent the letter to Samuda on Aug. 11.
+            </p>
+            <p>
+                <quote class="inline-quote">Jamaicans have been coming for generations, our fellow Caribbean and Mexican
+                    coworkers have too,
+                    and there have been no significant changes since the program started,</quote> the workers said.
+            </p>
+            <p>
+                Workers wrote they were scared of sharing their grievances with Samuda directly for fear of being kicked
+                out of the SAWP. They also said that workers from Mexico and the Philippines share the same grievances.
+            </p>
+            <p>
+                Workers described housing conditions as so poor that rats eat their food. They live in crowded rooms
+                with zero privacy with cameras, and lack dryers to dry their clothes after it rains, they wrote.
+            </p>
+            <p>
+                <quote class="inline-quote">It feels like we are in prison,</quote>the letter reads.
+            </p>
+            <p>
+                On working conditions, workers wrote they're <quote class="inline-quote">"treated like mules"</quote>
+                and punished for not being quick enough. They said they're exposed to dangerous pesticides without
+                adequate protection, and their bosses are verbally abusive.
+            </p>
+            <quote class="block-quote">
+                They physically intimidate us, destroy our personal property, and threaten to send us home
+            </quote>
+            <p>
+                <quote class='inline-quote'>"They physically intimidate us, destroy our personal property, and threaten
+                    to send us home,"</quote> the letter reads.
+            </p>
+            <p>
+                CBC News did not receive a response from the two farms mentioned in the letter about the alleged
+                conditions.
+            </p>
+            <h2>Ministry calls allegations 'disturbing, inhumane'</h2>
+            <p>
+                CBC News reached out to Employment and Social Development Canada (ESDC), which oversees the Seasonal
+                Agricultural Worker Program, for comment on the letter.
+            </p>
+            <p>
+                A spokesperson for Minister of Employment, Workforce Development and Disability Inclusion Carla
+                Qualtrough, one of the ministers responsible for the ESDC, responded in a statement on Monday.
+            </p>
+            <p>
+                <quote class="inline-quote">"The mistreatment or abuse of temporary foreign workers is unacceptable. The
+                    experiences detailed in this letter are disturbing, inhumane, and in violation of the regulations of
+                    this program,"</quote> the office said.
+            </p>
+            <p>
+                <quote class="inline-quote">"ESDC officials are in communication with the provincial government, who
+                    oversees investigations into workplace complaints, on this matter."</quote>
+            </p>
+            <p>
+                The statement said the government is working with partners to improve the program and protect workers.
+            </p>
+            <p>
+                <quote class="inline-quote">"In the last year, we have strengthened the workplace inspection process,
+                    expanded the TFW [Temporary Foreign Worker] tip line to provide services in multiple languages, and
+                    are increasing support for migrant worker organizations," </quote> for workers, it said.
+            </p>
+        </section>
+        <section>
+            <h2>
+                Path to permanent residency would help: advocates
+            </h2>
+            <p>
+                Advocates for migrant workers said they were not surprised by the contents of the open letter.
+            </p>
+            <p>
+                <quote class="inline-quote">"This is very much the reality of the migrant farm worker program in this
+                    country,"</quote> MWAC's executive director Syed Hussan said. <quote class="inline-quote">"Working
+                    in farms in Canada is a human rights disaster."</quote>
+            </p>
+            <quote class="block-quote">
+                Working in farms in Canada is a human rights disaster.
+            </quote>
+            <p>
+                Santiago Escobar, the national representative for the United Food and Commercial Workers Union, says
+                this is a countrywide problem. The union has requested the federal government to make union
+                representation a condition of the temporary foreign worker permits, as a result.
+            </p>
+            <p>
+                <quote class="inline-quote">"With a union, these workers could exercise their labour and human rights,"
+                </quote> Escobar said.
+            </p>
+            <p>
+                It also asks the provincial government to include agricultural workers in their labour laws and offer
+                workers a flexible path to permanent residency.
+            </p>
+            <p>
+                <quote class="inline-quote">
+                    "We need to give them representation, better work permits, and a path to residency,"
+                </quote> Escobar said. <quote class="inline-quote">"With these the workers will be able to overcome all
+                    the abuses they're experiencing."</quote>
+            </p>
+            <p>
+                Hussan agrees.
+            </p>
+            <quote class="block-quote">
+                As long as we have a temporary immigration system, farm workers will be exploited
+            </quote>
+            <p>
+                <quote class="inline-quote">As long as we have a temporary immigration system, farm workers will be
+                    exploited</quote> he said. <quote class="inline-quote">"Farm workers themselves are calling on a
+                    system for full and permanent immigration status for all."</quote>
+            </p>
+            <p>
+                He says workers fear asserting their rights will lead to homelessness, loss of employment, and
+                deportation. As it stands now, workers' permits are tied to their employer, Hussan said.
+            </p>
+            <p>
+                Hussan says labour laws would help, but farm workers would be unable to assert their rights under those
+                laws without full and permanent immigration status.
+            </p>
+            <p>
+                <quote class="inline-quote">
+                    "This is an ongoing crisis that's a direct result of federal immigration policy,"
+                </quote> he said.
+            </p>
+
+        </section>
+        <footer>
+            <p>Created on August 24, 2022</p>
+            <p>Article from <a
+                    href="https://www.cbc.ca/news/canada/toronto/jamaican-migrant-workers-open-letter-1.6557678">here</a>
+                (CBC) by <a href="https://www.cbc.ca/news/canada/toronto/author/ali-raza-1.6026811">Ali Raza</a></p>
+            <p>Image from <a href="https://unsplash.com">unsplash</a></p>
+        </footer>
+    </main>
+    <script>
+
+
+
+
+    </script>
+</body>
+
+</html>

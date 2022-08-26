@@ -1,0 +1,265 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta name='color-scheme' content='dark light'>
+    <link rel="preconnect" href="https://fonts.gstatic.com">
+    <link href="https://fonts.googleapis.com/css2?family=Inter&display=swap" rel="stylesheet">
+    <title>08/24/22</title>
+
+
+    <style>
+        * {
+            box-sizing: border-box;
+            font-size: 16px;
+            font-family: 'Inter', sans-serif;
+            color: black;
+            --GREY: rgba(0, 0, 0, 0.1);
+            --PRIMARY_COLOR: #98E690;
+            --SECONDARY_COLOR: white;
+            --COL1: #db0a5b;
+            --COL2: #fef160;
+            --COL3: #23cba7;
+            --COL4: #3e6ceb;
+            --COL5: #d9c8ec;
+
+        }
+
+        ::-webkit-scrollbar {
+            width: 0.8rem;
+            height: 0.5rem;
+        }
+
+        /* Track */
+        ::-webkit-scrollbar-track {
+            background: black;
+        }
+
+        /* Handle */
+        ::-webkit-scrollbar-thumb {
+            background: var(--COL3);
+        }
+
+        /* Handle on hover */
+        ::-webkit-scrollbar-thumb:hover {
+            background: var(--COL2);
+        }
+
+
+
+
+
+        * {
+            user-select: none;
+        }
+
+        html,
+        body {
+            margin: 0;
+            height: 100vh;
+            background-color: #f3f3f3;
+        }
+
+        ul {
+            margin: 0;
+            padding: 0;
+        }
+
+        li {
+            list-style-type: none;
+        }
+
+
+        h1 {
+            font-size: 3rem;
+            margin: 0;
+            padding: 0;
+        }
+
+
+        nav {
+            visibility: hidden;
+            z-index: 2;
+            width: min(540px, 20%);
+            height: 100vh;
+            width: 100vw;
+            position: fixed;
+            left: -100%;
+            transition: left .2s ease-in-out;
+        }
+
+
+        nav:target {
+            visibility: visible;
+            display: flex;
+            left: 0;
+        }
+
+        .nav__list {
+            padding-top: 4rem;
+            width: max(540px, 35%);
+            display: flex;
+            flex-direction: column;
+            background-color: #db0a5b;
+        }
+
+        .nav__list > a {
+            color: white;
+            font-size: 1.5rem;
+            font-weight: 800;
+            margin: 1rem 4rem;
+            width: 100%;
+        }
+
+        .nav__background {
+            width: 100%;
+            height: 100%;
+            backdrop-filter: blur(20px);
+            transition: background-color .3s ease-in-out;
+        }
+
+        .nav__background:hover {
+            background-color: rgba(0, 0, 0, 0.1);
+        }
+
+
+
+        main {
+            display: grid;
+            grid-template-columns: 1fr min(65ch, 100%) 1fr;
+
+        }
+
+        main>* {
+            grid-column: 2/span 1;
+        }
+
+        .menu {
+            position: fixed;
+            top: 4rem;
+            left: min(500px, 15%);
+            height: 4rem;
+            width: 4rem;
+            display: flex;
+            flex-direction: column;
+            justify-content: center;
+            padding: .5rem;
+            border: 2px solid #db0a5b;
+            border-radius: 50%;
+        }
+
+        .menu__bar {
+            width: 100%;
+            height: .5rem;
+            background-color: #db0a5b;
+            display: block;
+            content: "";
+            margin-bottom: .5rem;
+            border-radius: .5rem;
+        }
+
+        .menu__bar:last-child {
+            margin-bottom: 0;
+        }
+
+        footer{ 
+            justify-self: flex-end;
+            margin: 2rem 4rem;
+        }
+
+        footer * {
+            font-size: .8rem;
+            color: white;
+        }
+
+        main>section {
+            display: flex;
+            flex-direction: column;
+            grid-column: 2/span 1;
+        }
+
+        .full-bleed {
+            grid-column: 1/-1;
+        }
+
+        img {
+            width: 100%;
+            height: 100%;
+            object-fit: cover;
+            margin: 0;
+            padding: 0;
+
+        }
+
+        .hero {
+            height: 100vh;
+            background-image: url("../images/fw5.jpg");
+            background-size: cover;
+            display: grid;
+            place-items: center;
+        }
+
+        .hero-text{
+            margin: 2rem;
+            max-width: 500px;
+        }
+
+        .hero-text * {
+            color: white;
+        }
+
+        .hero-text p {
+            font-size: 1.4rem;
+        }
+
+
+        @media screen and (min-width: 750px) and (max-width: 1099px) {}
+
+        @media screen and (min-width: 1100px) {}
+    </style>
+
+<body>
+    <nav id="nav-open">
+        <div class="nav__list">
+            <a href="#">Main</a>
+            <a href="#">About</a>
+            <a href="#">FAQ</a>
+            <a href="#">Contact</a>
+            <footer>
+                <p>Created on August 25,22</p>
+                <p>Inspired by this <a href="https://web.dev/building-a-sidenav-component/">article</a>, but I didn't follow the code used.</p>
+                <p>Menu is done using :target.  Also, there's backdrop-filter:blur on the modal.</p>
+            </footer>
+        </div>
+        <a class="nav__background" href="#" role="closes menu">
+
+        </a>
+    </nav>
+    <main>
+        <a href="#nav-open" class="menu" role="opens menu">
+            <span class="menu__bar" aria-disabled="true"></span>
+            <span class="menu__bar" aria-disabled="true"></span>
+            <span class="menu__bar" aria-disabled="true"></span>
+        </a>
+        <section class="full-bleed hero">
+            <div class="hero-text">
+                <h1>Welcome to my corner of the web.</h1>
+                <p>Have a seat, stay a while.</p>
+            </div>
+        </section>
+
+
+    </main>
+
+    <script>
+
+
+
+
+    </script>
+</body>
+
+</html>

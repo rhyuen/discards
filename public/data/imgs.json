@@ -24,5 +24,31 @@
             "url": "https://images.unsplash.com/photo-1660866838157-f971aaa5de88?ixlib=rb-1.2.1&ixid=MnwxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8&auto=format&fit=crop&w=1974&q=80",
             "description": "A grayscale image of a porous stone structure on a porous mountain."
         }
+    ],
+    "abstract": [
+        {
+            "url": "https://images.unsplash.com/photo-1660944487352-209c5ac69bb0?ixlib=rb-1.2.1&ixid=MnwxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8&auto=format&fit=crop&w=2787&q=80",
+            "description": "Bright coloured lines of numerous colours."
+        },
+        {
+            "url": "https://images.unsplash.com/photo-1660779730956-829ff6b61589?ixlib=rb-1.2.1&ixid=MnwxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8&auto=format&fit=crop&w=2787&q=80",
+            "description": "Red and white coloured lines arranged in a random manner."
+        },
+        {
+            "url": "https://images.unsplash.com/photo-1660721046155-f1e3143dd752?ixlib=rb-1.2.1&ixid=MnwxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8&auto=format&fit=crop&w=2670&q=80",
+            "description": "Green, purple and yellow coloured lines arranged in a random manner."
+        },
+        {
+            "url": "https://images.unsplash.com/photo-1660664026116-cfe1a0c3be65?ixlib=rb-1.2.1&ixid=MnwxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8&auto=format&fit=crop&w=2664&q=80",
+            "description": "Yellow curved layers of a material arranged horiztonally."
+        },
+        {
+            "url": "https://images.unsplash.com/photo-1660616041368-4bc17b2057df?ixlib=rb-1.2.1&ixid=MnwxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8&auto=format&fit=crop&w=969&q=80",
+            "description": "Blue and orange material arranged horizontally.  The blue gradually changes to orange."
+        },
+        {
+            "url": "https://images.unsplash.com/photo-1659308267322-bb5619d1f680?ixlib=rb-1.2.1&ixid=MnwxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8&auto=format&fit=crop&w=987&q=80",
+            "description": "A purple and white abstract tissue image arranged like a series of nested funnels."
+        }
     ]
 }

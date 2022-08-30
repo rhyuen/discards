@@ -1,0 +1,385 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta name='color-scheme' content='dark light'>
+    <link rel="preconnect" href="https://fonts.gstatic.com">
+    <link href="https://fonts.googleapis.com/css2?family=Inter&display=swap" rel="stylesheet">
+    <title>08/28/22</title>
+
+
+    <style>
+        * {
+            box-sizing: border-box;
+            font-size: 16px;
+            font-family: 'Inter', sans-serif;
+            color: black;
+            --GREY: rgba(0, 0, 0, 0.1);
+
+            --COL1: #db0a5b;
+            --COL2: #fef160;
+            --COL3: #23cba7;
+            --COL4: #3e6ceb;
+            --COL5: #d9c8ec;
+
+        }
+
+        ::-webkit-scrollbar {
+            width: 0.8rem;
+            height: 0.5rem;
+        }
+
+        /* Track */
+        ::-webkit-scrollbar-track {
+            background: black;
+        }
+
+        /* Handle */
+        ::-webkit-scrollbar-thumb {
+            background: var(--COL3);
+        }
+
+        /* Handle on hover */
+        ::-webkit-scrollbar-thumb:hover {
+            background: var(--COL2);
+        }
+
+
+
+
+
+        * {
+            user-select: none;
+        }
+
+        html,
+        body {
+            margin: 0;
+            height: 100vh;
+            background-color: #f3f3f3;
+        }
+
+        ul {
+            margin: 0;
+            padding: 0;
+        }
+
+        li {
+            list-style-type: none;
+        }
+
+
+        h1 {
+            font-size: 3rem;
+            margin: 0;
+            padding: 0;
+        }
+
+        main {
+            display: flex;
+            justify-content: center;
+            align-items: center;
+            height: 90vh;
+            width: 100vw;
+        }
+
+        .digit {
+            font-size: 5rem;
+            width: 2ch;
+            flex-shrink: 0;
+        }
+
+        .container {
+            display: flex;
+            flex-direction: column;
+            justify-content: space-between;
+        }
+
+        .timer-container {
+            margin-bottom: 2rem;
+            display: flex;
+            justify-content: space-around;
+            align-items: center;
+        }
+
+        .timer-button {
+            width: 100%;
+            padding: .5rem 1.5rem;
+            color: white;
+            font-weight: 600;
+            font-size: 1.5rem;
+            border-radius: .5rem;
+            transition: all .3s ease-in-out;
+            margin-bottom: 1rem;
+            cursor: pointer;
+
+            background-color: var(--PRIMARY);
+            background-color: var(--PRIMARY);
+            border: .3rem solid var(--PRIMARY);
+        }
+
+        .timer-button--start{
+            --PRIMARY: #23cba7;
+        }
+
+        .timer-button--reset {
+            --PRIMARY: var(--COL4);
+        }
+
+        .timer-button:hover {
+            background-color: white;
+            color: var(--PRIMARY);
+        }
+
+        .timer-button--stop {
+            --PRIMARY: #db0a5b;
+        }
+
+        .eight{
+            display: flex;
+            flex-direction: column;
+            margin: 0 .5rem;
+        }
+        .eight:last-child{
+            margin-right: 0;
+        }
+        .eight:first-child{
+            margin-left: 0;
+        }
+
+        .eight__top{
+            border: 8px solid black;
+            height: 2rem;            
+            width: 3rem;
+        }
+        .eight__bottom{
+            border: 8px solid black;
+            border-top-color: transparent;
+            height: 2rem;
+            padding-bottom: .5rem;
+            width: 3rem;
+        }
+
+        .eight__top--left-blank{
+            border-left-color: transparent;
+        }
+
+        .eight__top--right-blank{
+            border-right-color: transparent;
+        }
+
+        .eight__bottom--left-blank{
+            border-left-color: transparent;
+        }
+
+        .eight__bottom--right-blank{
+            border-right-color: transparent;
+        }
+
+        .colon{
+            --WIDTH: .5rem;
+            width: var(--WIDTH);
+            position: relative;
+            top: -.5rem;
+            height: var(--WIDTH);
+            background-color: black;
+        }
+        .colon::after{
+            position:absolute;
+            bottom: -1rem;
+            content: "";
+            background-color: black;
+            display: block;
+            width: .5rem;
+            height: .5rem;
+        }
+
+        footer{
+            display: flex;
+            flex-direction: column;
+            height: 5vh;
+            width: min(50ch, 100%);
+            margin: 0 auto;
+            padding: 0;            
+        }
+
+        footer > * {
+            text-align: left;
+            padding: 0;
+            font-size: .9rem;
+            margin: 0;
+        }
+
+
+        @media screen and (min-width: 750px) and (max-width: 1099px) {}
+
+        @media screen and (min-width: 1100px) {}
+    </style>
+
+<body>
+
+    <main>
+        <div class="container">
+            <div id="timer" class="timer-container">
+                <span class="digit" id="hours">00</span>
+                <span class="colon"></span>
+                <span class="digit" id="minutes">00</span>
+                <span class="colon"></span>
+                <span class="digit" id="seconds">00</span>
+            </div>
+            <button class="timer-button timer-button--start" id="start">Start Clock</button>
+            <button class="timer-button timer-button--reset" id="reset">Reset Clock</button>
+            <!-- <div class="timer-container">
+                <div class="eight">
+                    <div class="eight__top"></div>
+                    <div class="eight__bottom"></div>
+                </div>
+                
+                <div class="eight">
+                    <div class="eight__top"></div>
+                    <div class="eight__bottom"></div>
+                </div>
+                <span class="colon"></span>
+                <div class="eight">
+                    <div class="eight__top"></div>
+                    <div class="eight__bottom"></div>
+                </div>
+                <div class="eight">
+                    <div class="eight__top eight__top--left-blank"></div>
+                    <div class="eight__bottom eight__bottom--right-blank"></div>
+                </div>
+                <span class="colon"></span>
+                <div class="eight">
+                    <div class="eight__top eight__top--right-blank"></div>
+                    <div class="eight__bottom eight__bottom--left-blank"></div>
+                </div>
+                <div class="eight">
+                    <div class="eight__top"></div>
+                    <div class="eight__bottom eight__bottom--left-blank"></div>
+                </div>
+            </div> -->
+        </div>
+       
+    </main>
+    <footer>
+        <p>Created on August 30, 2022</p>
+        <p>Failed to get the Text to appear like a digital clock.</p>
+        <p>No saved times with times and dates of start and stop</p>
+    </footer>
+
+    <script type="module">
+        const h = document.getElementById("hours");
+        const m = document.getElementById("minutes");
+        const s = document.getElementById("seconds");
+        const reset = document.getElementById("reset");
+        const stop = document.getElementById("stop");
+        const start =document.getElementById("start");
+
+        let intervalId = '';
+        let startButtonState = true;
+
+        const timeState = {
+            hours: 0,
+            minutes: 0,
+            seconds: 0
+        };
+
+        function resettimer() {
+            timeState.hours = 0;
+            timeState.minutes = 0;
+            timeState.seconds = 0;
+            h.textContent = "00";
+            m.textContent = "00";
+            s.textContent = "00";
+        }
+
+        reset.addEventListener("click", () => {
+            resettimer();
+        });
+
+        function startTimer() {
+            timeState.seconds++;
+
+            if(timeState.hours === 23 && timeState.minutes === 59 && timeState.seconds === 59){
+                timeState.seconds = 0;
+                timeState.minutes = 0;
+                timeState.hours = 0;
+            }
+
+            if (timeState.minutes === 59 && timeState.seconds === 60) {
+                timeState.seconds = 0;
+                timeState.minutes = 0;
+                timeState.hours++;
+            } else if (timeState.minutes !== 60 && timeState.seconds === 60) {
+                timeState.minutes++;
+                timeState.seconds = 0;
+            }
+
+
+
+            if (timeState.hours <= 9) {
+                h.textContent = `0${timeState.hours}`;
+            } else {
+                h.textContent = timeState.hours
+            }
+
+
+
+            if (timeState.minutes <= 9) {
+                m.textContent = `0${timeState.minutes}`;
+            } else {
+                m.textContent = timeState.minutes;
+            }
+
+
+
+
+            if (timeState.seconds <= 9) {
+                s.textContent = `0${timeState.seconds}`;
+            } else {
+                s.textContent = timeState.seconds;
+            }
+        }
+
+        // let id = setInterval(() => {
+        //     startTimer();
+        // }, 1000);
+
+
+        function stopTimer(identifier) {
+            clearInterval(identifier);
+        }
+
+        start.addEventListener("click", () => {
+
+            if(startButtonState){
+                start.classList.remove("timer-button--start");
+                start.classList.add("timer-button--stop");
+                start.textContent = "Pause Clock";
+                startButtonState = false;
+                intervalId = setInterval(() => {
+                    startTimer();
+                }, 1000);
+            }else{
+                start.classList.remove("timer-button--stop");
+                start.classList.add("timer-button--start");
+                startButtonState = true;
+                start.textContent = "Start Clock";
+                stopTimer(intervalId);
+            }
+            
+        });
+
+        // stop.addEventListener("click", () => {
+           
+        // });
+
+        
+
+    </script>
+</body>
+
+</html>

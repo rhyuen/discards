@@ -1,0 +1,269 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta name='color-scheme' content='dark light'>
+    <link rel="preconnect" href="https://fonts.gstatic.com">
+    <link href="https://fonts.googleapis.com/css2?family=Inter&display=swap" rel="stylesheet">
+    <title>08/24/22</title>
+
+
+    <style>
+        * {
+            box-sizing: border-box;
+            font-size: 16px;
+            font-family: 'Inter', sans-serif;
+            color: black;
+            --GREY: rgba(0, 0, 0, 0.1);
+            --PRIMARY_COLOR: #98E690;
+            --SECONDARY_COLOR: white;
+            --COL1: #db0a5b;
+            --COL2: #fef160;
+            --COL3: #23cba7;
+            --COL4: #3e6ceb;
+            --COL5: #d9c8ec;
+
+
+
+        }
+
+        ::-webkit-scrollbar {
+            width: 0.8rem;
+            height: 0.5rem;
+        }
+
+        /* Track */
+        ::-webkit-scrollbar-track {
+            background: black;
+        }
+
+        /* Handle */
+        ::-webkit-scrollbar-thumb {
+            background: var(--COL3);
+        }
+
+        /* Handle on hover */
+        ::-webkit-scrollbar-thumb:hover {
+            background: var(--COL2);
+        }
+
+
+
+
+
+        * {
+            user-select: none;
+        }
+
+        html,
+        body {
+            margin: 0;
+            height: 100vh;
+            background-color: #f3f3f3;
+        }
+
+        ul {
+            margin: 0;
+            padding: 0;
+        }
+
+        li {
+            list-style-type: none;
+        }
+
+
+        h1 {
+            font-size: 3rem;
+            margin: 0;
+            padding: 0;
+        }
+
+        main {
+            display: grid;
+            grid-template-columns: 1fr min(65ch, 100%) 1fr;
+        }
+
+        main>* {
+            grid-column: 2/span 1;
+        }
+
+        section {
+            margin: 8rem 0;
+            display: flex;
+            flex-direction: column;
+            align-items: center;
+        }
+
+        footer {
+            margin: 0 auto;
+            width: min(65ch, 100%);
+            padding: 4rem 1rem;
+        }
+
+        footer * {
+            font-size: .9rem;
+        }
+
+
+        .circle {
+            width: 2rem;
+            height: 2rem;
+            border: .2rem solid black;
+            background-color: black;
+            border-radius: 50%;
+            position: relative;
+        }
+
+        .circle--small {
+            width: .5rem;
+            height: .5rem;
+        }
+
+        .circle__tooltip {
+            top: 0;
+            left: 8rem;
+            display: flex;
+            flex-direction: column;
+            position: absolute;
+            width: 14rem;
+            background-color: white;
+            border: .2rem solid rgba(0, 0, 0, 0.1);
+            border-radius: .5rem;
+            padding: .5rem 1rem;
+            z-index: 1;
+
+        }
+
+
+
+        .circle__tooltip p {
+            font-size: .9rem;
+            display: none;
+
+        }
+
+        .circle__tooltip:hover>p {
+            display: block
+        }
+
+
+
+        .circle__tooltip--left {
+            left: -24rem;
+        }
+
+
+        .line {
+            width: .2rem;
+            height: 10rem;
+            background: rgba(0, 0, 0, 0.1);
+
+        }
+
+
+        @media screen and (min-width: 750px) and (max-width: 1099px) {}
+
+        @media screen and (min-width: 1100px) {}
+    </style>
+
+<body>
+    <main>
+        <section>
+            <div class="circle">
+                <div class="circle__tooltip">
+                    <h3>First Event</h3>
+                    <p>The net effect is a zero-carbon energy system that will power the development for decades to
+                        come, said project engineer and developer Scott Demark.</p>
+                </div>
+            </div>
+            <div class="line"></div>
+            <div class="circle circle--small">
+                <div class="circle__tooltip circle__tooltip--left">
+                    <h3>Second Event</h3>
+                    <p>The net effect is a zero-carbon energy system that will power the development for decades to
+                        come, said project engineer and developer Scott Demark.</p>
+                </div>
+            </div>
+            <div class="line"></div>
+            <div class="circle circle--small">
+                <div class="circle__tooltip circle__tooltip--left">
+                    <h3>third Event</h3>
+                    <p>"It's a pretty massive victory," said Demark, president of Zibi Community Utility, which operates
+                        as the development's in-house energy provider.
+                    </p>
+                </div>
+            </div>
+            <div class="line">
+
+            </div>
+            <div class="circle circle--small">
+                <div class="circle__tooltip">
+                    <h3>Event between Three and Four</h3>
+                    <p>He described the creation of Zibi's net-zero energy system as a massive undertaking — one that
+                        more developers could replicate with the right government incentives and requirements in place.
+                    </p>
+                </div>
+            </div>
+            <div class="line">
+
+            </div>
+            <div class="circle circle--small">
+                <div class="circle__tooltip circle__tooltip--left">
+                    <h3>Event between Three and Four</h3>
+                    <p>He described the creation of Zibi's net-zero energy system as a massive undertaking — one that
+                        more developers could replicate with the right government incentives and requirements in place.
+                    </p>
+                </div>
+            </div>
+            <div class="line">
+
+            </div>
+            <div class="circle circle--small">
+                <div class="circle__tooltip circle__tooltip--left">
+                    <h3>Event between Three and Four</h3>
+                    <p>He described the creation of Zibi's net-zero energy system as a massive undertaking — one that
+                        more developers could replicate with the right government incentives and requirements in place.
+                    </p>
+                </div>
+            </div>
+            <div class="line"></div>
+            <div class="circle circle--small">
+                <div class="circle__tooltip ">
+                    <h3>Fourth Event</h3>
+                    <p>He described the creation of Zibi's net-zero energy system as a massive undertaking — one that
+                        more developers could replicate with the right government incentives and requirements in place.
+                    </p>
+                </div>
+            </div>
+            <div class="line"></div>
+
+            <div class="circle">
+                <div class="circle__tooltip circle__tooltip--left">
+                    <h3>5th Event</h3>
+                    <p>"The government is driving the work that needs to be done on climate change," Powell said.
+                        "The next level that we need to consider is that there's equity and diversity among the
+                        people who are working on these building projects."
+                    </p>
+                </div>
+
+            </div>
+        </section>
+    </main>
+    <footer>
+        <p>Made on August 27, 2022</p>
+        <p>Timeline thing</p>
+        <p>Not responsive</p>
+    </footer>
+
+    <script>
+
+
+
+
+    </script>
+</body>
+
+</html>

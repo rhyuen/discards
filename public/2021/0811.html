@@ -1,343 +1,352 @@
 <!DOCTYPE html>
 <html lang="en">
+
 <head>
     <meta charset="UTF-8">
     <meta http-equiv="X-UA-Compatible" content="IE=edge">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <link rel="preconnect" href="https://fonts.gstatic.com">
-    <link href="https://fonts.googleapis.com/css2?family=Inter&display=swap" rel="stylesheet"> 
+    <link href="https://fonts.googleapis.com/css2?family=Inter&display=swap" rel="stylesheet">
     <title>07 30</title>
-    
 
-        <style>
-            * {                
-                box-sizing: border-box;
-                font-size: 16px;
-                font-family: 'Inter', sans-serif;                
-                --GREY : rgba(0,0,0,0.1);
-                --PRIMARY_COLOR: #98E690;
-                --SECONDARY_COLOR: white;
-            }      
 
-            ::-webkit-scrollbar {                
-                width: 0.8rem;
-                height: 0.5rem;
-            }
+    <style>
+        * {
+            box-sizing: border-box;
+            font-size: 16px;
+            font-family: 'Inter', sans-serif;
+            --GREY: rgba(0, 0, 0, 0.1);
+            --PRIMARY_COLOR: #98E690;
+            --SECONDARY_COLOR: white;
+        }
 
-            /* Track */
-            ::-webkit-scrollbar-track {
-                background: black;
-            }
+        ::-webkit-scrollbar {
+            width: 0.8rem;
+            height: 0.5rem;
+        }
 
-            /* Handle */
-            ::-webkit-scrollbar-thumb {
-                background: rgb(209, 171, 121);
-            }
+        /* Track */
+        ::-webkit-scrollbar-track {
+            background: black;
+        }
 
-            /* Handle on hover */
-            ::-webkit-scrollbar-thumb:hover {
-                background: #d3d3d3;
-            }
-                       
+        /* Handle */
+        ::-webkit-scrollbar-thumb {
+            background: rgb(209, 171, 121);
+        }
 
-            html, body{
-                margin: 0;
-                height: 100vh;                
-                background: #f3f3f3;                                
-            }
+        /* Handle on hover */
+        ::-webkit-scrollbar-thumb:hover {
+            background: #d3d3d3;
+        }
 
-          
-            ul{
-                margin: 0;
-                padding: 0;
-                list-style-type: none;
-            }
-            nav{
-                height: 5rem;                            
-                margin-bottom: 1rem;                
-            }
-            
 
-            a{
-                text-decoration: none;
-                color: black;
-            }
+        html,
+        body {
+            margin: 0;
+            height: 100vh;
+            background: #f3f3f3;
+        }
 
-            .container{
-                display: flex;
-                justify-content: flex-start;
-                height: 100%;
-                align-items: center;                
-                margin: 0 auto;
-                max-width: 1100px;
-                padding: 0 1rem;
-            }
 
-            .container__item{
-                margin-right: 2rem;
-            }
-            .container__item:last-child{
-                margin-right: 0;
-            }
-            .container__item a{
-                color: black;
-                position: relative;
-                font-weight: 600;
-            }
-            .container__item a:after{
-                position: absolute;
-                bottom: -.5rem;
-                left: 0;
-                width: 100%;
-                content: '';
-                height: .1rem;                                                
-                background-color: black;
-                transform-origin: center;
-                opacity: 0;
-                transform: scale(0);
-                transition: opacity .2s ease-in-out, transform .2s ease-in-out;
-            }
+        ul {
+            margin: 0;
+            padding: 0;
+            list-style-type: none;
+        }
 
-            .container__item a:hover::after{
-                opacity: 1;
-                transform: scale(1);                
-            }
+        nav {
+            height: 5rem;
+            margin-bottom: 1rem;
+        }
 
-         
-            main{
-                display: grid;
-                grid-template-columns: 1fr 2fr 1fr;
-                max-width: 1100px;
-                padding: 0 1rem;
-                grid-gap: 1rem;
-                margin: 0 auto;
-            }
 
-            section.feed, section.side{
-                display: flex;
-                flex-direction: column;
-            }
+        a {
+            text-decoration: none;
+            color: black;
+        }
 
-            .card{
-                background: white;
-                border: 1px solid var(--GREY);  
-                padding: 1rem 0;              
-                border-radius: 1rem;
-                margin-bottom: 1rem;
-            }
+        .container {
+            display: flex;
+            justify-content: flex-start;
+            height: 100%;
+            align-items: center;
+            margin: 0 auto;
+            max-width: 1100px;
+            padding: 0 1rem;
+        }
 
-            .card__header{
-                display: flex;
-                margin: 1rem;
-                padding-bottom: 1rem;
-                justify-content: space-between;
-                align-items: center;                
-                border-bottom: 1px solid var(--GREY);                
-            }
-            
+        .container__item {
+            margin-right: 2rem;
+        }
 
-            figure{
-                margin: 0;    
-                padding: 0;            
-            }
+        .container__item:last-child {
+            margin-right: 0;
+        }
 
-            .card__media figcaption{
-                background-color: lavender;
-                margin-top: 0;
-                font-size: .9rem;
-                padding: 1rem;
-            }
+        .container__item a {
+            color: black;
+            position: relative;
+            font-weight: 600;
+        }
 
-            img{
-                width: 100%;                
-                margin: 0;
-                padding: 0;
-                object-fit: cover;
-            }
+        .container__item a:after {
+            position: absolute;
+            bottom: -.5rem;
+            left: 0;
+            width: 100%;
+            content: '';
+            height: .1rem;
+            background-color: black;
+            transform-origin: center;
+            opacity: 0;
+            transform: scale(0);
+            transition: opacity .2s ease-in-out, transform .2s ease-in-out;
+        }
 
-            .card__body{
-                padding: 1rem;
-                line-height: 1.5;
-                font-size: .9rem;
-            }
+        .container__item a:hover::after {
+            opacity: 1;
+            transform: scale(1);
+        }
 
-            .card__form{
-                margin: 1rem 0;
-                display: flex;
-            }
-            .card__form input{                
-                width: 100%;
-                padding: 1rem;
-                border-radius: 2rem;
-                background-color: lavenderblush;
-                border: 1px solid var(--GREY);
-                margin: 0 1rem;
-            }
 
-            .card__list{                
-            }
-            
-            .card__list__item{
-                cursor: pointer;
-                padding: 0 1rem;
-            }
-            .card__list__item:hover{
-                background: var(--GREY);
-            }
+        main {
+            display: grid;
+            grid-template-columns: 1fr 2fr 1fr;
+            max-width: 1100px;
+            padding: 0 1rem;
+            grid-gap: 1rem;
+            margin: 0 auto;
+        }
 
-            .card__list__item a{
-                font-size: .9rem;     
-                font-weight: 600;                     
-            }
+        section.feed,
+        section.side {
+            display: flex;
+            flex-direction: column;
+        }
 
-            .card__list__item p{
-                font-size: .8rem;
-                margin-top: 0;
-                color: rgba(0,0,0,0.4);
-            }
+        .card {
+            background: white;
+            border: 1px solid var(--GREY);
+            padding: 1rem 0;
+            border-radius: 1rem;
+            margin-bottom: 1rem;
+        }
 
-            .icon{
-                width: 2rem;                
-                position: relative;                
-                border-radius: 50%;
-            }
+        .card__header {
+            display: flex;
+            margin: 1rem;
+            padding-bottom: 1rem;
+            justify-content: space-between;
+            align-items: center;
+            border-bottom: 1px solid var(--GREY);
+        }
 
-            .icon:after{
-                padding-bottom: 100%;
-                display: block;
-                content: '';                
-            }
 
-            .icon--blue{
-                background-color: lightblue;
-                color: white;
-            }
+        figure {
+            margin: 0;
+            padding: 0;
+        }
 
-            .icon--pink{
-                background-color: lightcoral;
-                color: white;
-            }
+        .card__media figcaption {
+            background-color: lavender;
+            margin-top: 0;
+            font-size: .9rem;
+            padding: 1rem;
+        }
 
-            .icon__content{
-                position: absolute;
-                inset: 0;
-                height: 100%;
-                width: 100%;
-                display: flex;
-                justify-content: center;
-                align-items: center;
-                color: black;
-                cursor: pointer;
-                transition: background-color .2s ease-in-out;
-                font-weight: 600;
-                border-radius: 50%;
-            }
+        img {
+            width: 100%;
+            margin: 0;
+            padding: 0;
+            object-fit: cover;
+        }
 
-            .icon:hover .icon__content{
-                background-color: var(--GREY);                
-            }
-        
-            @media screen and (min-width: 550px) and (max-width: 1099px){
+        .card__body {
+            padding: 1rem;
+            line-height: 1.5;
+            font-size: .9rem;
+        }
 
-            }
+        .card__form {
+            margin: 1rem 0;
+            display: flex;
+        }
 
-            @media screen and (min-width: 1100px) {
-                
-            }
-           
-        </style>
-    <body>  
-        <nav>
-            <ul class='container'>
-                <li class='container__item'><a href='#'>Home</a></li>
-                <li class='container__item'><a href='#'>About</a></li>
-                <li class='container__item'><a href='#'>Contact</a></li>                
-            </ul>
-        </nav>        
-        <main>
-            <section class='side'>
-                <div class='card'>               
-                    <h3 class='card__header'>
-                        <div class='card__header__section'>
-                            Depressing news.                
-                        </div>
-                        <div class='card__header__section'>
-                            <div class='icon'>
-                                <div class='icon__content'>
-                                    ...
-                                </div>
-                            </div>
-                        </div>
-                    </h3>   
-                    <ul class='card__list'>
-                        <li class='card__list__item'>
-                            <a href='#'>Something, something one.</a>
-                            <p>Some subtext about the above.</p>
-                        </li>
+        .card__form input {
+            width: 100%;
+            padding: 1rem;
+            border-radius: 2rem;
+            background-color: lavenderblush;
+            border: 1px solid var(--GREY);
+            margin: 0 1rem;
+        }
 
-                        <li class='card__list__item'>
-                            <a href='#'>Something, something one.</a>
-                            <p>Some subtext about the above.</p>
-                        </li>
-                        <li class='card__list__item'>
-                            <a href='#'>Something, something one.</a>
-                            <p>Some subtext about the above.</p>
-                        </li>
-                        <li class='card__list__item'>
-                            <a href='#'>Something, something one.</a>
-                            <p>Some subtext about the above.</p>
-                        </li>
-                    </ul>  
-                </div>
-            </section>
-            <section class='feed'>
-                <div class='card'>
-                    <h3 class='card__header'>
-                        <div class='card__header__section'>
-                            <div class='icon icon--blue'>
-                                <div class='icon__content'>
-                                    R
-                                </div>
-                            </div>                            
-                        </div>
-                        <div class='card__header__section'>
-                            <div class='icon icon--pink'>
-                                <div class='icon__content'>
-                                    ...
-                                </div>
-                            </div>
-                        </div>
-                    </h3>
-                    <p class='card__body'>
-                        Synthetic mRNA, the ingenious technology behind the Pfizer-BioNTech and Moderna vaccines, might seem like a sudden breakthrough, or a new discovery. One year ago, almost nobody in the world knew what an mRNA vaccine was, for the good reason that no country in the world had ever approved one. Months later, the same technology powered the two fastest vaccine trials in the history of science.
-                    </p>
-                    <figure class='card__media'>
-                        <img src='images/63.jpg' alt='a picture'>
-                        <figcaption>How mRNA Technology Could Change the World mRNA’s story likely will not end with COVID-19: Its potential stretches far beyond this pandemic.</figcaption>
-                    </figure>
-                    <div class='card__form'>
-                        <input type='text' placeholder="Add a comment"/>
+        .card__list {}
+
+        .card__list__item {
+            cursor: pointer;
+            padding: 0 1rem;
+        }
+
+        .card__list__item:hover {
+            background: var(--GREY);
+        }
+
+        .card__list__item a {
+            font-size: .9rem;
+            font-weight: 600;
+        }
+
+        .card__list__item p {
+            font-size: .8rem;
+            margin-top: 0;
+            color: rgba(0, 0, 0, 0.4);
+        }
+
+        .icon {
+            width: 2rem;
+            position: relative;
+            border-radius: 50%;
+        }
+
+        .icon:after {
+            padding-bottom: 100%;
+            display: block;
+            content: '';
+        }
+
+        .icon--blue {
+            background-color: lightblue;
+            color: white;
+        }
+
+        .icon--pink {
+            background-color: lightcoral;
+            color: white;
+        }
+
+        .icon__content {
+            position: absolute;
+            inset: 0;
+            height: 100%;
+            width: 100%;
+            display: flex;
+            justify-content: center;
+            align-items: center;
+            color: black;
+            cursor: pointer;
+            transition: background-color .2s ease-in-out;
+            font-weight: 600;
+            border-radius: 50%;
+        }
+
+        .icon:hover .icon__content {
+            background-color: var(--GREY);
+        }
+
+        @media screen and (min-width: 550px) and (max-width: 1099px) {}
+
+        @media screen and (min-width: 1100px) {}
+    </style>
+
+<body>
+    <nav>
+        <ul class='container'>
+            <li class='container__item'><a href='#'>Home</a></li>
+            <li class='container__item'><a href='#'>About</a></li>
+            <li class='container__item'><a href='#'>Contact</a></li>
+        </ul>
+    </nav>
+    <main>
+        <section class='side'>
+            <div class='card'>
+                <h3 class='card__header'>
+                    <div class='card__header__section'>
+                        Depressing news.
                     </div>
-                </div>
-                
-            </section>
-            <section class='side'>
-                <ul class='card'>
-                    <li class='card__item'>
-                        <a href='#'>One</a>
-                    </li>
-                    <li class='card__item'>
-                        <a href='#'>Two</a>
-                    </li>
-                    <li class='card__item'>
-                        <a href='#'>Three</a>
+                    <div class='card__header__section'>
+                        <div class='icon'>
+                            <div class='icon__content'>
+                                ...
+                            </div>
+                        </div>
+                    </div>
+                </h3>
+                <ul class='card__list'>
+                    <li class='card__list__item'>
+                        <a href='#'>Something, something one.</a>
+                        <p>Some subtext about the above.</p>
                     </li>
 
+                    <li class='card__list__item'>
+                        <a href='#'>Something, something one.</a>
+                        <p>Some subtext about the above.</p>
+                    </li>
+                    <li class='card__list__item'>
+                        <a href='#'>Something, something one.</a>
+                        <p>Some subtext about the above.</p>
+                    </li>
+                    <li class='card__list__item'>
+                        <a href='#'>Something, something one.</a>
+                        <p>Some subtext about the above.</p>
+                    </li>
                 </ul>
-            </section>
-        </main>
+            </div>
+        </section>
+        <section class='feed'>
+            <div class='card'>
+                <h3 class='card__header'>
+                    <div class='card__header__section'>
+                        <div class='icon icon--blue'>
+                            <div class='icon__content'>
+                                R
+                            </div>
+                        </div>
+                    </div>
+                    <div class='card__header__section'>
+                        <div class='icon icon--pink'>
+                            <div class='icon__content'>
+                                ...
+                            </div>
+                        </div>
+                    </div>
+                </h3>
+                <p class='card__body'>
+                    Synthetic mRNA, the ingenious technology behind the Pfizer-BioNTech and Moderna vaccines, might seem
+                    like a sudden breakthrough, or a new discovery. One year ago, almost nobody in the world knew what
+                    an mRNA vaccine was, for the good reason that no country in the world had ever approved one. Months
+                    later, the same technology powered the two fastest vaccine trials in the history of science.
+                </p>
+                <figure class='card__media'>
+                    <img src='../images/63.jpg' alt='a picture'>
+                    <figcaption>How mRNA Technology Could Change the World mRNA’s story likely will not end with
+                        COVID-19: Its potential stretches far beyond this pandemic.</figcaption>
+                </figure>
+                <div class='card__form'>
+                    <input type='text' placeholder="Add a comment" />
+                </div>
+            </div>
+
+        </section>
+        <section class='side'>
+            <ul class='card'>
+                <li class='card__item'>
+                    <a href='#'>One</a>
+                </li>
+                <li class='card__item'>
+                    <a href='#'>Two</a>
+                </li>
+                <li class='card__item'>
+                    <a href='#'>Three</a>
+                </li>
+
+            </ul>
+        </section>
+    </main>
 
 
 
-    </body>
+</body>
+
 </html>

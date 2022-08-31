@@ -1,378 +1,392 @@
 <!DOCTYPE html>
 <html lang="en">
+
 <head>
     <meta charset="UTF-8">
     <meta http-equiv="X-UA-Compatible" content="IE=edge">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <link rel="preconnect" href="https://fonts.gstatic.com">
-    <link href="https://fonts.googleapis.com/css2?family=Inter&display=swap" rel="stylesheet"> 
+    <link href="https://fonts.googleapis.com/css2?family=Inter&display=swap" rel="stylesheet">
     <title>08 17</title>
-    
 
-        <style>
-            * {                
-                box-sizing: border-box;
-                font-size: 16px;
-                font-family: 'Inter', sans-serif;                
-                --GREY : rgba(0,0,0,0.1);
-                --PRIMARY_COLOR: #98E690;
-                --SECONDARY_COLOR: white;
-                --COL1:  #db0a5b;
-                --COL2: #fef160;
-                --COL3: #23cba7;               
-            }      
 
-            ::-webkit-scrollbar {                
-                width: 0.8rem;
-                height: 0.5rem;
-            }
+    <style>
+        * {
+            box-sizing: border-box;
+            font-size: 16px;
+            font-family: 'Inter', sans-serif;
+            --GREY: rgba(0, 0, 0, 0.1);
+            --PRIMARY_COLOR: #98E690;
+            --SECONDARY_COLOR: white;
+            --COL1: #db0a5b;
+            --COL2: #fef160;
+            --COL3: #23cba7;
+        }
 
-            /* Track */
-            ::-webkit-scrollbar-track {
-                background: black;
-            }
+        ::-webkit-scrollbar {
+            width: 0.8rem;
+            height: 0.5rem;
+        }
 
-            /* Handle */
-            ::-webkit-scrollbar-thumb {
-                background: rgb(209, 171, 121);
-            }
+        /* Track */
+        ::-webkit-scrollbar-track {
+            background: black;
+        }
 
-            /* Handle on hover */
-            ::-webkit-scrollbar-thumb:hover {
-                background: #d3d3d3;
-            }
-                       
+        /* Handle */
+        ::-webkit-scrollbar-thumb {
+            background: rgb(209, 171, 121);
+        }
 
-            html, body{
-                margin: 0;
-                height: 100vh;                
-                background: #f3f3f3;                                
-            }
-      
-          
-            ul{
-                margin: 0;
-                padding: 0;
-                list-style-type: none;
-            }
-            
-            
+        /* Handle on hover */
+        ::-webkit-scrollbar-thumb:hover {
+            background: #d3d3d3;
+        }
 
-            a{
-                text-decoration: none;
-                color: black;
-            }
 
-            main{            
-                max-width: 1000px;
-                display: grid;                
-                grid-template-columns: 1fr 2fr 1fr;
-                margin: 0 auto;        
-                padding-top: 5rem;        
-            }
+        html,
+        body {
+            margin: 0;
+            height: 100vh;
+            background: #f3f3f3;
+        }
 
-            aside.meta{                
-                display: flex;
-                flex-direction: column;
-                justify-content: space-between;
-            }
 
-            aside.ads{                
-                display: flex;
-                flex-direction: column;
-                margin-left: 4rem;
-            }
-
-            footer{
-                color: var(--COL3);
-            }
-
-            .feed{
-                display: flex;
-                flex-direction: column;
-            }
-
-            
-            .button{
-                position: relative;
-                width: 3rem;
-                background: var(--COL3);
-                border-radius: 50%;
-                transition: background .2s ease-in-out;
-            }
-            .button:hover{
-                background: rgba(0,0,0,0.1);
-            }
-
-            .button:hover .container__bar{
-                background: var(--COL3);
-            }
-
-            .button:after{
-                padding-bottom: 100%;
-                display: block;
-                content: '';
-            }
-
-            .container{
-                position: absolute;
-                inset: 0;
-                height: 100%;
-                width: 100%;
-                display: flex;
-                justify-content: center;
-                align-items: center;
-                flex-direction: column;
-            }
-            
-
-            .container__bar{
-                background: white;
-                content: "";
-                border-radius: 2rem;
-                height: .25rem;
-                width: 60%;
-                margin: .125rem;
-                transition: background .2s ease-in-out;
-            }
-
-            nav{
-                position: fixed;
-                inset: 0;
-                width: 100%;
-                height: 100%; 
-                background: rgba(0,0,0,0.4);               
-                display: none;
-                z-index: 2;
-            }
-
-            nav:target{
-                display: block;
-            }
+        ul {
+            margin: 0;
+            padding: 0;
+            list-style-type: none;
+        }
 
 
 
-            nav ul{
-                display: flex;
-                flex-direction: column;
-                height: 100%;
-                background: var(--COL3);
-                width: 20rem;                
-            }
+        a {
+            text-decoration: none;
+            color: black;
+        }
 
-            nav ul li{
-                display: flex;
-                padding: 1rem;
-                justify-content: center;
-                border-radius: 1rem;
-                margin: 1rem;
-            }
-            nav ul li:hover{
-                background: white;                
-            }
+        main {
+            max-width: 1000px;
+            display: grid;
+            grid-template-columns: 1fr 2fr 1fr;
+            margin: 0 auto;
+            padding-top: 5rem;
+        }
 
-            nav ul li a{
-                color: black;
-                font-weight: 600;
-                text-align: center;
-                width: 100%;                
-            }
+        aside.meta {
+            display: flex;
+            flex-direction: column;
+            justify-content: space-between;
+        }
 
-            .img-container{
-                margin: 2rem 0;                
-                width: 100%;
-                position: relative;
-                overflow: hidden;
-                border-radius: 1rem;
-            }
-            .img-container:after{
-                padding-bottom: 100%;
-                display: block;
-                content: "";
-            }
+        aside.ads {
+            display: flex;
+            flex-direction: column;
+            margin-left: 4rem;
+        }
 
-            img{
-                position: absolute;
-                inset: 0;
-                width: 100%;
-                height: 100%;
-                object-fit: cover;
-                border-radius: 1rem;           
-                transition: all .2s ease-in-out;     
-            }
+        footer {
+            color: var(--COL3);
+        }
 
-            img:hover{
-                transform: scale(1.1);                
-            }
+        .feed {
+            display: flex;
+            flex-direction: column;
+        }
 
-            .bolder{
-                font-weight: 600;
-            }
 
-            article{
-                padding: 2rem 0;
-            }
+        .button {
+            position: relative;
+            width: 3rem;
+            background: var(--COL3);
+            border-radius: 50%;
+            transition: background .2s ease-in-out;
+        }
 
-            article h2{
-                display: flex;
-                justify-content: space-between;
-                align-items: center;                                
-            }
+        .button:hover {
+            background: rgba(0, 0, 0, 0.1);
+        }
 
-            article h2 span {
-                font-size: 1.2rem;
-            }
+        .button:hover .container__bar {
+            background: var(--COL3);
+        }
 
-            article.feed__item p{
-                
-                color: grey;
-            }
+        .button:after {
+            padding-bottom: 100%;
+            display: block;
+            content: '';
+        }
 
-            
+        .container {
+            position: absolute;
+            inset: 0;
+            height: 100%;
+            width: 100%;
+            display: flex;
+            justify-content: center;
+            align-items: center;
+            flex-direction: column;
+        }
 
-            .circle{
-                width: 1rem;
-                border-radius: 50%;                
-                background: var(--COL1);
-            }
-            .circle:after{
-                padding-bottom: 100%;
-                display: block;
-                content: "";
-            }
 
-            .feed__item__actions{
-                margin: 2rem 0;
-                display: flex;
-            }
+        .container__bar {
+            background: white;
+            content: "";
+            border-radius: 2rem;
+            height: .25rem;
+            width: 60%;
+            margin: .125rem;
+            transition: background .2s ease-in-out;
+        }
 
-            .feed-button{
-                border-radius: 1rem;
-                width: 100%;
-                padding: 1rem;                
-                border: .2rem solid var(--COL3);
-                font-weight: 600;
-                color: white;
-            }
-            .feed-button:first-child{
-                margin-right: .5rem;
-            }
+        nav {
+            position: fixed;
+            inset: 0;
+            width: 100%;
+            height: 100%;
+            background: rgba(0, 0, 0, 0.4);
+            display: none;
+            z-index: 2;
+        }
 
-            .feed-button--accept{                
-                background: var(--COL3);
-            }
+        nav:target {
+            display: block;
+        }
 
-            .feed-button--deny{
-                color: var(--COL3)
-            }
 
-        
-            @media screen and (min-width: 550px) and (max-width: 1099px){
 
-            }
+        nav ul {
+            display: flex;
+            flex-direction: column;
+            height: 100%;
+            background: var(--COL3);
+            width: 20rem;
+        }
 
-            @media screen and (min-width: 1100px) {
-                
-            }
-           
-        </style>
-    <body>
-        <nav id='menu'>
+        nav ul li {
+            display: flex;
+            padding: 1rem;
+            justify-content: center;
+            border-radius: 1rem;
+            margin: 1rem;
+        }
+
+        nav ul li:hover {
+            background: white;
+        }
+
+        nav ul li a {
+            color: black;
+            font-weight: 600;
+            text-align: center;
+            width: 100%;
+        }
+
+        .img-container {
+            margin: 2rem 0;
+            width: 100%;
+            position: relative;
+            overflow: hidden;
+            border-radius: 1rem;
+        }
+
+        .img-container:after {
+            padding-bottom: 100%;
+            display: block;
+            content: "";
+        }
+
+        img {
+            position: absolute;
+            inset: 0;
+            width: 100%;
+            height: 100%;
+            object-fit: cover;
+            border-radius: 1rem;
+            transition: all .2s ease-in-out;
+        }
+
+        img:hover {
+            transform: scale(1.1);
+        }
+
+        .bolder {
+            font-weight: 600;
+        }
+
+        article {
+            padding: 2rem 0;
+        }
+
+        article h2 {
+            display: flex;
+            justify-content: space-between;
+            align-items: center;
+        }
+
+        article h2 span {
+            font-size: 1.2rem;
+        }
+
+        article.feed__item p {
+
+            color: grey;
+        }
+
+
+
+        .circle {
+            width: 1rem;
+            border-radius: 50%;
+            background: var(--COL1);
+        }
+
+        .circle:after {
+            padding-bottom: 100%;
+            display: block;
+            content: "";
+        }
+
+        .feed__item__actions {
+            margin: 2rem 0;
+            display: flex;
+        }
+
+        .feed-button {
+            border-radius: 1rem;
+            width: 100%;
+            padding: 1rem;
+            border: .2rem solid var(--COL3);
+            font-weight: 600;
+            color: white;
+        }
+
+        .feed-button:first-child {
+            margin-right: .5rem;
+        }
+
+        .feed-button--accept {
+            background: var(--COL3);
+        }
+
+        .feed-button--deny {
+            color: var(--COL3)
+        }
+
+
+        @media screen and (min-width: 550px) and (max-width: 1099px) {}
+
+        @media screen and (min-width: 1100px) {}
+    </style>
+
+<body>
+    <nav id='menu'>
+        <ul>
+            <li><a href='#'>Home</a></li>
+            <li><a href='#'>About</a></li>
+            <li><a href='#'>Contact</a></li>
+        </ul>
+    </nav>
+    <main>
+        <aside class='meta'>
+            <a href='#menu' class='button'>
+                <div class='container'>
+                    <div class='container__bar'></div>
+                    <div class='container__bar'></div>
+                    <div class='container__bar'></div>
+                </div>
+            </a>
+
+            <footer>
+                <p class='bolder'>A brief website by Robert</p>
+            </footer>
+        </aside>
+        <section class='feed'>
+            <article class='feed__item'>
+                <h2>
+                    <span>Whalies</span>
+                    <div class='circle'></div>
+                </h2>
+                <div class='img-container'>
+                    <img src='../images/56.jpg' alt='image' />
+                </div>
+                <p>
+                    When whales surface form the ocean, they release phytoplankton which are responsible for 80% of the
+                    world's oxygen. They're also crucial for absorbing green house gases and thus crucial in the fight
+                    to curb emissions. Unfortunately, as of late, whales have been washing up ashore on beaches dead
+                    filled with large quantities of plastic. They're also being hunted for food in Japan.
+                </p>
+                <div class='feed__item__actions'>
+                    <button type='button' class='feed-button feed-button--accept'>Learned</button>
+                    <button type='button' class='feed-button feed-button--deny'>Knew it</button>
+                </div>
+            </article>
+            <article class='feed__item'>
+                <h2>
+                    <span>dolphfinds</span>
+                    <div class='circle'></div>
+                </h2>
+                <div class='img-container'>
+                    <img src='../images/63.jpg' alt='image' />
+                </div>
+                <p>
+                    Dolphins are being coralled into a cove to be killed at a ratio of 5:1. They're being used as a
+                    scapegoat for overfishing. They consume fish that would otherwise be used to be sold by the
+                    commerical food industry. However, they do not consume fish to a level that would explain the
+                    rapidly depleting fish stocks. Instead they're killed and used as a scapegoat that the fish stocks
+                    are low due to the dolphins eat them.
+                </p>
+                <div class='feed__item__actions'>
+                    <button type='button' class='feed-button feed-button--accept'>Learned</button>
+                    <button type='button' class='feed-button feed-button--deny'>Knew it</button>
+                </div>
+            </article>
+            <article class='feed__item'>
+                <h2>
+                    <span>Blue fin Tuna</span>
+                    <div class='circle'></div>
+                </h2>
+                <div class='img-container'>
+                    <img src='../images/58.jpg' alt='image' />
+                </div>
+                <p>
+                    Blue fin tuna is a particularly lucrative fish that is being overfished into extinction.
+                </p>
+                <div class='feed__item__actions'>
+                    <button type='button' class='feed-button feed-button--accept'>Learned</button>
+                    <button type='button' class='feed-button feed-button--deny'>Knew it</button>
+                </div>
+            </article>
+            <article class='feed__item'>
+                <h2>
+                    <span>sharkaroo</span>
+                    <div class='circle'></div>
+                </h2>
+                <div class='img-container'>
+                    <img src='../images/59.jpg' alt='image' />
+                </div>
+                <p>
+                    Sharks are also being led into over extinction both because of as a by product and as a delicacy for
+                    shark fin soup in china. Over 50M sharks are discarded a year after they're caught inadvertantly
+                    whilst fishing for other fish. It's an incredible waste. Sharks are also apex predators that are
+                    crucical towards maintaining the world's ocean fish ecosystems.
+                </p>
+                <div class='feed__item__actions'>
+                    <button type='button' class='feed-button feed-button--accept'>Learned</button>
+                    <button type='button' class='feed-button feed-button--deny'>Knew it</button>
+                </div>
+            </article>
+        </section>
+        <aside class='ads'>
+            <h2>Ads on fish</h2>
             <ul>
-                <li><a href='#'>Home</a></li>
-                <li><a href='#'>About</a></li>
-                <li><a href='#'>Contact</a></li>
-            </ul>            
-        </nav>  
-        <main>
-            <aside class='meta'>
-                <a href='#menu' class='button'>
-                    <div class='container'>
-                        <div class='container__bar'></div>
-                        <div class='container__bar'></div>
-                        <div class='container__bar'></div>                    
-                    </div>
-                </a>
+                <li><a href='#'>On Sharks</a></li>
+                <li><a href='#'>On Dolphins</a></li>
+                <li><a href='#'>On Whales</a></li>
+                <li><a href='#'>On tuna</a></li>
+            </ul>
+        </aside>
+    </main>
+</body>
 
-                <footer>
-                    <p class='bolder'>A brief website by Robert</p>
-                </footer>
-            </aside>
-            <section class='feed'>
-                <article class='feed__item'>
-                    <h2>
-                        <span>Whalies</span> 
-                        <div class='circle'></div>
-                    </h2>
-                    <div class='img-container'>
-                        <img src='images/56.jpg' alt='image'/>
-                    </div>
-                    <p>
-                        When whales surface form the ocean, they release phytoplankton which are responsible for 80% of the world's oxygen.  They're also crucial for absorbing green house gases and thus crucial in the fight to curb emissions.  Unfortunately, as of late, whales have been washing up ashore on beaches dead filled with large quantities of plastic.  They're also being hunted for food in Japan.
-                    </p>
-                    <div class='feed__item__actions'>
-                        <button type='button' class='feed-button feed-button--accept'>Learned</button>
-                        <button type='button' class='feed-button feed-button--deny'>Knew it</button>
-                    </div>
-                </article>
-                <article class='feed__item'>
-                    <h2>
-                        <span>dolphfinds</span> 
-                        <div class='circle'></div>
-                    </h2>
-                    <div class='img-container'>
-                        <img src='images/63.jpg' alt='image'/>
-                    </div>
-                    <p>
-                        Dolphins are being coralled into a cove to be killed at a ratio of 5:1.  They're being used as a scapegoat for overfishing.  They consume fish that would otherwise be used to be sold by the commerical food industry.  However, they do not consume fish to a level that would explain the rapidly depleting fish stocks.  Instead they're killed and used as a scapegoat that the fish stocks are low due to the dolphins eat them.
-                    </p>
-                    <div class='feed__item__actions'>
-                        <button type='button' class='feed-button feed-button--accept'>Learned</button>
-                        <button type='button' class='feed-button feed-button--deny'>Knew it</button>
-                    </div>
-                </article>
-                <article class='feed__item'>
-                    <h2>
-                        <span>Blue fin Tuna</span> 
-                        <div class='circle'></div>
-                    </h2>
-                    <div class='img-container'>
-                        <img src='images/58.jpg' alt='image'/>
-                    </div>
-                    <p>
-                        Blue fin tuna is a particularly lucrative fish that is being overfished into extinction.
-                    </p>
-                    <div class='feed__item__actions'>
-                        <button type='button' class='feed-button feed-button--accept'>Learned</button>
-                        <button type='button' class='feed-button feed-button--deny'>Knew it</button>
-                    </div>
-                </article>
-                <article class='feed__item'>
-                    <h2>
-                        <span>sharkaroo</span> 
-                        <div class='circle'></div>
-                    </h2>
-                    <div class='img-container'>
-                        <img src='images/59.jpg' alt='image'/>
-                    </div>
-                    <p>
-                        Sharks are also being led into over extinction both because of as a by product and as a delicacy for shark fin soup in china.  Over 50M sharks are discarded a year after they're caught inadvertantly whilst fishing for other fish.  It's an incredible waste.  Sharks are also apex predators that are crucical towards maintaining the world's ocean fish ecosystems.
-                    </p>
-                    <div class='feed__item__actions'>
-                        <button type='button' class='feed-button feed-button--accept'>Learned</button>
-                        <button type='button' class='feed-button feed-button--deny'>Knew it</button>
-                    </div>
-                </article>
-            </section>
-            <aside class='ads'>
-                <h2>Ads on fish</h2>
-                <ul>
-                    <li><a href='#'>On Sharks</a></li>
-                    <li><a href='#'>On Dolphins</a></li>
-                    <li><a href='#'>On Whales</a></li>
-                    <li><a href='#'>On tuna</a></li>
-                </ul>                
-            </aside>
-        </main>
-    </body>
 </html>

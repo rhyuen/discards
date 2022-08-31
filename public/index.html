@@ -126,38 +126,121 @@
             padding: 1rem;
         }
 
-        main>* {
+        ul {
             grid-column: content-start/content-end;
+            display: grid;
+            grid-template-columns: repeat(2, 100%);
+            overflow-x: hidden;
+            scroll-snap-type: x mandatory;
         }
 
-        section {
-            margin: 2rem 0;
+        li {
+            grid-column: span 1;
+            display: flex;
+            flex-direction: column;
+            scroll-snap-align: center;
+            flex-shrink: 0;
+        }
+
+
+        .list {
+            display: flex;
+            flex-direction: reverse-column;
+        }
+
+        nav {
+            position: fixed;
+            bottom: 2rem;
+            width: min(65ch, 100%);
+            left: 50%;
+            transform: translateX(-50%);
+            margin: 0 auto;
+            display: flex;
+        }
+
+        .nav-button {
+            width: 100%;
+            padding: 1rem 2rem;
+            color: black;
+            font-weight: 800;
+            font-size: 1.2rem;
+            background-color: rgba(0, 0, 0, 0.1);
+            backdrop-filter: blur(10px);
+            border: .2rem solid transparent;
+            margin: .5rem;
+            border-radius: 2rem;
+            cursor: pointer;
+            transition: all .3s ease-in-out;
+        }
+
+        .nav-button:hover {
+            border: .2rem solid rgba(0, 0, 0, 0.1);
+            background-color: rgba(255, 255, 255, 0.1);
         }
     </style>
 
 <body>
     <main>
-        <section>
-            <h1>Robert's Discards</h1>
-            <p>A place where I make stuff with HTML/CSS/JS.</p>
-            <p>Yes, most of it is not very good. It's sorted by year and date.</p>
-        </section>
-        <section>
-            <h2>2022</h2>
-            <ul id="2022"></ul>
-        </section>
-        <section>
-            <h2>2021</h2>
-            <p>On the June until October Discards, I completely forgot that I did most of these. They weren't originally
-                listed
-                in the list I store everything in. I just noticed that there were more files in the 2021 folder than
-                were appearing on the home page.</p>
-            <ul id="2021">
-            </ul>
-        </section>
+        <nav>
+            <button id="left-scroll-button" class="nav-button"
+                role="advances to the previous page of links.">Prev</button>
+            <button id="right-scroll-button" class="nav-button" role="advances to the next page of links.">Next</button>
+        </nav>
+        <ul id="slide-container">
+            <li>
+                <section>
+                    <h1>Robert's Discards</h1>
+                    <p>A place where I make stuff with HTML/CSS/JS.</p>
+                    <p>Yes, most of it is not very good. It's sorted by year and date.</p>
+                </section>
+                <section>
+                    <h2>2022</h2>
+                    <ul class="list" id="2022"></ul>
+                </section>
+            </li>
+            <li>
+                <section>
+                    <h2>2021</h2>
+                    <p>On the June until October Discards, I completely forgot that I did most of these. They weren't
+                        originally
+                        listed
+                        in the list I store everything in. I just noticed that there were more files in the 2021 folder
+                        than
+                        were appearing on the home page.</p>
+                    <ul class="list" id="2021">
+                    </ul>
+                </section>
+            </li>
+        </ul>
+
 
     </main>
     <script type='text/javascript'>
+        const slideContainer = document.getElementById("slide-container");
+        const leftScrollButton = document.getElementById("left-scroll-button");
+        const rightScrollButton = document.getElementById("right-scroll-button");
+
+        function scrollLeft() {
+            console.log('left');
+            slideContainer.scrollTo({ left: -500, behavior: 'smooth' });
+        }
+
+        function scrollRight() {
+            console.log('right');
+            slideContainer.scrollTo({ left: 500, behavior: 'smooth' });
+
+        }
+
+        leftScrollButton.addEventListener("click", () => {
+            scrollLeft();
+        });
+
+        rightScrollButton.addEventListener("click", () => {
+            scrollRight();
+        });
+
+
+
         const list22 = [
             {
                 month: 1,

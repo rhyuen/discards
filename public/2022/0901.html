@@ -1,0 +1,283 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta name='color-scheme' content='dark light'>
+    <link rel="preconnect" href="https://fonts.gstatic.com">
+    <link href="https://fonts.googleapis.com/css2?family=Inter&display=swap" rel="stylesheet">
+    <title>08/24/22</title>
+
+
+    <style>
+        * {
+            box-sizing: border-box;
+            font-size: 16px;
+            font-family: 'Inter', sans-serif;
+            color: black;
+            --GREY: rgba(0, 0, 0, 0.1);
+            --PRIMARY_COLOR: #98E690;
+            --SECONDARY_COLOR: white;
+            --COL1: #db0a5b;
+            --COL2: #fef160;
+            --COL3: #23cba7;
+            --COL4: #3e6ceb;
+            --COL5: #d9c8ec;
+
+        }
+
+        ::-webkit-scrollbar {
+            width: 0.8rem;
+            height: 0.5rem;
+        }
+
+        /* Track */
+        ::-webkit-scrollbar-track {
+            background: black;
+        }
+
+        /* Handle */
+        ::-webkit-scrollbar-thumb {
+            background: var(--COL3);
+        }
+
+        /* Handle on hover */
+        ::-webkit-scrollbar-thumb:hover {
+            background: var(--COL2);
+        }
+
+
+        @font-face {
+            font-family: "Fraunces";
+            src: url("../fonts/Fraunces-VariableFont_SOFT\,WONK\,opsz\,wght.ttf");
+        }
+
+        @font-face {
+            font-family: "Montserrat";
+            src: url("../fonts/Montserrat-VariableFont_wght.ttf");
+        }
+
+
+        * {
+            user-select: none;
+            font-family: "Fraunces";
+        }
+
+        html,
+        body {
+            margin: 0;
+            height: 100vh;
+            background-color: #f3f3f3;
+        }
+
+        ul {
+            margin: 0;
+            padding: 0;
+        }
+
+        li {
+            list-style-type: none;
+        }
+
+
+        h1 {
+            font-size: 3rem;
+            margin: 0;
+            padding: 0;
+            font-family: "Fraunces";
+            font-weight: 700;
+            line-height: 1;
+        }
+
+        h2 {
+            font-family: "Montserrat";
+            font-weight: 700;
+            color: hsl(228, 12%, 48%);
+            text-transform: uppercase;
+            letter-spacing: .5ch;
+        }
+
+
+        main {
+            display: grid;
+            place-items: center;
+            height: 100vh;
+            background-color: hsl(30, 38%, 92%);
+        }
+
+        .card {
+            display: flex;
+            flex-direction: column;
+            width: 460px;
+            margin: 1rem;
+        }
+
+        .card__image {
+            width: 50%;
+            border-top-left-radius: 1rem;
+            border-bottom-left-radius: 1rem;
+            object-fit: cover;
+        }
+
+        .card__image--desktop {
+            display: none;
+        }
+
+        .card__image--mobile {
+            display: block;
+            width: 100%;
+            height: 40%;
+            border-top-left-radius: 1rem;
+            border-top-right-radius: 1rem;
+            border-bottom-left-radius: 0;
+            border-bottom-right-radius: 0;
+        }
+
+        .card__content {
+            border-top-right-radius: 0rem;
+            border-bottom-right-radius: 1rem;
+            border-bottom-left-radius: 1rem;
+            display: flex;
+            flex-direction: column;
+            justify-content: space-between;
+            flex-grow: 2;
+            background: white;
+            padding: 2rem;
+            padding-top: 1rem;
+        }
+
+
+        .card__content p {
+            font-family: "Montserrat";
+            font-weight: 700;
+            color: hsl(228, 12%, 48%);
+            line-height: 1.75;
+        }
+
+        button {
+            background-color: hsl(158, 36%, 37%);
+            color: white;
+            font-family: "Montserrat";
+            font-weight: 700;
+            padding: 1rem 2rem;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            border-radius: .5rem;
+            font-size: 14px;
+            border: none;
+            cursor: pointer;
+        }
+
+        button:hover {
+            background-color: hsl(212, 21%, 14%);
+        }
+
+        button img {
+            margin-right: 1rem;
+        }
+
+        .card__content__row {
+            display: flex;
+            justify-content: flex-start;
+        }
+
+        .price {
+            font-size: 2rem;
+            font-weight: 700;
+            color: hsl(158, 36%, 37%);
+            margin-bottom: 1rem;
+        }
+
+        .price--old {
+            text-decoration: line-through;
+            font-family: "Montserrat";
+            font-size: 1rem;
+            color: hsl(228, 12%, 48%);
+            align-self: center;
+            margin-left: 1rem;
+
+        }
+
+
+
+        @media screen and (min-width: 750px) and (max-width: 1099px) {
+            .card {
+                flex-direction: row;
+                width: 750px;
+            }
+
+            .card__image--desktop {
+                display: block;
+            }
+
+            .card__image--mobile {
+                display: none;
+            }
+
+            .card__content {
+                border-top-left-radius: 0;
+                border-top-right-radius: 1rem;
+                border-bottom-left-radius: 0;
+                border-bottom-right-radius: 1rem;
+                padding-top: 2rem;
+            }
+        }
+
+        @media screen and (min-width: 1100px) {
+            .card {
+                flex-direction: row;
+                width: 750px;
+            }
+
+            .card__image--desktop {
+                display: block;
+            }
+
+            .card__image--mobile {
+                display: none;
+            }
+
+            .card__content {
+                border-top-left-radius: 0;
+                border-top-right-radius: 1rem;
+                border-bottom-left-radius: 0;
+                border-bottom-right-radius: 1rem;
+                padding-top: 2rem;
+            }
+        }
+    </style>
+
+<body>
+    <main>
+        <div class="card">
+            <img class="card__image card__image--desktop" src="../images/fem-desktop-product.jpg" alt="A picture of a bottle of perfume laying on a white surface.  There are leaves on two sides of the bottle. The bottle has a yellow liquid in it and is adorned with the words 'Chanel' and 'Gabrielle'."/>
+            <img class="card__image card__image--mobile" src="../images/fem-mobile-product.jpg" alt="A picture of a bottle of perfume laying on a white surface.  There are leaves on two sides of the bottle. The bottle has a yellow liquid in it and is adorned with the words 'Chanel' and 'Gabrielle'.">
+            <div class="card__content">
+                <h2>Perfume</h2>
+                <h1>Gabrielle Essence Eau De Parfum</h1>
+                <p>A floral, solar and voluptuous interpretation composed by Olivier Polge, Perfumer-Creator for the
+                    House of CHANEL.</p>
+
+                <div class="card__content__row">
+                    <span class="price">$149.99</span>
+                    <span class="price price--old">$169.99</span>
+                </div>
+                <button>
+                    <img src="../images/fem-cart.svg" alt="shopping cart icon">
+                    Add to Cart
+                </button>
+            </div>
+        </div>
+    </main>
+    <script>
+
+
+
+
+    </script>
+</body>
+
+</html>

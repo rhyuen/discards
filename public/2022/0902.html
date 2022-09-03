@@ -1,0 +1,278 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta name='color-scheme' content='dark light'>
+    <title>09/02/22</title>
+
+
+    <style>
+        * {
+            box-sizing: border-box;
+            font-size: 16px;
+            color: black;
+            --RADIUS: 1rem;
+        }
+
+        ::-webkit-scrollbar {
+            width: 0.8rem;
+            height: 0.5rem;
+        }
+
+        /* Track */
+        ::-webkit-scrollbar-track {
+            background: black;
+        }
+
+        /* Handle */
+        ::-webkit-scrollbar-thumb {
+            background: var(--COL3);
+        }
+
+        /* Handle on hover */
+        ::-webkit-scrollbar-thumb:hover {
+            background: var(--COL2);
+        }
+
+
+        @font-face {
+            font-family: "Lexend Deca";
+            src: url("../fonts/LexendDeca-VariableFont_wght.ttf");
+        }
+
+        @font-face {
+            font-family: "Inter";
+            src: url("../fonts/Inter-VariableFont_slnt,wght.ttf");
+        }
+
+
+
+        * {
+            user-select: none;
+            font-family: "Lexend Deca", "Arial";
+        }
+
+        html,
+        body {
+            margin: 0;
+            height: 100vh;
+            background-color: #f3f3f3;
+        }
+
+        ul {
+            margin: 0;
+            padding: 0;
+        }
+
+        li {
+            list-style-type: none;
+        }
+
+
+        main{
+            display: grid;
+            place-items: center;
+            height: 100vh;
+            background-color: hsl(233, 47%, 7%);
+        }
+
+        .card{
+            display: flex;
+            flex-direction: column;
+            width: min(347px, 100%);
+            background-color: hsl(244, 38%, 16%);
+            border-bottom-left-radius: var(--RADIUS);
+            border-bottom-right-radius: var(--RADIUS);
+        }
+
+        .content{
+            padding: 2rem;
+            display: flex;
+            flex-direction: column;
+            
+        }
+
+        .content h1{
+            --FONT-SIZE: 1.9rem;
+            color: hsl(0, 0%, 100%);
+            font-weight: 700;
+            font-size: var(--FONT-SIZE);
+            text-align: center;
+            margin: 0;
+        }
+
+        .content .accent {
+            font-size:var(--FONT-SIZE);
+        }
+
+        .content p {
+            font-family: "Lexend Deca";
+            color: hsla(0, 0%, 100%, 0.75);
+            font-weight: 400;
+            font-size: 15px;
+            text-align: center;
+            line-height: 1.5;
+            margin-bottom: 1rem;
+            margin-top: 1rem;
+        }
+
+    
+
+
+
+        .card__image--mobile{
+                display: block;
+            }
+
+        .card__image--desktop{
+                display: none;
+            }
+
+        .card__image{
+            /* background-color: rgba(84, 51, 220, 0.9); */
+            background-color: hsl(277, 64%, 61%);
+            border-top-left-radius: var(--RADIUS);
+            border-top-right-radius: var(--RADIUS);
+            width: 100%;
+            object-fit: cover;
+            height: 30%;
+            position: relative;
+            filter:  sepia(100%) hue-rotate(220deg) saturate(700%);;
+        }
+
+        /* .card__image::after{
+            position: absolute;
+            width: 100%;
+            height: 100%;
+            z-index: 2;
+            display: block;
+            content: "";
+            inset: 0;
+            background-color: hsl(277, 64%, 61%);;
+        } */
+
+        .content__pancake{
+            display: flex;
+            flex-wrap: wrap;
+            flex-direction: row;
+        }
+
+        .content__pancake__item{
+            display: flex;
+            flex-direction: column;
+            align-items: center;
+            flex: 0 1 250px;
+            
+            margin-bottom: 1.5rem;
+        }
+        .content__pancake__item:last-child{
+            margin-bottom: 0;
+        }
+
+        .content__pancake__item__metric{
+            color: hsl(0, 0%, 100%);
+            font-size: 1.7rem;
+            font-weight: 700;
+            margin-bottom: .5rem;
+        }
+
+        .content__pancake__item__category{
+            text-transform: uppercase;
+            font-size: 15px;
+            color: hsla(0, 0%, 100%, 0.6);
+        }
+
+        .accent{
+            color: hsl(277, 64%, 61%);
+        }
+
+        
+
+        @media screen and (min-width: 1100px) {
+            .content{
+                padding: 4rem;                
+            }
+
+            .card{
+                flex-direction: row-reverse;
+                border-top-left-radius: var(--RADIUS);
+                width: 1100px;
+            }
+
+            .card__image--mobile{
+                display: none;
+            }
+
+            .card__image--desktop{
+                display: block;
+                height: 100%;
+                border-bottom-right-radius: var(--RADIUS);
+                border-top-right-radius: var(--RADIUS);
+                border-top-left-radius: 0;
+            }
+
+            .content__pancake{
+                margin-top: 3.5rem;
+                display: flex;
+                flex-direction: row;
+                flex-wrap: nowrap;
+                
+            }
+
+            .content__pancake__item{
+                align-items: flex-start;
+                margin-right: 2rem;
+            }            
+            
+            .content h1{
+                text-align: left;
+            }
+
+            .content p{                
+                text-align: left;
+            }
+
+            
+        }
+    </style>
+
+<body>
+
+    <main>
+
+        <div class="card">
+            <img class="card__image card__image--desktop" src="../images/fem-header-desktop.jpg" alt="stuff" />
+            <img class="card__image card__image--mobile" src="../images/fem-header-mobile.jpg" alt="stuff" />
+            <div class="content">
+                <h1>Get <span class="accent"> insights</span> that help your <br/> business grow.</h1>
+                <p>Discover the benefits of data analytics and make better decisions regarding revenu, customer
+                    experience, and overall efficiency.</p>
+                <div class="content__pancake">
+                    <div class="content__pancake__item">
+                        <div class="content__pancake__item__metric">10k+</div>
+                        <div class="content__pancake__item__category">Companies</div>
+                    </div>
+                    <div class="content__pancake__item">
+                        <div class="content__pancake__item__metric">314+</div>
+                        <div class="content__pancake__item__category">Templates</div>
+                    </div>
+                    <div class="content__pancake__item">
+                        <div class="content__pancake__item__metric">12M+</div>
+                        <div class="content__pancake__item__category">Queries</div>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </main>
+    <script>
+
+
+
+
+    </script>
+</body>
+
+</html>

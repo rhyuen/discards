@@ -1,0 +1,242 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta name='color-scheme' content='dark light'>
+    <link rel="preconnect" href="https://fonts.gstatic.com">
+
+    <title>09/03/22</title>
+
+
+    <style>
+        * {
+            box-sizing: border-box;
+            font-size: 16px;
+            font-family: "Red Hat Display", "Arial";
+            color: black;
+        }
+
+        ::-webkit-scrollbar {
+            width: 0.8rem;
+            height: 0.5rem;
+        }
+
+        /* Track */
+        ::-webkit-scrollbar-track {
+            background: black;
+        }
+
+        /* Handle */
+        ::-webkit-scrollbar-thumb {
+            background: var(--COL3);
+        }
+
+        /* Handle on hover */
+        ::-webkit-scrollbar-thumb:hover {
+            background: var(--COL2);
+        }
+
+
+        @font-face {
+            font-family: "Red Hat Display";
+            src: url("../fonts/RedHatDisplay-VariableFont_wght.ttf");
+        }
+
+
+
+
+        html,
+        body {
+            margin: 0;
+            height: 100vh;
+            background-color: #f3f3f3;
+        }
+
+        ul {
+            margin: 0;
+            padding: 0;
+        }
+
+        li {
+            list-style-type: none;
+        }
+
+
+
+
+        main {
+            background-color: hsl(225, 100%, 94%);
+            display: grid;
+            place-items: center;
+            height: 100vh;
+            background-image: url("../images/fem/fem-background-desktop.svg");
+            background-repeat: no-repeat;
+            background-size: contain;
+        }
+
+        .card {
+            width: min(375px, 100%);
+            border-radius: 1rem;
+            background-color: white;
+            filter: drop-shadow(0 2mm 8mm hsl(218, 6%, 65%));
+        }
+
+        .card__content {
+            padding: 1.5rem 2.5rem;
+            
+        }
+
+        .card__content h1 {
+            font-weight: 900;
+            text-align: center;
+            color: hsl(223, 47%, 23%);
+            font-size: 1.3rem;
+            margin: 0;
+        }
+
+        .card__content p {
+            font-size: 14px;
+            text-align: center;
+            line-height: 1.5;
+            
+            color: hsl(224, 23%, 55%);
+        }
+
+        .card__image {
+            width: 100%;
+            height: 100%;
+            object-fit: cover;
+            border-top-left-radius: 1rem;
+            border-top-right-radius: 1rem;
+        }
+
+
+
+        .button {
+            display: flex;
+            padding: .75rem;
+            width: 100%;
+            align-items: center;
+            justify-content: center;
+            font-weight: 900;
+            font-size: 14px;
+            border-radius: .5rem;
+            border: none;
+            margin-bottom: .5rem;
+            
+        }
+
+
+
+        .button--confirm {
+            color: white;
+            background-color: hsl(245, 75%, 52%);
+            cursor: pointer;
+            filter: drop-shadow(0 2mm 1mm hsl(225, 100%, 94%));
+        }
+        .button--confirm:hover{
+            background-color: hsl(245, 64%, 64%);
+        }
+
+        .button--cancel {
+            background-color: white;
+            cursor: pointer;
+            color: hsl(224, 23%, 55%);
+        }
+        .button--cancel:hover{
+            color:hsl(223, 47%, 23%);
+        }
+
+        .plan{
+            display: flex;
+            width: 100%;
+            justify-content: space-between;
+            margin-bottom: 1.5rem;
+            align-items: center;
+            padding: 1rem;
+            border-radius: 1rem;
+            background-color: hsl(225, 100%, 98%);
+            border: none;
+        }
+
+
+        .plan__details{
+            display: flex;
+            align-items: center;
+            
+        }
+
+        .plan__details__more{
+            flex-direction: column;
+            display: flex;
+        }
+
+        .plan__details__more__name{
+            font-weight: 900;
+            font-size: 14px;
+            margin-bottom: .25rem;
+        }
+        .plan__details__more__money{
+            font-size: 14px;
+        }
+
+        .plan__details__image{
+            --WIDTH: 2.5rem;
+            height: var(--WIDTH);
+            width: var(--WIDTH);
+            object-fit: cover;
+            margin-right: 1rem;
+        }
+
+        .plan__anchor{
+            font-size: 14px;
+            color:hsl(245, 75%, 52%);
+            font-weight: 900;
+        }
+
+        .plan__anchor:hover{
+            color: hsl(245, 64%, 64%);
+        }
+
+
+        @media screen and (min-width: 750px) and (max-width: 1099px) {}
+
+        @media screen and (min-width: 1100px) {}
+    </style>
+
+<body>
+    <main>
+        <div class="card">
+            <img class="card__image" src="../images/fem/fem-illustration-hero.svg"
+                alt="image with a purple background of a woman listening to music on a pair of headphones with phone in hand.">
+            <div class="card__content">
+                <h1>Order Summary</h1>
+                <p>You can now listen to millions of songs, audiobooks, and podcasts on any device anywhere you like!
+                </p>
+
+                <button class="plan">
+                    <div class="plan__details" >
+                        <img class="plan__details__image" src="../images/fem/fem-music.svg" alt="music icon">
+                        <div class="plan__details__more">
+                            <span class="plan__details__more__name">Annual Plan</span>
+                            <span class="plan__details__more__money">$59.99/year</span>
+                        </div>
+                    </div>
+                    <a class="plan__anchor" href="#">Change</a>
+                </button>
+                <button class="button button--confirm">Proceed to Payment</button>
+
+                <button class="button button--cancel">Cancel</button>
+
+
+            </div>
+
+        </div>
+    </main>
+
+</body>
+
+</html>

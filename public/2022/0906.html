@@ -1,0 +1,308 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta name='color-scheme' content='dark light'>
+    <link rel="icon" type="../image/png" sizes="32x32" href="../images/favicon-32x32.png">
+    <title>09/06/22 - Huddle Landing Page</title>
+
+
+    <style>
+        * {
+            box-sizing: border-box;
+            font-size: 16px;
+
+            --ACCENT: hsl(300, 69%, 71%);
+            --PRIMARY: hsl(257, 40%, 49%);
+        }
+
+        ::-webkit-scrollbar {
+            width: 0.8rem;
+            height: 0.5rem;
+        }
+
+        /* Track */
+        ::-webkit-scrollbar-track {
+            background: black;
+        }
+
+        /* Handle */
+        ::-webkit-scrollbar-thumb {
+            background: var(--COL3);
+        }
+
+        /* Handle on hover */
+        ::-webkit-scrollbar-thumb:hover {
+            background: var(--COL2);
+        }
+
+
+
+
+
+        * {
+            user-select: none;
+        }
+
+        html,
+        body {
+            margin: 0;
+            height: 100vh;
+            background-color: #f3f3f3;
+        }
+
+        ul {
+            margin: 0;
+            padding: 0;
+        }
+
+        li {
+            list-style-type: none;
+        }
+
+        @font-face {
+            font-family: "Poppins";
+            src: url("../fonts/Poppins-Regular.ttf");
+        }
+
+        @font-face {
+            font-family: "Open Sans";
+            src: url("../fonts/OpenSans-VariableFont_wdth\,wght.ttf")
+        }
+
+
+        main {
+            display: flex;
+            flex-direction: column;
+
+            background-color: hsl(257, 40%, 49%);
+            height: 100vh;
+        }
+
+
+
+        nav {
+            display: flex;
+            justify-content: flex-start;
+            margin: 0;
+            padding: 0;
+            
+        }
+
+        nav img {
+            width: 11rem;
+
+        }
+
+        .left {
+            padding: 2rem 3rem;
+            display: flex;
+            flex-direction: column;
+            justify-content: space-between;
+            background-image: url("../images/fem/fem-bg-mobile.svg");
+            background-repeat: no-repeat;
+            background-size: cover;
+            flex-grow: 1;
+            
+
+        }
+
+        .left__hero {
+            justify-self: flex-end;
+            object-fit: cover;
+            padding-bottom: 1rem;
+        }
+
+
+
+        .right {
+            padding: 2rem 3rem;
+            background-color: var(--PRIMARY);
+            display: flex;
+            flex-direction: column;
+            align-items: center;
+            flex-grow: 1;
+            padding-bottom: 0;
+            justify-content: space-between;
+        }
+
+        .right__content{
+            display: flex;
+            flex-direction: column;
+        }
+
+        .right h1 {
+            font-size: 1.9rem;
+            text-align: center;
+            color: white;
+            font-weight: 600;
+            font-family: "Poppins", Arial;
+        }
+
+        .right p {
+            margin-top: 0;
+            text-align: center;
+            color: white;
+            font-weight: 400;
+            line-height: 1.5;
+            font-size: 1.3rem;
+            font-family: "Open Sans", Arial;
+            margin-bottom: 2rem;
+        }
+
+
+        .social {
+            display: flex;
+            justify-self: flex-end;
+            margin-bottom: 2rem;
+        }
+
+        .social a {
+            --WIDTH: 2.5rem;
+            width: var(--WIDTH);
+            height: var(--WIDTH);
+            border-radius: 50%;
+            border: 1.5px solid white;
+            padding: .6rem;
+            margin: .5rem;
+        }
+
+        .social svg {
+            fill: white;
+            height: 100%;
+            width: 100%;
+        }
+
+        .social a:hover{
+            border-color: var(--ACCENT);
+        }
+
+        .social a:hover > svg{
+            fill: var(--ACCENT);
+        }
+
+        .register-button {
+            background-color: white;
+            padding: 1rem 6rem;
+            border-radius: 2rem;
+            width: fit-content;
+            color: hsl(257, 40%, 49%);
+            font-family: "Poppins", Arial;
+            align-self: center;
+            border: none;
+            cursor: pointer;
+            filter: drop-shadow(0 2mm 2mm rgba(0, 0, 0, 0.2));
+        }
+
+        .register-button:hover {
+            background-color: var(--ACCENT);
+            color: white;
+        }
+
+
+
+        /* @media screen and (min-width: 750px) and (max-width: 1099px) {} */
+
+        @media screen and (min-width: 1075px) {
+
+            main {
+                background-image: url("../images/fem/fem-bg-desktop.svg");
+                background-repeat: no-repeat;
+                background-size: cover;
+                
+                flex-direction: row;
+                height: 100vh;
+                background-repeat: no-repeat;
+            }
+
+
+
+            .left{
+                background-image: none;
+                width: 50%;
+            }
+            .left nav{
+                align-content: flex-start;
+            }
+
+            
+
+
+        
+
+            .right{
+                width: 50%;
+                justify-content: space-between;
+                background-color: transparent;
+            }
+
+            .right h1, .right p{
+                text-align: left;
+            }
+
+            .register-button{
+                align-self: flex-start;
+            }
+
+            .social{
+                justify-self: flex-end;
+                align-self: flex-end;
+            }
+        }
+    </style>
+
+<body>
+
+    <main>
+        <div class="left">
+            <nav>
+                <img src="../images/fem/fem-logo.svg" alt="logo" />
+            </nav>
+            <img class="left__hero" src="../images/fem/fem-mockups.svg" alt="pictures of an application" />
+            <div aria-disabled="true"></div>
+        </div>
+        <div class="right">
+            <div aria-disabled="true"></div>
+            <div class="right__content">
+                <h1>Build the Community <br /> Your Fans will Love</h1>
+                <p>Huddle re-imagines the way we build communities. You have a voice, but so does your audience.  Create
+                    connections with your users as you engage in genuine discussion. </p>
+                <button class="register-button">
+                    Register
+                </button>
+            </div>
+            <div class="social">
+                <a href="#">
+                    <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 320 512">
+                        <path
+                            d="M279.14 288l14.22-92.66h-88.91v-60.13c0-25.35 12.42-50.06 52.24-50.06h40.42V6.26S260.43 0 225.36 0c-73.22 0-121.08 44.38-121.08 124.72v70.62H22.89V288h81.39v224h100.17V288z" />
+                    </svg>
+                </a>
+                <a href="#">
+                    <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 512 512">    
+                        <path
+                            d="M459.37 151.716c.325 4.548.325 9.097.325 13.645 0 138.72-105.583 298.558-298.558 298.558-59.452 0-114.68-17.219-161.137-47.106 8.447.974 16.568 1.299 25.34 1.299 49.055 0 94.213-16.568 130.274-44.832-46.132-.975-84.792-31.188-98.112-72.772 6.498.974 12.995 1.624 19.818 1.624 9.421 0 18.843-1.3 27.614-3.573-48.081-9.747-84.143-51.98-84.143-102.985v-1.299c13.969 7.797 30.214 12.67 47.431 13.319-28.264-18.843-46.781-51.005-46.781-87.391 0-19.492 5.197-37.36 14.294-52.954 51.655 63.675 129.3 105.258 216.365 109.807-1.624-7.797-2.599-15.918-2.599-24.04 0-57.828 46.782-104.934 104.934-104.934 30.213 0 57.502 12.67 76.67 33.137 23.715-4.548 46.456-13.32 66.599-25.34-7.798 24.366-24.366 44.833-46.132 57.827 21.117-2.273 41.584-8.122 60.426-16.243-14.292 20.791-32.161 39.308-52.628 54.253z" />
+                    </svg>
+    
+                </a>
+                <a href="#">
+                    <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 448 512">    
+                        <path
+                            d="M224.1 141c-63.6 0-114.9 51.3-114.9 114.9s51.3 114.9 114.9 114.9S339 319.5 339 255.9 287.7 141 224.1 141zm0 189.6c-41.1 0-74.7-33.5-74.7-74.7s33.5-74.7 74.7-74.7 74.7 33.5 74.7 74.7-33.6 74.7-74.7 74.7zm146.4-194.3c0 14.9-12 26.8-26.8 26.8-14.9 0-26.8-12-26.8-26.8s12-26.8 26.8-26.8 26.8 12 26.8 26.8zm76.1 27.2c-1.7-35.9-9.9-67.7-36.2-93.9-26.2-26.2-58-34.4-93.9-36.2-37-2.1-147.9-2.1-184.9 0-35.8 1.7-67.6 9.9-93.9 36.1s-34.4 58-36.2 93.9c-2.1 37-2.1 147.9 0 184.9 1.7 35.9 9.9 67.7 36.2 93.9s58 34.4 93.9 36.2c37 2.1 147.9 2.1 184.9 0 35.9-1.7 67.7-9.9 93.9-36.2 26.2-26.2 34.4-58 36.2-93.9 2.1-37 2.1-147.8 0-184.8zM398.8 388c-7.8 19.6-22.9 34.7-42.6 42.6-29.5 11.7-99.5 9-132.1 9s-102.7 2.6-132.1-9c-19.6-7.8-34.7-22.9-42.6-42.6-11.7-29.5-9-99.5-9-132.1s-2.6-102.7 9-132.1c7.8-19.6 22.9-34.7 42.6-42.6 29.5-11.7 99.5-9 132.1-9s102.7-2.6 132.1 9c19.6 7.8 34.7 22.9 42.6 42.6 11.7 29.5 9 99.5 9 132.1s2.7 102.7-9 132.1z" />
+                    </svg>
+    
+                </a>
+            </div>
+        </div>
+    </main>
+    <script>
+
+
+
+    </script>
+</body>
+
+</html>

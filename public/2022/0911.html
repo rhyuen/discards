@@ -1,0 +1,327 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <!-- <meta name='color-scheme' content='light dark'> -->
+    <link rel="preconnect" href="https://fonts.gstatic.com">
+    <link href="https://fonts.googleapis.com/css2?family=Inter&display=swap" rel="stylesheet">
+    <title>09/11/22</title>
+
+
+    <style>
+        * {
+            box-sizing: border-box;
+            font-size: 16px;
+            font-family: 'Inter', sans-serif;
+
+
+        }
+
+        :root {
+            --HOVER: rgba(0, 0, 0, 0.1);
+            --PRIMARY_COLOR: black;
+            --SECONDARY_COLOR: #f3f3f3;
+        }
+
+        [data-theme="dark"] {
+            --HOVER: rgba(255, 255, 255, 0.4);
+            --PRIMARY_COLOR: #f3f3f3;
+            --SECONDARY_COLOR: black;
+        }
+
+
+
+        ::-webkit-scrollbar {
+            width: 0.8rem;
+            height: 0.5rem;
+        }
+
+        /* Track */
+        ::-webkit-scrollbar-track {
+            background: black;
+        }
+
+        /* Handle */
+        ::-webkit-scrollbar-thumb {
+            background: var(--COL3);
+        }
+
+        /* Handle on hover */
+        ::-webkit-scrollbar-thumb:hover {
+            background: var(--COL2);
+        }
+
+
+
+
+
+        * {
+            user-select: none;
+        }
+
+        html,
+        body {
+            margin: 0;
+            background-color: var(--SECONDARY_COLOR);
+            transition: background-color .5s ease;
+        }
+
+        nav {
+            width: min(65ch, 100%);
+            margin: 0 auto;
+            height: 10rem;
+            display: flex;
+            align-items: center;
+            justify-content: space-between;
+            padding: 0 1rem;
+        }
+
+        footer{
+            width: min(65ch, 100%);
+            margin: 0 auto;
+            display: flex;
+            flex-direction: column;
+            align-items: flex-start;
+            margin-top: 8rem;
+            margin-bottom: 4rem;
+        }
+
+        footer  * {
+            font-size: .9rem;
+        }
+
+        footer a {
+            font-weight: 800;
+            color: var(--PRIMARY_COLOR);
+        }
+    
+
+        footer > p {
+            line-height: 1.2;
+        }
+
+        main {
+            display: grid;
+            grid-template-columns: 1fr min(65ch, 100%) 1fr;
+            min-height: 100vh;
+            padding: 0 1rem;
+        }
+
+        main>* {
+            grid-column: 2/span 1;
+        }
+
+        h1,
+        h2 {
+            line-height: 1.2;
+            color: var(--PRIMARY_COLOR);
+            transition: color .5s ease;
+        }
+
+        h1 {
+            font-size: 1.5rem;
+        }
+
+        h2 {
+            font-size: 1.2rem;
+            margin-top: 4rem;
+            margin-bottom: 2rem;
+        }
+
+        p {
+            line-height: 1.75;
+            color: var(--PRIMARY_COLOR);
+            transition: color .5s ease;
+        }
+
+        .container {
+            display: flex;
+            flex-direction: column;
+
+        }
+
+        .theme-toggle {
+            appearance: none;
+            width: 4rem;
+            height: 2rem;
+            border-radius: 4rem;
+            background-color: var(--PRIMARY_COLOR);
+            box-sizing: content-box;
+            border: 4px solid rgba(0, 0, 0, 0.4);
+            cursor: pointer;
+            --TRANSLATE: 0;
+        }
+
+        .theme-toggle:checked {
+            --TRANSLATE: 2rem;
+        }
+
+        .theme-toggle::after {
+            width: 2rem;
+            height: 2rem;
+            border-radius: 50%;
+            display: block;
+            content: "";
+            transition: transform .3s ease, box-shadow .2s ease;
+            background-color: var(--SECONDARY_COLOR);
+            transform: translateX(var(--TRANSLATE));
+        }
+
+        .theme-toggle:hover::after {
+            box-shadow: 0 0 0 .75rem var(--HOVER);
+        }
+
+        .home-icon {
+            width: 2rem;
+            height: 2rem;
+            border-radius: 50%;
+            background-color: var(--PRIMARY_COLOR);
+            position: relative;
+            cursor: pointer;
+        }
+
+        .home-icon::before {
+            position: absolute;
+            background: radial-gradient(green, #1fecc6);
+            height: 100%;
+            width: 100%;
+            content: "";
+            transform: scale(0.75);
+            border-radius: 50%;
+        }
+
+
+
+
+
+
+        @media screen and (min-width: 750px) and (max-width: 1099px) {}
+
+        @media screen and (min-width: 1100px) {}
+    </style>
+
+<body>
+    <nav>
+        <a href="#" class="home-icon"></a>
+        <input id="toggle" class="theme-toggle" type="checkbox" role="theme toggle">
+
+    </nav>
+    <main>
+        <h1>The disinformation playbook: how industry manipulates the science-policy process—and how to restore
+            scientific integrity</h1>
+        <h2>Abstract</h2>
+        <p>
+            For decades, corporate undermining of scientific consensus has eroded the scientific process worldwide.
+            Guardrails for protecting science-informed processes, from peer review to regulatory decision making, have
+            suffered sustained attacks, damaging public trust in the scientific enterprise and its aim to serve the
+            public good. Government efforts to address corporate attacks have been inadequate. Researchers have
+            cataloged corporate malfeasance that harms people’s health across diverse industries. Well-known cases, like
+            the tobacco industry’s efforts to downplay the dangers of smoking, are representative of transnational
+            industries, rather than unique. This contribution schematizes industry tactics to distort, delay, or
+            distract the public from instituting measures that improve health—tactics that comprise the “disinformation
+            playbook.” Using a United States policy lens, we outline steps the scientific community should take to
+            shield science from corporate interference, through individual actions (by scientists, peer reviewers, and
+            editors) and collective initiatives (by research institutions, grant organizations, professional
+            associations, and regulatory agencies).
+        </p>
+        <h2>Introduction</h2>
+        <p>
+            Science shapes our understanding of, and efforts to improve, people’s health, and well-being. If these
+            efforts threaten an industry’s commercial interests, however, the industry worldwide may attempt to suppress
+            or undermine the underlying science. Researchers have long chronicled the infamous example of the tobacco
+            industry [1]. For decades, tobacco companies minimized the dangers of smoking, falsely presented low-tar and
+            filtered cigarettes as safer, and denied the science demonstrating the hazards of secondhand smoke [1–3].
+            The success of the “tobacco playbook” made it a template for others, including the lead [4], sugar [5], and
+            oil and gas industries [6].
+        </p>
+        <p>
+            While industry can target every step in the policymaking process, science—on which health-based government
+            decisions depend—is especially vulnerable [3]. Science relies on constructive critique to spur research,
+            ensure rigorous results, and test hypotheses. By reframing this procedural scrutiny as “doubt,” industry can
+            undermine commercially inconvenient science. For industry, this means that debating the science is a
+            shortcut to debating policy, making attacks on science a powerful tactic to shape regulation and insulate
+            against litigation [2]. Understanding the disinformation playbook can help public health professionals,
+            policymakers, and the public recognize and resist corporate interference in science.
+        </p>
+        <p>
+            As science has become increasingly politicized, it is more important than ever to analyze how scientific
+            knowledge leads to public health policies that protect populations. The industry disinformation playbook
+            enables corporate actors to undermine health-protective public policy, instead bending science to fit
+            political ideologies at the expense of public health. This analysis presents case studies that illustrate
+            this playbook’s dangers and offers policy mechanisms that can help prevent similar cases of corrupted
+            science in the future. While this analysis focuses primarily on the United States, the problems and
+            solutions described are applicable elsewhere, experienced especially in other high-income countries. As
+            Europe and the US often serve as policy benchmarks for other countries, it is doubly important that rich
+            democratic countries set a positive precedent for dealing with the runaway power of industry and its efforts
+            to deprioritize public health.
+        </p>
+
+        <h2>Disinformation playbook tactics</h2>
+        <p>
+            While there are many tactics used by industry to obscure science [7], we focus on five tactics that most
+            directly affect the science-policy interface (Fig. 1). Some “plays” occur internally—companies may conduct
+            biased studies, use or publicize only favorable results, suppress unfavorable results, and retaliate against
+            scientists. Others involve external stakeholders, such as government scientists and elected officials.
+        </p>
+        <h2>
+            Faking science: conducting—or paying others to conduct—flawed or biased scientific studies, or hiding
+            research with unfavorable conclusions
+
+        </h2>
+        <p>
+            Industry-sponsored research is more likely to have favorable outcomes for the target product or process than
+            research funded by other sources, a phenomenon known as the “funding effect” [8]. Companies can:
+
+            Publish studies with flawed methodologies (such as overlooking cumulative exposure), or bury studies with
+            unfavorable results;
+            Fund university scientists with explicit or implicit strings attached (for example, reserving the right to
+            edit results);
+            Hire firms from the “product defense industry” to deliver studies skewing the science in favor of a
+            company’s agenda [2];
+            Hide conflicts of interest for industry-funded or -affiliated scientists who publish papers, give testimony,
+            or comment publicly;
+            Publish ghostwritten articles in journals or media outlets; or
+            Interfere with studies during the prepublication process, including peer review.
+            An example of “faking the science” was borne out by the company Johnson & Johnson (J&J). Company officials
+            knew as early as 1971 that its talcum baby powder was contaminated with tremolite, an asbestos fiber and
+            known carcinogen. They knew the levels at which tremolite could be detected and, as evidenced by internal
+            documents, chose not to issue a testing method with better sensitivity and actively fought scientist and
+            regulator attempts to do so. J&J’s failure to report at least 12 independent tests conducted over a 15-year
+            period that found asbestos in its product meant that the United States (US) Food and Drug Administration
+            (FDA) did not have adequate scientific information to make a regulatory decision. There is evidence that, in
+            1972, J&J manipulated the findings of one of the tests sent to the FDA by deleting the total tremolite
+            content found in its baby powder product. FDA’s susceptibility to industry pressure, coupled with
+            insufficient or biased company-submitted data, means that proper scrutiny of these products has been
+            delayed. Over 19,000 lawsuits are currently pending against J&J related to harms caused by its powders,
+            including ovarian cancer [9]. J&J took the powder off the market in North America in 2020 [10] but still
+            affirms its safety.
+        </p>
+    </main>
+    <footer>
+        <p>Made on September 11, 2022</p>
+        <p>Text from article <a href="https://www.ncbi.nlm.nih.gov/pmc/articles/PMC8651604/">here</a> (National Library of Medicine).</p>
+        <p>Made because I wanted to use the theme toggle from <a href="https://web.dev/building-a-switch-component/">here</a> (web.dev).</p>
+        <p>I couldn't get the theme colours to change on my first attempt, so I followed the steps listed out <a href="https://blog.logrocket.com/a-guide-to-theming-in-css/">here</a> (LogRocket).</p>
+    </footer>
+
+
+
+
+
+</body>
+<script>
+    const toggle = document.getElementById("toggle");
+    toggle.addEventListener("change", e => {
+        if (e.target.checked) {
+            document.documentElement.setAttribute("data-theme", "dark");
+        } else {
+            document.documentElement.setAttribute("data-theme", "light");
+        }
+
+    })
+</script>
+
+</html>

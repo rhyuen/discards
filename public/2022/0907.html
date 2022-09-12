@@ -1,0 +1,259 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta name='color-scheme' content='dark light'>
+    <link rel="icon" type="../image/png" sizes="32x32" href="../images/favicon-32x32.png">
+    <title>09/07/22 - Intro with Sign-up Page</title>
+
+
+    <style>
+        * {
+            box-sizing: border-box;
+            font-size: 16px;
+            font-family: "Poppins", "Arial";
+            --ACCENT: hsl(300, 69%, 71%);
+            --PRIMARY: hsl(257, 40%, 49%);
+        }
+
+        @font-face {
+            font-family: "Poppins";
+            src: url("../fonts/Poppins-Regular.ttf");
+        }
+
+        ::-webkit-scrollbar {
+            width: 0.8rem;
+            height: 0.5rem;
+        }
+
+        /* Track */
+        ::-webkit-scrollbar-track {
+            background: black;
+        }
+
+        /* Handle */
+        ::-webkit-scrollbar-thumb {
+            background: var(--COL3);
+        }
+
+        /* Handle on hover */
+        ::-webkit-scrollbar-thumb:hover {
+            background: var(--COL2);
+        }
+
+
+
+
+
+        * {
+            user-select: none;
+        }
+
+        html,
+        body {
+            margin: 0;
+            height: 100vh;
+            background-color: hsl(0, 100%, 74%);
+            background-image: url("../images/fem/fem-intro-m.png");
+        }
+
+        ul {
+            margin: 0;
+            padding: 0;
+        }
+
+        li {
+            list-style-type: none;
+        }
+
+      
+
+       
+
+
+        main {
+            display: flex;            
+            flex-wrap: wrap;  
+            /* width: min(375px, 100%);     */
+            min-width: 500px;
+            max-width: 1200px;
+            justify-content: center;
+            height: 100vh;
+            margin: 0 auto;         
+            
+        }
+
+
+
+        .preamble, .signup{
+            display: flex;
+            /* flex: 0 1 375px; */
+            flex: 0 1 450px;
+            flex-direction: column;
+            justify-content: center;     
+            margin: 1rem;
+                  
+        }
+
+        .preamble h1{
+            margin-top: 4rem;
+            font-weight: 700;
+            text-align: center;
+            line-height: 1.25;
+            font-size: 2.5rem;
+            margin-bottom: 0;
+        }
+
+        .preamble p{
+            text-align: center;
+            font-size: 1rem;
+            line-height: 2;
+        }
+
+
+        .signup__ad{
+            background-color: hsl(248, 32%, 49%);
+            padding: 1.5rem;
+            border-radius: .75rem;
+            line-height: 1.5;
+            font-size: 1rem;
+            text-align: center;
+            margin-bottom: 2rem;
+        }
+
+        .signup__ad__emphasis{
+            font-weight: 700;
+        }
+        
+        .signup__form{
+            background-color: white;
+            padding: 1.5rem;
+            border-radius: .35rem;
+        }
+
+
+
+        input{
+            background-color: white;
+            width: 100%;
+            margin-bottom: 1.25rem;
+            padding: 1.25rem;
+            font-weight: 600;
+            border: 1px solid hsl(246, 25%, 77%);
+            border-radius: .35rem;
+            color: hsl(249, 10%, 26%) ;
+        }
+        input:focus{
+            border-color: hsl(249, 10%, 26%) ;
+        }
+
+        .form__button{
+            background-color: hsl(154, 59%, 51%);
+            border-radius: .35rem;
+            text-transform: uppercase;
+            color: white;
+            font-weight: 500;
+            width: 100%;
+            padding: 1.25rem;
+            border: none;
+            
+        }
+
+
+        .form__disclaimer{
+            --FONT-SIZE : .7rem;
+            text-align: center;
+            color: hsl(246, 25%, 77%);
+            font-size: var(--FONT-SIZE);
+            padding: 1.25rem;
+        }
+
+        .form__disclaimer__laws{
+            color: hsl(0, 100%, 74%);
+            font-weight: 600;
+            font-size: var(--FONT-SIZE);
+            line-height: 1.5;
+        }
+        
+        
+
+
+        /* @media screen and (min-width: 750px) and (max-width: 1099px) {} */
+        @media screen and (min-width: 965px) {
+        /* @media screen and (min-width: 1165px) { */
+            body{
+                background-image: url("../images/fem/fem-intro-d.png");
+            }
+
+            .preamble{
+                margin-bottom: 6rem;
+                padding-right: 3rem;
+                
+            }
+
+            .preamble, .signup{
+                flex: 0 1 450px;
+            }
+
+            /* .preamble, .signup{
+                flex: 0 1 550px;
+            } */
+
+            
+
+           
+
+            .preamble h1{
+                text-align: left;
+                font-size: 3rem;
+            }
+            .preamble p {
+                text-align: left;
+            }
+        }
+    </style>
+
+<body>
+
+    <main>
+        <div class="preamble">
+            <h1>Learn to code by watching others</h1>
+            <p>See how experienced developers solve problems in real-time.  Watching scripted tutorials is great, but understanding how developers think is invaluable.</p>
+        </div>
+        <div class="signup">
+            <div class="signup__ad">
+                <span class="signup__ad__emphasis">Try is free 7 days</span> then $20/mo. thereafter
+            </div>
+            <form id="signup" class="signup__form">
+                <div class="form__row">
+                    <input type="text" name="firstname" placeholder="First Name">
+                </div>
+                <div class="form__row">
+                    <input type="text" name="lastname" placeholder="Last Name">
+                </div>
+                <div class="form__row">
+                    <input type="email" name="email" placeholder="Email Address">
+                </div>
+                <div class="form__row">
+                    <input type="password" name="password" placeholder="Password" >
+                </div>
+                <button class="form__button">
+                    Claim your Free Trial
+                </button>
+                <div class="form__disclaimer">
+                    By clicking the button, you are agreeing to our <span class="form__disclaimer__laws">Terms and Services</span>.
+                </div>
+            </form>
+        </div>
+    </main>
+    <script>
+
+
+
+    </script>
+</body>
+
+</html>

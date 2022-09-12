@@ -1,0 +1,290 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta name='color-scheme' content='dark light'>
+    <link rel="preconnect" href="https://fonts.gstatic.com">
+    <link href="https://fonts.googleapis.com/css2?family=Inter&display=swap" rel="stylesheet">
+    <title>08/16/22</title>
+
+
+    <style>
+        * {
+            box-sizing: border-box;
+            font-size: 16px;
+            font-family: 'Inter', sans-serif;
+            color: black;
+            --GREY: rgba(0, 0, 0, 0.1);
+            --PRIMARY_COLOR: #98E690;
+            --SECONDARY_COLOR: white;
+            --COL1: #db0a5b;
+            --COL2: #fef160;
+            --COL3: #23cba7;
+            --COL4: #3e6ceb;
+            --COL5: #d9c8ec;
+
+        }
+
+        ::-webkit-scrollbar {
+            width: 0.8rem;
+            height: 0.5rem;
+        }
+
+        /* Track */
+        ::-webkit-scrollbar-track {
+            background: black;
+        }
+
+        /* Handle */
+        ::-webkit-scrollbar-thumb {
+            background: var(--COL3);
+        }
+
+        /* Handle on hover */
+        ::-webkit-scrollbar-thumb:hover {
+            background: var(--COL2);
+        }
+
+
+
+
+
+        * {
+            user-select: none;
+        }
+
+        html,
+        body {
+            margin: 0;
+            height: 100vh;
+            background-color: #f3f3f3;
+
+
+        }
+
+        main {
+            display: grid;
+            place-items: center;
+            height: 100vh;
+        }
+
+
+        .container{
+            display: flex;
+            flex-direction: column;
+            
+        }
+        
+        .container > * {
+            margin-bottom: 2rem;
+        }
+
+        .toggle {
+            --thumb-size: 2rem;
+            --track-size: .2rem;
+            --track-padding: 2rem;
+            --thumb-position: 0%;
+
+            appearance: none;
+            border: none;
+            outline-offset: 5px;
+            inline-size: var(--track-size);
+            block-size: var(--thumb-size);
+            padding: var(--track-padding);
+            background-color: #db0a5b;
+            border-radius: var(--track-size);
+
+
+            flex-shrink: 0;
+            display: grid;
+            align-items: center;
+            grid: [track] 1fr / [track] 1fr;
+
+            cursor: pointer;
+        }
+
+        .toggle:before {
+
+            --highlight-size: .5rem;
+            --thumb-color-highlight: rgba(0, 0, 0, 0.2);
+            content: "";
+            border-radius: 50%;
+            background-color: #fef160;
+            grid-area: track;
+            inline-size: var(--thumb-size);
+            block-size: var(--thumb-size);
+            transition: transform .3s ease, box-shadow .25s ease;
+            transform: translateX(var(--thumb-position));
+            box-shadow: 0 0 0 var(--highlight-size) var(--thumb-color-highlight);
+        }
+
+        .toggle:checked {
+            --thumb-position: calc(var(--track-size) - 100%);
+        }
+
+
+
+
+        .toggle-switch {
+            display: flex;
+            appearance: none;
+            height: 2rem;
+            width: 4rem;
+            background-color: black;
+            border-radius: 1rem;
+            box-sizing: content-box;
+            align-items: center;
+            border: .2rem solid black;
+
+
+            --hover-size: 0;
+            --switch-hover-color: rgba(0, 0, 0, 0.2);
+
+            --switch-track: .2rem;
+            --switch-position: 0%;
+        }
+
+        .toggle-switch:before {
+
+            box-shadow: 0 0 0 var(--hover-size) var(--switch-hover-color);
+
+            border-radius: 50%;
+            background-color: white;
+            content: "";
+            width: 1.8rem;
+            height: 1.8rem;
+            display: block;
+            align-self: center;
+            transition: transform .3s ease, box-shadow .3s ease;
+            transform: translateX(var(--switch-position));
+        }
+
+
+        .toggle-switch:focus {
+            --hover-size: .5rem;
+        }
+
+        .toggle-switch:checked {
+            --switch-position: calc(var(--switch-track) + 100%);
+        }
+
+
+        .gui-switch{
+            --track-size: calc(var(--thumb-size) * 2);
+            --track-padding: 2px;
+            --track-inactive: hsl(80 0% 80%);
+            --track-active: hsl(80 60% 45%);
+            --track-color-inactive: var(--track-inactive);
+            --track-color-active: var(--track-active);
+
+            --thumb-size: 2rem;
+            --thumb: hsl(0 0% 100%);
+            --thumb-highlight: hsl(0 0% 0%/25%);
+            --thumb-color: var(--thumb);
+            --thumb-color-highlight: var(--thumb-highlight);
+
+
+            display: flex;
+            align-items: center;
+            gap: 2ch;
+            justify-content: space-between;
+        }
+
+        .gui-switch > input {
+            appearance: none;
+            border: none;
+            outline-offset: 5px;
+            box-sizing: content-box;
+            border-radius: var(--track-size); /*4rem*/
+            background: var(--track-color-inactive); /*hsl(80 0% 80%)*/
+
+            --thumb-position: 0%;
+
+            
+
+            inline-size: var(--track-size); /*4rem horiz*/
+            block-size: var(--thumb-size); /*2rem vert*/
+            padding: var(--track-padding); /*2px*/
+            flex-shrink: 0;
+            display: grid;
+            align-items: center;
+            grid: [track] 1fr /[track] 1fr;
+            cursor: pointer;
+            user-select: none;
+            -webkit-tap-highlight-color: tranparent;
+        }
+
+        .gui-switch> input:checked{
+            --thumb-position: calc(var(--track-size) - 100%); /*4rem*/
+            background-color: var(--track-color-active);
+        }
+
+        .gui-switch > input:disabled{
+            cursor: not-allowed;
+            --thumb-color: transparent;
+        }
+
+        .gui-switch > input:disabled::before{
+            cursor: not-allowed;
+            box-shadow: inset 0 0 0 2px hsl(0 0% 100% / 50%);
+        }
+
+        .gui-switch > input::before{
+            --thumb-transition-duration: .3s;
+            --highlight-size: .5rem;
+
+
+            content: "";
+            grid-area: track;
+            inline-size: var(--thumb-size); /*2rem*/
+            block-size: var(--thumb-size); /*2rem*/
+            transition: transform var(--thumb-transition-duration) ease, box-shadow .25s ease;
+            transform: translateX(var(--thumb-position));
+
+           
+            border-radius: 50%;
+            background: var(--thumb-color); /*white*/
+            /* box-shadow: 0 0 0 var(--highlight-size) var(--thumb-color-highlight); */
+        }
+
+        .gui-switch > input:hover::before{
+            box-shadow: 0 0 0 var(--highlight-size) var(--thumb-color-highlight);
+        }
+
+ 
+
+        
+
+        @media screen and (min-width: 750px) and (max-width: 1099px) {}
+
+        @media screen and (min-width: 1100px) {}
+    </style>
+
+<body>
+    <main>
+        <div class="container">
+            <input class="toggle" type="checkbox">
+            <input class="toggle-switch" type="checkbox">
+            <label for="light-switch" class="gui-switch">
+                Normal
+                <input type="checkbox" role="switch" id="light-switch">
+            </label>
+            <label for="light-switch" class="gui-switch">
+                Disbled
+                <input type="checkbox" role="switch" id="light-switch" disabled>
+            </label>
+        </div>
+
+    </main>
+
+
+
+
+
+
+</body>
+
+</html>

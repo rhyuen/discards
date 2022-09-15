@@ -1,0 +1,379 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <link rel="preconnect" href="https://fonts.gstatic.com">
+    <link rel="icon" type="../image/png" sizes="32x32" href="../images/favicon-32x32.png">
+    <title>09/14/22</title>
+
+
+    <style>
+        @font-face {
+            font-family: "Barlow Semi Condensed";
+            src: url("../fonts/BarlowSemiRegular-Black.ttf");
+        }
+
+
+        * {
+            box-sizing: border-box;
+            font-size: 16px;
+            font-weight: 400;
+            font-family: "Barlow Semi Condensed", "Arial";
+            color: black;
+            --GREY: rgba(0, 0, 0, 0.1);
+            
+
+
+        }
+
+        ::-webkit-scrollbar {
+            width: 0.8rem;
+            height: 0.5rem;
+        }
+
+        /* Track */
+        ::-webkit-scrollbar-track {
+            background: black;
+        }
+
+        /* Handle */
+        ::-webkit-scrollbar-thumb {
+            background: var(--COL3);
+        }
+
+        /* Handle on hover */
+        ::-webkit-scrollbar-thumb:hover {
+            background: var(--COL2);
+        }
+
+        html,
+        body {
+            margin: 0;
+            display: flex;
+            flex-direction: column;
+            justify-content: center;
+            min-height: 100vh;
+            background-color: hsl(210, 46%, 95%);
+        }
+
+        ul {
+            margin: 0;
+            padding: 0;
+        }
+
+        li {
+            list-style-type: none;
+        }
+
+
+        main {
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(250px, 1fr));
+            
+            /* grid-auto-flow: column dense; */
+            margin: 0 auto;
+            padding: .5rem;
+            width: 500px;
+            gap: 1.75rem;
+            
+        }
+
+
+        .item {
+            grid-column: span 1;
+            display: flex;
+            flex-direction: column;
+            padding: 1.75rem;
+            border-radius: .75rem;
+            box-shadow: 0 .25rem .5rem 5px rgba(0, 0, 0, 0.1);
+        }
+
+        .item p quote {
+            font-size: 13px;
+            font-weight: 500;
+        }
+
+        .item--width-1 {
+            grid-column: span 1;
+        }
+
+        .item--height-1 {
+            grid-row: span 1;
+        }
+
+        .item--width-2 {
+            grid-column: span 1;
+        }
+
+        .item--height-2 {
+            grid-row: span 2;
+        }
+
+        .background--purple {
+            background: hsl(263, 55%, 52%);
+            background-image: url("../images/fem/fem-testimonial-bg-pattern-quotation.svg");
+            background-repeat: no-repeat;
+            background-position: top right 2rem;
+
+        }
+
+        .background--purple h2 {
+            color: white;
+            font-weight: 600;
+            line-height: 1.25;
+            font-size: 20px;            
+        }
+
+        p{
+            margin: 0;
+        }
+
+        .background--purple p quote{
+            color: hsl(0, 0%, 81%);
+        }
+
+        .background--gray {
+            background-color: hsl(217, 19%, 35%);
+        }
+
+        .background--gray h2{
+            color: white;
+            font-weight: 600;
+            line-height: 1.25;
+            font-size: 20px;        
+        }
+        
+
+        .background--gray * {
+            color: white;
+        }
+
+        .background--gray p quote{
+            color: hsla(0, 0%, 81%, .7);
+        }
+
+        .background--black {
+            background-color: hsl(219, 29%, 14%);
+        }
+
+      
+
+        .background--black h2{
+            color: white;
+            font-weight: 600;
+            line-height: 1.25;
+            font-size: 20px;    
+        }
+
+        .background--black quote{
+            color:rgba(255, 255, 255, .7);
+        }
+
+       
+
+        .background--white {
+            background-color: white;
+        }
+
+        .background--white h2{
+            color: black;
+            font-weight: 600;
+            line-height: 1.25;
+            font-size: 20px;        
+        }
+
+        .background--white p {
+            color: hsla(0, 0%, 81%, .5);
+        }
+
+
+        .item__meta {
+            display: flex;
+            justify-content: flex-start;
+        }
+
+        .item__meta img{
+            --WIDTH: 2rem;
+            inline-size: var(--WIDTH);
+            block-size: var(--WIDTH);
+            border-radius: 50%;
+            border: 2px solid white;
+        }
+
+
+        .background--black .item__meta img{           
+            border: 2px solid hsl(263, 55%, 52%);
+        }
+
+        .item__meta__labels{
+            display: flex;
+            flex-direction: column;
+            margin-left: 1.25rem;
+        }
+
+        .item__meta__labels__name{
+            --COLOR: white;
+            color: var(--COLOR);
+            font-size: 13px;
+            font-weight: 600;
+            margin-bottom: .25rem;
+        }
+
+        .item__meta__labels__proof{
+            --COLOR:rgba(255, 255, 255, .5); 
+            color: var(--COLOR);            
+            font-size: 13px;
+            font-weight: 500;
+        }
+
+        .background--white .item__meta__labels__name{
+            color: hsl(219, 29%, 14%);
+        }
+
+        .background--white .item__meta__labels__proof{
+            color: hsla(219, 29%, 14%, .5);  
+            
+        }
+
+        @media screen and (min-width: 1100px) {
+            main {
+                width: 1100px;
+                /* grid-template-rows: repeat(auto-fit, 370px); */
+            }
+
+            .item--width-2 {
+                grid-column: span 2;
+            }
+        }
+    </style>
+
+<body>
+    <main>
+        <article class="item item--width-2 background--purple item--height-1">
+            <div class="item__meta">
+                <img src="../images/fem/fem-testimonial-daniel.jpg" alt="a picture of a human's face" />
+                <div class="item__meta__labels">
+                    <div class="item__meta__labels__name">
+                        Daniel Clifford
+                    </div>
+                    <div class="item__meta__labels__proof">
+                        Verified Graduate
+                    </div>
+                </div>
+            </div>
+            <h2>I received a job offer mid-course, and the subjects I learned were current, if not more so, in the
+                company I joined. I honestly feel I got every penny's worth.</h2>
+            <p>
+                <quote>“ I was an EMT for many years before I joined the bootcamp. I’ve been looking to make a
+                    transition and
+                    have heard some people who had an amazing experience here. I signed up for the free intro course and
+                    found it incredibly fun! I enrolled shortly thereafter. The next 12 weeks was the best - and most
+                    grueling - time of my life. Since completing the course, I’ve successfully switched careers, working
+                    as
+                    a Software Engineer at a VR startup. ”</quote>
+            </p>
+        </article>
+        <article class="item item--width-1 background--gray item--height-1">
+            <div class="item__meta">
+                <img src="../images/fem/fem-testimonial-jonathan.jpg" alt="a picture of a human's face" />
+                <div class="item__meta__labels">
+                    <div class="item__meta__labels__name">
+                        Jonathan Walters
+                    </div>
+                    <div class="item__meta__labels__proof">
+                        Verified Graduate
+                    </div>
+                </div>
+            </div>
+            <h2>The team was very supportive and kept me motivated
+            </h2>
+            <p>
+                <quote>“ I started as a total newbie with virtually no coding skills. I now work as a mobile engineer
+                    for a big company. This was one of the best investments I’ve made in myself. ”
+                </quote>
+            </p>
+        </article>
+        <article class="item  item--width-1 background--white item--height-2">
+            <div class="item__meta">
+                <img src="../images/fem/fem-testimonial-kira.jpg" alt="a picture of a human's face" />
+                <div class="item__meta__labels">
+                    <div class="item__meta__labels__name">
+                        Kira Whittle
+                    </div>
+                    <div class="item__meta__labels__proof">
+                        Verified Graduate
+                    </div>
+                </div>
+            </div>
+            <h2>Such a life-changing experience. Highly recommended!
+            </h2>
+            <p>
+                <quote>“ Before joining the bootcamp, I’ve never written a line of code. I needed some structure from
+                    professionals who can help me learn programming step by step. I was encouraged to enroll by a former
+                    student of theirs who can only say wonderful things about the program. The entire curriculum and
+                    staff did not disappoint. They were very hands-on and I never had to wait long for assistance. The
+                    agile team project, in particular, was outstanding. It took my learning to the next level in a way
+                    that no tutorial could ever have. In fact, I’ve often referred to it during interviews as an example
+                    of my developent experience. It certainly helped me land a job as a full-stack developer after
+                    receiving multiple offers. 100% recommend! ”</quote>
+            </p>
+        </article>
+        <article class="item item--width-1 item--height-1 background--white">
+            <div class="item__meta">
+                <img src="../images/fem/fem-testimonial-jeanette.jpg" alt="a picture of a human's face" />
+                <div class="item__meta__labels">
+                    <div class="item__meta__labels__name">
+                         Jeanette Harmon
+                    </div>
+                    <div class="item__meta__labels__proof">
+                        Verified Graduate
+                    </div>
+                </div>
+            </div>
+            <h2>An overall wonderful and rewarding experience
+            </h2>
+            <p>
+                <quote>“ Thank you for the wonderful experience! I now have a job I really enjoy, and make a good living
+                    while doing something I love. ”
+                </quote>
+            </p>
+        </article>
+        <article class="item item--width-2 item--height-1 background--black">
+            <div class="item__meta">
+                <img src="../images/fem/fem-testimonial-patrick.jpg" alt="a picture of a human's face" />
+                <div class="item__meta__labels">
+                    <div class="item__meta__labels__name">
+                        Patrick Abrams
+                    </div>
+                    <div class="item__meta__labels__proof">
+                        Verified Graduate
+                    </div>
+                </div>
+            </div>
+            <h2>Awesome teaching support from TAs who did the bootcamp themselves. Getting guidance from them and
+                learning from their experiences was easy.
+            </h2>
+            <p>
+                <quote>“The staff seem genuinely concerned about my progress which I find really refreshing. The program
+                    gave
+                    me the confidence necessary to be able to go out in the world and present myself as a capable junior
+                    developer. The standard is above the rest. You will get the personal attention you need from an
+                    incredible community of smart and amazing people.”</quote>
+            </p>
+        </article>
+
+    </main>
+
+    <script>
+
+
+
+
+
+    </script>
+</body>
+
+</html>

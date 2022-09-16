@@ -1,0 +1,275 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <link rel="preconnect" href="https://fonts.gstatic.com">
+    <link rel="icon" type="../image/png" sizes="32x32" href="../images/favicon-32x32.png">
+    <title>09/15/22</title>
+
+
+    <style>
+        @font-face {
+            font-family: "Manrope";
+            src: url("../fonts/Manrope-VariableFont_wght.ttf");
+        }
+
+
+        * {
+            box-sizing: border-box;
+            font-size: 16px;
+            font-weight: 800;
+            font-family: "Manrope", "Arial";
+            --GREY: rgba(0, 0, 0, 0.1);
+
+
+
+        }
+
+        ::-webkit-scrollbar {
+            width: 0.8rem;
+            height: 0.5rem;
+        }
+
+        /* Track */
+        ::-webkit-scrollbar-track {
+            background: black;
+        }
+
+        /* Handle */
+        ::-webkit-scrollbar-thumb {
+            background: var(--COL3);
+        }
+
+        /* Handle on hover */
+        ::-webkit-scrollbar-thumb:hover {
+            background: var(--COL2);
+        }
+
+        html,
+        body {
+            margin: 0;
+            min-height: 100vh;
+            background-color: hsl(218, 23%, 16%);
+
+        }
+
+        ul {
+            margin: 0;
+            padding: 0;
+        }
+
+        li {
+            list-style-type: none;
+        }
+
+        main {
+            
+            display: grid;
+            min-height: 100vh;
+            place-items: center;
+            margin: 0 auto;
+        }
+
+        .card {
+            width: min(420px, 100%);
+            background-color: hsl(217, 19%, 24%);
+            padding: 2rem;
+            border-radius: .75rem;
+            display: flex;
+            flex-direction: column;
+            align-items: center;
+            margin: 1rem;
+            position: relative;
+            
+            filter:  drop-shadow(0 4mm 4mm hsl(218, 23%, 16%));
+        }
+
+        .card blockquote {
+            color: white;
+            font-size: 1.75rem;
+            font-weight: 800;
+            text-align: center;
+        }
+
+        .card__id {
+            color: hsl(150, 100%, 66%);
+            letter-spacing: .2rem;
+            font-weight: 600;
+            font-size: 1rem;
+        }
+
+        .card__divider {
+            display: flex;
+            padding: 0 1rem;
+            padding-bottom: 2rem;
+        }
+
+        .card__divider img{
+            width: 100%;
+            
+        }
+
+        .card__dice {
+            position: absolute;
+            bottom: -2rem;
+            --WIDTH: 4rem;
+            width: var(--WIDTH);
+            height: var(--WIDTH);
+            border-radius: 50%;
+            background-color: hsl(150, 100%, 66%);
+            margin: 0;
+            border: none;
+            cursor: pointer;
+            transition: filter .2s ease-in-out;
+            filter:  drop-shadow(0 0 2mm transparent);
+            display: grid;
+            place-items: center;
+        }
+
+        .card__dice:hover{
+            filter:  drop-shadow(0 0 2mm hsl(193, 38%, 86%));
+        }
+
+        @keyframes expand {
+            from {
+                width: 0;
+                height: 0;
+            }
+
+            to {
+                width: 2.5rem;
+                height: 2.5rem;
+            }
+        }
+
+        .placeholder{
+            animation: expand .3s linear;
+            background-color: hsl(150, 100%, 66%);
+            border-radius: 50%;
+            display: block;
+            margin: 5rem;
+            position: relative;
+        }
+
+        .placeholder::after{
+            inset: 0;
+            position: absolute;
+            transform: scale(.6);
+            border-radius: 50%;
+            background-color: hsl(217, 19%, 24%);
+            display: block;
+            content: "";
+        }
+
+        .error-message{
+            color: rgb(192, 96, 247);
+            font-size: 1.75rem;
+            font-weight: 800;
+            text-align: center;
+            margin: 2rem 0;
+        }
+    </style>
+
+<body>
+    <main>
+        <div class="card">
+            <div class="card__id" id="quote-id"></div>
+            <div class="card__content" id="card__content">
+                <blockquote id="mp"></blockquote>
+            </div>
+            
+
+            <div class="card__divider">
+                <img src="../images/fem/fem-pattern-divider-desktop.svg"
+                    alt="a line with a pause symbol running through it." aria-disabled="true" />
+            </div>
+            <button id="reroll-advice" class="card__dice" role="clicking generates a new quote.">
+                <img src="../images/fem/fem-icon-dice.svg" alt="a series of five dots like on a rolling die." />
+            </button>
+
+        </div>
+    </main>
+
+    <script>
+        const mp = document.getElementById('mp');
+        const contentContainer = document.getElementById("card__content");
+        const quoteID = document.getElementById('quote-id');
+        const rerollAdvice = document.getElementById("reroll-advice");
+
+
+        const url = "https://api.adviceslip.com/advice";
+
+
+        rerollAdvice.addEventListener("click", e => {
+            getNewAdvice();
+        });
+
+
+        window.addEventListener("load", e=> {
+            getNewAdvice();
+        });
+
+        function createNewQuote(text){
+            const blockquote = document.createElement("blockquote");
+            blockquote.id = "mp";
+            blockquote.textContent = `"${text}"`;
+            return blockquote;
+        }
+
+        function createLoadingIndicator(){
+            const container = document.createElement("div");
+            container.classList.add("placeholder");
+            return container;
+        }
+
+        
+
+        function createErrorMessage(){
+            const message = document.createElement("div");
+            message.classList.add("error-message");
+            message.textContent = "Something has gone wrong.  Please try again later.";
+            return message;
+        }
+
+
+        function getNewAdvice() {
+            contentContainer.removeChild(contentContainer.firstElementChild);
+            const placeholder = createLoadingIndicator();
+            contentContainer.appendChild(placeholder);
+            quoteID.textContent = `ADVICE # ?`;
+            
+            fetch(url).then(res => {
+                
+                if (res.ok) {
+                    return res.json();
+                } else {
+                    throw new Error("Something has gone wrong with the response.");                   
+                }
+            }).then(res => {
+                contentContainer.removeChild(placeholder);
+
+                // console.log(res);
+                const { slip: { advice, id } } = res;
+
+                const latestAdvice = createNewQuote(advice)                
+                contentContainer.appendChild(latestAdvice);
+                quoteID.textContent = `ADVICE #${id}`;
+                
+
+            }).catch(e => {
+                console.log(e);
+                contentContainer.removeChild(placeholder);
+                contentContainer.appendChild(createErrorMessage());
+            });
+        }
+
+
+
+
+    </script>
+</body>
+
+</html>

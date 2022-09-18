@@ -1,0 +1,319 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <link rel="preconnect" href="https://fonts.gstatic.com">
+    <link rel="icon" type="../image/png" sizes="32x32" href="../images/favicon-32x32.png">
+    <title>09/16/22</title>
+
+
+    <style>
+        @font-face {
+            font-family: "Inter";
+            src: url("../fonts/Inter-VariableFont_slnt\,wght.ttf");
+        }
+
+
+        * {
+            box-sizing: border-box;
+            font-size: 16px;
+            font-weight: 800;
+            font-family: "Inter", "Arial";
+            --GREY: rgba(0, 0, 0, 0.1);
+        }
+
+        ::-webkit-scrollbar {
+            width: 0.8rem;
+            height: 0.5rem;
+        }
+
+        /* Track */
+        ::-webkit-scrollbar-track {
+            background: black;
+        }
+
+        /* Handle */
+        ::-webkit-scrollbar-thumb {
+            background: var(--COL3);
+        }
+
+        /* Handle on hover */
+        ::-webkit-scrollbar-thumb:hover {
+            background: var(--COL2);
+        }
+
+        :root {
+            --WIDTH: 550px;
+        }
+
+        html,
+        body {
+            margin: 0;
+            min-height: 100vh;
+            background-color: white;
+            background-image: url("../images/fem/fem-testimonial-pattern-curve.svg");
+            background-repeat: no-repeat;
+            background-position: bottom left;
+        }
+
+        ul {
+            margin: 0;
+            padding: 0;
+        }
+
+        li {
+            list-style-type: none;
+        }
+
+
+        main {
+            display: flex;
+            flex-direction: column;
+            width: min(490px, 100%);
+            margin: 0 auto;
+            min-height: 100vh;
+
+        }
+
+        .profile {
+            background-image: url("../images/fem/fem-testimonial-pattern-bg.svg");
+            background-repeat: no-repeat;
+            background-size: contain;
+            padding: 2rem;
+            margin-top: 2rem;
+            /* padding-bottom: 0; */
+            flex: 0 1 var(--WIDTH);
+        }
+
+        .profile__container {
+            width: 100%;
+            /* height: 100%; */
+            position: relative;
+            transform: scale(.9);
+        }
+
+        .profile__container img {
+            object-fit: cover;
+            width: 100%;
+            /* height: 100%; */
+            aspect-ratio: 1;
+            border-radius: .5rem;
+            filter: drop-shadow(0 3mm 4mm rgba(0, 0, 0, .2));
+            /* box-shadow: -6px 14px 45px 5px rgba(0,0,0,0.52); */
+        }
+
+        .profile__container__row {
+            position: absolute;
+            display: flex;
+            justify-content: center;
+            right: 50%;
+            transform: translateX(50%);
+            height: 4rem;
+            bottom: -2rem;
+            /* background-color: red; */
+        }
+
+        .profile__container__row button {
+            padding: 1rem 1.25rem;
+            border: 2px solid white;
+            background-color: white;
+            cursor: pointer;
+
+        }
+
+        .profile__container__row button img {
+            align-self: center;
+            object-fit: cover;
+            width: 75%;
+            height: 75%;
+        }
+
+        .left-button {
+            border-bottom-left-radius: 4rem;
+            border-top-left-radius: 4rem;
+        }
+
+        .right-button {
+            border-bottom-right-radius: 4rem;
+            border-top-right-radius: 4rem;
+        }
+
+        .summary blockquote {
+            margin: 0;
+            font-size: 2rem;
+            text-align: center;
+            padding: 2rem;
+            font-weight: 500;
+            color: hsl(240, 38%, 20%)
+        }
+
+        .summary {
+            background-image: url("../images/fem/fem-testimonial-quotes.svg");
+            background-repeat: no-repeat;
+            background-position: top center;
+            flex: 0 1 var(--WIDTH);
+        }
+
+        .summary__container {
+            display: flex;
+            flex-direction: column;
+            align-items: center;
+        }
+
+        .summary__container__title {
+            color: hsl(240, 18%, 77%);
+            font-weight: 300;
+            font-size: 1.5rem;
+        }
+
+        .summary__container__name {
+            color: hsl(240, 38%, 20%);
+            font-weight: 700;
+            font-size: 1.5rem;
+        }
+
+        @media screen and (min-width: 1100px) {
+            main {
+                width: min(1200px, 100%);
+                flex-direction: row-reverse;
+                justify-content: center;
+                align-items: center;
+            }
+
+            .summary {
+                z-index: 2;
+                width: 150%;
+                flex-grow: 2;
+            }
+
+            .profile {
+                z-index: 1;
+                flex-grow: 1;
+            }
+
+
+            .summary__container {
+                flex-direction: row;
+                margin-left: 2rem;
+            }
+
+            .summary__container__name {
+                margin-right: 1rem;
+            }
+
+            .summary blockquote {
+                text-align: left;
+                text-overflow: nowrap;
+            }
+
+            .profile__container__row {
+                left: 0;
+                transform: translateX(0%);
+
+            }
+
+
+        }
+    </style>
+
+<body>
+    <main>
+        <figure id="profile-background" class="profile">
+            <div class="profile__container">
+                <img id="picture" />
+                <div class="profile__container__row">
+                    <button class="left-button" id="left-button">
+                        <img src="../images/fem/fem-testimonial-prev.svg" />
+                    </button>
+                    <button class="right-button" id="right-button">
+                        <img src="../images/fem/fem-testimonial-next.svg" />
+                    </button>
+                </div>
+            </div>
+        </figure>
+        <section class="summary">
+            <blockquote id="quote">
+                <!-- "If you want to lay the best foundation possible I'd recommend taking this course. The depth the
+                instructors go into is incredible. I now feel so confident about starting up as a professional
+                developer." -->
+            </blockquote>
+            <div class="summary__container">
+                <div class="summary__container__name" id="name">
+                    <!-- John Tarkpor -->
+                </div>
+                <div class="summary__container__title" id="title">
+                    <!-- Junior Front-end Developer -->
+                </div>
+            </div>
+        </section>
+    </main>
+
+    <script>
+        const domName = document.getElementById("name");
+        const domTitle = document.getElementById("title");
+        const domQuote = document.getElementById("quote");
+        const domPicture = document.getElementById("picture");
+        const leftButton = document.getElementById("left-button");
+        const rightButton = document.getElementById("right-button");
+
+        const data = [
+            {
+                name: "Tanya Sinclair",
+                title: "UX Engineer",
+                quote: "I've been interested in coding for a while but never taken the jump, until now.  I couldn't recomend this course enough.  I'm now in the job of my dreams and so excited about the future.",
+                picture: "../images/fem/fem-testimonial-tanya.jpg",
+                alt: "Picture of Tanya Sinclair"
+            },
+            {
+                name: "John Tarkov",
+                title: "Junior Front-end Engineer",
+                quote: "If you want to lay the best foundation possible I'd recommend taking this course. The depth the instructors go into is incredible. I now feel so confident about starting up as a professional developer.",
+                picture: "../images/fem/fem-testimonial-john.jpg",
+                alt: "Picture of John Tarkov"
+            },
+        ];
+
+        let count = 0;
+
+
+        window.addEventListener("load", e => {
+            const { name, title, quote, picture, alt } = data[count];
+            domName.textContent = name;
+            domTitle.textContent = title;
+            domQuote.textContent = quote;
+            domPicture.src = picture;
+            domPicture.alt = alt;
+        });
+
+        leftButton.addEventListener("click", e => {
+            count = Math.abs(--count) % data.length;
+
+            const { name, title, quote, picture } = data[count];
+            domName.textContent = name;
+            domTitle.textContent = title;
+            domQuote.textContent = quote;
+            domPicture.src = picture;
+            domPicture.alt = alt;
+
+        });
+
+        rightButton.addEventListener("click", e => {
+            count = Math.abs(++count) % data.length;
+
+            const { name, title, quote, picture } = data[count];
+            domName.textContent = name;
+            domTitle.textContent = title;
+            domQuote.textContent = quote;
+            domPicture.src = picture;
+        });
+
+
+
+
+    </script>
+</body>
+
+</html>

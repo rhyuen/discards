@@ -633,6 +633,17 @@
             "reference": [
                 "https://www.frontendmentor.io/challenges/advice-generator-app-QdUG-13db"
             ]
+        },
+        {
+            "month": 9,
+            "day": 16,
+            "year": 2022,
+            "link": "/2022/0916.html",
+            "visible": true,
+            "description": "Front End Mentor: Testimonials.  [1] Couldn't get the quotation text to runover onto the image of the person in the desktop view.  [2] Spacing is off in Mobile view.",
+            "reference": [
+                "https://www.frontendmentor.io/challenges/coding-bootcamp-testimonials-slider-4FNyLA8JL"
+            ]
         }
     ],
     "2021": [

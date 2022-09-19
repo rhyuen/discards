@@ -251,14 +251,32 @@
             const root = document.getElementById("2021");
             const root22 = document.getElementById("2022");
 
+
+            const params = new URLSearchParams(window.location.search);
+            let showAll = false;
+
+            if (params.get("reveal") === "true") {
+                //shows the duds in the discards.
+                showAll = true;
+            }
+
             for (let i = 0; i < urls["2021"].length; i++) {
-                root.appendChild(makeListItem(urls["2021"][i]));
+
+                if (urls["2021"][i].visible || showAll) {
+                    const currentListItem21 = makeListItem(urls["2021"][i]);
+                    root.appendChild(currentListItem21);
+                }
             };
 
-          
+
 
             for (let i = 0; i < urls["2022"].length; i++) {
-                root22.appendChild(makeListItem(urls["2022"][i]));
+
+                if (urls["2022"][i].visible || showAll) {
+                    const currentListItem22 = makeListItem(urls["2022"][i]);
+                    root22.appendChild(currentListItem22);
+                }
+
             };
         });
 

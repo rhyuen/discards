@@ -644,6 +644,17 @@
             "reference": [
                 "https://www.frontendmentor.io/challenges/coding-bootcamp-testimonials-slider-4FNyLA8JL"
             ]
+        },
+        {
+            "month": 9,
+            "day": 18,
+            "year": 2022,
+            "link": "/2022/0918.html",
+            "visible": true,
+            "description": "Front End Mentor: Project Tracking Intro Component.  [1] Used a Pseudo component on the body element to get the oval in the background. [2] Used CSS variables for dynamic font-sizing because the style guide values seemed too small. [3] This was more difficult than I thought it would be.",
+            "reference": [
+                "https://www.frontendmentor.io/challenges/project-tracking-intro-component-5d289097500fcb331a67d80e"
+            ]
         }
     ],
     "2021": [

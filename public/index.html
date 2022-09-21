@@ -15,14 +15,22 @@
             box-sizing: border-box;
             font-size: 16px;
             font-family: 'Inter', sans-serif;
-            --GREY: rgba(0, 0, 0, 0.1);
-            --PRIMARY_COLOR: #98E690;
-            --SECONDARY_COLOR: white;
-            --COL1: #2e0515;
-            --COL2: #fef160;
-            --COL3: #23cba7;
-            --COL4: #3e6ceb;
-            --COL5: #d9c8ec;
+            
+        }
+
+        :root{
+            --FONT_COLOR: black;
+            --BACKGROUND_COLOR: #f3f3f3; 
+            --FONT_COLOR_TRANSPARENT: rgba(0,0,0,0.1);
+            --BACKGROUND_COLOR_TRANSPARENT: rgba(255, 255, 255, 0.1);
+        }
+
+
+        [data-theme='dark']{
+            --FONT_COLOR: #f3f3f3;
+            --BACKGROUND_COLOR: black;
+            --FONT_COLOR_TRANSPARENT: rgba(255, 255, 255, 0.3);
+            --BACKGROUND_COLOR_TRANSPARENT: rgba(0,0,0,0.1);
         }
 
         ::-webkit-scrollbar {
@@ -50,19 +58,18 @@
         body {
             margin: 0;
             height: 100vh;
-            background: #f3f3f3;
+            background: var(--BACKGROUND_COLOR);
             position: relative;
         }
 
-        h1 {
+        h1, h2 {
             margin: 0;
             padding: 0;
             font-size: 2rem;
+            color: var(--FONT_COLOR);
         }
 
-        h2 {
-            font-size: 2rem;
-        }
+      
 
         .header-text {
             font-size: 3rem;
@@ -75,37 +82,16 @@
         }
 
         ul {
-            margin: 4rem 0;
+            margin: 2rem 0;
             padding: 0;
             list-style-type: none;
             display: flex;
             flex-direction: column-reverse;
         }
 
-
-
-
-
-
-        .red {
-            background: var(--COL1);
-        }
-
-        .yellow {
-            background: var(--COL2);
-        }
-
-        .green {
-            background: var(--COL3);
-        }
-
-        .blue {
-            background: var(--COL4);
-        }
-
         a {
             font-size: 1.2rem;
-            color: black;
+            color: var(--FONT_COLOR);
             text-decoration: none;
             font-weight: bolder;
         }
@@ -126,6 +112,10 @@
             padding: 1rem;
         }
 
+        main * {
+            transition: background-color .2s ease-in, color .2s ease-in;
+        }
+
         ul {
             grid-column: content-start/content-end;
             display: grid;
@@ -140,6 +130,12 @@
             flex-direction: column;
             scroll-snap-align: center;
             flex-shrink: 0;
+        }
+
+        label{
+            color: var(--FONT_COLOR);
+            cursor: pointer;
+            font-size: .9rem;
         }
 
 
@@ -161,10 +157,10 @@
         .nav-button {
             width: 100%;
             padding: 1rem 2rem;
-            color: black;
+            color: var(--FONT_COLOR);
             font-weight: 800;
             font-size: 1.2rem;
-            background-color: rgba(0, 0, 0, 0.1);
+            background-color: var(--FONT_COLOR_TRANSPARENT);
             backdrop-filter: blur(10px);
             border: .2rem solid transparent;
             margin: .5rem;
@@ -174,9 +170,60 @@
         }
 
         .nav-button:hover {
-            border: .2rem solid rgba(0, 0, 0, 0.1);
-            background-color: rgba(255, 255, 255, 0.1);
+            /* border: .2rem solid var(--FONT_COLOR_TRANSPARENT); */
+            background-color: var(--FONT_COLOR_TRANSPARENT);
         }
+
+        .component-container{
+            display: flex;
+            align-items: center;
+        }
+
+        .config{
+            margin: 1rem 0;
+            padding: 1rem 0;
+        }
+
+        .toggle {
+            --HEIGHT: 2rem;
+            --DISPLACEMENT: 0;
+            block-size: var(--HEIGHT);
+            inline-size: calc(var(--HEIGHT) * 2);
+            border-radius: calc(var(--HEIGHT) * 2);
+            appearance: none;
+            background-color: var(--FONT_COLOR);
+            border: 2px solid var(--FONT_COLOR);
+            margin: 0 1rem;
+            cursor: pointer;
+            box-sizing: content-box;
+        }
+
+        .toggle::after{
+            width: var(--HEIGHT);
+            height: var(--HEIGHT);
+            border-radius: 50%;
+            display: block;
+            content: "";
+            background-color: var(--BACKGROUND_COLOR);            
+            transform: translateX(var(--DISPLACEMENT));
+            transition: transform .3s ease-in, box-shadow .3s ease-in;
+            box-shadow: 0 0 0rem 0rem  transparent;
+        }
+
+        .toggle:hover::after {
+            box-shadow: 0 0 0rem .75rem  var(--FONT_COLOR_TRANSPARENT);
+        }
+
+        .toggle:checked {
+            --DISPLACEMENT: 100%;
+        }
+
+        .intro{
+            color: var(--FONT_COLOR);
+            margin-bottom: 2rem;
+        }
+
+
     </style>
 
 <body>
@@ -188,7 +235,14 @@
         </nav>
         <ul id="slide-container">
             <li>
-                <section>
+                <section class="config">
+                    <div class="component-container">
+                        <label for="theme-toggle">Light</label>
+                        <input type="checkbox" id="theme-toggle" class="toggle">
+                        <label for="theme-toggle">Dark</label>
+                    </div>
+                </section>
+                <section class="intro">
                     <h1>Robert's Discards</h1>
                     <p>A place where I make stuff with HTML/CSS/JS.</p>
                     <p>Yes, most of it is not very good. It's sorted by year and date.</p>
@@ -199,7 +253,7 @@
                 </section>
             </li>
             <li>
-                <section>
+                <section class="intro">
                     <h2>2021</h2>
                     <p>On the June until October Discards, I completely forgot that I did most of these. They weren't
                         originally
@@ -225,6 +279,18 @@
         const slideContainer = document.getElementById("slide-container");
         const leftScrollButton = document.getElementById("left-scroll-button");
         const rightScrollButton = document.getElementById("right-scroll-button");
+        const themeToggle = document.getElementById("theme-toggle");
+
+
+        themeToggle.addEventListener("change",  e=> {
+            if(e.target.checked){
+                console.log('dark')
+                document.documentElement.setAttribute("data-theme", "dark");
+            }else{
+                console.log('light')
+                document.documentElement.setAttribute("data-theme", "light");
+            }
+        });
 
         function scrollLeft() {
             console.log('left');
@@ -279,6 +345,10 @@
 
             };
         });
+
+
+
+
 
         function makeListItem(data) {
             const { month, day, year, link, description } = data;

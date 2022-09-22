@@ -1,0 +1,254 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <link rel="preconnect" href="https://fonts.gstatic.com">
+    <link rel="icon" type="../image/png" sizes="32x32" href="../images/favicon-32x32.png">
+    <title>09/21/22</title>
+
+
+    <style>
+        @font-face {
+            font-family: "Overpass";
+            src: url("../fonts/Overpass-VariableFont_wght.ttf");
+        }
+
+
+
+
+        * {
+            box-sizing: border-box;
+            font-family: "Overpass", "Arial";
+        }
+
+        ::-webkit-scrollbar {
+            width: 0.8rem;
+            height: 0.5rem;
+        }
+
+        /* Track */
+        ::-webkit-scrollbar-track {
+            background: black;
+        }
+
+        /* Handle */
+        ::-webkit-scrollbar-thumb {
+            background: var(--COL3);
+        }
+
+        /* Handle on hover */
+        ::-webkit-scrollbar-thumb:hover {
+            background: var(--COL2);
+        }
+
+       
+
+        html,
+        body {
+            margin: 0;
+        }
+
+        ul {
+            margin: 0;
+            padding: 0;
+        }
+
+        li {
+            list-style-type: none;
+        }
+
+        h1{
+            margin: 0;
+            padding: 0;
+        }
+
+        :root {
+            --ORANGE: hsl(25, 97%, 53%);
+            --PARA-TEXT-COLOR: hsl(217, 12%, 63%);
+            --CARD-COLOR: hsl(213, 19%, 18%);
+            --BKGD-COLOR: hsl(216, 12%, 8%);
+        }
+
+        main {
+            display: grid;
+            place-items: center;
+            min-height: 100vh;
+            background-color: var(--BKGD-COLOR);
+        }
+
+        .card {
+            padding: 2rem;
+
+            width: min(425px, 100%);
+            background-color: var(--CARD-COLOR);
+            display: flex;
+            flex-direction: column;
+            justify-content: flex-start;
+            border-radius: 2rem;
+        }
+
+        .card--center-aligned{
+            align-items: center;
+        }
+
+        .card h1{
+            color: white;
+            font-size: 1.5rem;
+            margin-top: 2rem;
+        }
+
+        .card h2{
+            color: white;
+            font-size: 1.5rem;
+            margin-bottom: 0;
+        }
+
+        .card__body{
+            color: var(--PARA-TEXT-COLOR);
+            font-size: 15px;
+            line-height: 1.5;
+            margin: 0;
+            margin-top: 1rem;
+        }
+
+        input[type='radio']{
+            appearance: none;
+            margin: 0;
+            padding: 0;
+        }
+
+        .card__row{
+            display: flex;
+            justify-content: flex-start;
+            margin: 1rem 0;
+        }
+
+        .card__row--choices{
+            justify-content: space-between;
+        }
+
+        label {
+            --WIDTH: 1rem;
+            inline-size: var(--WIDTH);
+            block-size: var(--WIDTH);
+            color: var(--PARA-TEXT-COLOR);
+            font-size: 15px;
+            font-weight: 700;
+            padding: 1.5rem;
+            border-radius: 50%;
+            background-color: hsl(212, 20%, 29%);
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            cursor: pointer;
+        }
+
+
+        input[type='radio']:checked + label{
+            background-color: hsl(216, 12%, 54%);
+            color: white;
+        }
+
+        label:hover{
+            background-color: var(--ORANGE);
+            color: white;
+        }
+
+        .logo{
+            padding: 1rem;
+            border-radius: 50%;
+            background-color: hsl(212, 20%, 29%);
+        }
+
+        button{
+            display: flex;
+            border-radius: 2rem;
+            background-color: var(--ORANGE);
+            justify-content: center;
+            padding: 1rem;
+            margin-top: 1rem;
+            color: white;
+            font-weight: 700;
+            letter-spacing: .1rem;
+            border: none;
+            text-transform: uppercase;
+            transition: background-color .3s ease-in, color .3s ease-in;
+            cursor: pointer;
+        }
+
+        button:hover{
+            background-color: white;
+            color: var(--ORANGE);
+        }
+
+        .centered-text{
+            text-align: center;
+        }
+
+        .pill-text{
+            color: var(--ORANGE);
+            background-color: hsl(212, 20%, 29%);
+            border-radius: 2rem;
+            font-size: 15px;
+            padding: .65rem 1.25rem;
+        }
+    </style>
+
+<body>
+    <main>
+        <div class="card" id="rating-form">
+            <div class="card__row">
+                <img class="logo" src="../images/fem/0921-icon-star.svg" alt="star icon" />
+            </div>
+            <h1>How did we do?</h1>
+            <p class="card__body">Please let us know how we did with your support request. All feedback is appreciated to help us improve
+                our offering!</p>
+            <div class="card__row card__row--choices">
+                <input type="radio" id="one" value="1" name="rating">
+                <label for="one">1</label>
+                <input type="radio" id="two" value="2" name="rating">
+                <label for="two">2</label>
+                <input type="radio" id="three" value="3" name="rating">
+                <label for="three">3</label>
+                <input type="radio" id="four" value="4" name="rating">
+                <label for="four">4</label>
+                <input type="radio" id="five" value="5" name="rating">
+                <label for="five">5</label>
+            </div>
+            <button id="submit">Submit</button>
+        </div>
+        <div class="card card--center-aligned" id="confirmation" style="display:none">
+            <div class="card__row">
+                <img src="../images/fem/0921-illustration-thank-you.svg" alt="an image of a phone and a credit card.">
+            </div>
+            <p id="confirmation-value" class="pill-text">You selected 4 out of 5</p>
+            <h2>Thank you!</h2>
+            <p class="card__body centered-text">We appreciate you taking the time to give a rating.  If you ever never more support, don't hesitate to get in touch!</p>
+        </div>
+
+        <script>
+            const form = document.getElementById("rating-form");
+            const confirmation = document.getElementById("confirmation");
+            const confirmationValue = document.getElementById("confirmation-value");
+            const submitButton = document.getElementById("submit");
+
+
+
+            submitButton.addEventListener("click", () => {
+                const value = document.querySelector("input[name='rating']:checked").value;
+                console.log(value);
+                form.style.display = "none";
+                confirmationValue.textContent = `Your selected ${value} out of 5`;
+                confirmation.style.display = "flex";
+
+            });
+
+        </script>
+    </main>
+
+</body>
+
+</html>

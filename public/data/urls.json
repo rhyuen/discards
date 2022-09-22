@@ -655,6 +655,17 @@
             "reference": [
                 "https://www.frontendmentor.io/challenges/project-tracking-intro-component-5d289097500fcb331a67d80e"
             ]
+        },
+        {
+            "month": 9,
+            "day": 21,
+            "year": 2022,
+            "link": "/2022/0921.html",
+            "visible": true,
+            "description": "Front End Mentor: Interactive Rating Component. [1] Had to do some guessing regarding the colour of the label for the choices. [2] I couldn't get the first choice to align with the left edge using flexbox's space-around property.",
+            "reference": [
+                "https://www.frontendmentor.io/challenges/interactive-rating-component-koxpeBUmI"
+            ]
         }
     ],
     "2021": [

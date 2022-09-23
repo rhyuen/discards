@@ -1,0 +1,313 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <link rel="preconnect" href="https://fonts.gstatic.com">
+    <link rel="icon" type="../image/png" sizes="32x32" href="../images/favicon-32x32.png">
+    <title>09/22/22</title>
+
+
+    <style>
+        @font-face {
+            font-family: "DM Sans";
+            src: url("../fonts/DMSans-Regular.ttf");
+        }
+
+
+        * {
+            box-sizing: border-box;
+            font-family: "DM Sans", "Arial";
+        }
+
+        ::-webkit-scrollbar {
+            width: 0.8rem;
+            height: 0.5rem;
+        }
+
+        /* Track */
+        ::-webkit-scrollbar-track {
+            background: black;
+        }
+
+        /* Handle */
+        ::-webkit-scrollbar-thumb {
+            background: var(--COL3);
+        }
+
+        /* Handle on hover */
+        ::-webkit-scrollbar-thumb:hover {
+            background: var(--COL2);
+        }
+
+
+
+        html,
+        body {
+            margin: 0;
+            background-color: var(--CREAM);
+        }
+
+        ul {
+            margin: 0;
+            padding: 0;
+        }
+
+        li {
+            list-style-type: none;
+        }
+
+        h1 {
+            margin: 0;
+            padding: 0;
+            font-size: 1.5rem;
+        }
+
+        :root {
+            --SOFT-RED: hsl(10, 79%, 65%);
+            --CYAN: hsl(186, 34%, 60%);
+            --DARK-BROWN: hsl(25, 47%, 15%);
+            --MED-BROWN: hsl(28, 10%, 53%);
+            --CREAM: hsl(27, 66%, 92%);
+            --PALE-ORANGE: hsl(33, 100%, 98%);
+            --RADIUS: 1rem;
+        }
+
+        main {
+            width: min(450px, 100%);
+            margin: 0 auto;
+
+            display: grid;
+            place-items: center;
+            min-height: 100vh;
+        }
+
+
+
+        .card {
+            background-color: var(--PALE-ORANGE);
+            padding: 2rem;
+            border-radius: var(--RADIUS);
+            display: flex;
+            flex-direction: column;
+            margin-top: 1rem;
+        }
+
+        .monthly {
+            display: flex;
+            justify-content: space-between;
+            border-top: 1px solid var(--MED-BROWN);
+            padding-top: 1.5rem;
+            margin-top: 1.5rem;
+        }
+
+        .balance {
+            background-color: var(--SOFT-RED);
+            padding: 2rem;
+            border-radius: var(--RADIUS);
+            display: flex;
+            justify-content: space-between;
+        }
+
+        figure {
+            margin: 0;
+        }
+
+        .graph {
+            margin-top: 2rem;
+            display: flex;
+            justify-content: space-between;
+            /* padding-bottom: 1.5rem;
+            margin-bottom: 1.5rem; */
+        }
+
+        .graph__column {
+            width: 3.5rem;
+            display: flex;
+            flex-direction: column;
+            justify-content: flex-end;
+            align-items: center;
+            cursor: pointer;
+        }
+
+        .graph__column:hover>.graph__column__pill {
+            visibility: visible;
+        }
+
+        .graph__column__pill {
+            color: white;
+            visibility: hidden;
+            background-color: var(--DARK-BROWN);
+            border-radius: .5rem;
+            padding: .5rem .5rem;
+            margin-bottom: .5rem;
+            font-weight: 700;
+
+        }
+
+        .graph__column__bar {
+            height: 100%;
+            border-radius: calc(.5*var(--RADIUS));
+            width: 70%;
+        }
+
+        .graph__column__bar--otherday {
+            background-color: var(--SOFT-RED);
+        }
+
+        .graph__column__bar--today {
+            background: var(--CYAN);
+        }
+
+        .graph__column__bar:hover {
+            filter: brightness(120%);
+        }
+
+
+
+
+
+        .graph__column__label {
+            padding-top: .5rem;
+            text-align: center;
+            font-size: 14px;
+            color: var(--MED-BROWN);
+        }
+
+        .align-right {
+            text-align: right;
+        }
+
+        .bold {
+            font-weight: 700;
+        }
+
+        .light-brown-text {
+            color: var(--MED-BROWN);
+        }
+
+        .white-text {
+            color: var(--PALE-ORANGE);
+        }
+
+        .larger-text {
+            font-size: 1.5rem;
+        }
+
+        .largest-text {
+            font-size: 2rem;
+        }
+
+        .kv {
+            display: flex;
+            flex-direction: column;
+        }
+
+        .kv__label {
+            font-size: 14px;
+        }
+
+        .align-bottom {
+            justify-content: flex-end;
+        }
+
+        .bottom-spacing {
+            margin-bottom: .5rem;
+        }
+    </style>
+
+<body>
+    <main>
+        <div>
+            <section class="balance">
+                <div class="kv">
+                    <div class="kv__label white-text bottom-spacing">My Balance</div>
+                    <div class="kv__value white-text larger-text bold">$921.48</div>
+                </div>
+                <img src="../images/fem/0922-logo.svg" alt="two interlocking circles" />
+            </section>
+            <div class="card">
+                <h1>Spending - Last 7 days</h1>
+                <figure>
+                    <div class="graph" id="graph">
+                    </div>
+                </figure>
+                <section class="monthly">
+                    <div class="kv">
+                        <div class="kv__label light-brown-text bottom-spacing">Total this month</div>
+                        <div class="kv__value bold largest-text">$478.33</div>
+                    </div>
+                    <div class="kv align-bottom">
+                        <div class="kv__value align-right bold">+2.4%</div>
+                        <div class="kv__label light-brown-text">from last month</div>
+
+                    </div>
+                </section>
+            </div>
+        </div>
+        <script type="module">
+            import data from "../data/fem-expenses-data.json" assert {type: "json"};
+
+            const graph = document.getElementById("graph");
+
+            for (let i = 0; i < data.length; i++) {
+                let today = new Date().getDay();
+                if (today === 0) {
+                    today = 6;
+                }else{
+                    today--;
+                }
+
+                console.log(i === today);
+                graph.appendChild(createGraphColumn(data[i], i===today));
+            }
+
+
+
+            function createGraphColumn(data, today) {
+                const { day, amount } = data;
+
+
+                const el = document.createElement("div");
+                el.classList.add("graph__column");
+                el.appendChild(createGraphColumnPill(amount));
+
+                el.appendChild(createGraphColumnBar(amount, today));
+
+                el.appendChild(createGraphColumnLabel(day));
+                return el;
+            }
+
+            function createGraphColumnPill(data) {
+                const el = document.createElement("div");
+                el.classList.add("graph__column__pill");
+                el.textContent = `$${data}`;
+                return el;
+            }
+
+            function createGraphColumnBar(data, today) {
+                const el = document.createElement("div");
+                el.classList.add("graph__column__bar");
+                if (today) {
+                    el.classList.add("graph__column__bar--today");
+                } else {
+                    el.classList.add("graph__column__bar--otherday");
+                }
+                el.style.height = `${2 * Number(data)}px`;
+                return el;
+            }
+
+            function createGraphColumnLabel(text) {
+                const el = document.createElement("div");
+                el.classList.add("graph__column__label");
+                el.textContent = text;
+                return el;
+            }
+        </script>
+    </main>
+
+</body>
+
+</html>

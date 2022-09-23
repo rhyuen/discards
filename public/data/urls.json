@@ -666,6 +666,17 @@
             "reference": [
                 "https://www.frontendmentor.io/challenges/interactive-rating-component-koxpeBUmI"
             ]
+        },
+        {
+            "month": 9,
+            "day": 22,
+            "year": 2022,
+            "link": "/2022/0922.html",
+            "visible": true,
+            "description": "Front End Mentor: Expenses Chart Component",
+            "reference": [
+                "https://www.frontendmentor.io/challenges/expenses-chart-component-e7yJBUdjwt"
+            ]
         }
     ],
     "2021": [

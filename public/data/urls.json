@@ -688,6 +688,15 @@
             "reference": [
                 "https://www.frontendmentor.io/challenges/four-card-feature-section-weK1eFYK"
             ]
+        },
+        {
+            "month": 9,
+            "day": 24,
+            "year": 2022,
+            "link": "/2022/0924.html",
+            "visible": true,
+            "description": "Responsive Image Gallery.  Creates a Lightbox when you click on an image. [1] uses backdrop-filter. [2] Resizes document.body on Lightbox appearance to prevent scrolling while lightbox present. [3] References local .json file for image addresses.",
+            "reference": []
         }
     ],
     "2021": [

@@ -1,4 +1,70 @@
 {
+    "general": [
+        {
+            "url": "https://images.unsplash.com/photo-1650832509092-8ea993c41975?ixlib=rb-1.2.1&ixid=MnwxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8&auto=format&fit=crop&w=687&q=80",
+            "description": "A camera lens."
+        },
+        {
+            "url": "https://images.unsplash.com/photo-1650848800724-efc1c7279acc?ixlib=rb-1.2.1&ixid=MnwxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8&auto=format&fit=crop&w=1636&q=80",
+            "description": "A sunset with mountains."
+        },
+        {
+            "url": "https://images.unsplash.com/photo-1650853282913-9a3ecb60aa53?ixlib=rb-1.2.1&ixid=MnwxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8&auto=format&fit=crop&w=1471&q=80",
+            "description": "A sunset with roads and a body of water."
+        },
+        {
+            "url": "https://images.unsplash.com/photo-1650873797988-abf1338073ca?ixlib=rb-1.2.1&ixid=MnwxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8&auto=format&fit=crop&w=688&q=80",
+            "description": "A path to a beach."
+        },
+        {
+            "url": "https://images.unsplash.com/photo-1650871604168-2e8b22829db8?ixlib=rb-1.2.1&ixid=MnwxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8&auto=format&fit=crop&w=1412&q=80",
+            "description": "A green and gray staircase or post-its."
+        },
+        {
+            "url": "https://images.unsplash.com/photo-1650871669661-8914cf440a4a?ixlib=rb-1.2.1&ixid=MnwxMjA3fDB8MHx0b3BpYy1mZWVkfDd8NnNNVmpUTFNrZVF8fGVufDB8fHx8&auto=format&fit=crop&w=500&q=60",
+            "description": "A bank of snow on a cliff."
+        },
+        {
+            "url": "https://images.unsplash.com/photo-1650869739665-6e3b7ec3dd8f?ixlib=rb-1.2.1&ixid=MnwxMjA3fDB8MHx0b3BpYy1mZWVkfDExfDZzTVZqVExTa2VRfHxlbnwwfHx8fA%3D%3D&auto=format&fit=crop&w=500&q=60",
+            "description": "Looking up whilst in a canyon."
+        },
+        {
+            "url": "https://images.unsplash.com/photo-1650575185249-2b6a65f92d6c?ixlib=rb-1.2.1&ixid=MnwxMjA3fDB8MHx0b3BpYy1mZWVkfDl8NnNNVmpUTFNrZVF8fGVufDB8fHx8&auto=format&fit=crop&w=500&q=60",
+            "description": "A tall cactus."
+        },
+        {
+            "url": "https://images.unsplash.com/photo-1650830248740-7d1e07ca2b76?ixlib=rb-1.2.1&ixid=MnwxMjA3fDB8MHx0b3BpYy1mZWVkfDE0fDZzTVZqVExTa2VRfHxlbnwwfHx8fA%3D%3D&auto=format&fit=crop&w=500&q=60",
+            "description": "A shooting star"
+        },
+        {
+            "url": "https://images.unsplash.com/photo-1650790109039-0eff445a65f3?ixlib=rb-1.2.1&ixid=MnwxMjA3fDB8MHx0b3BpYy1mZWVkfDIxfDZzTVZqVExTa2VRfHxlbnwwfHx8fA%3D%3D&auto=format&fit=crop&w=500&q=60",
+            "description": "A desert with some sparse trees."
+        },
+        {
+            "url": "https://images.unsplash.com/photo-1650564365557-b987ac5d219e?ixlib=rb-1.2.1&ixid=MnwxMjA3fDB8MHx0b3BpYy1mZWVkfDI1fDZzTVZqVExTa2VRfHxlbnwwfHx8fA%3D%3D&auto=format&fit=crop&w=500&q=60",
+            "description": "A sun in the sky with a mountain range and palm tree visible."
+        },
+        {
+            "url": "https://images.unsplash.com/photo-1625514279739-1a56cea485f9?ixlib=rb-1.2.1&ixid=MnwxMjA3fDB8MHx0b3BpYy1mZWVkfDMyfDZzTVZqVExTa2VRfHxlbnwwfHx8fA%3D%3D&auto=format&fit=crop&w=500&q=60",
+            "description": "A small island of trees in a body of water."
+        },
+        {
+            "url": "https://images.unsplash.com/photo-1650400716131-12a410e12975?ixlib=rb-1.2.1&ixid=MnwxMjA3fDB8MHx0b3BpYy1mZWVkfDM2fDZzTVZqVExTa2VRfHxlbnwwfHx8fA%3D%3D&auto=format&fit=crop&w=500&q=60",
+            "description": "A forest with an open space.  There's snow."
+        },
+        {
+            "url": "https://images.unsplash.com/photo-1650374471470-a46867a3ce06?ixlib=rb-1.2.1&ixid=MnwxMjA3fDB8MHx0b3BpYy1mZWVkfDU3fDZzTVZqVExTa2VRfHxlbnwwfHx8fA%3D%3D&auto=format&fit=crop&w=500&q=60",
+            "description": "A sunset with a boat on open water."
+        },
+        {
+            "url": "https://images.unsplash.com/photo-1650324705564-2eb0b6b23954?ixlib=rb-1.2.1&ixid=MnwxMjA3fDB8MHx0b3BpYy1mZWVkfDY3fDZzTVZqVExTa2VRfHxlbnwwfHx8fA%3D%3D&auto=format&fit=crop&w=500&q=60",
+            "description": "A tree with a body of water."
+        },
+        {
+            "url": "https://images.unsplash.com/photo-1650059331311-3f2e54dc2af6?ixlib=rb-1.2.1&ixid=MnwxMjA3fDB8MHx0b3BpYy1mZWVkfDcyfDZzTVZqVExTa2VRfHxlbnwwfHx8fA%3D%3D&auto=format&fit=crop&w=500&q=60",
+            "description": "A forested mountain side with a body of water preceding it."
+        }
+    ],
     "nature": [
         {
             "url": "https://images.unsplash.com/photo-1660866838821-62258896aa8d?ixlib=rb-1.2.1&ixid=MnwxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8&auto=format&fit=crop&w=1974&q=80",

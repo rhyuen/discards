@@ -1,0 +1,261 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <link rel="preconnect" href="https://fonts.gstatic.com">
+    <link rel="icon" type="../image/png" sizes="32x32" href="../images/favicon-32x32.png">
+    <title>09/23/22</title>
+
+
+    <style>
+      
+
+        * {
+            box-sizing: border-box;
+            font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
+        }
+
+        ::-webkit-scrollbar {
+            width: 0.8rem;
+            height: 0.5rem;
+        }
+
+        /* Track */
+        ::-webkit-scrollbar-track {
+            background: black;
+        }
+
+        /* Handle */
+        ::-webkit-scrollbar-thumb {
+            background: var(--COL3);
+        }
+
+        /* Handle on hover */
+        ::-webkit-scrollbar-thumb:hover {
+            background: var(--COL2);
+        }
+
+
+
+        html,
+        body {
+            margin: 0;
+            background-color: var(--VERY-LIGHT-GRAY);
+        }
+
+        ul {
+            margin: 0;
+            padding: 0;
+        }
+
+        li {
+            list-style-type: none;
+        }
+
+        h1, h2 {
+            margin: 0;
+            padding: 0;
+        }
+
+        :root {
+            --RED: hsl(0, 78%, 62%);
+            --CYAN: hsl(180, 62%, 55%);
+            --ORANGE: hsl(34, 97%, 64%);
+            --BLUE: hsl(212, 86%, 64%);
+
+          
+        }
+
+        .container{
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(400px, 1fr));
+            grid-auto-rows: 500px;
+        }
+
+        .container figure{
+            grid-column: span 1;
+            position: relative;
+            margin: 0;
+            cursor: pointer;
+            overflow: hidden;
+        }
+
+        .container figcaption{
+            position: absolute;
+            bottom: 0;
+            left: 0;
+            width: 100%;
+            padding: 1rem;
+            display:none;
+            justify-content: center;
+            align-items: center;
+            font-size: 2rem;
+            font-weight: 600;
+            background-color: rgba(0, 0, 0, .5);
+            text-align: center;
+            color: white;
+            height: 100%;
+            padding: 2rem;
+        }
+
+        .container figure img{
+            width: 100%;
+            height: 100%;
+            object-fit: cover;
+            transition: transform .3s ease-in-out, filter .3s ease-in-out;
+        }
+
+        figure:hover img{
+            transform: scale(1.2);
+            filter: brightness(50%);
+        }
+
+        figure:hover > figcaption{
+            display: flex;        
+        }
+
+    
+
+
+        .lightbox{
+            position: fixed;
+            inset: 0;
+            height: 100vh;
+            width: 100vw;
+            background-color: rgba(0, 0, 0, .4);    
+            backdrop-filter: blur(20px);    
+            display: none;
+            justify-content: center;
+            align-items: center;
+        }
+
+        .card{
+            
+            width: min(70ch, calc(100% - 4rem));
+            padding: 2rem; 
+            background-color: white;
+            border-radius: 1rem;            
+            display: flex;
+            flex-direction: column;
+        }
+
+        .card h2{
+            font-size: 1.5rem;
+            margin-bottom: 1.5rem;
+        }
+
+        .card button{
+            margin-top: 1.5rem;
+            border: .2rem solid var(--CYAN);
+            color: white;
+            font-weight: 600;
+            font-size: 1.2rem;
+            background-color: var(--CYAN);
+            padding: 1rem 2rem;
+            border-radius: .5rem;
+            cursor: pointer;
+            transition: all .3s ease-in-out;
+        }
+
+        .card button:hover{
+            background-color: white;
+            color: var(--CYAN);
+        }
+
+
+    </style>
+
+<body>
+    <main>
+        <div class="container" id="root">
+
+        </div>
+        <div class="lightbox" id="lightbox">
+            <div class="card">
+                <h2>Details of a an image</h2>
+                <img src="../images/59.jpg" alt="details"/>
+                <button id="close-lightbox">Close Window</button>
+            </div>
+        </div>
+
+    </main>
+    <script type="module">
+        import data from "../data/imgs.json" assert {type: "json"};
+        
+
+        const {general: list, nature, abstract} = data;
+        const root = document.getElementById("root");
+        const closeWindowButton = document.getElementById("close-lightbox");
+        const lightbox = document.getElementById('lightbox');
+        closeWindowButton.addEventListener("click", () => {
+            lightbox.style.display = "none";
+            window.document.body.style.overflow="scroll";
+        });
+
+        for(let i = 0; i < list.length; i++){
+            root.appendChild(createFigure(list[i]));
+        }
+
+        for(let i = 0; i < nature.length; i++){
+            root.appendChild(createFigure(nature[i]));
+        }
+
+        for(let i = 0; i < abstract.length; i++){
+            root.appendChild(createFigure(abstract[i]));
+        }
+
+        console.log(root.children.length);
+        for(let i = 0; i < root.children.length; i++){
+            root.children[i].addEventListener("click", (e) => {
+            
+                const [image, caption] = e.target.parentElement.childNodes;
+                
+                const data = {
+                    link: image.src,
+                    caption: caption.textContent
+                }
+            
+                makeLightBoxVisible(data);
+            });
+        }
+
+        function createFigure(data){
+            const figure = document.createElement("figure");
+            figure.appendChild(createImage(data));
+            figure.appendChild(createFigCaption(data));
+            return figure;
+        }
+
+        function createFigCaption(data){
+            const figcaption = document.createElement("figcaption");
+            figcaption.textContent = data.description;
+            return figcaption;
+        }
+
+        function createImage(data){
+            
+            const {url, description} = data;
+            const img = document.createElement("img");
+            img.src =url;
+            img.alt = description;
+            return img;
+
+        }
+
+        function makeLightBoxVisible(data){
+            const {link, caption} = data;
+            lightbox.style.display = "flex";
+            lightbox.querySelector("h2").textContent = caption;
+            lightbox.querySelector("img").src = link;
+            lightbox.querySelector("img").alt = caption;
+            window.document.body.style.overflow="hidden";
+        }
+
+
+    </script>
+</body>
+
+</html>

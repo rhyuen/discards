@@ -677,6 +677,17 @@
             "reference": [
                 "https://www.frontendmentor.io/challenges/expenses-chart-component-e7yJBUdjwt"
             ]
+        },
+        {
+            "month": 9,
+            "day": 23,
+            "year": 2022,
+            "link": "/2022/0923.html",
+            "visible": true,
+            "description": "Front End Mentor: Four Card Feature",
+            "reference": [
+                "https://www.frontendmentor.io/challenges/four-card-feature-section-weK1eFYK"
+            ]
         }
     ],
     "2021": [

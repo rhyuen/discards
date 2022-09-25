@@ -1,0 +1,257 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <link rel="preconnect" href="https://fonts.gstatic.com">
+    <link rel="icon" type="../image/png" sizes="32x32" href="../images/favicon-32x32.png">
+    <title>09/23/22</title>
+
+
+    <style>
+        @font-face {
+            font-family: "Poppins";
+            src: url("../fonts/Poppins-Regular.ttf");
+        }
+
+
+        * {
+            box-sizing: border-box;
+            font-family: "Poppins", "Arial";
+        }
+
+        ::-webkit-scrollbar {
+            width: 0.8rem;
+            height: 0.5rem;
+        }
+
+        /* Track */
+        ::-webkit-scrollbar-track {
+            background: black;
+        }
+
+        /* Handle */
+        ::-webkit-scrollbar-thumb {
+            background: var(--COL3);
+        }
+
+        /* Handle on hover */
+        ::-webkit-scrollbar-thumb:hover {
+            background: var(--COL2);
+        }
+
+
+
+        html,
+        body {
+            margin: 0;
+            background-color: var(--VERY-LIGHT-GRAY);
+        }
+
+        ul {
+            margin: 0;
+            padding: 0;
+        }
+
+        li {
+            list-style-type: none;
+        }
+
+        h1, h2 {
+            margin: 0;
+            padding: 0;
+        }
+
+        :root {
+            --RED: hsl(0, 78%, 62%);
+            --CYAN: hsl(180, 62%, 55%);
+            --ORANGE: hsl(34, 97%, 64%);
+            --BLUE: hsl(212, 86%, 64%);
+
+            --VERY-DARK-BLUE: hsl(234, 12%, 34%);
+            --GRAYISH-BLUE: hsl(229, 6%, 66%);
+            --VERY-LIGHT-GRAY: hsl(0, 0%, 98%);
+        }
+
+        .thinnest{
+            font-weight: 200;
+        }
+
+        .boldest{
+            font-weight: 600;
+        }
+
+        .grayish-blue{
+            color: var(--GRAYISH-BLUE);
+        }
+
+        .dark-blue{
+            color: var(--VERY-DARK-BLUE);
+        }
+
+        .brighter{
+            filter: brightness(130%);
+        }
+
+        main {
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(400px, 1fr));
+            width: 500px;
+            gap: 2rem;
+            margin: 0 auto;
+            padding: 2rem;
+        }
+
+        .container {
+            grid-column: 1/-1;
+            display: flex;
+            flex-direction: column;
+            align-items: center;
+            margin: 3rem 0;
+        }
+
+        .container>* {
+            text-align: center;
+            max-width: 500px;
+        }
+
+        .card {
+            --PRIMARY-COLOR: transparent;
+            grid-column: span 1;
+            position: relative;
+            border-radius: .5rem;
+            padding: 1.5rem 2rem;
+            background-color: white;
+            border-top: .4rem solid var(--PRIMARY-COLOR);
+            /* filter: drop-shadow(0 0mm 2mm rgba(0, 0, 0, 0.4)); */
+            box-shadow: 0px 10px 20px 5px hsla(229, 6%, 66%, .3);
+        }
+
+        .card h2{
+            color: var(--VERY-DARK-BLUE);
+            font-weight: 600;
+        }
+
+        .card p {
+            color: var(--GRAYISH-BLUE);
+            line-height: 2;
+            font-size: 15px;
+            margin-bottom: 2rem;
+        }
+
+        .cyan {
+            --PRIMARY-COLOR: var(--CYAN);
+        }
+
+        .red {
+            --PRIMARY-COLOR: var(--RED);
+        }
+
+        .blue {
+            --PRIMARY-COLOR: var(--BLUE);           
+        }
+
+        .card--shifteddown{
+            position: relative;
+            top: 0;
+        }
+
+        .card--shiftedup{
+            position: relative;
+            top: 0;
+        }
+
+        .yellow {
+            --PRIMARY-COLOR: var(--ORANGE);
+        }
+
+
+        .card__row{
+            display: flex;
+            justify-content: flex-end;
+        }
+
+        @media screen and (min-width: 900px) {
+            main {
+                width: 900px;
+            }
+        }
+
+        @media screen and (min-width: 1350px) {
+            main {
+                width: 1350px;
+            }
+
+            .container > *{
+                max-width: 600px;
+               
+            }
+
+            .yellow {
+                grid-column: 2/span 1;
+            }
+
+            .card--shifteddown{
+                top: 50%;
+            }
+
+            .card--shiftedup{
+                top: calc(-50% - 2rem);
+            }
+        }
+    </style>
+
+<body>
+    <main>
+        <div class="container">
+            <h1 class="thinnest dark-blue brighter">Reliable, efficient delivery</h1>
+            <h1 class="boldest dark-blue">Powered by Technology</h1>
+            <p class="grayish-blue">Our Artificial Intelligence powered tools use millions of project data point to ensure that your
+                project is successful</p>
+        </div>
+
+        <div class="card cyan card--shifteddown">
+            <h2>Supervisor</h2>
+            <p>Monitors activity to identify project roadblocks</p>
+            <div class="card__row">
+                <img src="../images/fem/0923-icon-supervisor.svg" alt="a magnifying glass" />
+            </div>
+        </div>
+
+        <div class="card red">
+            <h2>Team Builder</h2>
+            <p>Scans our talent network to create the optimal team for your project</p>
+            <div class="card__row">
+                <img src="../images/fem/0923-icon-team-builder.svg" alt="a window and a home icon" />
+            </div>
+        </div>
+
+        
+
+        <div class="card yellow">
+            <h2>Karma</h2>
+            <p>Monitors activity to identify project roadblocks</p>
+            <div class="card__row">
+                <img src="../images/fem/0923-icon-karma.svg"
+                    alt="a yellow lightblue emiting light in the form of six lines." />
+            </div>
+        </div>
+
+        <div class="card blue card--shiftedup">
+            <h2>Calculator</h2>
+            <p>Uses data from past projects to provide better deliver estimates</p>
+            <div class="card__row">
+                <img src="../images/fem/0923-icon-calculator.svg"
+                    alt="an icon of a desktop computer with blue graphs on the screen" />
+            </div>
+        </div>
+
+
+
+    </main>
+
+</body>
+
+</html>

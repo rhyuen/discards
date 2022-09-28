@@ -1,0 +1,403 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <link rel="preconnect" href="https://fonts.gstatic.com">
+    <link rel="icon" type="../image/png" sizes="32x32" href="../images/favicon-32x32.png">
+    <title>09/23/22</title>
+
+
+    <style>
+        * {
+            box-sizing: border-box;
+            font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
+        }
+
+        ::-webkit-scrollbar {
+            width: 0.8rem;
+            height: 0.5rem;
+        }
+
+        /* Track */
+        ::-webkit-scrollbar-track {
+            background: black;
+        }
+
+        /* Handle */
+        ::-webkit-scrollbar-thumb {
+            background: var(--COL3);
+        }
+
+        /* Handle on hover */
+        ::-webkit-scrollbar-thumb:hover {
+            background: var(--COL2);
+        }
+
+
+
+        html,
+        body {
+            margin: 0;
+            background-color: var(--VERY-LIGHT-GRAY);
+        }
+
+        ul {
+            margin: 0;
+            padding: 0;
+        }
+
+        li {
+            list-style-type: none;
+        }
+
+        h1,
+        h2 {
+            margin: 0;
+            padding: 0;
+        }
+
+        :root {
+            --RED: hsl(0, 78%, 62%);
+            --CYAN: hsl(180, 62%, 55%);
+            --ORANGE: hsl(34, 97%, 64%);
+            --BLUE: hsl(212, 86%, 64%);
+            --GREY: rgba(0, 0, 0, 0.4);
+
+        }
+
+        main {
+            display: flex;
+            flex-direction: column;
+            width: min(65ch, 100%);
+            margin: 0 auto;
+        }
+
+
+        .container{
+            margin-bottom: 1rem;
+        }
+
+        .container__row{
+            display: flex;
+            justify-content: flex-start;
+            align-items: center;
+            margin-bottom: 1rem;
+        }
+
+        .container p{
+            margin: 0;
+        }
+
+
+    
+
+
+        .panel-container__row {
+            display: flex;
+        }
+
+        .panel-container__row--align-left{
+            justify-content: flex-start;
+            
+        }
+
+        .panel-container__row__item {
+            flex-grow: 1;
+            display: flex;
+            flex-direction: column;
+            align-items: center;
+            padding: 1rem;
+        }
+
+        .nogrow{
+            flex-grow: 0;
+            /* margin: 0; */
+            
+        }
+
+        .bold {
+            font-weight: 600;
+        }
+
+        .metric {
+            color: var(--GREY);
+        }
+
+
+
+        .panel-container__row__button {
+            flex-grow: 1;
+            height: 4rem;
+            background-color: inherit;
+            border: none;
+            cursor: pointer;
+            border-top: 2px solid rgba(0, 0, 0, 0.1);
+        }
+
+        .panel-container__row--border-top {
+            border-top: 2px solid rgba(0, 0, 0, 0.1);
+        }
+
+        .panel-container__row__button:hover {
+            background-color: rgba(0, 0, 0, 0.1);
+
+        }
+
+        .panel-container__row__button--selected {
+            border-color: rgba(0, 0, 0, 0.7);
+        }
+
+
+
+
+        .panel-container__list {
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(150px, 1fr));
+
+        }
+
+        .panel-container__list--hidden {
+            display: none;
+        }
+
+        .panel-container__list figure {
+            grid-column: span 1;
+            /*if you have aspect ratio 1 here instead of on img then there's a margin.*/
+            margin: 0;
+        }
+
+        figure{
+            overflow: hidden;
+        }
+
+        figure img {
+            aspect-ratio: 1;
+            width: 100%;
+            height: 100%;
+            object-fit: cover;
+            transition: transform .3s ease-in-out, filter .3s ease-in-out;
+        }
+
+        figure img:hover{
+            transform: scale(1.2);
+            filter: brightness(60%);
+        }
+
+
+
+        .circle-image {
+            --WIDTH: 4rem;
+            border-radius: 50%;
+            padding: .2rem;
+            border: 3px solid rgba(0, 0, 0, 0.1);
+            
+            inline-size: var(--WIDTH);
+            block-size: var(--WIDTH);
+        }
+
+        .circle-image--larger{
+            --WIDTH: 6rem;
+        }
+
+        .circle-image + span {
+            margin-top: .25rem;
+            font-size: .9rem;
+        }
+
+        .inline-padding{
+            padding: 0 1rem;
+        }
+
+        .margin-right{
+            margin-right: 1rem;
+        }
+
+        h1{
+            font-weight: 200;
+        }
+
+        nav{
+            height: 5rem;
+            display: flex;
+            align-items: center;            
+            justify-content: space-between;
+            margin-bottom: 2rem;
+        }
+
+       .signup-button{
+           --PRIMARY-COLOR: var(--BLUE);
+           border: none;
+           background-color: var(--PRIMARY-COLOR);
+           color: white;
+           font-weight: 600;
+           padding: .5rem 1rem;
+           border-radius: .25rem;
+           transition: all .3s ease-in-out;
+           border: 2px solid var(--BLUE);
+           cursor: pointer;
+       }
+
+       .signup-button:hover{
+           --PRIMARY-COLOR: white;
+            color: var(--BLUE);
+       }
+    </style>
+
+<body>
+    <main>
+        <nav class="inline-padding">
+            <div></div>
+            <div>
+                <button class="signup-button">Signup</button>
+            </div>
+        </nav>
+        <div class="container inline-padding">
+            <div class="container__row">
+                <img class="circle-image circle-image--larger margin-right" src="../images/58.jpg">
+                <h1>miname guzire</h1>
+            </div>
+            <p>Sometimes, text goes here.</p>
+            <p>It is often of little consequence.</p>
+        </div>
+        <div class="panel-container">
+            <div class="panel-container__row panel-container__row--align-start">
+                <div class="nogrow panel-container__row__item ">
+                    <img class="circle-image" src="../images/57.jpg" />
+                    <span>57</span>
+                </div>
+                
+                <div class="nogrow panel-container__row__item ">
+                    <img class="circle-image" src="../images/58.jpg" />
+                    <span>58</span>
+                </div>
+                <div class="nogrow panel-container__row__item ">
+                    <img class="circle-image" src="../images/59.jpg" />
+                    <span>59</span>
+                </div>
+                <div class="panel-container__row__item nogrow">
+                    <img class="circle-image" src="../images/60.jpg" />
+                    <span>60</span>
+                </div>
+                <div class="panel-container__row__item nogrow">
+                    <img class="circle-image" src="../images/61.jpg" />
+                    <span>61</span>
+                </div>
+            </div>
+            <div class="panel-container__row panel-container__row--border-top">
+                <div class="panel-container__row__item">
+                    <span class="bold">9000</span>
+                    <span class="metric">posts</span>
+                </div>
+                <div class="panel-container__row__item">
+                    <span class="bold">1.2M</span>
+                    <span class="metric">followers</span>
+                </div>
+                <div class="panel-container__row__item">
+                    <span class="bold">12</span>
+                    <span class="metric">following</span>
+                </div>
+            </div>
+            <div class="panel-container__row">
+                <button id="general-button"
+                    class="panel-container__row__button panel-container__row__button--selected">General</button>
+                <button id="nature-button" class="panel-container__row__button">Nature</button>
+                <button id="abstract-button" class="panel-container__row__button">Abstract</button>
+            </div>
+            <div class="panel-container__list" id="general">
+
+            </div>
+            <div class="panel-container__list panel-container__list--hidden" id="nature">
+
+            </div>
+            <div class="panel-container__list panel-container__list--hidden" id="abstract">
+
+            </div>
+        </div>
+
+    </main>
+    <script type="module">
+        import data from "../data/imgs.json" assert {type: "json"};
+
+        const generalList = data["general"];
+        const natureList = data["nature"];
+        const abstractList = data["abstract"];
+        console.log(generalList)
+
+        const generalColumn = document.getElementById("general");
+        const natureColumn = document.getElementById("nature");
+        const abstractColumn = document.getElementById("abstract");
+        const generalButton = document.getElementById("general-button");
+        const natureButton = document.getElementById("nature-button");
+        const abstractButton = document.getElementById("abstract-button");
+
+
+
+        for (let i = 0; i < generalList.length; i++) {
+
+            generalColumn.appendChild(createFigure(generalList[i]));
+        }
+
+        for (let i = 0; i < natureList.length; i++) {
+
+            natureColumn.appendChild(createFigure(natureList[i]));
+        }
+
+        for (let i = 0; i < abstractList.length; i++) {
+
+            abstractColumn.appendChild(createFigure(abstractList[i]));
+        }
+
+
+        function createFigure(data) {
+            const figure = document.createElement("figure");
+            figure.appendChild(createImage(data));
+            return figure;
+        }
+
+        function createImage(data) {
+            const { url, description } = data;
+            const image = document.createElement("img");
+            image.src = url;
+            image.alt = description;
+            return image;
+        }
+
+
+        generalButton.addEventListener("click", () => {
+            abstractButton.classList.remove("panel-container__row__button--selected");
+            natureButton.classList.remove("panel-container__row__button--selected");
+            generalButton.classList.add("panel-container__row__button--selected");
+            generalColumn.style.display = "grid";
+            natureColumn.style.display = "none";
+            abstractColumn.style.display = "none";
+        });
+
+        natureButton.addEventListener("click", () => {
+            abstractButton.classList.remove("panel-container__row__button--selected");
+            natureButton.classList.add("panel-container__row__button--selected");
+            generalButton.classList.remove("panel-container__row__button--selected");
+            natureColumn.style.display = "grid";
+            generalColumn.style.display = "none";
+            abstractColumn.style.display = "none";
+        })
+
+        abstractButton.addEventListener("click", () => {
+            abstractButton.classList.add("panel-container__row__button--selected");
+            natureButton.classList.remove("panel-container__row__button--selected");
+            generalButton.classList.remove("panel-container__row__button--selected");
+            natureColumn.style.display = "none";
+            generalColumn.style.display = "none";
+            abstractColumn.style.display = "grid";
+        })
+
+
+
+
+
+    </script>
+</body>
+
+</html>

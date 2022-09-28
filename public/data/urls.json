@@ -697,6 +697,15 @@
             "visible": true,
             "description": "Responsive Image Gallery.  Creates a Lightbox when you click on an image. [1] uses backdrop-filter. [2] Resizes document.body on Lightbox appearance to prevent scrolling while lightbox present. [3] References local .json file for image addresses.",
             "reference": []
+        },
+        {
+            "month": 9,
+            "day": 27,
+            "year": 2022,
+            "link": "/2022/0927.html",
+            "visible": true,
+            "description": "Instagram Profile Page.",
+            "reference": []
         }
     ],
     "2021": [

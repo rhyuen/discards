@@ -1,0 +1,279 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <link rel="preconnect" href="https://fonts.gstatic.com">
+    <!-- <link rel="icon" type="../image/png" sizes="32x32" href="../images/favicon-32x32.png"> -->
+    <title>09/28/22</title>
+
+
+    <style>
+        * {
+            box-sizing: border-box;
+            font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
+        }
+
+        ::-webkit-scrollbar {
+            width: 0.8rem;
+            height: 0.5rem;
+        }
+
+        /* Track */
+        ::-webkit-scrollbar-track {
+            background: black;
+        }
+
+        /* Handle */
+        ::-webkit-scrollbar-thumb {
+            background: var(--COL3);
+        }
+
+        /* Handle on hover */
+        ::-webkit-scrollbar-thumb:hover {
+            background: var(--COL2);
+        }
+
+
+
+        html,
+        body {
+            margin: 0;
+
+        }
+
+        ul {
+            margin: 0;
+            padding: 0;
+        }
+
+        li {
+            list-style-type: none;
+        }
+
+        h1,
+        h2 {
+            margin: 0;
+            padding: 0;
+            font-weight: 200;
+            font-size: 2rem;
+            margin-bottom: 2rem;
+        }
+
+        :root {
+            --RED: hsl(0, 78%, 62%);
+            --CYAN: hsl(180, 63%, 84%);
+            --ORANGE: hsl(34, 97%, 64%);
+            --BLUE: hsl(212, 86%, 64%);
+            --GREY: rgba(0, 0, 0, 0.3);
+            --BORDER-RADIUS: .5rem;
+        }
+
+
+        main {
+            display: grid;
+            grid-template-columns: 1fr min(65ch, 100%) 1fr;
+            margin-top: 4rem;
+        }
+
+        main>* {
+            grid-column: 2/span 1;
+
+        }
+
+        .input-text {
+            resize: none;
+            border-radius: var(--BORDER-RADIUS);
+            border: 1px solid var(--GREY);
+            padding: 1rem;
+            min-height: 10rem;
+            font-size: 1rem;
+        }
+
+        .input-text:focus {
+            outline: 1px solid var(--BLUE);
+        }
+
+        .output-text {
+            /* border: 1px solid var(--GREY); */
+            width: 100%;
+            border-radius: var(--BORDER-RADIUS);
+            min-height: 5rem;
+            font-size: 1rem;
+            padding: 1rem;
+            color: rgba(0, 0, 0, 0.5);
+            background-color: rgba(0, 0, 0, 0.1);
+            word-wrap: break-word;
+        }
+
+        .row {
+            padding: 1rem 0;
+            margin-bottom: 1rem;
+        }
+
+        button {
+            --PRIMARY: var(--BLUE);
+            --TEXT-COLOR: white;
+            cursor: pointer;
+            font-size: 1rem;
+            border: none;
+            background-color: var(--PRIMARY);
+            color: var(--TEXT-COLOR);
+            border-radius: var(--BORDER-RADIUS);
+
+            padding: .5rem 2rem;
+            margin-right: .5rem;
+        }
+
+        .button--clear {
+            --PRIMARY: white;
+            --TEXT-COLOR: var(--BLUE);
+        }
+
+        footer {
+            width: min(65ch, 100%);
+            margin: 0 auto;
+        }
+
+        footer p, footer a {
+            font-size: .9rem;
+        }
+
+        .copy-button {
+            position: relative;
+        }
+
+        .notification {
+            position: absolute;
+            display: none;
+            background-color: black;
+            font-weight: 600;
+            padding: .5rem 1rem;
+            right: -50%;
+            border-radius: var(--BORDER-RADIUS);
+        }
+
+        .error-message{
+            border: 2px solid var(--RED);
+            background-color: rgb(246, 147, 147);
+            color: white;
+            padding: 1rem;
+            display: none;
+            border-radius: var(--BORDER-RADIUS);
+        }
+    </style>
+
+<body>
+
+
+    <main>
+        <h1>Normal Text to Base64Encode</h1>
+        <div class="row error-message" id="input-error">
+            Something has gone wrong.
+        </div>
+        <textarea class="input-text" id="plaintext" autofocus="true"
+            placeholder="Text to convert to Base64 Encode"></textarea>
+        <div class="row">
+            <button class="copy-button" id="paste-input">
+                <div id="paste-notification" class="notification">
+                    Text Pasted
+                </div>
+                Paste from Clipboard
+            </button>
+            <button id="clear-input" class="button--clear">Clear Input</button>
+        </div>
+        <div class="output-text" id="base64encoded">
+            Base64Encode Output
+        </div>
+        <div class="row">
+            <button id="copy-output" class="copy-button">
+                <div id="copy-notification" class="notification">
+                    Text Copied
+                </div>
+                Copy Output
+            </button>
+
+        </div>
+    </main>
+    <footer>
+        <h2>References</h2>
+        <p>Created on October 2, 2022.</p>
+        <p>You can prevent resizing of TextArea by using textarea{resize: none;} <a
+                href="https://stackoverflow.com/a/2331969">[StackOverflow]</a></p>
+        <p>If you have whitespace in the code of a TEXTAREA tag in the .html source, then it appears in the rendered
+            output. textarea/textarea with no spaces between the tags or CRLF to have there be no whitespace in your
+            textarea tags. <a href="https://stackoverflow.com/a/34995288">StackOverflow</a></p>
+        <p>You can have the Textarea be focused on when the element is loaded with autofocus="true" in the textarea tag.
+            <a href="https://developer.mozilla.org/en-US/docs/Web/HTML/Element/textarea#attr-autofocus">[MDN]</a>
+        </p>
+        <p>texarea.addEventListener("change", function) only makes the chnange when you leave the textarea's focus. Use
+            textarea.addEventListener("input", function) to have the function run after each keypress. <a
+                href="https://stackoverflow.com/a/56507377">[StackOverflow]</a></p>
+    </footer>
+
+
+    <script>
+        const input = document.getElementById("plaintext");
+        const output = document.getElementById("base64encoded");
+        const clearInput = document.getElementById("clear-input");
+        const pasteInput = document.getElementById("paste-input");
+        const copyOutput = document.getElementById("copy-output");
+        const pasteNotification = document.getElementById("paste-notification");
+        const copyNotification = document.getElementById("copy-notification");
+        const inputError = document.getElementById("input-error");
+
+
+        //copying text to clipboard
+        copyOutput.addEventListener("click", async () => {
+            try {
+                await navigator.clipboard.writeText(output.textContent);
+                copyNotification.style.display = "block";
+                setTimeout(() => {
+                    copyNotification.style.display = "none";
+                }, 1500);
+            } catch (e) {
+                console.log(e);                
+                console.log('error in copying to clipboard')
+            }
+            console.log('written');
+        });
+
+
+        //pasting text into textarea.
+        pasteInput.addEventListener("click", async () => {
+            pasteNotification.style.display = "block";
+            setTimeout(() => {
+                pasteNotification.style.display = "none";
+            }, 1500);
+
+            try {
+                input.value = await navigator.clipboard.readText();
+                output.textContent = btoa(input.value.trim());
+            } catch (e) {
+                inputError.style.display = "block";
+                inputError.textContent = "You pasted in a character that's not allowed.  Clear the Input and try again please.";
+                setTimeout(() => {
+                    inputError.style.display = "none";
+                }, 5000);
+                console.log(e);
+                console.log('error in pasting text');
+            }            
+        });
+
+        clearInput.addEventListener("click", e => {
+            input.value = "";
+            output.textContent = "";
+        });
+
+
+
+        input.addEventListener("input", e => {
+            const encoded = btoa(e.target.value);
+            output.textContent = encoded;
+        });
+    </script>
+</body>
+
+</html>

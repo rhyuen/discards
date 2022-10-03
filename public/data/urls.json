@@ -715,6 +715,20 @@
             "visible": true,
             "description": "busywork to keep the streak going.",
             "reference": []
+        },
+        {
+            "month": 10,
+            "day": 2,
+            "year": 2022,
+            "link": "/2022/1002.html",
+            "visible": true,
+            "description": "Text to Base64 tool",
+            "reference": [
+                "https://stackoverflow.com/a/2331969", 
+                "https://stackoverflow.com/a/34995288",
+                "https://developer.mozilla.org/en-US/docs/Web/HTML/Element/textarea#attr-autofocus",
+                "https://stackoverflow.com/a/56507377"
+            ]
         }
     ],
     "2021": [

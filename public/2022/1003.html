@@ -1,0 +1,409 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <link rel="preconnect" href="https://fonts.gstatic.com">
+    <!-- <link rel="icon" type="../image/png" sizes="32x32" href="../images/favicon-32x32.png"> -->
+    <title>10/03/22</title>
+
+
+    <style>
+        * {
+            box-sizing: border-box;
+            font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
+        }
+
+        ::-webkit-scrollbar {
+            width: 0.8rem;
+            height: 0.5rem;
+        }
+
+        /* Track */
+        ::-webkit-scrollbar-track {
+            background: black;
+        }
+
+        /* Handle */
+        ::-webkit-scrollbar-thumb {
+            background: var(--COL3);
+        }
+
+        /* Handle on hover */
+        ::-webkit-scrollbar-thumb:hover {
+            background: var(--COL2);
+        }
+
+
+
+        html,
+        body {
+            margin: 0;
+
+        }
+
+        ul {
+            margin: 0;
+            padding: 0;
+        }
+
+        li {
+            list-style-type: none;
+        }
+
+        h1,
+        h2,
+        h3,
+        h4 {
+            margin: 0;
+            padding: 0;
+
+        }
+
+        :root {
+            --RED: hsl(0, 78%, 62%);
+            --CYAN: hsl(180, 63%, 84%);
+            --ORANGE: hsl(34, 97%, 64%);
+            --BLUE: hsl(212, 86%, 64%);
+            --GREY: rgba(0, 0, 0, 0.3);
+            --BORDER-RADIUS: .5rem;
+        }
+
+        figure {
+            grid-column: span 1;
+            margin: 0;
+            background-color: var(--GREY);
+            overflow: hidden;
+            position: relative;
+            cursor: pointer;
+        }
+
+        img {
+            inline-size: 100%;
+            block-size: 100%;
+            aspect-ratio: 1;
+            object-fit: cover;
+            background-color: var(--GREY);
+            transition: transform .3s ease-in, filter .3s ease-in;            
+        }
+
+        figure:hover figcaption {
+            visibility: visible;
+        }
+
+        figure:hover img{
+            transform: scale(1.2);
+            filter: brightness(50%);
+        }
+
+        figcaption{
+            position: absolute;
+            color: white;
+            inset: 0;
+            visibility: hidden;            
+            height: 100%;
+            display: flex;
+            padding: 1.25rem;
+            font-size: 1.25rem;
+            justify-content: center;
+            align-items: center;
+            width: 100%;
+            user-select: none;
+        }
+
+      
+
+        main {
+            --MIN-SIZE: 150px;
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(var(--MIN-SIZE), 1fr));
+        }
+
+        header {
+            position: fixed;
+            top: 0;
+            left: 0;
+            right: 0;
+            display: grid;
+            grid-template-columns: 1fr min(70ch, 100%) 1fr;
+            align-items: center;
+            /* background-color: #f3f3f3; */
+            background: linear-gradient(to right, #f3f3f3, #e2d1ee);
+            width: 100vw;
+            padding-bottom: 2rem;
+            transition: top .3s ease-in-out;     
+            z-index: 2; 
+            
+        }
+
+        .vert-container{
+            display: flex;
+            flex-direction: column;
+            align-items: flex-start;
+            justify-content: flex-start;
+            padding: 2rem 1rem;
+        }
+
+        .vert-container h1{
+            font-size: 2.5rem;
+            font-weight: 200;
+            margin-bottom: 1rem;
+        }
+
+        .vert-container p{
+            margin: 0;
+            font-size: .9rem;
+        }
+
+        header>* {
+            grid-column: 2/span 1;
+            padding: 1rem;
+        }
+
+        .close-button{
+            --WIDTH: 2rem;
+            inline-size: var(--WIDTH);
+            block-size: var(--WIDTH);
+            border-radius: 50%;
+            position: relative;
+            transform: rotate(-45deg);
+            margin-left: 1rem;
+            transition: filter .3s ease-in;
+            cursor: pointer;
+        }
+
+        .close-button:hover{
+            filter: drop-shadow(0 0mm 4mm #6711a5);
+        }
+
+        .close-button::after{
+            position: absolute;
+            content: "";
+            inline-size: calc(.35 * var(--WIDTH));
+            block-size: calc(.35 * var(--WIDTH));
+            /* background-color: aqua; */
+            border-top: 4px solid black;
+            border-right: 4px solid black;
+            left: 50%;
+            top: 50%;
+            transform:translate(-50%,-50%);
+        }
+
+
+        .lightbox{
+            position: fixed;
+            block-size: 100vh;
+            inline-size: 100vw;
+            background-color: rgba(0, 0, 0, 0.7);
+            backdrop-filter: blur(10px);
+            inset: 0;
+            display: none;
+            place-items: center;
+            z-index: 3;
+        }
+
+        .card{
+            width: min(80ch, 100%);
+            background-color: #f3f3f3;
+            border-radius: .5rem;
+            padding: 2rem;
+            position: relative;
+            display: flex;
+            flex-direction: column;
+            margin: 1rem;
+        }
+
+
+        .card img{
+            border-radius: .5rem;
+        }
+        .card__row{
+            margin-top: 1rem;
+            display: flex;
+            justify-content: center;
+        }
+
+        .card__row button{
+            color: white;
+            background-color: var(--BLUE);
+            border: none;
+            padding: .5rem 1rem;
+            font-weight: 600;
+            font-size: 1.2rem;
+            border-radius: .5rem;
+            margin-right: .75rem;
+        }
+
+        .close-card-button{
+            width: 1rem;
+            height: 1rem;
+            border-radius: 50%;
+            background-color: red;
+            position: absolute;
+            top: 1rem;
+            right: 1rem;
+            border: none;
+            cursor: pointer;
+            transition: filter .3s ease-in-out;
+        }
+
+        .close-card-button:hover{
+            filter: drop-shadow(0 0 1mm #6711a5);
+        }
+        
+
+        @media screen and (min-width: 750px) and (max-width: 1100px) {
+            main {
+                --MIN-SIZE: 250px;
+            }
+        }
+
+        @media screen and (min-width: 1101px) {
+            main {
+                --MIN-SIZE: 350px;
+            }
+        }
+    </style>
+
+<body>
+    <header>
+        <div class="vert-container">
+            <h1>Pictorios</h1>
+            <p>Welcome to my image gallery</p>
+            <p>Made on October 3, 2022</p>
+            <p>I followed the image guidelines <a href="https://web.dev/learn/design/responsive-images/">here</a>.</p>
+        </div>
+        <button class="close-button" id="close-header" role="dismisses the header."></button>
+    </header>
+
+    <main id="mp">
+
+    </main>
+
+    <div class="lightbox" id="lightbox">
+        <div class="card">
+            <button id="close-card-button" class="close-card-button"></button>
+            <img src="../images/fw3.jpg" alt="image of a game"/>
+            <div class="card__row">
+                <button id="previous-image-button">Previous</button>
+                <button id="next-image-button">Next</button>
+            </div>
+        </div>
+        
+    </div>
+
+    <script type="module">
+        import data from "../data/imgs.json" assert {type: "json"};
+
+        const { general, nature, abstract } = data;
+        const list = general.concat(nature).concat(abstract);
+        let lightBoxIndex = 0;
+
+        const mp = document.getElementById("mp");
+        const lightbox = document.getElementById("lightbox");
+        const hideHeaderButton = document.getElementById("close-header");
+        const closeCardButton = document.getElementById("close-card-button");
+        const previousImageButton = document.getElementById("previous-image-button");
+        const nextImageButton = document.getElementById("next-image-button");
+
+        hideHeaderButton.addEventListener("click", () => {
+            const header = document.querySelector("header");
+            header.style.top = "-100%";
+        });
+
+        closeCardButton.addEventListener("click", closeLightbox);
+        nextImageButton.addEventListener("click", () => {
+            nextImage();
+        });
+        previousImageButton.addEventListener("click", () => {
+            previousImage()
+        });
+
+
+        function createImage(data) {
+            const el = document.createElement("img");
+            el.src = data.url;
+            el.alt = data.description;
+            el.width = "300";
+            el.height = "300";
+            el.loading = "lazy";
+            el.decoding = "async";
+            return el;
+        }
+
+        function nextImage(){            
+            lightBoxIndex++;
+            if(lightBoxIndex > list.length - 1){
+                lightBoxIndex = 0;
+            }
+            updateLightboxImage(lightBoxIndex);
+        }
+
+        function previousImage(){
+           lightBoxIndex--;
+           if(lightBoxIndex < 0){
+               lightBoxIndex = list.length - 1;
+           }
+           updateLightboxImage(lightBoxIndex);
+        }
+
+        function updateLightboxImage(index){
+            const image = lightbox.querySelector("img");
+            image.src = list[index].url;
+        }
+
+        function closeLightbox(){
+            lightbox.style.display = "none";
+            enableBackgroundScroll();
+        }
+
+
+
+        function createCaption(data){
+            const figcaption = document.createElement("figcaption");
+            figcaption.textContent = data.description;
+            return figcaption;
+        }
+
+        function createFigure(data, index) {
+            const figure = document.createElement("figure");
+            figure.appendChild(createImage(data));
+            figure.appendChild(createCaption(data));
+            figure.dataset.index = index;
+            figure.addEventListener("click", e => {
+                const figcaption = e.target;
+                const figure = figcaption.parentNode;
+                const index = figure.dataset.index;
+                console.log(figure);
+                showLightBox(index);
+            });
+            return figure;
+        }
+
+        function showLightBox(defaultImageIndex){
+            preventBackgroundScroll();
+            lightbox.style.display = "grid";            
+            const image = lightbox.querySelector("img");
+            lightBoxIndex = defaultImageIndex;
+            image.src = list[lightBoxIndex].url;
+        }
+
+        function preventBackgroundScroll(){
+            document.body.style.overflow = "hidden";
+        }
+
+        function enableBackgroundScroll(){
+            document.body.style.overflow = "scroll";
+        }
+
+        for (let i = 0; i < list.length; i++) {
+            mp.appendChild(createFigure(list[i], i));
+        }
+
+
+    </script>
+</body>
+
+</html>

@@ -729,6 +729,15 @@
                 "https://developer.mozilla.org/en-US/docs/Web/HTML/Element/textarea#attr-autofocus",
                 "https://stackoverflow.com/a/56507377"
             ]
+        },
+        {
+            "month": 10,
+            "day": 3,
+            "year": 2022,
+            "link": "/2022/1003.html",
+            "visible": true,
+            "description": "Responsive Image Gallery 2. An Iteration on 09/24.  A dismissible header and buttons to advance the image in the lightbox.",
+            "reference": []
         }
     ],
     "2021": [

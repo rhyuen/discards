@@ -67,8 +67,28 @@
     ],
     "nature": [
         {
+            "url": "https://images.unsplash.com/photo-1500382017468-9049fed747ef?ixlib=rb-1.2.1&ixid=MnwxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8&auto=format&fit=crop&w=2664&q=80",
+            "description": "A field of yellow plants with the sun rising high in the blue sky."
+        },
+        {
+            "url": "https://images.unsplash.com/photo-1513836279014-a89f7a76ae86?ixlib=rb-1.2.1&ixid=MnwxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8&auto=format&fit=crop&w=988&q=80",
+            "description": "Looking up to the sky surrounded by a forest of trees."
+        },
+        {
+            "url": "https://images.unsplash.com/photo-1546514355-7fdc90ccbd03?ixlib=rb-1.2.1&ixid=MnwxMjA3fDB8MHxzZWFyY2h8MzN8fG5hdHVyZXxlbnwwfHwwfHw%3D&auto=format&fit=crop&w=600&q=60",
+            "description": "Mountains and the Sun draped in a pink filter."
+        },
+        {
+            "url": "https://images.unsplash.com/photo-1455218873509-8097305ee378?ixlib=rb-1.2.1&ixid=MnwxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8&auto=format&fit=crop&w=987&q=80",
+            "description": "A forest within the mountains and a waterfall"
+        },
+        {
             "url": "https://images.unsplash.com/photo-1660866838821-62258896aa8d?ixlib=rb-1.2.1&ixid=MnwxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8&auto=format&fit=crop&w=1974&q=80",
             "description": "An image looking down a road on an orange mountain range."
+        },
+        {
+            "url": "https://images.unsplash.com/photo-1475113548554-5a36f1f523d6?ixlib=rb-1.2.1&ixid=MnwxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8&auto=format&fit=crop&w=987&q=80",
+            "description": "A sunset in the background with white flowers in the foreground."
         },
         {
             "url": "https://images.unsplash.com/photo-1660750259832-d9340cadfedd?ixlib=rb-1.2.1&ixid=MnwxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8&auto=format&fit=crop&w=1935&q=80",
@@ -89,6 +109,14 @@
         {
             "url": "https://images.unsplash.com/photo-1660866838157-f971aaa5de88?ixlib=rb-1.2.1&ixid=MnwxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8&auto=format&fit=crop&w=1974&q=80",
             "description": "A grayscale image of a porous stone structure on a porous mountain."
+        },
+        {
+            "url": "https://images.unsplash.com/photo-1441974231531-c6227db76b6e?ixlib=rb-1.2.1&ixid=MnwxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8&auto=format&fit=crop&w=2071&q=80",
+            "description": "A forest with a lit trail."
+        },
+        {
+            "url": "https://images.unsplash.com/photo-1586348943529-beaae6c28db9?ixlib=rb-1.2.1&ixid=MnwxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8&auto=format&fit=crop&w=1015&q=80",
+            "description": "An island of trees on an island with a red sunset."
         }
     ],
     "abstract": [

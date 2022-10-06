@@ -738,6 +738,17 @@
             "visible": true,
             "description": "Responsive Image Gallery 2. An Iteration on 09/24.  A dismissible header and buttons to advance the image in the lightbox.",
             "reference": []
+        },
+        {
+            "month": 10,
+            "day": 5,
+            "year": 2022,
+            "link": "/2022/1005.html",
+            "visible": true,
+            "description": "Instagram Discover/Explore Masonry Grid. [1] el.replaceChildren() to drop all HTML elements from a given node.",
+            "reference": [
+                "https://stackoverflow.com/a/65413839"
+            ]
         }
     ],
     "2021": [

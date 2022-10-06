@@ -1,0 +1,281 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <link rel="preconnect" href="https://fonts.gstatic.com">
+    <!-- <link rel="icon" type="../image/png" sizes="32x32" href="../images/favicon-32x32.png"> -->
+    <title>10/05/22</title>
+
+
+    <style>
+        * {
+            box-sizing: border-box;
+            font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
+        }
+
+        ::-webkit-scrollbar {
+            width: 0.8rem;
+            height: 0.5rem;
+        }
+
+        /* Track */
+        ::-webkit-scrollbar-track {
+            background: black;
+        }
+
+        /* Handle */
+        ::-webkit-scrollbar-thumb {
+            background: var(--COL3);
+        }
+
+        /* Handle on hover */
+        ::-webkit-scrollbar-thumb:hover {
+            background: var(--COL2);
+        }
+
+
+
+        html,
+        body {
+            margin: 0;
+
+        }
+
+        ul {
+            margin: 0;
+            padding: 0;
+        }
+
+        li {
+            list-style-type: none;
+        }
+
+        h1,
+        h2,
+        h3,
+        h4 {
+            margin: 0;
+            padding: 0;
+
+        }
+
+        :root {
+            --RED: hsl(0, 78%, 62%);
+            --CYAN: hsl(180, 63%, 84%);
+            --ORANGE: hsl(34, 97%, 64%);
+            --BLUE: hsl(212, 86%, 64%);
+            --GREY: rgba(0, 0, 0, 0.3);
+            --BORDER-RADIUS: .5rem;
+
+            --WIDTH: 500px;
+            --SIZE: 150px;
+        }
+
+
+
+
+        main {
+            display: grid;
+            max-inline-size: var(--WIDTH);
+            grid-template-columns: repeat(auto-fit, minmax(var(--SIZE), 1fr));
+            gap: .5rem;
+            margin: 0 auto;
+        }
+
+
+        figure {
+
+            --ICON-WIDTH: 1rem;
+            --ICON-BORDER: 2px;
+            margin: 0;
+            grid-column: span 1;
+            position: relative;
+        }
+
+        figure:nth-child(5n)::after {
+            position: absolute;
+            top: .75rem;
+            right: .75rem;
+            inline-size: var(--ICON-WIDTH);
+            block-size: var(--ICON-WIDTH);
+            display: block;
+            border: var(--ICON-BORDER) solid transparent;
+            border-radius: .25rem;
+            content: "";
+            z-index: 2;
+            background-color: white;
+        }
+
+        figure:nth-child(5n)::before {
+
+            position: absolute;
+            top: .5rem;
+            right: .5rem;
+            inline-size: var(--ICON-WIDTH);
+            block-size: var(--ICON-WIDTH);
+            display: block;
+            border: var(--ICON-BORDER) solid white;
+            border-radius: .25rem;
+            content: "";
+        }
+
+        figure:nth-child(3n) {
+            grid-row: span 2;
+            grid-column: span 1;
+        }
+
+
+        img {
+            inline-size: 100%;
+            block-size: 100%;
+            grid-column: span 1;
+            aspect-ratio: 1;
+            object-fit: cover;
+            background-color: rgba(0, 0, 0, 0.2);
+        }
+
+
+        .row {
+            max-inline-size: var(--WIDTH);
+            block-size: 5rem;
+            display: flex;
+            align-items: center;
+            justify-content: flex-start;
+            margin: 0 auto;
+        }
+
+        .row button {
+            padding: .25rem .5rem;
+            cursor: pointer;
+            border: 1px solid rgba(0, 0, 0, 0.2);
+            border-radius: .2rem;
+            color: black;
+            font-weight: 600;
+            text-transform: lowercase;
+            background-color: inherit;
+            margin-right: .75rem;
+        }
+
+        nav {
+            height: 5rem;
+            width: 100vw;
+            background-color: white;
+            display: flex;
+            margin-bottom: 2rem;
+            align-items: center;
+            justify-content: flex-start;
+            box-shadow: 0 0 12mm 1mm rgba(0, 0, 0, 0.1);
+        }
+
+        nav .row {
+            width: var(--WIDTH);
+            font-weight: 200;
+        }
+
+        @media screen and (min-width: 501px) and (max-width: 800px) {
+            :root {
+                --WIDTH: 800px;
+                --SIZE: 200px;
+            }
+
+            main {
+
+                gap: 1rem;
+            }
+        }
+
+        @media screen and (min-width: 801px) {
+            :root {
+                --WIDTH: 801px;
+                --SIZE: 250px;
+            }
+
+            main {
+
+                gap: 1.5rem;
+            }
+        }
+    </style>
+
+<body>
+    <nav>
+        <div class="row">
+            Murp
+        </div>
+    </nav>
+    <div class="row">
+        <button id="all">All</button>
+        <button id="general">General</button>
+        <button id="nature">Nature</button>
+        <button id="abstract">Abstract</button>
+    </div>
+    <main id="mp"></main>
+
+
+    <script type="module">
+        import data from "../data/imgs.json" assert {type: "json"};
+
+        const { general, nature, abstract } = data;
+        let list = general.concat(nature).concat(abstract).reverse();
+        const mp = document.getElementById("mp");
+        const allButton = document.getElementById("all");
+        const natureButton = document.getElementById("nature");
+        const generalButton = document.getElementById("general");
+        const abstractButton = document.getElementById("abstract");
+
+
+        allButton.addEventListener("click", e => {
+            mp.replaceChildren();
+            generateMasonryGrid(list);
+        });
+
+        natureButton.addEventListener("click", e => {
+            mp.replaceChildren();
+            generateMasonryGrid(nature);
+        });
+
+        abstractButton.addEventListener("click", e => {
+            mp.replaceChildren();
+            generateMasonryGrid(abstract);
+        });
+
+        generalButton.addEventListener("click", e => {
+            mp.replaceChildren();
+            generateMasonryGrid(general);
+        });
+
+
+        function generateMasonryGrid(listOfImages) {
+            for (let i = 0; i < listOfImages.length; i++) {
+                mp.appendChild(createFigure(listOfImages[i], i));
+            }
+        }
+
+        function createFigure(data, index) {
+            const figure = document.createElement("figure");
+            figure.appendChild(createImage(data, index));
+            return figure;
+        }
+
+        function createImage(data, index) {
+            const image = document.createElement("img");
+            image.src = data.url;
+            image.width = "150px";
+            image.height = "150px";
+            image.loading = "lazy";
+            image.decoding = "async";
+            image.dataset.index = index;
+            return image;
+        }
+
+        generateMasonryGrid(list);
+
+
+
+    </script>
+</body>
+
+</html>

@@ -1,0 +1,433 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <link rel="preconnect" href="https://fonts.gstatic.com">
+    <!-- <link rel="icon" type="../image/png" sizes="32x32" href="../images/favicon-32x32.png"> -->
+    <title>10/12/22</title>
+
+
+    <style>
+        * {
+            box-sizing: border-box;
+            font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
+        }
+
+        ::-webkit-scrollbar {
+            width: 0.8rem;
+            height: 0.5rem;
+        }
+
+        /* Track */
+        ::-webkit-scrollbar-track {
+            background: black;
+        }
+
+        /* Handle */
+        ::-webkit-scrollbar-thumb {
+            background: var(--COL3);
+        }
+
+        /* Handle on hover */
+        ::-webkit-scrollbar-thumb:hover {
+            background: var(--COL2);
+        }
+
+
+
+        html,
+        body {
+            margin: 0;
+
+        }
+
+        ul {
+            margin: 0;
+            padding: 0;
+        }
+
+        li {
+            list-style-type: none;
+        }
+
+        h1,
+        h2,
+        h3,
+        h4 {
+            margin: 0;
+            padding: 0;
+
+        }
+
+        :root {
+            --RED: hsl(0, 78%, 62%);
+            --CYAN: hsl(180, 63%, 84%);
+            --ORANGE: hsl(34, 97%, 64%);
+            --BLUE: hsl(212, 86%, 64%);
+            --GREY: rgba(0, 0, 0, 0.3);
+            --BORDER-RADIUS: .25rem;
+
+            --WIDTH: 500px;
+            --SIZE: 150px;
+        }
+
+
+        figure{
+            margin: 0;
+        }
+
+        main {
+            --ITEM: 320px;
+            display: grid;
+            margin: 0 2rem;
+            grid-template-columns: repeat(auto-fit, minmax(var(--ITEM), 1fr));
+            gap: 1.5rem;
+        }
+
+        .item{
+            grid-column: span 1;
+            
+        }
+
+        .meta{
+            display: flex;
+            justify-content: space-between;
+            margin-top: .5rem;
+        }
+
+        .meta__titles{
+            display: flex;
+            flex-direction: column;            
+            --FONT-SIZE: .9rem;
+        }
+
+        .meta__stats{
+            display: flex;
+            flex-direction: row;
+            align-items: center;
+            --FONT-SIZE: .9rem;
+        }
+    
+        .meta__stats__icon{
+            --WIDTH: 1rem;
+            inline-size: var(--WIDTH);
+            block-size: var(--WIDTH);
+            background-color: rgba(0, 0, 0, 0.3);
+            transform: scale(.9);
+        }
+
+        .meta__stats__text{
+            margin-right: .5rem;
+            font-size: .9rem;
+            font-weight: 600;
+            user-select: none;
+        }
+
+        .meta__stats__icon--triangle{
+            clip-path: polygon(50% 0, 100% 100%, 0 100%);
+            margin-right: .25rem;
+        }
+
+        .meta__stats__icon--circle{
+            border-radius: 50%;
+            margin-right: .25rem;
+        }
+
+        .meta__titles__name{
+            font-weight: 700;
+            font-size: var(--FONT-SIZE);
+        }
+
+        .meta__titles__name:hover{
+            text-decoration: underline;
+            cursor: pointer;
+        }
+
+        .meta__titles__name::first-letter{
+            text-transform: uppercase;
+        }
+
+        .meta__titles__owner{
+            font-size: calc(0.95 * var(--FONT-SIZE));            
+            font-weight: 400;
+            color: #191919;
+        }
+
+        .meta__titles__owner:hover{
+            text-decoration: underline;
+            cursor: pointer;
+        }
+
+        .meta__titles__owner::first-letter{
+            text-transform: uppercase;
+        }
+
+        .item img{
+            width: 100%;
+            /* height: 100%; */
+            object-fit: cover;
+            aspect-ratio: 3/2;
+            border-radius: var(--BORDER-RADIUS);
+            background-color: var(--CYAN);
+            cursor: pointer;
+            transition: filter .3s ease-in-out;
+        }
+
+        .item img:hover{
+            filter: brightness(80%);
+        }
+
+        .row{
+            display: flex;
+            justify-content: flex-start;
+            margin: 2rem;
+        }
+
+        .space-between{
+            justify-content: space-between;
+        }
+
+        .row input{
+            padding: 1rem;
+            /* border-top-left-radius: 4rem;
+            border-bottom-left-radius: 4rem; */
+            border-radius: 4rem;
+            border: 1px solid #191919;
+            background-color: rgba(0, 0, 0, 0.1);   
+            flex-grow: 5;         
+            font-size: 1.25rem;
+            color: black;
+            font-weight: 600;
+            /* width: 100%; */
+        }
+
+        .row input:focus{
+            background-color: white;
+        }
+
+        .row input::placeholder{
+            padding-left: 1rem;
+            font-size: 1.25rem;
+            color: #191919;
+            font-weight: 600;
+            vertical-align: center;
+        }
+
+        .row .right-half{
+            background-color: white;
+
+            border: 1px solid #191919;
+            border-left-color: transparent;
+            border-top-right-radius: 4rem;
+            border-bottom-right-radius: 4rem;  
+            flex-grow: 1;
+            padding-left: 1.5rem;
+            display: none;
+            align-items: center;
+        }
+
+        nav{
+            height: 5rem;
+            display: flex;
+            align-items: center;
+            padding: 1rem 2rem;            
+            border-bottom: 1px solid rgba(0, 0, 0, 0.1);
+        }
+
+        button{
+            font-weight: 500;
+            font-size: 1rem;
+            border-radius: 4rem;
+            padding: .25rem 1rem;
+            border: 1px solid transparent;
+            margin-right: 1rem;
+            transition: filter .3s ease-in-out;
+            cursor: pointer;
+        }
+
+        .button--selected{
+            background-color: black;
+            border-color: black;
+            color: white;
+        }
+
+        button:hover{
+            filter: brightness(90%);
+        }
+
+        .login{
+            border: 1px solid rgba(0, 0, 0, 0.1);
+            background-color: white;
+        }
+
+        .signup{
+            --PRIMARY: #0057ff;
+            background-color: var(--PRIMARY);
+            border: 1px solid var(--PRIMARY);
+            color: white;
+        }
+        
+
+        nav a{
+            font-size: 1.1rem;
+            color: black;
+            font-weight: 600;
+            text-decoration: none;
+            margin-right: 2rem;
+            height: 100%;
+        }
+
+        nav a:hover{
+            text-decoration: underline;
+        }
+
+        .home-link{
+            font-size: 1.5rem;
+            font-weight: 700;
+        }
+
+        @media screen and (min-width: 800px) {
+            .row .right-half{
+                display: flex;
+            }
+
+            .row input{
+                border-top-right-radius: 0rem;
+                border-bottom-right-radius: 0rem;
+            }
+            
+        }
+
+
+    </style>
+
+<body>
+    <nav class="space-between">
+        <div>
+            <a href="#" class="home-link">Home</a>
+            <a href="#">Discover</a>
+        </div>
+        <div>
+            <button class="login">Log In</button>
+            <button class="signup">Sign Up</button>
+        </div>
+    </nav>
+    <div class="row">
+        <input type="text" placeholder="Search terms go here.">
+        <div class="right-half">
+            <button class="button--selected">General</button>
+            <button>Space</button>
+            <button>Abstract</button>
+            <button>Nature</button>
+        </div>
+    </div>
+    <main id="mp">
+
+    </main>
+
+
+    <script type="module">
+        import data from "../data/imgs.json" assert {type: "json"};
+
+        const mp = document.getElementById("mp");
+        const { general, nature, abstract, space } = data;
+
+        let list = general.concat(nature, abstract, space);
+
+        function createFigure(data){
+            const figure = document.createElement("figure");
+            figure.classList.add("item");
+            figure.appendChild(createImage(data));
+            figure.appendChild(createMetadata(data));
+            return figure;
+        }
+
+        function createImage(data){
+            const {url, description} = data;
+            const image = document.createElement("img");
+            image.src = url;
+            image.alt = description;
+            return image;
+        }
+        
+        function createMetadata(data){
+            const div = document.createElement("div");
+            div.classList.add("meta");
+            div.appendChild(createTitles(data));
+            div.appendChild(createStats());
+            return div;
+        }
+
+        function createStats(){
+            const div = document.createElement("div");
+            div.classList.add("meta__stats");
+            div.appendChild(makeTriangle());
+            div.appendChild(makeText("120k"));
+            div.appendChild(makeCircle());
+            div.appendChild(makeText("2.2k"));
+            return div;
+        }
+
+        function makeText(text){
+            const span = document.createElement("span");
+            span.classList.add("meta__stats__text");
+            span.textContent = text;
+            return span;
+        }
+
+        function makeTriangle(){
+            const div = document.createElement("div");
+            div.classList.add("meta__stats__icon");
+            div.classList.add("meta__stats__icon--triangle");
+            return div;
+        }
+
+        function makeCircle(){
+            const div = document.createElement("div");
+            div.classList.add("meta__stats__icon");
+            div.classList.add("meta__stats__icon--circle");
+            return div;
+        }
+
+        function createTitles(data){
+            const div = document.createElement("div");
+            div.classList.add("meta__titles");
+            div.appendChild(createTitlesName(data));
+            div.appendChild(createTitlesOwner(data));
+            return div;
+        }
+
+        function createTitlesName(data){
+            const div= document.createElement("div");
+            div.classList.add("meta__titles__name");
+            div.textContent = data.description.split(" ")[1];
+            return div;
+        }
+
+        function createTitlesOwner(data){
+            const div = document.createElement("div");
+            div.classList.add("meta__titles__owner");
+            let textInQuestion = data.description.split(" ")[5];
+            let text = !textInQuestion ? "None" : textInQuestion;
+            let lessThanThreeChars = text.length < 3 ? "Short in Length": text;
+
+            console.log(lessThanThreeChars);
+
+            div.textContent = lessThanThreeChars;
+            return div;
+        }
+
+        
+
+
+        for(let i = 0 ; i < list.length; i++){
+            mp.append(createFigure(list[i]));
+        }
+
+    </script>
+</body>
+
+</html>

@@ -1,0 +1,165 @@
+{
+    "questions": [
+        {
+            "name": "apocalypse",
+            "question": "Preferred apocalypse?",
+            "choices": [
+                "climate breakdown",
+                "pandemic",
+                "social unrest"
+            ],
+            "results": [
+                {
+                    "name": "climate breakdown",
+                    "value": 10
+                },
+                {
+                    "name": "pandemic",
+                    "value": 2
+                },
+                {
+                    "name": "social unrest",
+                    "value": 9
+                }
+            ]
+        },
+        {
+            "name": "color",
+            "question": "What is the best colour?",
+            "choices": [
+                "green",
+                "red",
+                "blue"
+            ],
+            "results": [
+                {
+                    "name": "green",
+                    "value": 10
+                },
+                {
+                    "name": "red",
+                    "value": 21
+                },
+                {
+                    "name": "blue",
+                    "value": 92
+                }
+            ]
+        },
+        {
+            "name": "beverage-temperature",
+            "question": "What is the temperature for a beverage?",
+            "choices": [
+                "cold",
+                "hot",
+                "warm"
+            ],
+            "results": [
+                {
+                    "name": "cold",
+                    "value": 10
+                },
+                {
+                    "name": "hot",
+                    "value": 41
+                },
+                {
+                    "name": "warm",
+                    "value": 72
+                }
+            ]
+        },
+        {
+            "name": "food",
+            "question": "What is the best food?",
+            "choices": [
+                "pizza",
+                "ice cream",
+                "cookies"
+            ],
+            "results": [
+                {
+                    "name": "pizza",
+                    "value": 10
+                },
+                {
+                    "name": "ice cream",
+                    "value": 11
+                },
+                {
+                    "name": "cookies",
+                    "value": 12
+                }
+            ]
+        },
+        {
+            "name": "heat",
+            "question": "too hot, cold or dry?",
+            "choices": [
+                "hot",
+                "cold",
+                "dry"
+            ],
+            "results": [
+                {
+                    "name": "hot",
+                    "value": 40
+                },
+                {
+                    "name": "cold",
+                    "value": 31
+                },
+                {
+                    "name": "dry",
+                    "value": 22
+                }
+            ]
+        },
+        {
+            "name": "planet",
+            "question": "best planet?",
+            "choices": [
+                "earth",
+                "jupiter",
+                "pluto"
+            ],
+            "results": [
+                {
+                    "name": "earth",
+                    "value": 401
+                },
+                {
+                    "name": "jupiter",
+                    "value": 311
+                },
+                {
+                    "name": "pluto",
+                    "value": 221
+                }
+            ]
+        },
+        {
+            "name": "humidity",
+            "question": "Preferred humidity?",
+            "choices": [
+                "too dry",
+                "too humid",
+                "too muggy"
+            ],
+            "results": [
+                {
+                    "name": "too dry",
+                    "value": 301
+                },
+                {
+                    "name": "too humid",
+                    "value": 411
+                },
+                {
+                    "name": "too muggy",
+                    "value": 121
+                }
+            ]
+        }
+    ]
+}

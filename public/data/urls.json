@@ -760,6 +760,38 @@
             "reference": [
                 "https://www.behance.net/"
             ]
+        },
+        {
+            "month": 10,
+            "day": 13,
+            "year": 2022,
+            "link": "/2022/1013.html",
+            "visible": true,
+            "description": "Survey of Five Questions",
+            "reference": [
+            ]
+        },
+        {
+            "month": 10,
+            "day": 15,
+            "year": 2022,
+            "link": "/2022/1015.html",
+            "visible": false,
+            "description": "Survey of Seven Questions with Results after Submission.  Doesn't wrap around after questions run out and there's an off by one error.",
+            "reference": [
+            ]
+        },
+        {
+            "month": 10,
+            "day": 19,
+            "year": 2022,
+            "link": "/2022/1019.html",
+            "visible": true,
+            "description": "Responsive Calendar layout using CSS.  Used text-stroke-width and text-stroke-color.",
+            "reference": [
+                "https://www.polygon.com/what-to-watch/23378450/best-halloween-horror-movies-tv-watch-stream",
+                "http://jsfiddle.net/jny73o6g/"
+            ]
         }
     ],
     "2021": [

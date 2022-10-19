@@ -1,0 +1,360 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <link rel="preconnect" href="https://fonts.gstatic.com">
+    <!-- <link rel="icon" type="../image/png" sizes="32x32" href="../images/favicon-32x32.png"> -->
+    <title>10/12/22</title>
+
+
+    <style>
+        * {
+            box-sizing: border-box;
+            font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
+        }
+
+        ::-webkit-scrollbar {
+            width: 0.8rem;
+            height: 0.5rem;
+        }
+
+        /* Track */
+        ::-webkit-scrollbar-track {
+            background: black;
+        }
+
+        /* Handle */
+        ::-webkit-scrollbar-thumb {
+            background: var(--COL3);
+        }
+
+        /* Handle on hover */
+        ::-webkit-scrollbar-thumb:hover {
+            background: var(--COL2);
+        }
+
+
+
+        html,
+        body {
+            margin: 0;
+
+        }
+
+        ul {
+            margin: 0;
+            padding: 0;
+        }
+
+        li {
+            list-style-type: none;
+        }
+
+        h1,
+        h2,
+        h3,
+        h4 {
+            margin: 0;
+            padding: 0;
+
+        }
+
+        :root {
+            --RED: hsl(0, 78%, 62%);
+            --CYAN: hsl(180, 63%, 84%);
+            --ORANGE: hsl(34, 97%, 64%);
+            --BLUE: hsl(212, 89%, 82%);
+            --GREY: rgba(0, 0, 0, 0.3);
+            --BORDER-RADIUS: .5rem;
+
+            --WIDTH: 500px;
+            --SIZE: 150px;
+        }
+
+
+        main {
+            display: grid;
+            place-items: center;
+            height: 100vh;
+            background-color: #f3f3f3;
+        }
+
+        .card {
+            inline-size: min(65ch, 100%);
+            background-color: white;
+            border-radius: var(--BORDER-RADIUS);
+            padding: 2rem;
+            display: flex;
+            flex-direction: column;
+        }
+
+        .card__choices {
+            display: flex;
+            flex-direction: column;
+        }
+
+        .card button{
+            --PRIMARY: var(--BLUE);
+            margin-top: 1rem;
+            background-color: var(--PRIMARY);
+            border-radius: var(--BORDER-RADIUS);
+            color: white;
+            font-weight: 600;
+            border: 2px solid var(--PRIMARY);
+            padding: .5rem 1rem;
+            font-size: 1rem;
+            cursor: pointer;
+            transition: all .3s ease-in-out;
+        }
+
+        .card button:hover{
+            color:var(--PRIMARY);
+            background-color: white;
+        }
+
+
+        .card h2{
+            font-weight: 200;
+            font-size: 2rem;
+        }
+
+        .card h1{
+            font-size: 2.5rem;
+            font-weight: 400;
+        }
+
+        .card h1::first-letter{
+            text-transform: uppercase;
+        }
+
+        .card__choices__row{
+            display: flex;
+            align-items: center;
+            margin: 1rem 0;
+        }
+
+        input[type='radio']{
+            appearance: none;
+            --WIDTH: 1.5rem;
+            inline-size: var(--WIDTH);
+            block-size: var(--WIDTH);
+            background-color: white;
+            border: 2px solid rgba(0, 0, 0, 0.3);
+            border-radius: 50%;
+        }
+
+        input[type='radio']:checked{
+            background-color: rgb(195, 235, 195);
+        }
+
+        .card__choices__row label {
+            font-size: 1.2rem;
+            font-weight: 600;
+            margin-left: .5rem;
+            background-color: inherit;
+            width: 100%;
+            padding: 1rem;
+            border-radius: 4rem;
+            cursor: pointer;
+        }
+
+        .card__choices__row label:hover{
+            background-color: rgb(227, 227, 246);
+        }
+
+        .card__choices__row label::first-letter{
+            text-transform: uppercase;
+        }
+    </style>
+
+<body>
+    <main>
+        <div class="card">
+            <h2 id="question-number">Question #1</h2>
+            <h1 id="question-title">What is the best colour?</h1>
+            <div class="card__choices" id="question-choices">
+                <!-- <div class="card__choices__row">
+                    <input type="radio" id="red" name="color"><label for="red">Red</label>
+                </div>
+                <div class="card__choices__row">
+                    <input type="radio" id="green" name="color"><label for="green">Green</label>
+                </div>
+
+                <div class="card__choices__row">
+                    <input type="radio" id="blue" name="color"><label for="blue">Blue</label>
+                </div> -->
+
+            </div>
+            <button id="question-submit">Submit</button>
+        </div>
+    </main>
+    <script type="module">
+        //name, question, choices
+        const list = [
+        {
+                name: "apocalypse",
+                question: "Preferred apocalypse?",
+                choices: [
+                    "climate breakdown", "pandemic", "social unrest"
+                ]
+            },
+            {
+                name: "color",
+                question: "What is the best colour?",
+                choices: [
+                    "green", "red", "blue"
+                ]
+            },
+            {
+                name: "food",
+                question: "What is the best food?",
+                choices: [
+                    "pizza", "ice cream", "cookies"
+                ]
+            },
+            {
+                name: "heat",
+                question: "too hot, cold or dry?",
+                choices: [
+                    "hot", "cold", "dry"
+                ]
+            },
+            {
+                name: "planet",
+                question: "best planet?",
+                choices: [
+                    "earth", "jupiter", "pluto"
+                ]
+            }
+        ];
+
+        const number = document.getElementById("question-number");
+        const title = document.getElementById("question-title");
+        const choices = document.getElementById("question-choices");
+        const nextQuestion = document.getElementById("question-submit");
+        
+        const main = document.querySelector("main");
+
+        let count = 0;
+
+        nextQuestion.addEventListener("click", () => {
+            
+            if(count < list.length-1){
+                count++;
+            }else{
+                count = 0;
+            }
+
+            number.textContent = `Question #${count + 1}`;
+            title.textContent = list[count].question;
+
+            choices.replaceChildren();
+            
+
+            for(let i = 0; i < list[count].choices.length; i++){
+                
+                choices.appendChild(createInputLabel(list[count].name, list[count].choices[i]));
+            }            
+        });
+
+
+        function createInputLabel(name, choice){
+            console.log(name);
+            const row = document.createElement("div");
+            row.classList.add("card__choices__row");
+            const label  = document.createElement("label");
+            label.htmlFor = choice;
+            label.textContent = choice;
+            const input = document.createElement("input");
+            input.type = "radio";
+            input.id = choice;
+            input.name = name;
+            row.appendChild(input);
+            row.appendChild(label);
+            return row;
+        }
+
+
+        function init(){
+            console.log('init');
+            number.textContent = `Question #${count + 1}`;
+            title.textContent = list[count].question;
+            for(let i = 0; i < list[count].choices.length; i++){                
+                choices.appendChild(createInputLabel(list[count].name, list[count].choices[i]));
+            }            
+        }
+
+
+       init();
+
+        // function createQuestionCard(data){
+        //     const card = document.createElement("div");
+        //     card.classList.add("card");
+        //     card.appendChild(createQuestionNumber(count+1));
+        //     card.appendChild(createQuestionTitle(data));
+        //     card.appendChild(createQuestionChoices(data));
+        //     card.appendChild(createQuestionSubmitButton());
+        //     return card;
+        // }
+
+        // function createQuestionSubmitButton(){
+        //     const button = document.createElement("button");
+        //     button.textContent= "Submit";
+        //     button.id = "question-submit";
+        //     button.addEventListener("click", () => {
+        //         const card = document.querySelector(".card");
+        //         card.remove();
+        //         console.log('hi')
+        //         main.appendChild(createQuestionCard(list[count]));
+        //     });
+        //     return button;
+        // }
+
+        // function createQuestionNumber(index){
+        //     const header = document.createElement("h2");
+        //     header.textContent = `Question #${index}`;
+        //     return header;
+        // }
+
+        // function createQuestionTitle(data){
+        //     const {question} = data;
+        //     console.log(question)
+        //     const questionHeader = document.createElement("h1");
+        //     questionHeader.textContent = question;
+        //     return questionHeader;
+        // }
+
+        // function createQuestionChoices(data){
+        //     const {choices, name} = data;
+        //     const choicesContainer = document.createElement("div");
+        //     choicesContainer.classList.add("card__choices");
+        //     for(let i = 0; i < choices.length; i++){
+        //         choicesContainer.appendChild(createInputLabel(name, choices[i]));
+        //     }            
+        //     return choicesContainer;
+        // }
+
+       
+
+
+        
+        // main.appendChild(createQuestionCard(list[count]));
+        // const submit = document.getElementById("question-submit");
+        // submit.addEventListener("click", () => {
+        //     const card = document.querySelector(".card");
+        //     card.remove();
+        //     console.log('hi')
+        //     main.appendChild(createQuestionCard(list[++count]));
+        // });
+
+
+
+    </script>
+
+
+</body>
+
+</html>

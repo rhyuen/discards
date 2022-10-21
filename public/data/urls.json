@@ -792,6 +792,18 @@
                 "https://www.polygon.com/what-to-watch/23378450/best-halloween-horror-movies-tv-watch-stream",
                 "http://jsfiddle.net/jny73o6g/"
             ]
+        },
+        {
+            "month": 10,
+            "day": 20,
+            "year": 2022,
+            "link": "/2022/1020.html",
+            "visible": true,
+            "description": "Typeforms.  [1] ScrollTo being on <main/> and not 'window' was an issue. [2] Focus on first input on load. [3] Scrolls on pressing enter. [4] No string validation [5] I probably should've used <form/> instead of just an <input/>.",
+            "reference": [
+                "https://stackoverflow.com/a/59968837",
+                "https://www.typeform.com/templates/t/work-from-home-survey-template/"
+            ]
         }
     ],
     "2021": [

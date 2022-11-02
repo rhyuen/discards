@@ -1,0 +1,284 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <link rel="preconnect" href="https://fonts.gstatic.com">
+    <!-- <link rel="icon" type="../image/png" sizes="32x32" href="../images/favicon-32x32.png"> -->
+    <title>10/21/22</title>
+
+
+    <style>
+        * {
+            box-sizing: border-box;
+            font-family: 'Inter', 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
+        }
+
+        ::-webkit-scrollbar {
+            width: 0.8rem;
+            height: 0.5rem;
+        }
+
+        /* Track */
+        ::-webkit-scrollbar-track {
+            background: black;
+        }
+
+        /* Handle */
+        ::-webkit-scrollbar-thumb {
+            background: var(--COL3);
+        }
+
+        /* Handle on hover */
+        ::-webkit-scrollbar-thumb:hover {
+            background: var(--COL2);
+        }
+
+        @font-face {
+            font-family: "Inter";
+            src: url("../fonts/Inter-VariableFont_slnt\,wght.ttf");
+        }
+
+
+
+        html,
+        body {
+            margin: 0;
+
+        }
+
+        ul {
+            margin: 0;
+            padding: 0;
+        }
+
+        li {
+            list-style-type: none;
+        }
+
+        h1,
+        h2,
+        h3,
+        h4 {
+            margin: 0;
+            padding: 0;
+
+        }
+
+        :root {
+            --RED: hsl(0, 78%, 62%);
+            --CYAN: hsl(180, 63%, 84%);
+            --ORANGE: hsl(34, 97%, 64%);
+            --BLUE: hsl(212, 89%, 82%);
+            --GREY: rgba(0, 0, 0, 0.3);
+            --BORDER-RADIUS: .5rem;
+            --COL1: #db0a5b;
+            --COL2: #fef160;
+            --COL3: #23cba7;
+            --COL4: #3e6ceb;
+            --COL5: #d9c8ec;
+
+
+            --FONT-SIZE: 1.2rem;
+            --WIDTH: 500px;
+            --SIZE: 150px;
+        }
+
+        main {
+            display: grid;
+            grid-template-columns: 1fr min(70ch, 100%) 1fr;
+            min-height: 100vh;
+            background-color: rgb(231, 246, 246);
+            align-items: center;
+            position: relative;
+            overflow: hidden;
+        }
+
+        main::before{
+            display: block;
+            position: absolute;
+            top: 0;
+            left: 0;
+            content: "";
+            background-color: lavenderblush;
+            opacity: .5;            
+            width: 100vw;
+            height: 100vh;
+            clip-path: polygon(0 0, 0 100%, 100% 0);
+        }
+
+        main::after{
+            display: block;
+            position: absolute;
+            bottom: 0;
+            right: 0;
+            content: "";
+            background-color: rgb(231, 246, 246);
+            opacity: .5;            
+            width: 100vw;
+            height: 100vh;
+            clip-path: polygon(100% 100%, 0 100%, 100% 0);
+        }
+
+        main>* {
+            grid-column: 2/span 1;
+            padding: 1rem;
+            z-index: 2;
+        }
+
+        h1{
+            font-size: calc(1.2*var(--FONT-SIZE));
+            margin: 3rem 0;
+            color: transparent;
+            -webkit-text-stroke-width: .2px;
+            -webkit-text-stroke-color: #db0a5b;
+        }
+
+        h2 {
+            margin-bottom: 2rem;
+            font-size: var(--FONT-SIZE);
+        }
+
+        .row{
+            display: flex;
+        }
+
+        .row__pre{
+            font-size: var(--FONT-SIZE);
+            -webkit-text-stroke-width: .5px;
+            color: transparent;
+            -webkit-text-stroke-color: black;
+            margin-right: 1rem;
+        }
+
+        .text-outline {
+            -webkit-text-stroke-width: 1px;
+            -webkit-text-stroke-color: black;
+            color: transparent;
+        }
+
+        footer{
+            padding: 2rem 1rem;
+            background-color: lavenderblush;
+            display: grid;
+            grid-template-columns: 1fr min(70ch, 100%) 1fr;
+        }
+
+        footer > * {
+            grid-column: 2/span 1;
+        }
+
+        .text-outline--005px {
+            -webkit-text-stroke-width: 0.05px;
+        }
+
+        .text-outline--01px {
+            -webkit-text-stroke-width: 0.1px;
+        }
+
+        .text-outline--03px {
+            -webkit-text-stroke-width: 0.3px;
+        }
+
+        .text-outline--05px {
+            -webkit-text-stroke-width: 0.5px;
+        }
+
+        .text-outline--1px {
+            -webkit-text-stroke-width: 1px;
+        }
+
+        .text-outline--2px {
+            -webkit-text-stroke-width: 2px;
+        }
+
+        @media screen and (min-width: 550px) and (max-width: 999px){
+            :root{
+                --FONT-SIZE: 1.5rem;
+            }
+        }
+
+        @media screen and (min-width: 1000px) {
+            :root{
+                --FONT-SIZE: 1.75rem;
+            }
+        }
+    </style>
+
+<body>
+    <main>
+        <section>
+            <h1>
+                Differences in text-stroke-width
+            </h1>
+            <div class="row">
+                <span class="row__pre">.05px</span>
+            <h2>
+                Disinfecting the air with far-ultraviolet light:
+                <span class="text-outline text-outline--005px">Devices that use wavelengths of sanitizing
+                    ultraviolet light that are safe
+                    for people could become a more common sight.</span>
+            </h2>
+            </div>
+            <div class="row">
+                <span class="row__pre">0.1px</span>
+                <h2>
+                    Disinfecting the air with far-ultraviolet light:
+                    <span class="text-outline text-outline--01px">Devices that use wavelengths of sanitizing ultraviolet
+                        light that are safe
+                        for people could become a more common sight.</span>
+                </h2>
+            </div>
+            <div class="row">
+                <span class="row__pre">0.3px</span>
+                <h2>
+                    Disinfecting the air with far-ultraviolet light:
+                    <span class="text-outline text-outline--03px">Devices that use wavelengths of sanitizing ultraviolet
+                        light that are safe
+                        for people could become a more common sight.</span>
+                </h2>
+            </div>
+            <div class="row">
+                <span class="row__pre">0.5px</span>
+                <h2>
+                    Disinfecting the air with far-ultraviolet light:
+                    <span class="text-outline text-outline--05px">Devices that use wavelengths of sanitizing ultraviolet
+                        light that are safe
+                        for people could become a more common sight.</span>
+                </h2>
+            </div>
+            <div class="row">
+                <span class="row__pre">1.0px</span>
+                <h2>
+                    Disinfecting the air with far-ultraviolet light:
+                    <span class="text-outline text-outline--1px">Devices that use wavelengths of sanitizing ultraviolet
+                        light that are safe
+                        for people could become a more common sight.</span>
+                </h2>
+            </div>
+            <div class="row">
+                <span class="row__pre">2.0px</span>
+                <h2>
+                    Disinfecting the air with far-ultraviolet light:
+                    <span class="text-outline text-outline--2px">Devices that use wavelengths of sanitizing ultraviolet
+                        light that are safe
+                        for people could become a more common sight.</span>
+                </h2>
+            </div>
+        </section>
+    </main>
+    <footer>
+        <p>Made on November 2, 2022</p>
+        <p>Title of the article I used is from <a href="https://www.nature.com/articles/d41586-022-03360-w">here</a>.</p>
+        <p>Reason: I wanted to see the differences in the text-stroke-width across a series of different values.</p>
+    </footer>
+
+
+    <script type="module">
+
+    </script>
+</body>
+
+</html>

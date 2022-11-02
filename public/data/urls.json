@@ -804,7 +804,41 @@
                 "https://stackoverflow.com/a/59968837",
                 "https://www.typeform.com/templates/t/work-from-home-survey-template/"
             ]
+        },
+        {
+            "month": 10,
+            "day": 21,
+            "year": 2022,
+            "link": "/2022/1021.html",
+            "visible": true,
+            "description": "Typeforms again",
+            "reference": [
+            ]
+        },
+        {
+            "month": 10,
+            "day": 31,
+            "year": 2022,
+            "link": "/2022/1031.html",
+            "visible": true,
+            "description": "Disinformation in Science Abstract with Scroll Snap.",
+            "reference": [
+                "http://jsfiddle.net/jny73o6g/"
+            ]
+        },
+        {
+            "month": 11,
+            "day": 2,
+            "year": 2022,
+            "link": "/2022/1102.html",
+            "visible": true,
+            "description": "Variations in -webkit-text-stroke-width from 0.01px to 2px.",
+            "reference": [
+                "http://jsfiddle.net/jny73o6g/"
+            ]
         }
+
+
     ],
     "2021": [
         {

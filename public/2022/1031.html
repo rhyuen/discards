@@ -1,0 +1,176 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <link rel="preconnect" href="https://fonts.gstatic.com">
+    <!-- <link rel="icon" type="../image/png" sizes="32x32" href="../images/favicon-32x32.png"> -->
+    <title>10/21/22</title>
+
+
+    <style>
+        * {
+            box-sizing: border-box;
+            font-family: 'Inter', 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
+        }
+
+        ::-webkit-scrollbar {
+            width: 0.8rem;
+            height: 0.5rem;
+        }
+
+        /* Track */
+        ::-webkit-scrollbar-track {
+            background: black;
+        }
+
+        /* Handle */
+        ::-webkit-scrollbar-thumb {
+            background: var(--COL3);
+        }
+
+        /* Handle on hover */
+        ::-webkit-scrollbar-thumb:hover {
+            background: var(--COL2);
+        }
+
+        @font-face {
+            font-family: "Inter";
+            src: url("../fonts/Inter-VariableFont_slnt\,wght.ttf");
+        }
+
+
+
+        html,
+        body {
+            margin: 0;
+
+        }
+
+        ul {
+            margin: 0;
+            padding: 0;
+        }
+
+        li {
+            list-style-type: none;
+        }
+
+        h1,
+        h2,
+        h3,
+        h4 {
+            margin: 0;
+            padding: 0;
+
+        }
+
+        :root {
+            --RED: hsl(0, 78%, 62%);
+            --CYAN: hsl(180, 63%, 84%);
+            --ORANGE: hsl(34, 97%, 64%);
+            --BLUE: hsl(212, 89%, 82%);
+            --GREY: rgba(0, 0, 0, 0.3);
+            --BORDER-RADIUS: .5rem;
+            --COL1: #db0a5b;
+            --COL2: #fef160;
+            --COL3: #23cba7;
+            --COL4: #3e6ceb;
+            --COL5: #d9c8ec;
+
+            --WIDTH: 500px;
+            --SIZE: 150px;
+        }
+
+
+        main {
+            display: grid;
+            grid-template-columns: 1fr min(75ch, 100%) 1fr;
+            height: 100vh;
+            align-items: center;
+            overflow: scroll;
+            scroll-snap-type: y mandatory;
+        }
+
+        main>* {
+            grid-column: 2/span 1;
+            padding: 0 1rem;
+            height: 100vh;
+            display: flex;
+            align-items: flex-start;
+            justify-content: center;
+            flex-direction: column;
+            scroll-snap-align: center;
+        }
+
+        h1 {
+            font-size: 2.5rem;
+        }
+
+        h2 {
+            font-size: 2rem;
+        }
+
+        p {
+            line-height: 1.5;
+            font-size: 1.2rem;
+            font-family: 'Times New Roman', Times, serif;
+        }
+
+        [role='footer'] p {
+            font-family: "Inter";
+        }
+
+        a{
+            font-size: 1.2rem;
+            font-family: 'Inter';
+        }
+
+        .outline-text {
+            color: transparent;
+            -webkit-text-stroke-width: .1px;
+            -webkit-text-stroke-color: black;
+        }
+    </style>
+
+<body>
+    <main>
+        <h1>The disinformation playbook: <span class="outline-text">how industry manipulates the science-policy
+                process—and how to restore scientific integrity</span></h1>
+        <section>
+            <h2><span class="outline-text">Abstract</span></h2>
+            <p>
+                For decades, corporate undermining of scientific consensus has eroded the scientific process worldwide.
+                Guardrails for protecting science-informed processes, from peer review to regulatory decision making,
+                have suffered sustained attacks, damaging public trust in the scientific enterprise and its aim to serve
+                the public good. Government efforts to address corporate attacks have been inadequate. Researchers have
+                cataloged corporate malfeasance that harms people’s health across diverse industries. Well-known cases,
+                like the tobacco industry’s efforts to downplay the dangers of smoking, are representative of
+                transnational industries, rather than unique. This contribution schematizes industry tactics to distort,
+                delay, or distract the public from instituting measures that improve health—tactics that comprise the
+                “disinformation playbook.” Using a United States policy lens, we outline steps the scientific community
+                should take to shield science from corporate interference, through individual actions (by scientists,
+                peer reviewers, and editors) and collective initiatives (by research institutions, grant organizations,
+                professional associations, and regulatory agencies).
+            </p>
+        </section>
+        <section role="footer">
+            <h2><span class='outline-text'>References</span></h2>
+            <p>Made on October 31, 2022.</p>
+            <p>Original is <a href="https://www.ncbi.nlm.nih.gov/pmc/articles/PMC8651604/">here</a>.</p>
+            <p>Reason: I saw something on twitter that had the first slide's styling and wanted to get a better handle on it.  I previously did it <a href="https://robert-discards.vercel.app/2022/1019.html">here</a> but didn't really have a handle on it.  So practice.</p>
+            <p>
+                Issues: you have to set the color of the text to 'transparent' and use a '-webkit-text-stroke-width' with a value below 1px.  In this case I used 0.1px.  At least, I found that the effect is more prominent with a value below 1px.
+            </p>
+        </section>
+    </main>
+
+
+    <script type="module">
+
+    </script>
+</body>
+
+</html>

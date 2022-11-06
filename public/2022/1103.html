@@ -1,0 +1,197 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <link rel="preconnect" href="https://fonts.gstatic.com">
+    <!-- <link rel="icon" type="../image/png" sizes="32x32" href="../images/favicon-32x32.png"> -->
+    <title>11/3/22</title>
+
+
+    <style>
+        * {
+            box-sizing: border-box;
+            font-family: 'Inter', 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
+        }
+
+        ::-webkit-scrollbar {
+            width: 0.8rem;
+            height: 0.5rem;
+        }
+
+        /* Track */
+        ::-webkit-scrollbar-track {
+            background: black;
+        }
+
+        /* Handle */
+        ::-webkit-scrollbar-thumb {
+            background: var(--COL3);
+        }
+
+        /* Handle on hover */
+        ::-webkit-scrollbar-thumb:hover {
+            background: var(--COL2);
+        }
+
+        @font-face {
+            font-family: "Inter";
+            src: url("../fonts/Inter-VariableFont_slnt\,wght.ttf");
+        }
+
+
+
+        html,
+        body {
+            margin: 0;
+            height: 100vh;
+            max-height: 100vh;
+        }
+
+        ul {
+            margin: 0;
+            padding: 0;
+        }
+
+        li {
+            list-style-type: none;
+        }
+
+        h1,
+        h2,
+        h3,
+        h4 {
+            margin: 0;
+            padding: 0;
+
+        }
+
+        :root {
+            --RED: hsl(0, 78%, 62%);
+            --CYAN: hsl(180, 63%, 84%);
+            --ORANGE: hsl(34, 97%, 64%);
+            --BLUE: hsl(212, 89%, 82%);
+            --GREY: rgba(0, 0, 0, 0.3);
+            --BORDER-RADIUS: .5rem;
+            --COL1: #db0a5b;
+            --COL2: #fef160;
+            --COL3: #23cba7;
+            --COL4: #3e6ceb;
+            --COL5: #d9c8ec;
+
+
+            --FONT-SIZE: 1.2rem;
+            --WIDTH: 500px;
+            --SIZE: 150px;
+        }
+
+
+        main {
+            display: grid;
+            grid-template-columns: 1fr 1fr;
+            height:100vh;
+            position: relative;
+            overflow: hidden;
+        }
+
+        .left-button, .right-button{
+            grid-column: span 1;
+            padding: 0;
+            border: none;
+            cursor: pointer;
+            height: 100%;
+            transition: filter .3s ease-in-out;
+        }
+
+        .left-button:hover{
+            filter: brightness(140%);
+        }
+
+        .right-button:hover{
+            filter: brightness(140%);
+        }
+
+        .versus{
+            --WIDTH: 8rem;
+            position: absolute;
+            background-color: lightcyan;
+            filter:drop-shadow(0 0mm 8mm rgb(169, 197, 222));
+            border-radius: 50%;
+            inline-size: var(--WIDTH);
+            block-size: var(--WIDTH);
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            top: 50%;
+            left: 50%;
+            z-index: 2;
+            font-weight: 800;
+            font-size: 2rem;
+            transform: translate(-50%, -50%);
+            user-select: none;
+        }
+        
+        img{
+            object-fit: cover;
+            inline-size: 100%;
+            block-size: 100vh;
+        }
+
+        @media screen and (min-width: 650px) and (max-width: 1000px) {
+            
+        }
+
+        @media screen and (min-width: 1001px) {
+            
+        }
+
+    </style>
+
+<body>
+    <main>
+        <div class="versus">
+            VS
+        </div>
+        <button class="left-button" id="left">
+            <img src="../images/fw2.jpg"/>
+        </button>
+        <button class="right-button" id="right">
+            <img src="../images/fw5.jpg"/>
+        </button>
+    </main>
+
+    <script type="module">
+        import data from "../data/imgs.json" assert {type: 'json'};
+        const {nature, general} = data;
+        const leftButton = document.getElementById("left");
+        const rightButton = document.getElementById("right");
+        let natureCount = 0;
+        let generalCount = 0;
+        const natureLimit = nature.length - 1;
+        const generalLimit = general.length - 1;
+
+        leftButton.addEventListener("click", function(){
+            const image = leftButton.querySelector("img");
+            const {url, description} =  nature[natureCount++];
+            image.src = url;
+            image.alt = description;
+            if(natureCount > natureLimit){
+                natureCount = 0;
+            }
+        });
+
+        rightButton.addEventListener("click", function(){
+            const image = rightButton.querySelector("img");
+            const {url, description} = general[generalCount++];
+            image.src = url;
+            image.alt = description;
+            if(generalCount > generalLimit){
+                generalCount = 0;
+            }
+        });
+    </script>
+</body>
+
+</html>

@@ -1,0 +1,226 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <link rel="preconnect" href="https://fonts.gstatic.com">
+    <!-- <link rel="icon" type="../image/png" sizes="32x32" href="../images/favicon-32x32.png"> -->
+    <title>11/3/22</title>
+
+
+    <style>
+        * {
+            box-sizing: border-box;
+            font-family: 'Inter', 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
+        }
+
+        ::-webkit-scrollbar {
+            width: 0.8rem;
+            height: 0.5rem;
+        }
+
+        /* Track */
+        ::-webkit-scrollbar-track {
+            background: black;
+        }
+
+        /* Handle */
+        ::-webkit-scrollbar-thumb {
+            background: var(--COL3);
+        }
+
+        /* Handle on hover */
+        ::-webkit-scrollbar-thumb:hover {
+            background: var(--COL2);
+        }
+
+        @font-face {
+            font-family: "Inter";
+            src: url("../fonts/Inter-VariableFont_slnt\,wght.ttf");
+        }
+
+
+
+        html,
+        body {
+            margin: 0;
+            height: 100vh;
+            max-height: 100vh;
+        }
+
+        ul {
+            margin: 0;
+            padding: 0;
+        }
+
+        li {
+            list-style-type: none;
+        }
+
+        h1,
+        h2,
+        h3,
+        h4 {
+            margin: 0;
+            padding: 0;
+
+        }
+
+        :root {
+            --RED: hsl(0, 78%, 62%);
+            --CYAN: hsl(180, 63%, 84%);
+            --ORANGE: hsl(34, 97%, 64%);
+            --BLUE: hsl(212, 89%, 82%);
+            --GREY: rgba(0, 0, 0, 0.3);
+            --BORDER-RADIUS: .5rem;
+            --COL1: #db0a5b;
+            --COL2: #fef160;
+            --COL3: #23cba7;
+            --COL4: #3e6ceb;
+            --COL5: #d9c8ec;
+
+
+            --FONT-SIZE: 1.2rem;
+            --WIDTH: 500px;
+            --SIZE: 150px;
+        }
+
+        main {
+            display: grid;
+            grid-template-columns: 1fr 1fr;
+            grid-template-rows: 1fr;
+            height: 100vh;
+            overflow-y: scroll;
+        }
+
+        section {
+            display: flex;
+            flex-direction: column;
+            grid-column: span 1;
+            grid-row: span 1;
+            height: 100vh;
+            overflow: hidden;
+            scroll-snap-type: y mandatory;
+            scroll-behavior: smooth;
+        }
+
+        img {
+            scroll-snap-align: center;
+            flex-shrink: 0;
+            object-fit: cover;
+            height: 100%;
+        }
+
+        .container--fixed{
+            position: fixed;
+            inset: 0;
+        }
+
+        .container{
+            /* inline-size: 100vw;
+            block-size: 100vw; */
+            /* display: none; */
+            display: grid;
+            grid-template-columns: 1fr 1fr;
+            grid-template-rows: 1fr 1fr;
+        }
+
+        .container-button{
+            background: transparent;
+            border: none;
+            cursor: pointer;
+            transition: all .3s ease-in-out;
+            border-radius: 1rem;
+        }
+
+        .container-button--top:hover{
+            background: linear-gradient(rgba(255, 255, 255, 0.3), transparent);
+        }
+
+        .container-button--bottom:hover{
+            background: linear-gradient(transparent, rgba(255, 255, 255, 0.3));
+        }
+
+    </style>
+
+<body>
+    <div class="container container--fixed">
+        <button class="container-button container-button--top" id="top-left"></button>
+        <button class="container-button container-button--top" id="top-right"></button>
+        <button class="container-button container-button--bottom" id="bottom-left"></button>
+        <button class="container-button container-button--bottom" id="bottom-right"></button>
+    </div>
+    <main>
+        <section class="left" id="left-section">
+            <!-- <img src="../images/one.jpg" />
+            <img src="../images/twelve.jpg" />
+            <img src="../images/eight.jpg" /> -->
+        </section>
+        <section class="right" id="right-section">
+            <!-- <img src="../images/fw2.jpg" />
+            <img src="../images/fw3.jpg" />
+            <img src="../images/fw5.jpg" /> -->
+        </section>
+    </main>
+
+    <script type="module">
+
+        import data from "../data/imgs.json" assert {type: 'json'};
+        const {general, space, abstract, nature} = data;
+        const leftData = space.concat(general);
+        const rightData = nature.concat(abstract);
+
+        const topLeft = document.getElementById("top-left");
+        const topRight = document.getElementById("top-right");
+        const bottomLeft = document.getElementById("bottom-left");
+        const bottomRight = document.getElementById("bottom-right");
+
+        const leftSection = document.getElementById("left-section");
+        const rightSection = document.getElementById("right-section");
+
+        window.addEventListener("load", () => {
+            for(let i = 0; i < leftData.length; i++){
+                leftSection.appendChild(createImage(leftData[i]));
+            }
+
+            for(let i = 0; i < rightData.length; i++){
+                rightSection.appendChild(createImage(rightData[i]));
+            }
+        });
+
+        function createImage(data){
+            const {url, description} = data;
+            const image = document.createElement("img");
+            image.src = url;
+            image.alt = description;
+            return image;
+        }
+
+
+       
+
+        bottomLeft.addEventListener("click", () => {
+            leftSection.scrollTop += 1000;
+        });
+
+        topLeft.addEventListener("click", () => {
+            leftSection.scrollTop -= 1000;
+        });
+
+        topRight.addEventListener("click", () => {
+            rightSection.scrollTop -= 1000;
+        });
+
+        bottomRight.addEventListener("click", () => {
+            rightSection.scrollTop += 1000;
+        });
+
+        
+
+        
+    </script>
+</body>
+
+</html>

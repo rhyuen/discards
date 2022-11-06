@@ -836,6 +836,28 @@
             "reference": [
                 "http://jsfiddle.net/jny73o6g/"
             ]
+        },
+        {
+            "month": 11,
+            "day": 3,
+            "year": 2022,
+            "link": "/2022/1103.html",
+            "visible": true,
+            "description": "Images and Buttons",
+            "reference": [
+                
+            ]
+        },
+        {
+            "month": 11,
+            "day": 5,
+            "year": 2022,
+            "link": "/2022/1105.html",
+            "visible": true,
+            "description": "Images with Fixed Buttons and Scroll Snap",
+            "reference": [
+                
+            ]
         }
 
 

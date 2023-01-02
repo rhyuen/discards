@@ -1,4 +1,15 @@
 {
+    "2023": [
+        {
+            "month": 1,
+            "day": 1,
+            "year": 2023,
+            "link": "/2023/0101.html",
+            "visible": true,
+            "description": "Styled article from Propublica.  Starting off with something simple.",
+            "reference": []
+        }
+    ],
     "2022": [
         {
             "month": 1,
@@ -858,7 +869,31 @@
             "reference": [
                 
             ]
+        },
+        {
+            "month": 11,
+            "day": 14,
+            "year": 2022,
+            "link": "/2022/1114.html",
+            "visible": true,
+            "description": "Text-Outline-Stroke and Text-Outline-Width, with Radial Gradient and grid to create presentational lines for text.",
+            "reference": [
+                "https://cssgradient.io/",
+                "https://web.dev/learn/design/micro-layouts/#grid"
+
+            ]
+        },
+        {
+            "month": 11,
+            "day": 17,
+            "year": 2022,
+            "link": "/2022/1117.html",
+            "visible": true,
+            "description": "Different fonts and text-stroke-width values, just to see the results. Scroll-snap for the fonts beyond the fold.",
+            "reference": [
+            ]
         }
+
 
 
     ],

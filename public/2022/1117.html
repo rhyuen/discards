@@ -1,0 +1,298 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <link rel="preconnect" href="https://fonts.gstatic.com">
+    <!-- <link rel="icon" type="../image/png" sizes="32x32" href="../images/favicon-32x32.png"> -->
+    <title>11/14/22</title>
+
+
+    <style>
+        * {
+            box-sizing: border-box;
+            font-size: 16px;
+            font-family: 'Inter', 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
+        }
+
+        ::-webkit-scrollbar {
+            width: 0.8rem;
+            height: 0.5rem;
+        }
+
+        /* Track */
+        ::-webkit-scrollbar-track {
+            background: black;
+        }
+
+        /* Handle */
+        ::-webkit-scrollbar-thumb {
+            background: var(--COL3);
+        }
+
+        /* Handle on hover */
+        ::-webkit-scrollbar-thumb:hover {
+            background: var(--COL2);
+        }
+
+        @font-face {
+            font-family: "Inter";
+            src: url("../fonts/Inter-VariableFont_slnt\,wght.ttf");
+        }
+
+
+
+        html,
+        body {
+            margin: 0;
+            height: 100vh;
+        }
+
+        ul {
+            margin: 0;
+            padding: 0;
+        }
+
+        li {
+            list-style-type: none;
+        }
+
+        h1,
+        h2,
+        h3,
+        h4 {
+            margin: 0;
+            padding: 0;
+
+        }
+
+        :root {
+            --RED: hsl(0, 78%, 62%);
+            --CYAN: hsl(180, 63%, 84%);
+            --ORANGE: hsl(34, 97%, 64%);
+            --BLUE: hsl(212, 89%, 82%);
+            --GREY: rgba(0, 0, 0, 0.3);
+
+            --COL1: #db0a5b;
+            --COL2: #fef160;
+            --COL3: #23cba7;
+            --COL4: #3e6ceb;
+            --COL5: #d9c8ec;
+
+            --BORDER-RADIUS: 1rem;
+            --FONT-SIZE: 1.2rem;
+            --WIDTH: 500px;
+            --SIZE: 150px;
+        }
+
+        @font-face {
+            font-family: "Barlow-Regular";
+            src: url("../fonts/Barlow-Regular.ttf");
+        }
+
+
+        @font-face {
+            font-family: "DMSans-Regular";
+            src: url("../fonts/DMSans-Regular.ttf");
+        }
+
+        @font-face {
+            font-family: "Fraunces";
+            src: url("../fonts/Fraunces-VariableFont_SOFT\,WONK\,opsz\,wght.ttf");
+        }
+
+        @font-face {
+            font-family: "LexendDeca";
+            src: url("../fonts/LexendDeca-VariableFont_wght.ttf");
+        }
+
+        @font-face {
+            font-family: "Inter";
+            src: url("../fonts/Inter-VariableFont_slnt\,wght.ttf");
+        }
+
+        @font-face {
+            font-family: "LibreFranklin";
+            src: url("../fonts/LibreFranklin-VariableFont_wght.ttf");
+        }
+
+        @font-face {
+            font-family: "Manrope";
+            src: url("../fonts/Manrope-VariableFont_wght.ttf");
+        }
+
+        @font-face {
+            font-family: "Montserrat";
+            src: url("../fonts/Montserrat-VariableFont_wght.ttf");
+        }
+
+        @font-face {
+            font-family: "OpenSans";
+            src: url("../fonts/OpenSans-VariableFont_wdth\,wght.ttf");
+        }
+
+        @font-face {
+            font-family: "Overpass";
+            src: url("../fonts/Overpass-VariableFont_wght.ttf");
+        }
+
+        @font-face {
+            font-family: "Poppins-Regular";
+            src: url("../fonts/Poppins-Regular.ttf");
+        }
+
+        @font-face {
+            font-family: "RedHat";
+            src: url("../fonts/RedHatDisplay-VariableFont_wght.ttf");
+        }
+
+        .dmsans {
+            font-family: "DMSans-Regular", "Segoe UI", "Arial";
+        }
+
+        .fraunces {
+            font-family: "Fraunces", "Segoe UI", "Arial";
+        }
+
+        .lexend {
+            font-family: "LexendDeca", "Segoe UI", "Arial";
+        }
+
+        .barlow {
+            font-family: "Barlow-Regular", "Segoe UI", "Arial";
+        }
+
+        .inter {
+            font-family: "Inter", "Segoe UI", "Arial";
+        }
+
+        .librefranklin {
+            font-family: "LibreFranklin", "Segoe UI", "Arial";
+            ;
+        }
+
+        .montserrat {
+            font-family: "Montserrat", "Segoe UI", "Arial";
+        }
+
+        .manrope {
+            font-family: "Manrope", "Segoe UI", "Arial";
+        }
+
+        .opensans {
+            font-family: "OpenSans", "Segoe UI", "Arial";
+        }
+
+        .outfit {
+            font-family: "Outfit", "Segoe UI", "Arial";
+        }
+
+        .overpass {
+            font-family: "Overpass", "Segoe UI", "Arial";
+        }
+
+        .poppins {
+            font-family: "Poppins", "Segoe UI", "Arial";
+        }
+
+        .redhat {
+            font-family: "RedHat", "Segoe UI", "Arial";
+        }
+
+        main {
+            display: grid;
+            grid-template-columns: 1fr min(65ch, 100%) 1fr;
+            overflow-y: scroll;
+            height: 100vh;
+            scroll-snap-type: y mandatory;
+        }
+
+        main section {
+            padding: 0 1.5rem;
+            scroll-snap-align: center;
+            display: flex;
+            flex-direction: column;
+            justify-content: center;
+            grid-column: 2/span 1;
+            height: 100vh;
+        }
+
+        section.intro h1{
+            font-size: 3rem;
+        }
+
+        h2 {
+            font-size: 3.5rem;
+            margin: 0;
+            padding: 0;
+        }
+
+        main section.intro p{
+            font-size: 2rem;
+            -webkit-text-stroke-width: 0;
+            color: black;
+        }
+
+        main section p {
+            font-size: 3rem;
+            margin: 0;
+            margin-bottom: 1.5rem;
+            -webkit-text-stroke-color: black;
+            -webkit-text-stroke-width: .8px;
+            color: transparent;
+        }
+    </style>
+
+<body>
+    <main>
+        <section class="intro">
+            <h1 class="lexend">Fonts and Text Stroke Width</h1>
+            <p class="manrope"> Different fonts and text-stroke-width values, just to see the results.</p>
+            <p class="manrope">Made on Nov 20, 22</p>
+        </section>
+        <section>
+            <h2 class="dmsans">DM Sans</h2>
+            <p class="dmsans">I am not a cat</p>
+            <h2 class="fraunces">Fraunces</h2>
+            <p class="fraunces">I am not a cat</p>
+            <h2 class="lexend">Lexend Deca</h2>
+            <p class="lexend">I am not a cat</p>
+            <h2 class="barlow">Barlow</h2>
+            <p class="barlow">I am not a cat</p>
+            <h2 class="inter">Inter</h2>
+            <p class="inter">I am not a cat</p>
+            
+        </section>
+        <section>
+            <h2 class="librefranklin">Libre Franklin</h2>
+            <p class="librefranklin">I am not a cat</p>
+            <h2 class="montserrat">Montserrat</h2>
+            <p class="montserrat">I am not a cat</p>
+            <h2 class="manrope">Manrope</h2>
+            <p class="manrope">I am not a cat</p>
+            <h2 class="opensans">Open Sans</h2>
+            <p class="opensans">I am not a cat</p>
+            <h2 class="outfit">Outfit</h2>
+            <p class="outfit">I am not a cat</p>            
+        </section>
+        <section>
+            <h2 class="overpass">Overpass</h2>
+            <p class="overpass">I am not a cat</p>
+            <h2 class="poppins">Poppins</h2>
+            <p class="poppins">I am not a cat</p>
+            <h2 class="redhat">Redhat</h2>
+            <p class="redhat">I am not a cat</p>
+        </section>
+    </main>
+
+
+    <script type="module">
+
+
+
+    </script>
+</body>
+
+</html>

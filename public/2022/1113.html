@@ -1,0 +1,230 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <link rel="preconnect" href="https://fonts.gstatic.com">
+    <!-- <link rel="icon" type="../image/png" sizes="32x32" href="../images/favicon-32x32.png"> -->
+    <title>11/3/22</title>
+
+
+    <style>
+        * {
+            box-sizing: border-box;
+            font-family: 'Inter', 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
+        }
+
+        ::-webkit-scrollbar {
+            width: 0.8rem;
+            height: 0.5rem;
+        }
+
+        /* Track */
+        ::-webkit-scrollbar-track {
+            background: black;
+        }
+
+        /* Handle */
+        ::-webkit-scrollbar-thumb {
+            background: var(--COL3);
+        }
+
+        /* Handle on hover */
+        ::-webkit-scrollbar-thumb:hover {
+            background: var(--COL2);
+        }
+
+        @font-face {
+            font-family: "Inter";
+            src: url("../fonts/Inter-VariableFont_slnt\,wght.ttf");
+        }
+
+
+
+        html,
+        body {
+            margin: 0;
+            height: 100vh;
+            max-height: 100vh;
+            /* perspective: 100vmin; */
+        }
+
+        ul {
+            margin: 0;
+            padding: 0;
+        }
+
+        li {
+            list-style-type: none;
+        }
+
+        h1,
+        h2,
+        h3,
+        h4 {
+            margin: 0;
+            padding: 0;
+
+        }
+
+        :root {
+            --RED: hsl(0, 78%, 62%);
+            --CYAN: hsl(180, 63%, 84%);
+            --ORANGE: hsl(34, 97%, 64%);
+            --BLUE: hsl(212, 89%, 82%);
+            --GREY: rgba(0, 0, 0, 0.3);
+            --BORDER-RADIUS: 1rem;
+            --COL1: #db0a5b;
+            --COL2: #fef160;
+            --COL3: #23cba7;
+            --COL4: #3e6ceb;
+            --COL5: #d9c8ec;
+
+
+            --FONT-SIZE: 1.2rem;
+            --WIDTH: 500px;
+            --SIZE: 150px;
+        }
+
+        main {
+            display: grid;
+            height: 100vh;
+            background-color: #f3f3f3;
+            place-items: center;
+        }
+
+        .row {
+            display: flex;
+            flex-wrap: wrap;
+        }
+
+
+        .card {
+            border-radius: var(--BORDER-RADIUS);
+            aspect-ratio: 2/3;
+            width: 20rem;
+            margin-right: 2rem;
+            margin-bottom: 2rem;
+            transform-style: preserve-3d;
+            overflow: hidden;
+        }
+
+        .card::after {
+            content: "";
+            position: absolute;
+            background:
+                radial-gradient(circle at calc(var(--ratio-x) * 100%) calc(var(--ratio-y) * 100%), hsl(0 0% 100% / 0.5), transparent 50%);
+            inset: 0;
+            background-repeat: no-repeat;
+            background-blend-mode: soft-light;
+            z-index: 2;
+        }
+
+        .card::before {
+            content: "";
+            position: absolute;
+            inset: 0;
+            filter: brightness(2) contrast(1);
+            background:
+                linear-gradient(115deg,
+                    transparent 20%,
+                    rgb(27, 143, 27) 30%,
+                    transparent 48% 52%,
+                    rgb(38, 71, 154) 70%,
+                    transparent) 80% 80% / 300% 300%;
+            background-blend-mode: overlay;
+            mix-blend-mode: color-dodge;
+            z-index: 2;
+            opacity: 0.2;
+            transition: opacity .2s
+        }
+
+        .card:hover img {
+            translate:
+                calc((var(--ratio-x) - 0.5) * 20%) calc((var(--ratio-y) - 0.5) * 20%);
+        }
+
+        .card:hover {
+            transform:
+                rotateX(calc((var(--ratio-y) - 0.5) * 50deg)) rotateY(calc((var(--ratio-x) - 0.5) * -40deg));
+        }
+
+        .card:not(:hover) {
+            transform: rotateX(0deg) rotateY(0deg);
+            transition: transform 0.2s;
+        }
+
+        .card:not(:hover) img {
+            transition: translate 0.2s;
+        }
+
+        .card:hover:before {
+            background-position:
+                calc(var(--ratio-x) * 10%) calc(var(--ratio-y) * 10%),
+                calc(80% + (var(--ratio-x) * -50%)) calc(80% + (var(--ratio-y) * -50%));
+            opacity: 1;
+        }
+
+        /*does the lenticular effect*/
+
+
+        .card img {
+            border-radius: var(--BORDER-RADIUS);
+            object-fit: cover;
+            height: 100%;
+            width: 100%;
+            scale: 1.2;
+            translate: 0 0;
+        }
+    </style>
+
+<body>
+    <main>
+        <div class="row">
+            <div class="card">
+                <img src="../images/60.jpg" alt="an image" />
+            </div>
+            <div class="card">
+                <img src="../images/59.jpg" alt="an image" />
+            </div>
+            <div class="card">
+                <img src="../images/58.jpg" alt="an image" />
+            </div>
+            <div class="card">
+                <img src="../images/61.jpg" alt="an image" />
+            </div>
+            <div class="card">
+                <img src="../images/57.jpg" alt="an image" />
+            </div>
+        </div>
+    </main>
+
+
+    <script type="module">
+
+        const cards = document.getElementsByClassName("card");
+
+
+
+        for (let i = 0; i < Array.from(cards).length; i++) {
+            cards[i].addEventListener("pointermove", ({ x, y }) => {
+                const BOUNDS = cards[i].getBoundingClientRect();
+                const posX = x - BOUNDS.x;
+                const posY = y - BOUNDS.y;
+                const ratioX = posX / BOUNDS.width;
+                const ratioY = posY / BOUNDS.height;
+                cards[i].style.setProperty("--ratio-x", ratioX);
+                cards[i].style.setProperty("--ratio-y", ratioY);
+            });
+        }
+
+
+        // document.body.addEventListener("pointermove", tilt);
+
+
+    </script>
+</body>
+
+</html>

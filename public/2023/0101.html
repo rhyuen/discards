@@ -1,0 +1,337 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <link rel="preconnect" href="https://fonts.gstatic.com">
+    <!-- <link rel="icon" type="../image/png" sizes="32x32" href="../images/favicon-32x32.png"> -->
+    <title>01/01/23</title>
+
+
+    <style>
+        * {
+            box-sizing: border-box;
+            font-size: 16px;
+            font-family: 'Inter', 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
+        }
+
+        ::-webkit-scrollbar {
+            width: 0.8rem;
+            height: 0.5rem;
+        }
+
+        /* Track */
+        ::-webkit-scrollbar-track {
+            background: black;
+        }
+
+        /* Handle */
+        ::-webkit-scrollbar-thumb {
+            background: var(--COL3);
+        }
+
+        /* Handle on hover */
+        ::-webkit-scrollbar-thumb:hover {
+            background: var(--COL2);
+        }
+
+        @font-face {
+            font-family: "Inter";
+            src: url("../fonts/Inter-VariableFont_slnt\,wght.ttf");
+        }
+
+
+
+        html,
+        body {
+            margin: 0;
+            height: 100vh;
+        }
+
+        ul {
+            margin: 0;
+            padding: 0;
+        }
+
+        li {
+            list-style-type: none;
+        }
+
+        h1,
+        h2,
+        h3,
+        h4 {
+            margin: 0;
+            padding: 0;
+
+        }
+
+        :root {
+            --RED: hsl(0, 78%, 62%);
+            --CYAN: hsl(180, 63%, 84%);
+            --ORANGE: hsl(34, 97%, 64%);
+            --BLUE: hsl(212, 89%, 82%);
+            --GREY: rgba(0, 0, 0, 0.3);
+
+            --COL1: #db0a5b;
+            --COL2: #fef160;
+            --COL3: #23cba7;
+            --COL4: #3e6ceb;
+            --COL5: #d9c8ec;
+
+            --BORDER-RADIUS: 1rem;
+            --FONT-SIZE: 1.2rem;
+            --WIDTH: 500px;
+            --SIZE: 150px;
+        }
+
+
+        header {
+            padding: 4rem;
+            padding-top: 8rem;
+            background: linear-gradient(to bottom, lightcyan, white);
+        }
+
+        footer {
+            padding: 4rem;
+            padding-top: 8rem;
+            background: linear-gradient(to bottom, white, lightcyan);
+        }
+
+        .header-text,
+        .footer-text {
+            padding-inline: 1rem;
+            margin: 0 auto;
+            inline-size: min(65ch, 100%);
+            display: flex;
+            flex-direction: column;
+            align-items: flex-start;
+        }
+
+
+
+
+        header h1 {
+            font-size: 1.75rem;
+        }
+
+        header p {
+            font-size: .9rem;
+            color: rgba(0, 0, 0, 0.5);
+        }
+
+        footer p {
+            color: rgba(0, 0, 0, 0.5);
+            font-size: .9rem;
+        }
+
+
+        main {
+            display: flex;
+            flex-direction: column;
+            inline-size: min(65ch, 100%);
+            margin: 0 auto;
+            padding-inline: 1rem;
+        }
+
+        article p {
+            line-height: 2;
+            margin-bottom: 2rem;
+        }
+
+        .speaker {
+            /* font-weight: 600; */
+            color: rgba(0, 0, 0, 0.8);
+            font-style: italic;
+            position: relative;
+            padding-top: 3rem;
+        }
+
+        .speaker::before{
+            content: "question";
+            text-transform: uppercase;
+            padding: .125rem .5rem;
+            border-radius: .25rem;
+            position: absolute;
+            top: 0;
+            left: 0;
+            background-color: black;
+            color: white;
+        }
+
+        .response{
+            position: relative;
+            padding-top: 3rem;
+        }
+
+        .response::before{
+            content: "response";
+            text-transform: uppercase;
+            padding: .125rem .5rem;
+            border-radius: .5rem;
+            position: absolute;
+            top: 0;
+            right: 0;
+            background-color: lightcyan;
+            color: black;
+            font-weight: 600;
+            border: .2rem solid black;
+        }
+
+        
+
+        a {
+            font-size: inherit;
+            color: black;
+            font-weight: 600;
+        }
+
+        figure{
+            margin: 0;
+            margin-block: 2rem;
+        }
+
+        img{
+            width: 100%;
+            max-width: 100%;
+            border-radius: .5rem;
+        }
+
+        figcaption{
+            margin-block: 1rem;
+            color: rgba(0, 0, 0, 0.8);
+            font-size: .8rem;
+            padding-bottom: 1rem;
+            border-bottom: 1px solid rgba(0, 0, 0, 0.5);
+        }
+    </style>
+
+<body>
+    <header>
+        <div class="header-text">
+            <h1>As Colorado River Dries, the U.S. Teeters on the Brink of Larger Water Crisis</h1>
+            <p>The megadrought gripping the western states is only part of the problem. Alternative sources of water are
+                also imperiled, and the nation’s food along with it.
+            </p>
+        </div>
+    </header>
+    <main>
+
+        <article>
+            <p>The western United States is, famously, in the grips of its worst megadrought in a millennium. The
+                Colorado
+                River, which supplies water to more than 40 million Americans and supports food production for the rest
+                of
+                the country, is in imminent peril. The levels in the nation’s largest freshwater reservoir, Lake Mead,
+                behind the Hoover Dam and a fulcrum of the Colorado River basin, have dropped to around 25% of capacity.
+                The
+                Bureau of Reclamation, which governs lakes Mead and Powell and water distribution for the southern end
+                of
+                the river, has issued an ultimatum: The seven states that draw from the Colorado must find ways to cut
+                their
+                consumption — by as much as 40% — or the federal government will do it for them. Last week those states
+                failed to agree on new conservation measures by deadline. Meanwhile, next door, California, which draws
+                from
+                the Colorado, faces its own additional crises, with snowpack and water levels in both its reservoirs and
+                aquifers all experiencing a steady, historic and climate-driven decline. It’s a national emergency, but
+                not
+                a surprise, as scientists and leaders have been warning for a generation that warming plus overuse of
+                water
+                in a fast-growing West would lead those states to run out.</p>
+
+            <p>
+                I recently sat down with Jay Famiglietti, the executive director of the Global Institute for Water
+                Security at the University of Saskatchewan, to talk about what comes next and what the public still
+                doesn’t understand about water scarcity in the United States. Before moving to Canada, Famiglietti was a
+                lead researcher at NASA’s water science program at the Jet Propulsion Laboratory in Pasadena,
+                California, and a member of the faculty at the University of California, Irvine. He pioneered the use of
+                the Gravity Recovery and Climate Experiment satellites to peer into the earth’s mass and measure changes
+                in its underground water supplies. The Colorado River crisis is urgent, Famiglietti said, but the
+                hidden, underground water crisis is even worse. We talked about what U.S. leaders either won’t
+                acknowledge or don’t understand and about how bad things are about to get.
+            </p>
+
+            <p>
+                Our conversation has been edited for length and clarity.
+            </p>
+            <p class="speaker">
+                Let’s start with the Colorado River because it’s in the news. The federal government has put some
+                extraordinary numbers out there, suggesting water users cut between 2 and 4 million acre-feet of water
+                usage starting this year — roughly 40% of the entire river’s recent flow. How could that possibly
+                happen?
+            </p>
+            <p class="response">
+                It’s going to be really hard. We’re looking at drastically reduced food production and the migration of
+                agriculture to other parts of the country and real limits on growth, especially in desert cities like
+                Phoenix. My fear is that groundwater will, as usual, be left out of the discussion — groundwater is
+                mostly unprotected, and it’s going to be a real shit show.
+            </p>
+            <figure>
+                <img src="../images/fw5.jpg" alt="screenshot of the firewatch game">
+                <figcaption>
+                    A scenery screenshot of the firewatch game.
+                </figcaption>
+            </figure>
+            <p class="speaker">
+                Remind us how that happens. States and farmers cut back on the Colorado River, and California and
+                Arizona just start pumping all the water out of their aquifers?
+            </p>
+            <p class="response">
+                Yeah. This started with the drought contingency plan [the 2018 legal agreement among the states on the
+                Colorado River]. Arizona had to cut nearly 20% of its Colorado River water. To placate the farmers, the
+                deal was that they would have free access to the groundwater. In fact, something like $20 million was
+                allocated to help them dig more wells. So, it was just a direct transfer from surface water to
+                groundwater. Right away, you could see that the groundwater depletion was accelerating. With this latest
+                round, I’m afraid we’re just going to see more of that.
+            </p>
+            <p class="speaker">
+                Some of that groundwater actually gets used to grow feed for cattle in the Middle East or China, right?
+                There’s Saudi-owned agriculture firms planting alfalfa, which uses more water than just about anything,
+                and it’s not for American food supply. Do I have that right?
+            </p>
+            
+            <p class="response">
+                There’s been other buyers from other countries coming in, buying up that land, land grabbing and
+                grabbing the water rights. That’s happening in Arizona.
+            </p>
+            <figure>
+                <img src="../images/fw2.jpg" alt="screenshot of the firewatch game">
+                <figcaption>
+                    A sunset screenshot of the firewatch game.
+                </figcaption>
+            </figure>
+            <p class="speaker">
+                What about in California? Groundwater depletion has caused the earth to sink in on itself. Parts of the
+                Central Valley are 28 feet lower today than they were a century ago.
+            </p>
+            <p class="response">
+                California passed the Sustainable Groundwater Management Act in 2014, which mandated an extraordinarily
+                long time horizon: two years to form the Groundwater Sustainability Agencies and then five years for
+                each GSA to come up with its sustainability plan. So that’s now: 2022. And then 20 years to come into
+                sustainability. My fear is that the slow implementation will allow for too much groundwater depletion to
+                happen. It’s sort of the same old, same old.
+            </p>
+        </article>
+    </main>
+    <footer>
+        <div class="footer-text">
+            <p>Article from <a
+                    href="https://www.propublica.org/article/colorado-river-water-shortage-jay-famiglietti">ProPublica</a>.
+            </p>
+            <p>Made on January 1, 2023.</p>
+            <h2>Notes</h2>
+            <p>Getting back into the swing of things with something familiar.</p>
+        </div>
+    </footer>
+
+
+    <script type="module">
+
+
+
+    </script>
+</body>
+
+</html>

@@ -1,0 +1,206 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <link rel="preconnect" href="https://fonts.gstatic.com">
+    <!-- <link rel="icon" type="../image/png" sizes="32x32" href="../images/favicon-32x32.png"> -->
+    <title>11/3/22</title>
+
+
+    <style>
+        * {
+            box-sizing: border-box;
+            font-family: 'Inter', 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
+        }
+
+        ::-webkit-scrollbar {
+            width: 0.8rem;
+            height: 0.5rem;
+        }
+
+        /* Track */
+        ::-webkit-scrollbar-track {
+            background: black;
+        }
+
+        /* Handle */
+        ::-webkit-scrollbar-thumb {
+            background: var(--COL3);
+        }
+
+        /* Handle on hover */
+        ::-webkit-scrollbar-thumb:hover {
+            background: var(--COL2);
+        }
+
+        @font-face {
+            font-family: "Inter";
+            src: url("../fonts/Inter-VariableFont_slnt\,wght.ttf");
+        }
+
+
+
+        html,
+        body {
+            margin: 0;
+            height: 100vh;
+            max-height: 100vh;
+        }
+
+        ul {
+            margin: 0;
+            padding: 0;
+        }
+
+        li {
+            list-style-type: none;
+        }
+
+        h1,
+        h2,
+        h3,
+        h4 {
+            margin: 0;
+            padding: 0;
+
+        }
+
+        :root {
+            --RED: hsl(0, 78%, 62%);
+            --CYAN: hsl(180, 63%, 84%);
+            --ORANGE: hsl(34, 97%, 64%);
+            --BLUE: hsl(212, 89%, 82%);
+            --GREY: rgba(0, 0, 0, 0.3);
+            --BORDER-RADIUS: 1rem;
+            --COL1: #db0a5b;
+            --COL2: #fef160;
+            --COL3: #23cba7;
+            --COL4: #3e6ceb;
+            --COL5: #d9c8ec;
+
+
+            --FONT-SIZE: 1.2rem;
+            --WIDTH: 500px;
+            --SIZE: 150px;
+        }
+
+        main {
+            display: grid;
+            height: 100vh;
+            background-color: #f3f3f3;
+            place-items: center;
+        }
+
+        .card {
+            aspect-ratio: 2/3;
+            border-radius: var(--BORDER-RADIUS);
+            background-color: black;
+            width: 50vmin;
+            min-width: 280px;
+            overflow: hidden;
+            transform-style: preserve-3d;
+        }
+
+        .card:before {
+            content: "";
+            inset: 0;
+            position: absolute;
+            background: linear-gradient(115deg,
+                    transparent 20%,
+                    rgb(138, 234, 138) 30%,
+                    transparent 48% 52%,
+                    rgb(157, 103, 196) 70%,
+                    transparent) 80% 80% / 300% 300%;
+            filter: brightness(2) contrast(1);
+            background-blend-mode: overlay;
+            mix-blend-mode: color-dodge;
+            opacity: .2;
+            transition: opacity .2s;
+            z-index: 2;
+        }
+
+        .card::after {
+            content: "";
+            position: absolute;
+            inset: 0;
+            background: radial-gradient(circle at calc(var(--ratio-x) * 100%) calc(var(--ratio-y) * 100%), hsl(0 0% 100% / 0.5), transparent 50%);
+            background-repeat: no-repeat;
+            background-blend-mode: soft-light;
+            z-index: 2;
+        }
+
+        .card:hover {
+            transform: rotateX(calc((var(--ratio-y) - 0.5) * 50deg)) rotateY(calc((var(--ratio-x) - 0.5) * -40deg));
+        }
+
+        .card:hover:before {
+            background-position: calc(var(--ratio-x) * 10%) calc(var(--ratio-y) * 10%),
+                calc(80% + (var(--ratio-x) * -50%)) calc(80% + (var(--ratio-y) * -50%));
+            opacity: 1;
+        }
+
+        .card img {
+            object-fit: cover;
+            border-radius: var(--BORDER-RADIUS);
+            height: 100%;
+            width: 100%;
+            translate: 0 0;
+            transform: scale(1.2);
+        }
+
+        .card:not(:hover) img {
+            transition: translate .2s;
+        }
+
+        .card:not(:hover) {
+            transform: rotateX(0deg) rotateY(0deg);
+            transition: transform 0.2s;
+        }
+
+
+
+        .card:hover img {
+            translate: calc((var(--ratio-x) - .5) * 20%) calc((var(--ratio-y) - .5) * 20%);
+        }
+    </style>
+
+<body>
+    <main>
+        <div class="card">
+            <img src="../images/59.jpg" alt="an image" />
+        </div>
+    </main>
+
+
+    <script type="module">
+
+        const card = document.querySelector(".card");
+        console.log(card);
+
+
+        const cardUpdate = ({ x, y }) => {
+
+            // console.log(`${x} ${y}`);
+            // console.log(this);
+            const BOUNDS = card.getBoundingClientRect();
+            // console.log(BOUNDS)
+            const posX = x - BOUNDS.x;
+            const posY = y - BOUNDS.y;
+            const ratioX = posX / BOUNDS.width;
+            const ratioY = posY / BOUNDS.height;
+            card.style.setProperty("--ratio-x", ratioX);
+            card.style.setProperty("--ratio-y", ratioY);
+
+        }
+
+        document.body.addEventListener("pointermove", cardUpdate);
+
+
+
+    </script>
+</body>
+
+</html>

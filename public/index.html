@@ -15,22 +15,22 @@
             box-sizing: border-box;
             font-size: 16px;
             font-family: 'Inter', sans-serif;
-            
+
         }
 
-        :root{
+        :root {
             --FONT_COLOR: black;
-            --BACKGROUND_COLOR: #f3f3f3; 
-            --FONT_COLOR_TRANSPARENT: rgba(0,0,0,0.1);
+            --BACKGROUND_COLOR: #f3f3f3;
+            --FONT_COLOR_TRANSPARENT: rgba(0, 0, 0, 0.1);
             --BACKGROUND_COLOR_TRANSPARENT: rgba(255, 255, 255, 0.1);
         }
 
 
-        [data-theme='dark']{
+        [data-theme='dark'] {
             --FONT_COLOR: #f3f3f3;
             --BACKGROUND_COLOR: black;
             --FONT_COLOR_TRANSPARENT: rgba(255, 255, 255, 0.3);
-            --BACKGROUND_COLOR_TRANSPARENT: rgba(0,0,0,0.1);
+            --BACKGROUND_COLOR_TRANSPARENT: rgba(0, 0, 0, 0.1);
         }
 
         ::-webkit-scrollbar {
@@ -62,14 +62,15 @@
             position: relative;
         }
 
-        h1, h2 {
+        h1,
+        h2 {
             margin: 0;
             padding: 0;
             font-size: 2rem;
             color: var(--FONT_COLOR);
         }
 
-      
+
 
         .header-text {
             font-size: 3rem;
@@ -119,9 +120,10 @@
         ul {
             grid-column: content-start/content-end;
             display: grid;
-            grid-template-columns: repeat(2, 100%);
+            grid-template-columns: repeat(3, 100%);
             overflow-x: hidden;
             scroll-snap-type: x mandatory;
+            scroll-behavior: smooth;
         }
 
         li {
@@ -132,7 +134,7 @@
             flex-shrink: 0;
         }
 
-        label{
+        label {
             color: var(--FONT_COLOR);
             cursor: pointer;
             font-size: .9rem;
@@ -174,12 +176,12 @@
             background-color: var(--FONT_COLOR_TRANSPARENT);
         }
 
-        .component-container{
+        .component-container {
             display: flex;
             align-items: center;
         }
 
-        .config{
+        .config {
             margin: 1rem 0;
             padding: 1rem 0;
         }
@@ -198,32 +200,30 @@
             box-sizing: content-box;
         }
 
-        .toggle::after{
+        .toggle::after {
             width: var(--HEIGHT);
             height: var(--HEIGHT);
             border-radius: 50%;
             display: block;
             content: "";
-            background-color: var(--BACKGROUND_COLOR);            
+            background-color: var(--BACKGROUND_COLOR);
             transform: translateX(var(--DISPLACEMENT));
             transition: transform .3s ease-in, box-shadow .3s ease-in;
-            box-shadow: 0 0 0rem 0rem  transparent;
+            box-shadow: 0 0 0rem 0rem transparent;
         }
 
         .toggle:hover::after {
-            box-shadow: 0 0 0rem .75rem  var(--FONT_COLOR_TRANSPARENT);
+            box-shadow: 0 0 0rem .75rem var(--FONT_COLOR_TRANSPARENT);
         }
 
         .toggle:checked {
             --DISPLACEMENT: 100%;
         }
 
-        .intro{
+        .intro {
             color: var(--FONT_COLOR);
             margin-bottom: 2rem;
         }
-
-
     </style>
 
 <body>
@@ -248,7 +248,14 @@
                     <p>Yes, most of it is not very good. It's sorted by year and date.</p>
                 </section>
                 <section>
+                    <h2>2023</h2>
+                    <ul class="list" id="2023"></ul>
+                </section>
+            </li>
+            <li>
+                <section class="intro">
                     <h2>2022</h2>
+                    <p>There will be a summary at some point.</p>
                     <ul class="list" id="2022"></ul>
                 </section>
             </li>
@@ -282,11 +289,11 @@
         const themeToggle = document.getElementById("theme-toggle");
 
 
-        themeToggle.addEventListener("change",  e=> {
-            if(e.target.checked){
+        themeToggle.addEventListener("change", e => {
+            if (e.target.checked) {
                 console.log('dark')
                 document.documentElement.setAttribute("data-theme", "dark");
-            }else{
+            } else {
                 console.log('light')
                 document.documentElement.setAttribute("data-theme", "light");
             }
@@ -294,12 +301,14 @@
 
         function scrollLeft() {
             console.log('left');
-            slideContainer.scrollTo({ left: -500, behavior: 'smooth' });
+            // slideContainer.scrollTo({ left: -500, behavior: 'smooth' });
+            slideContainer.scrollLeft -= 500;
         }
 
         function scrollRight() {
             console.log('right');
-            slideContainer.scrollTo({ left: 500, behavior: 'smooth' });
+            // slideContainer.scrollTo({ left: 500, behavior: 'smooth' });
+            slideContainer.scrollLeft += 500;
 
         }
 
@@ -316,6 +325,7 @@
         window.addEventListener("load", () => {
             const root = document.getElementById("2021");
             const root22 = document.getElementById("2022");
+            const root23 = document.getElementById("2023");
 
 
             const params = new URLSearchParams(window.location.search);
@@ -344,6 +354,15 @@
                 }
 
             };
+
+            for (let i = 0; i < urls["2023"].length; i++) {
+
+                if (urls["2023"][i].visible || showAll) {
+                    const currentListItem23 = makeListItem(urls["2023"][i]);
+                    root23.appendChild(currentListItem23);
+                }
+
+            };
         });
 
 
@@ -356,7 +375,7 @@
             const anchor = document.createElement("a");
             const textblurb = document.createElement("p");
             textblurb.textContent = description;
-            if (year === 2022) {
+            if (year !== 2021) {
                 // console.log(data.link);
                 if (location.hostname.includes("localhost")) {
                     anchor.href = `/public${data.link}`;

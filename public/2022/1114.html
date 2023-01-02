@@ -1,0 +1,183 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <link rel="preconnect" href="https://fonts.gstatic.com">
+    <!-- <link rel="icon" type="../image/png" sizes="32x32" href="../images/favicon-32x32.png"> -->
+    <title>11/14/22</title>
+
+
+    <style>
+        * {
+            box-sizing: border-box;
+            font-family: 'Inter', 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
+        }
+
+        ::-webkit-scrollbar {
+            width: 0.8rem;
+            height: 0.5rem;
+        }
+
+        /* Track */
+        ::-webkit-scrollbar-track {
+            background: black;
+        }
+
+        /* Handle */
+        ::-webkit-scrollbar-thumb {
+            background: var(--COL3);
+        }
+
+        /* Handle on hover */
+        ::-webkit-scrollbar-thumb:hover {
+            background: var(--COL2);
+        }
+
+        @font-face {
+            font-family: "Inter";
+            src: url("../fonts/Inter-VariableFont_slnt\,wght.ttf");
+        }
+
+
+
+        html,
+        body {
+            margin: 0;
+            height: 100vh;
+        }
+
+        ul {
+            margin: 0;
+            padding: 0;
+        }
+
+        li {
+            list-style-type: none;
+        }
+
+        h1,
+        h2,
+        h3,
+        h4 {
+            margin: 0;
+            padding: 0;
+
+        }
+
+        :root {
+            --RED: hsl(0, 78%, 62%);
+            --CYAN: hsl(180, 63%, 84%);
+            --ORANGE: hsl(34, 97%, 64%);
+            --BLUE: hsl(212, 89%, 82%);
+            --GREY: rgba(0, 0, 0, 0.3);
+
+            --COL1: #db0a5b;
+            --COL2: #fef160;
+            --COL3: #23cba7;
+            --COL4: #3e6ceb;
+            --COL5: #d9c8ec;
+
+            --BORDER-RADIUS: 1rem;
+            --FONT-SIZE: 1.2rem;
+            --WIDTH: 500px;
+            --SIZE: 150px;
+        }
+
+
+        main {
+            display: grid;
+            grid-template-columns: 1fr [content-start] min(65ch, 100%) [content-end] 1fr;
+            grid-template-rows: 100vh;
+            grid-auto-rows: 50vh;
+            background: rgb(248, 240, 255);
+            background: radial-gradient(circle, rgba(248, 240, 255, 1) 54%, rgba(217, 239, 244, 1) 64%, rgba(228, 228, 237, 1) 93%);
+        }
+
+        main>section {
+            grid-column: content-start/content-end;
+            display: grid;
+            place-items: center;
+            margin: 0 1rem;
+        }
+
+
+        .container {
+            inline-size: min(65ch, 100%);
+            
+        }
+
+        .container h1 {
+            font-size: 4rem;
+            --BORDER-WIDTH: 5px;
+        }
+
+        .container h1 * {
+            margin-bottom: 1rem;
+        }
+
+        .container h1:last-child{
+            margin-bottom: 0;
+        }
+
+        .not-outline-text {
+            display: grid;
+            grid-template-columns: auto 1fr;
+            font-weight: 800;
+            gap: 1rem;
+        }
+
+        .not-outline-text::after {
+            
+            content: "";
+            border: var(--BORDER-WIDTH) solid black;
+            height: calc(100% - 2 * var(--BORDER-WIDTH));
+            align-self: center;
+            border-radius: .5rem;
+        }
+
+        .outline-text {
+            -webkit-text-stroke-width: .5px;
+            -webkit-text-stroke-color: black;
+            color: transparent;
+            display: grid;
+        
+            grid-template-columns: 1fr auto;
+        }
+
+        .outline-text::before{
+            content: "";
+            border-radius: .5rem;
+            border: var(--BORDER-WIDTH) solid black;
+            background: rgb(242,228,255);
+background: linear-gradient(90deg, rgba(242,228,255,1) 54%, rgba(217,239,244,1) 64%, rgba(228,228,237,1) 93%);
+            height: calc(100% - 2 * var(--BORDER-WIDTH));
+            margin-right: 1rem;
+            align-self: center;
+        }
+    </style>
+
+<body>
+    <main>
+        <section class="full-bleed">
+            <div class="container">
+                <h1>
+                    <div class='not-outline-text'>Robert's </div>
+                    <div class='outline-text'>Discards</div>
+                </h1>
+            </div>
+
+        </section>
+    </main>
+
+
+    <script type="module">
+
+
+
+    </script>
+</body>
+
+</html>

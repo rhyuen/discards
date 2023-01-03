@@ -8,6 +8,17 @@
             "visible": true,
             "description": "Styled article from Propublica.  Starting off with something simple.",
             "reference": []
+        },
+        {
+            "month": 1,
+            "day": 2,
+            "year": 2023,
+            "link": "/2023/0102.html",
+            "visible": false,
+            "description": "Intersection Observer Attempt",
+            "reference": [
+                "https://codepen.io/jh3y/pen/xxWyEBQ"
+            ]
         }
     ],
     "2022": [

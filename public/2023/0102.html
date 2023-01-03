@@ -1,0 +1,203 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <link rel="preconnect" href="https://fonts.gstatic.com">
+    <!-- <link rel="icon" type="../image/png" sizes="32x32" href="../images/favicon-32x32.png"> -->
+    <title>01/01/23</title>
+
+
+    <style>
+        * {
+            box-sizing: border-box;
+            font-size: 16px;
+            font-family: 'Inter', 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
+        }
+
+        ::-webkit-scrollbar {
+            width: 0.8rem;
+            height: 0.5rem;
+        }
+
+        /* Track */
+        ::-webkit-scrollbar-track {
+            background: black;
+        }
+
+        /* Handle */
+        ::-webkit-scrollbar-thumb {
+            background: var(--COL3);
+        }
+
+        /* Handle on hover */
+        ::-webkit-scrollbar-thumb:hover {
+            background: var(--COL2);
+        }
+
+        @font-face {
+            font-family: "Inter";
+            src: url("../fonts/Inter-VariableFont_slnt\,wght.ttf");
+        }
+
+
+
+        html,
+        body {
+            margin: 0;
+            height: 100vh;
+        }
+
+        ul {
+            margin: 0;
+            padding: 0;
+        }
+
+        li {
+            list-style-type: none;
+        }
+
+        h1,
+        h2,
+        h3,
+        h4 {
+            margin: 0;
+            padding: 0;
+
+        }
+
+        :root {
+            --RED: hsl(0, 78%, 62%);
+            --CYAN: hsl(180, 63%, 84%);
+            --ORANGE: hsl(34, 97%, 64%);
+            --BLUE: hsl(212, 89%, 82%);
+            --GREY: rgba(0, 0, 0, 0.3);
+
+            --COL1: #db0a5b;
+            --COL2: #fef160;
+            --COL3: #23cba7;
+            --COL4: #3e6ceb;
+            --COL5: #d9c8ec;
+
+            --BORDER-RADIUS: 1rem;
+            --FONT-SIZE: 1.2rem;
+            --WIDTH: 500px;
+            --SIZE: 150px;
+        }
+
+
+
+
+
+        main {
+            display: grid;
+            inline-size: min(80ch, 100%);
+            margin: 0 auto;
+            padding-inline: 1rem;
+            grid-template-columns: repeat(auto-fit, minmax(200px, 1fr));
+            gap: .5rem;
+            /* transition: all .5s ease-in; */
+        }
+
+        figure {
+            margin: 0;
+            padding: 0;
+        }
+
+        .tile {
+            width: 100%;
+
+            aspect-ratio: 1;
+            transition: all .5s cubic-bezier(.5, 1, .75, 1.25);
+            transform: scale(calc(0.25 + (var(--shown, 1) * 0.75)));
+        }
+
+        img {
+            max-width: 100%;
+            object-fit: cover;
+            height: 100%;
+            width: 100%;
+            background-color: lightcyan;
+
+        }
+    </style>
+
+<body>
+    <main id="mp">
+
+    </main>
+    <footer>
+        <p>Created on January 2, 2023</p>
+        <p>An attempt at using Intersection Observer.  Couldn't get it to work like in the demo.</p>
+        <p>Used <a href="https://codepen.io/jh3y/pen/xxWyEBQ">this</a> as reference.</p>
+    </footer>
+
+
+    <script type="module">
+        import data from "../data/imgs.json" assert {type: "json"};
+
+        const { general, nature, space, abstract } = data;
+
+        const list = general.concat(nature, space, abstract);
+        const mp = document.getElementById("mp");
+
+        const handleIntersection = (entries, observer) => {
+            console.log('inter')
+            for (let e of entries) {
+                e.target.style.setProperty("--shown", e.isIntersecting ? 1 : 0);
+            }
+        }
+
+        const ROOT = document.querySelector("main");
+
+        const OPTIONS = {
+            root: ROOT,
+            rootMargin: "0px",
+            threshold: 0
+        };
+
+        const observer = new IntersectionObserver(handleIntersection, OPTIONS);
+
+
+
+        function createImageTile(data) {
+
+            const { url, description } = data;
+            const figure = document.createElement("figure");
+            const img = document.createElement("img");
+            img.src = url;
+            img.alt = description;
+            figure.classList.add("tile");
+            figure.appendChild(img);
+            return figure;
+        }
+
+        function createTile() {
+            const div = document.createElement("div");
+            div.classList.add('tile');
+            return div;
+        }
+
+
+        for (let i = 0; i < list.length; i++) {
+            // mp.appendChild(createTile());
+            mp.appendChild(createImageTile(list[i]));
+        }
+        for (let i = 0; i < list.length; i++) {
+            // mp.appendChild(createTile());
+            mp.appendChild(createImageTile(list[i]));
+        }
+
+        const TILES = document.querySelectorAll(".tile");
+
+        TILES.forEach(t => {
+
+            return observer.observe(t);
+        });
+
+    </script>
+</body>
+
+</html>

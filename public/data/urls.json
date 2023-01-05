@@ -14,10 +14,21 @@
             "day": 2,
             "year": 2023,
             "link": "/2023/0102.html",
-            "visible": false,
+            "visible": true,
             "description": "Intersection Observer Attempt",
             "reference": [
                 "https://codepen.io/jh3y/pen/xxWyEBQ"
+            ]
+        },
+        {
+            "month": 1,
+            "day": 4,
+            "year": 2023,
+            "link": "/2023/0104.html",
+            "visible": true,
+            "description": "A pedestrian form and list.  List scrolls to the bottom on submit.  Re-learned the difference between 'change' and 'input' for .addEventListener().  For the former, you only see the change after you lose focus.  Submission is prevented if the form is empty.",
+            "reference": [
+                "https://stackoverflow.com/a/56507377", "https://stackoverflow.com/a/7526666"
             ]
         }
     ],

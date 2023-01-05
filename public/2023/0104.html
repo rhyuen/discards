@@ -1,0 +1,292 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <link rel="preconnect" href="https://fonts.gstatic.com">
+    <!-- <link rel="icon" type="../image/png" sizes="32x32" href="../images/favicon-32x32.png"> -->
+    <title>01/01/23</title>
+
+
+    <style>
+        * {
+            box-sizing: border-box;
+            font-size: 16px;
+            font-family: 'Inter', 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
+        }
+
+        ::-webkit-scrollbar {
+            width: 0.8rem;
+            height: 0.5rem;
+        }
+
+        /* Track */
+        ::-webkit-scrollbar-track {
+            background: black;
+        }
+
+        /* Handle */
+        ::-webkit-scrollbar-thumb {
+            background: var(--COL3);
+        }
+
+        /* Handle on hover */
+        ::-webkit-scrollbar-thumb:hover {
+            background: var(--COL2);
+        }
+
+        @font-face {
+            font-family: "Inter";
+            src: url("../fonts/Inter-VariableFont_slnt\,wght.ttf");
+        }
+
+
+
+        html,
+        body {
+            margin: 0;
+            height: 100vh;
+        }
+
+        ul {
+            margin: 0;
+            padding: 0;
+        }
+
+        li {
+            list-style-type: none;
+        }
+
+        h1,
+        h2,
+        h3,
+        h4 {
+            margin: 0;
+            padding: 0;
+
+        }
+
+        :root {
+            --RED: hsl(0, 78%, 62%);
+            --CYAN: hsl(180, 63%, 84%);
+            --ORANGE: hsl(34, 97%, 64%);
+            --BLUE: hsl(212, 89%, 82%);
+            --GREY: rgba(0, 0, 0, 0.3);
+
+            --COL1: #db0a5b;
+            --COL2: #fef160;
+            --COL3: #23cba7;
+            --COL4: #3e6ceb;
+            --COL5: #d9c8ec;
+
+            --BORDER-RADIUS: .5rem;
+            --FONT-SIZE: 1.2rem;
+            --WIDTH: 500px;
+            --SIZE: 150px;
+        }
+
+
+
+        main{
+            display: grid;
+            grid-template-columns: 1fr [content-start] min(60ch, 100%) [content-end] 1fr;
+            padding: 0 1rem;
+        }
+
+        main > * {
+            grid-column: content-start/content-end;
+        }
+
+        .row{
+            display: flex;
+            flex-direction: column;
+            margin-bottom: 1rem;
+        }
+
+        .row label{
+           
+            font-size: 1rem;
+            font-weight: 600;
+            margin-bottom: .5rem;
+        }
+
+        .row input[type='text']{
+            padding: 1rem;
+            border-radius: var(--BORDER-RADIUS);
+            border: 1px solid black;
+        }
+
+
+        .row input[type='submit']{
+            padding: 1rem;
+            background-color: black;
+            color: white;
+            font-weight: 600;
+            cursor: pointer;
+            border-radius: var(--BORDER-RADIUS);
+        }
+
+        .row input[type='submit']:disabled{
+            background-color: gray;
+            cursor: not-allowed;
+        }
+
+        h1{
+            font-size: 2rem;
+            margin: 2rem 0;
+            padding: 5rem 0;
+        }
+
+        form {
+            margin-top: 5rem;
+        }
+
+        .list{
+            margin-top: 2rem;
+            border-top: 4px solid rgba(0, 0, 0, 0.1);
+            overflow-y: scroll;
+            display: flex;
+            flex-direction: column;
+            margin-bottom: 2rem;
+            max-height: 35rem;
+            scroll-behavior: smooth;
+        }
+
+        .list li{
+            transition: all .2s ease-in-out;
+            padding: 1rem;
+            border-radius: var(--BORDER-RADIUSs);
+        }
+
+        .list li:hover {
+            background-color: rgb(245, 241, 241);
+        }
+
+        .list-heading{
+            font-weight: 600;
+            font-size: 1.2rem;
+        }
+    </style>
+
+<body>
+    <main>
+        <h1>Thoughts in the Cloud.</h1>
+        <form id="thought-form">
+            <div class="row">
+                <label for="thoughts">Thoughts</label>
+                <input type="text" id="thoughts" name="thoughts" placeholder="Your thoughts go here.">
+            </div>
+            <div class="row">
+                <input id="submit-form" type="submit" value="Save" disabled/>
+            </div>
+        </form>
+        <ul id="list" class="list">
+
+        </ul>
+    </main>
+    <script>
+        const list = document.getElementById("list");
+        const form = document.getElementById("thought-form");
+        const thoughtField = document.getElementById("thoughts");
+        const submit = document.getElementById("submit-form");
+
+
+        const thoughts = [
+            {
+                date: new Date(new Date() - 12000009822).toLocaleDateString(),
+                text: "Le Sigh"
+            },
+            {
+                date: new Date(new Date() + 1000).toLocaleDateString(),
+                text: "I really should have a file with dummmy data."
+            },
+
+            {
+                date: new Date(new Date() - 992000009822).toLocaleDateString(),
+                text: "I am running out of ideas for this stuff."
+            },
+            {
+                date: new Date(new Date() - 99202009822).toLocaleDateString(),
+                text: "Boop."
+            },
+            {
+                date: new Date(new Date() - 9822).toLocaleDateString(),
+                text: "space the final frontier."
+            },
+            {
+                date: new Date(new Date() + 992000009822).toLocaleDateString(),
+                text: "I am 110 years old."
+            },
+            {
+                date: new Date(new Date() + 992000009822).toLocaleDateString(),
+                text: "Overscroll, right?"
+            },
+            {
+                date: new Date(new Date() + 992000009822).toLocaleDateString(),
+                text: "The best beverage is root bear.  I'll hear nothing of how it tastes like toothpaste."
+            }
+        ];
+
+        function makeThought(text){
+            const thought = {
+                date: new Date().toLocaleDateString(),
+                text
+            };
+            return thought;
+        }
+        
+        function renderThought(thought){
+            const {date, text} = thought;
+            const item = document.createElement("li");
+            const heading = document.createElement("p");
+            heading.classList.add("list-heading");
+            heading.textContent = date;
+            const renderedText = document.createElement("p");
+            renderedText.textContent = text;
+            item.appendChild(heading);
+            item.appendChild(renderedText);
+            return item;
+        }
+
+        //input instead of change for eventlistener
+        //if you use chnage, then it doesn't the chnage until you lose focus
+        //i think this has happened before, but i completely forgot about it.
+        //reference: https://stackoverflow.com/a/56507377
+        thoughtField.addEventListener("input", e => {
+            if(thoughtField.value === ''){
+                submit.disabled = true;
+            }else{
+                submit.disabled = false;
+            }
+        });
+
+        form.addEventListener("submit", e => {
+            e.preventDefault();
+
+            if(thoughtField.value === ""){
+                return;
+            }
+
+            thoughts.push(makeThought(thoughtField.value));
+            list.appendChild(renderThought(makeThought(thoughtField.value)));
+            thoughtField.value="";
+            submit.disabled = true;
+            list.scrollTop += list.scrollHeight;
+
+        });
+
+        window.addEventListener("load", () => {
+            console.log('hi')
+            for(let i = 0 ; i < thoughts.length; i++){
+                list.appendChild(renderThought(thoughts[i]));
+            }            
+
+            thoughtField.focus();
+            list.scrollTop += 2000;
+        });
+    </script>
+</body>
+
+</html>

@@ -30,6 +30,17 @@
             "reference": [
                 "https://stackoverflow.com/a/56507377", "https://stackoverflow.com/a/7526666"
             ]
+        },
+        {
+            "month": 1,
+            "day": 6,
+            "year": 2023,
+            "link": "/2023/0106.html",
+            "visible": true,
+            "description": "A typical landing page.  Colours inspired by Mailchimp.  Practice with the Pancake/Accordion Component.",
+            "reference": [
+                "https://twitter.com/hobdaydesign/status/1611023577737723909/photo/4", "https://web.dev/one-line-layouts/#07-ram-repeat,-auto,-minmax-grid-template-columnsauto-fit,-minmaxlessbasegreater,-1fr"
+            ]
         }
     ],
     "2022": [

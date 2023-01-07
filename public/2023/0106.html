@@ -1,0 +1,366 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <link rel="preconnect" href="https://fonts.gstatic.com">
+    <!-- <link rel="icon" type="../image/png" sizes="32x32" href="../images/favicon-32x32.png"> -->
+    <title>01/01/23</title>
+
+
+    <style>
+        * {
+            box-sizing: border-box;
+            font-size: 16px;
+            font-family: 'Inter', 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
+        }
+
+        ::-webkit-scrollbar {
+            width: 0.8rem;
+            height: 0.5rem;
+        }
+
+        /* Track */
+        ::-webkit-scrollbar-track {
+            background: black;
+        }
+
+        /* Handle */
+        ::-webkit-scrollbar-thumb {
+            background: var(--COL3);
+        }
+
+        /* Handle on hover */
+        ::-webkit-scrollbar-thumb:hover {
+            background: var(--COL2);
+        }
+
+        @font-face {
+            font-family: "Inter";
+            src: url("../fonts/Inter-VariableFont_slnt\,wght.ttf");
+        }
+
+        @font-face {
+            font-family: "Fraunces";
+            src: url("../fonts/Fraunces-VariableFont_SOFT\,WONK\,opsz\,wght.ttf");
+        }
+
+
+
+        html,
+        body {
+            margin: 0;
+            height: 100vh;
+        }
+
+        ul {
+            margin: 0;
+            padding: 0;
+        }
+
+        li {
+            list-style-type: none;
+        }
+
+        h1,
+        h2,
+        h3,
+        h4 {
+            margin: 0;
+            padding: 0;
+
+        }
+
+        :root {
+            --RED: hsl(0, 78%, 62%);
+            --CYAN: hsl(180, 63%, 84%);
+            --ORANGE: hsl(53, 97%, 64%);
+            --BLUE: hsl(212, 89%, 82%);
+            --GREY: rgba(0, 0, 0, 0.3);
+
+            --COL1: #db0a5b;
+            --COL2: #fef160;
+            --COL3: #23cba7;
+            --COL4: #3e6ceb;
+            --COL5: #d9c8ec;
+
+            --BORDER-RADIUS: .5rem;
+            --FONT-SIZE: 1.2rem;
+            --WIDTH: 500px;
+            --SIZE: 150px;
+
+            --VERT-PADDING: 4rem;
+            --CONTENT-WIDTH: 80ch;
+            --COLUMNS: [start] 1fr [content-start] min(var(--CONTENT-WIDTH), 100%) [content-end] 1fr [end];
+        }
+
+        main {
+            display: grid;
+            grid-template-columns: var(--COLUMNS);
+        }
+
+        main>* {
+            grid-column: content-start/content-end;
+        }
+
+        main>section {
+            padding-block: var(--VERT-PADDING);
+            display: flex;
+            flex-direction: column;
+            padding: 5rem 2rem;
+
+        }
+
+        section h2 {
+            font-size: 2.5rem;
+            padding-bottom: var(--VERT-PADDING);
+        }
+
+        section h3 {
+            font-size: 1.5rem;
+            padding-bottom: calc(0.5*var(--VERT-PADDING));
+        }
+
+
+
+        .full-bleed {
+            grid-column: start/end;
+            background: var(--ORANGE);
+            padding-block: 10rem;
+
+        }
+
+        /*only for full bleed*/
+        .content-container {
+            margin: 0 auto;
+            inline-size: min(var(--CONTENT-WIDTH), 100%);
+            padding: 0 1rem;
+        }
+
+
+        .hero {
+            display: flex;
+            flex-direction: column-reverse;
+            align-items: center;
+            justify-content: space-between;
+        }
+
+        .hero h1 {
+            font-size: 2.5rem;
+            margin-bottom: 1rem;
+            padding-top: 2rem;
+        }
+
+        .hero p {
+            font-size: 1.2rem;
+            margin: 0;
+            font-family: Fraunces;
+        }
+
+        button {
+            margin-top: 2rem;
+            background-color: black;
+            color: white;
+            font-size: 1.1rem;
+            padding: .75rem 2rem;
+            font-weight: 600;
+            inline-size: fit-content;
+            transition: all .2s ease-in-out;
+            border: 4px solid black;
+            cursor: pointer;
+        }
+
+        button:hover {
+            background-color: var(--ORANGE);
+            color: black;
+        }
+
+        .hero .icon {
+            border: 4px solid black;
+            aspect-ratio: 1;
+            width: 20ch;
+            position: relative;
+            padding-bottom: 5rem;
+
+        }
+
+        .hero .icon::before {
+            border: 4px solid black;
+            display: block;
+            width: 100%;
+            height: 100%;
+            content: "";
+            transform: translate(20px, 20px);
+            position: absolute;
+            aspect-ratio: 1;
+        }
+
+
+        .accordion {
+            display: flex;
+            flex-wrap: wrap;
+        }
+
+        .accordion__item {
+            flex: 1 1 180px;
+            display: flex;
+            margin-right: 1rem;
+            flex-direction: column;
+            justify-content: flex-start;
+        }
+
+        .accordion__item:last-child {
+            margin-right: 0;
+        }
+
+        .accordion__item img {
+            margin: 1rem 0;
+            width: 100%;
+            object-fit: cover;
+
+        }
+
+        .accordion__item p {
+            line-height: 1.75;
+            font-size: 1.1rem;
+            font-family: "Fraunces", "Segoe UI";
+            font-weight: 300;
+        }
+
+        .content {}
+
+        .content--left {
+            align-self: flex-start;
+        }
+
+        .content--left button {
+            align-self: flex-start;
+        }
+
+        .content--left>h2 {
+            align-self: flex-start;
+            text-align: left;
+            padding: 0;
+            margin: 0;
+            inline-size: min(40ch, 100%);
+            margin-bottom: 1rem;
+        }
+
+        .content--left>p {
+            font-family: "Fraunces", "Segoe UI";
+            margin: 0;
+            inline-size: min(40ch, 100%);
+            font-size: 1.25rem;
+            font-weight: 300;
+            margin-bottom: 1.5rem;
+        }
+
+        .content--right {
+            align-items: flex-end;
+        }
+
+        .content--right>h2 {
+            inline-size: min(40ch, 100%);
+            align-self: flex-start;
+            margin: 0;
+            padding: 0;
+            text-align: right;
+            margin-bottom: 1rem;
+        }
+
+        .content--right>p {
+            font-family: "Fraunces", "Segoe UI";
+            inline-size: min(40ch, 100%);
+            text-align: right;
+            margin: 0;
+            font-size: 1.25rem;
+            font-weight: 300;
+            margin-bottom: 1.5rem;
+        }
+
+        .content--center p {
+            margin-top: var(--VERT-PADDING);
+            font-size: 1.75rem;
+            font-family: "Fraunces";
+            text-align: center;
+            font-weight: 300;
+        }
+
+
+
+
+
+
+        @media screen and (min-width: 700px) {
+            .hero {
+                flex-direction: row;
+            }
+
+        }
+    </style>
+
+<body>
+    <main>
+        <section class="full-bleed ">
+            <div class="content-container hero">
+                <div>
+                    <h1>Be a champion</h1>
+                    <p>By closing the toilet seat when you flush.</p>
+                    <p>And reducing the germs in the washroom.</p>
+                    <button>Learn more</button>
+                </div>
+                <div class="hero icon">
+
+                </div>
+            </div>
+        </section>
+        <section class="content--center">
+            <h2>A brief description</h2>
+            <img src="../images/fw3.jpg" alt="firewatch screen shot">
+            <p>By shutting the lid of your toilet during flushing, you improve the quality of the air in the room. You
+                also reduce the likelihood of developing a litany of diseases which will be enumerated below. Doing so
+                will increase the net good of the world.</p>
+        </section>
+        <section>
+            <h2>Benefits</h2>
+            <div class="accordion">
+                <div class="accordion__item">
+                    <h3>Pink Eye</h3>
+                    <img src="../images/fw2.jpg" alt="firewatch screenshot" />
+                    <p>Reduce irritation to your eyes.</p>
+                </div>
+                <div class="accordion__item">
+                    <h3>Cholera</h3>
+                    <img src="../images/fw3.jpg" alt="firewatch screenshot" />
+                    <p>Reduce cholera and increase your overall health.</p>
+                </div>
+                <div class="accordion__item">
+                    <h3>Bubonic Plague</h3>
+                    <img src="../images/fw5.jpg" alt="firewatch screenshot" />
+                    <p>Because diseases that have largely been eliminated didn't get that way on their own.</p>
+                </div>
+
+            </div>
+        </section>
+        <section class="content--right">
+            <h2>It's quieter.</h2>
+            <p>The muffled sound may prevent people from waking up in the night, preserving their beauty sleep</p>
+            <button>Learn More</button>
+        </section>
+        <section class="full-bleed">
+            <section class="content--left content-container">
+                <h2>Arguments have been made.</h2>
+                <p>You're convinced now, right? What else can one say at this point?</p>
+                <button>Sign up</button>
+            </section>
+        </section>
+
+    </main>
+    <script>
+
+    </script>
+</body>
+
+</html>

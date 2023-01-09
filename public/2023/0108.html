@@ -1,0 +1,435 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <link rel="preconnect" href="https://fonts.gstatic.com">
+    <!-- <link rel="icon" type="../image/png" sizes="32x32" href="../images/favicon-32x32.png"> -->
+    <title>01/08/23</title>
+
+
+    <style>
+        * {
+            box-sizing: border-box;
+            font-size: 16px;
+            font-family: 'Manrope', 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
+        }
+
+        ::-webkit-scrollbar {
+            width: 0.8rem;
+            height: 0.5rem;
+        }
+
+        /* Track */
+        ::-webkit-scrollbar-track {
+            background: black;
+        }
+
+        /* Handle */
+        ::-webkit-scrollbar-thumb {
+            background: var(--COL3);
+        }
+
+        /* Handle on hover */
+        ::-webkit-scrollbar-thumb:hover {
+            background: var(--COL2);
+        }
+
+        @font-face {
+            font-family: "Manrope";
+            src: url("../fonts/Manrope-VariableFont_wght.ttf");
+        }
+
+        @font-face {
+            font-family: "Fraunces";
+            src: url("../fonts/Fraunces-VariableFont_SOFT\,WONK\,opsz\,wght.ttf");
+        }
+
+
+
+        html,
+        body {
+            margin: 0;
+            height: 100vh;
+            scroll-behavior: smooth;
+        }
+
+        ul {
+            margin: 0;
+            padding: 0;
+        }
+
+        li {
+            list-style-type: none;
+        }
+
+        h1,
+        h2,
+        h3,
+        h4 {
+            margin: 0;
+            padding: 0;
+
+        }
+
+        :root {
+            --RED: hsl(0, 78%, 62%);
+            --CYAN: hsl(180, 63%, 84%);
+            --ORANGE: hsl(53, 97%, 64%);
+            --BLUE: hsl(212, 89%, 82%);
+            --GREY: rgba(0, 0, 0, 0.3);
+
+            --COL1: #db0a5b;
+            --COL2: #fef160;
+            --COL3: #23cba7;
+            --COL4: #3e6ceb;
+            --COL5: #d9c8ec;
+
+            --BORDER-RADIUS: .5rem;
+            --FONT-SIZE: 1.2rem;
+
+            --VERTICAL-PADDING: 10rem;
+            --CONTENT-WIDTH: 80ch;
+            --CONTENT-GRID: 1fr [content-start] min(var(--CONTENT-WIDTH), 100%) [content-end] 1fr
+        }
+
+        button{
+            padding: .5rem 1rem;
+            border: 2px solid black;
+            background: white;
+            font-weight: 600;
+            cursor: pointer;
+        }
+
+        main {
+            display: grid;
+            grid-template-columns: var(--CONTENT-GRID);
+        }
+
+        main>* {
+            grid-column: content-start/content-end;
+            padding: 0 1rem;
+        }
+
+        section{
+            display: flex;
+            flex-direction: column;
+            padding-block: var(--VERTICAL-PADDING);
+        }
+
+        section h2{
+            font-size: 2.5rem;
+            margin-bottom: 2rem;
+        }
+
+        .full-bleed {
+            grid-column: 1/-1;
+        }
+
+        .full-bleed__content {
+            inline-size: min(var(--CONTENT-WIDTH), 100%);
+            margin: 0 auto;
+        }
+
+        .space-between{
+            display: flex;
+            justify-content: space-between;
+            align-items: flex-end;
+        }
+
+        nav {
+            padding-block: calc(0.2 * var(--VERTICAL-PADDING));
+            padding-inline: 1rem;
+
+        }
+
+        nav a{
+            color: black;
+            margin-left: 1rem;
+            font-weight: 400;
+            font-size: 1.2rem;
+        }
+
+        .nav-icon{
+            --WIDTH: 1.5rem;
+            display: block;
+            inline-size: var(--WIDTH);
+            block-size: var(--WIDTH);
+            border: 2px solid black;
+            background-color: white;
+            cursor: pointer;
+            border-radius: 50%;
+            aspect-ratio: 1;
+            margin-left: 0;            
+        }
+
+      
+
+       
+
+
+
+
+        .hero {
+            padding-block: var(--VERTICAL-PADDING);
+            display: flex;
+            flex-direction: row;
+        }
+
+        .hero h1{
+            font-size: 2rem;
+            font-weight: 600;
+        }
+
+        .hero p{
+            font-size: 1.2rem;
+            margin-bottom: 3rem;
+            font-family: "Fraunces";
+        }
+
+        .icon{
+            display: grid;
+            --TILE-SIZE: 1rem;
+            grid-template-columns: repeat(4, minmax(var(--TILE-SIZE), 1fr));
+            grid-template-rows: repeat(4, minmax(var(--TILE-SIZE), 1fr));
+            gap: 0;
+            width: 15rem;
+            aspect-ratio: 1;
+            position: relative;
+            background-color: black;
+        }
+
+        .icon__mask{
+            position: absolute;
+            inset: 0;
+            width: 100%;
+            height: 100%;
+            background: radial-gradient(#f5d1d1, rgba(255,255,255,0.1));
+
+        }
+
+        .icon__tile{
+            aspect-ratio: 1;
+            /* display: none; */
+            grid-column: span 1;
+            grid-row: span 1;
+            height: 100%;
+            width: 100%;
+            background-color: white;
+            content: "";
+            border: 1px solid rgba(0, 0, 0, 0.1);
+        }
+        .icon__tile:nth-child(n + 1){
+            border-top: 1px solid transparent;
+        }
+    
+        .icon__tile:nth-child(n + 4){
+            border-bottom: 1px solid transparent;
+        }
+
+        .picture-container{
+            border: 4px solid black;
+            width: 100%;
+            aspect-ratio: 2/1;
+            margin-block: 2rem;
+        }
+
+        .item__picture{
+            width: 100%;
+            aspect-ratio: 2/1;
+            border: 4px solid black;
+            margin-block: 1.5rem;
+        }
+
+        .blurb p {
+            font-family: "Fraunces", "Segoe UI";
+            line-height: 1.5;
+            font-size: 1.2rem;
+        }
+
+        .accordion{
+            display: flex;
+            flex-wrap: wrap;
+        }
+
+        .accordion__item{
+            display: flex;
+            margin-right: 2rem;
+            flex-direction: column;
+            justify-content: flex-start;
+            flex: 1 1 220px;
+            margin-block: 2rem;
+        }
+
+        .accordion__item:last-child{
+            margin-right: 0;
+        }
+
+        .accordion__item h3{
+            margin-bottom: 1.5rem;
+            font-size: 1.5rem;
+        }
+
+        .accordion__item p{
+            font-family: "Fraunces", "Segoe UI";
+        }
+
+        .contact{
+            padding-bottom: var(--VERTICAL-PADDING);
+        }
+
+        .contact form{
+            display: flex;
+            flex-direction: column;
+        }
+
+        .contact form input[type='email']{
+            background-color: rgba(0, 0, 0, 0.1);
+            padding: .5rem;        
+            border: 4px solid rgba(0, 0, 0, 0.1);
+            margin-bottom: 1.5rem;      
+            transition: all .2s ease-in-out;      
+        }
+
+        .contact form input[type='email']:focus{
+            border-color: black;
+        }
+
+        .contact form input[type='submit']{
+            border: 4px solid black;
+            padding: .5rem 1rem;
+            color: black;
+            background-color: white;
+            font-weight: 600;
+            width: fit-content;
+            cursor: pointer;
+        }
+
+        footer{
+            padding-block: var(--VERTICAL-PADDING);
+            padding-inline: 1rem;
+        }
+
+        footer h2{
+            font-size: 2rem;
+        }
+        
+        
+    </style>
+
+<body>
+    <nav class="full-bleed__content space-between">
+        <div>
+            <a href="#home" class="nav-icon">
+
+            </a>
+        </div>
+        <div>
+            <span>
+                <a href="#about">About</a>
+            </span>
+            <span>
+                <a href="#features">Features</a>
+            </span>
+            <span>
+                <a href="#contact">Contact</a>
+            </span>
+        </div>
+    </nav>
+    <main>
+        <section class="full-bleed full-bleed__content hero space-between">
+            <div>
+                <h1>Hello, I am a human</h1>
+                <p>I eat, breathe and sleep</p>
+                <button>Learn more</button>
+            </div>
+            <div class="icon">
+                <div class="icon__mask"></div>
+                <div class="icon__tile"></div>
+                <div class="icon__tile"></div>
+                <div class="icon__tile"></div>
+                <div class="icon__tile"></div>
+                <div class="icon__tile"></div>
+                <div class="icon__tile"></div>
+                <div class="icon__tile"></div>
+                <div class="icon__tile"></div>
+                <div class="icon__tile"></div>
+                <div class="icon__tile"></div>
+                <div class="icon__tile"></div>
+                <div class="icon__tile"></div>
+                <div class="icon__tile"></div>
+                <div class="icon__tile"></div>
+                <div class="icon__tile"></div>
+                <div class="icon__tile"></div>
+            </div>
+        </section>
+        <section id="about" class="blurb">
+            <h2>About</h2>
+            <div class="picture-container">
+
+            </div>
+            <p>I was made on the planet Earth, probably.  I have two arms, two legs, a torso and a head.  I am the ascendant species and the apex predator on the planet. My dominance is to the point where the Earth cannot contain me and is beginning to become inhospitable for us.</p>                        
+        </section>
+        <section id="features">
+            <h2>Features</h2>
+            
+            <div class="accordion">
+                <div class="accordion__item">
+                    <h3>Extinction</h3>
+                    <div class="item__picture">
+
+                    </div>
+                    <p>
+                        We are the primary source of extinction on Earth.  This will probably include ourselves, primarily because we can't seem to help it.
+                    </p>
+                </div>
+                <div class="accordion__item">
+                    <h3>Story Tellers</h3>
+                    <div class="item__picture">
+
+                    </div>
+                    <p>
+                        We are the BEST at telling stories.  Sometimes, our stories are so good, even we believe them as though they were true. 
+                    </p>
+                </div>
+                <div class="accordion__item">
+                    <h3>Capitalism</h3>
+                    <div class="item__picture">
+
+                    </div>
+                    <p>
+                        Our best story ever.  It's what's making us destroy ourselves.  Because we need more.  Why?  Why not?
+                    </p>
+                </div>
+            </div>
+        </section>
+        <section id="contact" class="contact">
+            <h2>Contact</h2>
+            <p>You can reach us with your details below.</p>
+            <p>I question your judgement if you fill in the form below but you probably know what you're doing, right?</p>
+            <p>You're going to fill out the form?  Really?</p>
+            <form id="form">
+                <input id="form-email" type="email" placeholder="email@doomed.ca"/>
+                <input type="submit">
+            </form>
+        </section>
+
+    </main>
+    <footer class="full-bleed full-bleed__content">
+        <h2>By the Humans</h2>
+        <p>Because why not?</p>
+
+    </footer>
+    <script>
+        const form = document.getElementById("form");
+        const email = document.getElementById("form-email");
+        form.addEventListener("submit", e => {
+            e.preventDefault();
+            email.value = "";
+        });
+    </script>
+</body>
+
+</html>

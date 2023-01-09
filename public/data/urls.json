@@ -41,6 +41,17 @@
             "reference": [
                 "https://twitter.com/hobdaydesign/status/1611023577737723909/photo/4", "https://web.dev/one-line-layouts/#07-ram-repeat,-auto,-minmax-grid-template-columnsauto-fit,-minmaxlessbasegreater,-1fr"
             ]
+        },
+        {
+            "month": 1,
+            "day": 8,
+            "year": 2023,
+            "link": "/2023/0108.html",
+            "visible": true,
+            "description": "Another landing page.  More Practice with the Pancake/Accordion Component. This time with a Nav.  Attempted CSS Squares with a radial gradient. It didn't turn out well.",
+            "reference": [
+                "https://twitter.com/jamesm/status/1605277356012498944"
+            ]
         }
     ],
     "2022": [

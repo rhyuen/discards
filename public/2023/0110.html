@@ -1,0 +1,298 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <link rel="preconnect" href="https://fonts.gstatic.com">
+    <!-- <link rel="icon" type="../image/png" sizes="32x32" href="../images/favicon-32x32.png"> -->
+    <title>01/01/23</title>
+
+
+    <style>
+        * {
+            box-sizing: border-box;
+            font-size: 16px;
+            font-family: 'RedHat', 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
+        }
+
+        ::-webkit-scrollbar {
+            width: 0.8rem;
+            height: 0.5rem;
+        }
+
+        ::-webkit-scrollbar { 
+            display: none;  /* Safari and Chrome */
+        }
+
+        /* Track */
+        ::-webkit-scrollbar-track {
+            background: black;
+        }
+
+        /* Handle */
+        ::-webkit-scrollbar-thumb {
+            background: var(--COL3);
+        }
+
+        /* Handle on hover */
+        ::-webkit-scrollbar-thumb:hover {
+            background: var(--COL2);
+        }
+
+        @font-face {
+            font-family: "Inter";
+            src: url("../fonts/Inter-VariableFont_slnt\,wght.ttf");
+        }
+
+        @font-face {
+            font-family: "RedHat";
+            src: url("../fonts/RedHatDisplay-VariableFont_wght.ttf");
+        }
+
+
+        @font-face {
+            font-family: "Fraunces";
+            src: url("../fonts/Fraunces-VariableFont_SOFT\,WONK\,opsz\,wght.ttf");
+        }
+
+
+
+        html,
+        body {
+            margin: 0;
+            height: 100vh;
+        }
+
+        ul {
+            margin: 0;
+            padding: 0;
+        }
+
+        li {
+            list-style-type: none;
+        }
+
+        h1,
+        h2,
+        h3,
+        h4 {
+            margin: 0;
+            padding: 0;
+
+        }
+
+        :root {
+            --RED: hsl(0, 78%, 62%);
+            --CYAN: hsl(180, 63%, 84%);
+            --ORANGE: hsl(53, 97%, 64%);
+            --BLUE: hsl(212, 89%, 82%);
+            --GREY: rgba(0, 0, 0, 0.3);
+
+            --COL1: #db0a5b;
+            --COL2: #fef160;
+            --COL3: #23cba7;
+            --COL4: #3e6ceb;
+            --COL5: #d9c8ec;
+
+            --BORDER-RADIUS: .5rem;
+            --FONT-SIZE: 1.2rem;
+            --WIDTH: 500px;
+            --SIZE: 150px;
+
+            --VERT-PADDING: 4rem;
+            --CONTENT-WIDTH: 80ch;
+
+            --CONTENT-CONTAINER: min(var(--CONTENT-WIDTH), 100%);
+            --COLUMNS: [start] 1fr [content-start] var(--CONTENT-CONTAINER) [content-end] 1fr [end];
+        }
+
+
+        main {
+            display: grid;
+            grid-template-columns: var(--COLUMNS);
+            padding: 1rem;
+            padding-bottom: 10rem;
+        }
+
+        main>* {
+            grid-column: content-start/content-end;
+        }
+
+
+        section h2{
+            font-size: 2rem;
+            margin-block: 2rem;
+            font-family: "Fraunces", 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;;
+        }
+
+        section h3{
+            font-size: 1.5rem;
+            font-weight: 100;
+            color: rgb(154, 150, 150);
+            font-family: "Inter", 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
+
+        }
+
+        section p{
+            font-size: 1.2rem;
+            line-height: 1.5;
+        }
+
+        section a{
+            font-size: inherit;
+            color: black;
+            font-weight: 600;
+        }
+
+
+        nav {
+            display: flex;
+            justify-content: space-between;
+            padding: 1rem;
+        }
+
+        nav a {
+            font-family: "Fraunces";
+            font-weight: 600;
+            color: black;   
+            font-size: 1.2rem;         
+        }
+
+        .full-bleed {
+            grid-column: start/end;
+        }
+
+        .full-bleed__container {
+            --ITEM-WIDTH: 120ch;
+            margin: 0 auto;
+            width: min(var(--ITEM-WIDTH), 100%);
+            position: relative;
+        }
+
+        .scroller {
+            display: flex;
+            flex-direction: row;
+            height: 40rem;
+            overflow-x: scroll;
+            padding-block: 2rem;
+        }
+
+
+        
+        figure.scroller__item {
+            margin: 0;
+            flex-shrink: 0;
+            aspect-ratio: 2/3;
+            position: relative;
+            margin-right: 2rem;
+            overflow: hidden;
+            border-radius: var(--BORDER-RADIUS);
+        }
+
+
+
+
+
+        figure.scroller__item figcaption{
+            position: absolute;
+            bottom: 0;
+            left: 0;
+            width: 100%;
+            color: white;
+            font-weight: 600;
+            padding: 1rem;
+            background-color: rgba(0, 0, 0, 0.5);
+            min-height: 2rem;
+            display: flex;
+            flex-direction: column;
+            justify-content: flex-start;
+        }
+
+        img {
+            height: 100%;
+            width: 100%;
+            object-fit: cover;
+            transition: transform .2s ease-in-out;
+        }
+
+        img:hover{
+            transform: scale(1.2);
+        }
+    </style>
+
+<body>
+    <nav>
+        <div>
+            <a href="#">Attempt</a>
+        </div>
+        <div>
+            <a href="#contact">Contact</a>
+        </div>
+    </nav>
+    <main>
+        <section class="full-bleed">
+            <div class="full-bleed__container">
+                <div class="scroller" id="scroller-one">
+
+                </div>
+            </div>
+        </section>
+        <section class="full-bleed">
+            <div class="full-bleed__container">
+
+            </div>
+        </section>
+        <section>
+            <h2>Goals for the Attempt</h2>
+            <p>
+                An attempt at using the Full Bleed Grid layout that I've made for the last few days with varying widths that are visible in Desktop view but degrade to the full width of the viewbox whilst in Mobile View.
+            </p>
+            <p>
+                Also, an attempt at creating an image scroller for a landing page.
+            </p>
+        </section>
+        <section>
+            <h2>Results</h2>
+            <h3>Scroll Bar hidden.</h3>
+            <p>
+                I have been thinking about hiding scroll bars whilst still being able to scroll.  The video pages for Netflix/Prime Video are compelling and may be something I would like to explore further.  Source for the hidden scroll bar is <a href="https://stackoverflow.com/a/38994837">here</a>.
+            </p>
+            <h3>Image Scroller done</h3>
+            <p>
+                It's done but the proportions seem off.  Similarly, the text sizing doesn't look quite right.
+            </p>
+            <h3>Full Bleed with Differing Widths</h3>
+            <p>
+                It works but I find that I need a child container like a 'full-bleed__content-container' with a 'full-bleed' parent-container for it to work.  The 'full-bleed' component is the child of a grid component.
+            </p>
+        </section>
+    </main>
+    <script type="module">
+        import data from "../data/imgs.json" assert {type: 'json'};
+
+        const { nature } = data;
+        const scroller = document.getElementById("scroller-one");
+
+        function createImageItem({ url, description }) {
+            const figure = document.createElement("figure");
+            const caption = document.createElement('figcaption');
+            const image = document.createElement("img");
+            image.src = url;
+            image.alt = description;
+            caption.textContent = description;
+            figure.classList.add("scroller__item");
+            figure.appendChild(image);
+            figure.appendChild(caption);
+            return figure;
+        }
+
+        for (let i = 0; i < nature.length; i++) {
+            scroller.appendChild(createImageItem(nature[i]));
+        }
+
+    </script>
+</body>
+
+</html>

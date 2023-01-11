@@ -52,6 +52,17 @@
             "reference": [
                 "https://twitter.com/jamesm/status/1605277356012498944"
             ]
+        },
+        {
+            "month": 1,
+            "day": 10,
+            "year": 2023,
+            "link": "/2023/0110.html",
+            "visible": true,
+            "description": "Another landing page. This time with an Image Scroller.",
+            "reference": [
+                "https://stackoverflow.com/a/38994837"
+            ]
         }
     ],
     "2022": [

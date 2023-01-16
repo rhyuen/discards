@@ -1,0 +1,337 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <link rel="preconnect" href="https://fonts.gstatic.com">
+    <!-- <link rel="icon" type="../image/png" sizes="32x32" href="../images/favicon-32x32.png"> -->
+    <title>01/01/23</title>
+
+
+    <style>
+        * {
+            box-sizing: border-box;
+            font-size: 16px;
+            font-family: 'RedHat', 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
+        }
+
+        ::-webkit-scrollbar {
+            width: 0.8rem;
+            height: 0.5rem;
+        }
+
+        ::-webkit-scrollbar {
+            display: none;
+            /* Safari and Chrome */
+        }
+
+        /* Track */
+        ::-webkit-scrollbar-track {
+            background: black;
+        }
+
+        /* Handle */
+        ::-webkit-scrollbar-thumb {
+            background: var(--COL3);
+        }
+
+        /* Handle on hover */
+        ::-webkit-scrollbar-thumb:hover {
+            background: var(--COL2);
+        }
+
+        @font-face {
+            font-family: "Inter";
+            src: url("../fonts/Inter-VariableFont_slnt\,wght.ttf");
+        }
+
+        @font-face {
+            font-family: "RedHat";
+            src: url("../fonts/RedHatDisplay-VariableFont_wght.ttf");
+        }
+
+
+        @font-face {
+            font-family: "Fraunces";
+            src: url("../fonts/Fraunces-VariableFont_SOFT\,WONK\,opsz\,wght.ttf");
+        }
+
+
+
+        html,
+        body {
+            margin: 0;
+            height: 100vh;
+
+        }
+
+        ul {
+            margin: 0;
+            padding: 0;
+        }
+
+        li {
+            list-style-type: none;
+        }
+
+        h1,
+        h2,
+        h3,
+        h4 {
+            margin: 0;
+            padding: 0;
+
+        }
+
+        :root {
+            --RED: hsl(0, 78%, 62%);
+            --CYAN: hsl(180, 63%, 84%);
+            --ORANGE: hsl(53, 97%, 64%);
+            --BLUE: hsl(212, 89%, 82%);
+            --GREY: rgba(0, 0, 0, 0.3);
+
+            --COL1: #db0a5b;
+            --COL2: #fef160;
+            --COL3: #23cba7;
+            --COL4: #3e6ceb;
+            --COL5: #d9c8ec;
+
+            --BORDER-RADIUS: .5rem;
+            --FONT-SIZE: 1.2rem;
+            --WIDTH: 500px;
+            --SIZE: 150px;
+
+            --VERT-PADDING: 4rem;
+
+        }
+
+        main {
+            margin-block: 10rem;
+            display: grid;
+            grid-template-columns: max(15ch, 10%) 1fr;            
+        }
+
+        main>* {
+            grid-column: 2/span 1;
+        }
+
+        h1,h2{
+            font-size: 2.5rem;
+            font-family: "Inter", "Segoe UI";
+            background: linear-gradient(90deg, 
+                        var(--COL1),
+                        var(--COL4),
+                        var(--COL1)
+                        ) 0 0 / 2rem 100%;
+            color: transparent;
+            background-clip: text;
+            -webkit-background-clip: text;
+                                    
+            
+        }
+
+        ul {
+            display: flex;
+            overflow-x: scroll;
+            margin-top: 5rem;
+            margin-bottom: 10rem;
+        }
+
+        li {
+            margin-right: 1rem;
+            flex-shrink: 0;
+            width: 25ch;
+        }
+
+        .gradient-border {
+            --BORDER: 5px;
+            display: grid;
+            place-items: center;
+            color: black;
+
+            position: relative;
+            padding: 2rem;
+            background-color: white;
+            border: var(--BORDER);
+            background-clip: padding-box;
+            border: solid 5px transparent;
+            border-radius: 1rem;
+            aspect-ratio: 2/3;
+
+        }
+
+        .gradient-border::before {
+            content: "";
+            position: absolute;
+            inset: 0;
+            z-index: -1;
+            margin: calc(-1*var(--BORDER));
+            border-radius: inherit;
+            background: linear-gradient(to right, var(--COL1), var(--COL4));
+        }
+
+        footer{
+            padding-bottom: 5rem;
+            margin-left: 15ch;
+            width: min(65ch, 100%);
+        }
+
+        a {
+            background: linear-gradient(to right, var(--COL4), var(--COL3));
+            background-clip: text;
+            color: transparent;
+            -webkit-background-clip: text;
+            font-weight: 800;            
+            border-bottom: 2px solid var(--COL4);
+        }
+        
+    </style>
+
+<body>
+    <main>
+        <h1>The First List is the best list.</h1>
+        <ul>
+            <li>
+                <p class="gradient-border">
+                    The pristine extraterrestrial pebbles contain globules of ferric iron (Fe3+), a version of iron that
+                    contains oxygen, which was previously assumed to be rare on the Moon because the lunar surface is
+                    chemically
+                    “reductive,” meaning that it is not easy for oxidized compounds to form.
+                </p>
+            </li>
+            <li>
+                <p class="gradient-border">
+                    Now, scientists led by Haiyang Xian, a geochemist at the Chinese Academy of Sciences, Guangzhou,
+                    demonstrate that this compound can be forged by tiny rocks, called micrometeorites, that constantly
+                    pelt the lunar terrain. The discovery reveals “a dominant pathway” for the formation of Fe3+ on the
+                    lunar surface, and “suggests that much more [ferric iron] could be present on the Moon than
+                    previously thought, and that its abundance is progressively increasing with micrometeoroid impacts,”
+                    according to a study published on Monday in Nature Astronomy.
+                </p>
+            </li>
+            <li>
+                <p class="gradient-border">
+                    Moreover, a recent orbital study of the Moon found high concentrations of hematite, a rusty iron
+                    oxide, at the poles, a finding that has also perplexed scientists. It’s possible that these iron
+                    compounds are getting their oxygen from Earth, as our planet does leak this atmospheric gas into
+                    space, or from lunar ice deposits. However, these explanations don’t fully account for new findings
+                    about the Moon’s Fe3+ content.
+                </p>
+            </li>
+            <li>
+                <p class="gradient-border">
+                    Now, scientists led by Haiyang Xian, a geochemist at the Chinese Academy of Sciences, Guangzhou,
+                    demonstrate that this compound can be forged by tiny rocks, called micrometeorites, that constantly
+                    pelt the lunar terrain. The discovery reveals “a dominant pathway” for the formation of Fe3+ on the
+                    lunar surface, and “suggests that much more [ferric iron] could be present on the Moon than
+                    previously thought, and that its abundance is progressively increasing with micrometeoroid impacts,”
+                    according to a study published on Monday in Nature Astronomy.
+                </p>
+            </li>
+            <li>
+                <p class="gradient-border">
+                    Moreover, a recent orbital study of the Moon found high concentrations of hematite, a rusty iron
+                    oxide, at the poles, a finding that has also perplexed scientists. It’s possible that these iron
+                    compounds are getting their oxygen from Earth, as our planet does leak this atmospheric gas into
+                    space, or from lunar ice deposits. However, these explanations don’t fully account for new findings
+                    about the Moon’s Fe3+ content.
+                </p>
+            </li>
+            <li>
+                <p class="gradient-border">
+                    Unlike Earth, the Moon has no atmosphere to protect it from micrometeorite impacts, leaving its
+                    whole surface exposed to a ceaseless rain of space pebbles. These impacts may help explain how
+                    oxidized compounds form on the Moon, and could also suggest that Fe3+ is far more abundant on the
+                    lunar surface—and perhaps, similar worlds—than once imagined.
+                </p>
+            </li>
+            <li>
+                <p class="gradient-border">
+                    “Importantly, the large amount of Fe3+ in the agglutinate glass produced by charge
+                    disproportionation may enhance our knowledge of the evolution and distribution” of oxidized iron
+                    compounds on the Moon, the researchers said. “The widespread agglutinate fragments in the lunar
+                    regolith and ongoing micrometeoroid impacts…suggest that Fe3+ could be a universal component with
+                    increasing abundance on the Moon.”
+                </p>
+            </li>
+        </ul>
+        <h2>The Second List is the Second One.</h2>
+        <ul>
+            <li>
+                <p class="gradient-border">
+                    The pristine extraterrestrial pebbles contain globules of ferric iron (Fe3+), a version of iron that
+                    contains oxygen, which was previously assumed to be rare on the Moon because the lunar surface is
+                    chemically
+                    “reductive,” meaning that it is not easy for oxidized compounds to form.
+                </p>
+            </li>
+            <li>
+                <p class="gradient-border">
+                    Now, scientists led by Haiyang Xian, a geochemist at the Chinese Academy of Sciences, Guangzhou,
+                    demonstrate that this compound can be forged by tiny rocks, called micrometeorites, that constantly
+                    pelt the lunar terrain. The discovery reveals “a dominant pathway” for the formation of Fe3+ on the
+                    lunar surface, and “suggests that much more [ferric iron] could be present on the Moon than
+                    previously thought, and that its abundance is progressively increasing with micrometeoroid impacts,”
+                    according to a study published on Monday in Nature Astronomy.
+                </p>
+            </li>
+            <li>
+                <p class="gradient-border">
+                    Moreover, a recent orbital study of the Moon found high concentrations of hematite, a rusty iron
+                    oxide, at the poles, a finding that has also perplexed scientists. It’s possible that these iron
+                    compounds are getting their oxygen from Earth, as our planet does leak this atmospheric gas into
+                    space, or from lunar ice deposits. However, these explanations don’t fully account for new findings
+                    about the Moon’s Fe3+ content.
+                </p>
+            </li>
+            <li>
+                <p class="gradient-border">
+                    Unlike Earth, the Moon has no atmosphere to protect it from micrometeorite impacts, leaving its
+                    whole surface exposed to a ceaseless rain of space pebbles. These impacts may help explain how
+                    oxidized compounds form on the Moon, and could also suggest that Fe3+ is far more abundant on the
+                    lunar surface—and perhaps, similar worlds—than once imagined.
+                </p>
+            </li>
+            <li>
+                <p class="gradient-border">
+                    “Importantly, the large amount of Fe3+ in the agglutinate glass produced by charge
+                    disproportionation may enhance our knowledge of the evolution and distribution” of oxidized iron
+                    compounds on the Moon, the researchers said. “The widespread agglutinate fragments in the lunar
+                    regolith and ongoing micrometeoroid impacts…suggest that Fe3+ could be a universal component with
+                    increasing abundance on the Moon.”
+                </p>
+            </li>
+            <li>
+                <p class="gradient-border">
+                    Unlike Earth, the Moon has no atmosphere to protect it from micrometeorite impacts, leaving its
+                    whole surface exposed to a ceaseless rain of space pebbles. These impacts may help explain how
+                    oxidized compounds form on the Moon, and could also suggest that Fe3+ is far more abundant on the
+                    lunar surface—and perhaps, similar worlds—than once imagined.
+                </p>
+            </li>
+            <li>
+                <p class="gradient-border">
+                    “Importantly, the large amount of Fe3+ in the agglutinate glass produced by charge
+                    disproportionation may enhance our knowledge of the evolution and distribution” of oxidized iron
+                    compounds on the Moon, the researchers said. “The widespread agglutinate fragments in the lunar
+                    regolith and ongoing micrometeoroid impacts…suggest that Fe3+ could be a universal component with
+                    increasing abundance on the Moon.”
+                </p>
+            </li>
+        </ul>
+    </main>
+    <footer>
+        <p>Made on January 14, 2023.</p>
+        <p>Attempting Gradient Text <a href='https://web.dev/speedy-css-tip-animated-gradient-text/'>(Reference)</a>.</p>
+        <p>Attempting Gradient Borders with Border Radius <a href="https://css-tricks.com/gradient-borders-in-css/">(Reference)</a>.</p>
+        <p>Filler Text borrowed from <a href="https://www.vice.com/en/article/93a49p/china-says-it-may-have-solved-a-mystery-on-the-moons-surface">Vice</a>.</p>
+    </footer>
+    <script type="module">
+
+
+    </script>
+</body>
+
+</html>

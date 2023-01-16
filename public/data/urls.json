@@ -28,7 +28,8 @@
             "visible": true,
             "description": "A pedestrian form and list.  List scrolls to the bottom on submit.  Re-learned the difference between 'change' and 'input' for .addEventListener().  For the former, you only see the change after you lose focus.  Submission is prevented if the form is empty.",
             "reference": [
-                "https://stackoverflow.com/a/56507377", "https://stackoverflow.com/a/7526666"
+                "https://stackoverflow.com/a/56507377",
+                "https://stackoverflow.com/a/7526666"
             ]
         },
         {
@@ -39,7 +40,8 @@
             "visible": true,
             "description": "A typical landing page.  Colours inspired by Mailchimp.  Practice with the Pancake/Accordion Component.",
             "reference": [
-                "https://twitter.com/hobdaydesign/status/1611023577737723909/photo/4", "https://web.dev/one-line-layouts/#07-ram-repeat,-auto,-minmax-grid-template-columnsauto-fit,-minmaxlessbasegreater,-1fr"
+                "https://twitter.com/hobdaydesign/status/1611023577737723909/photo/4",
+                "https://web.dev/one-line-layouts/#07-ram-repeat,-auto,-minmax-grid-template-columnsauto-fit,-minmaxlessbasegreater,-1fr"
             ]
         },
         {
@@ -62,6 +64,30 @@
             "description": "Another landing page. This time with an Image Scroller.",
             "reference": [
                 "https://stackoverflow.com/a/38994837"
+            ]
+        },
+        {
+            "month": 1,
+            "day": 12,
+            "year": 2023,
+            "link": "/2023/0112.html",
+            "visible": true,
+            "description": "Animated Gradient Text",
+            "reference": [
+                "https://web.dev/speedy-css-tip-animated-gradient-text/"
+            ]
+        },
+        {
+            "month": 1,
+            "day": 14,
+            "year": 2023,
+            "link": "/2023/0114.html",
+            "visible": true,
+            "description": "Gradient Border with Border Radius, Gradient Text.",
+            "reference": [
+                "https://web.dev/speedy-css-tip-animated-gradient-text/",
+                "https://css-tricks.com/gradient-borders-in-css/",
+                "https://www.digitalocean.com/community/tutorials/css-gradient-borders-pure-css"
             ]
         }
     ],
@@ -790,7 +816,7 @@
             "visible": true,
             "description": "Text to Base64 tool",
             "reference": [
-                "https://stackoverflow.com/a/2331969", 
+                "https://stackoverflow.com/a/2331969",
                 "https://stackoverflow.com/a/34995288",
                 "https://developer.mozilla.org/en-US/docs/Web/HTML/Element/textarea#attr-autofocus",
                 "https://stackoverflow.com/a/56507377"
@@ -834,8 +860,7 @@
             "link": "/2022/1013.html",
             "visible": true,
             "description": "Survey of Five Questions",
-            "reference": [
-            ]
+            "reference": []
         },
         {
             "month": 10,
@@ -844,8 +869,7 @@
             "link": "/2022/1015.html",
             "visible": false,
             "description": "Survey of Seven Questions with Results after Submission.  Doesn't wrap around after questions run out and there's an off by one error.",
-            "reference": [
-            ]
+            "reference": []
         },
         {
             "month": 10,
@@ -878,8 +902,7 @@
             "link": "/2022/1021.html",
             "visible": true,
             "description": "Typeforms again",
-            "reference": [
-            ]
+            "reference": []
         },
         {
             "month": 10,
@@ -910,9 +933,7 @@
             "link": "/2022/1103.html",
             "visible": true,
             "description": "Images and Buttons",
-            "reference": [
-                
-            ]
+            "reference": []
         },
         {
             "month": 11,
@@ -921,9 +942,7 @@
             "link": "/2022/1105.html",
             "visible": true,
             "description": "Images with Fixed Buttons and Scroll Snap",
-            "reference": [
-                
-            ]
+            "reference": []
         },
         {
             "month": 11,
@@ -935,7 +954,6 @@
             "reference": [
                 "https://cssgradient.io/",
                 "https://web.dev/learn/design/micro-layouts/#grid"
-
             ]
         },
         {
@@ -945,12 +963,8 @@
             "link": "/2022/1117.html",
             "visible": true,
             "description": "Different fonts and text-stroke-width values, just to see the results. Scroll-snap for the fonts beyond the fold.",
-            "reference": [
-            ]
+            "reference": []
         }
-
-
-
     ],
     "2021": [
         {

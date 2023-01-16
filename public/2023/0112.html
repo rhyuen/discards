@@ -1,0 +1,247 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <link rel="preconnect" href="https://fonts.gstatic.com">
+    <!-- <link rel="icon" type="../image/png" sizes="32x32" href="../images/favicon-32x32.png"> -->
+    <title>01/01/23</title>
+
+
+    <style>
+        * {
+            box-sizing: border-box;
+            font-size: 16px;
+            font-family: 'RedHat', 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
+        }
+
+        ::-webkit-scrollbar {
+            width: 0.8rem;
+            height: 0.5rem;
+        }
+
+        ::-webkit-scrollbar {
+            display: none;
+            /* Safari and Chrome */
+        }
+
+        /* Track */
+        ::-webkit-scrollbar-track {
+            background: black;
+        }
+
+        /* Handle */
+        ::-webkit-scrollbar-thumb {
+            background: var(--COL3);
+        }
+
+        /* Handle on hover */
+        ::-webkit-scrollbar-thumb:hover {
+            background: var(--COL2);
+        }
+
+        @font-face {
+            font-family: "Inter";
+            src: url("../fonts/Inter-VariableFont_slnt\,wght.ttf");
+        }
+
+        @font-face {
+            font-family: "RedHat";
+            src: url("../fonts/RedHatDisplay-VariableFont_wght.ttf");
+        }
+
+
+        @font-face {
+            font-family: "Fraunces";
+            src: url("../fonts/Fraunces-VariableFont_SOFT\,WONK\,opsz\,wght.ttf");
+        }
+
+
+
+        html,
+        body {
+            margin: 0;
+            height: 100vh;
+            background-color: black;
+        }
+
+        ul {
+            margin: 0;
+            padding: 0;
+        }
+
+        li {
+            list-style-type: none;
+        }
+
+        h1,
+        h2,
+        h3,
+        h4 {
+            margin: 0;
+            padding: 0;
+
+        }
+
+        :root {
+            --RED: hsl(0, 78%, 62%);
+            --CYAN: hsl(180, 63%, 84%);
+            --ORANGE: hsl(53, 97%, 64%);
+            --BLUE: hsl(212, 89%, 82%);
+            --GREY: rgba(0, 0, 0, 0.3);
+
+            --COL1: #db0a5b;
+            --COL2: #fef160;
+            --COL3: #23cba7;
+            --COL4: #3e6ceb;
+            --COL5: #d9c8ec;
+
+            --BORDER-RADIUS: .5rem;
+            --FONT-SIZE: 1.2rem;
+            --WIDTH: 500px;
+            --SIZE: 150px;
+
+            --VERT-PADDING: 4rem;
+            --CONTENT-WIDTH: 80ch;
+
+            --CONTENT-CONTAINER: min(var(--CONTENT-WIDTH), 100%);
+            --COLUMNS: [start] 1fr [content-start] var(--CONTENT-CONTAINER) [content-end] 1fr [end];
+        }
+
+
+
+        .gradient-text {
+            font-size: clamp(3rem, 25vmin, 8rem);
+            --bg-size: 400%;
+            --COLOR-ONE: var(--COL3);
+            --COLOR-TWO: var(--COL4);
+            background: linear-gradient(90deg,
+                    var(--COLOR-ONE),
+                    var(--COLOR-TWO),
+                    var(--COLOR-ONE)) 0 0 / var(--bg-size) 100%;
+            color: transparent;
+            -webkit-background-clip: text;
+            background-clip: text;
+            font-weight: 600;
+            /* animation: move-bg 8s infinite linear; */
+        }
+
+        main {
+            display: grid;
+            place-items: center;
+            height: 100%;
+            padding: 0 1rem;
+        }
+
+        p{
+            margin: 0;
+            color: white;
+        }
+
+        p.centered-text{
+            text-align: center;
+        }
+
+        .supporting-text{
+            font-size: 1.8rem;
+            inline-size: min(35rem, 100%);
+            text-align: center;
+            margin: 3rem auto;
+            color: lightgray;
+        }
+
+
+        button{
+            padding: .75rem 2rem;
+            margin-right: 1rem;
+            border-radius: var(--BORDER-RADIUS);
+            font-weight: 600;
+            font-size: 1.2rem;
+            cursor: pointer;
+        }
+
+        a{
+            --bg-size: 400%;
+            font-weight: bold;
+            background: linear-gradient(
+                90deg, 
+                var(--COL1), 
+                var(--COL2), 
+                var(--COL1)) 0 0 / var(--bg-size) 100%;
+            -webkit-background-clip: text;
+            background-clip: text;
+            color: transparent;
+            animation: move-bg 4s linear infinite;
+            border-bottom: 2px solid red;
+        }
+
+        .deep-dive{
+            background-color: black;
+            color: white;
+            border-color:hsl(0, 78%, 62%);
+        }
+
+        .container__row{
+            display: flex;
+            justify-content: center;
+        }
+
+        footer{
+            inline-size: min(65ch, 100%);
+            margin: 0 auto;
+            padding: 1rem;
+        }
+
+        footer p {
+            color: white;
+        }
+
+        @media (prefers-reduced-motion: no-preference) {
+            .gradient-text {
+                animation: move-bg 8s linear infinite;
+            }
+
+            @keyframes move-bg {
+                to {
+                    background-position: var(--bg-size) 0;
+                }
+            }
+        }
+    </style>
+
+<body>
+
+    <main>
+        <div class="container">
+            <p class="gradient-text centered-text">
+                Extract.
+            </p>
+            <p class="gradient-text centered-text">
+                Exploit.
+            </p>
+            <p class="gradient-text centered-text">
+                Exit.
+            </p>
+            <p class="supporting-text">Three words to sum up the current economic system that has created the world that we live in today.</p>
+            <div class="container__row">
+                <button>Learn More</button>
+                <button class="deep-dive">Dive Deep</button>
+            </div>
+        </div>
+      
+        <footer>
+            <p>Made on January 12, 2023.</p>
+            <p>Sentiments from the book "Survival of the Richest".</p>
+            <p>Gradients are from <a href="https://web.dev/speedy-css-tip-animated-gradient-text/">here</a>.</p>
+            <p>Layout appropriated from <a href="https://vercel.com/">here</a>.</p>
+        </footer>
+    </main>
+    <script type="module">
+
+
+    </script>
+</body>
+
+</html>

@@ -1,0 +1,373 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <link rel="preconnect" href="https://fonts.gstatic.com">
+    <!-- <link rel="icon" type="../image/png" sizes="32x32" href="../images/favicon-32x32.png"> -->
+    <title>01/24/23</title>
+
+
+    <style>
+        @import "https://unpkg.com/open-props";
+
+        * {
+            box-sizing: border-box;
+            font-size: 16px;
+            font-family: 'RedHat', 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
+        }
+
+        ::-webkit-scrollbar {
+            width: 0.8rem;
+            height: 0.5rem;
+        }
+
+        ::-webkit-scrollbar {
+            display: none;
+            /* Safari and Chrome */
+        }
+
+        /* Track */
+        ::-webkit-scrollbar-track {
+            background: black;
+        }
+
+        /* Handle */
+        ::-webkit-scrollbar-thumb {
+            background: var(--COL3);
+        }
+
+        /* Handle on hover */
+        ::-webkit-scrollbar-thumb:hover {
+            background: var(--COL2);
+        }
+
+
+
+
+        @font-face {
+            font-family: "Inter";
+            src: url("../fonts/Inter-VariableFont_slnt\,wght.ttf");
+        }
+
+        @font-face {
+            font-family: "RedHat";
+            src: url("../fonts/RedHatDisplay-VariableFont_wght.ttf");
+        }
+
+        @font-face {
+            font-family: "Fraunces";
+            src: url("../fonts/Fraunces-VariableFont_SOFT\,WONK\,opsz\,wght.ttf");
+        }
+
+
+
+        html,
+        body {
+            margin: 0;
+            height: 100vh;
+            background-color: rgb(1, 2, 43);
+        }
+
+        ul {
+            margin: 0;
+            padding: 0;
+        }
+
+        li {
+            list-style-type: none;
+        }
+
+
+
+        h1,
+        h2,
+        h3,
+        h4 {
+            margin: 0;
+            padding: 0;
+
+        }
+
+        :root {
+            --RED: hsl(0, 78%, 62%);
+            --CYAN: hsl(180, 63%, 84%);
+            --ORANGE: hsl(53, 97%, 64%);
+            --BLUE: hsl(212, 89%, 82%);
+            --GREY: rgba(0, 0, 0, 0.3);
+
+            --COL1: #db0a5b;
+            --COL2: #fef160;
+            --COL3: #23cba7;
+            --COL4: #3e6ceb;
+            --COL5: #d9c8ec;
+
+            --BORDER-RADIUS: .5rem;
+            --CONTENT-WIDTH: min(65ch, 100%);
+            --PADDING: 1.5rem;
+
+            --PRIMARY-COLOR: rgb(69, 69, 69);
+            --TEXT-COLOR: white;
+        }
+
+        main {
+            display: grid;
+            place-items: center;
+            grid-template-columns: 1fr var(--CONTENT-WIDTH) 1fr;
+            height: 85vh;
+            padding: 2rem;
+        }
+
+        main>* {
+            grid-column: 2/span 1;
+        }
+
+        h1 {
+            font-size: 4rem;
+            font-weight: 800;
+            color: var(--TEXT-COLOR);
+        }
+
+        .row {
+            display: flex;
+            gap: 2rem;
+            margin: 2rem;
+        }
+
+        .row__item kbd {
+            border-radius: .35rem;
+            font-weight: 600;
+            color: white;
+            font-size: .75rem;
+            background-color: var(--PRIMARY-COLOR);
+            padding: .25rem .5rem;
+            margin-right: 1rem;
+            
+            border: 2px solid white;
+        }
+
+        .row__item {
+            color: white;
+            font-weight: 600;
+        }
+
+
+
+        .container {
+            display: flex;
+            flex-direction: column;
+            align-items: center;
+        }
+
+        footer {
+            margin: 0 auto;
+            inline-size: var(--CONTENT-WIDTH);
+            display: flex;
+            flex-direction: column;
+            align-items: center;
+        }
+
+        footer p {
+            color: gray;
+        }
+
+        footer p a {
+            color: gray;
+        }
+
+        footer a {
+            color: #f3f3f3;
+        }
+
+        a {
+            color: rgb(247, 245, 245);
+            font-weight: 600;
+        }
+
+        .input-container {
+            margin-top: 4rem;
+            margin-bottom: 2rem;
+            display: flex;
+            width: 100%;
+            background-color: var(--PRIMARY-COLOR);
+            border-radius: var(--BORDER-RADIUS);
+        }
+
+        .input-container input[type='text'] {
+            padding: .5rem 1rem;
+            background-color: var(--PRIMARY-COLOR);
+            color: white;
+            border: 2px solid white;
+            width: 100%;            
+        }
+
+        .input-container input[type='text']:focus{
+            outline: none;
+            
+        }
+
+        .input-container input[type='text']::placeholder {
+            color: white;
+        }
+
+        select {
+            height: 100%;
+            padding-inline: 1rem;
+            appearance: none;
+            --CORNER-RADIUS: .5rem;
+            background-color: var(--PRIMARY-COLOR);
+            color: white;
+            font-weight: 800;
+            border-top-left-radius: var(--BORDER-RADIUS);
+            border-bottom-left-radius: var(--BORDER-RADIUS);
+            outline: none;
+            border-right: none;
+        }
+
+     
+
+        .select-wrapper{
+            display: flex;
+            position: relative;
+            padding-right: 1rem;        
+            background-color: var(--PRIMARY-COLOR);
+            border-top-left-radius: var(--BORDER-RADIUS);
+            border-bottom-left-radius: var(--BORDER-RADIUS);
+            border: 2px solid white;
+        }
+
+        .select-wrapper::after{
+            display: flex;
+            position: absolute;
+            right: .5rem;
+            top: 50%;
+            transform: translateY(-50%);
+            flex-direction: column;
+            justify-content: center;
+            clip-path: polygon(0 0, 100% 0, 50% 100%);
+            --WIDTH: .5rem;
+            inline-size: calc(var(--WIDTH)*1.5);
+            block-size: var(--WIDTH);
+            background: white;
+            content: "";
+        }
+
+
+
+        .gradient-text {
+            --bg-size: 4rem;
+            --color-one: rgb(70, 70, 233);
+            --color-two: rgb(142, 153, 238);
+            --color-three: rgb(183, 189, 235);
+            background: linear-gradient(90deg,
+                    var(--color-one),
+                    var(--color-two),
+                    var(--color-three)
+                    ) 0 0 / var(--bg-size) 100%;
+            color: transparent;
+            font-weight: 800;
+            -webkit-background-clip: text;
+            background-clip: text;
+        }
+
+        .search-button{
+            border-top-right-radius: var(--BORDER-RADIUS);
+            border-bottom-right-radius: var(--BORDER-RADIUS);
+            background-color: var(--PRIMARY-COLOR);
+            padding: 1rem 1.5rem;
+            border: 2px solid white;
+            position: relative;
+        }
+
+        .search-button::after{
+            content: "";
+            display: block;
+            border-radius: 50%;
+            border: 4px solid white;
+            background-color: var(--PRIMARY-COLOR);
+            --WIDTH: 1rem;
+            inline-size: var(--WIDTH);
+            block-size: var(--WIDTH);
+        }
+        .search-button::before{
+            content: "";
+            display: block;
+            position: absolute;
+            bottom: 0.5rem;
+            right: 0.5rem;
+            background-color: white;
+            border-radius: 50%;
+            --WIDTH:.75rem;
+            inline-size: var(--WIDTH);
+            block-size: var(--WIDTH);
+        }
+
+    </style>
+
+<body>
+
+    <main>
+        <div class="container">
+            <div class="container container--vertical">
+                <p class="gradient-text">The past is present</p>
+                <h1>SuperScan</h1>
+            </div>
+            <div class="input-container">
+                <div class="select-wrapper">
+                    <select>
+                        <option>Boop</option>
+                        <option>Beep</option>
+                        <option>Bop</option>
+                    </select>
+                </div>
+                <input type="text" id="search" placeholder="Go to node">
+                <button role="search button" class="search-button">
+                    <div class="button-icon" aria-disabled="true"></div>
+                </button>
+            </div>
+            <div class="row">
+                <div class="row__item">
+                    <kbd>/</kbd>Search
+                </div>
+                <div class="row__item">
+                    <kbd>L</kbd>Latest
+                </div>
+                <div class="row__item">
+                    <kbd>V</kbd>Paste
+                </div>
+                <div class="row__item">
+                    <kbd>Z</kbd>Undo
+                </div>
+            </div>
+        </div>
+    </main>
+    <footer>
+        <p>
+            Copied from <a href="https://twitter.com/jamesm/status/1618184871205302275/photo/1">here</a>.
+        </p>
+        <div class="row">
+            <a href="#about">
+                About
+            </a>
+            <a href="#terms">
+                Terms
+            </a>
+            <a href="#privacy">
+                Privacy
+            </a>
+        </div>
+    </footer>
+
+
+
+    <script type="module">
+        const input = document.getElementById("search");
+        window.addEventListener("load", () => {
+            input.focus();
+        })
+    </script>
+</body>
+
+</html>

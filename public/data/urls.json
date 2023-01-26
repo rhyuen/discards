@@ -89,6 +89,51 @@
                 "https://css-tricks.com/gradient-borders-in-css/",
                 "https://www.digitalocean.com/community/tutorials/css-gradient-borders-pure-css"
             ]
+        },
+        {
+            "month": 1,
+            "day": 18,
+            "year": 2023,
+            "link": "/2023/0118.html",
+            "visible": true,
+            "description": "A horizontal scrolling bar with icons.",
+            "reference": [
+            
+            ]
+        },
+        {
+            "month": 1,
+            "day": 22,
+            "year": 2023,
+            "link": "/2023/0122.html",
+            "visible": true,
+            "description": "Following Floating Action Button Tutorial",
+            "reference": [
+                "https://web.dev/building-a-fab-component/"
+            ]
+        },
+        {
+            "month": 1,
+            "day": 24,
+            "year": 2023,
+            "link": "/2023/0124.html",
+            "visible": true,
+            "description": "Floating Action Button practice.",
+            "reference": [
+                "https://web.dev/building-a-fab-component/"
+            ]
+        },
+        {
+            "month": 1,
+            "day": 25,
+            "year": 2023,
+            "link": "/2023/0125.html",
+            "visible": true,
+            "description": "Non-functioning search bar using Twitter Screenshot as reference.",
+            "screenshot": "230125.png",
+            "reference": [
+                "https://twitter.com/jamesm/status/1618184871205302275/photo/1"
+            ]
         }
     ],
     "2022": [

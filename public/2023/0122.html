@@ -1,0 +1,287 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <link rel="preconnect" href="https://fonts.gstatic.com">
+    <!-- <link rel="icon" type="../image/png" sizes="32x32" href="../images/favicon-32x32.png"> -->
+    <title>01/22/23</title>
+
+
+    <style>
+        @import "https://unpkg.com/open-props";
+
+        * {
+            box-sizing: border-box;
+            font-size: 16px;
+            font-family: 'RedHat', 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
+        }
+
+        ::-webkit-scrollbar {
+            width: 0.8rem;
+            height: 0.5rem;
+        }
+
+        ::-webkit-scrollbar {
+            display: none;
+            /* Safari and Chrome */
+        }
+
+        /* Track */
+        ::-webkit-scrollbar-track {
+            background: black;
+        }
+
+        /* Handle */
+        ::-webkit-scrollbar-thumb {
+            background: var(--COL3);
+        }
+
+        /* Handle on hover */
+        ::-webkit-scrollbar-thumb:hover {
+            background: var(--COL2);
+        }
+
+
+
+
+        @font-face {
+            font-family: "Inter";
+            src: url("../fonts/Inter-VariableFont_slnt\,wght.ttf");
+        }
+
+        @font-face {
+            font-family: "RedHat";
+            src: url("../fonts/RedHatDisplay-VariableFont_wght.ttf");
+        }
+
+        @font-face {
+            font-family: "Fraunces";
+            src: url("../fonts/Fraunces-VariableFont_SOFT\,WONK\,opsz\,wght.ttf");
+        }
+
+
+
+        html,
+        body {
+            margin: 0;
+            height: 100vh;
+
+        }
+
+        ul {
+            margin: 0;
+            padding: 0;
+        }
+
+        li {
+            list-style-type: none;
+        }
+
+        
+
+        h1,
+        h2,
+        h3,
+        h4 {
+            margin: 0;
+            padding: 0;
+
+        }
+
+        :root {
+            --RED: hsl(0, 78%, 62%);
+            --CYAN: hsl(180, 63%, 84%);
+            --ORANGE: hsl(53, 97%, 64%);
+            --BLUE: hsl(212, 89%, 82%);
+            --GREY: rgba(0, 0, 0, 0.3);
+
+            --COL1: #db0a5b;
+            --COL2: #fef160;
+            --COL3: #23cba7;
+            --COL4: #3e6ceb;
+            --COL5: #d9c8ec;
+
+            /* --BORDER-RADIUS: .5rem;
+            --FONT-SIZE: 1.2rem;
+            --WIDTH: 500px;
+            --SIZE: 150px;
+
+            --VERT-PADDING: 4rem;
+            --DISPLACEMENT_Y: 10rem; */
+        }
+
+        button{
+            border: none;
+            cursor: pointer;
+        }
+
+
+        .fabs {
+            --_viewport-margin: 2.5vmin;
+            position: fixed;
+            z-index: var(--layer-1);
+            inset-block: auto var(--_viewport-margin);
+            inset-inline: auto var(--_viewport-margin);
+
+            display: flex;
+            flex-direction: column-reverse;
+            place-items: center;
+            gap: var(--_viewport-margin);
+        }
+
+        .fab {
+            --_size: 2rem;
+
+            --_light-bg: var(--pink-6);
+            --_light-bg-hover: var(--pink-7);
+
+            --_dark-bg: var(--pink-4);
+            --_dark-bg-hover: var(--pink-3);
+
+            --_bg: var(--_light-bg);
+            --_light-fg: white;
+            --_dark-fg: black;
+            --_fg: var(--_light-fg);
+
+            background: var(--_bg);
+            color: var(--_fg);
+            inline-size: calc(2*var(--_size));
+            block-size: calc(2*var(--_size));
+
+            padding: calc(var(--_size) / 2);
+            border-radius: var(--radius-round);
+            aspect-ratio: 1;
+            box-shadow: var(--shadow-4);
+
+
+            --_motion-reduced: box-shadow .2s var(--ease-3), 
+                background-color .3s var(--ease-3);
+            --_motion-ok: var(--_motion-reduced), 
+                transform .2s var(--ease-3), 
+                outline-offset 145ms var(--ease-2);
+            --_transition: var(--_motion-reduced);
+            transition: var(--_transition);
+        }
+
+        
+
+
+        .fab:is(:active, :hover, :focus-visible) {
+            --_bg: var(--_light-bg-hover);
+        }
+
+        .fab[data-icon="plus"]:hover > svg{
+            transform: rotate(.25turn);
+        }
+
+        .fab>svg {
+            inline-size: var(--_size);
+            block-size: var(--_size);
+            stroke-width: 3px;
+            -webkit-tap-highlight-color: transparent;            
+        }
+
+        
+
+        footer{
+            margin: 0 auto;
+            inline-size: min(65ch, 100%);
+            padding: 2rem;
+        }
+
+        a{
+            font-weight: 800;
+        }
+
+        
+
+
+        .fab.mini{
+            --_size: 1.25rem;
+        }
+
+        @media (prefers-reduced-motion: no-preference){
+            .fab{
+                --_transition: var(--_motion-ok);
+            }
+
+            .fab:active{
+                transform: translateY(2%);
+            }
+
+            .fab > svg{
+                will-change: transform;
+                transition: transform 0.5s var(--ease-squish-3);
+            }
+        }
+
+        @media (prefers-color-scheme: dark) {
+            .fab:is(:active, :hover, :focus-visible) {
+                --_bg: var(var(--_dark-bg-hover));
+            }
+
+            .fab {
+                --_bg: var(--_dark-bg);
+                --_fg: var(--_dark-bg);
+            }
+        }
+    </style>
+
+<body>
+    <div class="fabs" role="group" aria-label="floating action buttons">
+        <button data-icon="plus" class="fab" title="Add new action" aria-label="Add new action">
+            <svg aria-hidden="true" width="24" height="24" viewBox="0 0 24 24">
+                <line x1="12" y1="5" x2="12" y2="19" stroke="currentColor"></line>
+                <line x1="5" y1="12" x2="19" y2="12" stroke="currentColor"></line>
+            </svg>
+        </button>
+        <button data-icon="heart" class="fab mini" title="Like Action" aria-label="like action">
+            <svg aria-hidden="true" width="24" height="24" viewBox="0 0 24 24">
+                <path fill="currentColor" stroke="none"
+                    d="M20.84 4.61a5.5 5.5 0 0 0-7.78 0L12 5.67l-1.06-1.06a5.5 5.5 0 0 0-7.78 7.78l1.06 1.06L12 21.23l7.78-7.78 1.06-1.06a5.5 5.5 0 0 0 0-7.78z">
+                </path>
+            </svg>
+        </button>
+    </div>
+    <footer>
+        <h2>Some notes</h2>
+        <p>
+            aria-label = 'for adding a description to a tag'
+        </p>
+        <p>
+            You can add a title="text that can be seen on a button on hover".
+        </p>
+        <p>
+            Hide SVGs with aria-hidden="true".
+        </p>
+        <p>
+            Use aria-label="to describe what the button does".
+        </p>
+        <p>
+            You can use the :active{} pseudo class on a button and have it transform: translateY(2%) to 'simulate' a depressing effect for buttons.
+        </p>
+        <h2>Issues</h2>
+        <p>
+            The buttons on the bottom left were oblong shaped until I set an explicit width and height.
+        </p>
+        <p>
+            The SVG Line element was uncoloured until I put and explicit = stroke="white" attribute on the line elements for the plus sign.
+        </p>
+        <h2>References</h2>
+        <p>
+            I followed this tutorial <a href="https://web.dev/building-a-fab-component/">here</a>.            
+        </p>
+        <p>
+            Source code for the above link is <a href="https://github.com/argyleink/gui-challenges/blob/main/FAB/FAB.css">here</a>.
+        </p>
+    </footer>
+
+    <script type="module">
+
+    </script>
+</body>
+
+</html>

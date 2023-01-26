@@ -1,0 +1,259 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <link rel="preconnect" href="https://fonts.gstatic.com">
+    <!-- <link rel="icon" type="../image/png" sizes="32x32" href="../images/favicon-32x32.png"> -->
+    <title>01/01/23</title>
+
+
+    <style>
+        * {
+            box-sizing: border-box;
+            font-size: 16px;
+            font-family: 'RedHat', 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
+        }
+
+        ::-webkit-scrollbar {
+            width: 0.8rem;
+            height: 0.5rem;
+        }
+
+        ::-webkit-scrollbar {
+            display: none;
+            /* Safari and Chrome */
+        }
+
+        /* Track */
+        ::-webkit-scrollbar-track {
+            background: black;
+        }
+
+        /* Handle */
+        ::-webkit-scrollbar-thumb {
+            background: var(--COL3);
+        }
+
+        /* Handle on hover */
+        ::-webkit-scrollbar-thumb:hover {
+            background: var(--COL2);
+        }
+
+        @font-face {
+            font-family: "Inter";
+            src: url("../fonts/Inter-VariableFont_slnt\,wght.ttf");
+        }
+
+        @font-face {
+            font-family: "RedHat";
+            src: url("../fonts/RedHatDisplay-VariableFont_wght.ttf");
+        }
+
+
+        @font-face {
+            font-family: "Fraunces";
+            src: url("../fonts/Fraunces-VariableFont_SOFT\,WONK\,opsz\,wght.ttf");
+        }
+
+
+
+        html,
+        body {
+            margin: 0;
+            height: 100vh;
+
+        }
+
+        ul {
+            margin: 0;
+            padding: 0;
+        }
+
+        li {
+            list-style-type: none;
+        }
+
+        h1,
+        h2,
+        h3,
+        h4 {
+            margin: 0;
+            padding: 0;
+
+        }
+
+        :root {
+            --RED: hsl(0, 78%, 62%);
+            --CYAN: hsl(180, 63%, 84%);
+            --ORANGE: hsl(53, 97%, 64%);
+            --BLUE: hsl(212, 89%, 82%);
+            --GREY: rgba(0, 0, 0, 0.3);
+
+            --COL1: #db0a5b;
+            --COL2: #fef160;
+            --COL3: #23cba7;
+            --COL4: #3e6ceb;
+            --COL5: #d9c8ec;
+
+            --BORDER-RADIUS: .5rem;
+            --FONT-SIZE: 1.2rem;
+            --WIDTH: 500px;
+            --SIZE: 150px;
+
+            --VERT-PADDING: 4rem;
+            --DISPLACEMENT_Y: 10rem;
+        }
+
+
+        /* nav {
+            block-size: 8rem;
+            display: flex;
+            align-items: center;
+            padding-inline: 2rem;
+            background: linear-gradient(to right, rgb(229, 228, 254), lightcyan);
+        } */
+
+        input {
+            --DISPLACEMENT_Y: 0rem;
+            display: none;
+        }
+
+        label{
+            block-size: 8rem;
+            display: flex;
+            position: relative;
+            align-items: center;
+            padding-inline: 2rem;
+            background: linear-gradient(to right, rgb(229, 228, 254), lightcyan);
+        }
+
+        label::after{
+            content: "";
+            background: radial-gradient(white, rgb(229, 228, 254));
+            border-radius: 50%;
+            display: block;
+            width: 4rem;
+            height: 4rem;            
+            position: absolute;
+            cursor: pointer;
+            transition: background .3s ease-in;
+        }
+
+        input:checked ~ label::after{
+            /*gradient from https://github.com/argyleink/open-props/blob/main/src/props.gradients.css*/
+            background:conic-gradient(at 125% 50%, #b78cf7, #ff7c94, #ffcf0d, #ff7c94, #b78cf7);;
+        }
+
+        input:checked ~ main button {
+            --DISPLACEMENT_Y: 0rem;
+        }
+
+        main {
+            display: grid;
+            grid-template-columns: min(20ch, 100%) 1fr;
+            height: calc(100% - 8rem);
+            background: linear-gradient(to right, #f3f3f3, lightcyan);
+            width: 100%;
+            overflow-x: scroll;
+            scroll-behavior: smooth;
+        }
+
+        main>* {
+            grid-column: 2/span 1;
+            display: flex;
+            align-items: center;
+            gap: 2rem;
+        }
+
+
+
+        ul li {
+            --WIDTH: 10rem;
+            --BORDER-RADIUS: 1rem;
+            inline-size: var(--WIDTH);
+            aspect-ratio: 1;
+
+
+        }
+
+        button {
+
+            transform: translateY(var(--DISPLACEMENT_Y));
+            transition: transform .3s ease-in-out;
+            border-radius: var(--BORDER-RADIUS);
+            width: 100%;
+            height: 100%;
+            padding: 0;
+            border: none;
+            overflow: hidden;
+            cursor: pointer;
+
+            /*from open-props */
+            /*https://github.com/argyleink/open-props/blob/main/src/props.shadows.css*/
+            --shadow-color: 220 3% 15%;
+            --shadow-strength: 1%;
+            box-shadow: 0 -1px 2px 0 hsl(var(--shadow-color) / calc(var(--shadow-strength) + 2%)),
+                0 2px 1px -2px hsl(var(--shadow-color) / calc(var(--shadow-strength) + 3%)),
+                0 5px 5px -2px hsl(var(--shadow-color) / calc(var(--shadow-strength) + 3%)),
+                0 10px 10px -2px hsl(var(--shadow-color) / calc(var(--shadow-strength) + 4%)),
+                0 20px 20px -2px hsl(var(--shadow-color) / calc(var(--shadow-strength) + 5%)),
+                0 40px 40px -2px hsl(var(--shadow-color) / calc(var(--shadow-strength) + 7%));
+        }
+
+        button:focus {
+            outline: 4px solid white;
+        }
+
+
+        img {
+            border-radius: var(--BORDER-RADIUS);
+            width: 100%;
+            height: 100%;
+            object-fit: cover;
+            transition: transform .3s ease;
+
+        }
+
+        img:hover {
+            transform: scale(1.2);
+        }
+    </style>
+
+<body>
+    
+        <input type="checkbox" id="toggle" />
+        <label for="toggle"></label>
+    
+    <main>
+
+        <ul id="mp">
+
+        </ul>
+    </main>
+    <script type="module">
+        import data from "../data/imgs.json" assert {type: "json"};
+        const { nature } = data;
+        const root = document.getElementById("mp");
+
+        for (let i = 0; i < nature.length; i++) {
+            mp.appendChild(makeButtonImageTile(nature[i]));
+        }
+
+        function makeButtonImageTile(data) {
+            const { url, description } = data;
+            const listItem = document.createElement("li");
+            const button = document.createElement("button");
+            const image = document.createElement("img");
+            image.src = url;
+            image.alt = description;
+            button.appendChild(image);
+            listItem.appendChild(button);
+            return listItem;
+        }
+    </script>
+</body>
+
+</html>

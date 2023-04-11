@@ -1,0 +1,191 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <link rel="preconnect" href="https://fonts.gstatic.com">
+    <!-- <link rel="icon" type="../image/png" sizes="32x32" href="../images/favicon-32x32.png"> -->
+    <title>04/05b/23</title>
+
+
+    <style>
+        @import "https://unpkg.com/open-props";
+
+        * {
+            box-sizing: border-box;
+            font-size: 16px;
+            font-family: 'RedHat', 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
+        }
+
+        ::-webkit-scrollbar {
+            width: 0.8rem;
+            height: 0.5rem;
+        }
+
+        ::-webkit-scrollbar {
+            display: none;
+            /* Safari and Chrome */
+        }
+
+        /* Track */
+        ::-webkit-scrollbar-track {
+            background: black;
+        }
+
+        /* Handle */
+        ::-webkit-scrollbar-thumb {
+            background: var(--COL3);
+        }
+
+        /* Handle on hover */
+        ::-webkit-scrollbar-thumb:hover {
+            background: var(--COL2);
+        }
+
+
+
+
+        @font-face {
+            font-family: "Inter";
+            src: url("../fonts/Inter-VariableFont_slnt\,wght.ttf");
+        }
+
+        @font-face {
+            font-family: "RedHat";
+            src: url("../fonts/RedHatDisplay-VariableFont_wght.ttf");
+        }
+
+        @font-face {
+            font-family: "Fraunces";
+            src: url("../fonts/Fraunces-VariableFont_SOFT\,WONK\,opsz\,wght.ttf");
+        }
+
+
+
+        html,
+        body {
+            margin: 0;
+            height: 100vh;
+
+        }
+
+        ul {
+            margin: 0;
+            padding: 0;
+        }
+
+        li {
+            list-style-type: none;
+        }
+
+
+
+        h1,
+        h2,
+        h3,
+        h4 {
+            margin: 0;
+            padding: 0;
+
+        }
+
+        :root {
+            --RED: hsl(0, 78%, 62%);
+            --CYAN: hsl(180, 63%, 84%);
+            --ORANGE: hsl(53, 97%, 64%);
+            --BLUE: hsl(212, 89%, 82%);
+            --GREY: rgba(0, 0, 0, 0.3);
+
+            --COL1: #db0a5b;
+            --COL2: #fef160;
+            --COL3: #23cba7;
+            --COL4: #3e6ceb;
+            --COL5: #d9c8ec;
+
+            --BORDER-RADIUS: .5rem;
+            --CONTENT-WIDTH: min(65ch, 100%);
+            --PADDING: 1.5rem;
+            --GRADIENT: linear-gradient(to bottom right, #00F5A0, #00D9F5);
+        }
+
+        nav {}
+
+
+        main {
+            background-color: lavender;
+            height: 100vh;
+            display: grid;
+            place-content: center;
+        }
+
+        .circle {
+            --WIDTH: 15rem;
+            background: var(--GRADIENT);
+            inline-size: var(--WIDTH);
+            block-size: var(--WIDTH);
+            aspect-ratio: 1;
+            border-radius: 50%;
+            mask: linear-gradient(to top, #000 1%, 0%, #0000 8%, 0%, #000 10%, 0%, #0000 16%, 0%, #000 19%, 0%, #0000 24%, 0%, #000 28%, 0%, #0000 32%, 0%, #000 37%, 0%, #0000 40%, 0%, #000 46%, 0%, #0000 48%, 0%, #000 55%, 0%, #0000 56%, 0%, #000 57%);
+            /* content: ""; */
+        }
+
+        footer {
+            inline-size: min(55ch, 100%);
+            background-color: white;
+            position: fixed;
+            display: flex;
+            transform: translateX(-50%);
+            left: 50%;
+            flex-direction: column;
+            bottom: 1rem;
+            border-radius: .5rem;
+            padding: var(--PADDING);
+            margin-inline: 1rem;
+        }
+
+        footer h2 {
+            font-size: 1.3rem;
+        }
+
+        footer a {
+            font-size: 1.1rem;
+            font-weight: 600;
+            color: black;
+        }
+
+        footer code{
+            background-color: #f3f3f3;
+            padding-block: 2rem;
+            padding-inline: 1rem;
+            border-left: .25rem solid black;
+            border-top-right-radius: .25rem;
+            border-bottom-right-radius: .25rem;
+        }
+    </style>
+
+<body>
+
+    <main>
+        <div class="circle">
+
+        </div>
+
+    </main>
+    <footer>
+        <h2>Notes+References</h2>
+        <p>
+            <a href="https://nerdy.dev/retro-wave-sun">nerdy.dev</a>
+        </p>
+        <p>I couldn't get the above to work. The code in question is as follows:</p>
+        <code>
+            mask: linear-gradient(to top, #000 1%, 0%, #0000 8%, 0%, #000 10%, 0%, #0000 16%, 0%, #000 19%, 0%, #0000 24%, 0%, #000 28%, 0%, #0000 32%, 0%, #000 37%, 0%, #0000 40%, 0%, #000 46%, 0%, #0000 48%, 0%, #000 55%, 0%, #0000 56%, 0%, #000 57%);
+        </code>
+
+    </footer>
+
+
+</body>
+
+</html>

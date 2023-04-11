@@ -1,0 +1,198 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <link rel="preconnect" href="https://fonts.gstatic.com">
+    <!-- <link rel="icon" type="../image/png" sizes="32x32" href="../images/favicon-32x32.png"> -->
+    <title>04/05/23</title>
+
+
+    <style>
+        @import "https://unpkg.com/open-props";
+
+        * {
+            box-sizing: border-box;
+            font-size: 16px;
+            font-family: 'RedHat', 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
+        }
+
+        ::-webkit-scrollbar {
+            width: 0.8rem;
+            height: 0.5rem;
+        }
+
+        ::-webkit-scrollbar {
+            display: none;
+            /* Safari and Chrome */
+        }
+
+        /* Track */
+        ::-webkit-scrollbar-track {
+            background: black;
+        }
+
+        /* Handle */
+        ::-webkit-scrollbar-thumb {
+            background: var(--COL3);
+        }
+
+        /* Handle on hover */
+        ::-webkit-scrollbar-thumb:hover {
+            background: var(--COL2);
+        }
+
+
+
+
+        @font-face {
+            font-family: "Inter";
+            src: url("../fonts/Inter-VariableFont_slnt\,wght.ttf");
+        }
+
+        @font-face {
+            font-family: "RedHat";
+            src: url("../fonts/RedHatDisplay-VariableFont_wght.ttf");
+        }
+
+        @font-face {
+            font-family: "Fraunces";
+            src: url("../fonts/Fraunces-VariableFont_SOFT\,WONK\,opsz\,wght.ttf");
+        }
+
+
+
+        html,
+        body {
+            margin: 0;
+            height: 100vh;
+            background-color: rgb(1, 2, 43);
+        }
+
+        ul {
+            margin: 0;
+            padding: 0;
+        }
+
+        li {
+            list-style-type: none;
+        }
+
+
+
+        h1,
+        h2,
+        h3,
+        h4 {
+            margin: 0;
+            padding: 0;
+
+        }
+
+        :root {
+            --RED: hsl(0, 78%, 62%);
+            --CYAN: hsl(180, 63%, 84%);
+            --ORANGE: hsl(53, 97%, 64%);
+            --BLUE: hsl(212, 89%, 82%);
+            --GREY: rgba(0, 0, 0, 0.3);
+
+            --COL1: #db0a5b;
+            --COL2: #fef160;
+            --COL3: #23cba7;
+            --COL4: #3e6ceb;
+            --COL5: #d9c8ec;
+
+            --BORDER-RADIUS: .5rem;
+            --CONTENT-WIDTH: min(65ch, 100%);
+            --PADDING: 1.5rem;
+
+        }
+
+        nav {}
+
+        main {
+            display: grid;
+            place-items: center;
+            height: 100%;
+        }
+
+
+        .play-button {
+            padding: var(--PADDING);
+            border-radius: 50%;
+            border: .2rem solid black;
+            background-color: white;
+            display: grid;
+            place-items: center;
+            cursor: pointer;
+
+            aspect-ratio: 1;
+            transition: box-shadow .4s ease-in-out;
+        }
+
+        .play-button__triangle {
+            --WIDTH: 1.5rem;
+            background-color: black;
+            /* clip-path: polygon(0 0, 100% 50%, 0 100%); */
+            clip-path: polygon(0 4%, 4% 0, 98% 48%, 98% 52%, 0 100%);
+            content: "";
+            display: block;
+            margin-left: .25rem;
+            inline-size: var(--WIDTH);
+            block-size: var(--WIDTH);
+        }
+
+        .play-button:hover {
+            color: rgba(255, 255, 255, 1);
+            box-shadow: 0 5px 25px rgba(255, 255, 255, 0.4);
+        }
+
+        footer{
+            margin-inline: 1rem;
+            padding: var(--PADDING);
+            background-color: white;
+            position: fixed;
+            bottom: 1rem;
+            border-radius: .5rem;
+            display: flex;
+            flex-direction: column;
+            width: min(65ch, 100%);
+        }
+
+        footer > h2{
+
+        }
+
+        a {
+            color: black;
+            font-weight: 600;
+            font-size: 1.1rem;
+        }
+    </style>
+
+<body>
+
+    <main>
+
+        <button class="play-button" role="plays the video, despite there not being a video">
+            <div class="play-button__triangle" role="triangle in the middle of the button" aria-disabled="true">
+
+            </div>
+        </button>
+        <footer>
+            <h2>References</h2>
+            <p>
+                <a href="https://superdevresources.com/css-button-glow-effect/">
+                    Glowing Effect Reference
+                </a><br/>
+                <code> box-shadow: 0 5px 25px rgba(255, 255, 255, 0.4);</code>
+            </p>
+        </footer>
+    </main>
+
+
+</body>
+
+</html>

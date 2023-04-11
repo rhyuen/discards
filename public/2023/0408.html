@@ -1,0 +1,192 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <link rel="preconnect" href="https://fonts.gstatic.com">
+    <!-- <link rel="icon" type="../image/png" sizes="32x32" href="../images/favicon-32x32.png"> -->
+    <title>04/06/23</title>
+
+
+    <style>
+        @import "https://unpkg.com/open-props";
+
+        * {
+            box-sizing: border-box;
+            font-size: 16px;
+            font-family: 'RedHat', 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
+        }
+
+        ::-webkit-scrollbar {
+            width: 0.8rem;
+            height: 0.5rem;
+        }
+
+        ::-webkit-scrollbar {
+            display: none;
+            /* Safari and Chrome */
+        }
+
+        /* Track */
+        ::-webkit-scrollbar-track {
+            background: black;
+        }
+
+        /* Handle */
+        ::-webkit-scrollbar-thumb {
+            background: var(--COL3);
+        }
+
+        /* Handle on hover */
+        ::-webkit-scrollbar-thumb:hover {
+            background: var(--COL2);
+        }
+
+
+
+
+        @font-face {
+            font-family: "Inter";
+            src: url("../fonts/Inter-VariableFont_slnt\,wght.ttf");
+        }
+
+        @font-face {
+            font-family: "RedHat";
+            src: url("../fonts/RedHatDisplay-VariableFont_wght.ttf");
+        }
+
+        @font-face {
+            font-family: "Fraunces";
+            src: url("../fonts/Fraunces-VariableFont_SOFT\,WONK\,opsz\,wght.ttf");
+        }
+
+
+
+        html,
+        body {
+            margin: 0;
+            height: 100vh;
+
+        }
+
+        ul {
+            margin: 0;
+            padding: 0;
+        }
+
+        li {
+            list-style-type: none;
+        }
+
+
+
+        h1,
+        h2,
+        h3,
+        h4 {
+            margin: 0;
+            padding: 0;
+
+        }
+
+        :root {
+            --RED: hsl(0, 78%, 62%);
+            --CYAN: hsl(180, 63%, 84%);
+            --ORANGE: hsl(53, 97%, 64%);
+            --BLUE: hsl(212, 89%, 82%);
+            --GREY: rgba(0, 0, 0, 0.3);
+
+            --COL1: #db0a5b;
+            --COL2: #fef160;
+            --COL3: #23cba7;
+            --COL4: #3e6ceb;
+            --COL5: #d9c8ec;
+
+            --BORDER-RADIUS: .5rem;
+            --CONTENT-WIDTH: min(65ch, 100%);
+            --PADDING: 1.5rem;
+
+        }
+
+
+        main {
+            width: 100vw;
+            height: 100vh;
+            display: grid;
+            background-color: black;
+            place-items: center;
+        }
+
+        .expand {
+            --deg: 45deg;
+            transition: background-image .2s ease-in, aspect-ratio .2s ease-in-out;
+            background-image: linear-gradient(var(--deg), white, black 0 10%, white 0 20%, black 0 30%, white 0 40%, black 0 50%, white 0 60%, black 0 70%, white 0 80%, black 0 90%, white 0 100%);
+            width: min(50ch, 100%);
+            aspect-ratio: 16/9;
+            box-shadow: 0 1rem 4rem transparent;
+        }
+
+        .expand:hover {
+            aspect-ratio: 3/4;
+            box-shadow: 0 1rem 4rem rgba(255, 255, 255, 0.3);
+        }
+
+        footer {
+            background-color: white;
+            border-radius: .25rem;
+            padding: 1rem;
+            margin: 1rem;
+
+        }
+
+        footer>* {
+            width: min(55ch, 100%);
+            margin: 0 auto;
+        }
+
+        footer p, footer a{
+            font-size: .9rem;
+        }
+
+        a {
+            color: black;
+            font-weight: 600;
+        }
+    </style>
+
+<body>
+    <main>
+        <div class="expand">
+
+        </div>
+
+    </main>
+    <footer>
+        <div>
+            <h2>Notes and References</h2>
+            <p>
+                Used this as a reference (<a
+                    href="https://nerdy.dev/gradient-stripes-with-hard-stops-visualized">nerdy.dev</a>)
+            </p>
+            <p>
+                I added the rotation of the internal bars because I wanted to incorporate some things from the previous
+                days tutorials.
+            </p>
+        </div>
+    </footer>
+    <script>
+        const expand = document.getElementsByClassName("expand")[0];
+        let count = 45;
+        let cycle = 0;
+        setInterval(() => {
+            console.log(cycle);
+            expand.style.setProperty("--deg", `${count + cycle}deg`);
+            cycle++;
+        }, 1000);
+    </script>
+
+</body>
+
+</html>

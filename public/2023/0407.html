@@ -1,0 +1,182 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <link rel="preconnect" href="https://fonts.gstatic.com">
+    <!-- <link rel="icon" type="../image/png" sizes="32x32" href="../images/favicon-32x32.png"> -->
+    <title>04/06/23</title>
+
+
+    <style>
+        @import "https://unpkg.com/open-props";
+
+        * {
+            box-sizing: border-box;
+            font-size: 16px;
+            font-family: 'RedHat', 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
+        }
+
+        ::-webkit-scrollbar {
+            width: 0.8rem;
+            height: 0.5rem;
+        }
+
+        ::-webkit-scrollbar {
+            display: none;
+            /* Safari and Chrome */
+        }
+
+        /* Track */
+        ::-webkit-scrollbar-track {
+            background: black;
+        }
+
+        /* Handle */
+        ::-webkit-scrollbar-thumb {
+            background: var(--COL3);
+        }
+
+        /* Handle on hover */
+        ::-webkit-scrollbar-thumb:hover {
+            background: var(--COL2);
+        }
+
+
+
+
+        @font-face {
+            font-family: "Inter";
+            src: url("../fonts/Inter-VariableFont_slnt\,wght.ttf");
+        }
+
+        @font-face {
+            font-family: "RedHat";
+            src: url("../fonts/RedHatDisplay-VariableFont_wght.ttf");
+        }
+
+        @font-face {
+            font-family: "Fraunces";
+            src: url("../fonts/Fraunces-VariableFont_SOFT\,WONK\,opsz\,wght.ttf");
+        }
+
+
+
+        html,
+        body {
+            margin: 0;
+            height: 100vh;
+
+        }
+
+        ul {
+            margin: 0;
+            padding: 0;
+        }
+
+        li {
+            list-style-type: none;
+        }
+
+
+
+        h1,
+        h2,
+        h3,
+        h4 {
+            margin: 0;
+            padding: 0;
+
+        }
+
+        :root {
+            --RED: hsl(0, 78%, 62%);
+            --CYAN: hsl(180, 63%, 84%);
+            --ORANGE: hsl(53, 97%, 64%);
+            --BLUE: hsl(212, 89%, 82%);
+            --GREY: rgba(0, 0, 0, 0.3);
+
+            --COL1: #db0a5b;
+            --COL2: #fef160;
+            --COL3: #23cba7;
+            --COL4: #3e6ceb;
+            --COL5: #d9c8ec;
+
+            --BORDER-RADIUS: .5rem;
+            --CONTENT-WIDTH: min(65ch, 100%);
+            --PADDING: 1.5rem;
+
+        }
+
+        nav {}
+
+        main {
+            display: grid;
+            place-items: center;
+            height: 100%;
+        }
+
+
+        .container {
+            position: relative;
+        }
+
+        @keyframes rotation {
+            to {
+                rotate: 1turn;
+            }
+        }
+
+        .loading {
+            --ng: 90deg;
+
+            /* the conic gradient, transparent after --ng */
+            background-image: conic-gradient(black var(--ng), #0000 0);
+
+            aspect-ratio: 1;
+            inline-size: 50vmin;
+            border-radius: 50%;
+            animation: rotation 1s ease-in-out infinite;
+            position: relative;
+            opacity: 1;
+            transition: opacity .2s ease-in-out;
+        }
+
+        .loading::after {
+            position: absolute;
+            width: 100%;
+            height: 100%;
+            transform: scale(0.8);
+            background-color: white;
+            border-radius: 50%;
+            content: "";
+        }
+
+        .loading--fadeout {
+            opacity: 0;
+        }
+    </style>
+
+<body>
+
+    <main>
+        <div id="loading" class="loading" role="loading indicator"></div>
+    </main>
+    <script type="text/javascript">
+        const loading = document.getElementById('loading');
+
+        setTimeout(() => {
+            loading.classList.add("loading--fadeout");
+            setTimeout(() => {
+                console.log('removed');
+                loading.remove();
+            }, 1000);
+
+        }, 3000);
+    </script>
+
+</body>
+
+</html>

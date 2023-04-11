@@ -1,0 +1,280 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <link rel="preconnect" href="https://fonts.gstatic.com">
+    <!-- <link rel="icon" type="../image/png" sizes="32x32" href="../images/favicon-32x32.png"> -->
+    <title>04/06/23</title>
+
+
+    <style>
+        @import "https://unpkg.com/open-props";
+
+        * {
+            box-sizing: border-box;
+            font-size: 16px;
+            font-family: 'RedHat', 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
+        }
+
+        ::-webkit-scrollbar {
+            width: 0.8rem;
+            height: 0.5rem;
+        }
+
+        ::-webkit-scrollbar {
+            display: none;
+            /* Safari and Chrome */
+        }
+
+        /* Track */
+        ::-webkit-scrollbar-track {
+            background: black;
+        }
+
+        /* Handle */
+        ::-webkit-scrollbar-thumb {
+            background: var(--COL3);
+        }
+
+        /* Handle on hover */
+        ::-webkit-scrollbar-thumb:hover {
+            background: var(--COL2);
+        }
+
+
+
+
+        @font-face {
+            font-family: "Inter";
+            src: url("../fonts/Inter-VariableFont_slnt\,wght.ttf");
+        }
+
+        @font-face {
+            font-family: "RedHat";
+            src: url("../fonts/RedHatDisplay-VariableFont_wght.ttf");
+        }
+
+        @font-face {
+            font-family: "Fraunces";
+            src: url("../fonts/Fraunces-VariableFont_SOFT\,WONK\,opsz\,wght.ttf");
+        }
+
+
+
+        html,
+        body {
+            margin: 0;
+            height: 100vh;
+
+        }
+
+        ul {
+            margin: 0;
+            padding: 0;
+        }
+
+        li {
+            list-style-type: none;
+        }
+
+
+
+        h1,
+        h2,
+        h3,
+        h4 {
+            margin: 0;
+            padding: 0;
+
+        }
+
+        :root {
+            --RED: hsl(0, 78%, 62%);
+            --CYAN: hsl(180, 63%, 84%);
+            --ORANGE: hsl(53, 97%, 64%);
+            --BLUE: hsl(212, 89%, 82%);
+            --GREY: rgba(0, 0, 0, 0.3);
+
+            --COL1: #db0a5b;
+            --COL2: #fef160;
+            --COL3: #23cba7;
+            --COL4: #3e6ceb;
+            --COL5: #d9c8ec;
+
+            --BORDER-RADIUS: .5rem;
+            --CONTENT-WIDTH: min(65ch, 100%);
+            --PADDING: 1.5rem;
+
+        }
+
+        nav {}
+
+        main {
+            display: grid;
+            place-items: center;
+            height: 100%;
+        }
+
+
+        .container {
+            position: relative;
+        }
+
+        .pie {
+            --ng: 240deg;
+
+            --thickness: 3px;
+            --_inner: calc(70% - var(--thickness));
+            --_outer: calc(var(--_inner) + 1px);
+
+
+
+
+            /* the conic gradient, transparent after --ng */
+            background-image: conic-gradient(deeppink, cyan var(--ng), #0000 0);
+
+            aspect-ratio: 1;
+            inline-size: 50vmin;
+            border-radius: 50%;
+            position: grid;
+            place-items: center;
+            position: relative;
+            margin-bottom: 2rem;
+        }
+
+        .pie__inner {
+            position: absolute;
+            transform: scale(0.8);
+            border-radius: 50%;
+            height: 100%;
+            width: 100%;
+            background-color: white;
+            color: rgba(0, 0, 0, 0.2);
+            font-family: "Inter";
+            content: "";
+            inset: 0;
+            display: grid;
+            place-items: center;
+            font-size: 10vmin;
+            font-weight: 600;
+        }
+
+        .pie__slider {
+            display: flex;
+            width: 100%;
+            cursor: pointer;
+            background-color: black;
+        }
+
+        .references {
+            background: deeppink;
+            font-weight: 600;
+            font-size: 1.2rem;
+            padding: .5rem 1rem;
+            border-radius: .5rem;
+            color: white;
+            border: .2rem solid transparent;
+            margin-top: 4rem;
+            cursor: pointer;
+        }
+
+        footer {
+            position: fixed;
+            left: 50%;
+            transform: translateX(-50%);
+            bottom: -100rem;
+            display: flex;
+            flex-direction: column;
+            margin: 1rem;
+
+            transition: bottom 0.2s ease-in-out;
+            background: white;
+            border-radius: .25rem;
+            padding: 1.5rem;
+            inline-size: min(55ch, 100%);
+            box-shadow: 0 5px 20px rgba(0, 0, 0, 0.1);
+        }
+
+        footer h2 {
+            font-size: 1.1rem;
+
+        }
+
+        footer p {
+            font-size: 0.9rem;
+        }
+
+        footer a {
+            font-weight: 600;
+            color: black;
+            font-size: inherit;
+        }
+    </style>
+
+<body>
+
+    <main>
+        <div class="container">
+            <div class="pie" id="pie">
+                <div class="pie__inner" id="rotation">
+                    240
+                </div>
+            </div>
+            <input class="pie__slider" type="range" max="360" value="120" id="slider"
+                role="adjuss the degree of rotation and the value of the circle above.">
+            <button class="references" id="references">
+                References
+            </button>
+        </div>
+
+    </main>
+    <footer>
+        <h2>Notes and References</h2>
+        <p>
+            Followed this tutorial <a href="https://nerdy.dev/gradient-outline-circular-chart">here</a>.
+        </p>
+        <p>
+            I couldn't get the mask to work.
+        </p>
+        <p>
+            My first attempt to generate the mask was using a pseudo element of .pie::after{} and then scaling value
+            down and centering it within the existing pie. However, I wanted the numerical value in the center so I
+            opted for a child element for the pie.
+        </p>
+        <p>
+            I also found out that for the slider value, you can style the sliding element without replacing the entire
+            element unlike checkboxes, radio buttons and dropdowns. Reference <a
+                href="https://www.smashingmagazine.com/2021/12/create-custom-range-input-consistent-browsers/">here</a>.
+        </p>
+    </footer>
+    <script>
+        const slider = document.getElementById("slider");
+        const pie = document.getElementById("pie");
+        const rotation = document.getElementById("rotation");
+        slider.addEventListener("input", e => {
+            const deg = e.target.value + 'deg';
+            pie.style.setProperty("--ng", deg);
+            rotation.textContent = e.target.value;
+        });
+
+        const references = document.getElementById("references");
+        const footer = document.querySelector("footer");
+
+        references.addEventListener("click", e => {
+            footer.style.bottom = "1rem";
+        });
+
+        window.addEventListener("keydown",  e=> {
+            if(e.keyCode === 27){
+                console.log("escape");
+                footer.style.bottom = "-100rem";
+            }
+        })
+    </script>
+
+</body>
+
+</html>

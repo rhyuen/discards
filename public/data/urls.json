@@ -97,9 +97,7 @@
             "link": "/2023/0118.html",
             "visible": true,
             "description": "A horizontal scrolling bar with icons.",
-            "reference": [
-            
-            ]
+            "reference": []
         },
         {
             "month": 1,
@@ -133,6 +131,91 @@
             "screenshot": "230125.png",
             "reference": [
                 "https://twitter.com/jamesm/status/1618184871205302275/photo/1"
+            ]
+        },
+        {
+            "month": 4,
+            "day": 5,
+            "year": 2023,
+            "link": "/2023/0405.html",
+            "visible": true,
+            "description": "A play button without the video.",
+            "screenshot": "",
+            "reference": [
+                "https://superdevresources.com/css-button-glow-effect/"
+            ]
+        },
+        {
+            "month": 4,
+            "day": 5,
+            "year": 2023,
+            "link": "/2023/0405b.html",
+            "visible": true,
+            "description": "Retro Gradient Mask for a sunset.",
+            "screenshot": "",
+            "reference": [
+                "https://nerdy.dev/retro-wave-sun"
+            ]
+        },
+        {
+            "month": 4,
+            "day": 6,
+            "year": 2023,
+            "link": "/2023/0406.html",
+            "visible": true,
+            "description": "Circle Graph with a Slider button",
+            "screenshot": "",
+            "reference": [
+                "https://nerdy.dev/gradient-outline-circular-chart"
+            ]
+        },
+        {
+            "month": 4,
+            "day": 7,
+            "year": 2023,
+            "link": "/2023/0407.html",
+            "visible": true,
+            "description": "Loading indicator",
+            "screenshot": "",
+            "reference": [
+                "https://nerdy.dev/gradient-outline-circular-chart"
+            ]
+        },
+        {
+            "month": 4,
+            "day": 8,
+            "year": 2023,
+            "link": "/2023/0408.html",
+            "visible": true,
+            "description": "Linear Gradient with rotating graident bars.",
+            "screenshot": "",
+            "reference": [
+                "https://nerdy.dev/gradient-stripes-with-hard-stops-visualized"
+            ]
+        },
+        {
+            "month": 4,
+            "day": 9,
+            "year": 2023,
+            "link": "/2023/0409.html",
+            "visible": true,
+            "description": "Row of images.",
+            "screenshot": "",
+            "reference": []
+        },
+        {
+            "month": 4,
+            "day": 10,
+            "year": 2023,
+            "link": "/2023/0410.html",
+            "visible": true,
+            "description": "Gradient Circle with the Mask on top.",
+            "screenshot": "",
+            "reference": [
+                "https://nerdy.dev/perfect-nested-radius-with-overflow-clip-margin",
+                "https://css-tricks.com/gradient-borders-in-css/",
+                "https://nerdy.dev/retro-wave-sun",
+                "https://www.digitalocean.com/community/tutorials/css-masking-with-mask-image"
             ]
         }
     ],

@@ -217,6 +217,20 @@
                 "https://nerdy.dev/retro-wave-sun",
                 "https://www.digitalocean.com/community/tutorials/css-masking-with-mask-image"
             ]
+        },
+        {
+            "month": 4,
+            "day": 10,
+            "year": 2023,
+            "link": "/2023/0412.html",
+            "visible": true,
+            "description": "Gradient Circle with the Mask on top. With drop-shadow.  With a Grid with different gradients.",
+            "screenshot": "230411",
+            "reference": [
+                "https://open-props.style/#gradients",                
+                "https://nerdy.dev/retro-wave-sun",
+                "https://stackoverflow.com/a/19694994"
+            ]
         }
     ],
     "2022": [

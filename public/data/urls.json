@@ -220,7 +220,7 @@
         },
         {
             "month": 4,
-            "day": 10,
+            "day": 12,
             "year": 2023,
             "link": "/2023/0412.html",
             "visible": true,
@@ -230,6 +230,18 @@
                 "https://open-props.style/#gradients",                
                 "https://nerdy.dev/retro-wave-sun",
                 "https://stackoverflow.com/a/19694994"
+            ]
+        },
+        {
+            "month": 4,
+            "day": 13,
+            "year": 2023,
+            "link": "/2023/0413.html",
+            "visible": true,
+            "description": "A mobile-friendly calendar, made of <table/>,<tr/> and <td/>, differing from when I just use <div/>, with a Nav at the top.  The dates do not correspond with the year.",
+            "screenshot": "230413",
+            "reference": [
+               
             ]
         }
     ],

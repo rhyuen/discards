@@ -1,0 +1,349 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <link rel="preconnect" href="https://fonts.gstatic.com">
+    <!-- <link rel="icon" type="../image/png" sizes="32x32" href="../images/favicon-32x32.png"> -->
+    <title>04/13/23</title>
+
+
+    <style>
+        @import "https://unpkg.com/open-props";
+
+        * {
+            box-sizing: border-box;
+            font-size: 16px;
+            font-family: 'RedHat', 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
+        }
+
+        ::-webkit-scrollbar {
+            width: 0.8rem;
+            height: 0.5rem;
+        }
+
+        ::-webkit-scrollbar {
+            display: none;
+            /* Safari and Chrome */
+        }
+
+        /* Track */
+        ::-webkit-scrollbar-track {
+            background: black;
+        }
+
+        /* Handle */
+        ::-webkit-scrollbar-thumb {
+            background: var(--COL3);
+        }
+
+        /* Handle on hover */
+        ::-webkit-scrollbar-thumb:hover {
+            background: var(--COL2);
+        }
+
+
+
+
+        @font-face {
+            font-family: "Inter";
+            src: url("../fonts/Inter-VariableFont_slnt\,wght.ttf");
+        }
+
+        @font-face {
+            font-family: "RedHat";
+            src: url("../fonts/RedHatDisplay-VariableFont_wght.ttf");
+        }
+
+        @font-face {
+            font-family: "Fraunces";
+            src: url("../fonts/Fraunces-VariableFont_SOFT\,WONK\,opsz\,wght.ttf");
+        }
+
+        @font-face {
+            font-family: "Poppins";
+            src: url("../fonts/Poppins-Regular.ttf");
+        }
+
+
+
+        html,
+        body {
+            margin: 0;
+            height: 100vh;
+        }
+
+        ul {
+            margin: 0;
+            padding: 0;
+        }
+
+        li {
+            list-style-type: none;
+        }
+
+
+
+        h1,
+        h2,
+        h3,
+        h4 {
+            margin: 0;
+            padding: 0;
+
+        }
+
+        :root {
+            --RED: hsl(0, 78%, 62%);
+            --CYAN: hsl(180, 63%, 84%);
+            --ORANGE: hsl(53, 97%, 64%);
+            --BLUE: hsl(212, 89%, 82%);
+            --GREY: rgba(0, 0, 0, 0.3);
+
+            --COL1: #db0a5b;
+            --COL2: #fef160;
+            --COL3: #23cba7;
+            --COL4: #3e6ceb;
+            --COL5: #d9c8ec;
+
+            --BORDER-RADIUS: .5rem;
+            --CONTENT-WIDTH: min(80ch, 100%);
+            --PADDING: 1.5rem;
+
+        }
+
+        main {
+            inline-size: var(--CONTENT-WIDTH);
+            margin: 0 auto;
+            display: grid;
+            gap: 2rem 1rem;
+
+            grid-template-columns: repeat(auto-fit, minmax(180px, 1fr));
+            padding: 5rem 1rem;
+        }
+
+        .m-wrapper {
+            grid-column: span 1;
+            /* border: 1px solid black; */
+            box-shadow: 0px 2px .5rem .25rem rgba(0, 0, 0, 0.1);
+            border-radius: .25rem;
+            padding-inline: 1.5rem;
+            padding-top: 8rem;
+            padding-bottom: 1.5rem;
+            position: relative;
+        }
+
+        .m-wrapper__header {
+            top: 1.5rem;
+            left: 1.5rem;
+            position: absolute;
+            font-size: 3rem;
+            font-family: "Poppins";
+            -webkit-text-stroke-color: rgba(0, 0, 0, 0.3);
+            -webkit-text-stroke-width: .05px;
+            color: transparent;
+        }
+
+        .month {
+
+            display: flex;
+            flex-direction: column;
+        }
+
+        .month__week {
+            --GAP: .35rem;
+            display: grid;
+            grid-template-columns: repeat(7, 1fr);
+            gap: var(--GAP);
+            margin-bottom: var(--GAP);
+        }
+
+        .month__week td {
+            /* --WIDTH: 1.25rem; */
+            border-radius: .25rem;
+            grid-column: span 1;
+
+            aspect-ratio: 1;
+            background-color: #f3f3f3;
+        }
+
+        .day {
+            background-color: #3e6ceb;
+        }
+
+        .day--blank {}
+
+        .day--today {
+            background-color: #23cba7;
+        }
+
+        nav {
+            inline-size: var(--CONTENT-WIDTH);
+            block-size: 5rem;
+            display: flex;
+            justify-content: space-between;
+            align-items: center;
+            padding-inline: 1rem;
+            margin: 0 auto;
+        }
+
+        button{
+            border: none;
+        }
+
+        .button {
+            cursor: pointer;
+            background-color: white;
+            aspect-ratio: 1;
+            border-radius: 50%;
+            padding: 1rem;
+            content: "";
+            width: 2rem;
+            height: 2rem;
+            border: 2px solid rgba(0, 0, 0, 0.1);
+            transition: box-shadow .2s ease-in-out;
+            position: relative;
+            display: grid;
+            place-items: center;
+        }
+
+        .button:hover{
+            box-shadow: 0px 2px .25rem .25rem rgba(0, 0, 0, 0.1);
+        }
+
+        .button--back::after{
+            inline-size: 2rem;
+            block-size: 2rem;
+            position: absolute;
+            transform:  scale(0.25) translateX(.25rem) rotate(-45deg);
+            content: "";
+            inset: 0;
+            border-top: .15rem solid rgba(0, 0, 0, 0.3);
+            border-left: .15rem solid rgba(0, 0, 0, 0.3);
+        
+        }
+
+
+        .button--references::after{
+            inline-size: 100%;
+            block-size: 100%;
+            position: absolute;
+            transform-origin: center;
+            transform:  scale(0.35);
+            content: "";
+            border: .5rem solid rgba(0, 0, 0, 0.1);
+            
+        }
+
+        footer{
+            position: fixed;
+            right: -100%;
+            transition: right 0.2s ease-in-out;
+            height: 100%;
+            top: 0;
+            inline-size: 20rem;
+            background-color: white;
+            border-left: 2px solid rgba(0, 0, 0, 0.1);
+            padding: 8rem 4rem;
+        }
+
+        footer h2{
+            font-size: 2rem;
+        }
+
+        footer p, footer a, footer code{
+            font-size: .9rem;
+        }
+
+        footer a{
+            font-weight: 600;
+            color: black;
+        }
+    </style>
+
+<body>
+    <nav>
+        <a href="/public" class="button button--back"></a>
+        <button id="references-button" class="button button--references"></button>
+    </nav>
+    <main id="mp">
+
+    </main>
+    <footer>
+        <h2>Notes + References</h2>
+        <p>Made on April 13, 2023</p>
+        <p>Mostly an attempt at a Mobile Reader Calendar.</p>
+        <p>I had to reference what I did yesterday to center the icons on the buttons.  Turns out it was <code>div{display: grid; place-items: center}</code></p>
+        <p>
+            <button id="close-menu-button" class="button button--back"></button>
+        </p>
+    </footer>
+
+    <script type="module">
+
+        const mp = document.getElementById("mp");
+        const footer = document.querySelector("footer");
+        const referencesButton = document.getElementById("references-button");
+        const closeMenuButton = document.getElementById("close-menu-button");
+        referencesButton.addEventListener("click", () => {
+            footer.style.right = "0";
+        });
+
+        closeMenuButton.addEventListener("click", () => {
+            footer.style.right="-100%";
+        })
+
+
+
+        for (let i = 0; i < 12; i++) {
+            mp.appendChild(createCard(i));
+        }
+
+        function createCard(d) {
+            const card = document.createElement("div");
+            card.classList.add("m-wrapper");
+            card.appendChild(createHeader(d));
+            card.appendChild(createMonth(d));
+            return card;
+        }
+
+        function createHeader(index) {
+            const header = document.createElement("h2");
+            header.classList.add("m-wrapper__header");
+            header.textContent = index + 1;
+            return header;
+        }
+
+        function createMonth(d) {
+            const table = document.createElement("table");
+            table.classList.add("month");
+
+            for (let i = 0; i < 6; i++) {
+                table.appendChild(createWeek(d));
+            }
+
+            return table;
+        }
+
+        function createWeek(d) {
+            const row = document.createElement("tr");
+            row.classList.add("month__week");
+            for (let i = 0; i < 7; i++) {
+                row.appendChild(createDay(d));
+            }
+            return row;
+        }
+
+
+        function createDay(d) {
+            const cell = document.createElement("td");
+            return cell;
+        }
+
+    </script>
+
+</body>
+
+</html>

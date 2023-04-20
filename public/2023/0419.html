@@ -1,0 +1,454 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <link rel="preconnect" href="https://fonts.gstatic.com">
+    <!-- <link rel="icon" type="../image/png" sizes="32x32" href="../images/favicon-32x32.png"> -->
+    <title>04/16/23</title>
+
+
+    <style>
+        @import "https://unpkg.com/open-props";
+
+        * {
+            box-sizing: border-box;
+            font-size: 16px;
+            font-family: 'RedHat', 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
+        }
+
+        ::-webkit-scrollbar {
+            width: 0.8rem;
+            height: 0.5rem;
+        }
+
+        ::-webkit-scrollbar {
+            display: none;
+            /* Safari and Chrome */
+        }
+
+        /* Track */
+        ::-webkit-scrollbar-track {
+            background: black;
+        }
+
+        /* Handle */
+        ::-webkit-scrollbar-thumb {
+            background: var(--COL3);
+        }
+
+        /* Handle on hover */
+        ::-webkit-scrollbar-thumb:hover {
+            background: var(--COL2);
+        }
+
+
+
+
+        @font-face {
+            font-family: "Inter";
+            src: url("../fonts/Inter-VariableFont_slnt\,wght.ttf");
+        }
+
+        @font-face {
+            font-family: "RedHat";
+            src: url("../fonts/RedHatDisplay-VariableFont_wght.ttf");
+        }
+
+        @font-face {
+            font-family: "Fraunces";
+            src: url("../fonts/Fraunces-VariableFont_SOFT\,WONK\,opsz\,wght.ttf");
+        }
+
+        @font-face {
+            font-family: "Poppins";
+            src: url("../fonts/Poppins-Regular.ttf");
+        }
+
+
+
+        html,
+        body {
+            margin: 0;
+            height: 100vh;
+        }
+
+        ul {
+            margin: 0;
+            padding: 0;
+        }
+
+        li {
+            list-style-type: none;
+        }
+
+
+
+        h1,
+        h2,
+        h3,
+        h4 {
+            margin: 0;
+            padding: 0;
+
+        }
+
+        :root {
+            --RED: hsl(0, 78%, 62%);
+            --CYAN: hsl(180, 63%, 84%);
+            --ORANGE: hsl(53, 97%, 64%);
+            --BLUE: hsl(212, 89%, 82%);
+            --GREY: rgba(0, 0, 0, 0.3);
+
+            --COL1: #db0a5b;
+            --COL2: #fef160;
+            --COL3: #23cba7;
+            --COL4: #3e6ceb;
+            --COL5: #d9c8ec;
+
+            --BORDER-RADIUS: .5rem;
+
+            --HERO-CONTENT-WIDTH: min(80ch, 100%);
+            --CONTENT-WIDTH: min(55ch, 100%);
+            --PADDING: 1.5rem;
+
+        }
+
+        main {
+            background: linear-gradient(to bottom, lavender, indigo);
+            display: grid;
+            grid-template-columns: 1fr var(--CONTENT-WIDTH) 1fr;
+
+        }
+
+        .full-bleed {
+            grid-column: 1/-1;
+
+        }
+
+        .progress {
+            /* width: 1%; */
+            inline-size: 1%;
+            block-size: 1rem;
+            background-color: #db0a5b;
+            position: fixed;
+            top: 0;
+            left: 0;
+            right: 0;
+            z-index: 1;
+        }
+
+        .hero {
+            block-size: 95vh;
+            background-color: white;
+            display: flex;
+            align-items: center;
+
+        }
+
+        .content {
+            inline-size: var(--CONTENT-WIDTH);
+            margin: 0 auto;
+            display: flex;
+            flex-direction: column;
+            padding: 0 1.5rem;
+        }
+
+        .content--hero {
+            inline-size: var(--HERO-CONTENT-WIDTH);
+        }
+
+        .content h1 {
+            font-size: 3rem;
+        }
+
+        .content h2 {
+            font-size: 1.5rem;
+            font-weight: 400;
+            margin-bottom: 2rem;
+        }
+
+        .content h3 {
+            font-size: 1.2rem;
+            color: var(--COL1);
+            text-transform: uppercase;
+            margin: 2rem 0;
+        }
+
+        .content p {
+            line-height: 1.75;
+        }
+
+        .container {
+            padding: 8rem 0;
+            background-color: white;
+            border-top: 1rem solid var(--COL3);
+        }
+
+
+        .content__wrap {
+            display: flex;
+        }
+
+        .content__wrap li {
+            flex: 1 1 170px;
+            font-size: .9rem;
+            margin-right: 1rem;
+        }
+
+        footer{
+            padding-bottom: 8rem;
+        }
+
+        footer .content p {
+            line-height: 1.2;
+            font-size: .9rem;
+        }
+
+        footer .content a{
+            font-weight: 800;
+            font-size: .9rem;
+        }
+    </style>
+
+<body>
+    <div class="progress">
+
+    </div>
+    <main>
+        <div class="full-bleed hero">
+            <div class="content content--hero">
+                <h1>Association of COVID-19 Infection With Incident Diabetes
+                </h1>
+                <h2>
+                    Is SARS-Cov-2 infection associated with incident diabetes?
+                </h2>
+            </div>
+        </div>
+        <div class="full-bleed container">
+            <div class="content">
+                <h2>Key Points</h2>
+                <ul class="content__wrap">
+                    <li>
+                        <h3>Question</h3>
+                        <p>Is SARS-Cov-2 infection associated with incident diabetes?</p>
+                    </li>
+                    <li>
+                        <h3>Findings</h3>
+                        <p>In this cohort study of 629 935 individuals tested for SARS-CoV-2, the hazard of incident
+                            diabetes was significantly higher among individuals who tested positive for SARS-CoV-2
+                            infection than those who tested negative. The fraction of incident diabetes cases
+                            attributable to SARS-CoV-2 infection was 3% to 5%.</p>
+                    </li>
+                    <li>
+                        <h3>Meaning</h3>
+                        <p>This study found that SARS-CoV-2 infection was associated with a higher risk of diabetes,
+                            suggesting that these infections may have contributed to an excess burden of diabetes at the
+                            population level.</p>
+                    </li>
+                </ul>
+            </div>
+        </div>
+        <div class="full-bleed container">
+            <div class="content">
+                <h2>Introduction</h2>
+                <p>
+                    Since its emergence in December 2019, SARS-CoV-2 has caused significant morbidity and mortality.1
+                    While initial public health measures and research focused on understanding transmission, disease
+                    severity, prevention interventions, and treatment of acute infection, efforts to better understand
+                    the long-term sequelae and wider consequences of COVID-19 are now at the forefront. While acute
+                    infection primarily affects the respiratory system, other organ systems may also be involved,
+                    leading to various acute and chronic sequelae.2
+                </p>
+                <p>
+                    Among other long-term sequelae of SARS-CoV-2 infection, emerging evidence suggests that COVID-19 may
+                    be associated with changes in the pathophysiology of diabetes.3,4 Diabetes has already been
+                    established as a risk factor associated with more severe COVID-19 respiratory outcomes, and
+                    SARS-CoV-2 infection was associated with the worsening of preexisting diabetes symptoms.5-8 However,
+                    it is not fully known if SARS-CoV-2 infection is associated with transient hyperglycemia during
+                    active infection or if metabolic alterations persist, associated with increased risk of subsequent
+                    diabetes among individuals with infections.
+                </p>
+                <p>
+                    Current data on the association between SARS-CoV-2 infection and incident diabetes are sparse, and
+                    most published studies have been conducted with relatively small samples or have limitations related
+                    to participant selection or outcome ascertainment.9-13 Studies conducted to date have mostly
+                    identified a small but higher rate of incident diabetes among people with COVID-19 compared with
+                    those without COVID-19. To improve the understanding of this association between SARS-CoV-2
+                    infection and incident diabetes, we conducted a large-scale, population-based cohort study using
+                    population-based registries and data sets with a comprehensive definition of incident diabetes and
+                    evaluated the potential association between COVID-19 infection, including severity of infection, and
+                    diabetes incidence. Finally, we calculated the population-attributable fraction (PAF) while
+                    controlling for potential confounders to estimate the population-level burden associated with
+                    SARS-CoV-2 infection.
+                </p>
+            </div>
+        </div>
+        <div class="full-bleed container">
+            <div class="content">
+                <h2>Discussion</h2>
+                <p>
+                    In this population-based cohort study, we observed a statistically significantly higher risk of
+                    incident diabetes among individuals with SARS-CoV-2 infection compared with those without infection
+                    overall and specifically among males. We also found higher risk of diabetes among individuals with
+                    more severe disease in males and females. These findings suggest that COVID-19 infection may
+                    continue to be associated with outcomes in organ systems involved in regulating blood glucose in the
+                    postacute phase and so may have contributed to the 3% to 5% of excess incident diabetes cases found
+                    in this study. These findings suggest that SARS-CoV-2 infection may be associated with a higher
+                    burden of diabetes at the population level.
+                </p>
+                <p>
+                    Our overall results were consistent with several other studies finding higher risk of incident
+                    diabetes after of SARS-CoV-2 infection; however, the increase in risk was lower in our analysis
+                    compared with other studies. Xie et al23 used national databases of the US Department of Veterans
+                    Affairs (VA) and reported a higher risk of incident diabetes among 30-day survivors of COVID-19
+                    compared with individuals in the control group over a median follow-up of 352 days (HR, 1.40; 95%
+                    CI, 1.36-1.44). The VA population in this study comprised predominantly males with a higher median
+                    age than the general population, while our study population was demographically diverse across age
+                    and sex. Furthermore, compared with the general US population, the VA is underrepresented in Asian
+                    and Hispanic or Latino patients and overrepresented in Black and non-Hispanic White populations,
+                    while our study population was drawn from the general population. In addition, an increased
+                    overweight and obesity prevalence in the US population (23% of individuals with obesity in British
+                    Columbia vs 41% in the VA) may also be associated with these differences.24,25
+                </p>
+                <p>
+                    Disregarding the severity of COVID-19, we found that the association between SARS-CoV-2 infection
+                    and diabetes risk was significant only for males, which could be attributed to sex-specific immune
+                    responses, such as higher SARS-CoV-2 IgG antibody serum concentrations in females compared with
+                    males.26 However, by restricting the sample to individuals with a COVID-19 hospitalization and ICU
+                    admission, the increase in risk was not only greater for higher-severity groups, but also
+                    significant for males and females. Previous studies had mixed results. Similar to our finding,
+                    Wander et al27 used US VA data to find that SARS-CoV-2 was associated with higher odds of incident
+                    diabetes (mean follow-up, 193 days) among males (odds ratio, 1.95; 95% CI, 1.80-2.12) but not
+                    females. However, in contrast to our findings, Wander et al27 observed the same results when they
+                    restricted the sample to individuals hospitalized within 30 days after the index date, with an
+                    association among males and not females. Use of dissimilar comparison groups may account for the
+                    contrasting finding given that Wander et al27 restricted the COVID-19–negative group to hospitalized
+                    individuals, while we did not. Furthermore, adjustment of different confounders in the 2 studies and
+                    population demographic differences (the VA has an older and predominantly male participant
+                    population with lower income and socioeconomic status levels) may be associated with the diverse
+                    findings.
+                </p>
+                <p>
+                    Xie et al23 used the same database and reported a higher hazard of diabetes at 12 months for
+                    individuals infected with SARS-CoV-2 irrespective of severity within males (HR, 1.37; 95% CI,
+                    1.33-1.41) and females (HR, 1.28; 95% CI, 1.17-1.40). Although Xie et al23 did not stratify by sex
+                    when conducting severity-specific analyses, they observed that COVID-19 infection was positively
+                    associated with risks and burdens of postacute incident diabetes, with the increase in risk graded
+                    by severity of COVID-19. A similar study by Al-Aly et al28 demonstrated a positive diabetes risk
+                    gradient across the care setting of acute COVID-19 infection from individuals who were not
+                    hospitalized to those who were hospitalized, and risk was highest in patients who were admitted to
+                    ICUs. However, the authors did not conduct any sex-specific analysis. Daugherty et al10 conducted a
+                    retrospective cohort study among commercially insured adults in the US to investigate the
+                    association between subacute SARS-CoV-2 infection and a wide range of clinical sequelae, reporting a
+                    higher hazard of incident non–insulin-dependent diabetes among individuals infected with SARS-CoV-2
+                    (HR, 2.47; 95% CI, 1.14-5.38) over a 6-month follow-up. Daugherty et al10 further found that
+                    significant excess risk for incident non–insulin-dependent diabetes after acute COVID-19 did not
+                    differ between men and women. The disagreement may be associated with the specificity of the
+                    outcome, differences in study populations, or other methodological differences.
+                </p>
+                <p>
+                    Differentiating between type of diabetes (insulin dependent and not insulin dependent), COVID-19 was
+                    associated only with non–insulin-dependent disease. However, we may be limited by the small number
+                    of insulin-dependent diabetes events in our sample. Regarding this finding, we are not able to draw
+                    a conclusive comparison with previous studies given that they classified diabetes as type 1 or type
+                    2 based on single International Statistical Classification of Diseases and Related Health Problems,
+                    Tenth Revision (ICD-10) codes. Al-Aly et al28 used VA data and found that COVID-19 was associated
+                    with an increased risk of type 2 diabetes only. In contrast, a large-scale retrospective study
+                    conducted by Qeadan et al29 using Cerner Real-World Data from the US found significantly higher odds
+                    of developing new-onset type 1 diabetes in patients with COVID-19 diagnosis (odds ratio, 1.42; 95%
+                    CI, 1.38-1.46) compared with those without COVID-19. However, that study included participants
+                    without any age-based exclusion, whereas our study population included only adults. Rathmann et al9
+                    used a national-level outpatient primary care data set from Germany and reported a higher incidence
+                    rate of type 2 diabetes among individuals with COVID-19 compared with the control group (15.8 vs
+                    12.3 incidents/1000 person-years) and no association for other forms of diabetes. Similarly,
+                    Birabaharan et al30 found a higher risk of type 2 diabetes among people with mild COVID-19 (relative
+                    risk, 1.54; 95% CI, 1.46-1.62) and moderate-to-severe COVID-19 (relative risk, 1.46; 95% CI,
+                    1.26-1.69) compared with those in control groups with mild and moderate-to-severe influenza,
+                    respectively.
+                </p>
+                <p>The underlying pathophysiological mechanism explaining the association between COVID-19 infection and
+                    diabetes is not clearly understood. However, multiple interrelated processes may be responsible. It
+                    has been demonstrated that SARS-CoV-2 can directly infect human pancreatic β cells expressing
+                    angiotensin-converting enzyme 2 receptors and induce β cell apoptosis, impacting pancreatic insulin
+                    levels and secretion.31 This destruction of β cells is relevant to type 1 and type 2 diabetes.
+                    Furthermore, chronic low-grade inflammation resulting from proinflammatory pathways in sites such as
+                    adipose tissue may also play a role in the pathogenesis and progression of type 2 diabetes.4 We
+                    excluded any acute events (ie, within 30 days of the index date) to avoid capturing transient
+                    hyperglycemia that can result from acute inflammatory response, medication used for treatment
+                    (especially glucocorticoids), and stress (eg, cytokine storm).32
+                </p>
+                <p>
+                    The major strength of our study was the comprehensive population-based capture of SARS-CoV-2
+                    infection and integration of these data with population-based registries and health care–use
+                    databases used to identify incident diabetes and ascertain potential confounders. In addition to
+                    calculating HRs, we have also provided estimates of the population-attributable fraction that have
+                    not been presented before, to our knowledge. Additionally, compared with most previous studies, we
+                    had a longer follow-up time, enabling us to investigate the hazard of diabetes as a long-term
+                    sequela of COVID-19.
+                </p>
+                <h3>Limitations</h3>
+                <p>Certain limitations of the study are as follows: Although we matched and adjusted for potential
+                    confounders, we cannot rule out residual confounding or that, due to a lack of information, some
+                    covariates could have affected the association between COVID-19 and incident diabetes; these may
+                    include obesity status and physical activity level. We cannot completely rule out surveillance bias
+                    given that individuals diagnosed with COVID-19 may have been more likely to receive increased
+                    screening or testing compared with those in the COVID-19–negative comparison group. Similarly,
+                    although we attempted to account for health care access and use by adjusting for material
+                    deprivation index score, it is difficult to fully account for differential health care system use.
+                    Additionally, it is possible that some participants we classified as unexposed may have contracted
+                    COVID-19 before or after entering the study but were not tested or had false-negative results.
+                </p>
+            </div>
+        </div>
+        <div class="full-bleed container">
+            <div class="content">
+                <h2>Conclusions</h2>
+                <p>
+                    This large, population-based cohort study was conducted with robust methods addressing limitations
+                    of previous studies that had limited generalizability (eg, using specific population groups, such as
+                    hospitalized individuals, commercially insured individuals, and veterans, who are predominantly
+                    male). We found that SARS-CoV-2 infection was associated with a higher risk of incident diabetes
+                    overall and among males and that severe disease was associated with a higher risk of diabetes among
+                    males and females. These results suggest that infection with SARS-CoV-2 may have contributed to a 3%
+                    to 5% excess burden of diabetes, which may be associated with a substantial number of diabetes cases
+                    with bearing on health care needs for the management of diabetes and its complications. Our study
+                    highlights the importance of health agencies and clinicians being aware of the potential long-term
+                    consequences of COVID-19 and monitoring people after COVID-19 infection for new-onset diabetes for
+                    timely diagnosis and treatment.
+                </p>
+            </div>
+        </div>
+    </main>
+    <footer>
+        <div class="content">
+            <h2>Notes and References</h2>
+            <p>Made on April 19-20, 2023</p>
+            <p>The purpose of this was to implement the progress indicator at the top of the page.</p>
+            <p>I used the following links as references: (<a href="https://www.w3schools.com/howto/howto_js_scroll_indicator.asp">w3 Schools</a>), (<a href="https://codepen.io/AllThingsSmitty/pen/gvpNWL">CodePen</a>) and (<a href="https://web.dev/one-line-layouts/">web.dev</a>).</p>
+            <p>The web.dev article was because I forgot how to do the pancake component.</p>
+            <p>I kept it in the document above even though it was unpleasant to look at.</p>
+            <p>Text from JAMA <a href="https://jamanetwork.com/journals/jamanetworkopen/fullarticle/2803938">here</a>.
+            </p>
+        </div>
+    </footer>
+
+    <script type="module">
+        window.onscroll = () => {
+            console.log('mee');
+            //apparently the document.documentElement.scrollTop is important because it doesn't work otherwise
+            const scroll = document.body.scrollTop || document.documentElement.scrollTop;
+            const height = document.documentElement.scrollHeight - document.documentElement.clientHeight;
+            const scrolled = scroll / height * 100;
+            console.log(scrolled);
+            const progress = document.querySelector(".progress");
+            progress.style.inlineSize = `${scrolled}%`;
+        }
+
+    </script>
+
+</body>
+
+</html>

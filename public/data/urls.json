@@ -243,6 +243,59 @@
             "reference": [
                
             ]
+        },
+        {
+            "month": 4,
+            "day": 15,
+            "year": 2023,
+            "link": "/2023/0415.html",
+            "visible": true,
+            "description": "Diagonal blocks, poorly done.",
+            "screenshot": "",
+            "reference": [
+               "https://9elements.com/blog/create-diagonal-layouts-like-it-s-2020/"
+            ]
+        },
+        {
+            "month": 4,
+            "day": 16,
+            "year": 2023,
+            "link": "/2023/0416.html",
+            "visible": true,
+            "description": "Diagonal blocks again in a more presentable fashion.",
+            "screenshot": "",
+            "reference": [
+               "https://9elements.com/blog/create-diagonal-layouts-like-it-s-2020/",
+               "https://www.bitdegree.org/learn/html-tab",
+               "https://www.theguardian.com/world/2023/apr/16/china-rapidly-achieve-air-superiority-taiwan-us-leaks"
+            ]
+        },
+        {
+            "month": 4,
+            "day": 18,
+            "year": 2023,
+            "link": "/2023/0418.html",
+            "visible": true,
+            "description": "Diagonal blocks again in a more presentable fashion, but now full bleed.",
+            "screenshot": "",
+            "reference": [
+               "https://www.nature.com/articles/d41586-023-01047-4"                              
+            ]
+        },
+        {
+            "month": 4,
+            "day": 19,
+            "year": 2023,
+            "link": "/2023/0419.html",
+            "visible": true,
+            "description": "Holy Grail Layout with Progress Indicator at top.",
+            "screenshot": "",
+            "reference": [
+               "https://www.w3schools.com/howto/howto_js_scroll_indicator.asp",
+               "https://codepen.io/AllThingsSmitty/pen/gvpNWL",
+               "https://web.dev/one-line-layouts/",
+               "https://jamanetwork.com/journals/jamanetworkopen/fullarticle/2803938"
+            ]
         }
     ],
     "2022": [

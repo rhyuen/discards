@@ -1,0 +1,340 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <link rel="preconnect" href="https://fonts.gstatic.com">
+    <!-- <link rel="icon" type="../image/png" sizes="32x32" href="../images/favicon-32x32.png"> -->
+    <title>04/16/23</title>
+
+
+    <style>
+        @import "https://unpkg.com/open-props";
+
+        * {
+            box-sizing: border-box;
+            font-size: 16px;
+            font-family: 'RedHat', 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
+        }
+
+        ::-webkit-scrollbar {
+            width: 0.8rem;
+            height: 0.5rem;
+        }
+
+        ::-webkit-scrollbar {
+            display: none;
+            /* Safari and Chrome */
+        }
+
+        /* Track */
+        ::-webkit-scrollbar-track {
+            background: black;
+        }
+
+        /* Handle */
+        ::-webkit-scrollbar-thumb {
+            background: var(--COL3);
+        }
+
+        /* Handle on hover */
+        ::-webkit-scrollbar-thumb:hover {
+            background: var(--COL2);
+        }
+
+
+
+
+        @font-face {
+            font-family: "Inter";
+            src: url("../fonts/Inter-VariableFont_slnt\,wght.ttf");
+        }
+
+        @font-face {
+            font-family: "RedHat";
+            src: url("../fonts/RedHatDisplay-VariableFont_wght.ttf");
+        }
+
+        @font-face {
+            font-family: "Fraunces";
+            src: url("../fonts/Fraunces-VariableFont_SOFT\,WONK\,opsz\,wght.ttf");
+        }
+
+        @font-face {
+            font-family: "Poppins";
+            src: url("../fonts/Poppins-Regular.ttf");
+        }
+
+
+
+        html,
+        body {
+            margin: 0;
+            height: 100vh;
+        }
+
+        ul {
+            margin: 0;
+            padding: 0;
+        }
+
+        li {
+            list-style-type: none;
+        }
+
+
+
+        h1,
+        h2,
+        h3,
+        h4 {
+            margin: 0;
+            padding: 0;
+
+        }
+
+        :root {
+            --RED: hsl(0, 78%, 62%);
+            --CYAN: hsl(180, 63%, 84%);
+            --ORANGE: hsl(53, 97%, 64%);
+            --BLUE: hsl(212, 89%, 82%);
+            --GREY: rgba(0, 0, 0, 0.3);
+
+            --COL1: #db0a5b;
+            --COL2: #fef160;
+            --COL3: #23cba7;
+            --COL4: #3e6ceb;
+            --COL5: #d9c8ec;
+
+            --BORDER-RADIUS: .5rem;
+            --CONTENT-WIDTH: min(55ch, 100%);
+            --PADDING: 1.5rem;
+
+        }
+
+        main {
+            display: grid;
+            grid-template-columns: 1fr var(--CONTENT-WIDTH) 1fr;
+            min-height: 10vh;
+            --SKEW: -8deg;
+        }
+
+        .slant {
+            grid-column: 1/-1;
+            position: relative;
+            padding: 2rem;
+            --BACKGROUND-COLOR: var(--COL1);
+            --COLOR: black;
+        }
+
+        .slant--first {
+            padding: 8rem 0;
+        }
+
+        .slant::before {
+            position: absolute;
+            inset: 0;
+            content: "";
+            background-color: var(--BACKGROUND-COLOR);
+            transform: skewY(var(--SKEW));
+            display: block;
+            width: 100%;
+            height: 100%;
+
+        }
+
+        .slant__container {
+            position: relative;
+            color: var(--COLOR);
+            margin: 0 auto;
+            width: var(--CONTENT-WIDTH);
+            color: var(--COLOR);
+        }
+
+        .slant__container--skewed{
+            transform: skewY(var(--SKEW));
+        }
+
+
+        .yellow {
+            --BACKGROUND-COLOR: var(--COL2);
+            --COLOR: black;
+        }
+
+        .white {
+            --BACKGROUND-COLOR: white;
+            --COLOR: black;
+        }
+
+        .green {
+            --BACKGROUND-COLOR: var(--COL3);
+            --COLOR: white;
+        }
+
+        .blue {
+            --BACKGROUND-COLOR: var(--COL4);
+            --COLOR: white;
+        }
+
+        .black{
+            --BACKGROUND-COLOR: black;
+            --COLOR: white;
+            
+        }
+
+        .slant__container h2 {
+            font-weight: 800;
+            color: var(--COLOR);
+            font-size: 2.5rem;
+        }
+
+        .slant__container p {
+            line-height: 1.75;
+        }
+
+        .slant__container p::first-letter{
+            font-size: 2rem;
+            font-weight: 800;
+            margin-right: .5rem;
+            padding: 0rem .25rem;
+            border: 2px solid var(--COLOR);
+        }
+
+
+
+        footer{
+            margin: 5rem auto;
+            inline-size: var(--CONTENT-WIDTH);
+            display: flex;
+            flex-direction: column;
+            
+        }
+
+        .footer__container{
+            margin: 2rem;
+            padding: 2rem;
+            border: .25rem solid var(--COL1);
+            border-radius: .25rem;
+        }
+
+        footer h2{
+            font-size: 2rem;
+        }
+
+        footer p {
+            font-size: .9rem;
+        }
+
+        footer a{
+            font-size: .9rem;   
+            color: black;
+            font-weight: 800;
+        }
+
+        
+    </style>
+
+<body>
+    <main>
+        <div class="slant slant--first white">
+            <div class="slant__container slant__container--skewed">
+                <h2>How a rural school teacher became a top COVID sleuth
+                </h2>
+                <p>A self-taught Indiana man is among a cadre of community scientists who scour the SARS-CoV-2 genome
+                    for problematic mutations.
+                </p>
+            </div>
+        </div>
+        <div class="slant yellow">
+            <div class="slant__container">
+                <p>In late January, a team of scientists reported an ominous discovery: the widely used COVID-19 drug
+                    molnupiravir might be spurring the evolution of SARS-CoV-2 variants1. Four of the authors work at
+                    prominent UK universities. But one has neither attended graduate school nor stepped foot in a
+                    research laboratory.
+                </p>
+            </div>
+        </div>
+        <div class="slant green">
+            <div class="slant__container">
+                <p>
+                    The outlier is Ryan Hisner, a school science teacher from rural Monroe, Indiana. He has attracted
+                    the attention of prominent virologists from all over the world for his uncanny ability to detect
+                    unusual mutations to the SARS-CoV-2 genome — mutations that might be a harbinger of the next variant
+                    to sweep the world.
+                </p>
+            </div>
+        </div>
+        <div class="slant blue">
+            <div class="slant__container">
+                <p>
+                    Hisner is just one of a motley crew of self-taught ‘community scientists’ from around the globe who
+                    spend hours poring through genetic sequences to track SARS-CoV-2’s evolution. Among the ranks
+                    include science enthusiasts such as Hisner, retired researchers and anonymous sleuths who go only by
+                    their online usernames. Most do this work for no pay.
+
+
+                </p>
+            </div>
+        </div>
+        <div class="slant green">
+            <div class="slant__container">
+                <p>
+                    They might be amateurs, but their work is indispensable, says Jesse Bloom, an evolutionary
+                    virologist at Fred Hutchinson Cancer Center in Seattle, Washington. SARS-CoV-2 spawns variants at an
+                    exceptionally fast pace, leaving scientists such as Bloom scrambling to keep up while managing their
+                    research programmes. Hisner’s Twitter profile, which has now garnered more than 13,000 followers, is
+                    one of Bloom’s first stops to stay up to speed on the latest mutations and publications, he says.
+                </p>
+            </div>
+        </div>
+        <div class="slant yellow">
+            <div class="slant__container">
+                <p>
+                    “Ryan has an almost encyclopaedic knowledge of the virus,” Bloom says. “It’s refreshing to see
+                    someone who is so up to speed on the literature — more so than any other ‘professional’ I’ve ever
+                    met.”
+                </p>
+            </div>
+        </div>
+        <div class="slant white">
+            <div class="slant__container">
+                <p>
+                    Not only does SARS-CoV-2 mutate quickly, but there is also an “unprecedented flood of data” because
+                    tens of thousands of viral genetic sequences are added to online repositories every day, says Angie
+                    Hinrichs, a bioinformatician at the University of California, Santa Cruz. Trained public-health
+                    officials monitor these uploads, but “it really helps to have more eyes”, says Hinrichs, who keeps
+                    track of changes to the virus by plotting new genetic information on a phylogenetic tree that now
+                    has more than 15 million sequences.
+                </p>
+            </div>
+        </div>
+        <div class="slant black">
+            <div class="slant__container">
+                <p>
+                    Tom Peacock, a virologist at Imperial College London who co-authored the molnupiravir study, which
+                    has not yet been peer reviewed, says that without Hisner and other community scientists, new
+                    SARS-CoV-2 mutations “would go under the radar for a little longer. Even a couple days’ advance
+                    notice can be really helpful for updating vaccines if need be.”
+                </p>
+            </div>
+        </div>
+    </main>
+    <footer>
+        <div class="footer__container">
+            <h2>Notes and References</h2>
+            <p>Made mostly on April 18, 2023</p>
+            <p>This time the slanted components go to the edge of the document.</p>
+            <p>Text from <a href="https://www.nature.com/articles/d41586-023-01047-4">Nature</a>.</p>
+        </div>
+    </footer>
+
+    <script type="module">
+
+
+    </script>
+
+</body>
+
+</html>

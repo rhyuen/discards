@@ -1,0 +1,376 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <link rel="preconnect" href="https://fonts.gstatic.com">
+    <!-- <link rel="icon" type="../image/png" sizes="32x32" href="../images/favicon-32x32.png"> -->
+    <title>04/16/23</title>
+
+
+    <style>
+        @import "https://unpkg.com/open-props";
+
+        * {
+            box-sizing: border-box;
+            font-size: 16px;
+            font-family: 'RedHat', 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
+        }
+
+        ::-webkit-scrollbar {
+            width: 0.8rem;
+            height: 0.5rem;
+        }
+
+        ::-webkit-scrollbar {
+            display: none;
+            /* Safari and Chrome */
+        }
+
+        /* Track */
+        ::-webkit-scrollbar-track {
+            background: black;
+        }
+
+        /* Handle */
+        ::-webkit-scrollbar-thumb {
+            background: var(--COL3);
+        }
+
+        /* Handle on hover */
+        ::-webkit-scrollbar-thumb:hover {
+            background: var(--COL2);
+        }
+
+
+
+
+        @font-face {
+            font-family: "Inter";
+            src: url("../fonts/Inter-VariableFont_slnt\,wght.ttf");
+        }
+
+        @font-face {
+            font-family: "RedHat";
+            src: url("../fonts/RedHatDisplay-VariableFont_wght.ttf");
+        }
+
+        @font-face {
+            font-family: "Fraunces";
+            src: url("../fonts/Fraunces-VariableFont_SOFT\,WONK\,opsz\,wght.ttf");
+        }
+
+        @font-face {
+            font-family: "Poppins";
+            src: url("../fonts/Poppins-Regular.ttf");
+        }
+
+
+
+        html,
+        body {
+            margin: 0;
+            height: 100vh;
+        }
+
+        ul {
+            margin: 0;
+            padding: 0;
+        }
+
+        li {
+            list-style-type: none;
+        }
+
+
+
+        h1,
+        h2,
+        h3,
+        h4 {
+            margin: 0;
+            padding: 0;
+
+        }
+
+        :root {
+            --RED: hsl(0, 78%, 62%);
+            --CYAN: hsl(180, 63%, 84%);
+            --ORANGE: hsl(53, 97%, 64%);
+            --BLUE: hsl(212, 89%, 82%);
+            --GREY: rgba(0, 0, 0, 0.3);
+
+            --COL1: #db0a5b;
+            --COL2: #fef160;
+            --COL3: #23cba7;
+            --COL4: #3e6ceb;
+            --COL5: #d9c8ec;
+
+            --BORDER-RADIUS: .5rem;
+            --CONTENT-WIDTH: min(55ch, 100%);
+            --PADDING: 1.5rem;
+
+        }
+
+        .slant-container {
+            --DEGREE: -10deg;
+            margin: 0 auto;
+
+            inline-size: var(--CONTENT-WIDTH);
+            position: relative;
+            /* padding: calc(tan(var(--DEGREE)/2) * var(--CONTENT-WIDTH)) 1rem; */
+            padding: 2rem;
+            padding-top: 4rem;
+            margin-bottom: 1rem;
+        }
+
+        .slant-container::before {
+            border-radius: .5rem;
+            transform: skewy(var(--DEGREE));
+            /* background: var(--gradient-17); */
+            background-color: black;
+            position: absolute;
+            inset: 0;
+            content: "";
+        }
+
+        .slant-container__content {
+            position: relative;
+            color: white;
+        }
+
+
+
+        .slant-container__content p {
+            line-height: 2;
+            font-size: 1.1rem;
+        }
+
+        .slant-container--header {
+            transform: skewY(var(--DEGREE));
+        }
+
+        .slant-container--header {
+            margin: 0 auto;
+            inline-size: var(--CONTENT-WIDTH);
+            padding: 2rem;
+            padding-bottom: 4rem;
+            transform: skewY(-11deg);
+        }
+
+        .slant-container--header h1 {
+            font-size: 2.5rem;
+            padding: 1rem 0;
+        }
+
+        .slant-container--header h2 {
+            font-size: 1.5rem;
+            font-weight: 400;
+        }
+
+        footer {
+            margin: 4rem auto;
+            inline-size: var(--CONTENT-WIDTH);
+
+            padding: 2rem;
+        }
+
+        footer h2 {
+            font-size: 1.2rem;
+        }
+
+        footer p,
+        footer a {
+            font-size: .9rem;
+        }
+
+        footer a {
+            font-weight: 800;
+            color: black;
+        }
+
+        footer code {
+            background-color: #f3f3f3;
+            display: flex;
+            flex-direction: column;
+            padding: 1rem 0;
+            margin: 1rem 0;
+            border-radius: .5rem;
+        }
+
+    </style>
+
+<body>
+    <main>
+        <div class="slant-container--header">
+            <div>
+                <h1>China likely to rapidly achieve air superiority over Taiwan, US leaks say
+                </h1>
+                <h2>
+                    Documents among those shared by alleged leaker raise questions over island’s military readiness
+                </h2>
+            </div>
+        </div>
+        <div class="slant-container">
+            <div class="slant-container__content">
+
+                <p>
+                    China would probably establish air superiority very rapidly in any attack on Taiwan, according to
+                    leaked US intelligence assessments that raise disturbing questions about the self-ruled island’s
+                    military readiness.
+                </p>
+                <p>
+                    The documents, part of a series allegedly leaked by the US air national guardsman Jack Teixeira,
+                    emerged as G7 foreign ministers met to discuss a common China strategy and Beijing briefly halted
+                    flights over part of the East China Sea on Sunday.
+                </p>
+            </div>
+        </div>
+        <div class="slant-container">
+            <div class="slant-container__content">
+
+                <p>
+                    The classified documents seen by the Washington Post reveal that Taiwan’s military leaders doubt
+                    their air defences can “accurately detect missile launches” and that only about half of the island’s
+                    aircraft are capable of effectively engaging the enemy.
+                </p>
+                <p>
+                    The documents also said Taiwan feared moving its aircraft to shelters could take up to a week,
+                    leaving them vulnerable to missile strikes, and that China’s use of civilian ships for military
+                    purposes was hampering US intelligence’s ability to predict an invasion.
+                </p>
+            </div>
+        </div>
+        <div class="slant-container">
+            <div class="slant-container__content">
+                <p>
+                    Pentagon analysts concluded China’s air force would find it far easier to establish early air
+                    superiority than Russia did in its invasion of Ukraine.
+                </p>
+                <p>
+                    Other leaked intelligence documents to surface on Sunday showed the Russian government had become
+                    much more successful at manipulating social media and search engine rankings than was previously
+                    believed, the Post reported.
+                </p>
+            </div>
+        </div>
+        <div class="slant-container">
+            <div class="slant-container__content">
+                <p>
+                    Disinformation about the Ukrainian army and vaccine side effects were boosted online by hundreds of
+                    thousands of Russian-run accounts whose operators claimed they were detected by social media
+                    companies only about 1% of the time, according to one assessment seen by the paper.
+                </p>
+                <p>
+                    “Google and Meta and others are trying to stop this, and Russia is trying to get better,” Thomas Rid
+                    of Johns Hopkins University’s School of Advanced International Studies told the paper. “The figure
+                    you are citing suggests that Russia is winning.”
+                </p>
+            </div>
+        </div>
+        <div class="slant-container">
+            <div class="slant-container__content">
+                <p>
+                    China views Taiwan as part of its territory to be retaken one day, by force if necessary. Xi
+                    Jinping, the Chinese president, has expanded and modernised the People’s Liberation Army and China’s
+                    armed forces are thought to be 14 times the size of Taiwan’s.
+                </p>
+                <p>
+                    Taiwan’s defence ministry said in a statement to the Post that it “respects outside opinions about
+                    its military preparedness” but its response to recent Chinese military exercises showed officers
+                    were “absolutely capable, determined and confident”.
+                </p>
+                <p>
+                    Taiwan last week staged large-scale emergency response drills enacting scenarios including missile
+                    and chemical weapons attacks, after China held its latest military exercise around the island, 100
+                    miles (160km) off the Chinese mainland.
+                </p>
+                <p>
+                    Beijing’s “Joint Sword” military manoeuvres followed a recent visit by the Taiwanese leader, Tsai
+                    Ing-wen, to the US – the island’s main security backer – for meetings with a bipartisan group of
+                    lawmakers including the House speaker, Kevin McCarthy.
+                </p>
+                <p>
+                    Flights from northern Taiwan were delayed on Sunday morning after China launched a satellite rocket
+                    that dropped debris into waters north of the capital, Taipei. Taiwan’s defence ministry said the
+                    incident posed no threat to “our nation’s territory”.
+                </p>
+                <p>
+                    Taipei said Beijing originally declared a no-fly period spanning parts of three days for the launch
+                    of a “new meteorological satellite” from a site in north-western China, but after negotiation the
+                    ban was reduced to about 30 minutes.
+                </p>
+                <p>
+                    Josep Borrell, the EU’s foreign policy chief, said on Sunday at the start of the G7 foreign
+                    ministers’ meeting in Japan that Europe’s relationship with China would be determined by Beijing’s
+                    behaviour – including what happens with Taiwan.
+                </p>
+                <p>
+                    Borrell highlighted two key themes of the three-day meeting: the need for a united approach to
+                    China, and growing concerns about Taiwan. “Anything that happens in Taiwan strait will mean a lot to
+                    us,” he said.
+                </p>
+                <p>
+                    A senior US state department official also said the G7 foreign ministers would devote much of the
+                    meeting to discussing a “common and concerted” approach to China, reflecting “collective concern
+                    about a number of the actions that China is taking”.
+                </p>
+                <p>
+                    Germany’s foreign minister, Annalena Baerbock, stressed the importance of unity, adding: “As
+                    democracies, we are successful in systemic competition with autocratic forces when our partners and
+                    friends around the world have confidence in us.”
+                </p>
+                <p>
+                    The US secretary of state, Antony Blinken, said on Saturday during a visit to the Vietnamese
+                    capital, Hanoi, that the intelligence leaks – the bigest in the US for a decade – had not affected
+                    Washington’s relations with its allies.
+                </p>
+                <p>
+                    “Based on conversations that I’ve had, I have not heard anything that would affect our cooperation
+                    with allies and partners,” Blinken said, adding that he had heard “appreciation” for the steps
+                    Washington has taken.
+                </p>
+                <p>
+                    Teixeira, 21, is suspected of leaking classified documents including verbatim transcripts and
+                    classified documents on a Discord chatroom. He was arrested last week and charged under the
+                    Espionage Act.
+                </p>
+                <p>
+                    President Joe Biden said on Friday he had ordered investigators to determine why the alleged leaker
+                    had access to the information, which embarrassed Washington by revealing its spying on allies.
+                </p>
+            </div>
+        </div>
+    </main>
+    <footer>
+        <h2>Notes and References</h2>
+        <p>Made on April 16, 2023</p>
+        <p>Just more practice with the slanted boxes from yesterday.</p>
+        <p>I found that just using a fixed padding of 2rem produced better results than the result using tan().
+            <pre><code>                
+                .parent-container{
+                    padding: 2rem;
+                }
+            
+                .parent-container{
+                    --CONTENT-WIDTH: min(55ch, 100%);
+                    --DEGREE: -10deg;
+                    padding: calc(tan(var(--DEGREE)/2) * 
+                        var(--CONTENT-WIDTH)) 1rem;
+                }
+            </code></pre>
+        </p>
+        <p>Also it seems the pre tag preservers the spacing as written in the code. <a href="https://www.bitdegree.org/learn/html-tab">Reference</a></p>
+        <p>Text from the Guardian <a href="https://www.theguardian.com/world/2023/apr/16/china-rapidly-achieve-air-superiority-taiwan-us-leaks">here</a>.</p>
+    </footer>
+
+    <script type="module">
+
+
+    </script>
+
+</body>
+
+</html>

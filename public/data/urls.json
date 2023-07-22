@@ -227,7 +227,7 @@
             "description": "Gradient Circle with the Mask on top. With drop-shadow.  With a Grid with different gradients.",
             "screenshot": "230411",
             "reference": [
-                "https://open-props.style/#gradients",                
+                "https://open-props.style/#gradients",
                 "https://nerdy.dev/retro-wave-sun",
                 "https://stackoverflow.com/a/19694994"
             ]
@@ -240,9 +240,7 @@
             "visible": true,
             "description": "A mobile-friendly calendar, made of <table/>,<tr/> and <td/>, differing from when I just use <div/>, with a Nav at the top.  The dates do not correspond with the year.",
             "screenshot": "230413",
-            "reference": [
-               
-            ]
+            "reference": []
         },
         {
             "month": 4,
@@ -253,7 +251,7 @@
             "description": "Diagonal blocks, poorly done.",
             "screenshot": "",
             "reference": [
-               "https://9elements.com/blog/create-diagonal-layouts-like-it-s-2020/"
+                "https://9elements.com/blog/create-diagonal-layouts-like-it-s-2020/"
             ]
         },
         {
@@ -265,9 +263,9 @@
             "description": "Diagonal blocks again in a more presentable fashion.",
             "screenshot": "",
             "reference": [
-               "https://9elements.com/blog/create-diagonal-layouts-like-it-s-2020/",
-               "https://www.bitdegree.org/learn/html-tab",
-               "https://www.theguardian.com/world/2023/apr/16/china-rapidly-achieve-air-superiority-taiwan-us-leaks"
+                "https://9elements.com/blog/create-diagonal-layouts-like-it-s-2020/",
+                "https://www.bitdegree.org/learn/html-tab",
+                "https://www.theguardian.com/world/2023/apr/16/china-rapidly-achieve-air-superiority-taiwan-us-leaks"
             ]
         },
         {
@@ -279,7 +277,7 @@
             "description": "Diagonal blocks again in a more presentable fashion, but now full bleed.",
             "screenshot": "",
             "reference": [
-               "https://www.nature.com/articles/d41586-023-01047-4"                              
+                "https://www.nature.com/articles/d41586-023-01047-4"
             ]
         },
         {
@@ -291,10 +289,22 @@
             "description": "Holy Grail Layout with Progress Indicator at top.",
             "screenshot": "",
             "reference": [
-               "https://www.w3schools.com/howto/howto_js_scroll_indicator.asp",
-               "https://codepen.io/AllThingsSmitty/pen/gvpNWL",
-               "https://web.dev/one-line-layouts/",
-               "https://jamanetwork.com/journals/jamanetworkopen/fullarticle/2803938"
+                "https://www.w3schools.com/howto/howto_js_scroll_indicator.asp",
+                "https://codepen.io/AllThingsSmitty/pen/gvpNWL",
+                "https://web.dev/one-line-layouts/",
+                "https://jamanetwork.com/journals/jamanetworkopen/fullarticle/2803938"
+            ]
+        },
+        {
+            "month": 7,
+            "day": 21,
+            "year": 2023,
+            "link": "/2023/0721.html",
+            "visible": true,
+            "description": "Loading Indicator",
+            "screenshot": "230721",
+            "reference": [
+                "https://codepen.io/joshwcomeau/pen/JjNaWRd?editors=1100"
             ]
         }
     ],

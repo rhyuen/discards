@@ -1,0 +1,231 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <link rel="preconnect" href="https://fonts.gstatic.com">
+    <!-- <link rel="icon" type="../image/png" sizes="32x32" href="../images/favicon-32x32.png"> -->
+    <title>07/21/23</title>
+
+
+    <style>
+        @import "https://unpkg.com/open-props";
+
+        * {
+            box-sizing: border-box;
+            font-size: 16px;
+            font-family: 'RedHat', 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
+        }
+
+        ::-webkit-scrollbar {
+            width: 0.8rem;
+            height: 0.5rem;
+        }
+
+        ::-webkit-scrollbar {
+            display: none;
+            /* Safari and Chrome */
+        }
+
+        /* Track */
+        ::-webkit-scrollbar-track {
+            background: black;
+        }
+
+        /* Handle */
+        ::-webkit-scrollbar-thumb {
+            background: var(--COL3);
+        }
+
+        /* Handle on hover */
+        ::-webkit-scrollbar-thumb:hover {
+            background: var(--COL2);
+        }
+
+
+
+
+        @font-face {
+            font-family: "Inter";
+            src: url("../fonts/Inter-VariableFont_slnt\,wght.ttf");
+        }
+
+        @font-face {
+            font-family: "RedHat";
+            src: url("../fonts/RedHatDisplay-VariableFont_wght.ttf");
+        }
+
+        @font-face {
+            font-family: "Fraunces";
+            src: url("../fonts/Fraunces-VariableFont_SOFT\,WONK\,opsz\,wght.ttf");
+        }
+
+        @font-face {
+            font-family: "Poppins";
+            src: url("../fonts/Poppins-Regular.ttf");
+        }
+
+
+
+        html,
+        body {
+            margin: 0;
+            height: 100vh;
+        }
+
+        ul {
+            margin: 0;
+            padding: 0;
+        }
+
+        li {
+            list-style-type: none;
+        }
+
+
+
+        h1,
+        h2,
+        h3,
+        h4 {
+            margin: 0;
+            padding: 0;
+
+        }
+
+        :root {
+            --RED: hsl(0, 78%, 62%);
+            --CYAN: hsl(180, 63%, 84%);
+            --ORANGE: hsl(53, 97%, 64%);
+            --BLUE: hsl(212, 89%, 82%);
+            --GREY: rgba(0, 0, 0, 0.3);
+
+            --COL1: #db0a5b;
+            --COL2: #fef160;
+            --COL3: #23cba7;
+            --COL4: #3e6ceb;
+            --COL5: #d9c8ec;
+
+            --BORDER-RADIUS: .5rem;
+
+            --HERO-CONTENT-WIDTH: min(80ch, 100%);
+            --CONTENT-WIDTH: min(55ch, 100%);
+            --PADDING: 1.5rem;
+        }
+
+        @keyframes bounce {
+            from {
+                transform: translateY(0px);
+            }
+
+            to {
+                transform: translateY(var(--bounce-height));
+            }
+        }
+
+        main {
+            background-color: #f1cbda;
+            display: grid;
+            place-items: center;
+            block-size: 100vh;
+            border-bottom: 1rem solid #db0a5b;
+        }
+
+        .loading {
+            display: flex;
+        }
+
+
+        .loading__box {
+            --WIDTH: 2rem;
+            height: var(--WIDTH);
+            inline-size: var(--WIDTH);
+            border-radius: .2rem;
+            margin-right: .5rem;
+            animation: bounce var(--animation-duration) infinite alternate cubic-bezier(.2, .65, .6, 1);
+        }
+
+        .loading__box:last-child {
+            margin-right: 0;
+        }
+
+        .loading__box--one {
+            --bounce-height: -20px;
+            --animation-duration: 200ms;
+            background-color: #db0a5b;
+        }
+
+        .loading__box--two {
+            --bounce-height: -30px;
+            --animation-duration: 300ms;
+            background-color: #fef160;
+        }
+
+        .loading__box--three {
+            --bounce-height: -40px;
+            --animation-duration: 400ms;
+            background-color: #23cba7;
+        }
+
+        footer {
+            padding: 2rem 1rem;
+            margin: 0 auto;
+            inline-size: var(--CONTENT-WIDTH);
+        }
+
+        footer a {
+            font-weight: 800;
+            color: #db0a5b;
+        }
+
+        pre {
+            border-left: .5rem solid #db0a5b;
+            padding-block: 2rem;
+            background-color: #f1cbda;
+            border-radius: .25rem;
+            font-weight: 600;
+        }
+
+        code {
+            color: #23cba7;
+            font-weight: 800;
+            border: 2px solid #23cba7;
+            border-radius: .25rem;
+            padding-inline: .25rem;
+        }
+    </style>
+
+<body>
+    <main>
+        <div class="loading">
+            <div class="loading__box loading__box--one"></div>
+            <div class="loading__box loading__box--two"></div>
+            <div class="loading__box loading__box--three"></div>
+        </div>
+
+    </main>
+    <footer>
+        <h2>Notes and References</h2>
+        <p>Made on July 21, 2023.</p>
+        <p>Copied the CodePen from <a href="https://codepen.io/joshwcomeau/pen/JjNaWRd?editors=1100">here</a> by Josh
+            Comeau</p>
+        <h2>A Brief Description</h2>
+        <p>Uses keyframes and boxes to create a loading indicator.</p>
+        <p>Each of the boxes has a slightly different animation duration and transform distance to create the staggered
+            effect.</p>
+        <pre>
+            animation: bounce 
+                var(--animation-duration) 
+                infinite 
+                alternate 
+                cubic-bezier(.2, .65, .6, 1);
+        </pre>
+        <p>If you take out the <code>alternate</code> keyword the animation becomes all stuttery.</p>
+    </footer>
+    <script>
+    </script>
+</body>
+
+</html>

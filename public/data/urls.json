@@ -306,6 +306,18 @@
             "reference": [
                 "https://codepen.io/joshwcomeau/pen/JjNaWRd?editors=1100"
             ]
+        },
+        {
+            "month": 7,
+            "day": 23,
+            "year": 2023,
+            "link": "/2023/0723.html",
+            "visible": true,
+            "description": "Animation practice from a CodePen I saw.",
+            "screenshot": "230723",
+            "reference": [
+                "https://codepen.io/jh3y/pen/KKQzmNV"
+            ]
         }
     ],
     "2022": [

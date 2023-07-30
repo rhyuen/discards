@@ -227,7 +227,7 @@
             "description": "Gradient Circle with the Mask on top. With drop-shadow.  With a Grid with different gradients.",
             "screenshot": "230411",
             "reference": [
-                "https://open-props.style/#gradients",                
+                "https://open-props.style/#gradients",
                 "https://nerdy.dev/retro-wave-sun",
                 "https://stackoverflow.com/a/19694994"
             ]
@@ -240,9 +240,7 @@
             "visible": true,
             "description": "A mobile-friendly calendar, made of <table/>,<tr/> and <td/>, differing from when I just use <div/>, with a Nav at the top.  The dates do not correspond with the year.",
             "screenshot": "230413",
-            "reference": [
-               
-            ]
+            "reference": []
         },
         {
             "month": 4,
@@ -253,7 +251,7 @@
             "description": "Diagonal blocks, poorly done.",
             "screenshot": "",
             "reference": [
-               "https://9elements.com/blog/create-diagonal-layouts-like-it-s-2020/"
+                "https://9elements.com/blog/create-diagonal-layouts-like-it-s-2020/"
             ]
         },
         {
@@ -265,9 +263,9 @@
             "description": "Diagonal blocks again in a more presentable fashion.",
             "screenshot": "",
             "reference": [
-               "https://9elements.com/blog/create-diagonal-layouts-like-it-s-2020/",
-               "https://www.bitdegree.org/learn/html-tab",
-               "https://www.theguardian.com/world/2023/apr/16/china-rapidly-achieve-air-superiority-taiwan-us-leaks"
+                "https://9elements.com/blog/create-diagonal-layouts-like-it-s-2020/",
+                "https://www.bitdegree.org/learn/html-tab",
+                "https://www.theguardian.com/world/2023/apr/16/china-rapidly-achieve-air-superiority-taiwan-us-leaks"
             ]
         },
         {
@@ -279,7 +277,7 @@
             "description": "Diagonal blocks again in a more presentable fashion, but now full bleed.",
             "screenshot": "",
             "reference": [
-               "https://www.nature.com/articles/d41586-023-01047-4"                              
+                "https://www.nature.com/articles/d41586-023-01047-4"
             ]
         },
         {
@@ -289,12 +287,105 @@
             "link": "/2023/0419.html",
             "visible": true,
             "description": "Holy Grail Layout with Progress Indicator at top.",
+            "screenshot": "230419",
+            "reference": [
+                "https://www.w3schools.com/howto/howto_js_scroll_indicator.asp",
+                "https://codepen.io/AllThingsSmitty/pen/gvpNWL",
+                "https://web.dev/one-line-layouts/",
+                "https://jamanetwork.com/journals/jamanetworkopen/fullarticle/2803938"
+            ]
+        },
+        {
+            "month": 6,
+            "day": 6,
+            "year": 2023,
+            "link": "/2023/0606.html",
+            "visible": true,
+            "description": "Colour picker ring tutorial",
+            "screenshot": "230606",
+            "reference": [
+                "https://dev.to/madsstoumann/recreating-apples-color-picker-icon-20aa"
+            ]
+        },
+        {
+            "month": 6,
+            "day": 9,
+            "year": 2023,
+            "link": "/2023/0609.html",
+            "visible": true,
+            "description": "Row of Images",
+            "screenshot": "230609",
+            "reference": [
+                "https://stackoverflow.com/questions/22103006/css3-transition-doesnt-work-with-display-property"
+            ]
+        },
+        {
+            "month": 6,
+            "day": 10,
+            "year": 2023,
+            "link": "/2023/0610.html",
+            "visible": true,
+            "description": "Generic Media Gallery",
+            "screenshot": "230611",
+            "reference": []
+        },
+        {
+            "month": 6,
+            "day": 11,
+            "year": 2023,
+            "link": "/2023/0611.html",
+            "visible": true,
+            "description": "Media Gallery based on Apple TV",
+            "screenshot": "230611",
+            "reference": []
+        },
+        {
+            "month": 6,
+            "day": 12,
+            "year": 2023,
+            "link": "/2023/0612.html",
+            "visible": true,
+            "description": "Login Form following a Checklist.  Started on 6/12.  Finished on 6/14.",
+            "screenshot": "230611",
+            "reference": [
+                "https://evilmartians.com/chronicles/html-best-practices-for-login-and-signup-forms"
+            ]
+        },
+        {
+            "month": 7,
+            "day": 3,
+            "year": 2023,
+            "link": "/2023/0703.html",
+            "visible": true,
+            "description": "Theme Switch toggle.",
             "screenshot": "",
             "reference": [
-               "https://www.w3schools.com/howto/howto_js_scroll_indicator.asp",
-               "https://codepen.io/AllThingsSmitty/pen/gvpNWL",
-               "https://web.dev/one-line-layouts/",
-               "https://jamanetwork.com/journals/jamanetworkopen/fullarticle/2803938"
+                "https://dev.to/whitep4nth3r/the-best-lightdark-mode-theme-toggle-in-javascript-368f"
+            ]
+        },
+        {
+            "month": 7,
+            "day": 5,
+            "year": 2023,
+            "link": "/2023/0705.html",
+            "visible": true,
+            "description": "Static Reddit data with a Theme Toggle (3 choices).",
+            "screenshot": "",
+            "reference": [
+                "reddit.com/r/worldnews",
+                "https://dev.to/whitep4nth3r/the-best-lightdark-mode-theme-toggle-in-javascript-368f"
+            ]
+        },
+        {
+            "month": 7,
+            "day": 5,
+            "year": 2023,
+            "link": "/2023/0729.html",
+            "visible": true,
+            "description": "Copy of a Portfolio site.  I did it over two or so days, which is higher than expected.",
+            "screenshot": "230729",
+            "reference": [
+                "https://theessential.design/"
             ]
         }
     ],

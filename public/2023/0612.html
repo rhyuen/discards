@@ -1,0 +1,400 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <link rel="preconnect" href="https://fonts.gstatic.com">
+    <!-- <link rel="icon" type="../image/png" sizes="32x32" href="../images/favicon-32x32.png"> -->
+    <title>06/06/23</title>
+
+
+    <style>
+        @import "https://unpkg.com/open-props";
+
+        * {
+            box-sizing: border-box;
+            font-size: 16px;
+            font-family: 'RedHat', 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
+        }
+
+        ::-webkit-scrollbar {
+            width: 0.8rem;
+            height: 0.5rem;
+        }
+
+        ::-webkit-scrollbar {
+            display: none;
+            /* Safari and Chrome */
+        }
+
+        /* Track */
+        ::-webkit-scrollbar-track {
+            background: black;
+        }
+
+        /* Handle */
+        ::-webkit-scrollbar-thumb {
+            background: var(--COL3);
+        }
+
+        /* Handle on hover */
+        ::-webkit-scrollbar-thumb:hover {
+            background: var(--COL2);
+        }
+
+
+
+
+        @font-face {
+            font-family: "Inter";
+            src: url("../fonts/Inter-VariableFont_slnt\,wght.ttf");
+        }
+
+        @font-face {
+            font-family: "RedHat";
+            src: url("../fonts/RedHatDisplay-VariableFont_wght.ttf");
+        }
+
+        @font-face {
+            font-family: "Fraunces";
+            src: url("../fonts/Fraunces-VariableFont_SOFT\,WONK\,opsz\,wght.ttf");
+        }
+
+        @font-face {
+            font-family: "Poppins";
+            src: url("../fonts/Poppins-Regular.ttf");
+        }
+
+
+
+        html,
+        body {
+            margin: 0;
+            height: 100vh;
+        }
+
+        ul {
+            margin: 0;
+            padding: 0;
+        }
+
+        li {
+            list-style-type: none;
+        }
+
+
+
+        h1,
+        h2,
+        h3,
+        h4 {
+            margin: 0;
+            padding: 0;
+
+        }
+
+        :root {
+            --RED: hsl(0, 78%, 62%);
+            --CYAN: hsl(180, 63%, 84%);
+            --ORANGE: hsl(53, 97%, 64%);
+            --BLUE: hsl(212, 89%, 82%);
+            --GREY: rgba(0, 0, 0, 0.3);
+
+            --COL1: #db0a5b;
+            --COL2: #fef160;
+            --COL3: #23cba7;
+            --COL4: #3e6ceb;
+            --COL5: #d9c8ec;
+
+            --BORDER-RADIUS: .5rem;
+
+            --HERO-CONTENT-WIDTH: min(80ch, 100%);
+            --CONTENT-WIDTH: min(75ch, 100%);
+            --PADDING: 1.5rem;
+
+        }
+
+        main {
+            display: grid;
+            place-items: center;
+            min-height: 100vh;
+        }
+
+
+        .card {
+            background-color: white;
+            border-radius: .5rem;
+            padding: 2rem;
+            inline-size: min(35ch, 100%);
+            filter: drop-shadow(0 0 3rem rgba(0, 0, 0, 0.1));
+        }
+
+        .card__row {
+            display: flex;
+            flex-direction: column;
+            margin: 1rem 0;
+        }
+
+        .card__row__notification {
+            border: 2px solid black;
+            border-radius: .3rem;
+            padding: .5rem 1rem;
+            color: black;
+            display: none;
+            font-weight: 800;
+        }
+
+        .card__row__notification--valid {
+            border-color: green;
+            color: green;
+        }
+
+        .card__row__notification--invalid {
+            border-color: red;
+            color: red;
+        }
+
+        .card__row__label {
+            display: flex;
+            flex-direction: column;
+            font-size: .8rem;
+            font-weight: 600;
+            text-transform: uppercase;
+        }
+
+        .card__row__label input {
+            margin: .5rem 0;
+            padding: .5rem 1rem;
+            font-size: 1.1rem;
+            border: 1px solid rgba(0, 0, 0, 0.3);
+            border-radius: .3rem;
+        }
+
+
+
+        .eye-button {
+            width: fit-content;
+            position: relative;
+            background-color: #23cba7;
+        }
+
+        .eye-button:hover {
+            background-color: oklch(0 0 0 / 10%);
+            ;
+        }
+
+        .eye-button::after {
+            position: absolute;
+            inset: 0;
+            left: 50%;
+            top: 50%;
+            display: block;
+            border-radius: 50%;
+            content: "";
+            inline-size: 1rem;
+            block-size: 1rem;
+            background-color: black;
+            transform: translate(-50%, -50%);
+        }
+
+        button,
+        a {
+            cursor: pointer;
+        }
+
+        a {
+            font-size: .9rem;
+            color: black;
+            font-weight: 600;
+            inline-size: fit-content;
+        }
+
+        a:hover {
+            background-color: rgba(0, 0, 0, 0.1);
+        }
+
+        .label__text {
+            padding: .25rem;
+            border-radius: .25rem;
+            cursor: pointer;
+            font-size: .9rem;
+            display: flex;
+            align-items: center;
+        }
+
+        .label__text:hover {
+            background: oklch(0 0 0 / 10%);
+        }
+
+        input[type='checkbox']{
+            appearance: none;
+            border-radius: .3rem;
+            width: 1rem;
+            height: 1rem;
+            margin-right: .5rem;
+            border: .2rem solid black;
+            cursor: pointer;
+        }
+
+        input[type='checkbox']:checked{
+            background-color: #23cba7;
+        }
+
+        button:focus-visible,
+        a:focus-visible,
+        input:focus-visible {
+            outline: 2px solid rgba(0, 0, 0, 0.3);
+            filter: drop-shadow(0 0 .25rem rgba(0, 0, 0, 0.4));
+        }
+
+        .submit-button {
+            background-color: black;
+            color: white;
+            font-weight: 800;
+            font-size: 1rem;
+            border-radius: .3rem;
+            padding: .5rem 1.5rem;
+            inline-size: fit-content;
+            border: 2px solid black;
+            transition: all .3s ease-in-out;
+        }
+
+        .submit-button:focus-visible{
+            filter: drop-shadow(0 0 .5rem #1cecbfb5);
+        }
+
+        .submit-button:disabled {
+            border-color: grey;
+            background-color: grey;
+            color: white;
+        }
+
+        .submit-button:hover {
+            background-color: white;
+            color: black;
+        }
+    </style>
+
+<body>
+    <main>
+        <form class="card" id="login-form">
+            <div class="card__row">
+                <label for="login-form__email" class="card__row__label">
+                    Email:
+                    <input type="email" id="login-form__email" placeholder="username@provider.ca" required
+                        aria-invalid="true" aria-describedby="email-invalid"
+                        aria-errormessage="you have an error with your email address." autocomplete="username" />
+                </label>
+                <div class="card__row__notification card__row__notification--valid" id="email-valid">
+                    Email valid.
+                </div>
+                <div class="card__row__notification card__row__notification--invalid" id="email-invalid">
+                    Invalid Email.
+                </div>
+            </div>
+            <div class="card__row">
+                <label for="login-form__password" class="card__row__label">
+                    Password:
+                    <input type="password" id="login-form__password" placeholder="secretpassword" required
+                        aria-invalid="true" aria-errormessage="you have an error with your password."
+                        autocomplete="current-password" />
+                </label>
+                <button type="button" class="eye-button" aria-label="show or hide the password"></button>
+            </div>
+            <div class="card__row">
+                Forgot your password? <br /><a href="/">Reset it here</a>
+            </div>
+            <div class="card__row">
+                <label class="label__text">
+                    <input type="checkbox">I agree with the privacy policy.
+                </label>
+            </div>
+            <div class="card__row">
+                <button id="login-form__submit" class="submit-button" aria-label="login to your account.">Login</button>
+            </div>
+        </form>
+    </main>
+
+    <script src="https://unpkg.com/validator@latest/validator.min.js"></script>
+    <script type="module">
+        const loginForm = document.getElementById('login-form');
+        const loginButton = document.getElementById("login-form__submit");
+        const email = document.getElementById("login-form__email");
+        const password = document.getElementById("login-form__password");
+        const emailValid = document.getElementById("email-valid");
+        const emailInvalid = document.getElementById("email-invalid");
+
+        email.addEventListener('input', function () {
+            console.log(this.value);
+            if (validator.isEmail(this.value)) {
+                setEmailValidVisible(emailValid, true);
+                setEmailInvalidVisible(emailInvalid, false);
+                // emailInvalid.style.display = "none";
+            }
+        });
+
+        function setEmailValidVisible(el, visible) {
+            if (visible) {
+                el.style.display = "block";
+            } else {
+                el.style.display = "none";
+            }
+        }
+
+        function setEmailInvalidVisible(el, visible) {
+            if (visible) {
+                el.style.display = "block";
+            } else {
+                el.style.display = "none"
+            }
+        }
+
+        email.addEventListener("change", function () {
+            if (validator.isEmail(this.value)) {
+                console.log('valid');
+                setEmailValidVisible(emailValid, true);
+                setEmailInvalidVisible(emailInvalid, false);
+            } else {
+                console.log('invalid');
+                setEmailInvalidVisible(emailInvalid, true);
+                setEmailValidVisible(emailValid, false);
+            }
+        });
+
+        function handleFormSubmit(e) {
+            e.preventDefault();
+
+            //prevents double submits by disabling the submit button.
+            loginButton.disabled = true;
+            console.log('formsubmit');
+            email.value = "";
+            password.value = "";
+            setEmailValidVisible(emailValid, false);
+            //prevent double submits.
+            setTimeout(() => {
+                loginButton.disabled = false;
+            }, 500)
+
+        }
+
+        // loginButton.addEventListener("click", handleFormSubmit);
+        // console.log(loginForm);
+        // loginForm.addEventListener("submit", e => {
+        //     e.preventDefault();
+        //     email.value = "";
+        //     password.value = "";
+        //     console.log("boop")
+        // });
+
+        loginForm.addEventListener("submit", handleFormSubmit);
+
+
+
+
+    </script>
+
+</body>
+
+</html>

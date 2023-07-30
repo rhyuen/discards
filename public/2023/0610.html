@@ -1,0 +1,235 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <link rel="preconnect" href="https://fonts.gstatic.com">
+    <!-- <link rel="icon" type="../image/png" sizes="32x32" href="../images/favicon-32x32.png"> -->
+    <title>06/06/23</title>
+
+
+    <style>
+        @import "https://unpkg.com/open-props";
+
+        * {
+            box-sizing: border-box;
+            font-size: 16px;
+            font-family: 'RedHat', 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
+        }
+
+        ::-webkit-scrollbar {
+            width: 0.8rem;
+            height: 0.5rem;
+        }
+
+        ::-webkit-scrollbar {
+            display: none;
+            /* Safari and Chrome */
+        }
+
+        /* Track */
+        ::-webkit-scrollbar-track {
+            background: black;
+        }
+
+        /* Handle */
+        ::-webkit-scrollbar-thumb {
+            background: var(--COL3);
+        }
+
+        /* Handle on hover */
+        ::-webkit-scrollbar-thumb:hover {
+            background: var(--COL2);
+        }
+
+
+
+
+        @font-face {
+            font-family: "Inter";
+            src: url("../fonts/Inter-VariableFont_slnt\,wght.ttf");
+        }
+
+        @font-face {
+            font-family: "RedHat";
+            src: url("../fonts/RedHatDisplay-VariableFont_wght.ttf");
+        }
+
+        @font-face {
+            font-family: "Fraunces";
+            src: url("../fonts/Fraunces-VariableFont_SOFT\,WONK\,opsz\,wght.ttf");
+        }
+
+        @font-face {
+            font-family: "Poppins";
+            src: url("../fonts/Poppins-Regular.ttf");
+        }
+
+
+
+        html,
+        body {
+            margin: 0;
+            height: 100vh;
+        }
+
+        ul {
+            margin: 0;
+            padding: 0;
+        }
+
+        li {
+            list-style-type: none;
+        }
+
+
+
+        h1,
+        h2,
+        h3,
+        h4 {
+            margin: 0;
+            padding: 0;
+
+        }
+
+        :root {
+            --RED: hsl(0, 78%, 62%);
+            --CYAN: hsl(180, 63%, 84%);
+            --ORANGE: hsl(53, 97%, 64%);
+            --BLUE: hsl(212, 89%, 82%);
+            --GREY: rgba(0, 0, 0, 0.3);
+
+            --COL1: #db0a5b;
+            --COL2: #fef160;
+            --COL3: #23cba7;
+            --COL4: #3e6ceb;
+            --COL5: #d9c8ec;
+
+            --BORDER-RADIUS: .5rem;
+
+            --HERO-CONTENT-WIDTH: min(80ch, 100%);
+            --CONTENT-WIDTH: min(75ch, 100%);
+            --PADDING: 1.5rem;
+
+        }
+
+        body{
+            background-color: #f3f3f3;
+        }
+
+        .row-group{
+            display: flex;
+            flex-direction: column;
+        }
+
+        h2{
+            margin-top: 4rem;
+            margin-left: 2rem;
+            font-size: 2.5rem;
+        }
+        h2::first-letter{
+            text-transform: uppercase;
+        }
+
+        .row{
+            display: flex;
+            overflow-x: scroll;
+            scroll-snap-type: x mandatory;
+            justify-content: flex-start;
+            /* margin: 2rem 4rem; */
+            padding: 2rem 2rem;
+        }
+
+        .row figure{
+            flex-shrink: 0;
+            margin: 1rem 0;
+            margin-right: 1.5rem;
+            border-radius: 1rem;
+            scroll-snap-align: center;
+         
+            transition: filter .3s ease-in-out, transform .3s ease-in-out;
+            
+        }
+
+        .row figure:hover{
+            transform: translateY(-1rem);
+         
+        }
+
+        .row figure img{
+            object-fit: cover;
+            aspect-ratio: 3/2;
+            border-radius: .5rem;
+            inline-size: 40ch;
+        }
+
+      
+ 
+
+    </style>
+
+<body>
+    <main>
+
+    </main>
+
+    <script type="module">
+
+        import data from "../data/imgs.json" assert {type:"json"};
+        const  {general, space, nature, abstract} = data;
+        const main = document.querySelector('main');
+
+        const categories = Object.keys(data);
+
+        categories.forEach(key => {
+            const currentRow = createRow(key);
+            data[key].forEach(k => {
+                currentRow.appendChild(createFigure(k));
+            });
+            main.appendChild(createRowHeader(key));
+            main.appendChild(currentRow);
+                        
+        });
+
+
+        function createRowHeader(title){
+            const header = document.createElement("h2");
+            header.textContent = title;
+            return header;
+        }
+
+        function createRow(data){
+            // const topLevelContainer = document.createElement('div');
+            // topLevelContainer.classList.add("row-group");
+            // topLevelContainer.appendChild(createRowHeader(data));
+            const container = document.createElement("div");
+            container.classList.add("row");
+            // topLevelContainer.append(container);            
+            return container;
+        }
+
+        function createFigure(data){
+            const {url, description} = data;
+            const figure = document.createElement('figure');
+            const image = document.createElement("img");
+            const caption = document.createElement("figcaption");
+            caption.textContext = description;
+            image.src = url;
+            image.alt = description;
+            figure.appendChild(image);
+            figure.appendChild(caption);
+            return figure;
+        }
+
+        
+        
+       
+
+    </script>
+
+</body>
+
+</html>

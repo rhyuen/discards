@@ -1,0 +1,322 @@
+<!DOCTYPE html>
+<html lang="en" data-theme="light">
+
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <link rel="preconnect" href="https://fonts.gstatic.com">
+    <!-- <link rel="icon" type="../image/png" sizes="32x32" href="../images/favicon-32x32.png"> -->
+    <title>07/05/23</title>
+
+
+    <style>
+        @import "https://unpkg.com/open-props";
+
+        * {
+            box-sizing: border-box;
+            font-size: 16px;
+            font-family: 'RedHat', 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
+        }
+
+        ::-webkit-scrollbar {
+            width: 0.8rem;
+            height: 0.5rem;
+        }
+
+        ::-webkit-scrollbar {
+            display: none;
+            /* Safari and Chrome */
+        }
+
+        /* Track */
+        ::-webkit-scrollbar-track {
+            background: black;
+        }
+
+        /* Handle */
+        ::-webkit-scrollbar-thumb {
+            background: var(--COL3);
+        }
+
+        /* Handle on hover */
+        ::-webkit-scrollbar-thumb:hover {
+            background: var(--COL2);
+        }
+
+
+
+
+        @font-face {
+            font-family: "Inter";
+            src: url("../fonts/Inter-VariableFont_slnt\,wght.ttf");
+        }
+
+        @font-face {
+            font-family: "RedHat";
+            src: url("../fonts/RedHatDisplay-VariableFont_wght.ttf");
+        }
+
+        @font-face {
+            font-family: "Fraunces";
+            src: url("../fonts/Fraunces-VariableFont_SOFT\,WONK\,opsz\,wght.ttf");
+        }
+
+        @font-face {
+            font-family: "Poppins";
+            src: url("../fonts/Poppins-Regular.ttf");
+        }
+
+
+
+        html,
+        body {
+            margin: 0;
+            height: 100vh;
+            background-color: var(--color-bg);
+        }
+
+        ul {
+            margin: 0;
+            padding: 0;
+        }
+
+        li {
+            list-style-type: none;
+        }
+
+
+
+        h1,
+        h2,
+        h3,
+        h4 {
+            margin: 0;
+            padding: 0;
+
+        }
+
+        :root {
+
+            --RED: hsl(0, 78%, 62%);
+            --CYAN: hsl(180, 63%, 84%);
+            --ORANGE: hsl(53, 97%, 64%);
+            --BLUE: hsl(212, 89%, 82%);
+            --GREY: rgba(0, 0, 0, 0.3);
+
+            --COL1: #db0a5b;
+            --COL2: #fef160;
+            --COL3: #23cba7;
+            --COL4: #3e6ceb;
+            --COL5: #d9c8ec;
+
+            --BORDER-RADIUS: .5rem;
+
+            --HERO-CONTENT-WIDTH: min(80ch, 100%);
+            --CONTENT-WIDTH: min(75ch, 100%);
+            --PADDING: 1.5rem;
+
+        }
+
+        main {
+            display: flex;
+            flex-direction: column;
+            padding: 3rem;
+        }
+
+        .row {
+            display: flex;
+            height: 20rem;
+            overflow-x: scroll;
+            overflow-y: hidden;
+            width: 100%;
+            margin-bottom: 4rem;
+            padding: 0;
+            margin-inline: 1.5rem;
+            /* background-color: #23cba7; */
+        }
+
+        .row.hero{
+            margin-top: 3rem;
+            height: 25rem;
+            margin-inline:1.5rem;
+        }
+
+        .row.hero figure{
+            margin-inline: .3rem;
+            aspect-ratio: 13/9;
+        }
+
+        .row__header {
+            font-size: 1.5rem;
+            font-weight: 400;
+            font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
+            margin: 1rem 1.5rem;
+        }
+
+        .row__header.hero > h1{
+            font-size: 1.5rem;
+            font-weight: 400;
+        }
+        .row__header.hero > h2{
+            font-size: 3.5rem;
+            margin: 0;
+        }
+
+        .row__header.hero > p{
+            margin: 0;
+            font-size: 2rem;
+            color: gray;
+        }
+
+        .row__header::first-letter {
+            text-transform: uppercase;
+        }
+
+        .row figure {
+            margin: 0;
+            aspect-ratio: 13/10;
+            margin-inline: 1rem;
+            position: relative;
+            transition: filter .3s ease-in-out;
+            cursor: pointer;
+        }
+
+        .row figure:hover{
+            filter: grayscale(1);
+        }
+
+        .row figure:first-child {
+            margin-left: 0;
+        }
+
+        .row figure:last-child {
+            margin-right: 0;
+        }
+
+        .row figure figcaption {
+            padding-top: .75rem;
+            font-size: 1.1rem;
+            position: absolute;
+            bottom: 0;
+            left: 0;
+            right: 0;
+            background-color: white;
+
+        }
+
+        .figcaption__title {
+            color: black;
+            margin: 0;
+            font-weight: 600;
+            font-size: 1.3rem;
+        }
+
+        .figcaption__author {
+            color: gray;
+            margin: 0;
+            font-size: 1.3rem;
+        }
+
+        figure img {
+            object-fit: cover;
+            width: 100%;
+            height: 100%;
+        }
+
+        
+    </style>
+
+<body>
+
+    <main>
+        <div class="row__header hero">
+            <h1>Featured Project</h1>
+            <h2>The One Ring</h2>
+            <p>by Frodo Baggins</p>
+        </div>
+        <div class="row hero" id="hero-row">
+
+        </div>
+    </main>
+
+    <script src="https://unpkg.com/validator@latest/validator.min.js"></script>
+    <script type="module">
+
+        import data from "../data/imgs.json" assert {type: 'json'};
+
+        const { general, nature, space, abstract } = data;
+        const main = document.querySelector("main");
+
+        const heroRow = document.getElementById("hero-row");
+        for(let i = 0; i < data['space'].length; i++){
+            heroRow.appendChild(createFigure(data['space'][i], true));
+        }
+
+        Object.keys(data).forEach(k => {
+            console.log(k);
+            // for(let i = 0; i< data[k].length;i++){
+            //     console.log(data[k].length)
+            // }
+            main.appendChild(createRowHeader(k));
+            main.appendChild(createRow(data[k]));
+
+        });
+
+        function createRow(listOfData) {
+            const list = document.createElement("div");
+            list.classList.add("row");
+            for (let i = 0; i < listOfData.length; i++) {
+                list.appendChild(createFigure(listOfData[i]));
+            }
+            return list;
+        }
+
+        function createRowHeader(title) {
+            const header = document.createElement('h2');
+            header.classList.add("row__header");
+            header.textContent = title;
+            return header;
+        }
+
+        function createFigure(figureData, hero=false) {
+            const figure = document.createElement("figure");
+            const image = document.createElement("img");
+            // const figcaption = document.createElement("figcaption");
+            const figcaption = createFigcaption(figureData);
+            image.src = figureData.url
+            image.alt = figureData.description;
+            // figcaption.textContent = figureData.description;
+            figure.appendChild(image);
+            if(!hero){
+                figure.appendChild(figcaption);
+            }
+            
+            return figure;
+        }
+
+        function createFigcaption(data) {
+            const caption = document.createElement("figcaption");
+            const title = document.createElement("p");
+            title.classList.add("figcaption__title");
+            title.textContent = data.name;
+            const author = document.createElement("p");
+            author.classList.add("figcaption__author");
+            author.textContent = data.author;
+            caption.appendChild(title);
+            caption.appendChild(author);
+            return caption;
+        }
+
+
+
+
+
+
+
+
+    </script>
+
+</body>
+
+</html>

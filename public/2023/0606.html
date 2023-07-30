@@ -1,0 +1,326 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <link rel="preconnect" href="https://fonts.gstatic.com">
+    <!-- <link rel="icon" type="../image/png" sizes="32x32" href="../images/favicon-32x32.png"> -->
+    <title>06/06/23</title>
+
+
+    <style>
+        @import "https://unpkg.com/open-props";
+
+        * {
+            box-sizing: border-box;
+            font-size: 16px;
+            font-family: 'RedHat', 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
+        }
+
+        ::-webkit-scrollbar {
+            width: 0.8rem;
+            height: 0.5rem;
+        }
+
+        ::-webkit-scrollbar {
+            display: none;
+            /* Safari and Chrome */
+        }
+
+        /* Track */
+        ::-webkit-scrollbar-track {
+            background: black;
+        }
+
+        /* Handle */
+        ::-webkit-scrollbar-thumb {
+            background: var(--COL3);
+        }
+
+        /* Handle on hover */
+        ::-webkit-scrollbar-thumb:hover {
+            background: var(--COL2);
+        }
+
+
+
+
+        @font-face {
+            font-family: "Inter";
+            src: url("../fonts/Inter-VariableFont_slnt\,wght.ttf");
+        }
+
+        @font-face {
+            font-family: "RedHat";
+            src: url("../fonts/RedHatDisplay-VariableFont_wght.ttf");
+        }
+
+        @font-face {
+            font-family: "Fraunces";
+            src: url("../fonts/Fraunces-VariableFont_SOFT\,WONK\,opsz\,wght.ttf");
+        }
+
+        @font-face {
+            font-family: "Poppins";
+            src: url("../fonts/Poppins-Regular.ttf");
+        }
+
+
+
+        html,
+        body {
+            margin: 0;
+            height: 100vh;
+        }
+
+        ul {
+            margin: 0;
+            padding: 0;
+        }
+
+        li {
+            list-style-type: none;
+        }
+
+
+
+        h1,
+        h2,
+        h3,
+        h4 {
+            margin: 0;
+            padding: 0;
+
+        }
+
+        :root {
+            --RED: hsl(0, 78%, 62%);
+            --CYAN: hsl(180, 63%, 84%);
+            --ORANGE: hsl(53, 97%, 64%);
+            --BLUE: hsl(212, 89%, 82%);
+            --GREY: rgba(0, 0, 0, 0.3);
+
+            --COL1: #db0a5b;
+            --COL2: #fef160;
+            --COL3: #23cba7;
+            --COL4: #3e6ceb;
+            --COL5: #d9c8ec;
+
+            --BORDER-RADIUS: .5rem;
+
+            --HERO-CONTENT-WIDTH: min(80ch, 100%);
+            --CONTENT-WIDTH: min(75ch, 100%);
+            --PADDING: 1.5rem;
+
+        }
+
+        main {
+            inline-size: var(--CONTENT-WIDTH);
+            margin: 0 auto;
+            display: grid;
+            place-items: center;
+            min-height: 100vh;
+        }
+
+
+        .circle {
+            border-radius: 50%;
+            aspect-ratio: 1;
+            width: 5rem;
+            padding: 1rem;
+            position: relative;
+            background: #f1c40f content-box;
+            box-sizing: border-box;
+            cursor: pointer;
+        }
+
+
+        .circle__notselect {
+            transition: filter .4s ease-in-out;
+        }
+
+        .circle__notselect:hover {
+            filter: drop-shadow(0 0 1.2rem white);
+        }
+
+
+
+
+
+        .circle__rainbow::after {
+            content: "";
+            position: absolute;
+            inset: 0;
+            border-radius: inherit;
+            padding: .5rem;
+            background: conic-gradient(hsl(360, 100%, 50%),
+                    hsl(315, 100%, 50%),
+                    hsl(270, 100%, 50%),
+                    hsl(225, 100%, 50%),
+                    hsl(180, 100%, 50%),
+                    hsl(135, 100%, 50%),
+                    hsl(90, 100%, 50%),
+                    hsl(45, 100%, 50%),
+                    hsl(0, 100%, 50%));
+            -webkit-mask:
+                linear-gradient(#fff 0 0) content-box,
+                linear-gradient(#fff 0 0);
+            -webkit-mask-composite: xor;
+            mask-composite: exclude;
+        }
+
+
+
+        /* .icon {
+            width: 100px;
+            aspect-ratio: 1;
+            position: relative;
+            border-radius: 50%;
+            padding: 15px;
+            background: #f1c40f content-box;
+            box-sizing: border-box
+        }
+
+        .icon::after {
+            content: "";
+            position: absolute;
+            inset: 0;
+            border-radius: inherit;
+            padding: .5rem;
+            background: conic-gradient(hsl(360, 100%, 50%),
+                    hsl(315, 100%, 50%),
+                    hsl(270, 100%, 50%),
+                    hsl(225, 100%, 50%),
+                    hsl(180, 100%, 50%),
+                    hsl(135, 100%, 50%),
+                    hsl(90, 100%, 50%),
+                    hsl(45, 100%, 50%),
+                    hsl(0, 100%, 50%));
+            -webkit-mask:
+                linear-gradient(#fff 0 0) content-box,
+                linear-gradient(#fff 0 0);
+            -webkit-mask-composite: xor;
+            mask-composite: exclude;
+        } */
+
+        .container {
+            display: flex;
+            padding: 1rem;
+            border-radius: .5rem;
+            background-color: darkblue;
+        }
+
+        .container>* {
+            margin-right: 1rem;
+        }
+
+        .container>*:last-child {
+            margin-right: 0;
+        }
+
+
+        nav {
+            position: fixed;
+            top: 0;
+            left: 0;
+            right: 0;
+            height: 5rem;
+            box-shadow: 0 0 .5rem .15rem rgba(0, 0, 0, 0.1);
+            display: flex;
+            align-items: center;
+        }
+
+        .nav__container {
+            inline-size: var(--CONTENT-WIDTH);
+            margin: 0 auto;
+        }
+
+        .nav__container__item {
+            cursor: pointer;
+            border-radius: 50%;
+            width: 2rem;
+            height: 2rem;
+            border: 2px solid black;
+            background: linear-gradient(to bottom,
+                    white,
+                    black 15%,
+                    white 15%,
+                    black 85%,
+                    white 85%);
+        }
+
+        footer {
+            position: fixed;
+            transition: left .4s ease-in-out;
+            left: -100%;
+            width: min(20rem, 90%);
+            background-color: var(--RED);
+            height: 100vh;
+            padding: 2rem;
+            display: flex;
+            flex-direction: column;
+        }
+
+        footer h2{
+            font-size: 1.5rem;
+            margin-bottom: 2rem;
+        }
+
+        .footer__card{
+            padding: 1rem;
+            background-color: white;
+            border-radius: .5rem;
+        }
+        footer p{
+            font-size: .9rem
+        }
+    </style>
+
+<body>
+    <nav>
+        <div class="nav__container">
+            <div id="menu-button" class="nav__container__item"></div>
+        </div>
+    </nav>
+    <footer>
+        <h2>References</h2>
+        <div class="footer__card">
+            <p>Made on June 6, 2023</p>
+            <p>Followed this tutorial <a href="https://dev.to/madsstoumann/recreating-apples-color-picker-icon-20aa">here</a>.</p>
+            <p>I had an error in which I typed background-color instead of background which resulted in some problems in getting it to work.</p>
+            <p>The codepen solutions in the comments were more useful than the article.</p>
+        </div>
+    </footer>
+    <main>
+        <div class="container">
+            <div class="circle circle__rainbow"></div>
+            <div class="circle circle__notselect" style="background-color: var(--RED);"></div>
+            <div class="circle circle__notselect" style="background-color: var(--CYAN);"></div>
+            <div class="circle circle__notselect" style="background-color: var(--ORANGE);"></div>
+            <div class="circle circle__notselect" style="background-color: var(--BLUE);"></div>
+        </div>
+
+
+    </main>
+
+    <script>
+        const menuButton = document.getElementById('menu-button');
+        const footer = document.querySelector("footer");
+        menuButton.addEventListener("click", e => {
+            footer.style.left = "0";
+        });
+
+        window.addEventListener("keydown", e => {
+            console.log("hi");
+            if (e.key === "Escape") {
+                footer.style.left = "-100%";
+            }
+        });
+
+    </script>
+
+</body>
+
+</html>

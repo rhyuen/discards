@@ -1,0 +1,360 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <link rel="preconnect" href="https://fonts.gstatic.com">
+    <!-- <link rel="icon" type="../image/png" sizes="32x32" href="../images/favicon-32x32.png"> -->
+    <title>06/06/23</title>
+
+
+    <style>
+        @import "https://unpkg.com/open-props";
+
+        * {
+            box-sizing: border-box;
+            font-size: 16px;
+            font-family: 'RedHat', 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
+        }
+
+        ::-webkit-scrollbar {
+            width: 0.8rem;
+            height: 0.5rem;
+        }
+
+        ::-webkit-scrollbar {
+            display: none;
+            /* Safari and Chrome */
+        }
+
+        /* Track */
+        ::-webkit-scrollbar-track {
+            background: black;
+        }
+
+        /* Handle */
+        ::-webkit-scrollbar-thumb {
+            background: var(--COL3);
+        }
+
+        /* Handle on hover */
+        ::-webkit-scrollbar-thumb:hover {
+            background: var(--COL2);
+        }
+
+
+
+
+        @font-face {
+            font-family: "Inter";
+            src: url("../fonts/Inter-VariableFont_slnt\,wght.ttf");
+        }
+
+        @font-face {
+            font-family: "RedHat";
+            src: url("../fonts/RedHatDisplay-VariableFont_wght.ttf");
+        }
+
+        @font-face {
+            font-family: "Fraunces";
+            src: url("../fonts/Fraunces-VariableFont_SOFT\,WONK\,opsz\,wght.ttf");
+        }
+
+        @font-face {
+            font-family: "Poppins";
+            src: url("../fonts/Poppins-Regular.ttf");
+        }
+
+
+
+        html,
+        body {
+            margin: 0;
+            height: 100vh;
+        }
+
+        ul {
+            margin: 0;
+            padding: 0;
+        }
+
+        li {
+            list-style-type: none;
+        }
+
+
+
+        h1,
+        h2,
+        h3,
+        h4 {
+            margin: 0;
+            padding: 0;
+
+        }
+
+        :root {
+            --RED: hsl(0, 78%, 62%);
+            --CYAN: hsl(180, 63%, 84%);
+            --ORANGE: hsl(53, 97%, 64%);
+            --BLUE: hsl(212, 89%, 82%);
+            --GREY: rgba(0, 0, 0, 0.3);
+
+            --COL1: #db0a5b;
+            --COL2: #fef160;
+            --COL3: #23cba7;
+            --COL4: #3e6ceb;
+            --COL5: #d9c8ec;
+
+            --BORDER-RADIUS: .5rem;
+
+            --HERO-CONTENT-WIDTH: min(80ch, 100%);
+            --CONTENT-WIDTH: min(75ch, 100%);
+            --PADDING: 1.5rem;
+
+        }
+
+        main {
+            display: flex;
+            flex-direction: column;
+            padding: clamp(1rem, 3%, 4rem);
+        }
+
+        .hero {
+            inline-size: 100%;
+            aspect-ratio: 16/9;
+            background-color: rgb(244, 224, 227);
+            border-radius: .5rem;
+            position: relative;
+        }
+
+        .hero__container {
+            position: absolute;
+            bottom: 2rem;
+            left: 2rem;
+            display: flex;
+            flex-direction: column;
+            inline-size: 15rem;
+        }
+
+        .hero__container h1 {
+            font-size: 2.75rem;
+            font-weight: 800;
+            text-transform: uppercase;
+        }
+
+        .hero__container p {
+            margin: 0;
+            font-weight: 600;
+            font-size: 1rem;
+        }
+
+        .hero__container button {
+            margin-top: 1rem;
+            background-color: black;
+            color: white;
+            font-size: 1rem;
+            font-weight: 800;
+            padding: 1rem;
+            border: none;
+            border-radius: .3rem;
+            cursor: pointer;
+        }
+
+        .row {
+            display: flex;
+            flex-direction: column;
+            margin-top: 4rem;
+            padding-bottom: 3rem;
+            border-bottom: 1px solid rgba(0, 0, 0, 0.3);
+        }
+
+
+        .row h2 {
+            font-size: 1.5rem;
+        }
+        .row h2::first-letter{
+            text-transform: uppercase;
+        }
+
+        .scroll{
+            margin-top: 2rem;;
+            display: flex;    
+            overflow-x: scroll;     
+            scroll-snap-type: x mandatory;             
+        }
+
+        .scroll__item{
+            flex-shrink: 0;
+           margin: 0;
+           margin-right: 1rem;
+           scroll-snap-align: center;
+           
+        }
+
+        .scroll__item img{
+            object-fit: cover;
+            inline-size: 20rem;
+            aspect-ratio: 3/2;
+            border-radius: .3rem;
+           
+            /* height: 10rem; */
+            margin: 0;
+            transition: filter .4s ease-in-out;
+           cursor: pointer;
+        }
+
+        .scroll__item img:hover{
+            filter: grayscale(100);
+        }
+
+        
+
+        .scroll__item figcaption{
+            font-size: .9rem;
+            /* background-color: #23cba7; */
+            inline-size: 20rem;
+            /* display: none; */
+        }
+
+        .scroll__item figcaption h3{
+            margin-top: 1rem;
+            margin-bottom: 0;
+            font-size: 1.1rem;
+        }
+
+        .scroll__item figcaption h3::first-letter{
+            text-transform: uppercase;
+        }
+
+        .scroll__item figcaption p {
+            margin: 0;
+            font-size: .9rem;
+            color: rgba(0, 0, 0, 0.8);
+        }
+
+        footer{
+            display: flex;
+            flex-direction: column;
+            margin-inline: clamp(1rem, 3%, 4rem);
+            
+            background-color: rgb(244, 224, 227);
+            padding: 2rem;
+            margin-bottom: 2rem;
+            border-radius: .5rem;
+        }
+
+        footer h2{
+            font-size: 2rem;
+        }
+
+        footer p{
+            margin-bottom: .1rem;
+            font-size: .9rem;
+            font-weight: 600;            
+        }
+    </style>
+
+<body>
+    <main>
+        <div class="hero">
+            <div class="hero__container">
+                <h1>Library</h1>
+                <p>When you're finished books, where do they go?</p>
+                <p>In a pile.</p>
+                <button>To the Pile.</button>
+            </div>
+        </div>
+       
+    </main>
+    <footer>
+        <h2>Notes and References</h2>
+        <p>Made mostly on June 11, 2023.</p>
+        <p>I pulled the design from the Apple TV website.</p>
+        <p>It's an iteration on what I did yesterday.</p>
+        <p>I wanted to put a CSS graphic on the hero banner, but I do not think I can do the things I had in mind.</p>
+        <p>I also couldn't get there to be a margin on the bottom of the footer for some reason.</p>
+        <p>It would've been nice to have modals for the images.</p>
+        <p>Variations in sizing of the images would be nice too.</p>
+    </footer>
+
+    <script type="module">
+        import data from "../data/imgs.json" assert {type: "json"};
+        // const {general, space, abstract, nature} = data;
+
+        const categories = Object.keys(data);
+        const main = document.querySelector("main");
+
+        categories.forEach(k => {
+            main.appendChild(createRow(data[k], k));
+        });
+
+
+
+        function createRow(data, title) {
+            const row = document.createElement("div");
+            row.classList.add("row");
+            row.appendChild(createRowTitle(title));
+            row.appendChild(createScrollList(data, title));
+            return row;
+        }
+
+        function createScrollList(data, category = "") {
+            const list = document.createElement("div")
+            list.classList.add("scroll");
+            for (let i = 0; i < data.length; i++) {
+                list.appendChild(createFigure(data[i], category));
+            }
+            return list;
+        }
+
+        function createRowTitle(text) {
+            const header = document.createElement('h2');
+            header.textContent = text;
+            return header;
+        }
+
+        function createFigure(data, category = "", style = "default") {
+            const { url, description } = data;
+            const figure = document.createElement("figure");
+            figure.classList.add("scroll__item");
+            const image = document.createElement("img");            
+            image.src = url;
+            image.alt = description;
+                        
+            figure.appendChild(image);
+            figure.appendChild(createFigureCaption(description));
+            return figure;
+        }
+
+        function createFigureCaption(text){
+            const caption = document.createElement("figcaption");
+            
+            const words = text.split(" ");
+            words.sort((a,b) => {
+                return b.length - a.length;
+            });
+            const header = document.createElement("h3");
+            const longestWordLessPeriod = words[0].replace(".", "");
+            header.textContent = longestWordLessPeriod;
+            
+            
+            const p = document.createElement("p");
+            p.textContent = text;
+            
+            caption.appendChild(header);
+            caption.appendChild(p);
+            return caption;
+        }
+
+
+
+
+
+    </script>
+
+</body>
+
+</html>

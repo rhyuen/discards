@@ -1,0 +1,374 @@
+<!DOCTYPE html>
+<html lang="en" data-theme="light">
+
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <link rel="preconnect" href="https://fonts.gstatic.com">
+    <!-- <link rel="icon" type="../image/png" sizes="32x32" href="../images/favicon-32x32.png"> -->
+    <title>07/05/23</title>
+
+
+    <style>
+        @import "https://unpkg.com/open-props";
+
+        * {
+            box-sizing: border-box;
+            font-size: 16px;
+            font-family: 'RedHat', 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
+        }
+
+        ::-webkit-scrollbar {
+            width: 0.8rem;
+            height: 0.5rem;
+        }
+
+        ::-webkit-scrollbar {
+            display: none;
+            /* Safari and Chrome */
+        }
+
+        /* Track */
+        ::-webkit-scrollbar-track {
+            background: black;
+        }
+
+        /* Handle */
+        ::-webkit-scrollbar-thumb {
+            background: var(--COL3);
+        }
+
+        /* Handle on hover */
+        ::-webkit-scrollbar-thumb:hover {
+            background: var(--COL2);
+        }
+
+
+
+
+        @font-face {
+            font-family: "Inter";
+            src: url("../fonts/Inter-VariableFont_slnt\,wght.ttf");
+        }
+
+        @font-face {
+            font-family: "RedHat";
+            src: url("../fonts/RedHatDisplay-VariableFont_wght.ttf");
+        }
+
+        @font-face {
+            font-family: "Fraunces";
+            src: url("../fonts/Fraunces-VariableFont_SOFT\,WONK\,opsz\,wght.ttf");
+        }
+
+        @font-face {
+            font-family: "Poppins";
+            src: url("../fonts/Poppins-Regular.ttf");
+        }
+
+
+
+        html,
+        body {
+            margin: 0;
+            height: 100vh;
+            background-color: var(--color-bg);
+        }
+
+        ul {
+            margin: 0;
+            padding: 0;
+        }
+
+        li {
+            list-style-type: none;
+        }
+
+
+
+        h1,
+        h2,
+        h3,
+        h4 {
+            margin: 0;
+            padding: 0;
+
+        }
+
+        :root {
+
+            --RED: hsl(0, 78%, 62%);
+            --CYAN: hsl(180, 63%, 84%);
+            --ORANGE: hsl(53, 97%, 64%);
+            --BLUE: hsl(212, 89%, 82%);
+            --GREY: rgba(0, 0, 0, 0.3);
+
+            --COL1: #db0a5b;
+            --COL2: #fef160;
+            --COL3: #23cba7;
+            --COL4: #3e6ceb;
+            --COL5: #d9c8ec;
+
+            --BORDER-RADIUS: .5rem;
+
+            --HERO-CONTENT-WIDTH: min(80ch, 100%);
+            --CONTENT-WIDTH: min(75ch, 100%);
+            --PADDING: 1.5rem;
+
+        }
+
+        [data-theme="light"] {
+            --color-fg: black;
+            --color-bg: white;
+        }
+
+        [data-theme='dark'] {
+            --color-fg: white;
+            --color-bg: black;
+        }
+
+        [data-theme='pink'] {
+            --color-fg: var(--COL1);
+            --color-bg: lavender;
+            --border: var(var(--COL1));
+        }
+
+
+
+        nav {
+            width: var(--CONTENT-WIDTH);
+            margin: 0 auto;
+            padding: 1rem;
+            height: 5vh;
+        }
+
+
+        .theme {
+            width: 2rem;
+            height: 2rem;
+            border: 2px solid var(--color-fg);
+            background-color: var(--color-bg);
+            border-radius: 50%;
+            cursor: pointer;
+            position: relative;
+        }
+
+        .menu {
+            position: absolute;
+            /* left: 1rem; */
+            top: 1rem;
+            padding: 1rem;
+            background-color: var(--color-bg);
+            border-radius: 1rem;
+            border: 2px solid var(--color-fg);
+            display: none;
+        }
+
+        .menu__button {
+            --WIDTH: 2rem;
+            inline-size: var(--WIDTH);
+            block-size: var(--WIDTH);
+            margin-right: .5rem;
+            border: 2px solid var(--color-fg);
+            border-radius: .25rem;
+            cursor: pointer;
+            transition: all .3s ease-in-out;
+        }
+
+        .menu__button:hover {
+            background-color: rgba(0, 0, 0, 0.3);
+        }
+
+        .menu__button:last-child {
+            margin-right: 0;
+        }
+
+        .theme:hover .menu {
+            display: flex;
+        }
+
+
+
+        .menu__button--light {
+            background-color: white;
+        }
+
+        .menu__button--dark {
+            background-color: black;
+        }
+
+        .menu__button--pink {
+            background-color: var(--COL1);
+        }
+
+        main {
+            padding: 1rem;
+            inline-size: var(--CONTENT-WIDTH);
+            margin : 0 auto;
+        }
+
+        .card{
+            padding: 2rem;
+            border: 1px solid var(--color-fg);
+            margin-bottom: 1rem;
+            border-radius: .25rem;
+        }
+
+        .card h2{
+            margin-bottom: .5rem;
+        }
+
+        .card h2 a{
+            color: var(--color-fg);
+        }
+
+        .card__row{
+            display: flex;
+            justify-content: flex-start;
+        }
+
+        .card__row span {
+            color: var(--color-fg);
+        }
+
+        .card__row__link{
+            margin-right: .5rem;
+            padding: .25rem .5rem;
+            border-radius: .25rem;
+            color: var(--color-bg);
+            background-color: var(--color-fg);
+            font-weight: 600;
+            font-size: .9rem;
+        }
+    </style>
+
+<body>
+    <nav>
+        <div class="theme" id="theme-button">
+            <div class="menu">
+                <button class="menu__button menu__button--light" id="light-button"></button>
+                <button class="menu__button menu__button--dark" id="dark-button"></button>
+                <button class="menu__button menu__button--pink" id="pink-button"></button>
+            </div>
+        </div>
+    </nav>
+    <main>
+
+    </main>
+
+    <script src="https://unpkg.com/validator@latest/validator.min.js"></script>
+    <script type="module">
+        import data from "../data/reddit-worldnews-230705.json" assert {type: "json"};
+
+
+        window.addEventListener("load", () => {
+            const main = document.querySelector("main");
+            const items = data.data.children;
+            // const items = data.data.children.map(i => {
+            //     const { title, url, created, permalink } = i.data;
+
+            //     // return {
+            //     //     title,
+            //     //     source: url,
+            //     //     created,
+            //     //     reddit: permalink
+            //     // };
+                
+            // });
+            // console.log(items)
+            
+            
+           for(let i = 0; i < items.length; i++){
+               main.appendChild(createCard(items[i].data));
+           }
+        });
+
+        function createCard(data){
+            const card = document.createElement("div");
+            card.classList.add("card");
+            card.appendChild(createCardRowDate(data.created));
+            card.appendChild(createCardHeader(data));
+            card.appendChild(createCardRow(data));
+            return card;
+        }
+
+        function createCardHeader(data){
+            const {title, url} = data;
+            const header = document.createElement("h2");
+            const link = document.createElement("a");
+            
+            link.href = url;
+            link.textContent = title;
+            header.appendChild(link)
+            return header;
+        }
+
+        function createCardRowDate(date){
+            console.log(new Date(date).getMonth());
+            const row = document.createElement("div");
+            row.classList.add("card__row");
+            const span  = document.createElement("span");
+            span.textContent = date;
+            row.appendChild(span);
+            return row;
+        }
+
+        function createCardRow(data){
+            const {permalink, url} = data;
+            const row = document.createElement("div");
+            row.classList.add("card__row");
+            row.appendChild(createCardRowLinkReddit(permalink));
+            row.appendChild(createCardRowLinkUnknown(url));
+            return row;
+        }
+
+        function createCardRowLinkReddit(data){
+            const link = document.createElement("a");
+            link.classList.add("card__row__link");
+            link.href = `https://reddit.com${data}`;
+            link.textContent = "Reddit";
+            return link;
+        }
+        
+        function createCardRowLinkUnknown(data){
+
+            const url = new URL(data);            
+            const link = document.createElement("a");
+            link.classList.add("card__row__link");
+            link.href = data;
+            link.textContent = url.origin;
+            return link;
+        }
+
+
+        const lightButton = document.getElementById("light-button");
+        const darkButton = document.getElementById("dark-button");
+        const pinkButton = document.getElementById("pink-button");
+
+        lightButton.addEventListener("click", () => {
+            const html = document.querySelector("html");
+            html.setAttribute("data-theme", "light");
+        });
+
+        darkButton.addEventListener("click", () => {
+            const html = document.querySelector("html");
+            html.setAttribute("data-theme", "dark");
+        });
+
+        pinkButton.addEventListener("click", () => {
+            const html = document.querySelector("html");
+            html.setAttribute("data-theme", "pink");
+        });
+
+
+
+
+
+
+
+    </script>
+
+</body>
+
+</html>

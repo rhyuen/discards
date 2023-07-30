@@ -2,173 +2,255 @@
     "general": [
         {
             "url": "https://images.unsplash.com/photo-1650832509092-8ea993c41975?ixlib=rb-1.2.1&ixid=MnwxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8&auto=format&fit=crop&w=687&q=80",
-            "description": "A camera lens."
+            "description": "A camera lens.",
+            "name": "Camera Lens",
+            "author": "Tom Riddle"
         },
         {
             "url": "https://images.unsplash.com/photo-1650848800724-efc1c7279acc?ixlib=rb-1.2.1&ixid=MnwxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8&auto=format&fit=crop&w=1636&q=80",
-            "description": "A sunset with mountains."
+            "description": "A sunset with mountains.",
+            "name": "Sunset",
+            "author": "Tony Stark"
         },
         {
             "url": "https://images.unsplash.com/photo-1650853282913-9a3ecb60aa53?ixlib=rb-1.2.1&ixid=MnwxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8&auto=format&fit=crop&w=1471&q=80",
-            "description": "A sunset with roads and a body of water."
+            "description": "A sunset with roads and a body of water.",
+            "name": "Dark Sunset",
+            "author": "Agent Orange"
         },
         {
             "url": "https://images.unsplash.com/photo-1650873797988-abf1338073ca?ixlib=rb-1.2.1&ixid=MnwxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8&auto=format&fit=crop&w=688&q=80",
-            "description": "A path to a beach."
+            "description": "A path to a beach.",
+            "name": "Beach",
+            "author": "Bruce Wayne"
         },
         {
             "url": "https://images.unsplash.com/photo-1650871604168-2e8b22829db8?ixlib=rb-1.2.1&ixid=MnwxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8&auto=format&fit=crop&w=1412&q=80",
-            "description": "A green and gray staircase or post-its."
+            "description": "A green and gray staircase or post-its.",
+            "name": "Staircase",
+            "author": "Adam Warlock"
         },
         {
             "url": "https://images.unsplash.com/photo-1650871669661-8914cf440a4a?ixlib=rb-1.2.1&ixid=MnwxMjA3fDB8MHx0b3BpYy1mZWVkfDd8NnNNVmpUTFNrZVF8fGVufDB8fHx8&auto=format&fit=crop&w=500&q=60",
-            "description": "A bank of snow on a cliff."
+            "description": "A bank of snow on a cliff.",
+            "name": "Cliff",
+            "author": "James Holden"
         },
         {
             "url": "https://images.unsplash.com/photo-1650869739665-6e3b7ec3dd8f?ixlib=rb-1.2.1&ixid=MnwxMjA3fDB8MHx0b3BpYy1mZWVkfDExfDZzTVZqVExTa2VRfHxlbnwwfHx8fA%3D%3D&auto=format&fit=crop&w=500&q=60",
-            "description": "Looking up whilst in a canyon."
+            "description": "Looking up whilst in a canyon.",
+            "name": "Canyon",
+            "author": "Mister Miracle"
         },
         {
             "url": "https://images.unsplash.com/photo-1650575185249-2b6a65f92d6c?ixlib=rb-1.2.1&ixid=MnwxMjA3fDB8MHx0b3BpYy1mZWVkfDl8NnNNVmpUTFNrZVF8fGVufDB8fHx8&auto=format&fit=crop&w=500&q=60",
-            "description": "A tall cactus."
+            "description": "A tall cactus.",
+            "name": "Cactus",
+            "author": "Grame Simsion"
         },
         {
             "url": "https://images.unsplash.com/photo-1650830248740-7d1e07ca2b76?ixlib=rb-1.2.1&ixid=MnwxMjA3fDB8MHx0b3BpYy1mZWVkfDE0fDZzTVZqVExTa2VRfHxlbnwwfHx8fA%3D%3D&auto=format&fit=crop&w=500&q=60",
-            "description": "A shooting star"
+            "description": "A shooting star",
+            "name": "Star",
+            "author": "Billy Butcher"
         },
         {
             "url": "https://images.unsplash.com/photo-1650790109039-0eff445a65f3?ixlib=rb-1.2.1&ixid=MnwxMjA3fDB8MHx0b3BpYy1mZWVkfDIxfDZzTVZqVExTa2VRfHxlbnwwfHx8fA%3D%3D&auto=format&fit=crop&w=500&q=60",
-            "description": "A desert with some sparse trees."
+            "description": "A desert with some sparse trees.",
+            "name": "Desert",
+            "author": "Monkey Luffy"
         },
         {
             "url": "https://images.unsplash.com/photo-1650564365557-b987ac5d219e?ixlib=rb-1.2.1&ixid=MnwxMjA3fDB8MHx0b3BpYy1mZWVkfDI1fDZzTVZqVExTa2VRfHxlbnwwfHx8fA%3D%3D&auto=format&fit=crop&w=500&q=60",
-            "description": "A sun in the sky with a mountain range and palm tree visible."
+            "description": "A sun in the sky with a mountain range and palm tree visible.",
+            "name": "Sun",
+            "author": "Ed Baldwyn"
         },
         {
             "url": "https://images.unsplash.com/photo-1625514279739-1a56cea485f9?ixlib=rb-1.2.1&ixid=MnwxMjA3fDB8MHx0b3BpYy1mZWVkfDMyfDZzTVZqVExTa2VRfHxlbnwwfHx8fA%3D%3D&auto=format&fit=crop&w=500&q=60",
-            "description": "A small island of trees in a body of water."
+            "description": "A small island of trees in a body of water.",
+            "name": "Island",
+            "author": "Gordo Stevens"
         },
         {
             "url": "https://images.unsplash.com/photo-1650400716131-12a410e12975?ixlib=rb-1.2.1&ixid=MnwxMjA3fDB8MHx0b3BpYy1mZWVkfDM2fDZzTVZqVExTa2VRfHxlbnwwfHx8fA%3D%3D&auto=format&fit=crop&w=500&q=60",
-            "description": "A forest with an open space.  There's snow."
+            "description": "A forest with an open space.  There's snow.",
+            "name": "Forest",
+            "author": "Tim Drake"
         },
         {
             "url": "https://images.unsplash.com/photo-1650374471470-a46867a3ce06?ixlib=rb-1.2.1&ixid=MnwxMjA3fDB8MHx0b3BpYy1mZWVkfDU3fDZzTVZqVExTa2VRfHxlbnwwfHx8fA%3D%3D&auto=format&fit=crop&w=500&q=60",
-            "description": "A sunset with a boat on open water."
+            "description": "A sunset with a boat on open water.",
+            "name": "Sunset",
+            "author": "Cat Life"
         },
         {
             "url": "https://images.unsplash.com/photo-1650324705564-2eb0b6b23954?ixlib=rb-1.2.1&ixid=MnwxMjA3fDB8MHx0b3BpYy1mZWVkfDY3fDZzTVZqVExTa2VRfHxlbnwwfHx8fA%3D%3D&auto=format&fit=crop&w=500&q=60",
-            "description": "A tree with a body of water."
+            "description": "A tree with a body of water.",
+            "name": "Tree",
+            "author": "Jessica Drew"
         },
         {
             "url": "https://images.unsplash.com/photo-1650059331311-3f2e54dc2af6?ixlib=rb-1.2.1&ixid=MnwxMjA3fDB8MHx0b3BpYy1mZWVkfDcyfDZzTVZqVExTa2VRfHxlbnwwfHx8fA%3D%3D&auto=format&fit=crop&w=500&q=60",
-            "description": "A forested mountain side with a body of water preceding it."
+            "description": "A forested mountain side with a body of water preceding it.",
+            "name": "Mountain",
+            "author": "Jack Napier"
         }
     ],
     "space": [
         {
             "url": "https://images.unsplash.com/photo-1537420327992-d6e192287183?ixlib=rb-1.2.1&ixid=MnwxMjA3fDB8MHxzZWFyY2h8Mnx8c3BhY2V8ZW58MHx8MHx8&auto=format&fit=crop&w=600&q=60",
-            "description": "Long exposure of stars coming towards you."
+            "description": "Long exposure of stars coming towards you.",
+            "name": "Stars",
+            "author": "Ansell Adams"
         },
         {
             "url": "https://images.unsplash.com/photo-1610296669228-602fa827fc1f?ixlib=rb-1.2.1&ixid=MnwxMjA3fDB8MHxzZWFyY2h8Nnx8c3BhY2V8ZW58MHx8MHx8&auto=format&fit=crop&w=600&q=60",
-            "description": "A nebula."
+            "description": "A nebula.",
+            "name": "Nebula",
+            "author": "Hironobu Sakaguchi"
         },
         {
             "url": "https://images.unsplash.com/photo-1516339901601-2e1b62dc0c45?ixlib=rb-1.2.1&ixid=MnwxMjA3fDB8MHxzZWFyY2h8NXx8c3BhY2V8ZW58MHx8MHx8&auto=format&fit=crop&w=600&q=60",
-            "description": "A pink nebula."
+            "description": "A pink nebula.",
+            "name": "Pink Nebula",
+            "author": "Imperial Hot"
         },
         {
             "url": "https://images.unsplash.com/photo-1446776811953-b23d57bd21aa?ixlib=rb-1.2.1&ixid=MnwxMjA3fDB8MHxzZWFyY2h8MTF8fHNwYWNlfGVufDB8fDB8fA%3D%3D&auto=format&fit=crop&w=600&q=60",
-            "description": "Loocking down on the earth with a satellite nearby."
+            "description": "Loocking down on the earth with a satellite nearby.",
+            "name": "Satellite",
+            "author": "Dick Grayson"
         },
         {
             "url": "https://images.unsplash.com/photo-1502134249126-9f3755a50d78?ixlib=rb-1.2.1&ixid=MnwxMjA3fDB8MHxzZWFyY2h8MTh8fHNwYWNlfGVufDB8fDB8fA%3D%3D&auto=format&fit=crop&w=600&q=60",
-            "description": "Stars and space with some colours in the center."
+            "description": "Stars and space with some colours in the center.",
+            "name": "Stars",
+            "author": "Reed Richards"
         },
         {
             "url": "https://images.unsplash.com/photo-1543722530-d2c3201371e7?ixlib=rb-1.2.1&ixid=MnwxMjA3fDB8MHxzZWFyY2h8MTd8fHNwYWNlfGVufDB8fDB8fA%3D%3D&auto=format&fit=crop&w=600&q=60",
-            "description": "Solar styem with a yellow centre."
+            "description": "Solar styem with a yellow centre.",
+            "name": "Solar system",
+            "author": "Johnny Storm"
         }
     ],
     "nature": [
         {
             "url": "https://images.unsplash.com/photo-1500382017468-9049fed747ef?ixlib=rb-1.2.1&ixid=MnwxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8&auto=format&fit=crop&w=2664&q=80",
-            "description": "A field of yellow plants with the sun rising high in the blue sky."
+            "description": "A field of yellow plants with the sun rising high in the blue sky.",
+            "name": "Plants",
+            "author": "Ben Grimm"
         },
         {
             "url": "https://images.unsplash.com/photo-1513836279014-a89f7a76ae86?ixlib=rb-1.2.1&ixid=MnwxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8&auto=format&fit=crop&w=988&q=80",
-            "description": "Looking up to the sky surrounded by a forest of trees."
+            "description": "Looking up to the sky surrounded by a forest of trees.",
+            "name": "Forest",
+            "author": "Sue Storm"
         },
         {
             "url": "https://images.unsplash.com/photo-1546514355-7fdc90ccbd03?ixlib=rb-1.2.1&ixid=MnwxMjA3fDB8MHxzZWFyY2h8MzN8fG5hdHVyZXxlbnwwfHwwfHw%3D&auto=format&fit=crop&w=600&q=60",
-            "description": "Mountains and the Sun draped in a pink filter."
+            "description": "Mountains and the Sun draped in a pink filter.",
+            "name": "Mountains",
+            "author": "Mole Man"
         },
         {
             "url": "https://images.unsplash.com/photo-1455218873509-8097305ee378?ixlib=rb-1.2.1&ixid=MnwxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8&auto=format&fit=crop&w=987&q=80",
-            "description": "A forest within the mountains and a waterfall"
+            "description": "A forest within the mountains and a waterfall",
+            "name": "Forest",
+            "author": "Doctor Doom"
         },
         {
             "url": "https://images.unsplash.com/photo-1660866838821-62258896aa8d?ixlib=rb-1.2.1&ixid=MnwxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8&auto=format&fit=crop&w=1974&q=80",
-            "description": "An image looking down a road on an orange mountain range."
+            "description": "An image looking down a road on an orange mountain range.",
+            "name": "Road",
+            "author": "Steve Rogers"
         },
         {
             "url": "https://images.unsplash.com/photo-1475113548554-5a36f1f523d6?ixlib=rb-1.2.1&ixid=MnwxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8&auto=format&fit=crop&w=987&q=80",
-            "description": "A sunset in the background with white flowers in the foreground."
+            "description": "A sunset in the background with white flowers in the foreground.",
+            "name": "Sunset",
+            "author": "Stephen Strange"
         },
         {
             "url": "https://images.unsplash.com/photo-1660750259832-d9340cadfedd?ixlib=rb-1.2.1&ixid=MnwxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8&auto=format&fit=crop&w=1935&q=80",
-            "description": "Looking towards the sky from within a mountain's crevice. The sides of the mountain are bright red and orange.  The sky is a bright blue."
+            "description": "Looking towards the sky from within a mountain's crevice. The sides of the mountain are bright red and orange.  The sky is a bright blue.",
+            "name": "Sky",
+            "author": "Harry Potter"
         },
         {
             "url": "https://images.unsplash.com/photo-1660554969989-99b47174f499?ixlib=rb-1.2.1&ixid=MnwxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8&auto=format&fit=crop&w=1974&q=80",
-            "description": "A river snaking through a green landscape populated with a lot of trees.  A slight mountain is visible in the nearby distance."
+            "description": "A river snaking through a green landscape populated with a lot of trees.  A slight mountain is visible in the nearby distance.",
+            "name": "River",
+            "author": "Charles Xavier"
         },
         {
             "url": "https://images.unsplash.com/photo-1626548583108-54f960b1e8db?ixlib=rb-1.2.1&ixid=MnwxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8&auto=format&fit=crop&w=2006&q=80",
-            "description": "A half moon in the night sky."
+            "description": "A half moon in the night sky.",
+            "name": "Night",
+            "author": "Jean Grey"
         },
         {
             "url": "https://images.unsplash.com/photo-1660665508252-29c504d48ce8?ixlib=rb-1.2.1&ixid=MnwxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8&auto=format&fit=crop&w=1974&q=80",
-            "description": "A frozen tundra with mountains visible in the distance.  Orange pylons are scattered in an arranged fashion."
+            "description": "A frozen tundra with mountains visible in the distance.  Orange pylons are scattered in an arranged fashion.",
+            "name": "Tundra",
+            "author": "Bobby Drake"
         },
         {
             "url": "https://images.unsplash.com/photo-1660866838157-f971aaa5de88?ixlib=rb-1.2.1&ixid=MnwxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8&auto=format&fit=crop&w=1974&q=80",
-            "description": "A grayscale image of a porous stone structure on a porous mountain."
+            "description": "A grayscale image of a porous stone structure on a porous mountain.",
+            "name": "Mountain",
+            "author": "Magik"
         },
         {
             "url": "https://images.unsplash.com/photo-1441974231531-c6227db76b6e?ixlib=rb-1.2.1&ixid=MnwxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8&auto=format&fit=crop&w=2071&q=80",
-            "description": "A forest with a lit trail."
+            "description": "A forest with a lit trail.",
+            "name": "Forest",
+            "author": "Kate Pryde"
         },
         {
             "url": "https://images.unsplash.com/photo-1586348943529-beaae6c28db9?ixlib=rb-1.2.1&ixid=MnwxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8&auto=format&fit=crop&w=1015&q=80",
-            "description": "An island of trees on an island with a red sunset."
+            "description": "An island of trees on an island with a red sunset.",
+            "name": "Island",
+            "author": "James Howlett"
         }
     ],
     "abstract": [
         {
             "url": "https://images.unsplash.com/photo-1660944487352-209c5ac69bb0?ixlib=rb-1.2.1&ixid=MnwxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8&auto=format&fit=crop&w=2787&q=80",
-            "description": "Bright coloured lines of numerous colours."
+            "description": "Bright coloured lines of numerous colours.",
+            "name": "Untitled",
+            "author": "Marc Spector"
         },
         {
             "url": "https://images.unsplash.com/photo-1660779730956-829ff6b61589?ixlib=rb-1.2.1&ixid=MnwxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8&auto=format&fit=crop&w=2787&q=80",
-            "description": "Red and white coloured lines arranged in a random manner."
+            "description": "Red and white coloured lines arranged in a random manner.",
+            "name": "Lines",
+            "author": "Jennifer Walters"
         },
         {
             "url": "https://images.unsplash.com/photo-1660721046155-f1e3143dd752?ixlib=rb-1.2.1&ixid=MnwxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8&auto=format&fit=crop&w=2670&q=80",
-            "description": "Green, purple and yellow coloured lines arranged in a random manner."
+            "description": "Green, purple and yellow coloured lines arranged in a random manner.",
+            "name": "Colours",
+            "author": "Kamala Khan"
         },
         {
             "url": "https://images.unsplash.com/photo-1660664026116-cfe1a0c3be65?ixlib=rb-1.2.1&ixid=MnwxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8&auto=format&fit=crop&w=2664&q=80",
-            "description": "Yellow curved layers of a material arranged horiztonally."
+            "description": "Yellow curved layers of a material arranged horiztonally.",
+            "name": "Yellow",
+            "author": "Sam Wilson"
         },
         {
             "url": "https://images.unsplash.com/photo-1660616041368-4bc17b2057df?ixlib=rb-1.2.1&ixid=MnwxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8&auto=format&fit=crop&w=969&q=80",
-            "description": "Blue and orange material arranged horizontally.  The blue gradually changes to orange."
+            "description": "Blue and orange material arranged horizontally.  The blue gradually changes to orange.",
+            "name": "Blue",
+            "author": "bucky barnes"
         },
         {
             "url": "https://images.unsplash.com/photo-1659308267322-bb5619d1f680?ixlib=rb-1.2.1&ixid=MnwxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8&auto=format&fit=crop&w=987&q=80",
-            "description": "A purple and white abstract tissue image arranged like a series of nested funnels."
+            "description": "A purple and white abstract tissue image arranged like a series of nested funnels.",
+            "name": "Purple",
+            "author": "John Walker"
         }
     ]
 }

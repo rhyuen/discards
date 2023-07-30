@@ -1,0 +1,257 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <link rel="preconnect" href="https://fonts.gstatic.com">
+    <!-- <link rel="icon" type="../image/png" sizes="32x32" href="../images/favicon-32x32.png"> -->
+    <title>05/05/23</title>
+
+
+    <style>
+        @import "https://unpkg.com/open-props";
+
+        * {
+            box-sizing: border-box;
+            font-size: 16px;
+            font-family: 'RedHat', 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
+        }
+
+        ::-webkit-scrollbar {
+            width: 0.8rem;
+            height: 0.5rem;
+        }
+
+        ::-webkit-scrollbar {
+            display: none;
+            /* Safari and Chrome */
+        }
+
+        /* Track */
+        ::-webkit-scrollbar-track {
+            background: black;
+        }
+
+        /* Handle */
+        ::-webkit-scrollbar-thumb {
+            background: var(--COL3);
+        }
+
+        /* Handle on hover */
+        ::-webkit-scrollbar-thumb:hover {
+            background: var(--COL2);
+        }
+
+
+
+
+        @font-face {
+            font-family: "Inter";
+            src: url("../fonts/Inter-VariableFont_slnt\,wght.ttf");
+        }
+
+        @font-face {
+            font-family: "RedHat";
+            src: url("../fonts/RedHatDisplay-VariableFont_wght.ttf");
+        }
+
+        @font-face {
+            font-family: "Fraunces";
+            src: url("../fonts/Fraunces-VariableFont_SOFT\,WONK\,opsz\,wght.ttf");
+        }
+
+        @font-face {
+            font-family: "Poppins";
+            src: url("../fonts/Poppins-Regular.ttf");
+        }
+
+
+
+        html,
+        body {
+            margin: 0;
+            height: 100vh;
+        }
+
+        ul {
+            margin: 0;
+            padding: 0;
+        }
+
+        li {
+            list-style-type: none;
+        }
+
+
+
+        h1,
+        h2,
+        h3,
+        h4 {
+            margin: 0;
+            padding: 0;
+
+        }
+
+        :root {
+            --RED: hsl(0, 78%, 62%);
+            --CYAN: hsl(180, 63%, 84%);
+            --ORANGE: hsl(53, 97%, 64%);
+            --BLUE: hsl(212, 89%, 82%);
+            --GREY: rgba(0, 0, 0, 0.3);
+
+            --COL1: #db0a5b;
+            --COL2: #fef160;
+            --COL3: #23cba7;
+            --COL4: #3e6ceb;
+            --COL5: #d9c8ec;
+
+            --BORDER-RADIUS: .5rem;
+
+            --HERO-CONTENT-WIDTH: min(80ch, 100%);
+            --CONTENT-WIDTH: min(75ch, 100%);
+            --PADDING: 1.5rem;
+
+        }
+
+        .label {
+            display: flex;
+            align-items: center;
+            justify-content: space-between;
+            width: 100%;
+            background-color: white;
+            padding: .5rem;
+            border-radius: .3rem;
+            cursor: pointer;
+            margin-bottom: .25rem;
+        }
+
+        .label__checkbox-container {
+            position: relative;
+            --WIDTH: 1.5rem;    
+            
+        }
+
+        .label__checkbox-container::after {
+            position: relative;
+            --WIDTH: 1.5rem;  
+            inline-size: 0;
+            inset: 0;
+            
+            /* top: 50%;
+            left: 50%;
+            transform: translate(-50%, -50%); */
+            block-size: 0;
+            border-radius: 50%;
+            background-color: transparent;
+            content: "";
+            display: block;  
+            transition: all .5s ease-in;    
+        }
+
+        .label__checkbox-container:hover>.label__checkbox::after {
+            display: block;
+            position: absolute;
+            
+            content: "";
+    
+            inline-size: calc(1.5*var(--WIDTH));
+            block-size: calc(1.5*var(--WIDTH));            
+            border-radius: 50%;
+            background-color: #db0a5a7e;            
+        }
+
+        .label__checkbox {
+            appearance: none;
+            
+            inline-size: var(--WIDTH);
+            block-size: var(--WIDTH);
+            border: .25rem solid black;
+            border-radius: .2rem;
+            background-color: white;
+            transition: background-color .2s ease-in-out;
+            cursor: pointer;
+        }
+
+
+
+        .label__checkbox:checked {
+            background-color: #23cba7;
+        }
+
+        .label__title {
+            font-size: 1.1rem;
+            font-weight: 600;
+        }
+
+        .label__date {
+            font-size: .9rem;
+            color: #3f3f3f;
+            margin-left: 1rem;
+        }
+
+
+        main {
+            height: 100vh;
+            width: 100vw;
+            background-color: #f3f3f3;
+            display: grid;
+            place-items: center;
+        }
+
+        .container {
+            display: flex;
+            align-items: flex-start;
+            inline-size: var(--CONTENT-WIDTH);
+            padding: 1rem;
+            margin: 0 auto;
+            flex-direction: column;
+        }
+    </style>
+
+<body>
+    <main>
+        <div class="container">
+            <label class="label" for="checkbox-one">
+                <span class="label__checkbox-container">
+                    <input class="label__checkbox" type="checkbox" id="checkbox-one">
+                </span>
+                <span class="label__title">
+                    Everything
+                </span>
+                <span class="label__date">
+                    19:45pm
+                </span>
+            </label>
+            <label class="label" for="checkbox-two">
+                <span class="label__checkbox-container">
+                    <input class="label__checkbox" type="checkbox" id="checkbox-two">
+                </span>
+                <span class="label__title">
+                    Everywhere
+                </span>
+                <span class="label__date">
+                    8:45pm
+                </span>
+            </label>
+            <label class="label" for="checkbox-three">
+                <span class="label__checkbox-container">
+                    <input class="label__checkbox" type="checkbox" id="checkbox-three">
+                </span>
+                <span class="label__title">
+                    All at Once
+                </span>
+                <span class="label__date">
+                    11:45pm
+                </span>
+            </label>
+        </div>
+    </main>
+
+
+
+</body>
+
+</html>

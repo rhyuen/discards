@@ -360,7 +360,11 @@
             "description": "Theme Switch toggle.",
             "screenshot": "",
             "reference": [
-                "https://dev.to/whitep4nth3r/the-best-lightdark-mode-theme-toggle-in-javascript-368f"
+                "https://dev.to/whitep4nth3r/the-best-lightdark-mode-theme-toggle-in-javascript-368f",
+                "https://www.w3schools.com/howto/howto_js_scroll_indicator.asp",
+                "https://codepen.io/AllThingsSmitty/pen/gvpNWL",
+                "https://web.dev/one-line-layouts/",
+                "https://jamanetwork.com/journals/jamanetworkopen/fullarticle/2803938"
             ]
         },
         {
@@ -378,7 +382,31 @@
         },
         {
             "month": 7,
-            "day": 5,
+            "day": 21,
+            "year": 2023,
+            "link": "/2023/0721.html",
+            "visible": true,
+            "description": "Loading Indicator",
+            "screenshot": "230721",
+            "reference": [
+                "https://codepen.io/joshwcomeau/pen/JjNaWRd?editors=1100"
+            ]
+        },
+        {
+            "month": 7,
+            "day": 23,
+            "year": 2023,
+            "link": "/2023/0723.html",
+            "visible": true,
+            "description": "Animation practice from a CodePen I saw.",
+            "screenshot": "230723",
+            "reference": [
+                "https://codepen.io/jh3y/pen/KKQzmNV"
+            ]
+        },
+        {
+            "month": 7,
+            "day": 29,
             "year": 2023,
             "link": "/2023/0729.html",
             "visible": true,

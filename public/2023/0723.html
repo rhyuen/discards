@@ -1,0 +1,276 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <link rel="preconnect" href="https://fonts.gstatic.com">
+    <!-- <link rel="icon" type="../image/png" sizes="32x32" href="../images/favicon-32x32.png"> -->
+    <title>07/23/23</title>
+
+
+    <style>
+        @import "https://unpkg.com/open-props";
+
+        * {
+            box-sizing: border-box;
+            font-size: 16px;
+            font-family: 'RedHat', 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
+        }
+
+        ::-webkit-scrollbar {
+            width: 0.8rem;
+            height: 0.5rem;
+        }
+
+        ::-webkit-scrollbar {
+            display: none;
+            /* Safari and Chrome */
+        }
+
+        /* Track */
+        ::-webkit-scrollbar-track {
+            background: black;
+        }
+
+        /* Handle */
+        ::-webkit-scrollbar-thumb {
+            background: var(--COL3);
+        }
+
+        /* Handle on hover */
+        ::-webkit-scrollbar-thumb:hover {
+            background: var(--COL2);
+        }
+
+
+
+
+        @font-face {
+            font-family: "Inter";
+            src: url("../fonts/Inter-VariableFont_slnt\,wght.ttf");
+        }
+
+        @font-face {
+            font-family: "RedHat";
+            src: url("../fonts/RedHatDisplay-VariableFont_wght.ttf");
+        }
+
+        @font-face {
+            font-family: "Fraunces";
+            src: url("../fonts/Fraunces-VariableFont_SOFT\,WONK\,opsz\,wght.ttf");
+        }
+
+        @font-face {
+            font-family: "Poppins";
+            src: url("../fonts/Poppins-Regular.ttf");
+        }
+
+
+
+        html,
+        body {
+            margin: 0;
+            height: 100vh;
+        }
+
+        ul {
+            margin: 0;
+            padding: 0;
+        }
+
+        li {
+            list-style-type: none;
+        }
+
+
+
+        h1,
+        h2,
+        h3,
+        h4 {
+            margin: 0;
+            padding: 0;
+
+        }
+
+        :root {
+            --RED: hsl(0, 78%, 62%);
+            --CYAN: hsl(180, 63%, 84%);
+            --ORANGE: hsl(53, 97%, 64%);
+            --BLUE: hsl(212, 89%, 82%);
+            --GREY: rgba(0, 0, 0, 0.3);
+
+            --COL1: #db0a5b;
+            --COL2: #fef160;
+            --COL3: #23cba7;
+            --COL4: #3e6ceb;
+            --COL5: #d9c8ec;
+
+            --BORDER-RADIUS: .5rem;
+
+            --HERO-CONTENT-WIDTH: min(80ch, 100%);
+            --CONTENT-WIDTH: min(55ch, 100%);
+            --PADDING: 1.5rem;
+        }
+
+        p {
+            margin: 0;
+        }
+
+        main {
+            display: grid;
+            height: 100vh;
+            place-items: center;
+        }
+
+        main>* {
+            padding: 1rem;
+        }
+
+        h1 p {
+            font-size: 6rem;
+            position: relative;
+            margin-bottom: .5rem;
+            color: black;
+            user-select: none;
+        }
+
+        @keyframes slide {
+            0% {
+                width: 0%;
+                background-color: transparent;
+            }
+
+            50% {
+                width: 100%;
+                background-color: black;
+            }
+
+            100% {
+                width: 0%;
+                background-color: transparent;
+            }
+        }
+
+        h1 p::before {
+            position: absolute;
+            border-radius: .5rem;
+            inset: 0;
+            content: "";
+            width: 0%;
+            height: 100%;
+            background-color: black;
+            animation: slide 1s var(--DELAY) ease-in;
+        }
+
+        .slide-delay-1 {
+            animation-delay: 100ms;
+        }
+
+        .slide-delay-2 {
+            animation-delay: 200ms;
+        }
+
+        .slide-delay-3 {
+            animation-delay: 300ms;
+        }
+
+        .circle {
+            margin: 2rem;
+            border-radius: 50%;
+            border: 2rem solid black;
+            position: relative;
+            height: 80%;
+            aspect-ratio: 1;
+            display: grid;
+            place-items: center;
+        }
+
+        .circle__button {
+            position: fixed;
+            top: clamp(.5rem, 5%, 5rem);
+            right: clamp(.5rem, 5%, 5rem);
+            border-radius: 50%;
+            inline-size: 4rem;
+            block-size: 4rem;
+            aspect-ratio: 1;
+            cursor: pointer;
+            border: .75rem solid black;
+            background: radial-gradient(red, orange);
+        }
+
+        footer {
+            position: fixed;
+            display: flex;
+            flex-direction: column;
+            right: -100%;
+            top: 0;
+            transition: right .3s ease-in-out;
+            padding: 1rem;
+            block-size: 100vh;
+            background-color: white;
+            border-left: 1rem solid black;
+            inline-size: min(45ch, 80%);
+        }
+
+        footer h2 {
+            font-size: 1.75rem;
+            margin-bottom: 1rem;
+        }
+
+        footer p {
+            margin-bottom: 1rem;
+        }
+
+        .footer-button-close {
+            inline-size: fit-content;
+            cursor: pointer;
+            font-size: 1.5rem;
+            font-weight: 600;
+            background-color: white;
+            border: none;
+            text-decoration: underline;
+
+        }
+    </style>
+
+<body>
+    <main>
+        <div class="circle">
+            <button id="footer-button" class="circle__button" role="makes the footer show up."></button>
+            <h1>
+                <p class="slide-delay-1" style="--DELAY:100ms;">We</p>
+                <p class="slide-delay-2" style="--DELAY:300ms;">Are</p>
+                <p class="slide-delay-3" style="--DELAY:500ms;">On Fire.</p>
+            </h1>
+        </div>
+    </main>
+    <footer>
+        <h2>Notes and References</h2>
+        <p>Made on July 23, 2023.</p>
+        <p>An attempt at this CodePen <a href="https://codepen.io/jh3y/pen/KKQzmNV">here</a>.</p>
+        <p>No, it didn't work out as expected.</p>
+        <p>I didn't anticipate the bar expanding and the contracting from the left side origin point. I assumed it would
+            expand from the left and contract from the right like the demo. In hindsight, that was a bad assumption on
+            my end. And I should have looked the code more thoroughly before just attempting blindly.</p>
+        <button id="footer-close-button" class="footer-button-close">
+            Close Footer
+        </button>
+    </footer>
+    <script>
+        const footerButton = document.getElementById("footer-button");
+        const footerCloseButton = document.getElementById("footer-close-button");
+        footerButton.addEventListener("click", () => {
+            const footer = document.querySelector("footer");
+            footer.style.right = "0";
+        });
+        footerCloseButton.addEventListener("click", () => {
+            const footer = document.querySelector("footer");
+            footer.style.right = "-100%";
+        })
+    </script>
+</body>
+
+</html>

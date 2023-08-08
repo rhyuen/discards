@@ -415,6 +415,19 @@
             "reference": [
                 "https://theessential.design/"
             ]
+        },
+        {
+            "month": 8,
+            "day": 7,
+            "year": 2023,
+            "link": "/2023/0807.html",
+            "visible": true,
+            "description": "Better nested border-radius results.",
+            "screenshot": "230807",
+            "reference": [
+                "https://twitter.com/jh3yy/status/1688542283602231296",
+                "https://stackoverflow.com/a/5804278"
+            ]
         }
     ],
     "2022": [

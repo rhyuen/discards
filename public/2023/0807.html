@@ -1,0 +1,246 @@
+<!DOCTYPE html>
+<html lang="en" data-theme="light">
+
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <link rel="preconnect" href="https://fonts.gstatic.com">
+    <!-- <link rel="icon" type="../image/png" sizes="32x32" href="../images/favicon-32x32.png"> -->
+    <title>07/05/23</title>
+
+
+    <style>
+        @import "https://unpkg.com/open-props";
+        /* @import "https://unpkg.com/open-props/easings"; */
+
+        * {
+            box-sizing: border-box;
+            font-size: 16px;
+            font-family: 'RedHat', 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
+        }
+
+        ::-webkit-scrollbar {
+            width: 0.8rem;
+            height: 0.5rem;
+        }
+
+        ::-webkit-scrollbar {
+            display: none;
+            /* Safari and Chrome */
+        }
+
+        /* Track */
+        ::-webkit-scrollbar-track {
+            background: black;
+        }
+
+        /* Handle */
+        ::-webkit-scrollbar-thumb {
+            background: var(--COL3);
+        }
+
+        /* Handle on hover */
+        ::-webkit-scrollbar-thumb:hover {
+            background: var(--COL2);
+        }
+
+
+
+
+        @font-face {
+            font-family: "Inter";
+            src: url("../fonts/Inter-VariableFont_slnt\,wght.ttf");
+        }
+
+        @font-face {
+            font-family: "RedHat";
+            src: url("../fonts/RedHatDisplay-VariableFont_wght.ttf");
+        }
+
+        @font-face {
+            font-family: "Fraunces";
+            src: url("../fonts/Fraunces-VariableFont_SOFT\,WONK\,opsz\,wght.ttf");
+        }
+
+        @font-face {
+            font-family: "Poppins";
+            src: url("../fonts/Poppins-Regular.ttf");
+        }
+
+
+
+        html,
+        body {
+            margin: 0;
+            height: 100vh;
+            background-color: var(--color-bg);
+            
+        }
+
+        ul {
+            margin: 0;
+            padding: 0;
+        }
+
+        li {
+            list-style-type: none;
+        }
+
+
+
+        h1,
+        h2,
+        h3,
+        h4 {
+            margin: 0;
+            padding: 0;
+
+        }
+
+        :root {
+
+            --RED: hsl(0, 78%, 62%);
+            --CYAN: hsl(180, 63%, 84%);
+            --ORANGE: hsl(53, 97%, 64%);
+            --BLUE: hsl(212, 89%, 82%);
+            --GREY: rgba(0, 0, 0, 0.3);
+
+            --COL1: #db0a5b;
+            --COL2: #fef160;
+            --COL3: #23cba7;
+            --COL4: #3e6ceb;
+            --COL5: #d9c8ec;
+
+            --BORDER-RADIUS: .5rem;
+
+            --HERO-CONTENT-WIDTH: min(80ch, 100%);
+            --CONTENT-WIDTH: min(75ch, 100%);
+            --PADDING: 1.5rem;
+
+        }
+
+        main {
+            min-height: 100dvh;
+            padding: 1rem;
+        }
+
+        .gallery {
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(180px, 1fr));
+            margin: 0 auto;
+            width: var(--CONTENT-WIDTH);
+            gap: .25rem;
+        }
+
+        .gallery__item {
+            grid-column: span 1;
+            aspect-ratio: 1;
+            --BR: 1rem;
+            --BRP: .5rem;
+            --NBR: calc(var(--BR) - var(--BRP));
+            /* border-radius: calc(var(--BR) - var(--BRP)); */
+            border-radius: var(--BR);
+            padding: var(--BRP);
+            background: linear-gradient(#e26997, lavender, rgb(214, 172, 244));
+            border: 5px solid black;
+    
+        }
+
+        .gallery__item__inner {
+            border: 5px solid black;
+            border-radius: var(--NBR);
+            aspect-ratio: 1;
+            background-color: #fef160;
+            width: 100%;
+            height: 100%;
+            /* vertical-align: middle; */
+            display: block;
+            object-fit: cover;
+        }
+
+        /* .example {
+            transition: transform 1s var(--ease-spring-3);
+        } */
+
+        footer{
+            margin: 0 auto;
+            inline-size: var(--CONTENT-WIDTH);
+            padding: 2rem;
+            border-radius: 1rem;
+            background: linear-gradient(to bottom, lightcyan, rgb(203, 236, 203), lavender);
+            
+        }
+
+        footer h2{
+            font-size: 1.5rem;
+            font-weight: 800;
+        }
+
+        footer p, footer a {
+         font-size: 1.2rem;   
+        }
+        footer a{
+            font-weight: 800;
+        }
+    </style>
+
+<body>
+    <main>
+        <section id="gallery" class="gallery">
+           
+            <div class="gallery__item">
+                <div class="gallery__item__inner"></div>
+
+            </div>
+            <div class="gallery__item">
+                <div class="gallery__item__inner"></div>
+
+            </div>
+            <div class="gallery__item">
+                <div class="gallery__item__inner"></div>
+
+            </div>
+        </section>
+    </main>
+    <footer>
+        <h2>Notes and References</h2>
+        <p>Made on August 7, 2023.</p>
+        <p>An attempt at trying nested divs with rounded borders.</p>
+        <p>Following the example as demonstrated <a href="https://twitter.com/jh3yy/status/1688542283602231296">here</a>.</p>
+        <p>The key is making the child border-radius equal to the parent's border-radius but removing the padding of the parent from the parent's border-radius.</p>
+        <p>For some reason, there's a thicker padding on the bottom of the nested items with an image in them than the ones without an image in them.</p>
+        <p>The answer to the above problem is <a href="https://stackoverflow.com/a/5804278">here</a>.</p>
+        <p>One must set the 'vertical-align' for that child element to 'middle'.</p>
+        <p>Alternatively, one can also set the 'display' value to 'block'.</p>
+    </footer>
+
+
+    <script src="https://unpkg.com/validator@latest/validator.min.js"></script>
+    <script type="module">
+        import data from "../data/imgs.json" assert {type: "json"};
+        
+        const gallery = document.getElementById("gallery");
+        const nature = data.nature;
+
+        for(let i = 0 ; i < nature.length; i++){
+            gallery.appendChild(makeItem(nature[i]));
+        }
+
+        function makeItem(data){
+            const parent = document.createElement("gallery__item");
+            parent.classList.add("gallery__item");
+            const child = document.createElement("img");
+            child.classList.add("gallery__item__inner");
+            child.src = data.url;
+            parent.appendChild(child);
+            return parent;
+        }
+
+
+
+    </script>
+
+</body>
+
+</html>

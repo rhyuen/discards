@@ -1,0 +1,243 @@
+<!DOCTYPE html>
+<html lang="en" data-theme="light">
+
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <link rel="preconnect" href="https://fonts.gstatic.com">
+    <!-- <link rel="icon" type="../image/png" sizes="32x32" href="../images/favicon-32x32.png"> -->
+    <title>08/12/23</title>
+
+
+    <style>
+        @import "https://unpkg.com/open-props";
+        /* @import "https://unpkg.com/open-props/easings"; */
+
+        * {
+            box-sizing: border-box;
+            font-size: 16px;
+            font-family: 'RedHat', 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
+        }
+
+        ::-webkit-scrollbar {
+            width: 0.8rem;
+            height: 0.5rem;
+        }
+
+        ::-webkit-scrollbar {
+            display: none;
+            /* Safari and Chrome */
+        }
+
+        /* Track */
+        ::-webkit-scrollbar-track {
+            background: black;
+        }
+
+        /* Handle */
+        ::-webkit-scrollbar-thumb {
+            background: var(--COL3);
+        }
+
+        /* Handle on hover */
+        ::-webkit-scrollbar-thumb:hover {
+            background: var(--COL2);
+        }
+
+
+
+
+        @font-face {
+            font-family: "Inter";
+            src: url("../fonts/Inter-VariableFont_slnt\,wght.ttf");
+        }
+
+        @font-face {
+            font-family: "RedHat";
+            src: url("../fonts/RedHatDisplay-VariableFont_wght.ttf");
+        }
+
+        @font-face {
+            font-family: "Fraunces";
+            src: url("../fonts/Fraunces-VariableFont_SOFT\,WONK\,opsz\,wght.ttf");
+        }
+
+        @font-face {
+            font-family: "Poppins";
+            src: url("../fonts/Poppins-Regular.ttf");
+        }
+
+
+
+        html,
+        body {
+            margin: 0;
+            height: 100vh;
+            background-color: var(--color-bg);
+
+        }
+
+        ul {
+            margin: 0;
+            padding: 0;
+        }
+
+        li {
+            list-style-type: none;
+        }
+
+
+
+        h1,
+        h2,
+        h3,
+        h4 {
+            margin: 0;
+            padding: 0;
+
+        }
+
+        :root {
+
+            --RED: hsl(0, 78%, 62%);
+            --CYAN: hsl(180, 63%, 84%);
+            --ORANGE: hsl(53, 97%, 64%);
+            --BLUE: hsl(212, 89%, 82%);
+            --GREY: rgba(0, 0, 0, 0.3);
+
+            --COL1: #db0a5b;
+            --COL2: #fef160;
+            --COL3: #23cba7;
+            --COL4: #3e6ceb;
+            --COL5: #d9c8ec;
+
+            --BORDER-RADIUS: .5rem;
+
+            --HERO-CONTENT-WIDTH: min(80ch, 100%);
+            --CONTENT-WIDTH: min(75ch, 100%);
+            --PADDING: 1.5rem;
+
+        }
+
+        main {
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(180px, 1fr));
+            inline-size: min(850px, 100%);
+            margin: 0 auto;
+            gap: .25rem;
+            grid-auto-flow: dense;
+
+            padding: 1rem;
+        }
+
+
+        .tile {
+            grid-column: span 1;
+            aspect-ratio: 1;
+            border: .25rem solid rgba(0, 0, 0, 0.1);
+            transition: border-color .3s ease-in-out;
+            border-radius: .25rem;
+        }
+
+        .tile:hover {
+            border-color: hsl(0, 77%, 81%);
+        }
+
+        .tile--half-width {
+            grid-column: span 2;
+            aspect-ratio: 2/1;
+        }
+
+        .ad {
+            grid-column: span 1;
+            aspect-ratio: 1;
+            border-radius: .5rem;
+            border: .25rem solid rgba(0, 0, 0, 0.1);
+
+        }
+
+        .tile--full-width {
+            grid-column: 1/-1;
+        }
+
+        .tile__image {
+            width: 100%;
+            height: 100%;
+            object-fit: cover;
+            display: block;
+        }
+    </style>
+
+<body>
+
+    <main>
+
+    </main>
+
+    <script src="https://unpkg.com/validator@latest/validator.min.js"></script>
+    <script type="module">
+
+
+        //   const url = `https://picsum.photos/800/800?random=${i}`;
+        const main = document.querySelector("main");
+
+        let CURRENT_LARGE_IMAGE = "";
+        const LIMIT = 50;
+        for (let i = 0; i < LIMIT; i++) {
+            if (i % 9 === 0) {
+                main.appendChild(makeAd());
+            }
+            main.appendChild(makeTile(`https://picsum.photos/800/800?random=${i}`));
+        }
+
+        function makeAd() {
+            const ad = document.createElement('div');
+            ad.classList.add("ad");
+            return ad;
+        }
+
+        function makeTile(url) {
+
+            const container = document.createElement("div");
+            container.classList.add("tile");
+
+            if (Math.floor(Math.random() * 100) % 7 === 0) {
+                container.classList.add("tile--half-width");
+            }
+            const image = document.createElement("img");
+            image.src = url;
+            image.classList.add("tile__image");
+            container.appendChild(image);
+            container.addEventListener("click", function () {
+                const current_image_link = this.querySelector("img").src;
+                console.log(current_image_link);
+                console.log(CURRENT_LARGE_IMAGE);
+                if (current_image_link !== CURRENT_LARGE_IMAGE) {
+                    const tiles = main.querySelectorAll(".tile");
+                    for (let i = 0; i < tiles.length; i++) {
+                        if (tiles[i].classList.contains("tile--full-width")) {
+                            tiles[i].classList.remove('tile--full-width');
+                        }
+                    }
+
+                }
+
+
+                if (this.classList.contains("tile--full-width")) {
+                    this.classList.remove("tile--full-width");
+                } else {
+                    CURRENT_LARGE_IMAGE = current_image_link;
+                    this.classList.add("tile--full-width");
+                }
+
+                console.log('full width clikced.')
+            })
+            return container;
+        }
+
+    </script>
+
+</body>
+
+</html>

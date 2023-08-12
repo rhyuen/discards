@@ -1,0 +1,224 @@
+<!DOCTYPE html>
+<html lang="en" data-theme="light">
+
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <link rel="preconnect" href="https://fonts.gstatic.com">
+    <!-- <link rel="icon" type="../image/png" sizes="32x32" href="../images/favicon-32x32.png"> -->
+    <title>07/05/23</title>
+
+
+    <style>
+        @import "https://unpkg.com/open-props";
+        /* @import "https://unpkg.com/open-props/easings"; */
+
+        * {
+            box-sizing: border-box;
+            font-size: 16px;
+            font-family: 'RedHat', 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
+        }
+
+        ::-webkit-scrollbar {
+            width: 0.8rem;
+            height: 0.5rem;
+        }
+
+        ::-webkit-scrollbar {
+            display: none;
+            /* Safari and Chrome */
+        }
+
+        /* Track */
+        ::-webkit-scrollbar-track {
+            background: black;
+        }
+
+        /* Handle */
+        ::-webkit-scrollbar-thumb {
+            background: var(--COL3);
+        }
+
+        /* Handle on hover */
+        ::-webkit-scrollbar-thumb:hover {
+            background: var(--COL2);
+        }
+
+
+
+
+        @font-face {
+            font-family: "Inter";
+            src: url("../fonts/Inter-VariableFont_slnt\,wght.ttf");
+        }
+
+        @font-face {
+            font-family: "RedHat";
+            src: url("../fonts/RedHatDisplay-VariableFont_wght.ttf");
+        }
+
+        @font-face {
+            font-family: "Fraunces";
+            src: url("../fonts/Fraunces-VariableFont_SOFT\,WONK\,opsz\,wght.ttf");
+        }
+
+        @font-face {
+            font-family: "Poppins";
+            src: url("../fonts/Poppins-Regular.ttf");
+        }
+
+
+
+        html,
+        body {
+            margin: 0;
+            height: 100vh;
+            background-color: var(--color-bg);
+            
+        }
+
+        ul {
+            margin: 0;
+            padding: 0;
+        }
+
+        li {
+            list-style-type: none;
+        }
+
+
+
+        h1,
+        h2,
+        h3,
+        h4 {
+            margin: 0;
+            padding: 0;
+
+        }
+
+        :root {
+
+            --RED: hsl(0, 78%, 62%);
+            --CYAN: hsl(180, 63%, 84%);
+            --ORANGE: hsl(53, 97%, 64%);
+            --BLUE: hsl(212, 89%, 82%);
+            --GREY: rgba(0, 0, 0, 0.3);
+
+            --COL1: #db0a5b;
+            --COL2: #fef160;
+            --COL3: #23cba7;
+            --COL4: #3e6ceb;
+            --COL5: #d9c8ec;
+
+            --BORDER-RADIUS: .5rem;
+
+            --HERO-CONTENT-WIDTH: min(80ch, 100%);
+            --CONTENT-WIDTH: min(75ch, 100%);
+            --PADDING: 1.5rem;
+
+        }
+
+        main{
+            padding: 1rem;
+            inline-size: min(120ch, 100%);
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(190px, 1fr));
+            gap: 1rem;
+            min-height: 100dvh;
+        }
+
+        .item{
+            --ITEM_PADDING: 1rem;
+            --ITEM_BORDER_RADIUS: .75rem;
+            padding: var(--ITEM_PADDING);
+            grid-column: span 1;
+            border-radius: var(--ITEM_BORDER_RADIUS);
+            --INNER_BORDER_RADIUS: calc(var(--ITEM_PADDING) - var(--ITEM_BORDER_RADIUS));
+            /* background-color: #db0a5b; */
+            background: radial-gradient(lavender, #ec77a4 );
+            /* width: 200px;
+            height: 200px; */
+            aspect-ratio: 1;
+        }
+
+        .item--empty{
+            background: white;
+            border: 2px dotted grey;
+        }
+
+
+
+        .item__inner{
+            border-radius: var(--INNER_BORDER_RADIUS);       
+            width: 100%;
+            height: 100%;
+            object-fit: cover;     
+            display: block;
+        }
+
+        .item__text{
+            display: grid;
+            place-items: center;
+            width: 100%;
+            height: 100%;
+            margin: 0;
+            font-weight: 800;
+            font-size: 1.2rem;
+        }
+
+    
+
+
+    </style>
+
+<body>
+    <main id="main">
+
+    </main>
+
+
+    <script src="https://unpkg.com/validator@latest/validator.min.js"></script>
+    <script type="module">
+        import data from "../data/imgs.json" assert {type: "json"};
+        
+        const {abstract, nature, general, space} = data;
+        const main = document.getElementById('main');
+
+        const all = abstract.concat(nature, general, space);
+
+        for(let i = 0; i < all.length; i++){
+            if(i % 5 === 0 || i % 8 === 0){
+                main.appendChild(makeEmptyItem());
+            }
+            main.appendChild(makeItem(all[i]));
+        }
+
+        function makeEmptyItem(){
+            const empty = document.createElement("div");
+            empty.classList.add('item');
+            empty.classList.add('item--empty');
+            const text = document.createElement("p");
+            text.classList.add("item__text");
+            text.textContent = "Ad";
+            empty.appendChild(text);
+            return empty;
+        }
+
+        function makeItem(data){
+            const item = document.createElement("div");
+            item.classList.add("item");
+            const inner = document.createElement("img");
+            inner.classList.add("item__inner");
+            inner.src = data.url;
+            inner.alt = data.description;
+            item.appendChild(inner);
+            return item;
+        }
+
+    </script>
+
+</body>
+
+</html>

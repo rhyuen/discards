@@ -428,6 +428,31 @@
                 "https://twitter.com/jh3yy/status/1688542283602231296",
                 "https://stackoverflow.com/a/5804278"
             ]
+        },
+        {
+            "month": 8,
+            "day": 9,
+            "year": 2023,
+            "link": "/2023/0809.html",
+            "visible": true,
+            "description": "Nested border-radius practice",
+            "screenshot": "",
+            "reference": [
+                "https://twitter.com/jh3yy/status/1688542283602231296"
+            ]
+        },
+        {
+            "month": 8,
+            "day": 12,
+            "year": 2023,
+            "link": "/2023/0812.html",
+            "visible": true,
+            "description": "Grid of images that expand when one of them is clicked.",
+            "screenshot": "230812",
+            "reference": [
+                "https://codepen.io/jh3y/pen/XWywwqR",
+                "https://picsum.photos/800/800?random=2"
+            ]
         }
     ],
     "2022": [

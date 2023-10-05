@@ -1,0 +1,504 @@
+<!DOCTYPE html>
+<html lang="en" data-theme="light">
+
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <link rel="preconnect" href="https://fonts.gstatic.com">
+    <!-- <link rel="icon" type="../image/png" sizes="32x32" href="../images/favicon-32x32.png"> -->
+    <title>08/12/23</title>
+
+
+    <style>
+        @import "https://unpkg.com/open-props";
+        /* @import "https://unpkg.com/open-props/easings"; */
+
+        * {
+            box-sizing: border-box;
+            font-size: 16px;
+            font-family: 'RedHat', 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
+        }
+
+        ::-webkit-scrollbar {
+            width: 0.8rem;
+            height: 0.5rem;
+        }
+
+        ::-webkit-scrollbar {
+            display: none;
+            /* Safari and Chrome */
+        }
+
+        /* Track */
+        ::-webkit-scrollbar-track {
+            background: black;
+        }
+
+        /* Handle */
+        ::-webkit-scrollbar-thumb {
+            background: var(--COL3);
+        }
+
+        /* Handle on hover */
+        ::-webkit-scrollbar-thumb:hover {
+            background: var(--COL2);
+        }
+
+
+
+
+        @font-face {
+            font-family: "Inter";
+            src: url("../fonts/Inter-VariableFont_slnt\,wght.ttf");
+        }
+
+        @font-face {
+            font-family: "RedHat";
+            src: url("../fonts/RedHatDisplay-VariableFont_wght.ttf");
+        }
+
+        @font-face {
+            font-family: "Fraunces";
+            src: url("../fonts/Fraunces-VariableFont_SOFT\,WONK\,opsz\,wght.ttf");
+        }
+
+        @font-face {
+            font-family: "Poppins";
+            src: url("../fonts/Poppins-Regular.ttf");
+        }
+
+
+
+        html,
+        body {
+            margin: 0;
+            min-block-size: 100dvh;
+            background-color: #f3f3f3;
+
+        }
+
+        ul {
+            margin: 0;
+            padding: 0;
+        }
+
+        li {
+            list-style-type: none;
+        }
+
+
+
+        h1,
+        h2,
+        h3,
+        h4 {
+            margin: 0;
+            padding: 0;
+
+        }
+
+        :root {
+
+            --RED: hsl(0, 78%, 62%);
+            --CYAN: hsl(180, 63%, 84%);
+            --ORANGE: hsl(53, 97%, 64%);
+            --BLUE: hsl(212, 89%, 82%);
+            --GREY: rgba(0, 0, 0, 0.3);
+
+            --COL1: #db0a5b;
+            --COL2: #fef160;
+            --COL3: #23cba7;
+            --COL4: #3e6ceb;
+            --COL5: #d9c8ec;
+
+            --BORDER-RADIUS: .5rem;
+
+            --HERO-CONTENT-WIDTH: min(120ch, 100%);
+            --CONTENT-WIDTH: min(75ch, 100%);
+            --PADDING: 1.5rem;
+
+        }
+
+        main {
+
+            height: 100vh;
+            overflow-y: scroll;
+            scroll-snap-type: y mandatory;
+
+        }
+
+        .bumper {
+            inline-size: 100%;
+            block-size: 8rem;
+            background-color: rgba(0, 0, 0, 0.1);
+        }
+
+        /* main>section {
+            scroll-snap-align: center;
+            min-block-size: 100vh;
+            inline-size: 100%;
+        } */
+
+      
+
+
+        .banner {
+            color: white;
+            scroll-snap-align: center;
+            background-color: black;
+            display: grid;
+            place-items: center;
+
+
+            scroll-snap-align: center;
+            min-block-size: 100vh;
+            inline-size: 100%;
+        }
+
+        .grid {
+            
+            display: flex;
+            flex-direction: column;
+            padding: 1rem;
+
+            scroll-snap-align: center;
+            min-block-size: 100vh;
+            inline-size: 100%;
+        }
+
+        .grid__item {
+            background-color: #fbfbfd;
+            display: grid;
+            flex-grow: 1;
+            flex-shrink: 0;
+            flex-basis: 500px;
+            color: black;
+            font-size: 2rem;
+            font-weight: 800;
+            justify-content: center;
+            align-items: center;
+            position: relative;
+            overflow: hidden;
+        }
+
+        .grid__item h2{
+            font-size: 2rem;
+            font-weight: 800;
+        }
+
+        .grid__item:first-child::after{
+            border: .5rem solid rgba(0, 0, 0, 0.1);
+            position: absolute;
+            content: "";
+            --WIDTH: 50rem;
+            inline-size: var(--WIDTH);
+            block-size: var(--WIDTH);
+            bottom: -5rem;
+            left: 0;
+            transform: translateX(35%);            
+            border-radius: 50%;                    
+        }
+
+        .grid__item:nth-child(2)::after{
+            border: 1rem solid #fbfbfd;
+            position: absolute;
+            content: "";
+            --WIDTH: 50rem;
+            inline-size: var(--WIDTH);
+            block-size: var(--WIDTH);
+            top: -5rem;
+            left: 0;
+            transform: translateX(15%);            
+            border-radius: 50%;                    
+        }
+
+        .grid__item:nth-child(3)::after{
+            border: .5rem solid black;
+            position: absolute;
+            content: "";
+            --WIDTH: 20rem;
+            inline-size: var(--WIDTH);
+            block-size: var(--WIDTH);
+            top: 50%;
+            left: 50%;
+            transform: translate(-50%, -50%);            
+            border-radius: 50%;                    
+        }
+
+        .grid__item--black{
+            background-color: black;
+            color: white;
+        }
+
+        .hero{
+            margin-bottom: 1rem;
+            position: relative;
+            overflow-y: hidden;
+        }
+
+        .hero::after{
+            position: absolute;
+            --WIDTH: 55rem;
+            width: var(--WIDTH);
+            height: var(--WIDTH);
+            border-radius: 50%;            
+            border: 2px solid white;            
+            content: "";
+            bottom: -40rem;
+        }
+
+        .hero-second{
+            position: relative;
+            overflow: hidden;
+        }
+
+        .hero-second::after{
+            position: absolute;
+            content: "";
+            --WIDTH: 40rem;      
+            border-radius: 2rem;      
+            block-size: var(--WIDTH);
+            inline-size: calc(2*var(--WIDTH));
+            transform: rotate(35deg) skewY(-10deg);
+            border: 2px solid white;
+            bottom: -30rem;
+
+
+        }
+
+        .hero-second::before{
+            position: absolute;
+            content: "";
+            --WIDTH: 20rem;      
+            border-radius: 2rem;      
+            block-size: var(--WIDTH);
+            inline-size: calc(4*var(--WIDTH));
+            transform: rotate(35deg) skewY(-40deg);
+            border: 2px solid white;
+            top: -5rem;
+
+
+        }
+
+        .banner__container {
+            display: flex;
+            flex-direction: column;
+            align-items: center;
+        }
+
+        .banner__container h1 {
+            font-size: 3rem;
+            font-weight: 600;
+        }
+
+        .banner__container p {
+            font-size: 2rem;
+            margin: .5rem;
+            text-align: center;
+        }
+
+        .banner__container__row {
+            display: flex;
+            justify-content: center;
+        }
+
+        .banner__container__row a {
+            color: rgb(168, 168, 227);
+            font-size: 1.5rem;
+            text-decoration: none;
+        }
+
+        .banner__container__row a:first-child {
+            margin-right: 2rem;
+        }
+
+        .banner__container__row a:hover {
+            text-decoration: underline;
+        }
+
+        footer {
+            background-color: #fbfbfd;
+            scroll-snap-align: end;
+            inline-size: 100%;
+            padding: 4rem 1rem;
+        }
+
+        .footer__content {
+            margin: 0 auto;
+            inline-size: var(--HERO-CONTENT-WIDTH);
+            display: flex;
+            flex-direction: column;
+        }
+
+        .footer__content h2{
+            font-size: 1.2rem;
+            color: #424245;
+        }
+
+        .footer__content p{
+            font-size: .9rem;
+            color: #6e6e73;
+            max-width: 60ch;
+        }
+
+        nav {
+            width: 100%;
+            block-size: 5rem;
+            background-color: black;
+            border-bottom: 1px solid white;
+            display: flex;
+            align-items: center;
+            scroll-snap-align: start;
+            padding-inline: 1rem;
+        }
+
+        nav .nav__content {
+            display: flex;
+            margin: 0 auto;
+            inline-size: var(--CONTENT-WIDTH);
+        }
+
+        nav .nav__content a{
+            color: white;
+            font-size: 1.5rem;
+            text-decoration: none;
+            font-weight: 800;
+
+        }
+
+        .carousel{
+            display: flex;
+            overflow-x: scroll;
+            scroll-snap-type: x mandatory;
+            scroll-snap-align: center;
+            height: 50rem ;
+            width: 100vw;
+            padding-block: 1rem;
+            padding-block-end: 2rem;
+            background-color: white;
+        }
+
+        .carousel__item{
+            flex-shrink: 0;
+            width: 80%;
+            height: 100%;    
+            scroll-snap-align: center;        
+            /* background-image: url("../images/01g.jpg"); */
+            background-repeat: no-repeat;
+            background-size: cover;
+            background-position: center;
+            filter: grayscale(100%);
+            transition: filter 0.2s ease-in-out;
+            margin-inline-end: 1rem;
+        }
+        .carousel__item:first-child{
+            margin-inline-start: 1rem;
+        }
+        .carousel__item:hover{
+            filter: grayscale(0%);
+        }
+
+
+        @media screen and (min-width: 600px) {
+            .grid {
+                display: grid;
+                grid-template-columns: repeat(2, minmax(200px, 1fr));
+                gap: 1rem;
+            }
+
+            .grid__item {}
+        }
+    </style>
+
+<body>
+
+    <main>
+        <div class="bumper"></div>
+        <nav>
+            <span class="nav__content">
+                <a href="#">/</a>
+            </span>
+        </nav>
+      
+        <section class="banner hero">
+            <div class="banner__container">
+                <h1>Ultra. Awesome.</h1>
+                <p>Ultra awesome because REASONS.</p>
+                <div class="banner__container__row">
+                    <a href="#">
+                        Learn More
+                    </a>
+                    <a href="$">
+                        Act Now
+                    </a>
+                </div>
+            </div>
+        </section>
+        <section class="banner hero-second">
+            <div class="banner__container">
+                <h1>Beep</h1>
+                <p>Boop</p>                
+            </div>
+        </section>
+        <section class="grid">
+            <div class="grid__item">
+                <h2>Strive</h2>
+            </div>
+            <div class="grid__item grid__item--black">
+                <h2>Consistent</h2>
+            </div>
+            <div class="grid__item">
+                <h2>Forward</h2>
+            </div>
+            <div class="grid__item">
+                <h2>Together</h2>
+            </div>
+          
+        </section>
+        <section class="carousel" id="carousel-mp">
+         
+        </section>
+        <footer>
+            <div class="footer__content">
+                <h2>Notes and References</h2>
+                <p>Started on October 1, 2023</p>
+                <p>More stuff (most of it) done on October 4, 2023</p>
+                <p>Based on the apple.com/ca website.</p>
+                <p>Uses the scroll snap bumpers thing I did before.</p>
+                <p>In this case, you can't just use scroll-snap-align: center for everything.</p>
+                <p>For the last element in the scroll-snap parent, you should use scroll-snap-align:end so that you don't scroll to the end and stay on the bumper.</p>
+                <p>I used the most common benign PR-esque words for placeholder.</p>
+                <p>Sadly, most of this took me at least 2 hours.</p>
+            </div>
+        </footer>
+        <div class="bumper"></div>
+    </main>
+
+
+    <script src="https://unpkg.com/validator@latest/validator.min.js"></script>
+    <script type="module">
+        import data from "../data/imgs.json" assert {type: "json"};
+
+        const images = data.general;
+
+        console.log(images.length);
+
+        const carouselID = document.getElementById("carousel-mp");
+
+
+        for(let i = 0 ; i < images.length; i++){
+            carouselID.appendChild(createCarouselItems(images[i]));
+        }
+
+        function createCarouselItems(imageDetails){
+            const item = document.createElement("div");
+            item.classList.add("carousel__item");
+            item.style.backgroundImage = `url(${imageDetails.url})`;           
+            return item;
+        }
+    </script>
+
+</body>
+
+</html>

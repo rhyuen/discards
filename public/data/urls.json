@@ -453,7 +453,67 @@
                 "https://codepen.io/jh3y/pen/XWywwqR",
                 "https://picsum.photos/800/800?random=2"
             ]
+        },
+        {
+            "month": 9,
+            "day": 6,
+            "year": 2023,
+            "link": "/2023/0906.html",
+            "visible": true,
+            "description": "Grid of gradients. Primarily linear-gradients and using them to create css only designs.  The discrete breaks was particularly challenging.  I need to search for a reference for it from css tricks.",
+            "screenshot": "230812",
+            "reference": [
+                "https://blog.logrocket.com/complex-patterns-using-css-gradients/",
+                "https://css-tricks.com/css3-gradients/"
+            ]
+        },
+        {
+            "month": 9,
+            "day": 14,
+            "year": 2023,
+            "link": "/2023/0914.html",
+            "visible": true,
+            "description": "Scroll Bumpers using divs.",
+            "screenshot": "",
+            "reference": [                
+            ]
+        },
+        {
+            "month": 9,
+            "day": 14,
+            "year": 2023,
+            "link": "/2023/0914a.html",
+            "visible": true,
+            "description": "Scroll Bumpers but with pseudo elements that don't work.",
+            "screenshot": "",
+            "reference": [                
+            ]
+        },
+        {
+            "month": 9,
+            "day": 26,
+            "year": 2023,
+            "link": "/2023/0926.html",
+            "visible": true,
+            "description": "Landing Page",
+            "screenshot": "",
+            "reference": [
+                
+            ]
+        },
+        {
+            "month": 10,
+            "day": 1,
+            "year": 2023,
+            "link": "/2023/1001.html",
+            "visible": true,
+            "description": "Apple Home page landing page practice.",
+            "screenshot": "231001",
+            "reference": [
+                "apple.com/ca"             
+            ]
         }
+
     ],
     "2022": [
         {

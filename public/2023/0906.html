@@ -1,0 +1,333 @@
+<!DOCTYPE html>
+<html lang="en" data-theme="light">
+
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <link rel="preconnect" href="https://fonts.gstatic.com">
+    <!-- <link rel="icon" type="../image/png" sizes="32x32" href="../images/favicon-32x32.png"> -->
+    <title>08/12/23</title>
+
+
+    <style>
+        @import "https://unpkg.com/open-props";
+        /* @import "https://unpkg.com/open-props/easings"; */
+
+        * {
+            box-sizing: border-box;
+            font-size: 16px;
+            font-family: 'RedHat', 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
+        }
+
+        ::-webkit-scrollbar {
+            width: 0.8rem;
+            height: 0.5rem;
+        }
+
+        ::-webkit-scrollbar {
+            display: none;
+            /* Safari and Chrome */
+        }
+
+        /* Track */
+        ::-webkit-scrollbar-track {
+            background: black;
+        }
+
+        /* Handle */
+        ::-webkit-scrollbar-thumb {
+            background: var(--COL3);
+        }
+
+        /* Handle on hover */
+        ::-webkit-scrollbar-thumb:hover {
+            background: var(--COL2);
+        }
+
+
+
+
+        @font-face {
+            font-family: "Inter";
+            src: url("../fonts/Inter-VariableFont_slnt\,wght.ttf");
+        }
+
+        @font-face {
+            font-family: "RedHat";
+            src: url("../fonts/RedHatDisplay-VariableFont_wght.ttf");
+        }
+
+        @font-face {
+            font-family: "Fraunces";
+            src: url("../fonts/Fraunces-VariableFont_SOFT\,WONK\,opsz\,wght.ttf");
+        }
+
+        @font-face {
+            font-family: "Poppins";
+            src: url("../fonts/Poppins-Regular.ttf");
+        }
+
+
+
+        html,
+        body {
+            margin: 0;
+            min-block-size: 100dvh;
+            background-color: var(--color-bg);
+            background: linear-gradient(45deg, rgb(240, 222, 225) 50%, rgba(0,0,0,0.2) 50%, rgba(0,0,0,0.2) 51%, lavender 51%);
+            
+
+        }
+
+        ul {
+            margin: 0;
+            padding: 0;
+        }
+
+        li {
+            list-style-type: none;
+        }
+
+
+
+        h1,
+        h2,
+        h3,
+        h4 {
+            margin: 0;
+            padding: 0;
+
+        }
+
+        :root {
+
+            --RED: hsl(0, 78%, 62%);
+            --CYAN: hsl(180, 63%, 84%);
+            --ORANGE: hsl(53, 97%, 64%);
+            --BLUE: hsl(212, 89%, 82%);
+            --GREY: rgba(0, 0, 0, 0.3);
+
+            --COL1: #db0a5b;
+            --COL2: #fef160;
+            --COL3: #23cba7;
+            --COL4: #3e6ceb;
+            --COL5: #d9c8ec;
+
+            --BORDER-RADIUS: .5rem;
+
+            --HERO-CONTENT-WIDTH: min(80ch, 100%);
+            --CONTENT-WIDTH: min(75ch, 100%);
+            --PADDING: 1.5rem;
+
+        }
+
+        main{            
+            inline-size: 900px;
+            margin: 0 auto;
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(190px, 1fr));
+            gap: .5rem;
+            padding: .5rem;
+        }
+
+      
+
+        .content__item{
+            aspect-ratio: 1;
+            grid-column: span 1;
+            border: 2px solid black;
+            /* background-color: #3e6ceb;                     */
+        }
+
+        .gradient-1{
+            background: linear-gradient(lavender, pink);
+        }
+
+        .gradient-2-multiple-colors{
+            background: linear-gradient(red, orange, yellow, green);
+        }
+        .gradient-3{
+            background: linear-gradient(to right, #23cba7, #3e6ceb);
+        }
+        .gradient-4-percentage{
+            background: linear-gradient(to right, lavender 50%, pink 50%);
+        }
+        .gradient-5-percentage{
+            background: linear-gradient(to right bottom, lavender , pink);
+        }
+        .gradient-6{
+            background: linear-gradient(to right bottom, lavender 50%, pink 50%);
+        }
+        .gradient-7{
+            background: linear-gradient(to right bottom, lavender 70%, pink);
+        }
+        .gradient-8{
+            background: linear-gradient(to bottom right, lavender 70%, pink);
+        }
+        .gradient-9{
+            background: linear-gradient(to bottom right, lavender 20%, pink 20%, #fef160 40%);
+        }
+        .gradient-10{
+            background: linear-gradient(.25turn, lavender 20%, pink 40%, #fef160 40%);
+        }
+
+        .gradient-11-vert-bars{
+            background: linear-gradient(90deg, transparent 50%, rgba(255,255,255,.5) 50%);
+            /*you don't see anything without the background-color below*/
+            background-color:  #00ccd6;
+        }
+
+        .gradient-12-vert-bars-repeat{
+            background: linear-gradient(90deg, transparent 50%, rgba(255,255,255,.5) 50%);
+            /*you don't see anything without the background-color below*/
+            background-color:  #00ccd6;
+            background-size: 10px;
+        }
+
+        .gradient-13{
+            background: linear-gradient(180deg, red, red 20%, blue 20%, blue 80%, red 80%, red);
+            /*you don't see anything without the background-color below*/                    
+        }
+
+        .gradient-13a{
+            background: linear-gradient(to right, lavender, lavender 30%, indigo 30%, indigo 70%, lavender 70%, lavender);
+
+        }
+
+        .gradient-14{
+            background: linear-gradient(.35turn, rgba(0,0,0,0.5), rgba(255,255,255,0.5));
+            background-color: lavender;
+            background-size: 20px 20px;
+
+        }
+
+        .gradient-14a{
+            background: linear-gradient(90deg, rgba(0,0,0,0.5), rgba(255,255,255,0.5)), linear-gradient(180deg, rgba(0,0,0,0.4), rgba(255, 255,255, 0.8));
+            background-color: lavender;
+            background-size: 20px 20px;
+        }
+
+        .gradient-14b{
+            background: linear-gradient(to right, transparent 50%, rgba(255, 255, 255, 0.5) 50%), 
+                        linear-gradient(to bottom, transparent 50%, rgba(255, 255, 255, 0.5) 50%);
+            background-color: lightcoral;
+            background-size: 20px 20px;
+        }
+
+        .gradient-14c{
+            background: linear-gradient(to right, transparent 50%, rgba(255, 255, 255, 0.5) 50%), 
+                        linear-gradient(to bottom, transparent 50%, rgba(255, 255, 255, 0.5) 50%);
+            background-color: lightcoral;
+        }
+
+        .gradient-15{
+            background: linear-gradient(135deg, white 25%, transparent 25%),
+                        linear-gradient(225deg, white 25%, transparent 25%),
+                        linear-gradient(315deg, white 25%, transparent 25%),
+                        linear-gradient(45deg, white 25%, transparent 25%);
+
+            background-color: indigo;
+        }
+        .gradient-15a{
+            background: linear-gradient(135deg, white 25%, transparent 25%),
+                        linear-gradient(225deg, white 25%, transparent 25%),
+                        linear-gradient(315deg, white 25%, transparent 25%),
+                        linear-gradient(45deg, white 25%, transparent 25%);
+
+            background-color: indigo;
+            background-size: 20px;
+        }
+        .gradient-15b{
+            background: linear-gradient(135deg, white 25%, transparent 25%),
+                        linear-gradient(225deg, white 25%, transparent 25%),
+                        linear-gradient(315deg, white 25%, transparent 25%),
+                        linear-gradient(45deg, white 25%, transparent 25%);
+
+            background-color: indigo;
+            background-size: 15px 15px;
+        }
+
+        .gradient-16{
+            background: linear-gradient(135deg, white 25%, transparent 25%) 50px,
+                        linear-gradient(225deg, white 25%, transparent 25%) 50px,
+                        linear-gradient(315deg, white 25%, transparent 25%),
+                        linear-gradient(45deg, white 25%, transparent 25%);
+
+            background-color: indigo;
+            background-size: 20px 20px;
+        }
+
+        .gradient-16a{
+            background: linear-gradient(135deg, white 25%, transparent 25%) 37.5px,
+                        linear-gradient(225deg, white 25%, transparent 25%) 37.5px,
+                        linear-gradient(315deg, white 25%, transparent 25%),
+                        linear-gradient(45deg, white 25%, transparent 25%);
+
+            background-color: indigo;
+            background-size: 15px 15px;
+        }
+
+        .gradient-17{
+            background: linear-gradient(to right, lavender 30%, pink 30%, pink 60%, lavender 60%, indigo 60% , indigo 65%, lavender 65%);
+        }
+        
+
+
+    </style>
+
+<body>
+
+    <main id="mp">
+       
+    </main>
+
+    <script src="https://unpkg.com/validator@latest/validator.min.js"></script>
+    <script type="module">
+        const mountpoint = document.getElementById("mp");
+
+        const gradients = [
+            "gradient-1",
+            "gradient-2-multiple-colors",
+            "gradient-3",
+            "gradient-4-percentage",
+            "gradient-5-percentage",
+            "gradient-6",
+            "gradient-7",
+            "gradient-8",
+            "gradient-9",
+            "gradient-10",
+            "gradient-11-vert-bars",
+            "gradient-12-vert-bars-repeat",
+            "gradient-13",
+            "gradient-13a",
+            "gradient-14",
+            "gradient-14a",
+            "gradient-14b",
+            "gradient-14c",
+            "gradient-15",
+            "gradient-15a",
+            "gradient-15b",
+            "gradient-16",
+            "gradient-16a",
+            "gradient-17"
+
+        ];
+
+        function makeTile(gradient){
+            const tile = document.createElement("div");
+            tile.classList.add("content__item");
+            tile.classList.add(gradient);
+            return tile;
+
+        }
+
+        for(let i = 0; i < gradients.length; i++){
+            mp.appendChild(makeTile(gradients[i]));
+        }
+
+    </script>
+
+</body>
+
+</html>

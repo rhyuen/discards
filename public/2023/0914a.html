@@ -1,0 +1,245 @@
+<!DOCTYPE html>
+<html lang="en" data-theme="light">
+
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <link rel="preconnect" href="https://fonts.gstatic.com">
+    <!-- <link rel="icon" type="../image/png" sizes="32x32" href="../images/favicon-32x32.png"> -->
+    <title>08/12/23</title>
+
+
+    <style>
+        @import "https://unpkg.com/open-props";
+        /* @import "https://unpkg.com/open-props/easings"; */
+
+        * {
+            box-sizing: border-box;
+            font-size: 16px;
+            font-family: 'RedHat', 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
+        }
+
+        ::-webkit-scrollbar {
+            width: 0.8rem;
+            height: 0.5rem;
+        }
+
+        ::-webkit-scrollbar {
+            display: none;
+            /* Safari and Chrome */
+        }
+
+        /* Track */
+        ::-webkit-scrollbar-track {
+            background: black;
+        }
+
+        /* Handle */
+        ::-webkit-scrollbar-thumb {
+            background: var(--COL3);
+        }
+
+        /* Handle on hover */
+        ::-webkit-scrollbar-thumb:hover {
+            background: var(--COL2);
+        }
+
+
+
+
+        @font-face {
+            font-family: "Inter";
+            src: url("../fonts/Inter-VariableFont_slnt\,wght.ttf");
+        }
+
+        @font-face {
+            font-family: "RedHat";
+            src: url("../fonts/RedHatDisplay-VariableFont_wght.ttf");
+        }
+
+        @font-face {
+            font-family: "Fraunces";
+            src: url("../fonts/Fraunces-VariableFont_SOFT\,WONK\,opsz\,wght.ttf");
+        }
+
+        @font-face {
+            font-family: "Poppins";
+            src: url("../fonts/Poppins-Regular.ttf");
+        }
+
+
+
+        html,
+        body {
+            margin: 0;
+            min-block-size: 100dvh;
+            background-color: var(--color-bg);
+            background: linear-gradient(45deg, rgb(240, 222, 225) 50%, rgba(0, 0, 0, 0.2) 50%, rgba(0, 0, 0, 0.2) 51%, lavender 51%);
+
+
+        }
+
+        ul {
+            margin: 0;
+            padding: 0;
+        }
+
+        li {
+            list-style-type: none;
+        }
+
+
+
+        h1,
+        h2,
+        h3,
+        h4 {
+            margin: 0;
+            padding: 0;
+
+        }
+
+        :root {
+
+            --RED: hsl(0, 78%, 62%);
+            --CYAN: hsl(180, 63%, 84%);
+            --ORANGE: hsl(53, 97%, 64%);
+            --BLUE: hsl(212, 89%, 82%);
+            --GREY: rgba(0, 0, 0, 0.3);
+
+            --COL1: #db0a5b;
+            --COL2: #fef160;
+            --COL3: #23cba7;
+            --COL4: #3e6ceb;
+            --COL5: #d9c8ec;
+
+            --BORDER-RADIUS: .5rem;
+
+            --HERO-CONTENT-WIDTH: min(80ch, 100%);
+            --CONTENT-WIDTH: min(75ch, 100%);
+            --PADDING: 1.5rem;
+
+        }
+
+        main {
+            scroll-behavior: y mandatory;
+            overflow-x: hidden;
+            scroll-snap-type: y mandatory;
+            overflow-y: scroll;
+            height: 100vh;
+            display: flex;
+            flex-direction: column;
+
+        }
+
+
+        .main__content::before {
+            width: 100vw;
+            background-color: white;
+            content: "d";
+            display: block;
+            block-size: 5rem;
+            position: absolute;
+            top: -5rem;
+        }
+
+        .main__content::after {
+            width: 100vw;
+            background-color: white;
+            content: "";
+            /*the content: "" has to be there or it doesn't work.*/
+            display: block;
+            block-size: 5rem;
+            position: absolute;
+            bottom: -5rem;
+        }
+
+        .main__content {
+            scroll-snap-align: center;
+            width: 100vw;
+            background-color: #db0a5b;
+            height: 100vh;
+            position: relative;
+            padding-inline: 1rem;
+        }
+
+        .green {
+            background-color: #23cba7;
+        }
+
+        .blue {
+            background-color: #3e6ceb;
+        }
+
+
+        .main__content__section {
+            inline-size: var(--CONTENT-WIDTH);
+            margin: 1rem auto;            
+        }
+
+        .main__content__section h1{
+            color: white;
+            /* inline-size: clamp(40ch, 50%, 80ch); */
+            font-size: 1.75rem;
+            margin-bottom: 2rem;
+        }
+
+
+
+        .bumper {
+            width: 100vw;
+            content: "d";
+            background-color: white;
+            display: block;
+            block-size: 10rem;
+        }
+
+        .card{
+            background-color: white;
+            border-radius: .5rem;
+            padding: 1rem;
+            margin-bottom: 1rem;
+            inline-size: clamp(40ch, 50%, 80ch);
+        }
+    </style>
+
+<body>
+
+    <main id="mp">
+
+        <div class="main__content">
+            <section class="main__content__section">
+                <h1>Page Bumpers with Pseudo Elements</h1>
+                <div class="card">
+                    An attempt at bumpers with fewer elements.
+                </div>
+                <div class="card">
+                    If you scroll down and go over the limit of the page then you can see a bumper or sorts and the screen will snap back to the edge of the content.
+                </div>
+                <div class="card">
+                    This is the second of two attempts.
+                </div>
+                <div class="card">
+                    This one uses ::before and ::after elements to create the gutters/bumpers that scroll back to the content. 
+                </div>
+                <div class="card">
+                    The other uses explicit elements.  Both pseudo-elements and explicit elements have no scroll-snap-align values unlike the sibing for the explicit elements and the parent for the pseudo elements.
+                </div>
+                <div class="card">
+                    The scroll-snap-type of "center" is what is responsible for the snapping action.
+                </div>
+            </section>
+        </div>
+
+    </main>
+
+    <script src="https://unpkg.com/validator@latest/validator.min.js"></script>
+    <script type="module">
+
+
+    </script>
+
+</body>
+
+</html>

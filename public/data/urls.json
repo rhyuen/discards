@@ -475,8 +475,7 @@
             "visible": true,
             "description": "Scroll Bumpers using divs.",
             "screenshot": "",
-            "reference": [                
-            ]
+            "reference": []
         },
         {
             "month": 9,
@@ -486,8 +485,7 @@
             "visible": true,
             "description": "Scroll Bumpers but with pseudo elements that don't work.",
             "screenshot": "",
-            "reference": [                
-            ]
+            "reference": []
         },
         {
             "month": 9,
@@ -497,9 +495,7 @@
             "visible": true,
             "description": "Landing Page",
             "screenshot": "",
-            "reference": [
-                
-            ]
+            "reference": []
         },
         {
             "month": 10,
@@ -510,10 +506,22 @@
             "description": "Apple Home page landing page practice.",
             "screenshot": "231001",
             "reference": [
-                "apple.com/ca"             
+                "apple.com/ca"
+            ]
+        },
+        {
+            "month": 10,
+            "day": 6,
+            "year": 2023,
+            "link": "/2023/1005.html",
+            "visible": true,
+            "description": "Another Landing Page.",
+            "lesson": "Rename Custom CSS property from --PADDING to --SPACING.  Practice more with Custom CSS properties for faster color theming.",
+            "screenshot": "231005",
+            "reference": [
+                "https://about.joom.com/en"
             ]
         }
-
     ],
     "2022": [
         {

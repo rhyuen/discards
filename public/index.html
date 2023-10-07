@@ -248,20 +248,20 @@
                     <p>Yes, most of it is not very good. It's sorted by year and date.</p>
                 </section>
                 <section>
-                    <h2>2023</h2>
+                    <h2>2023 <span id="count2023"></span></h2>
                     <ul class="list" id="2023"></ul>
                 </section>
             </li>
             <li>
                 <section class="intro">
-                    <h2>2022</h2>
+                    <h2>2022<span id="count2022"></span></h2>
                     <p>There will be a summary at some point.</p>
                     <ul class="list" id="2022"></ul>
                 </section>
             </li>
             <li>
                 <section class="intro">
-                    <h2>2021</h2>
+                    <h2>2021 <span id="count2021"></span></h2>
                     <p>On the June until October Discards, I completely forgot that I did most of these. They weren't
                         originally
                         listed
@@ -326,6 +326,10 @@
             const root = document.getElementById("2021");
             const root22 = document.getElementById("2022");
             const root23 = document.getElementById("2023");
+            const count21 = document.getElementById("count2021");
+            const count22 = document.getElementById("count2022");
+            const count23= document.getElementById("count2023");
+
 
 
             const params = new URLSearchParams(window.location.search);
@@ -340,6 +344,7 @@
 
                 if (urls["2021"][i].visible || showAll) {
                     const currentListItem21 = makeListItem(urls["2021"][i]);
+                    count21.textContent = `${urls["2021"].length} Discards`;
                     root.appendChild(currentListItem21);
                 }
             };
@@ -350,6 +355,7 @@
 
                 if (urls["2022"][i].visible || showAll) {
                     const currentListItem22 = makeListItem(urls["2022"][i]);
+                    count22.textContent = `${urls["2022"].length} Discards`;
                     root22.appendChild(currentListItem22);
                 }
 
@@ -359,6 +365,7 @@
 
                 if (urls["2023"][i].visible || showAll) {
                     const currentListItem23 = makeListItem(urls["2023"][i]);
+                    count23.textContent = `${urls["2023"].length} Discards`;
                     root23.appendChild(currentListItem23);
                 }
 

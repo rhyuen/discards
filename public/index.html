@@ -224,6 +224,21 @@
             color: var(--FONT_COLOR);
             margin-bottom: 2rem;
         }
+
+        h2{
+            display: flex;
+            align-items: center;
+        }
+
+        .discard-count-badge{
+            font-size: .9rem;
+            font-weight: 800;
+            margin-left: 1rem;
+            border-radius: .5rem;
+            padding: .25rem .5rem;
+            background-color: var(--BACKGROUND_COLOR);
+            border: 2px solid var(--FONT_COLOR);
+        }
     </style>
 
 <body>
@@ -248,20 +263,20 @@
                     <p>Yes, most of it is not very good. It's sorted by year and date.</p>
                 </section>
                 <section>
-                    <h2>2023 <span id="count2023"></span></h2>
+                    <h2>2023 <span class="discard-count-badge" id="count2023"></span></h2>
                     <ul class="list" id="2023"></ul>
                 </section>
             </li>
             <li>
                 <section class="intro">
-                    <h2>2022<span id="count2022"></span></h2>
+                    <h2>2022<span class="discard-count-badge" id="count2022"></span></h2>
                     <p>There will be a summary at some point.</p>
                     <ul class="list" id="2022"></ul>
                 </section>
             </li>
             <li>
                 <section class="intro">
-                    <h2>2021 <span id="count2021"></span></h2>
+                    <h2>2021 <span class="discard-count-badge" id="count2021"></span></h2>
                     <p>On the June until October Discards, I completely forgot that I did most of these. They weren't
                         originally
                         listed

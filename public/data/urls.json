@@ -521,6 +521,19 @@
             "reference": [
                 "https://about.joom.com/en"
             ]
+        },
+        {
+            "month": 10,
+            "day": 7,
+            "year": 2023,
+            "link": "/2023/1007.html",
+            "visible": true,
+            "description": "Graphs using Chart.js. Using chart.js for the first time in awhile.  An attempt at making a graph dashboard.  It does not handle changing from mobile to desktop and vice-versa well.  You need to refresh the page or the graphs get all squashed, which may have been addressed by setting the height to 100% for the mobile view..  On the bright side, I got the labels for the axes to work quickly",
+            "lesson": "",
+            "screenshot": "231007",
+            "reference": [
+                
+            ]
         }
     ],
     "2022": [

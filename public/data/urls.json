@@ -534,6 +534,19 @@
             "reference": [
                 
             ]
+        },
+        {
+            "month": 10,
+            "day": 8,
+            "year": 2023,
+            "link": "/2023/1008.html",
+            "visible": true,
+            "description": "Graphs using Chart.js. Scroll Snap with Bumpers was implemented.",
+            "lesson": "This was for more practice with Chart.js as well as the scroll bumpers. The background pseudo elements (green and purple circles) wouldn't go behind existing elements until i set their z-index values to -1. It didn't work if I merely set the value to some value less than its parent z-index value.",
+            "screenshot": "231008",
+            "reference": [
+                
+            ]
         }
     ],
     "2022": [

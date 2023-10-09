@@ -90,11 +90,41 @@
             flex-direction: column-reverse;
         }
 
-        a {
+        /* a {
             font-size: 1.2rem;
             color: var(--FONT_COLOR);
             text-decoration: none;
-            font-weight: bolder;
+            font-weight: 800;
+        } */
+
+        .link{
+            color: var(--FONT_COLOR);
+            text-decoration: none;
+            font-weight: 800;
+            --SPACING: .5rem;
+            display: flex;
+        }
+
+        .link__month{
+            font-size: 1.2rem; 
+            color: var(--FONT_COLOR);
+            background-color: var(--BACKGROUND_COLOR);
+            border: .2rem solid var(--FONT_COLOR);
+            border-top-left-radius: .5rem;
+            border-bottom-left-radius: .5rem;
+            /* border-right: none; */
+            padding: calc(.5* var(--SPACING)) var(--SPACING);
+        }
+
+        .link__day{
+            padding: calc(.5* var(--SPACING)) var(--SPACING);
+            font-size: 1.2rem;
+            background-color: var(--FONT_COLOR);
+            color: var(--BACKGROUND_COLOR);
+            border: .2rem solid var(--FONT_COLOR);
+            border-top-right-radius: .5rem;
+            border-bottom-right-radius: .5rem;
+            
         }
 
         li {
@@ -395,6 +425,7 @@
             const { month, day, year, link, description } = data;
             const item = document.createElement("li");
             const anchor = document.createElement("a");
+            anchor.classList.add('link');
             const textblurb = document.createElement("p");
             textblurb.textContent = description;
             if (year !== 2021) {
@@ -413,7 +444,19 @@
                 }
             }
 
-            anchor.textContent = `${month} . ${day}`;
+            const monthContainer = document.createElement("span");
+            monthContainer.classList.add("link__month");
+            monthContainer.textContent = month;
+
+            const dayContainer = document.createElement("span");
+            dayContainer.classList.add("link__day");
+            dayContainer.textContent = day;
+
+
+            anchor.appendChild(monthContainer);
+            anchor.appendChild(dayContainer);
+
+            // anchor.textContent = `${month} . ${day}`;
 
             //console.log(anchor.href);
             item.appendChild(anchor);

@@ -1,0 +1,224 @@
+<!DOCTYPE html>
+<html lang="en" data-theme="light">
+
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <link rel="preconnect" href="https://fonts.gstatic.com">
+    <!-- <link rel="icon" type="../image/png" sizes="32x32" href="../images/favicon-32x32.png"> -->
+    <title>10/05/23</title>
+
+
+    <style>
+        @import "https://unpkg.com/open-props";
+        /* @import "https://unpkg.com/open-props/easings"; */
+
+        * {
+            box-sizing: border-box;
+            font-size: 16px;
+            font-family: 'RedHat', 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
+        }
+
+        ::-webkit-scrollbar {
+            width: 0.8rem;
+            height: 0.5rem;
+        }
+
+        ::-webkit-scrollbar {
+            display: none;
+            /* Safari and Chrome */
+        }
+
+        /* Track */
+        ::-webkit-scrollbar-track {
+            background: black;
+        }
+
+        /* Handle */
+        ::-webkit-scrollbar-thumb {
+            background: var(--COL3);
+        }
+
+        /* Handle on hover */
+        ::-webkit-scrollbar-thumb:hover {
+            background: var(--COL2);
+        }
+
+
+
+
+        @font-face {
+            font-family: "Inter";
+            src: url("../fonts/Inter-VariableFont_slnt\,wght.ttf");
+        }
+
+        @font-face {
+            font-family: "RedHat";
+            src: url("../fonts/RedHatDisplay-VariableFont_wght.ttf");
+        }
+
+        @font-face {
+            font-family: "Fraunces";
+            src: url("../fonts/Fraunces-VariableFont_SOFT\,WONK\,opsz\,wght.ttf");
+        }
+
+        @font-face {
+            font-family: "Poppins";
+            src: url("../fonts/Poppins-Regular.ttf");
+        }
+
+
+
+        html,
+        body {
+            margin: 0;
+            min-block-size: 100dvh;
+        }
+
+        ul {
+            margin: 0;
+            padding: 0;
+        }
+
+        li {
+            list-style-type: none;
+        }
+
+
+
+        h1,
+        h2,
+        h3,
+        h4 {
+            margin: 0;
+            padding: 0;
+
+        }
+
+        :root {
+
+            --RED: hsl(0, 78%, 62%);
+            --CYAN: hsl(180, 63%, 84%);
+            --ORANGE: hsl(53, 97%, 64%);
+            --BLUE: hsl(212, 89%, 82%);
+            --GREY: rgba(0, 0, 0, 0.3);
+
+            --COL1: #db0a5b;
+            --COL2: #fef160;
+            --COL3: #23cba7;
+            --COL4: #3e6ceb;
+            --COL5: #d9c8ec;
+
+            --BORDER-RADIUS: .5rem;
+
+            --HERO-CONTENT-WIDTH: min(120ch, 100%);
+            --CONTENT-WIDTH: min(75ch, 100%);
+            --SPACING: 1.5rem;
+            --PRIMARY-COLOR: black;
+            --SECONDARY-COLOR: white;
+
+        }
+
+
+        main {
+            block-size: 100dvh;
+            width: 100%;
+            display: flex;
+            background-color: #f3f3f3;
+            align-items: center;
+            overflow: scroll;
+        }
+
+
+        .list {
+            display: flex;
+            margin-inline: calc(2*var(--SPACING));
+        }
+
+        .list__item {
+            --WIDTH: 30rem;
+            flex-shrink: 0;
+            aspect-ratio: 4/3;
+            /* block-size: var(--WIDTH); */
+            inline-size: var(--WIDTH);
+            background-color: white;
+            display: flex;
+            align-items: center;
+            padding: var(--SPACING);
+            border-radius: .5rem;
+            box-shadow: 0 5px .25rem .25rem rgba(0, 0, 0, 0.1);
+            margin-right: var(--SPACING);
+        }
+
+        .list__item:last-child {
+            margin-right: 0;
+        }
+    </style>
+
+
+
+<body>
+
+    <main>
+        <ul class="list">
+            <div class="list__item">
+                <canvas id="first"></canvas>
+            </div>
+            <div class="list__item">
+                <canvas id="second"></canvas>
+            </div>
+         
+
+        </ul>
+
+
+    </main>
+
+
+    <script src="https://unpkg.com/validator@latest/validator.min.js"></script>
+    <script src="https://cdn.jsdelivr.net/npm/chart.js"></script>
+    <script type="module">
+
+        // const COUNT = 5;
+        // for (let i = 0; i < COUNT; i++) {
+
+        // }
+
+        const first = document.getElementById("first");
+        createLineChart(first, "A line chart thing", [], "ylabel", "xlabel");
+        createLineChart(second, "Chart Second", [], "Y Label", "X Label");
+
+        function createLineChart(selector, title, thisdata, ylabel, xlabel) {
+
+            const data = {
+                labels: ["January", "February", "March", "May", "April", "June", "July", "August"],
+                datasets: [{
+                    label: 'My First Dataset',
+                    data: [65, 59, 80, 81, 56, 55, 40, 0],
+                    fill: false,
+                    borderColor: 'rgb(75, 192, 192)',
+                    tension: 0.1
+                }]
+            };
+
+            const lineConfig = {
+                type: 'line',
+                data: data,
+                options: {
+                    plugins: {
+                        title: {
+                            display: true,
+                            text: title
+                        }
+                    }
+                }
+              
+            }
+            new Chart(selector, lineConfig);
+        }
+    </script>
+
+</body>
+
+</html>

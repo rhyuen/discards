@@ -547,6 +547,46 @@
             "reference": [
                 
             ]
+        },
+        {
+            "month": 10,
+            "day": 9,
+            "year": 2023,
+            "link": "/2023/1009.html",
+            "visible": false,
+            "description": "Graphs using Chart.js. Line Graphs.  Configuration of the graphs is a drag.",
+            "lesson": "",
+            "screenshot": "",
+            "reference": [
+                
+            ]
+        },
+        {
+            "month": 10,
+            "day": 10,
+            "year": 2023,
+            "link": "/2023/1010.html",
+            "visible": true,
+            "description": "A bar graph using Chart.js and local json file data.  Has Title, X-Axis, Y-Axis.",
+            "lesson": "",
+            "screenshot": "231010",
+            "reference": [
+                "https://www.chartjs.org/docs/latest/charts/bar.html"
+            ]
+        },
+        {
+            "month": 10,
+            "day": 12,
+            "year": 2023,
+            "link": "/2023/1012.html",
+            "visible": true,
+            "description": "Scroll Snap list with addition of an element on scroll end.  However, the appended elements are all the same.  Scroll bumper at the beginning of the list.  No bumper at the end because each scroll event to the right adds a new element. Used picsum.photos for the randomly generated images.",
+            "lesson": "Add a tabindex=-1 value to be able to focus a non-input element on load.  document.activeElement to find what element has the current focus.",
+            "screenshot": "231012",
+            "reference": [
+                "https://developer.mozilla.org/en-US/docs/Web/API/Document/activeElement",
+                "https://stackoverflow.com/a/27342994"
+            ]
         }
     ],
     "2022": [

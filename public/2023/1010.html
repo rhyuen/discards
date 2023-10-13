@@ -1,0 +1,272 @@
+<!DOCTYPE html>
+<html lang="en" data-theme="light">
+
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <link rel="preconnect" href="https://fonts.gstatic.com">
+    <!-- <link rel="icon" type="../image/png" sizes="32x32" href="../images/favicon-32x32.png"> -->
+    <title>10/05/23</title>
+
+
+    <style>
+        @import "https://unpkg.com/open-props";
+        /* @import "https://unpkg.com/open-props/easings"; */
+
+        * {
+            box-sizing: border-box;
+            font-size: 16px;
+            font-family: 'RedHat', 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
+        }
+
+        ::-webkit-scrollbar {
+            width: 0.8rem;
+            height: 0.5rem;
+        }
+
+        ::-webkit-scrollbar {
+            display: none;
+            /* Safari and Chrome */
+        }
+
+        /* Track */
+        ::-webkit-scrollbar-track {
+            background: black;
+        }
+
+        /* Handle */
+        ::-webkit-scrollbar-thumb {
+            background: var(--COL3);
+        }
+
+        /* Handle on hover */
+        ::-webkit-scrollbar-thumb:hover {
+            background: var(--COL2);
+        }
+
+
+
+
+        @font-face {
+            font-family: "Inter";
+            src: url("../fonts/Inter-VariableFont_slnt\,wght.ttf");
+        }
+
+        @font-face {
+            font-family: "RedHat";
+            src: url("../fonts/RedHatDisplay-VariableFont_wght.ttf");
+        }
+
+        @font-face {
+            font-family: "Fraunces";
+            src: url("../fonts/Fraunces-VariableFont_SOFT\,WONK\,opsz\,wght.ttf");
+        }
+
+        @font-face {
+            font-family: "Poppins";
+            src: url("../fonts/Poppins-Regular.ttf");
+        }
+
+
+
+        html,
+        body {
+            margin: 0;
+            min-block-size: 100dvh;
+        }
+
+        ul {
+            margin: 0;
+            padding: 0;
+        }
+
+        li {
+            list-style-type: none;
+        }
+
+
+
+        h1,
+        h2,
+        h3,
+        h4 {
+            margin: 0;
+            padding: 0;
+
+        }
+
+        :root {
+
+            --RED: hsl(0, 78%, 62%);
+            --CYAN: hsl(180, 63%, 84%);
+            --ORANGE: hsl(53, 97%, 64%);
+            --BLUE: hsl(212, 89%, 82%);
+            --GREY: rgba(0, 0, 0, 0.3);
+
+            --COL1: #db0a5b;
+            --COL2: #fef160;
+            --COL3: #23cba7;
+            --COL4: #3e6ceb;
+            --COL5: #d9c8ec;
+
+            --BORDER-RADIUS: .5rem;
+
+            --HERO-CONTENT-WIDTH: min(120ch, 100%);
+            --CONTENT-WIDTH: min(75ch, 100%);
+            --SPACING: 1.5rem;
+            --PRIMARY-COLOR: black;
+            --SECONDARY-COLOR: white;
+
+        }
+
+        main {
+            inline-size: var(--CONTENT-WIDTH);
+            display: grid;
+            place-items: center;
+            min-height: 100vh;
+            margin: 0 auto;
+        }
+
+        main section {}
+
+        .card {
+            padding: calc(2*var(--SPACING));
+            border-radius: 0.5rem;
+            background-color: white;
+            filter: drop-shadow(0 .5rem 12px  rgba(0,0,0,0.1));
+            inline-size: var(--CONTENT-WIDTH);
+        }
+
+        .graph-container {
+
+        }
+    </style>
+
+
+
+
+<body>
+    <main>
+
+        <div class="card">
+            <div class="graph-container">
+                <canvas id="barchart"></canvas>
+            </div>
+        </div>
+
+    </main>
+
+
+
+    <script src="https://unpkg.com/validator@latest/validator.min.js"></script>
+    <script src="https://cdn.jsdelivr.net/npm/chart.js"></script>
+    <script type="module">
+
+        const barChart = document.getElementById("barchart");
+        const barTitle = "2023 Stats for Outdoorsy-ness";
+        const barXLabel = "2023 Months";
+        const barYLabel = "Number of Instances";
+
+
+        const dataLabels = [
+            "January",
+            "February",
+            "March",
+            "April",
+            "May",
+            "June",
+            "July",
+            "August",
+            "September",
+            "October"
+        ];
+
+
+        fetch("../data/personal.json")
+            .then(res => res.json())
+            .then(res => {
+                
+                const currentYearData = res.outsiders['2023'];
+                
+
+                const listOfKeys = Object.keys(currentYearData);
+                const countsPerMonth = []
+                for (let i = 0; i < listOfKeys.length; i++) {
+                    const currentMonthCount = currentYearData[listOfKeys[i]].length;
+                    countsPerMonth.push(currentMonthCount);
+                }
+
+                const dataConfig = {
+                    labels: dataLabels,
+                    datasets: [{
+                        label: "Counts for Outdoorsy-ness",
+                        borderColor: [
+                            'rgb(255, 99, 132)'
+                        ],
+                        backgroundColor: [
+                            'rgba(255, 99, 132, 0.2)'
+                        ],
+                        data: countsPerMonth,
+                        borderWidth: 1
+
+
+                    }]
+                }
+
+                makeChart(barChart, barTitle, dataConfig, barXLabel, barYLabel);
+
+
+            }).catch(e => {
+                console.log(e);
+            });
+
+        function makeChart(selector, title, data, xlabel, ylabel) {
+           
+            const config = {
+                type: 'bar',
+                data: data,
+                options: {
+                    
+                    scales: {
+                        y: {
+                            beginAtZero: true,
+                            title: {
+                                display: true,
+                                text: barYLabel,
+                                font: {
+                                    weight: 600,
+                                    size: "16px"
+                                },
+                            }
+                        },
+                        x: {
+                            title: {
+                                display: true,
+                                text: barXLabel,
+                                font: {
+                                    weight: 600,
+                                    size: "16px"
+                                },
+                            }
+                        }
+                    },
+                    plugins: {
+                        title: {
+                            display: true,
+                            text: title,
+                            font: {
+                                weight: 600,
+                                size: "20px"
+                            }
+                        }
+                    }
+                }
+            };
+            new Chart(selector, config);
+        }
+    </script>
+
+</body>
+
+</html>

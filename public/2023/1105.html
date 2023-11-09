@@ -1,0 +1,221 @@
+<!DOCTYPE html>
+<html lang="en" data-theme="light">
+
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <link rel="preconnect" href="https://fonts.gstatic.com">
+    <!-- <link rel="icon" type="../image/png" sizes="32x32" href="../images/favicon-32x32.png"> -->
+    <title>10/05/23</title>
+
+
+    <style>
+        @import "https://unpkg.com/open-props";
+        /* @import "https://unpkg.com/open-props/easings"; */
+
+        * {
+            box-sizing: border-box;
+            /* font-size: 16px; */
+            font-family: 'RedHat', 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
+        }
+
+        ::-webkit-scrollbar {
+            width: 0.8rem;
+            height: 0.5rem;
+        }
+
+        ::-webkit-scrollbar {
+            display: none;
+            /* Safari and Chrome */
+        }
+
+        /* Track */
+        ::-webkit-scrollbar-track {
+            background: black;
+        }
+
+        /* Handle */
+        ::-webkit-scrollbar-thumb {
+            background: var(--COL3);
+        }
+
+        /* Handle on hover */
+        ::-webkit-scrollbar-thumb:hover {
+            background: var(--COL2);
+        }
+
+
+
+
+        @font-face {
+            font-family: "Inter";
+            src: url("../fonts/Inter-VariableFont_slnt\,wght.ttf");
+        }
+
+        @font-face {
+            font-family: "RedHat";
+            src: url("../fonts/RedHatDisplay-VariableFont_wght.ttf");
+        }
+
+        @font-face {
+            font-family: "Fraunces";
+            src: url("../fonts/Fraunces-VariableFont_SOFT\,WONK\,opsz\,wght.ttf");
+        }
+
+        @font-face {
+            font-family: "Poppins";
+            src: url("../fonts/Poppins-Regular.ttf");
+        }
+
+
+
+        html,
+        body {
+            margin: 0;
+            min-block-size: 100dvh;
+            
+            /* background-color: #f3f3f3; */
+        }
+
+        ul {
+            margin: 0;
+            padding: 0;
+        }
+
+        li {
+            list-style-type: none;
+            margin: 0;
+        }
+
+
+
+        h1,
+        h2,
+        h3,
+        h4 {
+            margin: 0;
+            padding: 0;
+
+        }
+
+        :root {
+            font-size: 20px;
+            --RED: hsl(0, 78%, 62%);
+            --CYAN: hsl(180, 63%, 84%);
+            --ORANGE: hsl(53, 97%, 64%);
+            --BLUE: hsl(212, 89%, 82%);
+            --GREY: rgba(0, 0, 0, 0.3);
+
+            --COL1: #db0a5b;
+            --COL2: #fef160;
+            --COL3: #23cba7;
+            --COL4: #3e6ceb;
+            --COL5: #d9c8ec;
+
+            --BORDER-RADIUS: .5rem;
+
+            --HERO-CONTENT-WIDTH: min(120ch, 100%);
+            --CONTENT-WIDTH: min(75ch, 100%);
+            --SPACING: 1.5rem;
+            --PRIMARY-COLOR: black;
+            --SECONDARY-COLOR: white;
+
+        }
+
+        main{
+            inline-size: 100vw;
+            display: grid;
+            place-items: center;
+            block-size:80dvh;
+        }
+
+
+        .pulse{
+            background: radial-gradient(white 25%, var(--GREY));
+            opacity: .2;
+            --WIDTH: 0rem;
+            block-size: var(--WIDTH);
+            inline-size: var(--WIDTH);
+            border-radius: 50%;
+            position: relative;
+            border: 2px solid var(--GREY);
+            transition: all .2s ease-in-out;
+        }
+
+        .center{
+            background: white;
+            position: absolute;
+            left: 50%;
+            top: 50%;
+            --WIDTH: 10rem;
+            block-size: calc(.5*var(--WIDTH));
+            inline-size: calc(.5*var(--WIDTH));
+            transform: translate(-50%,-50%);
+            transition: all .2s ease-in-out;
+            border: 2px solid var(--GREY);
+
+            border-radius: 50%;
+        }
+
+        footer{
+            margin: 0 auto;
+            padding: var(--SPACING);
+            inline-size: var(--CONTENT-WIDTH);
+            block-size: 20dvh;
+        }
+
+        footer * {
+            font-size: .9rem;
+        }
+
+        footer a{
+            color: black;
+            font-weight: 800;
+        }
+
+    </style>
+
+
+
+
+<body>
+    <main>
+        <div class="pulse" id="pulse">
+            <div class="center"></div>
+        </div>
+    </main>
+    <footer>
+        <h1>Notes and References</h1>
+        <p>I used this CodePen as a <a href="https://codepen.io/pthm/pen/jEPXaN">reference</a>.</p>
+        <p><a href="https://www.geeksforgeeks.org/how-to-get-current-value-of-a-css-property-in-javascript/">This</a> was also useful in getting the opacity value</p>
+    </footer>
+
+
+
+    <script src="https://unpkg.com/validator@latest/validator.min.js"></script>
+    <script src="https://cdn.jsdelivr.net/npm/chart.js"></script>
+    <script type="module">
+        const pulse = document.getElementById("pulse");
+
+        let NUM = 0;
+        setInterval(function(){
+            NUM++;
+            // console.log(NUM);
+            pulse.style.setProperty("--WIDTH", `${NUM}rem`);
+            let transparency = window
+                .getComputedStyle(pulse)
+                .getPropertyValue('opacity');
+            // console.log(transparency);
+            pulse.style.opacity = transparency * (20  - NUM) / 20;
+
+            if(NUM >= 20){
+                NUM=0;
+                pulse.style.opacity = .75;
+            }
+        }, 50);
+    </script>
+
+</body>
+
+</html>

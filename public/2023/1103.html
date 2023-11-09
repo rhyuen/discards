@@ -1,0 +1,264 @@
+<!DOCTYPE html>
+<html lang="en" data-theme="light">
+
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <link rel="preconnect" href="https://fonts.gstatic.com">
+    <!-- <link rel="icon" type="../image/png" sizes="32x32" href="../images/favicon-32x32.png"> -->
+    <title>10/05/23</title>
+
+
+    <style>
+        @import "https://unpkg.com/open-props";
+        /* @import "https://unpkg.com/open-props/easings"; */
+
+        * {
+            box-sizing: border-box;
+            /* font-size: 16px; */
+            font-family: 'RedHat', 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
+        }
+
+        ::-webkit-scrollbar {
+            width: 0.8rem;
+            height: 0.5rem;
+        }
+
+        ::-webkit-scrollbar {
+            display: none;
+            /* Safari and Chrome */
+        }
+
+        /* Track */
+        ::-webkit-scrollbar-track {
+            background: black;
+        }
+
+        /* Handle */
+        ::-webkit-scrollbar-thumb {
+            background: var(--COL3);
+        }
+
+        /* Handle on hover */
+        ::-webkit-scrollbar-thumb:hover {
+            background: var(--COL2);
+        }
+
+
+
+
+        @font-face {
+            font-family: "Inter";
+            src: url("../fonts/Inter-VariableFont_slnt\,wght.ttf");
+        }
+
+        @font-face {
+            font-family: "RedHat";
+            src: url("../fonts/RedHatDisplay-VariableFont_wght.ttf");
+        }
+
+        @font-face {
+            font-family: "Fraunces";
+            src: url("../fonts/Fraunces-VariableFont_SOFT\,WONK\,opsz\,wght.ttf");
+        }
+
+        @font-face {
+            font-family: "Poppins";
+            src: url("../fonts/Poppins-Regular.ttf");
+        }
+
+
+
+        html,
+        body {
+            margin: 0;
+            min-block-size: 100dvh;
+            
+            /* background-color: #f3f3f3; */
+        }
+
+        ul {
+            margin: 0;
+            padding: 0;
+        }
+
+        li {
+            list-style-type: none;
+            margin: 0;
+        }
+
+
+
+        h1,
+        h2,
+        h3,
+        h4 {
+            margin: 0;
+            padding: 0;
+
+        }
+
+        :root {
+            font-size: 20px;
+            --RED: hsl(0, 78%, 62%);
+            --CYAN: hsl(180, 63%, 84%);
+            --ORANGE: hsl(53, 97%, 64%);
+            --BLUE: hsl(212, 89%, 82%);
+            --GREY: rgba(0, 0, 0, 0.3);
+
+            --COL1: #db0a5b;
+            --COL2: #fef160;
+            --COL3: #23cba7;
+            --COL4: #3e6ceb;
+            --COL5: #d9c8ec;
+
+            --BORDER-RADIUS: .5rem;
+
+            --HERO-CONTENT-WIDTH: min(120ch, 100%);
+            --CONTENT-WIDTH: min(75ch, 100%);
+            --SPACING: 1.5rem;
+            --PRIMARY-COLOR: black;
+            --SECONDARY-COLOR: white;
+
+        }
+
+
+        main {
+            padding: calc(2*var(--SPACING));
+        }
+
+        .row {
+            display: flex;
+            overflow-x: scroll;
+            gap: calc(4*var(--SPACING));
+            margin-block: calc(4*var(--SPACING));
+        }
+
+        .card {
+            border: 1px solid rgba(0, 0, 0, 0.3);
+            flex-shrink: 0;
+            border-radius: 1rem;
+            padding: calc(2*var(--SPACING)) var(--SPACING);
+            inline-size: max(40ch);
+            background-color: white;
+            position: relative;
+            /* z-index: 2; */
+        }
+
+        .card h2{
+            font-size: 1.1rem;
+        }
+
+        .card p {
+            font-size: .8rem;
+            color: rgba(0, 0, 0, 0.5);
+        }
+
+        .card::after {
+            position: absolute;
+            display: block;
+            content: "";
+            top: 50%;
+            width: 200%;
+            height: 2px;
+            z-index:-1;
+            background-color: rgba(0, 0, 0, 0.2);
+        }
+
+        /*
+            11/03/23
+            To target the last child PSEUDO ELEMENT
+            .card:last-child::after{
+
+            }
+        */
+
+        .card:last-child::after {
+            display: none;
+        }
+    </style>
+
+
+
+
+<body>
+    <main>
+        <ul class="row">
+
+            <li class="card">
+                <h2>Feudalism</h2>
+            </li>
+            <li class="card">
+                <h2>Authoritarianism</h2>
+            </li>
+            <li class="card">
+                <h2>Yoloism</h2>
+            </li>
+        </ul>
+        <ul class="row">
+            <li class="card">
+                <h2>Capitalism</h2>
+                <p>Words about an intangible thing that people are overly wrapped up in.</p>
+            </li>
+
+            <li class="card">
+                <h2>Authoritarianism</h2>
+            </li>
+            <li class="card">
+                <h2>Yoloism</h2>
+            </li>
+        </ul>
+        <ul class="row">
+            <li class="card">
+                <h2>Capitalism</h2>
+                <p>Lorem, ipsum dolor sit amet consectetur adipisicing elit. Culpa delectus labore mollitia nulla esse enim quia odio accusantium itaque voluptatem magni aliquam rerum est, quas eveniet et, facere provident corporis!</p>
+                <p>Lorem ipsum, dolor sit amet consectetur adipisicing elit. Ab maxime accusamus nam voluptatem qui unde fuga cum debitis, eligendi harum recusandae animi sunt? Eius atque ea esse est ut qui.</p>
+            </li>
+        
+        </ul>
+        <ul class="row">
+            <li class="card">
+                <h2>Capitalism</h2>
+                <p>Words about an intangible thing that people are overly wrapped up in.</p>
+            </li>
+            <li class="card">
+                <h2>Socialism</h2>
+                <p>Lorem ipsum dolor sit amet consectetur adipisicing elit. Reiciendis, quibusdam aperiam dolores
+                    officiis modi, illum voluptatum delectus nam deserunt distinctio inventore maxime dolorum eius
+                    tempora voluptatem repellendus laborum doloremque provident!</p>
+            </li>
+            <li class="card">
+                <h2>Feudalism</h2>
+                <P>Lorem, ipsum dolor sit amet consectetur adipisicing elit. Fugiat, voluptate ab! Velit quae suscipit
+                    qui ea tempore quos placeat quia temporibus enim fugiat reprehenderit sed aut, id quod delectus
+                    fugit.</P>
+            </li>
+            <li class="card">
+                <h2>Authoritarianism</h2>
+            </li>
+            <li class="card">
+                <h2>Yoloism</h2>
+            </li>
+        </ul>
+        <ul class="row">
+            <li class="card">
+                <h2>Capitalism</h2>
+                <p>Words about an intangible thing that people are overly wrapped up in.</p>
+            </li>
+
+        </ul>
+    </main>
+
+
+
+
+    <script src="https://unpkg.com/validator@latest/validator.min.js"></script>
+    <script src="https://cdn.jsdelivr.net/npm/chart.js"></script>
+    <script type="module">
+
+    </script>
+
+</body>
+
+</html>

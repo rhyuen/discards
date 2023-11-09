@@ -1,0 +1,183 @@
+<!DOCTYPE html>
+<html lang="en" data-theme="light">
+
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <link rel="preconnect" href="https://fonts.gstatic.com">
+    <!-- <link rel="icon" type="../image/png" sizes="32x32" href="../images/favicon-32x32.png"> -->
+    <title>10/05/23</title>
+
+
+    <style>
+        @import "https://unpkg.com/open-props";
+        /* @import "https://unpkg.com/open-props/easings"; */
+
+        * {
+            box-sizing: border-box;
+            font-size: 16px;
+            font-family: 'RedHat', 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
+        }
+
+        ::-webkit-scrollbar {
+            width: 0.8rem;
+            height: 0.5rem;
+        }
+
+        ::-webkit-scrollbar {
+            display: none;
+            /* Safari and Chrome */
+        }
+
+        /* Track */
+        ::-webkit-scrollbar-track {
+            background: black;
+        }
+
+        /* Handle */
+        ::-webkit-scrollbar-thumb {
+            background: var(--COL3);
+        }
+
+        /* Handle on hover */
+        ::-webkit-scrollbar-thumb:hover {
+            background: var(--COL2);
+        }
+
+
+
+
+        @font-face {
+            font-family: "Inter";
+            src: url("../fonts/Inter-VariableFont_slnt\,wght.ttf");
+        }
+
+        @font-face {
+            font-family: "RedHat";
+            src: url("../fonts/RedHatDisplay-VariableFont_wght.ttf");
+        }
+
+        @font-face {
+            font-family: "Fraunces";
+            src: url("../fonts/Fraunces-VariableFont_SOFT\,WONK\,opsz\,wght.ttf");
+        }
+
+        @font-face {
+            font-family: "Poppins";
+            src: url("../fonts/Poppins-Regular.ttf");
+        }
+
+
+
+        html,
+        body {
+            margin: 0;
+            min-block-size: 100dvh;
+        }
+
+        ul {
+            margin: 0;
+            padding: 0;
+        }
+
+        li {
+            list-style-type: none;
+            margin: 0;
+        }
+
+
+
+        h1,
+        h2,
+        h3,
+        h4 {
+            margin: 0;
+            padding: 0;
+
+        }
+
+        :root {
+
+            --RED: hsl(0, 78%, 62%);
+            --CYAN: hsl(180, 63%, 84%);
+            --ORANGE: hsl(53, 97%, 64%);
+            --BLUE: hsl(212, 89%, 82%);
+            --GREY: rgba(0, 0, 0, 0.3);
+
+            --COL1: #db0a5b;
+            --COL2: #fef160;
+            --COL3: #23cba7;
+            --COL4: #3e6ceb;
+            --COL5: #d9c8ec;
+
+            --BORDER-RADIUS: .5rem;
+
+            --HERO-CONTENT-WIDTH: min(120ch, 100%);
+            --CONTENT-WIDTH: min(75ch, 100%);
+            --SPACING: 1.5rem;
+            --PRIMARY-COLOR: black;
+            --SECONDARY-COLOR: white;
+
+        }
+
+
+        main{
+            display: grid;
+            place-items: center;
+            block-size: 100dvh;
+            background-color: lightblue;
+        }
+
+        .card{
+            padding: var(--SPACING);
+            border-radius: .5rem;
+            aspect-ratio: 3/4;
+            background-color: white;
+            inline-size: 25rem;
+            transition: all .5s ease-in-out;
+        }
+
+        .card--tilt-left{
+            transform: rotate(-90deg);
+        }
+
+        .card--tilt-right{
+            transform: rotate(90deg);
+        }
+    </style>
+
+
+
+
+<body>
+    <main>
+        <div class="card" id="mp">
+            
+        </div>
+
+    </main>
+
+
+
+    <script src="https://unpkg.com/validator@latest/validator.min.js"></script>
+    <script src="https://cdn.jsdelivr.net/npm/chart.js"></script>
+    <script type="module">
+        const mp = document.getElementById('mp');
+
+        window.addEventListener('keydown', e=> {
+            if(e.keyCode === 37){
+                console.log('left');
+                mp.classList.add('card--tilt-left');
+            }
+
+            if(e.keyCode === 39){
+                console.log('right')
+                mp.classList.add('card--tilt-right');
+            }
+        });
+    </script>
+
+</body>
+
+</html>

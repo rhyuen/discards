@@ -531,9 +531,7 @@
             "description": "Graphs using Chart.js. Using chart.js for the first time in awhile.  An attempt at making a graph dashboard.  It does not handle changing from mobile to desktop and vice-versa well.  You need to refresh the page or the graphs get all squashed, which may have been addressed by setting the height to 100% for the mobile view..  On the bright side, I got the labels for the axes to work quickly",
             "lesson": "",
             "screenshot": "231007",
-            "reference": [
-                
-            ]
+            "reference": []
         },
         {
             "month": 10,
@@ -544,9 +542,7 @@
             "description": "Graphs using Chart.js. Scroll Snap with Bumpers was implemented.",
             "lesson": "This was for more practice with Chart.js as well as the scroll bumpers. The background pseudo elements (green and purple circles) wouldn't go behind existing elements until i set their z-index values to -1. It didn't work if I merely set the value to some value less than its parent z-index value.",
             "screenshot": "231008",
-            "reference": [
-                
-            ]
+            "reference": []
         },
         {
             "month": 10,
@@ -557,9 +553,7 @@
             "description": "Graphs using Chart.js. Line Graphs.  Configuration of the graphs is a drag.",
             "lesson": "",
             "screenshot": "",
-            "reference": [
-                
-            ]
+            "reference": []
         },
         {
             "month": 10,
@@ -586,6 +580,94 @@
             "reference": [
                 "https://developer.mozilla.org/en-US/docs/Web/API/Document/activeElement",
                 "https://stackoverflow.com/a/27342994"
+            ]
+        },
+        {
+            "month": 10,
+            "day": 15,
+            "year": 2023,
+            "link": "/2023/1015.html",
+            "visible": true,
+            "description": "Scroll Snap landing page with Scroll Bumpers.",
+            "lesson": "",
+            "screenshot": "",
+            "reference": []
+        },
+        {
+            "month": 10,
+            "day": 17,
+            "year": 2023,
+            "link": "/2023/1017.html",
+            "visible": true,
+            "description": "Transitions and Animations",
+            "lesson": "",
+            "screenshot": "",
+            "reference": []
+        },
+        {
+            "month": 11,
+            "day": 3,
+            "year": 2023,
+            "link": "/2023/1103.html",
+            "visible": true,
+            "description": "Scrolling Timeilne with Lines between elements.",
+            "lesson": "",
+            "screenshot": "",
+            "reference": []
+        },
+        {
+            "month": 11,
+            "day": 5,
+            "year": 2023,
+            "link": "/2023/1105.html",
+            "visible": true,
+            "description": "Transparent Interval Loading indicator.",
+            "lesson": "",
+            "screenshot": "",
+            "reference": [
+                "https://www.geeksforgeeks.org/how-to-get-current-value-of-a-css-property-in-javascript/",
+                "https://codepen.io/pthm/pen/jEPXaN"
+            ]
+        },
+        {
+            "month": 11,
+            "day": 5,
+            "year": 2023,
+            "link": "/2023/1106.html",
+            "visible": true,
+            "description": "Another Loading indicator.",
+            "lesson": "",
+            "screenshot": "",
+            "reference": []
+        },
+        {
+            "month": 11,
+            "day": 7,
+            "year": 2023,
+            "link": "/2023/1107.html",
+            "visible": true,
+            "description": "Gradient borders with border-box and padding-box and transparent borders.",
+            "lesson": "",
+            "screenshot": "",
+            "reference": [
+                "https://codepen.io/jlengstorf/pen/WNPGMJo",
+                "https://stackoverflow.com/a/26973672",
+                "https://www.w3schools.com/jsref/met_his_back.asp"
+            ]
+        },
+        {
+            "month": 11,
+            "day": 9,
+            "year": 2023,
+            "link": "/2023/1109.html",
+            "visible": true,
+            "description": "Gradient text and Gradient Drop Shadow.",
+            "lesson": "",
+            "screenshot": "",
+            "reference": [
+                "https://codepen.io/jh3y/pen/ExrWOJe",
+                "https://www.geeksforgeeks.org/how-to-add-image-in-text-background-using-html-and-css/",
+                "https://www.geeksforgeeks.org/how-to-create-a-gradient-shadow-using-css/"
             ]
         }
     ],

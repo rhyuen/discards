@@ -1,0 +1,344 @@
+<!DOCTYPE html>
+<html lang="en" data-theme="light">
+
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <link rel="preconnect" href="https://fonts.gstatic.com">
+    <!-- <link rel="icon" type="../image/png" sizes="32x32" href="../images/favicon-32x32.png"> -->
+    <title>10/05/23</title>
+
+
+    <style>
+        @import "https://unpkg.com/open-props";
+        /* @import "https://unpkg.com/open-props/easings"; */
+
+        * {
+            box-sizing: border-box;
+            /* font-size: 16px; */
+            font-family: 'RedHat', 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
+        }
+
+        ::-webkit-scrollbar {
+            width: 0.8rem;
+            height: 0.5rem;
+        }
+
+        ::-webkit-scrollbar {
+            display: none;
+            /* Safari and Chrome */
+        }
+
+        /* Track */
+        ::-webkit-scrollbar-track {
+            background: black;
+        }
+
+        /* Handle */
+        ::-webkit-scrollbar-thumb {
+            background: var(--COL3);
+        }
+
+        /* Handle on hover */
+        ::-webkit-scrollbar-thumb:hover {
+            background: var(--COL2);
+        }
+
+
+
+
+        @font-face {
+            font-family: "Inter";
+            src: url("../fonts/Inter-VariableFont_slnt\,wght.ttf");
+        }
+
+        @font-face {
+            font-family: "RedHat";
+            src: url("../fonts/RedHatDisplay-VariableFont_wght.ttf");
+        }
+
+        @font-face {
+            font-family: "Fraunces";
+            src: url("../fonts/Fraunces-VariableFont_SOFT\,WONK\,opsz\,wght.ttf");
+        }
+
+        @font-face {
+            font-family: "Poppins";
+            src: url("../fonts/Poppins-Regular.ttf");
+        }
+
+
+
+        html,
+        body {
+            margin: 0;
+            block-size: 100dvh;
+            display: flex;
+            flex-direction: column;
+            scroll-snap-type: y mandatory;
+            overflow: scroll;
+            /* background-color: #f3f3f3; */
+        }
+
+        .bumper{
+            background-color: var(--GREY);
+            inline-size: 100vw;
+            block-size: 10rem;
+            display: flex;
+        }
+
+        ul {
+            margin: 0;
+            padding: 0;
+        }
+
+        li {
+            list-style-type: none;
+            margin: 0;
+        }
+
+
+
+        h1,
+        h2,
+        h3,
+        h4 {
+            margin: 0;
+            padding: 0;
+
+        }
+
+        :root {
+            font-size: 20px;
+            --RED: hsl(0, 78%, 62%);
+            --CYAN: hsl(180, 63%, 84%);
+            --ORANGE: hsl(53, 97%, 64%);
+            --BLUE: hsl(212, 89%, 82%);
+            --GREY: rgba(0, 0, 0, 0.3);
+
+            --COL1: #db0a5b;
+            --COL2: #fef160;
+            --COL3: #23cba7;
+            --COL4: #3e6ceb;
+            --COL5: #d9c8ec;
+
+            --BORDER-RADIUS: .5rem;
+
+            --HERO-CONTENT-WIDTH: min(120ch, 100%);
+            --CONTENT-WIDTH: min(75ch, 100%);
+            --SPACING: 1.5rem;
+            --PRIMARY-COLOR: black;
+            --SECONDARY-COLOR: white;
+
+        }
+
+
+        main {
+            padding: var(--SPACING);
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(450px, 1fr));
+            gap: var(--SPACING);
+            inline-size: min(1200px, 100%);
+
+
+        }
+
+        article {
+            grid-column: span 1;
+            border-radius: .5rem;
+            color: white;
+            padding: var(--SPACING);
+            background:
+                linear-gradient(to bottom,
+                    oklch(0.1 0.2 240 / 0.95),
+                    oklch(0.1 0.2 240 / 0.95)) padding-box,
+
+                conic-gradient(from 360deg in oklch longer hue,
+                    oklch(1 0.37 0) 0 0) border-box;
+            border: 5px solid transparent;
+            filter: drop-shadow(0 2px .5rem rgba(0, 0, 0, 0.4));
+        }
+
+        article h2 {
+            font-size: 1rem;
+            max-width: 450px;
+            text-overflow: ellipsis;
+            overflow: hidden;
+            white-space: nowrap;
+        }
+
+        article p {
+            font-size: .85rem;
+        }
+
+        footer {
+            padding: var(--SPACING);
+            inline-size: min(1200px, 100%);
+        }
+
+        footer h2 {
+            font-size: 1rem;
+            padding-top: var(--SPACING);
+            border-top: 2px solid var(--GREY);
+        }
+
+        footer p {
+            font-size: .8rem;
+        }
+
+        footer a {
+            font-weight: 800;
+            color: black;
+        }
+
+        code h3 {
+            margin-top: var(--SPACING);
+            font-size: .9rem;
+        }
+
+        pre {
+            background-color: #f3f3f3;
+            padding: var(--SPACING);
+            border-radius: .5rem;
+            font-size: .8rem;
+            transition: background-color .3s ease-in-out;
+            font-weight: 600;
+
+        }
+
+        pre:hover {
+            background-color: rgba(0, 0, 0, 0.1);
+        }
+
+        .header{
+            background-color: aliceblue;
+            height: 20rem;
+            inline-size: min(1200px, 100%);
+
+            padding: var(--SPACING);
+            border-radius: 1rem;
+            margin: var(--SPACING);
+        }
+
+        nav{
+            block-size: 5rem;
+            padding: var(--SPACING);
+        }
+
+        nav button{
+            border: 2px solid rgba(0, 0, 0, 0.1);
+            border-radius: 50%;
+            aspect-ratio: 1;
+            inline-size: 2rem;
+            background-color: white;
+            cursor: pointer;
+            transition: filter .4s ease-in-out;
+            filter: drop-shadow(0 0 1rem transparent);
+            
+        }
+
+        nav button:hover{
+            filter: drop-shadow(0 0 1rem var(--GREY));
+        }
+    </style>
+
+
+
+
+<body>
+    <div class="bumper">
+
+    </div>
+    <nav>
+        <button onclick="history.back()" role="go back to the previous page."></button>
+    </nav>
+    <div class="header">
+        <h1>Word</h1>
+        <p>More words</p>
+    </div>
+    <main>
+        <article>
+            <h2>Lorem ipsum, dolor sit amet consectetur adipisicing elit. Culpa excepturi ea praesentium aspernatur
+                repellendus alias. Nihil earum, enim mollitia repudiandae ratione, deserunt corrupti laborum, excepturi
+                similique molestias aliquid quas aspernatur!</h2>
+            <p>Lorem ipsum dolor, sit amet consectetur adipisicing elit. Culpa, soluta expedita. Dolores quidem quas
+                tempore quisquam obcaecati, iusto distinctio magnam molestiae rerum aspernatur nam atque eveniet quo ad
+                quia a.</p>
+        </article>
+        <article>
+            <h2>Lorem ipsum, dolor sit amet consectetur adipisicing elit. Culpa excepturi ea praesentium aspernatur
+                repellendus alias. Nihil earum, enim mollitia repudiandae ratione, deserunt corrupti laborum, excepturi
+                similique molestias aliquid quas aspernatur!</h2>
+            <p>Lorem ipsum dolor, sit amet consectetur adipisicing elit. Culpa, soluta expedita. Dolores quidem quas
+                tempore quisquam obcaecati, iusto distinctio magnam molestiae rerum aspernatur nam atque eveniet quo ad
+                quia a.</p>
+        </article>
+        <article>
+            <h2>Lorem ipsum, dolor sit amet consectetur adipisicing elit. Culpa excepturi ea praesentium aspernatur
+                repellendus alias. Nihil earum, enim mollitia repudiandae ratione, deserunt corrupti laborum, excepturi
+                similique molestias aliquid quas aspernatur!</h2>
+            <p>Lorem ipsum dolor, sit amet consectetur adipisicing elit. Culpa, soluta expedita. Dolores quidem quas
+                tempore quisquam obcaecati, iusto distinctio magnam molestiae rerum aspernatur nam atque eveniet quo ad
+                quia a.</p>
+        </article>
+        <article>
+            <h2>Lorem ipsum, dolor sit amet consectetur adipisicing elit. Culpa excepturi ea praesentium aspernatur
+                repellendus alias. Nihil earum, enim mollitia repudiandae ratione, deserunt corrupti laborum, excepturi
+                similique molestias aliquid quas aspernatur!</h2>
+            <p>Lorem ipsum dolor, sit amet consectetur adipisicing elit. Culpa, soluta expedita. Dolores quidem quas
+                tempore quisquam obcaecati, iusto distinctio magnam molestiae rerum aspernatur nam atque eveniet quo ad
+                quia a.</p>
+        </article>
+        <article>
+            <h2>Lorem ipsum, dolor sit amet consectetur adipisicing elit. Culpa excepturi ea praesentium aspernatur
+                repellendus alias. Nihil earum, enim mollitia repudiandae ratione, deserunt corrupti laborum, excepturi
+                similique molestias aliquid quas aspernatur!</h2>
+            <p>Lorem ipsum dolor, sit amet consectetur adipisicing elit. Culpa, soluta expedita. Dolores quidem quas
+                tempore quisquam obcaecati, iusto distinctio magnam molestiae rerum aspernatur nam atque eveniet quo ad
+                quia a.</p>
+        </article>
+        <article>
+            <h2>Lorem ipsum, dolor sit amet consectetur adipisicing elit. Culpa excepturi ea praesentium aspernatur
+                repellendus alias. Nihil earum, enim mollitia repudiandae ratione, deserunt corrupti laborum, excepturi
+                similique molestias aliquid quas aspernatur!</h2>
+            <p>Lorem ipsum dolor, sit amet consectetur adipisicing elit. Culpa, soluta expedita. Dolores quidem quas
+                tempore quisquam obcaecati, iusto distinctio magnam molestiae rerum aspernatur nam atque eveniet quo ad
+                quia a.</p>
+        </article>
+    </main>
+    <footer>
+        <div class="content">
+            <h2>Notes and References</h2>
+            <p>Novemeber 7, 2023.</p>
+            <p>Lifted gradient css from <a href="https://codepen.io/jlengstorf/pen/WNPGMJo">here</a>.</p>
+            <p>Lorem text was too long so I had to look up how to truncate text in css again. Reference <a
+                    href="https://stackoverflow.com/a/26973672">StackOverflow</a>.</p>
+            <code>
+                <h3>Example</h3>
+            <pre>
+            h2{
+                max-width: 450px;
+                text-overflow: ellipsis;
+                overflow: hidden;
+                white-space: nowrap;
+            }
+            </pre>
+            </code>
+            <p>Made a back button too.  Used <a href="https://www.w3schools.com/jsref/met_his_back.asp">this</a> as reference.</p>
+            <p>Overall, fairly disappointing, as the gradients were not animated and I don't really get how the padding-box and border-box on the article elements work.</p>
+        </div>
+    </footer>
+    <div class="bumper">
+
+    </div>
+
+
+
+    <script type="module">
+
+    </script>
+
+</body>
+
+</html>

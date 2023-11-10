@@ -669,6 +669,21 @@
                 "https://www.geeksforgeeks.org/how-to-add-image-in-text-background-using-html-and-css/",
                 "https://www.geeksforgeeks.org/how-to-create-a-gradient-shadow-using-css/"
             ]
+        },
+        {
+            "month": 11,
+            "day": 10,
+            "year": 2023,
+            "link": "/2023/1110.html",
+            "visible": true,
+            "description": "Gradient text, Scroll Bumpers, Checkered CSS Background with Linear Gradient.",
+            "lesson": "",
+            "screenshot": "",
+            "reference": [
+                "https://www.geeksforgeeks.org/how-to-add-image-in-text-background-using-html-and-css/",
+                "https://www.geeksforgeeks.org/how-to-create-a-gradient-shadow-using-css/",
+                "https://css-tricks.com/css-checkerboard-background-but-with-rounded-corners-and-hover-styles/"
+            ]
         }
     ],
     "2022": [

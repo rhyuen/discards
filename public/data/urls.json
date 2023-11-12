@@ -684,6 +684,32 @@
                 "https://www.geeksforgeeks.org/how-to-create-a-gradient-shadow-using-css/",
                 "https://css-tricks.com/css-checkerboard-background-but-with-rounded-corners-and-hover-styles/"
             ]
+        },
+        {
+            "month": 11,
+            "day": 11,
+            "year": 2023,
+            "link": "/2023/1111.html",
+            "visible": true,
+            "description": "Gradient Practice.  Radial, Conic, Linear with and without Colour Stops.",
+            "lesson": "",
+            "screenshot": "",
+            "reference": [
+                "https://css-tricks.com/css3-gradients/"
+            ]
+        },
+        {
+            "month": 11,
+            "day": 12,
+            "year": 2023,
+            "link": "/2023/1112.html",
+            "visible": true,
+            "description": "More Gradient Practice.  Continuing from Yesterday.",
+            "lesson": "",
+            "screenshot": "",
+            "reference": [
+                "https://css-tricks.com/css3-gradients/"
+            ]
         }
     ],
     "2022": [

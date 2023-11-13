@@ -710,6 +710,20 @@
             "reference": [
                 "https://css-tricks.com/css3-gradients/"
             ]
+        },
+        {
+            "month": 11,
+            "day": 13,
+            "year": 2023,
+            "link": "/2023/1113.html",
+            "visible": true,
+            "description": "Lazy Loading Content with Scroll Listener.",
+            "lesson": "",
+            "screenshot": "",
+            "reference": [
+                "https://blog.openreplay.com/lazy-loading-in-javascript/",
+                "https://blog.logrocket.com/understanding-lazy-loading-javascript/"
+            ]
         }
     ],
     "2022": [

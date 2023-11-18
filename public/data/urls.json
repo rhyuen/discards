@@ -724,6 +724,34 @@
                 "https://blog.openreplay.com/lazy-loading-in-javascript/",
                 "https://blog.logrocket.com/understanding-lazy-loading-javascript/"
             ]
+        },
+        {
+            "month": 11,
+            "day": 16,
+            "year": 2023,
+            "link": "/2023/1116.html",
+            "visible": true,
+            "description": "Lazy Loading Content, this time Images, with Scroll Listener.  ISSUE: I tried to get scroll snapping to work whilst appending the images but it made the appended elements not show up. ISSUE: On the body tag, if you use a radial-gradient and you don't want it to repeat and you set a min-block-size value, then you also need to use background-attachment: fixed.",
+            "lesson": "Scroll Snapping may not work with Lazy Loading.  On the body tag, if you use a radial-gradient and you don't want it to repeat and you set a min-block-size value, then you also need to use background-attachment: fixed.",
+            "screenshot": "",
+            "reference": [
+                "https://discourse.webflow.com/t/gradient-background-keeps-repeating-despite-no-repeat/138670/3",
+                "https://blog.openreplay.com/lazy-loading-in-javascript/"             
+            ]
+        },
+        {
+            "month": 11,
+            "day": 18,
+            "year": 2023,
+            "link": "/2023/1118.html",
+            "visible": true,
+            "description": "Lazy Loading Images using IntersectionObserver and Text Offset. ISSUE: Radial Gradient without colour stops did not work on the BODY element.  ",
+            "lesson": "",
+            "screenshot": "",
+            "reference": [
+                "https://stackoverflow.com/a/30050629",
+                "https://blog.openreplay.com/lazy-loading-in-javascript/"              
+            ]
         }
     ],
     "2022": [

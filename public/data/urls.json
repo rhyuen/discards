@@ -752,6 +752,20 @@
                 "https://stackoverflow.com/a/30050629",
                 "https://blog.openreplay.com/lazy-loading-in-javascript/"              
             ]
+        },
+        {
+            "month": 11,
+            "day": 19,
+            "year": 2023,
+            "link": "/2023/1119.html",
+            "visible": true,
+            "description": "Styled Reddit Data.  Scroll Bumpers. Tightening of Hero Text.  Radial Gradient background.",
+            "lesson": "",
+            "screenshot": "",
+            "reference": [
+                "https://www.tutorialrepublic.com/faq/how-to-convert-a-unix-timestamp-to-time-in-javascript.php",
+                "https://notadesigner.io/p/tighter-better-art-letter-spacing"              
+            ]
         }
     ],
     "2022": [

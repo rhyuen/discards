@@ -1,0 +1,324 @@
+<!DOCTYPE html>
+<html lang="en" data-theme="light">
+
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <link rel="preconnect" href="https://fonts.gstatic.com">
+    <!-- <link rel="icon" type="../image/png" sizes="32x32" href="../images/favicon-32x32.png"> -->
+    <title>11/11/23</title>
+
+
+    <style>
+        @import "https://unpkg.com/open-props";
+        /* @import "https://unpkg.com/open-props/easings"; */
+
+        * {
+            box-sizing: border-box;
+            /* font-size: 16px; */
+            font-family: 'RedHat', 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
+        }
+
+        ::-webkit-scrollbar {
+            width: 0.8rem;
+            height: 0.5rem;
+        }
+
+        ::-webkit-scrollbar {
+            display: none;
+            /* Safari and Chrome */
+        }
+
+        /* Track */
+        ::-webkit-scrollbar-track {
+            background: black;
+        }
+
+        /* Handle */
+        ::-webkit-scrollbar-thumb {
+            background: var(--COL3);
+        }
+
+        /* Handle on hover */
+        ::-webkit-scrollbar-thumb:hover {
+            background: var(--COL2);
+        }
+
+
+
+
+        @font-face {
+            font-family: "Inter";
+            src: url("../fonts/Inter-VariableFont_slnt\,wght.ttf");
+        }
+
+        @font-face {
+            font-family: "RedHat";
+            src: url("../fonts/RedHatDisplay-VariableFont_wght.ttf");
+        }
+
+        @font-face {
+            font-family: "Fraunces";
+            src: url("../fonts/Fraunces-VariableFont_SOFT\,WONK\,opsz\,wght.ttf");
+        }
+
+        @font-face {
+            font-family: "Poppins";
+            src: url("../fonts/Poppins-Regular.ttf");
+        }
+
+
+
+        html,
+        body {
+            margin: 0;
+        }
+
+
+
+        ul {
+            margin: 0;
+            padding: 0;
+        }
+
+        li {
+            list-style-type: none;
+            margin: 0;
+        }
+
+
+
+        h1,
+        h2,
+        h3,
+        h4 {
+            margin: 0;
+            padding: 0;
+
+        }
+
+        :root {
+            font-size: 16px;
+            --RED: hsl(0, 78%, 62%);
+            --CYAN: hsl(180, 63%, 84%);
+            --ORANGE: hsl(53, 97%, 64%);
+            --BLUE: hsl(212, 89%, 82%);
+            --GREY: rgba(0, 0, 0, 0.1);
+
+            --COL1: #db0a5b;
+            --COL2: #fef160;
+            --COL3: #23cba7;
+            --COL4: #3e6ceb;
+            --COL5: #d9c8ec;
+
+            --BORDER-RADIUS: .5rem;
+
+            --HERO-CONTENT-WIDTH: min(120ch, 100%);
+            --CONTENT-WIDTH: min(75ch, 100%);
+            --SPACING: 1.5rem;
+            --PRIMARY-COLOR: black;
+            --SECONDARY-COLOR: white;
+            --FOOTER-GREY: #f5f5f7;
+
+            --GRADIENT: conic-gradient(from 180deg at 50% 70%, hsla(0, 0%, 98%, 1) 0deg, #eec32d 72.0000010728836deg, #ec4b4b 144.0000021457672deg, #709ab9 216.00000858306885deg, #4dffbf 288.0000042915344deg, hsla(0, 0%, 98%, 1) 1turn);
+
+        }
+
+        main {
+            margin: 0 auto;
+            inline-size: var(--CONTENT-WIDTH);
+            padding-inline: var(--SPACING);
+            margin-bottom: 10rem;
+        }
+
+        .main__image {
+            inline-size: var(--CONTENT-WIDTH);
+            aspect-ratio: 1;
+            position: relative;
+            margin: 0;
+        }
+
+        .main__image img {
+            width: 100%;
+            height: 100%;
+            object-fit: cover;
+            filter: grayscale(.9);
+            background-color: var(--COL1);
+            border: .5rem solid black;
+        }
+
+        .main__image figcaption {
+            font-size: 4rem;
+            color: white;
+            position: absolute;
+            font-weight: 800;
+            letter-spacing: -.25rem;
+            top: 50%;
+            left: 2rem;
+            right: 2rem;
+            transform: translateY(-50%);
+            line-height: 1;
+            user-select: none;
+            white-space: pre-wrap;
+        }
+
+
+        .main__row {
+            display: flex;
+        }
+
+        .main__row ul {
+            display: flex;
+            gap: .5rem;
+            overflow-x: scroll;
+            mask-image: linear-gradient(to right, transparent,
+                    #000 15%,
+                    #000 85%,
+                    transparent 100%
+                    );
+        }
+
+        .main__row ul li {
+            flex-shrink: 0;
+            inline-size: 8rem;
+            aspect-ratio: 1;
+            border: .5rem solid black;
+            background-color: #db0a5b;
+
+        }
+
+     
+
+        .main__row ul li img {
+            object-fit: fill;
+            background-color: var(--GREY);
+           cursor: pointer;
+            block-size: 100%;
+            inline-size: 100%;
+            aspect-ratio: 1;
+            display: block;
+        }
+
+        nav {
+            block-size: 8rem;
+
+        }
+
+        .nav__content {
+            inline-size: var(--CONTENT-WIDTH);
+            margin: 0 auto;
+            padding: var(--SPACING);
+            height: 100%;
+            display: flex;
+            align-items: center;
+        }
+
+        .nav__content button {
+            border: 2px solid var(--GREY);
+            --WIDTH: 2rem;
+            block-size: var(--WIDTH);
+            inline-size: var(--WIDTH);
+            border-radius: 50%;
+            background-color: white;
+            cursor: pointer;
+            transition: filter .4s ease-in-out;
+            will-change: transform;
+        }
+
+        .nav__content button:hover {
+            filter: drop-shadow(0 0 1.5rem rgb(188, 133, 231));
+        }
+
+        .row-control {
+            margin-top: var(--SPACING);
+            display: flex;
+            justify-content: start;
+            block-size: 4rem;
+        }
+
+        .row-control textarea {
+            inline-size: 100%;
+            font-size: 1.5rem;
+            padding: calc(0.5*var(--SPACING));
+            resize: none;
+        }
+    </style>
+
+
+
+
+
+
+<body>
+    <nav>
+        <div class="nav__content">
+            <button></button>
+        </div>
+    </nav>
+    <main>
+        <figure class="main__image">
+            <img id="selected-image" src="https://picsum.photos/400/400?random=1" />
+            <figcaption id="main-caption">Pithy Zinger goes here.</figcaption>
+        </figure>
+        <div class="main__row">
+            <ul>
+                <li>
+                    <img src="https://picsum.photos/300/300?random=1" />
+                </li>
+                <li>
+                    <img src="https://picsum.photos/300/300?random=2" />
+                </li>
+                <li>
+                    <img src="https://picsum.photos/400/300?random=3" />
+                </li>
+                <li>
+                    <img src="https://picsum.photos/300/300?random=4" />
+                </li>
+                <li>
+                    <img src="https://picsum.photos/400/300?random=5" />
+                </li>
+                <li>
+                    <img src="https://picsum.photos/400/300?random=6" />
+                </li>
+                <li>
+                    <img src="https://picsum.photos/400/300?random=8" />
+                </li>
+                <li>
+                    <img src="https://picsum.photos/400/300?random=9" />
+                </li>
+            </ul>
+        </div>
+
+        <div class="row-control">
+            <textarea id="caption-input" placeholder="pithy one liner"></textarea>
+        </div>
+    </main>
+
+    <script type="module">
+        const caption = document.getElementById("main-caption");
+        const captionInput = document.getElementById("caption-input");
+        const selectedImage = document.getElementById("selected-image");
+
+        captionInput.addEventListener("input", e => {
+            const { value } = e.target;
+            caption.textContent = value;
+        });
+
+
+        window.addEventListener("DOMContentLoaded", () => {
+            captionInput.focus();
+        });
+
+        const galleryImages= document.querySelectorAll(".main__row img");
+        galleryImages.forEach(image => {
+            image.addEventListener("click", e => {
+                console.log(e);
+                selectedImage.src = e.target.src;
+            });
+        })
+    </script>
+
+</body>
+
+</html>

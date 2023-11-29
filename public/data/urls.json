@@ -766,6 +766,85 @@
                 "https://www.tutorialrepublic.com/faq/how-to-convert-a-unix-timestamp-to-time-in-javascript.php",
                 "https://notadesigner.io/p/tighter-better-art-letter-spacing"              
             ]
+        },
+        {
+            "month": 11,
+            "day": 20,
+            "year": 2023,
+            "link": "/2023/1120.html",
+            "visible": true,
+            "description": "Making Images with Text on Them.",
+            "lesson": "",
+            "screenshot": "",
+            "reference": [
+                
+            ]
+        },
+        {
+            "month": 11,
+            "day": 22,
+            "year": 2023,
+            "link": "/2023/1122.html",
+            "visible": true,
+            "description": "Landing page based on the Stripe Landing page. ISSUE: I couldn't get the clip-path to work to create the weird assymetrical shape to work.",
+            "lesson": "",
+            "screenshot": "",
+            "reference": [
+                
+            ]
+        },
+        {
+            "month": 11,
+            "day": 23,
+            "year": 2023,
+            "link": "/2023/1123.html",
+            "visible": true,
+            "description": "Another Landing Page.  Has Theme Toggle. Has Gradient Text.  ISSUE: -webkit-background-clip: text is vendor prefixed.",
+            "lesson": "",
+            "screenshot": "",
+            "reference": [
+                "https://dev.to/whitep4nth3r/the-best-lightdark-mode-theme-toggle-in-javascript-368f"
+            ]
+        },
+        {
+            "month": 11,
+            "day": 23,
+            "year": 2023,
+            "link": "/2023/1123a.html",
+            "visible": true,
+            "description": "Circles on Click.  Trailing divs on cursor move.",
+            "lesson": "",
+            "screenshot": "",
+            "reference": [
+                "https://stackoverflow.com/a/39969220"
+            ]
+        },
+        {
+            "month": 11,
+            "day": 24,
+            "year": 2023,
+            "link": "/2023/1124.html",
+            "visible": true,
+            "description": "Masks for text.  ISSUE: It seems mask-image is vendor prefixed in chrome but not in other browsers.",
+            "lesson": "",
+            "screenshot": "",
+            "reference": [
+                "https://ishadeed.com/article/css-masking/"
+            ]
+        },
+        {
+            "month": 11,
+            "day": 29,
+            "year": 2023,
+            "link": "/2023/1129.html",
+            "visible": true,
+            "description": "More masks and scroll to REFRESH. ISSUE: Overscroll-y and Scroll Snap did not work with window.addEventListener('scroll', func). ISSUE: Added scroll to the top to refresh, but it didn't work when the window was shrunk down, only when it was fully expanded.  And then, it worked in both cases.",
+            "lesson": "",
+            "screenshot": "",
+            "reference": [
+                "https://ishadeed.com/article/css-masking/",
+                "https://stackoverflow.com/a/15276103"
+            ]
         }
     ],
     "2022": [

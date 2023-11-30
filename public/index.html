@@ -97,7 +97,7 @@
             font-weight: 800;
         } */
 
-        .link{
+        .link {
             color: var(--FONT_COLOR);
             text-decoration: none;
             font-weight: 800;
@@ -105,8 +105,8 @@
             display: flex;
         }
 
-        .link__month{
-            font-size: 1.2rem; 
+        .link__month {
+            font-size: 1.2rem;
             color: var(--FONT_COLOR);
             background-color: var(--BACKGROUND_COLOR);
             border: .2rem solid var(--FONT_COLOR);
@@ -116,7 +116,7 @@
             padding: calc(.5* var(--SPACING)) var(--SPACING);
         }
 
-        .link__day{
+        .link__day {
             padding: calc(.5* var(--SPACING)) var(--SPACING);
             font-size: 1.2rem;
             background-color: var(--FONT_COLOR);
@@ -124,7 +124,7 @@
             border: .2rem solid var(--FONT_COLOR);
             border-top-right-radius: .5rem;
             border-bottom-right-radius: .5rem;
-            
+
         }
 
         li {
@@ -137,10 +137,13 @@
             color: grey;
         }
 
+
+       
+
         main {
             display: grid;
             grid-template-columns: 1fr [content-start] min(65ch, 100%) [content-end] 1fr;
-            padding: 1rem;
+            padding: 1rem;          
         }
 
         main * {
@@ -162,6 +165,7 @@
             flex-direction: column;
             scroll-snap-align: center;
             flex-shrink: 0;
+            
         }
 
         label {
@@ -252,15 +256,29 @@
 
         .intro {
             color: var(--FONT_COLOR);
-            margin-bottom: 2rem;
+            margin-block: 8rem;
+            margin-block-end: 8rem;
         }
 
-        h2{
+        .intro > h1{
+            font-size: 4rem;
+            letter-spacing: -.2rem;
+            line-height: .75;
+            margin-bottom: 1rem;
+        }
+
+        .intro > p{
+            margin: 0;            
+        }
+
+        
+
+        h2 {
             display: flex;
             align-items: center;
         }
 
-        .discard-count-badge{
+        .discard-count-badge {
             font-size: .9rem;
             font-weight: 800;
             margin-left: 1rem;
@@ -272,7 +290,7 @@
     </style>
 
 <body>
-    <main>
+    <main>     
         <nav>
             <button id="left-scroll-button" class="nav-button"
                 role="advances to the previous page of links.">Prev</button>
@@ -318,8 +336,6 @@
                 </section>
             </li>
         </ul>
-
-
     </main>
 
     <script type='module'>
@@ -336,22 +352,22 @@
 
         themeToggle.addEventListener("change", e => {
             if (e.target.checked) {
-                console.log('dark')
+                // console.log('dark')
                 document.documentElement.setAttribute("data-theme", "dark");
             } else {
-                console.log('light')
+                // console.log('light')
                 document.documentElement.setAttribute("data-theme", "light");
             }
         });
 
         function scrollLeft() {
-            console.log('left');
+            // console.log('left');
             // slideContainer.scrollTo({ left: -500, behavior: 'smooth' });
             slideContainer.scrollLeft -= 500;
         }
 
         function scrollRight() {
-            console.log('right');
+            // console.log('right');
             // slideContainer.scrollTo({ left: 500, behavior: 'smooth' });
             slideContainer.scrollLeft += 500;
 
@@ -373,7 +389,7 @@
             const root23 = document.getElementById("2023");
             const count21 = document.getElementById("count2021");
             const count22 = document.getElementById("count2022");
-            const count23= document.getElementById("count2023");
+            const count23 = document.getElementById("count2023");
 
 
 

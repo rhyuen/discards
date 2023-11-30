@@ -845,6 +845,19 @@
                 "https://ishadeed.com/article/css-masking/",
                 "https://stackoverflow.com/a/15276103"
             ]
+        },
+        {
+            "month": 11,
+            "day": 30,
+            "year": 2023,
+            "link": "/2023/1130.html",
+            "visible": true,
+            "description": "More masks to augment images.",
+            "lesson": "",
+            "screenshot": "",
+            "reference": [
+                "https://ishadeed.com/article/css-masking/"               
+            ]
         }
     ],
     "2022": [

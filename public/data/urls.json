@@ -902,6 +902,18 @@
                 "https://developer.mozilla.org/en-US/docs/Web/API/Clipboard/writeText",
                 "https://developer.mozilla.org/en-US/docs/Web/HTML/Element/textarea#autofocus"                
             ]
+        },
+        {
+            "month": 12,
+            "day": 3,
+            "year": 2023,
+            "link": "/2023/1203.html",
+            "visible": true,
+            "description": "Horizontal Slides with Gradients and a Gradient with a Mask.",
+            "lesson": "",
+            "screenshot": "",
+            "reference": [                
+            ]
         }
     ],
     "2022": [

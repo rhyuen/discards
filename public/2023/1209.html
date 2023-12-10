@@ -1,0 +1,500 @@
+<!DOCTYPE html>
+<html lang="en" data-theme="light">
+
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <link rel="preconnect" href="https://fonts.gstatic.com">
+    <!-- <link rel="icon" type="../image/png" sizes="32x32" href="../images/favicon-32x32.png"> -->
+    <title>12/08/23</title>
+    <link rel="stylesheet" href="https://unpkg.com/leaflet@1.9.4/dist/leaflet.css"
+        integrity="sha256-p4NxAoJBhIIN+hmNHrzRCf9tD/miZyoHS5obTRR9BMY=" crossorigin="" />
+    <script src="https://unpkg.com/leaflet@1.9.4/dist/leaflet.js"
+        integrity="sha256-20nQCchB9co0qIjJZRGuk2/Z9VM+kNiyxNV1lvTlZBo=" crossorigin=""></script>
+
+    <style>
+        @import "https://unpkg.com/open-props";
+
+        * {
+            box-sizing: border-box;
+            /* font-size: 16px; */
+            font-family: 'RedHat', 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
+        }
+
+        ::-webkit-scrollbar {
+            width: 0.8rem;
+            height: 0.5rem;
+        }
+
+        ::-webkit-scrollbar {
+            display: none;
+            /* Safari and Chrome */
+        }
+
+        /* Track */
+        ::-webkit-scrollbar-track {
+            background: black;
+        }
+
+        /* Handle */
+        ::-webkit-scrollbar-thumb {
+            background: var(--COL3);
+        }
+
+        /* Handle on hover */
+        ::-webkit-scrollbar-thumb:hover {
+            background: var(--COL2);
+        }
+
+
+
+
+        @font-face {
+            font-family: "Inter";
+            src: url("../fonts/Inter-VariableFont_slnt\,wght.ttf");
+        }
+
+        @font-face {
+            font-family: "RedHat";
+            src: url("../fonts/RedHatDisplay-VariableFont_wght.ttf");
+        }
+
+        @font-face {
+            font-family: "Fraunces";
+            src: url("../fonts/Fraunces-VariableFont_SOFT\,WONK\,opsz\,wght.ttf");
+        }
+
+        @font-face {
+            font-family: "Poppins";
+            src: url("../fonts/Poppins-Regular.ttf");
+        }
+
+
+        [data-theme='light'] {
+            --PRIMARY-COLOR: black;
+            --SECONDARY-COLOR: white;
+        }
+
+        [data-theme='dark'] {
+            --PRIMARY-COLOR: white;
+            --SECONDARY-COLOR: black;
+
+        }
+
+
+        html,
+        body {
+            margin: 0;
+            block-size: 100dvh;
+        }
+
+
+
+
+
+        ul {
+            margin: 0;
+            padding: 0;
+        }
+
+        li {
+            list-style-type: none;
+            margin: 0;
+        }
+
+
+
+        h1,
+        h2,
+        h3,
+        h4,
+        img,
+        figure,
+        p {
+            margin: 0;
+            padding: 0;
+
+        }
+
+        :root {
+            font-size: 16px;
+            --RED: hsl(0, 78%, 62%);
+            --CYAN: hsl(180, 63%, 84%);
+            --ORANGE: hsl(53, 97%, 64%);
+            --BLUE: hsl(212, 89%, 82%);
+            --GREY: rgba(0, 0, 0, 0.1);
+
+            --COL1: #db0a5b;
+            --COL2: #fef160;
+            --COL3: #23cba7;
+            --COL4: #3e6ceb;
+            --COL5: #d9c8ec;
+
+            --BORDER-RADIUS: .5rem;
+
+            --HERO-CONTENT-WIDTH: min(120ch, 100%);
+            --CONTENT-WIDTH: min(65ch, 100%);
+            --SPACING: 1.5rem;
+            /* --PRIMARY-COLOR: black;
+            --SECONDARY-COLOR: white; */
+            --FOOTER-GREY: #f5f5f7;
+
+            --GRADIENT: conic-gradient(from 180deg at 50% 70%, hsla(0, 0%, 98%, 1) 0deg, #eec32d 72.0000010728836deg, #ec4b4b 144.0000021457672deg, #709ab9 216.00000858306885deg, #4dffbf 288.0000042915344deg, hsla(0, 0%, 98%, 1) 1turn);
+
+        }
+
+        main {
+            padding-block: var(--SPACING);
+            scroll-snap-align: start;
+        }
+
+        .grid {
+            /* padding: var(--SPACING); */
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(400px, 1fr));
+            gap: var(--SPACING);
+        }
+
+        .grid__item {
+            grid-column: span 1;
+            aspect-ratio: 3/2;
+            overflow: hidden;
+            border-radius: .75rem;
+        }
+
+        .grid__item img {
+            object-fit: cover;
+            block-size: 100%;
+            display: block;
+            inline-size: 100%;
+            border-radius: .75rem;
+            cursor: pointer;
+            
+            transition: transform .3s ease-in-out;
+        }
+
+        .grid__item img:hover{
+            transform: scale(1.1);
+        }
+
+        .details-dialog {
+            position: fixed;
+            width: 100%;
+            height: 100%;
+            max-width: 100%;
+            max-height: 100%;
+            background-color: rgba(0, 0, 0, 0.8);
+            z-index: 2;
+            inset: 0;
+        }
+
+        .details-dialog .card {
+            background: white;
+            border-radius: var(--SPACING);
+
+            padding: calc(2*var(--SPACING));
+            position: absolute;
+            bottom: 50%;
+            left: 50%;
+            transform: translate(-50%, 50%);
+            inline-size: min(90ch, 100%);
+            aspect-ratio: 2.2/1;
+            /* position: relative; */
+        }
+
+        .card .close-button {
+            position: absolute;
+            top: var(--SPACING);
+            right: var(--SPACING);
+            --WIDTH: var(--SPACING);
+            inline-size: var(--WIDTH);
+            block-size: var(--WIDTH);
+            border-radius: 50%;
+            background-color: #db0a5b;
+            border: 2px solid #db0a5b;
+            outline: none;
+            cursor: pointer;
+        }
+
+        .card__image-container {}
+
+        .card__image-container img {
+            object-fit: cover;
+            width: 100%;
+            height: 100%;
+            background-color: aliceblue;
+            border-radius: calc(0.5*var(--SPACING));
+        }
+
+        .card__text-container {
+            padding-block: var(--SPACING);
+        }
+
+        .dialog-author {
+            font-weight: 800;
+            font-size: 2rem;
+        }
+
+        .dialog-url {
+            color: black;
+            font-weight: 800;
+            outline: none;
+        }
+
+        .scroll-container {
+            overflow-y: scroll;
+            block-size: 100vh;
+            scroll-snap-type: y mandatory;
+            padding: var(--SPACING);
+            overflow-x: hidden;
+        }
+
+        .scroll-bumper {
+            inline-size: 100vw;
+            block-size: 10rem;
+            background-color: aliceblue;
+            margin-block: var(--SPACING);
+        }
+
+        .placeholder {
+            margin-top: var(--SPACING);
+            inline-size: 100%;
+            block-size: 10rem;
+            background-color: mintcream;
+
+        }
+
+        .hero{
+            block-size: 50rem;
+            padding: var(--SPACING);
+            scroll-snap-align: start;
+            border-bottom: 2px solid var(--GREY);
+            display: flex;
+            flex-direction: column;
+            justify-content: center;
+        }
+
+        .hero__container h1{
+            font-size: 4rem;
+            letter-spacing: -.3rem;
+            font-weight: 800;
+            line-height: .75;
+        }
+
+        .hero__container p{
+            font-size: 2rem;
+            line-height: .75;
+            letter-spacing: -.1rem;
+        }
+
+        nav{
+            block-size: 10rem;
+            scroll-snap-align: start;
+
+        }
+        .nav__container{
+            padding: var(--SPACING);
+            block-size: 100%;
+            display: flex;            
+            align-items: center;
+        }
+
+        .nav__container button{
+            --WIDTH: 2rem;
+            block-size: var(--WIDTH);
+            inline-size: var(--WIDTH);
+            border-radius: 50%;
+            background-color: white;
+            border: 2px solid var(--GREY);
+            cursor: pointer;
+            transition: filter .3s ease-in-out;
+        }
+
+        .nav__container button:hover{
+            filter: drop-shadow(0 0 1rem rgba(0,0,0,0.3));
+        }
+
+    </style>
+
+<body>
+    <div class="scroll-container" id="scroll-container">
+        <div class="scroll-bumper"></div>
+        <nav>
+            <div class="nav__container">
+                <button onclick = 'history.back()'></button>
+            </div>
+        </nav>
+        <div class="hero">
+            <div class="hero__container">
+                <h1>Not dribbble</h1>
+                <p>I guess it's like dribbble. But not.</p>
+            </div>
+        </div>
+        <main id="grid" class="grid">
+
+        </main>
+        <div class="placeholder" id="placeholder">
+
+        </div>
+        <div class="scroll-bumper"></div>
+    </div>
+    <dialog id="details-dialog" class="details-dialog">
+
+        <div class="card">
+
+            <div class="card__image-container">
+                <img id="dialog-download" />
+            </div>
+            <div class="card__text-container">
+                <div id="dialog-author" class="dialog-author">
+
+                </div>
+
+                <div id="dialog-id">
+
+                </div>
+                <a id="dialog-url" class="dialog-url">
+
+                </a>
+                <div id="dialog-height">
+
+                </div>
+                <div id="dialog-width">
+
+                </div>
+            </div>
+            <button class="close-button" id="details-dialog-close-button">
+
+            </button>
+        </div>
+    </dialog>
+
+
+
+    <script type="module">
+        const grid = document.getElementById("grid");
+        const closeDialogButton = document.getElementById("details-dialog-close-button");
+
+        let LIMIT = 20;
+
+
+        grid.append(init(LIMIT));
+
+        function makeGridItem(index) {
+            const figure = document.createElement("figure");
+            figure.classList.add("grid__item");
+            const image = document.createElement("img");
+            image.src = `https://picsum.photos/400/400?random=${index}`;
+
+            image.addEventListener("click", e => {
+                const url = new URL(e.target.src);
+                const args = url.searchParams;
+                const index = args.get("random");
+
+                const path = `https://picsum.photos/seed/${index}}/info`;
+                fetch(path).then(res => {
+                    if (!res.ok) {
+                        throw new Error("failed on fetch");
+                    } else {
+                        return res.json();
+                    }
+                }).then(res => {
+                    setDialogDetails(res);
+                    showDialog();
+                }).catch(e => {
+                    console.log(e);
+                });
+
+
+            })
+
+            figure.append(image);
+            return figure;
+        }
+
+        function showDialog() {
+            const dialog = document.getElementById("details-dialog");
+            document.body.style.overflowY = "hidden";
+            document.body.style.overflowX = "hidden";
+            dialog.showModal();
+        }
+
+        window.addEventListener("keydown", e => {
+            if (e.keyCode === 27) {
+                document.body.style.overflowY = "scroll";
+                document.body.style.overflowX = "scroll";
+            }
+        })
+
+        function closeDialog() {
+            document.body.style.overflowY = "scroll";
+            document.body.style.overflowX = "scroll";
+            const dialog = document.getElementById("details-dialog");
+            dialog.close();
+        }
+
+
+        function isElementVisible(el) {
+            const rect = el.getBoundingClientRect();
+            return (
+                rect.top >= 0 &&
+                rect.left >= 0 &&
+                rect.bottom <= (window.innerHeight || document.documentElement.clientHeight) &&
+                rect.right <= (window.innerWidth || document.documentElement.clientWidth)
+            );
+        }
+
+
+        const scrollContainer = document.getElementById("scroll-container");
+        const placeholder = document.getElementById("placeholder");
+
+        scrollContainer.addEventListener("scroll", function(){
+            if(isElementVisible(placeholder)){
+                for(let i = LIMIT; i < LIMIT + 4; i++){
+                    grid.append(makeGridItem(i));
+                }                
+                LIMIT+=4;
+            }
+        });
+
+        
+
+        closeDialogButton.addEventListener("click", closeDialog);
+
+
+        function setDialogDetails(data) {
+            const { author, download_url, height, url, width, id } = data;
+            const dAuthor = document.getElementById("dialog-author");
+            const dDownload = document.getElementById("dialog-download");
+            const dHeight = document.getElementById("dialog-height");
+            const dURL = document.getElementById("dialog-url");
+            const dWidth = document.getElementById("dialog-width");
+            const dID = document.getElementById("dialog-id")
+
+            dAuthor.textContent = author;
+            dDownload.src = download_url;
+            dHeight.textContent = `HEIGHT: ${height}`;
+            dURL.href = url;
+            dURL.textContent = `Unsplash URL`;
+            dWidth.textContent = `WIDTH: ${width}`;
+            dID.textContent = `UNSPLASHID: ${id}`;
+            console.log(url);
+
+        }
+
+        function init(limit) {
+            const fragment = new DocumentFragment();
+
+            for (let i = 0; i < limit; i++) {
+                fragment.append(makeGridItem(i));
+            }
+
+            return fragment;
+
+        }
+    </script>
+
+</body>
+
+</html>

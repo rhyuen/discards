@@ -914,6 +914,58 @@
             "screenshot": "",
             "reference": [                
             ]
+        },
+        {
+            "month": 12,
+            "day": 4,
+            "year": 2023,
+            "link": "/2023/1204.html",
+            "visible": true,
+            "description": "Auto scrolling images from picsum.photos with a timer at the top. ISSUE: I had to use animation-delay for the dynamically loaded ones.  I also attempted pausing and resuming the animations but the animation-delay worked better.",
+            "lesson": "",
+            "screenshot": "",
+            "reference": [                
+            ]
+        },
+        {
+            "month": 12,
+            "day": 6,
+            "year": 2023,
+            "link": "/2023/1206.html",
+            "visible": true,
+            "description": "Timeline with Images. Not Responsive.",
+            "lesson": "",
+            "screenshot": "",
+            "reference": [                
+            ]
+        },
+        {
+            "month": 12,
+            "day": 8,
+            "year": 2023,
+            "link": "/2023/1208.html",
+            "visible": true,
+            "description": "LeafletJS Tutorial",
+            "lesson": "",
+            "screenshot": "",
+            "reference": [  
+                "https://leafletjs.com/"              
+            ]
+        },
+        {
+            "month": 12,
+            "day": 9,
+            "year": 2023,
+            "link": "/2023/1209.html",
+            "visible": true,
+            "description": "Dribbble clone.  Uses Scroll Snapping. Lazy loading onscroll.  Uses Dialog HTML tag for the modal.  Uses Lorem Picsum for photos. ISSUE: full screen of the dialog tag performs oddly, so you have to set the max-width and max-height values in order to back the background to fill the screen.  ISSUE: The image clicked on does not result in the image that appears in the modal.",
+            "lesson": "",
+            "screenshot": "",
+            "reference": [  
+                "https://stackoverflow.com/a/75024226",
+                "https://blog.openreplay.com/lazy-loading-in-javascript/" ,
+                "https://dribbble.com/shots/popular"            
+            ]
         }
     ],
     "2022": [

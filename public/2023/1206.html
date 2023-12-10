@@ -1,0 +1,341 @@
+<!DOCTYPE html>
+<html lang="en" data-theme="light">
+
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <link rel="preconnect" href="https://fonts.gstatic.com">
+    <!-- <link rel="icon" type="../image/png" sizes="32x32" href="../images/favicon-32x32.png"> -->
+    <title>12/02/23</title>
+
+
+    <style>
+        @import "https://unpkg.com/open-props";
+
+        * {
+            box-sizing: border-box;
+            /* font-size: 16px; */
+            font-family: 'RedHat', 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
+        }
+
+        ::-webkit-scrollbar {
+            width: 0.8rem;
+            height: 0.5rem;
+        }
+
+        ::-webkit-scrollbar {
+            display: none;
+            /* Safari and Chrome */
+        }
+
+        /* Track */
+        ::-webkit-scrollbar-track {
+            background: black;
+        }
+
+        /* Handle */
+        ::-webkit-scrollbar-thumb {
+            background: var(--COL3);
+        }
+
+        /* Handle on hover */
+        ::-webkit-scrollbar-thumb:hover {
+            background: var(--COL2);
+        }
+
+
+
+
+        @font-face {
+            font-family: "Inter";
+            src: url("../fonts/Inter-VariableFont_slnt\,wght.ttf");
+        }
+
+        @font-face {
+            font-family: "RedHat";
+            src: url("../fonts/RedHatDisplay-VariableFont_wght.ttf");
+        }
+
+        @font-face {
+            font-family: "Fraunces";
+            src: url("../fonts/Fraunces-VariableFont_SOFT\,WONK\,opsz\,wght.ttf");
+        }
+
+        @font-face {
+            font-family: "Poppins";
+            src: url("../fonts/Poppins-Regular.ttf");
+        }
+
+
+        [data-theme='light'] {
+            --PRIMARY-COLOR: black;
+            --SECONDARY-COLOR: white;
+        }
+
+        [data-theme='dark'] {
+            --PRIMARY-COLOR: white;
+            --SECONDARY-COLOR: black;
+
+        }
+
+
+        html,
+        body {
+            margin: 0;
+            block-size: 100dvh;
+        }
+
+
+
+
+
+        ul {
+            margin: 0;
+            padding: 0;
+        }
+
+        li {
+            list-style-type: none;
+            margin: 0;
+        }
+
+
+
+        h1,
+        h2,
+        h3,
+        h4,
+        img,
+        p {
+            margin: 0;
+            padding: 0;
+
+        }
+
+        :root {
+            font-size: 16px;
+            --RED: hsl(0, 78%, 62%);
+            --CYAN: hsl(180, 63%, 84%);
+            --ORANGE: hsl(53, 97%, 64%);
+            --BLUE: hsl(212, 89%, 82%);
+            --GREY: rgba(0, 0, 0, 0.1);
+
+            --COL1: #db0a5b;
+            --COL2: #fef160;
+            --COL3: #23cba7;
+            --COL4: #3e6ceb;
+            --COL5: #d9c8ec;
+
+            --BORDER-RADIUS: .5rem;
+
+            --HERO-CONTENT-WIDTH: min(120ch, 100%);
+            --CONTENT-WIDTH: min(65ch, 100%);
+            --SPACING: 1.5rem;
+            /* --PRIMARY-COLOR: black;
+            --SECONDARY-COLOR: white; */
+            --FOOTER-GREY: #f5f5f7;
+
+            --GRADIENT: conic-gradient(from 180deg at 50% 70%, hsla(0, 0%, 98%, 1) 0deg, #eec32d 72.0000010728836deg, #ec4b4b 144.0000021457672deg, #709ab9 216.00000858306885deg, #4dffbf 288.0000042915344deg, hsla(0, 0%, 98%, 1) 1turn);
+
+        }
+
+
+
+        main {
+            display: grid;
+            margin-block: calc(2*var(--SPACING));
+            grid-template-columns: 1fr [timeline-start] 4rem [timeline-end] 1fr;                        
+        }
+
+        .dot {
+            border: 4px solid black;
+            --WIDTH: 1rem;
+            inline-size: var(--WIDTH);
+            block-size: var(--WIDTH);
+            border-radius: 50%;
+            position: relative;
+            flex-shrink: 0;
+
+        }
+
+        /* .dot::after{
+            position: absolute;
+            width: 4px;
+            height: 100%;
+            background-color: black;
+            display: block;
+            content: "";
+            top: 0;
+            left: 0;
+        } */
+
+        .dot-edge{
+            width: 4px;
+            background-color: black;
+            height: 100%;            
+        }
+
+        .timeline{
+            grid-column: timeline-start/timeline-end;
+            /* margin-left: calc(var(--SPACING)*4); */
+            /* margin-block: calc(4*var(--SPACING)); */
+            padding: var(--SPACING);
+            display: flex;
+            flex-direction: column;            
+            justify-content: space-between;
+            align-items: center;
+            /* block-size: calc(100% - 10*var(--SPACING));  */
+            width: 4rem;          
+            /* background-color: #a7e3d6; */
+            height: 100%;
+        }
+
+        .left-timeline{
+            grid-column: 1/timeline-start;
+            padding: calc(2*var(--SPACING));
+            background-color: #f4c7d8;
+            border-top-right-radius: calc(1.5*var(--SPACING));
+            border-bottom-right-radius: calc(1.5*var(--SPACING));
+            display: flex;
+            flex-direction: column;
+            align-items: flex-end;            
+            height: 100%;
+        }
+
+        .right-timeline{
+            grid-column: timeline-end/-1;
+            padding: calc(2*var(--SPACING));
+            border-top-left-radius: calc(1.5*var(--SPACING));
+            border-bottom-left-radius: calc(1.5*var(--SPACING));
+            background-color: rgb(194, 194, 206);
+            display: flex;
+            flex-direction: column;
+            
+            height: 100%;
+        }
+
+        .left-timeline ul, .right-timeline ul {
+            display: flex;
+            flex-direction: column;
+            justify-content: space-between;
+            gap: var(--SPACING);
+            height: 100%;
+        }
+
+        .left-timeline li, .right-timeline li{
+            aspect-ratio: 1;      
+            --WIDTH: clamp(5rem, 100%, 15rem);
+            width: var(--WIDTH);
+            height: var(--WIDTH);           
+        }
+
+        .left-timeline li img, .right-timeline li img{
+            border-radius: var(--SPACING);
+            border: 2px solid var(--GREY);
+            object-fit: cover;
+            --WIDTH: 100%;
+            width: var(--WIDTH);
+            height: var(--WIDTH);            
+            aspect-ratio: 1;            
+        }   
+
+
+        
+            
+
+
+      
+    </style>
+
+<body>
+    <main>
+        <div class="left-timeline">
+            <ul>
+                <li>
+                    <img src="https://picsum.photos/200/300?random=1">
+                </li>
+                <li>
+                    <img src="https://picsum.photos/200/300?random=2">
+                </li>
+                <li>
+                    <img src="https://picsum.photos/200/300?random=3">
+                </li>
+                <li>
+                    <img src="https://picsum.photos/200/300?random=4">
+                </li>
+                <li>
+                    <img src="https://picsum.photos/200/300?random=5">
+                </li>
+                <li>
+                    <img src="https://picsum.photos/200/300?random=6">
+                </li>
+            </ul>
+        </div>
+      
+        <div class="timeline">            
+            <div class="dot">
+
+            </div>
+            <div class="dot-edge">
+
+            </div>
+            <div class="dot">
+
+            </div>
+            <div class="dot-edge">
+                
+            </div>
+            <div class="dot">
+
+            </div>
+            <div class="dot-edge">
+                
+            </div>
+            <div class="dot">
+
+            </div>
+            <div class="dot-edge">
+                
+            </div>
+            <div class="dot">
+
+            </div>
+        </div>
+        <div class="right-timeline">
+            <ul>
+                <li>
+                    <img src="https://picsum.photos/200/300?random=11">
+                </li>
+                <li>
+                    <img src="https://picsum.photos/200/300?random=12">
+                </li>
+                <li>
+                    <img src="https://picsum.photos/200/300?random=13">
+                </li>
+                <li>
+                    <img src="https://picsum.photos/200/300?random=14">
+                </li>
+                <li>
+                    <img src="https://picsum.photos/200/300?random=15">
+                </li>
+                <li>
+                    <img src="https://picsum.photos/200/300?random=16">
+                </li>
+            </ul>
+        </div>
+
+    </main>
+
+
+
+
+    <script type="module">
+
+
+
+    </script>
+
+</body>
+
+</html>

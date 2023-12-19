@@ -1,0 +1,434 @@
+<!DOCTYPE html>
+<html lang="en" data-theme="light">
+
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <link rel="preconnect" href="https://fonts.gstatic.com">
+    <!-- <link rel="icon" type="../image/png" sizes="32x32" href="../images/favicon-32x32.png"> -->
+    <title>12/08/23</title>
+    <link rel="stylesheet" href="https://unpkg.com/leaflet@1.9.4/dist/leaflet.css"
+        integrity="sha256-p4NxAoJBhIIN+hmNHrzRCf9tD/miZyoHS5obTRR9BMY=" crossorigin="" />
+    <script src="https://unpkg.com/leaflet@1.9.4/dist/leaflet.js"
+        integrity="sha256-20nQCchB9co0qIjJZRGuk2/Z9VM+kNiyxNV1lvTlZBo=" crossorigin=""></script>
+
+    <style>
+        @import "https://unpkg.com/open-props";
+
+        * {
+            box-sizing: border-box;
+            /* font-size: 16px; */
+            font-family: 'RedHat', 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
+        }
+
+        ::-webkit-scrollbar {
+            width: 0.8rem;
+            height: 0.5rem;
+        }
+
+        ::-webkit-scrollbar {
+            display: none;
+            /* Safari and Chrome */
+        }
+
+        /* Track */
+        ::-webkit-scrollbar-track {
+            background: black;
+        }
+
+        /* Handle */
+        ::-webkit-scrollbar-thumb {
+            background: var(--COL3);
+        }
+
+        /* Handle on hover */
+        ::-webkit-scrollbar-thumb:hover {
+            background: var(--COL2);
+        }
+
+
+
+
+        @font-face {
+            font-family: "Inter";
+            src: url("../fonts/Inter-VariableFont_slnt\,wght.ttf");
+        }
+
+        @font-face {
+            font-family: "RedHat";
+            src: url("../fonts/RedHatDisplay-VariableFont_wght.ttf");
+        }
+
+        @font-face {
+            font-family: "Fraunces";
+            src: url("../fonts/Fraunces-VariableFont_SOFT\,WONK\,opsz\,wght.ttf");
+        }
+
+        @font-face {
+            font-family: "Poppins";
+            src: url("../fonts/Poppins-Regular.ttf");
+        }
+
+
+        [data-theme='light'] {
+            --PRIMARY-COLOR: black;
+            --SECONDARY-COLOR: white;
+        }
+
+        [data-theme='dark'] {
+            --PRIMARY-COLOR: white;
+            --SECONDARY-COLOR: black;
+
+        }
+
+
+        html,
+        body {
+            margin: 0;
+            block-size: 100dvh;
+            scroll-behavior: smooth;
+        }
+
+
+
+
+
+        ul {
+            margin: 0;
+            padding: 0;
+        }
+
+        li {
+            list-style-type: none;
+            margin: 0;
+        }
+
+
+
+        h1,
+        h2,
+        h3,
+        h4,
+        img,
+        figure,
+        p {
+            margin: 0;
+            padding: 0;
+
+        }
+
+        :root {
+            font-size: 16px;
+            --RED: hsl(0, 78%, 62%);
+            --CYAN: hsl(180, 63%, 84%);
+            --ORANGE: hsl(53, 97%, 64%);
+            --BLUE: hsl(212, 89%, 82%);
+            --GREY: rgba(0, 0, 0, 0.1);
+
+            --COL1: #db0a5b;
+            --COL2: #fef160;
+            --COL3: #23cba7;
+            --COL4: #3e6ceb;
+            --COL5: #d9c8ec;
+
+            --BORDER-RADIUS: .5rem;
+
+            --HERO-CONTENT-WIDTH: min(90ch, 100%);
+            --CONTENT-WIDTH: min(65ch, 100%);
+            --SPACING: 1.5rem;
+            /* --PRIMARY-COLOR: black;
+            --SECONDARY-COLOR: white; */
+            --FOOTER-GREY: #f5f5f7;
+
+            --GRADIENT: conic-gradient(from 180deg at 50% 70%, hsla(0, 0%, 98%, 1) 0deg, #eec32d 72.0000010728836deg, #ec4b4b 144.0000021457672deg, #709ab9 216.00000858306885deg, #4dffbf 288.0000042915344deg, hsla(0, 0%, 98%, 1) 1turn);
+
+        }
+
+        main {
+            inline-size: var(--HERO-CONTENT-WIDTH);
+            margin: 0 auto;
+            padding: var(--SPACING);
+            /* background-color: aliceblue; */
+            display: flex;
+            flex-direction: column;
+            justify-content: center;
+            
+        }
+
+
+        .fab{
+            position: fixed;
+            bottom: 2rem;
+            right: 2rem;
+        }
+
+        .fab .top-button{
+            --WIDTH: 3rem;
+            position: relative;
+            inline-size: var(--WIDTH);
+            block-size: var(--WIDTH);
+            border-radius: 50%;
+            background-color: #db0a5b;
+            border: 2px solid #db0a5b;
+            cursor: pointer;
+            transition: background-color .3s ease-in-out;
+        }
+
+        .fab .top-button::after{
+            position: absolute;
+            content: "";
+            top: 50%;
+            left: 50%;
+            transform: translate(-50%,-50%);
+            clip-path: polygon(50% 0, 100% 100%, 0 100%);
+            inline-size: calc(.5*var(--WIDTH));
+            block-size: calc(.35*var(--WIDTH));
+            background-color: white;
+            transition: background-color .3s ease-in-out;
+        }
+
+        .fab .top-button:hover{
+            background-color: white;
+        }
+
+        .fab .top-button:hover::after{
+            background-color: #db0a5b;
+        }
+
+        .table {
+            margin: 0;
+            width: 100%;
+        }
+
+
+        .table__item {
+            padding-block: var(--SPACING);
+            transition: background-color .3s ease-in-out;
+            border-bottom: 1px solid rgba(0, 0, 0, 0.3);            
+        }
+
+        .table__item td{
+            padding: var(--SPACING);
+            user-select: none;
+            border-radius: .5rem;
+        }
+
+        .table__item:hover{
+            background-color: rgb(204, 242, 204);
+        }
+
+        .table__item__title {
+            font-weight: 800;
+            font-size: 1.1rem;
+        }
+
+        .table th {
+            text-align: left;
+            background-color: var(--FOOTER-GREY);
+            border-radius: .5rem;
+            padding: var(--SPACING);
+            font-size: 1.2rem;
+        }
+
+      
+        .load-more {
+            margin-top: var(--SPACING);
+            background-color: var(--FOOTER-GREY);
+            block-size: 10rem;
+            width: 100%;
+            display: flex;
+            align-items: center;
+            border-radius: .5rem;
+            justify-content: center;
+            font-weight: 800;
+            font-size: 1.2rem;
+        }
+
+        nav{
+            inline-size: var(--HERO-CONTENT-WIDTH);
+            
+            margin: 0 auto;
+            padding: var(--SPACING);
+            block-size: 10rem;
+            display: flex;
+            justify-content: flex-start;
+            align-items: center;
+        }
+
+        nav button{
+            --WIDTH: 2rem;
+            inline-size: var(--WIDTH);
+            block-size: var(--WIDTH);
+            border-radius: 50%;
+            border: 2px solid rgba(0, 0, 0, 0.3);
+            background-color: white;
+            cursor: pointer;
+            transition: filter .3s ease-in-out;
+        }
+
+        nav button:hover{
+            filter: drop-shadow(0 0 1rem red);            
+        }
+
+        .hero{
+            inline-size: var(--HERO-CONTENT-WIDTH);
+            margin: 0 auto;
+            display: flex;
+            justify-content: center;
+            flex-direction: column;
+            padding: var(--SPACING);
+        }
+
+        .hero__container{
+            padding-block: calc(8*var(--SPACING));
+            padding-block-end: calc(12*var(--SPACING));
+        }
+
+        .hero__container h1{
+            font-size: 4.5rem;
+            letter-spacing: -.2rem;
+            line-height: .9;
+        }
+
+        .hero__container p{
+            font-size: 2.5rem;
+            letter-spacing: -.1rem;
+            line-height: .9;
+            white-space: preserve;
+        }
+
+
+    </style>
+
+<body>
+    <nav>
+        <button onclick="history.back()"></button>
+    </nav>
+    <div class="hero">
+        <div class="hero__container">
+            <h1>Netflix Data</h1>
+            <p>Viewing Data for 
+January - June 2023.</p>
+        </div>
+    </div>
+    <main>
+        <table id="table" class="table">
+            <tr>
+                <th>
+                    Title
+                </th>
+                <th>
+                    Available Globally
+                </th>
+                <th>
+                    Release Date
+                </th>
+                <th>
+                    Hours viewed
+                </th>
+            </tr>
+        </table>
+        <div class="load-more" id="load-more">
+            Loading More Data.
+        </div>
+
+    </main>
+    <div class="fab">
+        <button id="top-button" class="top-button">
+
+        </button>
+    </div>
+
+    <script type="module">
+        //846 - 947
+        const table = document.getElementById("table");
+        const loadMoreIndicator = document.getElementById("load-more");
+        const topButton = document.getElementById("top-button");
+
+        topButton.addEventListener("click",  () => {
+            document.documentElement.scrollTop = 0;
+        });
+
+        let CURSOR = 40;
+        let DATA = [];
+
+        window.addEventListener("load", loadData);
+        window.addEventListener("scroll", () => {
+            if(isElementInView(loadMoreIndicator)){
+                table.append(loadNextDataChunk(CURSOR, 20));
+            }
+        });
+
+        function isElementInView(el){
+            const {top, left, bottom, right} = el.getBoundingClientRect();
+            return (
+                top >= 0 &&
+                left >= 0 &&
+                bottom <= (window.innerHeight || document.documentElement.clientHeight) &&
+                right <= (window.innerWidth || document.documentElement.clientWidth)
+            );
+        }
+
+
+        function makeTableRow(data) {
+            const row = document.createElement("tr");
+            row.classList.add("table__item");
+            const title = document.createElement("td");
+            title.classList.add("table__item__title");
+            title.textContent = data["Title"];
+
+            const available = document.createElement("td");
+            available.textContent = data["Available Globally?"];
+
+            const date = document.createElement("td");
+            date.textContent = data["Release Date"];
+            const time = document.createElement("td");
+            time.textContent = data["Hours Viewed"];
+            row.append(title);
+            row.append(available);
+            row.append(date);
+            row.append(time);
+            return row;
+        }
+
+        function loadNextDataChunk(cursor, chunksize) {
+            const fragment = new DocumentFragment();
+            for (let i = cursor; i < cursor + chunksize; i++) {
+                fragment.append(makeTableRow(DATA[i]));
+            }
+
+            CURSOR += chunksize;
+            return fragment;
+        }
+
+        function loadData() {
+            const url = "../data/netflix.json";
+            fetch(url).then(res => {
+                if (!res.ok) {
+                    throw new Error("Something went wrong with the fetch.");
+                } else {
+                    return res.json();
+                }
+            }).then(res => {
+                console.log(res.data);
+                DATA = res.data;
+                const { data } = DATA;
+
+                
+                const fragment = new DocumentFragment();
+                for (let i = 0; i < CURSOR; i++) {
+                    fragment.append(makeTableRow(DATA[i]));
+                }
+
+                table.append(fragment);
+            }).catch(e => {
+                console.log(e);
+                console.log("something has gone wrong.");
+            });
+        }
+    </script>
+
+</body>
+
+</html>

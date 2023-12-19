@@ -1,0 +1,355 @@
+<!DOCTYPE html>
+<html lang="en" data-theme="light">
+
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <link rel="preconnect" href="https://fonts.gstatic.com">
+    <!-- <link rel="icon" type="../image/png" sizes="32x32" href="../images/favicon-32x32.png"> -->
+    <title>12/08/23</title>
+    <link rel="stylesheet" href="https://unpkg.com/leaflet@1.9.4/dist/leaflet.css"
+        integrity="sha256-p4NxAoJBhIIN+hmNHrzRCf9tD/miZyoHS5obTRR9BMY=" crossorigin="" />
+    <script src="https://unpkg.com/leaflet@1.9.4/dist/leaflet.js"
+        integrity="sha256-20nQCchB9co0qIjJZRGuk2/Z9VM+kNiyxNV1lvTlZBo=" crossorigin=""></script>
+
+    <style>
+        @import "https://unpkg.com/open-props";
+
+        * {
+            box-sizing: border-box;
+            /* font-size: 16px; */
+            font-family: 'RedHat', 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
+        }
+
+        ::-webkit-scrollbar {
+            width: 0.8rem;
+            height: 0.5rem;
+        }
+
+        ::-webkit-scrollbar {
+            display: none;
+            /* Safari and Chrome */
+        }
+
+        /* Track */
+        ::-webkit-scrollbar-track {
+            background: black;
+        }
+
+        /* Handle */
+        ::-webkit-scrollbar-thumb {
+            background: var(--COL3);
+        }
+
+        /* Handle on hover */
+        ::-webkit-scrollbar-thumb:hover {
+            background: var(--COL2);
+        }
+
+
+
+
+        @font-face {
+            font-family: "Inter";
+            src: url("../fonts/Inter-VariableFont_slnt\,wght.ttf");
+        }
+
+        @font-face {
+            font-family: "RedHat";
+            src: url("../fonts/RedHatDisplay-VariableFont_wght.ttf");
+        }
+
+        @font-face {
+            font-family: "Fraunces";
+            src: url("../fonts/Fraunces-VariableFont_SOFT\,WONK\,opsz\,wght.ttf");
+        }
+
+        @font-face {
+            font-family: "Poppins";
+            src: url("../fonts/Poppins-Regular.ttf");
+        }
+
+
+        [data-theme='light'] {
+            --PRIMARY-COLOR: black;
+            --SECONDARY-COLOR: white;
+        }
+
+        [data-theme='dark'] {
+            --PRIMARY-COLOR: white;
+            --SECONDARY-COLOR: black;
+
+        }
+
+
+        html,
+        body {
+            margin: 0;
+            block-size: 100dvh;
+        }
+
+
+
+
+
+        ul {
+            margin: 0;
+            padding: 0;
+        }
+
+        li {
+            list-style-type: none;
+            margin: 0;
+        }
+
+
+
+        h1,
+        h2,
+        h3,
+        h4,
+        img,
+        figure,
+        p {
+            margin: 0;
+            padding: 0;
+
+        }
+
+        :root {
+            font-size: 16px;
+            --RED: hsl(0, 78%, 62%);
+            --CYAN: hsl(180, 63%, 84%);
+            --ORANGE: hsl(53, 97%, 64%);
+            --BLUE: hsl(212, 89%, 82%);
+            --GREY: rgba(0, 0, 0, 0.1);
+
+            --COL1: #db0a5b;
+            --COL2: #fef160;
+            --COL3: #23cba7;
+            --COL4: #3e6ceb;
+            --COL5: #d9c8ec;
+
+            --BORDER-RADIUS: .5rem;
+
+            --HERO-CONTENT-WIDTH: min(120ch, 100%);
+            --CONTENT-WIDTH: min(65ch, 100%);
+            --SPACING: 1.5rem;
+            /* --PRIMARY-COLOR: black;
+            --SECONDARY-COLOR: white; */
+            --FOOTER-GREY: #f5f5f7;
+
+            --GRADIENT: conic-gradient(from 180deg at 50% 70%, hsla(0, 0%, 98%, 1) 0deg, #eec32d 72.0000010728836deg, #ec4b4b 144.0000021457672deg, #709ab9 216.00000858306885deg, #4dffbf 288.0000042915344deg, hsla(0, 0%, 98%, 1) 1turn);
+
+        }
+
+        main{
+            inline-size: var(--CONTENT-WIDTH);
+            margin: 0 auto;
+            padding: var(--SPACING);
+        }
+
+        .list{
+            display: flex;
+            flex-direction: column;
+            gap: var(--SPACING);
+        }
+
+        .list__item{
+            background-color:#f3f3f3;
+            padding: 1rem;            
+            margin-bottom: .25rem;
+            border-radius: .25rem;
+            display: flex;
+            align-items: center;
+            gap: var(--SPACING);
+            transition:  background-color .3s ease-in-out;
+
+        }
+
+        .list__item--tv{
+            background-color: rgb(184, 242, 184);
+            
+        }
+
+        .list__item:hover{
+            background-color: var(--GREY);
+        }
+
+        .list__item__title{
+            font-weight: 800;
+            inline-size: 40ch;
+            
+        }
+
+        .list__item__availability{
+            
+            inline-size: 8ch;
+            font-size: .8rem;
+            user-select: none;
+            text-align: left;
+        }   
+
+        .list__item__date{
+            inline-size: 10ch;
+            font-size: .8rem;
+            text-align: left;
+        }
+        .list__item__hours{
+            inline-size: 7ch;
+            font-weight: 800;
+            text-align: right;
+            font-size: .9rem;
+        }
+
+        .list__item__header{
+            font-weight: 800;
+            font-size: 1rem;
+            line-height: .75;
+            
+        }
+
+        nav{
+            inline-size: var(--CONTENT-WIDTH);
+            margin: 0 auto;
+            padding: var(--SPACING);
+            block-size: 10rem;
+            display: flex;
+            align-items: center;
+        }
+
+        nav button{
+            --WIDTH: 2rem;
+            border-radius: 50%;
+            cursor: pointer;
+            inline-size: var(--WIDTH);
+            block-size: var(--WIDTH);
+            background-color: white;
+            border: 2px solid rgba(0, 0, 0, 0.3);
+            transition: filter .3s ease-in-out;
+        }
+
+        nav button:hover{
+            filter: drop-shadow(0 0 1rem rgb(184, 239, 184));
+        }
+    </style>
+
+<body>
+    <nav>
+        
+            <button onclick="history.back()">
+            </button>
+        
+    </nav>
+    <main id="root">
+
+    </main>
+
+
+
+    <script type="module">
+        fetch("../data/netflix.json").then(res => {
+            if(!res.ok){
+                throw new Error("issue with getting the json data")
+            }else{
+                return res.json();
+            }
+        }).then(res => {
+            const root = document.getElementById("root");
+           
+            // const LIMIT = 400;
+            // init(root, res.data.slice(0,LIMIT));
+            init(root, res.data);
+        }).catch(e =>{
+            console.log('something has gone wrong');
+            console.log(e);
+        });
+
+
+        function init(selector, data){
+            selector.append(createList(data));
+        }
+
+
+        function createList(data){
+            const fragment = new DocumentFragment();
+            const list = document.createElement("ul");
+            for(let i = 0; i < data.length; i++){
+                const {title} = data[i];
+                fragment.append(createListItem(data[i]));
+            }
+            list.append(createListHeader());
+            list.append(fragment);
+            return list;
+        }
+
+        function createListHeader(){
+            const listItem = document.createElement("li");
+            listItem.classList.add("list__item");   
+
+            listItem.classList.add("list__item__header");   
+            const title = document.createElement("span");
+            title.classList.add("list__item__title");
+            title.textContent = "Title";
+                
+            const available = document.createElement("span");
+            available.textContent = "Global";
+            available.classList.add("list__item__availability");                    
+            available.classList.add("list__item__header");   
+
+            const date = document.createElement("span");
+            date.textContent = "Y/M/D";
+            date.classList.add("list__item__date");
+            date.classList.add("list__item__header");   
+
+            const hours = document.createElement('span');
+            hours.textContent = "Hours (in 100K)";
+            hours.classList.add("list__item__hours");
+            hours.classList.add("list__item__header");   
+            
+            listItem.append(title, available, date, hours);
+            return listItem;
+        }
+
+        function createListItem(data){
+        
+            const listItem = document.createElement("li");
+            listItem.classList.add("list__item");
+           
+
+            for(let [k,v] of Object.entries(data)){
+                const c = document.createElement("span");
+                if(k === "Title"){
+                    c.classList.add("list__item__title");
+                    if(v.includes("Season") || 
+                        v.includes("Limited Series") ||
+                        v.includes("Part 1") ||
+                        v.includes("Part 2") ||
+                        v.includes("Stranger Things") || 
+                        v.includes("Volume 1") ||
+                        v.includes("Volume 2")){
+                        listItem.classList.add('list__item--tv');
+                    }
+
+
+                }else if(k==="Available Globally?"){
+                    c.classList.add("list__item__availability");
+                }else if(k==="Release Date"){
+                    c.classList.add("list__item__date");
+                    v=v.replace("20", "");
+                }else if(k==="Hours Viewed"){
+                    c.classList.add("list__item__hours");
+                    v=parseInt(v.replaceAll(",", ""))/100000;
+                }
+                c.textContent = v;
+                listItem.append(c);      
+            }
+            
+            return listItem;
+        }
+    </script>
+
+</body>
+
+</html>

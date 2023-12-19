@@ -736,7 +736,7 @@
             "screenshot": "",
             "reference": [
                 "https://discourse.webflow.com/t/gradient-background-keeps-repeating-despite-no-repeat/138670/3",
-                "https://blog.openreplay.com/lazy-loading-in-javascript/"             
+                "https://blog.openreplay.com/lazy-loading-in-javascript/"
             ]
         },
         {
@@ -750,7 +750,7 @@
             "screenshot": "",
             "reference": [
                 "https://stackoverflow.com/a/30050629",
-                "https://blog.openreplay.com/lazy-loading-in-javascript/"              
+                "https://blog.openreplay.com/lazy-loading-in-javascript/"
             ]
         },
         {
@@ -764,7 +764,7 @@
             "screenshot": "",
             "reference": [
                 "https://www.tutorialrepublic.com/faq/how-to-convert-a-unix-timestamp-to-time-in-javascript.php",
-                "https://notadesigner.io/p/tighter-better-art-letter-spacing"              
+                "https://notadesigner.io/p/tighter-better-art-letter-spacing"
             ]
         },
         {
@@ -776,9 +776,7 @@
             "description": "Making Images with Text on Them.",
             "lesson": "",
             "screenshot": "",
-            "reference": [
-                
-            ]
+            "reference": []
         },
         {
             "month": 11,
@@ -789,9 +787,7 @@
             "description": "Landing page based on the Stripe Landing page. ISSUE: I couldn't get the clip-path to work to create the weird assymetrical shape to work.",
             "lesson": "",
             "screenshot": "",
-            "reference": [
-                
-            ]
+            "reference": []
         },
         {
             "month": 11,
@@ -856,7 +852,7 @@
             "lesson": "",
             "screenshot": "",
             "reference": [
-                "https://ishadeed.com/article/css-masking/"               
+                "https://ishadeed.com/article/css-masking/"
             ]
         },
         {
@@ -868,9 +864,7 @@
             "description": "Stories Attempt 1.",
             "lesson": "",
             "screenshot": "",
-            "reference": [
-                
-            ]
+            "reference": []
         },
         {
             "month": 12,
@@ -900,7 +894,7 @@
                 "https://stackoverflow.com/questions/59777670/how-can-i-hash-a-string-with-sha256-in-js/67600346#67600346",
                 "https://developer.mozilla.org/en-US/docs/Web/API/Clipboard/readText",
                 "https://developer.mozilla.org/en-US/docs/Web/API/Clipboard/writeText",
-                "https://developer.mozilla.org/en-US/docs/Web/HTML/Element/textarea#autofocus"                
+                "https://developer.mozilla.org/en-US/docs/Web/HTML/Element/textarea#autofocus"
             ]
         },
         {
@@ -912,8 +906,7 @@
             "description": "Horizontal Slides with Gradients and a Gradient with a Mask.",
             "lesson": "",
             "screenshot": "",
-            "reference": [                
-            ]
+            "reference": []
         },
         {
             "month": 12,
@@ -924,8 +917,7 @@
             "description": "Auto scrolling images from picsum.photos with a timer at the top. ISSUE: I had to use animation-delay for the dynamically loaded ones.  I also attempted pausing and resuming the animations but the animation-delay worked better.",
             "lesson": "",
             "screenshot": "",
-            "reference": [                
-            ]
+            "reference": []
         },
         {
             "month": 12,
@@ -936,8 +928,7 @@
             "description": "Timeline with Images. Not Responsive.",
             "lesson": "",
             "screenshot": "",
-            "reference": [                
-            ]
+            "reference": []
         },
         {
             "month": 12,
@@ -948,8 +939,8 @@
             "description": "LeafletJS Tutorial",
             "lesson": "",
             "screenshot": "",
-            "reference": [  
-                "https://leafletjs.com/"              
+            "reference": [
+                "https://leafletjs.com/"
             ]
         },
         {
@@ -961,10 +952,94 @@
             "description": "Dribbble clone.  Uses Scroll Snapping. Lazy loading onscroll.  Uses Dialog HTML tag for the modal.  Uses Lorem Picsum for photos. ISSUE: full screen of the dialog tag performs oddly, so you have to set the max-width and max-height values in order to back the background to fill the screen.  ISSUE: The image clicked on does not result in the image that appears in the modal.",
             "lesson": "",
             "screenshot": "",
-            "reference": [  
+            "reference": [
                 "https://stackoverflow.com/a/75024226",
-                "https://blog.openreplay.com/lazy-loading-in-javascript/" ,
-                "https://dribbble.com/shots/popular"            
+                "https://blog.openreplay.com/lazy-loading-in-javascript/",
+                "https://dribbble.com/shots/popular"
+            ]
+        },
+        {
+            "month": 12,
+            "day": 11,
+            "year": 2023,
+            "link": "/2023/1211.html",
+            "visible": true,
+            "description": "Fade In Checkboxes with Staggered delay.  ISSUE: Not entirely what I set out to accomplish but I guess it's acceptable. ISSUE: also I found out that I was using putting the animation-delay value in the animation shorthand css incorrectly.  It's easier to understand if I just use animation-delay explicitly.",
+            "lesson": "",
+            "screenshot": "",
+            "reference": [
+                "https://ishadeed.com/article/css-variables-inline-styles/"
+            ]
+        },
+        {
+            "month": 12,
+            "day": 13,
+            "year": 2023,
+            "link": "/2023/1213.html",
+            "visible": true,
+            "description": "Netflix Data.  Converted JSON from CSV.",
+            "lesson": "",
+            "screenshot": "",
+            "reference": [
+                
+            ]
+        },
+        {
+            "month": 12,
+            "day": 14,
+            "year": 2023,
+            "link": "/2023/1214.html",
+            "visible": true,
+            "description": "Conic Gradient Timer",
+            "lesson": "",
+            "screenshot": "",
+            "reference": [
+                
+            ]
+        },
+        {
+            "month": 12,
+            "day": 15,
+            "year": 2023,
+            "link": "/2023/1215.html",
+            "visible": true,
+            "description": "Conic Gradient Timer again. Mask Image to obscure the ones at the end.  Disappearing text with timeouts. ISSUE: Had to look up how to keep things scrolled to the bottom of the list.  Dynamic timeouts done using el.style.setProperty(key ,value).",
+            "lesson": "",
+            "screenshot": "",
+            "reference": [
+                "https://stackoverflow.com/a/40903808",
+                "https://developer.mozilla.org/en-US/docs/Web/API/CSSStyleDeclaration/setProperty"
+            ]
+        },
+        {
+            "month": 12,
+            "day": 16,
+            "year": 2023,
+            "link": "/2023/1216.html",
+            "visible": true,
+            "description": "Netflix data with Tables and Lazy Loading.  ISSUE: Lazy loading doesn't work when the desktop window is fully maximized, but it does work when it's not, but that's because I copied the code incorrectly from the reference. Floating Action bar at the bottom right to scroll to the top.",
+            "lesson": "",
+            "screenshot": "",
+            "reference": [
+                "https://blog.openreplay.com/lazy-loading-in-javascript/",
+                "https://www.w3schools.com/howto/howto_js_scroll_to_top.asp"
+            ]
+        },
+        {
+            "month": 12,
+            "day": 18,
+            "year": 2023,
+            "link": "/2023/1218.html",
+            "visible": true,
+            "description": "Todo List.  ISSUE: StackOverflow Link for getting the checked value. ISSUE: MDN for setting style property using JS.  ISSUE: Scrolling to the bottom of a full list from StackOverflow, which I've forgotten how to do again. ISSUE: HTMLHEL.dev was useful for the tabbed outline for the text input, input radio and input submit.  The 'outline-offset': 2px value was particularly useful. TIME: 2hrs.",
+            "lesson": "",
+            "screenshot": "",
+            "reference": [
+                "https://stackoverflow.com/a/24886483",
+                "https://developer.mozilla.org/en-US/docs/Web/API/CSSStyleDeclaration/setProperty",
+                "https://stackoverflow.com/a/18614545",
+                "https://www.htmhell.dev/adventcalendar/2023/2/"
+                
             ]
         }
     ],

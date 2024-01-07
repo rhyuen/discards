@@ -1,0 +1,261 @@
+<!DOCTYPE html>
+<html lang="en" data-theme="light">
+
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <link rel="preconnect" href="https://fonts.gstatic.com">
+    <!-- <link rel="icon" type="../image/png" sizes="32x32" href="../images/favicon-32x32.png"> -->
+    <title>12/29/23</title>
+    <link rel="stylesheet" href="https://unpkg.com/leaflet@1.9.4/dist/leaflet.css"
+        integrity="sha256-p4NxAoJBhIIN+hmNHrzRCf9tD/miZyoHS5obTRR9BMY=" crossorigin="" />
+    <script src="https://unpkg.com/leaflet@1.9.4/dist/leaflet.js"
+        integrity="sha256-20nQCchB9co0qIjJZRGuk2/Z9VM+kNiyxNV1lvTlZBo=" crossorigin=""></script>
+    <link rel="stylesheet" href="../shared/style-2023.css" />
+    <style>
+        main {
+            inline-size: var(--CONTENT-WIDTH);
+            margin: 0 auto;
+            padding: var(--SPACING);
+        }
+
+        .pickbox {}
+
+        form {
+            display: flex;
+            flex-direction: column;            
+        }
+
+        fieldset {
+            border: none;
+            margin-block-end: calc(2*var(--SPACING));
+        }
+
+        fieldset legend {
+            font-weight: 600;
+            font-size: 1.2rem;
+            margin-block-end: calc(.5*var(--SPACING));
+        }
+
+        .row {
+            display: flex;
+            flex-wrap: wrap;
+            gap: calc(.25*var(--SPACING));
+        }
+
+        .row__button,
+        .row__checkbox {
+            padding: .25rem 1rem;
+            border: 2px solid var(--DARKER-GREY);
+            border-radius: 2rem;
+            font-weight: 600;
+            cursor: pointer;
+        }
+
+        .row__button::first-letter {
+            text-transform: uppercase;
+        }
+
+        .row__button:hover {
+            background-color: rgb(107, 72, 220);
+            color: white;
+        }
+
+        input[type='checkbox'] {
+            appearance: none;
+            display: none;
+        }
+
+
+        .row__checkbox:hover {
+            color: white;
+            background-color: var(--COL1);
+            border-color: var(--COL1);
+        }
+
+
+        input[type='checkbox']:checked+.row__checkbox {
+            color: white;
+            background-color: var(--COL1);
+            border-color: var(--COL1);
+        }
+
+
+
+
+        input[type='radio'] {
+            appearance: none;
+            display: none;
+        }
+
+        input[type='radio']:focus+.row__button {
+            outline: 2px solid red;
+        }
+
+        input[type='radio']:checked+.row__button {
+            color: white;
+            background-color: blue;
+        }
+
+        input[type='submit']{
+            font-size: 1.1rem;
+            font-weight: 600;
+            border-radius: 2rem;
+            padding: .5rem 1rem;
+            border: 2px solid var(--GREY);
+            cursor: pointer;
+            margin-left: 1rem;
+            color: black;
+        }
+
+        nav{
+            inline-size: var(--CONTENT-WIDTH);
+            margin: 0 auto;
+            padding: var(--SPACING);
+            block-size: 7.5rem;
+            display: flex;
+            align-items: center;            
+        }
+
+        nav button{
+            margin-left: 1rem;
+            --WIDTH: 1.75rem;
+            border-radius: 50%;
+            inline-size: var(--WIDTH);
+            block-size: var(--WIDTH);
+            border: 2px solid var(--GREY);
+            background-color: white;
+            cursor: pointer;            
+            filter: drop-shadow(0 0 1rem rgb(89, 17, 234));
+        }
+
+
+
+        footer{
+            inline-size: var(--CONTENT-WIDTH);
+            margin: 0 auto;
+            margin-block-start: 8rem;
+            padding: var(--SPACING);
+            padding-top: 4rem;
+            
+            block-size: 7.5rem;
+            display: flex;
+            align-items: center;   
+        }
+        .footer__content{
+            padding: 1rem;
+        }
+
+        .footer__content h2{
+            border-top: 2px solid var(--GREY);
+            padding-top: 2rem;
+            padding-bottom: 1rem;
+            letter-spacing: -.1rem;            
+        }
+
+        .footer__content p{
+            line-height: 2;
+        }
+
+        .footer__content a{
+            color: black;
+            font-weight: 800;
+        }
+    </style>
+
+<body>
+    <nav>
+        <button onclick="history.back()"></button>
+    </nav>
+    <main>
+        <form id="picker">
+            <fieldset>
+                <legend>Pick one or more of the following.</legend>
+                <div class="row">
+                    <input type="checkbox" id="lithium" value="lithium">
+                    <label for="lithium" class="row__checkbox">
+                        Lithium
+                    </label>
+                    <input type="checkbox" id="boron" value="boron">
+                    <label for="boron" class="row__checkbox">
+                        boron
+                    </label>
+                    <input type="checkbox" id="argon" value="argon">
+                    <label for="argon" class="row__checkbox">
+                        argon
+                    </label>
+                    <input type="checkbox" id="lanthanum" value="lanthanum">
+                    <label for="lanthanum" class="row__checkbox">
+                        lanthanum
+                    </label>
+                    <input type="checkbox" id="gold" value="gold">
+                    <label for="gold" class="row__checkbox">
+                        gold
+                    </label>
+                    <input type="checkbox" id="silver" value="silver">
+                    <label for="silver" class="row__checkbox">
+                        silver
+                    </label>
+                    <input type="checkbox" id="iron" value="iron">
+                    <label for="iron" class="row__checkbox">
+                        iron
+                    </label>
+                    <input type="checkbox" id="helium" value="helium">
+                    <label for="helium" class="row__checkbox">
+                        helium
+                    </label>
+                    <input type="checkbox" id="neon" value="neon">
+                    <label for="neon" class="row__checkbox">
+                        neon
+                    </label>
+                    <input type="checkbox" id="carbon" value="carbon">
+                    <label for="carbon" class="row__checkbox">
+                        carbon
+                    </label>
+
+                </div>
+            </fieldset>
+            <fieldset>
+                <legend>Pick One of the following.</legend>
+                <div class="row">
+                    <input type="radio" name="rock" value="obsidian" id="obsidian">
+                    <label class="row__button" for="obsidian">Obsidian</label>
+                    <input type="radio" name="rock" value="slate" id="slate">
+                    <label class="row__button" for="slate">Slate</label>
+                    <input type="radio" name="rock" value="shale" id="shale">
+                    <label class="row__button" for="shale">Shale</label>
+                    <input type="radio" name="rock" value="limestone" id="limestone">
+                    <label class="row__button" for="limestone">Limestone</label>
+                    <input type="radio" name="rock" value="pumice" id="pumice">
+                    <label class="row__button" for="pumice">pumice</label>
+                    <input type="radio" name="rock" value="talc" id="talc">
+                    <label class="row__button" for="talc">talc</label>
+                    <input type="radio" name="rock" value="granite" id="granite">
+                    <label class="row__button" for="granite">granite</label>
+                </div>
+            </fieldset>
+            <div class="row">
+                <input type="submit"/>
+            </div>
+        </form>
+        
+    </main>
+    <footer>
+        <div class="footer__content">
+            <h2>Notes and References</h2>
+            <p>December 29, 2023</p>
+            <p>Using fieldset and making picklists using the tips provided in the youtube video from web.dev <a href="https://www.youtube.com/watch?v=d2O-8n-UnrI">here</a>.</p>
+            <p>You can use the legend element for denoting directions for users.</p>
+            <p>Also, you can go into the browser console and type 'document.picklists' and it'll enumerate all of the ids in the document.</p>
+            <p>I also attempted using an external CSS sheet for the reused styles.  However, I noticed that the code completion doesn't immediately populate with the already defined CSS Variables/Customer Properties in the external sheet.</p>
+        </div>
+    </footer>
+    <script type="module">
+
+
+    </script>
+
+</body>
+
+</html>

@@ -1,0 +1,518 @@
+<!DOCTYPE html>
+<html lang="en" data-theme="light">
+
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <link rel="preconnect" href="https://fonts.gstatic.com">
+    <!-- <link rel="icon" type="../image/png" sizes="32x32" href="../images/favicon-32x32.png"> -->
+    <title>12/20/23</title>
+    <link rel="stylesheet" href="https://unpkg.com/leaflet@1.9.4/dist/leaflet.css"
+        integrity="sha256-p4NxAoJBhIIN+hmNHrzRCf9tD/miZyoHS5obTRR9BMY=" crossorigin="" />
+    <script src="https://unpkg.com/leaflet@1.9.4/dist/leaflet.js"
+        integrity="sha256-20nQCchB9co0qIjJZRGuk2/Z9VM+kNiyxNV1lvTlZBo=" crossorigin=""></script>
+    <style>
+        @import "https://unpkg.com/open-props";
+
+        * {
+            box-sizing: border-box;
+            /* font-size: 16px; */
+            font-family: 'RedHat', 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
+        }
+
+        ::-webkit-scrollbar {
+            width: 0.8rem;
+            height: 0.5rem;
+        }
+
+        ::-webkit-scrollbar {
+            display: none;
+            /* Safari and Chrome */
+        }
+
+        /* Track */
+        ::-webkit-scrollbar-track {
+            background: black;
+        }
+
+        /* Handle */
+        ::-webkit-scrollbar-thumb {
+            background: var(--COL3);
+        }
+
+        /* Handle on hover */
+        ::-webkit-scrollbar-thumb:hover {
+            background: var(--COL2);
+        }
+
+        @font-face {
+            font-family: "Inter";
+            src: url("../fonts/Inter-VariableFont_slnt\,wght.ttf");
+        }
+
+        @font-face {
+            font-family: "RedHat";
+            src: url("../fonts/RedHatDisplay-VariableFont_wght.ttf");
+        }
+
+        @font-face {
+            font-family: "Fraunces";
+            src: url("../fonts/Fraunces-VariableFont_SOFT\,WONK\,opsz\,wght.ttf");
+        }
+
+        @font-face {
+            font-family: "Poppins";
+            src: url("../fonts/Poppins-Regular.ttf");
+        }
+
+        [data-theme='light'] {
+            --PRIMARY-COLOR: black;
+            --SECONDARY-COLOR: white;
+        }
+
+        [data-theme='dark'] {
+            --PRIMARY-COLOR: white;
+            --SECONDARY-COLOR: black;
+        }
+
+        html,
+        body {
+            margin: 0;
+            block-size: 100dvh;
+            scroll-behavior: smooth;
+        }
+
+        ul {
+            margin: 0;
+            padding: 0;
+        }
+
+        li {
+            list-style-type: none;
+            margin: 0;
+        }
+
+        h1,
+        h2,
+        h3,
+        h4,
+        img,
+        figure,
+        p {
+            margin: 0;
+            padding: 0;
+        }
+
+        :root {
+            font-size: 16px;
+            --RED: hsl(0, 78%, 62%);
+            --CYAN: hsl(180, 63%, 84%);
+            --ORANGE: hsl(53, 97%, 64%);
+            --BLUE: hsl(212, 89%, 82%);
+            --GREY: rgba(0, 0, 0, 0.1);
+            --DARKER-GREY: rgba(0, 0, 0, 0.3);
+
+            --COL1: #db0a5b;
+            --COL2: #fef160;
+            --COL3: #23cba7;
+            --COL4: #3e6ceb;
+            --COL5: #d9c8ec;
+
+            --BORDER-RADIUS: .5rem;
+
+            --HERO-CONTENT-WIDTH: min(90ch, 100%);
+            --CONTENT-WIDTH: min(65ch, 100%);
+            --SPACING: 1.5rem;
+            /* --PRIMARY-COLOR: black;
+            --SECONDARY-COLOR: white; */
+            --FOOTER-GREY: #f5f5f7;
+            --GRADIENT: conic-gradient(from 180deg at 50% 70%, hsla(0, 0%, 98%, 1) 0deg, #eec32d 72.0000010728836deg, #ec4b4b 144.0000021457672deg, #709ab9 216.00000858306885deg, #4dffbf 288.0000042915344deg, hsla(0, 0%, 98%, 1) 1turn);
+        }
+
+        nav {
+            padding: var(--SPACING);
+            block-size: 10rem;
+            display: flex;
+            align-items: center;
+            inline-size: var(--CONTENT-WIDTH);
+            margin: 0 auto;
+        }
+
+        nav button {
+            --WIDTH: 2rem;
+            border-radius: 50%;
+            inline-size: var(--WIDTH);
+            block-size: var(--WIDTH);
+            cursor: pointer;
+            background-color: white;
+            border: 1px solid var(--DARKER-GREY);
+        }
+
+        main {
+            padding: var(--SPACING);
+            inline-size: var(--CONTENT-WIDTH);
+            margin: 0 auto;
+        }
+
+        .list {
+            display: flex;
+            flex-direction: column;
+            /* background-color: var(--GREY); */
+            block-size: 30rem;
+            overflow-y: scroll;
+            scroll-snap-type: y mandatory;
+            border: 1px solid var(--GREY);
+            border-bottom-left-radius: .75rem;
+            border-bottom-right-radius: .75rem;
+
+            /* padding: var(--SPACING); */
+        }
+
+        .list__item {
+            padding: var(--SPACING);
+            border-bottom: 1px solid var(--GREY);
+            margin-block: .2rem;
+            /* border: 1px solid rgba(0, 0, 0, 0.1); */
+            border-radius: .25rem;
+            scroll-snap-align: start;
+            display: flex;
+            align-items: center;
+            inline-size: 100%;
+            justify-content: space-between;
+
+        }
+
+        .list__item:first-child {
+            margin-block-start: 0;
+        }
+
+        .list__item:hover {
+            background-color: var(--FOOTER-GREY);
+        }
+
+        .list__item__left {
+            display: flex;
+            align-items: center;
+        }
+
+        .list__item__close {
+            --WIDTH: 1.5rem;
+            block-size: var(--WIDTH);
+            inline-size: var(--WIDTH);
+            border: 2px solid var(--DARKER-GREY);
+            border-radius: .25rem;
+            margin-right: var(--SPACING);
+            cursor: pointer;
+
+        }
+
+        .list__item__time {
+            --WIDTH: 2rem;
+            block-size: var(--WIDTH);
+            inline-size: var(--WIDTH);
+            border-radius: 50%;
+            background-color: #eec32d;
+            border: 2px solid black;
+
+            position: relative;
+        }
+
+        .list__item__time::after {
+            --WIDTH: 1rem;
+            block-size: var(--WIDTH);
+            inline-size: var(--WIDTH);
+            border-radius: 50%;
+            content: "";
+            display: block;
+            background-color: white;
+            border: 2px solid black;
+            position: absolute;
+            top: 50%;
+            left: 50%;
+            transform: translate(-50%, -50%);
+        }
+
+        .list__item__text {
+            font-weight: 800;
+        }
+
+        .list-toggle {
+            display: flex;
+        }
+
+
+        .list-toggle__input {
+            appearance: none;
+            display: none;
+        }
+
+        .list-toggle__input:checked+.list-toggle__label {
+            background-color: #db0a5b;
+            color: white;
+        }
+
+
+
+        .list-toggle__label {
+            cursor: pointer;
+            /* flex-grow: 1; */
+            inline-size: 50%;
+            padding: var(--SPACING);
+            margin: 0;
+            font-weight: 800;
+            font-size: 1.1rem;
+            display: flex;
+            justify-content: center;
+            border-top-left-radius: .75rem;
+            border-top-right-radius: .75rem;
+            border: 2px solid var(--FOOTER-GREY);
+        }
+
+
+
+        .list-toggle__label:hover {
+            background-color: var(--FOOTER-GREY);
+        }
+
+
+
+
+
+        .form {
+            margin-top: var(--SPACING);
+            display: flex;
+            flex-direction: column;
+            gap: 1rem;
+        }
+
+        .form input[type='text'] {
+            padding: calc(0.5*var(--SPACING));
+            border-radius: .25rem;
+            border: 1px solid var(--DARKER-GREY);
+        }
+
+        .form input[type='text']:focus {
+            outline: 1px solid var(--COL1);
+            border: 1px solid var(--COL1);
+        }
+
+        .form input[type='submit'] {
+            inline-size: fit-content;
+            font-size: 1.1rem;
+            padding: .25rem 1rem;
+            cursor: pointer;
+            border: 2px solid black;
+            color: white;
+            border-radius: .25rem;
+            font-weight: 800;
+            background-color: black;
+        }
+
+        .form h3 {
+            font-size: 1rem;
+
+        }
+
+        .form__row {
+            display: flex;
+            gap: .75rem;
+        }
+
+        .form__row input[type='radio'] {
+            appearance: none;
+            display: none;
+        }
+
+
+
+        .form__row__label {
+            padding: .5rem 1rem;
+            border-radius: 2rem;
+            font-size: .95rem;
+            color: black;
+            font-weight: 800;
+            letter-spacing: -.05rem;
+            /* background-color: #3e6ceb; */
+            cursor: pointer;
+            border: 1px solid var(--DARKER-GREY);
+
+        }
+
+        .form__row input[type='radio']:checked+.form__row__label {
+            border-color: #db0a5b;
+            background-color: #db0a5b;
+            color: white;
+        }
+    </style>
+
+<body>
+    <nav>
+        <button onclick="history.back()"></button>
+    </nav>
+    <main>
+        <div class="main__content">
+            <div class="list-toggle">
+                <input type="radio" class="list-toggle__input" name="todo" id="input-list-incomplete" value="incomplete"
+                    default checked>
+                <label for="input-list-incomplete" class="list-toggle__label">In Progress</label>
+                <input type="radio" class="list-toggle__input" name="todo" id="input-list-complete" value="complete">
+                <label for="input-list-complete" class="list-toggle__label">Done</label>
+            </div>
+            <ul class="list" id="list-incomplete">
+            </ul>
+            <ul class="list" id="list-complete">
+            </ul>
+        </div>
+        <form id="form" class="form">
+            <h3>Add your Latest Task.</h3>
+            <input type="text" id="form__input-text" placeholder="Something to do" autofocus />
+            <h3>Pick a deadline.</h3>
+            <div class="form__row">
+
+                <!-- <input type="radio" value="0.5" name="deadline" id="half" required checked>
+                <label for="half" class="form__row__label">1/2 Day</label> -->
+
+                <input type="radio" value="1" name="deadline" id="1" required checked>
+                <label for="1" class="form__row__label">1 Day</label>
+
+                <input type="radio" value="2" name="deadline" id="2">
+                <label for="2" class="form__row__label">2 Days</label>
+
+                <input type="radio" value="7" name="deadline" id="7">
+                <label for="7" class="form__row__label">7 Days</label>
+            </div>
+            <input type="submit" value="Submit" />
+        </form>
+    </main>
+
+
+
+    <script type="module">
+        let data = [
+            {
+                text: "number one"
+            }
+        ];
+
+
+        const todoListIncomplete = document.getElementById("list-incomplete");
+        const todoListComplete = document.getElementById("list-complete");
+        const inputIncomplete = document.getElementById("input-list-incomplete");
+        const inputComplete = document.getElementById("input-list-complete");
+
+        // const deadlineRadioButton = document.querySelector("input[type='radio'][name='deadline']:checked");
+
+        const formTextInput = document.getElementById("form__input-text");
+        const form = document.getElementById("form");
+
+        form.addEventListener("submit", handleFormSubmit);
+
+        function handleFormSubmit(e) {
+            e.preventDefault();
+
+            const newestListItem = formTextInput.value;
+
+            if (newestListItem === "") {
+                return;
+            }
+
+
+            const currentTime = new Date();
+
+            const deadlineRadioButton = document.querySelector("input[type='radio'][name='deadline']:checked");
+            const currentDeadline = deadlineRadioButton.value;
+
+            const updatedDeadlineDate = new Date();
+            updatedDeadlineDate.setDate(updatedDeadlineDate.getDate() + parseInt(currentDeadline));
+
+            const latestItem = {
+                text: newestListItem,
+                startTime: currentTime,
+                // endTime: currentDeadline
+                endTime: updatedDeadlineDate
+
+            };
+
+            console.log(latestItem);
+
+            todoListIncomplete.append(createListItem(newestListItem));
+            scrollToBottomOfList(todoListIncomplete);
+            formTextInput.value = "";
+        }
+
+        function scrollToBottomOfList(el) {
+            el.scrollTop = el.scrollHeight
+        }
+
+
+
+
+        function createListItem(data) {
+            const listItem = document.createElement("li");
+            listItem.classList.add("list__item");
+            // listItem.textContent = data;
+            listItem.append(createListItemLeft(data));
+            listItem.append(createListItemTimer());
+            return listItem;
+        }
+
+        function createListItemLeft(data) {
+            const leftSection = document.createElement("span");
+            leftSection.classList.add("list__item__left");
+            leftSection.append(createListItemCloseButton());
+            leftSection.append(createListItemText(data));
+            return leftSection;
+        }
+
+        function createListItemCloseButton() {
+            const button = document.createElement("button");
+            button.classList.add("list__item__close");
+
+            function removeListItem() {
+                this.removeEventListener("click", removeListItem);
+                this.parentNode.parentNode.remove();
+            }
+
+            button.addEventListener("click", removeListItem);
+            return button;
+        }
+
+        function createListItemText(text) {
+            const textContainer = document.createElement("span");
+            textContainer.classList.add("list__item__text");
+            textContainer.textContent = text;
+            return textContainer;
+        }
+
+        function createListItemTimer() {
+            const timer = document.createElement("div");
+            timer.classList.add("list__item__time");
+            return timer;
+        }
+
+        window.addEventListener("load", () => {
+            todoListComplete.style.display = "none";
+            inputIncomplete.disabled = true;
+        });
+
+        inputIncomplete.addEventListener("click", function () {
+            todoListComplete.style.display = "none";
+            todoListIncomplete.style.display = "flex";
+            inputIncomplete.disabled = true;
+            inputComplete.disabled = false;
+        })
+
+        inputComplete.addEventListener("change", function () {
+            todoListComplete.style.display = "flex";
+            todoListIncomplete.style.display = "none";
+            this.disabled = true;
+            inputIncomplete.disabled = false;
+        });
+
+
+    </script>
+
+</body>
+
+</html>

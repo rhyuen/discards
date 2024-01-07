@@ -1,0 +1,480 @@
+<!DOCTYPE html>
+<html lang="en" data-theme="light">
+
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <link rel="preconnect" href="https://fonts.gstatic.com">
+    <!-- <link rel="icon" type="../image/png" sizes="32x32" href="../images/favicon-32x32.png"> -->
+    <title>12/20/23</title>
+    <link rel="stylesheet" href="https://unpkg.com/leaflet@1.9.4/dist/leaflet.css"
+        integrity="sha256-p4NxAoJBhIIN+hmNHrzRCf9tD/miZyoHS5obTRR9BMY=" crossorigin="" />
+    <script src="https://unpkg.com/leaflet@1.9.4/dist/leaflet.js"
+        integrity="sha256-20nQCchB9co0qIjJZRGuk2/Z9VM+kNiyxNV1lvTlZBo=" crossorigin=""></script>
+    <style>
+        @import "https://unpkg.com/open-props";
+
+        * {
+            box-sizing: border-box;
+            /* font-size: 16px; */
+            font-family: 'RedHat', 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
+        }
+
+        ::-webkit-scrollbar {
+            width: 0.8rem;
+            height: 0.5rem;
+        }
+
+        ::-webkit-scrollbar {
+            display: none;
+            /* Safari and Chrome */
+        }
+
+        /* Track */
+        ::-webkit-scrollbar-track {
+            background: black;
+        }
+
+        /* Handle */
+        ::-webkit-scrollbar-thumb {
+            background: var(--COL3);
+        }
+
+        /* Handle on hover */
+        ::-webkit-scrollbar-thumb:hover {
+            background: var(--COL2);
+        }
+
+        @font-face {
+            font-family: "Inter";
+            src: url("../fonts/Inter-VariableFont_slnt\,wght.ttf");
+        }
+
+        @font-face {
+            font-family: "RedHat";
+            src: url("../fonts/RedHatDisplay-VariableFont_wght.ttf");
+        }
+
+        @font-face {
+            font-family: "Fraunces";
+            src: url("../fonts/Fraunces-VariableFont_SOFT\,WONK\,opsz\,wght.ttf");
+        }
+
+        @font-face {
+            font-family: "Poppins";
+            src: url("../fonts/Poppins-Regular.ttf");
+        }
+
+        [data-theme='light'] {
+            --PRIMARY-COLOR: black;
+            --SECONDARY-COLOR: white;
+        }
+
+        [data-theme='dark'] {
+            --PRIMARY-COLOR: white;
+            --SECONDARY-COLOR: black;
+        }
+
+        html,
+        body {
+            margin: 0;
+            block-size: 100dvh;
+            scroll-behavior: smooth;
+        }
+
+        ul {
+            margin: 0;
+            padding: 0;
+        }
+
+        li {
+            list-style-type: none;
+            margin: 0;
+        }
+
+        h1,
+        h2,
+        h3,
+        h4,
+        img,
+        figure,
+        p {
+            margin: 0;
+            padding: 0;
+        }
+
+        :root {
+            font-size: 16px;
+            --RED: hsl(0, 78%, 62%);
+            --CYAN: hsl(180, 63%, 84%);
+            --ORANGE: hsl(53, 97%, 64%);
+            --BLUE: hsl(212, 89%, 82%);
+            --GREY: rgba(0, 0, 0, 0.1);
+            --DARKER-GREY: rgba(0, 0, 0, 0.3);
+
+            --COL1: #db0a5b;
+            --COL2: #fef160;
+            --COL3: #23cba7;
+            --COL4: #3e6ceb;
+            --COL5: #d9c8ec;
+
+            --BORDER-RADIUS: .5rem;
+
+            --HERO-CONTENT-WIDTH: min(90ch, 100%);
+            --CONTENT-WIDTH: min(65ch, 100%);
+            --SPACING: 1.5rem;
+            /* --PRIMARY-COLOR: black;
+            --SECONDARY-COLOR: white; */
+            --FOOTER-GREY: #f5f5f7;
+            --GRADIENT: conic-gradient(from 180deg at 50% 70%, hsla(0, 0%, 98%, 1) 0deg, #eec32d 72.0000010728836deg, #ec4b4b 144.0000021457672deg, #709ab9 216.00000858306885deg, #4dffbf 288.0000042915344deg, hsla(0, 0%, 98%, 1) 1turn);
+        }
+
+
+        main {
+            inline-size: var(--HERO-CONTENT-WIDTH);
+            margin: 0 auto;
+            padding: var(--SPACING);
+        }
+
+        .table {
+            /* margin-block: calc(2*var(--SPACING)); */
+        }
+
+        .table__header {
+            /* border: 1px solid var(--DARKER-GREY); */
+        }
+
+        .table__header th {
+            text-align: left;
+            font-size: 1.1rem;
+            padding: calc(.5*var(--SPACING));
+            border: 1px solid var(--DARKER-GREY);
+            border-radius: .25rem;
+        }
+
+        .table__item {
+            background-color: var(--FOOTER-GREY);
+        }
+
+        .table__item:hover {
+            background-color: #c4edde;
+        }
+
+        .table__item td {
+            /* padding-block: calc(.25*var(--SPACING)); */
+            padding: calc(.5*var(--SPACING));
+            /* background-color: var(--FOOTER-GREY); */
+            border-radius: .25rem;
+        }
+
+
+
+        .table__item__title {
+            font-weight: 800;
+        }
+
+        .table__item__global {
+            font-size: .9rem;
+        }
+
+        .table__item__date {}
+
+        .table__item__hours {
+            font-weight: 800;
+        }
+
+
+        .summary {}
+
+        section h2 {
+            padding-block: var(--SPACING);
+            margin-block-start: calc(2*var(--SPACING));
+        }
+
+        .summary-table {
+            width: 100%;
+        }
+
+        .summary-table__item {
+            background-color: var(--GREY);
+            padding: calc(.5*var(--SPACING));
+            width: 100%;
+            display: flex;
+            justify-content: space-evenly;
+            margin: .25rem;
+            border-radius: .25rem;
+        }
+
+        .summary-table__item:hover {
+            background-color: var(--DARKER-GREY);
+        }
+
+        .summary-table__item td:first-child {
+            font-weight: 800;
+            flex-grow: 1;
+
+        }
+
+        .summary-table__item td:nth-child(2) {
+            font-weight: 800;
+            flex-grow: 1;
+        }
+
+        .summary-table__item td {
+            padding-block: calc(.5*var(--SPACING));
+        }
+
+        nav {
+            block-size: 10rem;
+            padding: var(--SPACING);
+            margin: 0 auto;
+            display: flex;
+            align-items: center;
+            inline-size: var(--HERO-CONTENT-WIDTH);
+        }
+
+        nav button {
+            cursor: pointer;
+            --WIDTH: 1.75rem;
+            inline-size: var(--WIDTH);
+            block-size: var(--WIDTH);
+            border-radius: 50%;
+            border: 1px solid var(--DARKER-GREY);
+            background-color: white;
+            transition: filter .3s ease-in-out;
+        }
+
+        nav button:hover {
+            filter: drop-shadow(0 0 .75rem rgb(178, 237, 178));
+        }
+
+        .hero {
+            block-size: 35rem;
+            padding: var(--SPACING);
+            margin: 0 auto;
+            inline-size: var(--HERO-CONTENT-WIDTH);
+            display: flex;
+            align-items: center;
+        }
+
+        .hero__container h1{
+            font-size: 4rem;
+            letter-spacing: -.25rem;
+            line-height: .85;
+        }
+
+        .hero__container p{
+            font-size: 2.5rem;
+            letter-spacing: -.15rem;
+            line-height: .85;
+        }
+    </style>
+
+<body>
+    <nav>
+        <button onclick="history.back()"></button>
+    </nav>
+    <div class="hero">
+        <div class="hero__container">
+            <h1>More Netflix Data Again</h1>
+            <p>This time with rudimentary summaries.</p>
+        </div>
+    </div>
+    <main>
+
+
+        <section class="summary">
+            <h2>Summary of Data</h2>
+            <table id="summary" class="summary-table">
+                <tr class="summary-table__item">
+                    <td>
+                        2023 Titles Released Count
+                    </td>
+                    <td id="2023-release-count">
+
+                    </td>
+                </tr>
+                <tr class="summary-table__item">
+                    <td>
+                        2023 Titles Cumulative Hours Watched
+                    </td>
+                    <td id="2023-hours-count">
+
+                    </td>
+                </tr>
+                <tr class="summary-table__item">
+                    <td>
+                        2022 Titles Released Count
+                    </td>
+                    <td id="2022-release-count">
+
+                    </td>
+                </tr>
+                <tr class="summary-table__item">
+                    <td>
+                        2022 Titles Cumulative Hours Watched
+                    </td>
+                    <td id="2022-hours-count">
+
+                    </td>
+                </tr>
+                <tr class="summary-table__item">
+                    <td>
+                        2021 Titles Released Count
+                    </td>
+                    <td id="2021-release-count">
+
+                    </td>
+                </tr>
+                <tr class="summary-table__item">
+                    <td>
+                        2021 Titles Cumulative Hours Watched
+                    </td>
+                    <td id="2021-hours-count">
+
+                    </td>
+                </tr>
+                <tr class="summary-table__item">
+                    <td>
+                        2020 Titles Released Count
+                    </td>
+                    <td id="2020-release-count">
+
+                    </td>
+                </tr>
+                <tr class="summary-table__item">
+                    <td>
+                        2020 Titles Cumulative Hours Watched
+                    </td>
+                    <td id="2020-hours-count">
+
+                    </td>
+                </tr>
+            </table>
+        </section>
+        <section class="data">
+            <h2>Viewing Data for January - June 2023.</h2>
+            <table id="table" class="table">
+                <tr class="table__header">
+                    <th>
+                        Title
+                    </th>
+                    <th>
+                        Available Globally
+                    </th>
+                    <th>
+                        Release Date
+                    </th>
+                    <th>
+                        Hours viewed
+                    </th>
+                </tr>
+            </table>
+        </section>
+    </main>
+
+    <script type="module">
+        const table = document.getElementById("table");
+        const release2023 = document.getElementById("2023-release-count");
+        const release2022 = document.getElementById("2022-release-count");
+        const release2021 = document.getElementById("2021-release-count");
+        const release2020 = document.getElementById("2020-release-count");
+        const hours2023 = document.getElementById("2023-hours-count");
+        const hours2022 = document.getElementById("2022-hours-count");
+        const hours2021 = document.getElementById("2021-hours-count");
+        const hours2020 = document.getElementById("2020-hours-count");
+
+        window.addEventListener("load", init);
+
+        async function init() {
+            const url = "../data/netflix.json";
+            try {
+                const res = await fetch(url);
+                const json = await res.json();
+                const LIST_LIMIT = 250;
+
+                const shownData = json.data.splice(0, LIST_LIMIT);
+
+                populateTable(shownData);
+                analyzeTable(shownData, "2023", release2023);
+                analyzeTable(shownData, "2022", release2022);
+                analyzeTable(shownData, "2021", release2021);
+                analyzeTable(shownData, "2020", release2020);
+
+                analyzeTableHours(shownData, "2023", hours2023);
+                analyzeTableHours(shownData, "2022", hours2022);
+                analyzeTableHours(shownData, "2021", hours2021);
+                analyzeTableHours(shownData, "2020", hours2020);
+
+
+
+            } catch (e) {
+                console.log(e);
+            }
+
+
+        }
+
+
+        function populateTable(data) {
+            const fragment = new DocumentFragment();
+            for (let i = 0; i < data.length; i++) {
+                fragment.append(createRow(data[i]));
+            }
+            table.append(fragment);
+        }
+
+        function analyzeTable(data, year, el) {
+            const passedTheFilter = data.filter(item => {
+                if (item && item["Release Date"].split("-")[0] === year) {
+                    return item;
+                }
+            });
+
+            el.textContent = passedTheFilter.length;
+        }
+
+        function analyzeTableHours(data, year, el) {
+            const cumulativeHours = data.filter(item => {
+                if (item && item["Release Date"].split("-")[0] === year) {
+                    return item;
+                }
+            }).map(item => {
+                return parseInt(item["Hours Viewed"].replaceAll(",", ""));
+            }).reduce((a, b) => {
+                console.log(a);
+                return a + b;
+            }, 0);
+
+            el.textContent = cumulativeHours;
+
+        }
+
+
+        function createRow(data) {
+
+            const row = document.createElement("tr");
+            row.classList.add("table__item");
+            const title = document.createElement("td");
+            title.classList.add("table__item__title");
+            title.textContent = data["Title"];
+
+            const available = document.createElement("td");
+            available.textContent = data["Available Globally?"];
+
+            const date = document.createElement("td");
+            date.textContent = data["Release Date"];
+            const time = document.createElement("td");
+            time.textContent = data["Hours Viewed"];
+            row.append(title);
+            row.append(available);
+            row.append(date);
+            row.append(time);
+            return row;
+        }
+    </script>
+
+</body>
+
+</html>

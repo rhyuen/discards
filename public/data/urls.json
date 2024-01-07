@@ -1,4 +1,47 @@
 {
+    "2024": [
+        {
+            "month": 1,
+            "day": 4,
+            "year": 2024,
+            "link": "/2024/0104.html",
+            "visible": true,
+            "description": "Sliders to return an RGB CSS String.",
+            "lesson": "",
+            "screenshot": "",
+            "reference": [
+                
+            ]
+        },
+        {
+            "month": 1,
+            "day": 5,
+            "year": 2025,
+            "link": "/2024/0105.html",
+            "visible": true,
+            "description": "Sliders to return an RGBA CSS String again.  This time with styled input range.",
+            "lesson": "",
+            "screenshot": "",
+            "reference": [
+                "https://www.smashingmagazine.com/2021/12/create-custom-range-input-consistent-browsers/"
+            ]
+        },
+        {
+            "month": 1,
+            "day": 6,
+            "year": 2025,
+            "link": "/2024/0106.html",
+            "visible": true,
+            "description": "Camille Mormal Portfolio Clone.  Uses Dialog / Modal and @starting-style to animate the showing of modal.  Readdresses the issue of the Dialog / Modal not being full screen without Max-Width or Max-Height being set.",
+            "lesson": "",
+            "screenshot": "",
+            "reference": [
+                "https://developer.mozilla.org/en-US/docs/Web/HTML/Element/dialog",
+                "https://camillemormal.com"
+
+            ]
+        }
+    ],
     "2023": [
         {
             "month": 1,
@@ -1040,6 +1083,73 @@
                 "https://stackoverflow.com/a/18614545",
                 "https://www.htmhell.dev/adventcalendar/2023/2/"
                 
+            ]
+        },
+        {
+            "month": 12,
+            "day": 20,
+            "year": 2023,
+            "link": "/2023/1220.html",
+            "visible": true,
+            "description": "Netflix Data again, but this time with Summary Data.",
+            "lesson": "",
+            "screenshot": "",
+            "reference": [
+               
+                
+            ]
+        },
+        {
+            "month": 12,
+            "day": 22,
+            "year": 2023,
+            "link": "/2023/1222.html",
+            "visible": true,
+            "description": "Another TODO List. Started on 22 but done on 24. Two Categories.  ISSUE: Was going to add the auto remove feature after X Time but didn't. ISSUE: Completed Todos also don't end up in the Done Category. ISSUE: No dummy TODOs on load.",
+            "lesson": "",
+            "screenshot": "",
+            "reference": [
+                "https://www.w3schools.com/howto/howto_js_scroll_to_top.asp"                
+            ]
+        },
+        {
+            "month": 12,
+            "day": 27,
+            "year": 2023,
+            "link": "/2023/1227.html",
+            "visible": true,
+            "description": "An redesign of the index.html page.",
+            "lesson": "",
+            "screenshot": "",
+            "reference": [
+                
+            ]
+        },
+        {
+            "month": 12,
+            "day": 29,
+            "year": 2023,
+            "link": "/2023/1229.html",
+            "visible": true,
+            "description": "Using Fieldset, Legend and External CSS Sheets.",
+            "lesson": "",
+            "screenshot": "",
+            "reference": [
+                "https://www.youtube.com/watch?v=d2O-8n-UnrI"
+            ]
+        },
+        {
+            "month": 12,
+            "day": 30,
+            "year": 2023,
+            "link": "/2023/1230.html",
+            "visible": true,
+            "description": "Using Scroll on Submit + (Fieldset, Legend and Form).  There are also scroll bumpers and appending an element as a sibling.  ISSUE: I forgot how to scroll on submit again and as I have named these prototype pages poorly, lost the reference on how to do it, requiring me to search for it, AGAIN.",
+            "lesson": "",
+            "screenshot": "",
+            "reference": [
+                "https://stackoverflow.com/a/46923569",
+                "https://developer.mozilla.org/en-US/docs/Web/API/Element/insertAdjacentElement"
             ]
         }
     ],

@@ -55,7 +55,22 @@
                 "https://stackoverflow.com/questions/9538868/prevent-body-from-scrolling-when-a-modal-is-opened",
                 "https://www.toptal.com/developers/keycode/escape",
                 "https://camillemormal.com"
-
+            ]
+        },
+        {
+            "month": 1,
+            "day": 8,
+            "year": 2025,
+            "link": "/2024/0108.html",
+            "visible": true,
+            "description": "Dialog with animation and @starting-style.  From what I've found, @starting-style has no effect on animation and dialog.",
+            "lesson": "",
+            "screenshot": "",
+            "reference": [
+                "https://developer.mozilla.org/en-US/docs/Web/HTML/Element/dialog",
+                "https://stackoverflow.com/questions/9538868/prevent-body-from-scrolling-when-a-modal-is-opened",
+                "https://www.toptal.com/developers/keycode/escape",
+                "https://camillemormal.com"
             ]
         }
     ],

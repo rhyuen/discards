@@ -40,6 +40,23 @@
                 "https://camillemormal.com"
 
             ]
+        },
+        {
+            "month": 1,
+            "day": 7,
+            "year": 2025,
+            "link": "/2024/0107.html",
+            "visible": true,
+            "description": "Instagram Profile Page with Camille Mormal Nav Bar.  Uses Dialog / Modal and @starting-style to animate the showing of modal.  ISSUE: Stuggled with getting the Modal to translate from off the page to on the page.  It seems translateY(50vh) works but translateY(100vh) from bottom: 100vh makes it overshoot.",
+            "lesson": "",
+            "screenshot": "",
+            "reference": [
+                "https://developer.mozilla.org/en-US/docs/Web/HTML/Element/dialog",
+                "https://stackoverflow.com/questions/9538868/prevent-body-from-scrolling-when-a-modal-is-opened",
+                "https://www.toptal.com/developers/keycode/escape",
+                "https://camillemormal.com"
+
+            ]
         }
     ],
     "2023": [

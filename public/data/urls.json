@@ -16,7 +16,7 @@
         {
             "month": 1,
             "day": 5,
-            "year": 2025,
+            "year": 2024,
             "link": "/2024/0105.html",
             "visible": true,
             "description": "Sliders to return an RGBA CSS String again.  This time with styled input range.",
@@ -29,7 +29,7 @@
         {
             "month": 1,
             "day": 6,
-            "year": 2025,
+            "year": 2024,
             "link": "/2024/0106.html",
             "visible": true,
             "description": "Camille Mormal Portfolio Clone.  Uses Dialog / Modal and @starting-style to animate the showing of modal.  Readdresses the issue of the Dialog / Modal not being full screen without Max-Width or Max-Height being set.",
@@ -44,7 +44,7 @@
         {
             "month": 1,
             "day": 7,
-            "year": 2025,
+            "year": 2024,
             "link": "/2024/0107.html",
             "visible": true,
             "description": "Instagram Profile Page with Camille Mormal Nav Bar.  Uses Dialog / Modal and @starting-style to animate the showing of modal.  ISSUE: Stuggled with getting the Modal to translate from off the page to on the page.  It seems translateY(50vh) works but translateY(100vh) from bottom: 100vh makes it overshoot.",
@@ -60,7 +60,7 @@
         {
             "month": 1,
             "day": 8,
-            "year": 2025,
+            "year": 2024,
             "link": "/2024/0108.html",
             "visible": true,
             "description": "Dialog with animation and @starting-style.  From what I've found, @starting-style has no effect on animation and dialog.",
@@ -71,6 +71,33 @@
                 "https://stackoverflow.com/questions/9538868/prevent-body-from-scrolling-when-a-modal-is-opened",
                 "https://www.toptal.com/developers/keycode/escape",
                 "https://camillemormal.com"
+            ]
+        },
+        {
+            "month": 1,
+            "day": 9,
+            "year": 2024,
+            "link": "/2024/0109.html",
+            "visible": true,
+            "description": "Fancy Theme Toggle.  Modal/Dialog element using Animation/Keyframe.",
+            "lesson": "",
+            "screenshot": "",
+            "reference": [                
+                "https://camillemormal.com"
+            ]
+        },
+        {
+            "month": 1,
+            "day": 10,
+            "year": 2024,
+            "link": "/2024/0110.html",
+            "visible": true,
+            "description": "Modal/Dialog element using transitions.  Three steps DIALOG, DIALOG[open] and @starting-style for transitions using discrete CSS properties.",
+            "lesson": "",
+            "screenshot": "",
+            "reference": [                
+                "https://camillemormal.com",
+                "https://developer.chrome.com/blog/entry-exit-animations"
             ]
         }
     ],

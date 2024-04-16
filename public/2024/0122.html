@@ -1,0 +1,314 @@
+<!DOCTYPE html>
+<html lang="en" data-theme="light">
+
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <link rel="preconnect" href="https://fonts.gstatic.com">
+    <!-- <link rel="icon" type="../image/png" sizes="32x32" href="../images/favicon-32x32.png"> -->
+    <title>1/13/24</title>
+    <style>
+        @import "https://unpkg.com/open-props";
+
+        * {
+            box-sizing: border-box;
+            /* font-size: 16px; */
+            font-family: 'RedHat', 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
+        }
+
+        ::-webkit-scrollbar {
+            width: 0.8rem;
+            height: 0.5rem;
+        }
+
+        ::-webkit-scrollbar {
+            display: none;
+            /* Safari and Chrome */
+        }
+
+        /* Track */
+        ::-webkit-scrollbar-track {
+            background: black;
+        }
+
+        /* Handle */
+        ::-webkit-scrollbar-thumb {
+            background: var(--COL3);
+        }
+
+        /* Handle on hover */
+        ::-webkit-scrollbar-thumb:hover {
+            background: var(--COL2);
+        }
+
+        @font-face {
+            font-family: "Inter";
+            src: url("../fonts/Inter-VariableFont_slnt\,wght.ttf");
+        }
+
+        @font-face {
+            font-family: "RedHat";
+            src: url("../fonts/RedHatDisplay-VariableFont_wght.ttf");
+        }
+
+        @font-face {
+            font-family: "Fraunces";
+            src: url("../fonts/Fraunces-VariableFont_SOFT\,WONK\,opsz\,wght.ttf");
+        }
+
+        @font-face {
+            font-family: "Poppins";
+            src: url("../fonts/Poppins-Regular.ttf");
+        }
+
+        [data-theme='light'] {
+            --PRIMARY-COLOR: black;
+            --SECONDARY-COLOR: white;
+        }
+
+        [data-theme='dark'] {
+            --PRIMARY-COLOR: white;
+            --SECONDARY-COLOR: black;
+        }
+
+        html,
+        body {
+            margin: 0;
+            /* block-size: 100dvh; */
+            background-color: #1c1c1c;
+        }
+
+        ul {
+            margin: 0;
+            padding: 0;
+        }
+
+        li {
+            list-style-type: none;
+            margin: 0;
+        }
+
+        h1,
+        h2,
+        h3,
+        h4,
+        img,
+        figure,
+        p {
+            margin: 0;
+            padding: 0;
+        }
+
+        :root {
+            font-size: 16px;
+            --RED: hsl(0, 78%, 62%);
+            --CYAN: hsl(180, 63%, 84%);
+            --ORANGE: hsl(53, 97%, 64%);
+            --BLUE: hsl(212, 89%, 82%);
+            --GREY: rgba(0, 0, 0, 0.1);
+            --DARKER-GREY: rgba(0, 0, 0, 0.3);
+            --COL1: #db0a5b;
+            --COL2: #fef160;
+            --COL3: #23cba7;
+            --COL4: #3e6ceb;
+            --COL5: #d9c8ec;
+
+            --BORDER-RADIUS: .5rem;
+            --HERO-CONTENT-WIDTH: min(90ch, 100%);
+            --CONTENT-WIDTH: min(65ch, 100%);
+            --SPACING: 1.5rem;
+            /* --PRIMARY-COLOR: black;
+            --SECONDARY-COLOR: white; */
+            --FOOTER-GREY: #f5f5f7;
+            --GRADIENT: conic-gradient(from 180deg at 50% 70%, hsla(0, 0%, 98%, 1) 0deg, #eec32d 72.0000010728836deg, #ec4b4b 144.0000021457672deg, #709ab9 216.00000858306885deg, #4dffbf 288.0000042915344deg, hsla(0, 0%, 98%, 1) 1turn);
+        }
+
+        main {
+            padding: var(--SPACING);
+        }
+
+
+        .main__content {
+            inline-size: var(--HERO-CONTENT-WIDTH);
+            display: flex;
+            flex-direction: column;            
+                    
+            margin: 0 auto;
+
+        }
+
+        .main__content h1 {
+            line-height: 1cap;
+            text-transform: uppercase;
+            font-size: min(10vh, 10vw);
+            font-weight: 800;
+            color: var(--FOOTER-GREY);
+            letter-spacing: -.1rem;
+            user-select: none;
+        }
+
+        .red{
+            color:#db0a5b;        
+        }
+
+        .gradient{
+            color: transparent;
+            background: var(--gradient-13);
+            -webkit-text-fill-color: transparent;
+            -webkit-background-clip: text;
+            
+        }
+
+        nav {
+            block-size: 10rem;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+        }
+
+        nav button {
+            background-color: inherit;
+            color: grey;
+            font-weight: 600;
+            text-decoration: none;
+            border: none;
+            font-size: min(4vh, 4vw);
+            margin-inline: .5rem;
+            cursor: pointer;
+            transition: all .3s ease-in-out;
+        }
+
+        nav button:hover{
+            color: white;
+        }
+
+      
+
+        .modal{
+            inline-size: 100vw;
+            max-inline-size: 100vw;
+            block-size: 100vh;
+            max-block-size: 100vh;
+            background-color: var(--FOOTER-GREY);
+            transition: all .3s ease-in-out allow-discrete;
+            translate: 0 -100vh;
+        }
+
+        .modal[open]{
+            translate: 0 0;
+        }
+
+        @starting-style{
+            .modal[open]{
+                translate: 0 -100vh;
+            }
+        }
+        
+        .modal__content{
+            inline-size: var(--CONTENT-WIDTH);
+            margin: 0 auto;
+            padding: var(--SPACING);
+            padding-block: calc(4*var(--SPACING));
+        }
+
+        .modal__content h2{
+            line-height: 1cap;
+            font-size: 3rem;
+            letter-spacing: -.1rem;
+            text-transform: uppercase;
+            font-weight: 800;
+            color: black;       
+            padding-block: var(--SPACING);     
+        }
+
+        .modal__content h2 .lowercase{
+            text-transform: lowercase;
+            font-weight: 200;
+            font-size: 2.5rem;
+        }
+
+        .modal__content p {
+            font-size: 1.1rem;
+            font-weight:600;
+            line-height: 1.5;
+            margin-block:calc( var(--SPACING)*0.5);
+        }
+
+        .modal__content a{
+            background: var(--gradient-1);
+            color: transparent;
+            -webkit-background-clip: text;
+            font-weight: 800;
+            text-decoration: underline;
+            border-bottom: .25rem solid black;
+            
+        }
+
+        footer{
+            margin-block: calc(4*var(--SPACING));
+        }
+        .footer__content{
+            border-top: 2px solid var(--FOOTER-GREY);
+            padding-block: calc(4*var(--SPACING));
+            padding: var(--SPACING);
+            inline-size: var(--CONTENT-WIDTH);
+            margin: 0 auto;
+            display: grid;
+            place-items: center;
+        }
+
+        .footer__content h2{
+            padding-block: calc(2*var(--SPACING));
+            font-size: 1.5rem;
+            color: var(--FOOTER-GREY);
+            font-weight: 800;
+        }
+    </style>
+
+<body>
+    <nav>
+        <button onclick="history.back()">Back</button>
+        <button id="notes">Notes</button>
+    </nav>
+    <main>
+        <div class="main__content">
+            <div class="grouping">
+                <h1>the best time to plant a tree was <span class="red">10 years ago. </span> </h1>
+                <h1>the next best time is <span class="gradient">now.</span></h1>
+            </div>
+        </div>
+    </main>
+    <footer>
+        <div class="footer__content">
+            <h2>End</h2>
+        </div>
+    </footer>
+
+    <dialog id="notes-modal" class="modal">
+        <div class="modal__content">
+            <h2>Notes <span class="lowercase">and</span> <br/>References</h2>
+            <p>Made on January 22, 2024</p>
+            <p>Why?  I saw a CodePen on Twitter <a href="https://codepen.io/argyleink/pen/YzgQNvX">here</a>.</p>
+            <p>And, once again, because I keep making mistakes <a href="https://developer.chrome.com/blog/entry-exit-animations">Starting-Style Reference (Chrome Developer)</a>.</p>
+            <p>Gradient is from <a href="https://open-props.style/">Open Props</a>.</p>
+        </div>
+    </dialog>
+
+    <script type="module">
+        const notesButton = document.getElementById("notes");
+        const notesModal = document.getElementById("notes-modal");
+        notesButton.addEventListener("click", function(){
+            notesModal.showModal();
+        });
+
+        window.addEventListener("keydown", e => {
+            if(e.keyCode === 27){
+                notesModal.close();
+            }
+        });
+    </script>
+
+</body>
+
+</html>

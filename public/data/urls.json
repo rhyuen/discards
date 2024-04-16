@@ -99,6 +99,196 @@
                 "https://camillemormal.com",
                 "https://developer.chrome.com/blog/entry-exit-animations"
             ]
+        },
+        {
+            "month": 1,
+            "day": 11,
+            "year": 2024,
+            "link": "/2024/0111.html",
+            "visible": true,
+            "description": "Modal/Dialog element using transitions.  An Extension of the previous instance.  However, this time applied to a form as well. ISSUE: Padding causes the transition to behave awkwardly/stutter.",
+            "lesson": "",
+            "screenshot": "",
+            "reference": [                
+                "https://camillemormal.com",
+                "https://developer.chrome.com/blog/entry-exit-animations"
+            ]
+        },
+        {
+            "month": 1,
+            "day": 22,
+            "year": 2024,
+            "link": "/2024/0122.html",
+            "visible": true,
+            "description": "Using 1cap unit for LINE-HEIGHT. More Modal/Dialog element using transitions.",
+            "lesson": "",
+            "screenshot": "",
+            "reference": [                
+                "https://camillemormal.com",
+                "https://developer.chrome.com/blog/entry-exit-animations",
+                "https://codepen.io/argyleink/pen/YzgQNvX"
+            ]
+        },
+        {
+            "month": 1,
+            "day": 23,
+            "year": 2024,
+            "link": "/2024/0123.html",
+            "visible": false,
+            "description": "Following a tutorial on downloading image blobs.",
+            "lesson": "",
+            "screenshot": "",
+            "reference": [                
+                
+            ]
+        },
+        {
+            "month": 2,
+            "day": 6,
+            "year": 2024,
+            "link": "/2024/0206.html",
+            "visible": true,
+            "description": "Incomplete image feed.  ISSUE: Layout shift.",
+            "lesson": "",
+            "screenshot": "",
+            "reference": [                
+                
+            ]
+        },
+        {
+            "month": 2,
+            "day": 14,
+            "year": 2024,
+            "link": "/2024/0214.html",
+            "visible": true,
+            "description": "Addressing Layout Shift issues.",
+            "lesson": "",
+            "screenshot": "",
+            "reference": [                
+                "https://web.dev/articles/optimize-cls",
+                "https://kentcdodds.com/blog/building-an-awesome-image-loading-experience",
+                "https://www.smashingmagazine.com/2021/06/how-to-fix-cumulative-layout-shift-issues/"
+            ]
+        },
+        {
+            "month": 2,
+            "day": 17,
+            "year": 2024,
+            "link": "/2024/0217.html",
+            "visible": false,
+            "description": "Scroll driven animation attempt",
+            "lesson": "",
+            "screenshot": "",
+            "reference": [                
+                
+            ]
+        },
+        {
+            "month": 2,
+            "day": 21,
+            "year": 2024,
+            "link": "/2024/0221.html",
+            "visible": true,
+            "description": "Image scroller that scrolls on button click.",
+            "lesson": "",
+            "screenshot": "",
+            "reference": [                
+                
+            ]
+        },
+        {
+            "month": 2,
+            "day": 25,
+            "year": 2024,
+            "link": "/2024/0225.html",
+            "visible": true,
+            "description": "Image scroller with a button for upvotes. The upvotes do nothing. On Focus, the outline of the button scales up a bit.",
+            "lesson": "",
+            "screenshot": "",
+            "reference": [                
+                
+            ]
+        },
+        {
+            "month": 2,
+            "day": 26,
+            "year": 2024,
+            "link": "/2024/0226.html",
+            "visible": true,
+            "description": "Timeouts and Mousedown to elicit different behaviour.  Losing .focus() on an element using .blur()",
+            "lesson": "",
+            "screenshot": "",
+            "reference": [                
+                "https://stackoverflow.com/a/9868636",
+                "https://stackoverflow.com/a/45599391",
+                "https://stackoverflow.com/a/56899483"
+            ]
+        },
+        {
+            "month": 4,
+            "day": 6,
+            "year": 2024,
+            "link": "/2024/046.html",
+            "visible": true,
+            "description": "Attempt at Drag and Drop.",
+            "lesson": "",
+            "screenshot": "",
+            "reference": [                
+                "https://www.javascripttutorial.net/web-apis/javascript-drag-and-drop/"
+            ]
+        },
+        {
+            "month": 4,
+            "day": 13,
+            "year": 2024,
+            "link": "/2024/0413.html",
+            "visible": true,
+            "description": "Eclipse using Gradients.",
+            "lesson": "",
+            "screenshot": "",
+            "reference": [                
+                
+            ]
+        },
+        {
+            "month": 4,
+            "day": 14,
+            "year": 2024,
+            "link": "/2024/0414.html",
+            "visible": true,
+            "description": "Gallery of images. Based on https://www.thepostchaise.com/",
+            "lesson": "",
+            "screenshot": "",
+            "reference": [                
+                "https://www.thepostchaise.com/"               
+            ]
+        },
+        {
+            "month": 4,
+            "day": 15,
+            "year": 2024,
+            "link": "/2024/0415.html",
+            "visible": true,
+            "description": "Markdown in HTML/CSS/JS using Marked and DOMPurify.",
+            "lesson": "",
+            "screenshot": "",
+            "reference": [                
+                "https://github.com/cure53/DOMPurify",
+                "https://github.com/markedjs/marked?tab=readme-ov-file"
+            ]
+        },
+        {
+            "month": 4,
+            "day": 15,
+            "year": 2024,
+            "link": "/2024/0415a.html",
+            "visible": true,
+            "description": "Gallery of Pictures based on deck.gallery",
+            "lesson": "",
+            "screenshot": "",
+            "reference": [                
+                "https://www.deck.gallery/"                
+            ]
         }
     ],
     "2023": [

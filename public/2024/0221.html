@@ -1,0 +1,255 @@
+<!DOCTYPE html>
+<html lang="en" data-theme="light">
+
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <link rel="preconnect" href="https://fonts.gstatic.com">
+    <!-- <link rel="icon" type="../image/png" sizes="32x32" href="../images/favicon-32x32.png"> -->
+    <title>1/13/24</title>
+    <style>
+        @import "https://unpkg.com/open-props";
+
+        * {
+            box-sizing: border-box;
+            /* font-size: 16px; */
+            font-family: 'RedHat', 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
+        }
+
+        ::-webkit-scrollbar {
+            width: 0.8rem;
+            height: 0.5rem;
+        }
+
+        ::-webkit-scrollbar {
+            display: none;
+            /* Safari and Chrome */
+        }
+
+        /* Track */
+        ::-webkit-scrollbar-track {
+            background: black;
+        }
+
+        /* Handle */
+        ::-webkit-scrollbar-thumb {
+            background: var(--COL3);
+        }
+
+        /* Handle on hover */
+        ::-webkit-scrollbar-thumb:hover {
+            background: var(--COL2);
+        }
+
+        @font-face {
+            font-family: "Inter";
+            src: url("../fonts/Inter-VariableFont_slnt\,wght.ttf");
+        }
+
+        @font-face {
+            font-family: "RedHat";
+            src: url("../fonts/RedHatDisplay-VariableFont_wght.ttf");
+        }
+
+        @font-face {
+            font-family: "Fraunces";
+            src: url("../fonts/Fraunces-VariableFont_SOFT\,WONK\,opsz\,wght.ttf");
+        }
+
+        @font-face {
+            font-family: "Poppins";
+            src: url("../fonts/Poppins-Regular.ttf");
+        }
+
+        [data-theme='light'] {
+            --PRIMARY-COLOR: black;
+            --SECONDARY-COLOR: white;
+        }
+
+        [data-theme='dark'] {
+            --PRIMARY-COLOR: white;
+            --SECONDARY-COLOR: black;
+        }
+
+        html,
+        body {
+            margin: 0;
+            /* block-size: 100dvh; */
+            background-color: white;
+        }
+
+        ul {
+            margin: 0;
+            padding: 0;
+        }
+
+        li {
+            list-style-type: none;
+            margin: 0;
+        }
+
+        h1,
+        h2,
+        h3,
+        h4,
+        img,
+        figure,
+        p {
+            margin: 0;
+            padding: 0;
+        }
+
+        :root {
+            font-size: 16px;
+            --RED: hsl(0, 78%, 62%);
+            --CYAN: hsl(180, 63%, 84%);
+            --ORANGE: hsl(53, 97%, 64%);
+            --BLUE: hsl(212, 89%, 82%);
+            --GREY: rgba(0, 0, 0, 0.1);
+            --DARKER-GREY: rgba(0, 0, 0, 0.3);
+            --COL1: #db0a5b;
+            --COL2: #fef160;
+            --COL3: #23cba7;
+            --COL4: #3e6ceb;
+            --COL5: #d9c8ec;
+
+            --BORDER-RADIUS: .5rem;
+            --HERO-CONTENT-WIDTH: min(90ch, 100%);
+            --CONTENT-WIDTH: min(65ch, 100%);
+            --SPACING: 1.5rem;
+            /* --PRIMARY-COLOR: black;
+            --SECONDARY-COLOR: white; */
+            --FOOTER-GREY: #f5f5f7;
+            --GRADIENT: conic-gradient(from 180deg at 50% 70%, hsla(0, 0%, 98%, 1) 0deg, #eec32d 72.0000010728836deg, #ec4b4b 144.0000021457672deg, #709ab9 216.00000858306885deg, #4dffbf 288.0000042915344deg, hsla(0, 0%, 98%, 1) 1turn);
+        }
+
+        main {
+            inline-size: min(45ch, 100%);
+            padding: var(--SPACING);
+            margin: 0 auto;
+            block-size: 100vh;
+        }
+
+        .content {
+            inline-size: 100%;
+            block-size: 100vh;
+            overflow: scroll;
+            scroll-behavior: smooth;
+            scroll-snap-type: y mandatory;
+            -webkit-mask-image: linear-gradient(to bottom, transparent 5%, black 10%, black 90%, transparent 95%);
+        }
+
+        .content__item {
+            margin-block: var(--SPACING);
+            scroll-snap-align: center;
+        }
+
+        img {
+            block-size: auto;
+            inline-size: 100%;
+            aspect-ratio: 3/4;
+            background-color: lightcyan;
+            border-radius: .5rem;
+            object-fit: cover;
+        }
+
+        .controller {
+            position: relative;
+        }
+
+        .controller__panel {
+            position: absolute;
+            bottom: 4rem;
+            z-index: 2;
+            /* left: 2rem; */
+        }
+
+        .controller__panel button {
+            border: 2px solid #db0a5b;
+            --WIDTH: 4rem;
+            cursor: pointer;
+            inline-size: var(--WIDTH);
+            block-size: var(--WIDTH);
+            border-radius: 50%;
+            background-color: #db0a5b;
+            color: white;
+            font-weight: 800;
+            font-size: 2rem;
+        }
+    </style>
+
+<body>
+    <main>
+        <div class="controller">
+            <div class="controller__panel">
+                <button id="next-button">
+                    &plus;
+                </button>
+            </div>
+            <ul class="content" id="list">
+                <!-- <li class="content__item">
+                    <figure>
+                        <img src="https://picsum.photos/500/500?random=1" />
+                    </figure>
+                </li>
+              
+                <li class="content__item">
+                    <figure>
+                        <img src="https://picsum.photos/500/500?random=6" />
+                    </figure>
+                </li> -->
+            </ul>
+        </div>
+    </main>
+    <script type="module">
+        const list = document.getElementById("list");
+        const nextButton = document.getElementById('next-button');
+        const startingIndex = 5;
+        let step = 2;
+
+
+        window.addEventListener("load", init(startingIndex));
+
+        nextButton.addEventListener("click", () => {
+            list.scrollTop += 400;
+            
+            setTimeout(function () {
+                for (let i = 0; i < 2; i++) {
+                    list.append(makeListItem(startingIndex + step));
+                    step++;
+                }
+            }, 1000);
+
+            // list.scrollTop += 500;
+            // list.append(makeFigure(startingIndex + step));
+            
+        });
+
+
+        function init(numberOfItems = 10) {
+            for (let i = 0; i < numberOfItems; i++) {
+                list.append(makeListItem(i));
+            }
+        }
+
+        function makeListItem(index) {
+            const listItem = document.createElement("li");
+            listItem.append(makeFigure(index));
+            listItem.classList.add("content__item");
+            return listItem;
+        }
+
+        function makeFigure(index) {
+            const figure = document.createElement("figure");
+            const image = new Image();
+            image.src = `https://picsum.photos/500/500?random=${index}`;
+            figure.append(image)
+            return figure;
+        }
+    </script>
+
+
+</body>
+
+</html>

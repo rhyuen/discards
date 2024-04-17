@@ -289,6 +289,20 @@
             "reference": [                
                 "https://www.deck.gallery/"                
             ]
+        },
+        {
+            "month": 4,
+            "day": 16,
+            "year": 2024,
+            "link": "/2024/0416.html",
+            "visible": true,
+            "description": "Click and Hold to Remove an Image.  Starting Style was useful for animating the Hold Indicator. 2023/1218.html was useful for the @starting-style example code.  2024/216.html was useful for the click and hold example and sources.",
+            "lesson": "",
+            "screenshot": "",
+            "reference": [                
+                "https://stackoverflow.com/a/45599391/3782597",
+                "/2023/1218.html"
+            ]
         }
     ],
     "2023": [

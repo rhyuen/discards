@@ -1,0 +1,300 @@
+<!DOCTYPE html>
+<html lang="en" data-theme="light">
+
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <link rel="preconnect" href="https://fonts.gstatic.com">
+    <!-- <link rel="icon" type="../image/png" sizes="32x32" href="../images/favicon-32x32.png"> -->
+    <title>1/13/24</title>
+    <style>
+        @import "https://unpkg.com/open-props";
+
+        * {
+            box-sizing: border-box;
+            /* font-size: 16px; */
+            font-family: 'Inter', 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
+        }
+
+        ::-webkit-scrollbar {
+            width: 0.8rem;
+            height: 0.5rem;
+        }
+
+        ::-webkit-scrollbar {
+            display: none;
+            /* Safari and Chrome */
+        }
+
+        /* Track */
+        ::-webkit-scrollbar-track {
+            background: black;
+        }
+
+        /* Handle */
+        ::-webkit-scrollbar-thumb {
+            background: var(--COL3);
+        }
+
+        /* Handle on hover */
+        ::-webkit-scrollbar-thumb:hover {
+            background: var(--COL2);
+        }
+
+        @font-face {
+            font-family: "Inter";
+            src: url("../fonts/Inter-VariableFont_slnt\,wght.ttf");
+        }
+
+        @font-face {
+            font-family: "RedHat";
+            src: url("../fonts/RedHatDisplay-VariableFont_wght.ttf");
+        }
+
+        @font-face {
+            font-family: "Fraunces";
+            src: url("../fonts/Fraunces-VariableFont_SOFT\,WONK\,opsz\,wght.ttf");
+        }
+
+        @font-face {
+            font-family: "Poppins";
+            src: url("../fonts/Poppins-Regular.ttf");
+        }
+
+        [data-theme='light'] {
+            --PRIMARY-COLOR: black;
+            --SECONDARY-COLOR: white;
+        }
+
+        [data-theme='dark'] {
+            --PRIMARY-COLOR: white;
+            --SECONDARY-COLOR: black;
+        }
+
+        html,
+        body {
+            margin: 0;
+            /* block-size: 100dvh; */
+            background-color: white;
+
+        }
+
+        ul {
+            margin: 0;
+            padding: 0;
+        }
+
+        li {
+            list-style-type: none;
+            margin: 0;
+        }
+
+        h1,
+        h2,
+        h3,
+        h4,
+        img,
+        figure,
+        p {
+            margin: 0;
+            padding: 0;
+        }
+
+        :root {
+            font-size: 16px;
+            --RED: hsl(0, 78%, 62%);
+            --CYAN: hsl(180, 63%, 84%);
+            --ORANGE: hsl(53, 97%, 64%);
+            --BLUE: hsl(212, 89%, 82%);
+            --GREY: rgba(0, 0, 0, 0.1);
+            --DARKER-GREY: rgba(0, 0, 0, 0.3);
+            --COL1: #db0a5b;
+            --COL2: #fef160;
+            --COL3: #23cba7;
+            --COL4: #3e6ceb;
+            --COL5: #d9c8ec;
+
+            --BORDER-RADIUS: .5rem;
+            --HERO-CONTENT-WIDTH: min(100ch, 100%);
+            --CONTENT-WIDTH: min(65ch, 100%);
+            --SPACING: 1.5rem;
+            /* --PRIMARY-COLOR: black;
+            --SECONDARY-COLOR: white; */
+            --FOOTER-GREY: #f5f5f7;
+            --GRADIENT: conic-gradient(from 180deg at 50% 70%, hsla(0, 0%, 98%, 1) 0deg, #eec32d 72.0000010728836deg, #ec4b4b 144.0000021457672deg, #709ab9 216.00000858306885deg, #4dffbf 288.0000042915344deg, hsla(0, 0%, 98%, 1) 1turn);
+        }
+
+        main {
+            padding: var(--SPACING);
+            margin: 0 auto;
+            inline-size: min(45ch, 100%);
+            block-size: 100dvh;
+        }
+
+        .list {
+            inline-size: 100%;
+            block-size: 100%;
+            overflow-y: scroll;
+        }
+
+        .list__item {}
+
+        .list__item img {
+            block-size: auto;
+            background: lightgray;
+            inline-size: 100%;
+            aspect-ratio: 11/16;
+            object-fit: cover;
+            user-select: none;
+            border-radius: .3rem;
+            transition: block-size .5s ease-in-out;
+            /*prevents user from highlighting the image*/
+        }
+
+        .list__item--shrink{
+            filter: grayscale(1);
+            block-size: 0;
+        }
+
+        .hold-bar {
+            content: "";
+            inline-size: 4rem;
+            block-size: 2rem;
+            border: .25rem solid black;
+            position: fixed;
+            z-index: 1000;
+            border-radius: .25rem;
+            display: grid;
+            background: linear-gradient(to right, var(--COL3), var(--COL3) var(--PROGRESS), white var(--PROGRESS), white);
+            place-items: center;
+            font-weight: 600;
+            font-size: 1.1rem;
+            animation: fillup 2s linear forwards;
+        }
+
+
+        @property --PROGRESS {
+            syntax: '<percentage>';
+            inherits: false;
+            initial-value: 0%;
+        }
+
+        /* @keyframes countdown {
+            from {
+                --PROGRESS: 1%;
+            }
+
+            to {
+                --PROGRESS: 100%;
+            }
+        } */
+
+        @keyframes fillup {
+            from {
+                --PROGRESS: 1%;
+            }
+
+            to {
+                --PROGRESS: 100%;
+            }
+        }
+    </style>
+
+<body>
+    <main>
+        <ul class="list" id="list">
+            <!-- <li class=list__item>
+                <img src="https://picsum.photos/800/800?random=1" />
+            </li>
+            <li class=list__item>
+                <img src="https://picsum.photos/800/800?random=2" />
+            </li>
+            <li class=list__item>
+                <img src="https://picsum.photos/800/800?random=3" />
+            </li> -->
+        </ul>
+    </main>
+
+    <script type="module">
+        const list = document.getElementById("list");
+        let SEED = 1;
+
+        function createListItems(quantity) {
+            let fragment = new DocumentFragment();
+
+            for (let i = 0; i < quantity; i++) {
+                const item = document.createElement("li");
+                item.classList.add("list__item");
+                const image = new Image();
+                image.src = `https://picsum.photos/800/800?random=${SEED}`;
+                SEED++;
+                item.append(image);
+                fragment.append(item);
+            }
+            return fragment;
+        }
+
+        window.addEventListener("load", () => {
+            list.append(createListItems(3));
+        });
+
+        window.addEventListener("keydown", e => {
+            if (e.keyCode === 32) {
+                list.append(createListItems(3));
+            }
+        });
+
+        list.addEventListener("scroll", e => {
+            list.append(createListItems(3));
+        });
+
+
+        let HOLDBAR = null
+        let timeoutRef = "";
+
+        window.addEventListener("mousedown", e => {
+            const main = document.body;
+
+            if (e.target.nodeName === 'IMG') {
+               
+                const el = document.querySelector(`*[src='${e.target.src}']`);                
+
+                const holdBar = createHoldBar(e.clientX, e.clientY);
+                HOLDBAR = holdBar;
+                main.append(holdBar);
+
+                timeoutRef = setTimeout(function () {
+                    holdBar.remove();
+                    list.append(createListItems(1));
+                    el.classList.add("list__item--shrink");
+                    setTimeout(function(){
+                        el.remove();
+                    },500);
+                    /* el.remove(); */
+                }, 2000);
+            }
+            // createHoldBar(e.clientX, e.clientY);
+        });
+
+        window.addEventListener("mouseup", e => {
+            if (HOLDBAR) {
+                HOLDBAR.remove();
+            }
+            clearTimeout(timeoutRef);
+        });
+
+
+        function createHoldBar(x, y) {
+            const holdBar = document.createElement("div");
+            holdBar.style.left = `${x}px`;
+            holdBar.style.top = `${y}px`;
+            holdBar.classList.add("hold-bar");        
+            return holdBar
+        }
+    </script>
+
+
+</body>
+
+</html>

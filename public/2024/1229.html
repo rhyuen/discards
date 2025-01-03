@@ -1,0 +1,419 @@
+<!DOCTYPE html>
+<html lang="en" data-theme="light">
+
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <link rel="preconnect" href="https://fonts.gstatic.com">
+    <!-- <link rel="icon" type="../image/png" sizes="32x32" href="../images/favicon-32x32.png"> -->
+    <title>4/20/24</title>
+    <style>
+        @import "https://unpkg.com/open-props";
+
+        * {
+            box-sizing: border-box;
+            /* font-size: 16px; */
+            font-family: 'Inter', 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
+        }
+
+        ::-webkit-scrollbar {
+            width: 0.8rem;
+            height: 0.5rem;
+        }
+
+        ::-webkit-scrollbar {
+            display: none;
+            /* Safari and Chrome */
+        }
+
+        /* Track */
+        ::-webkit-scrollbar-track {
+            background: black;
+        }
+
+        /* Handle */
+        ::-webkit-scrollbar-thumb {
+            background: var(--COL3);
+        }
+
+        /* Handle on hover */
+        ::-webkit-scrollbar-thumb:hover {
+            background: var(--COL2);
+        }
+
+        @font-face {
+            font-family: "Inter";
+            src: url("../fonts/Inter-VariableFont_slnt\,wght.ttf");
+        }
+
+        @font-face {
+            font-family: "RedHat";
+            src: url("../fonts/RedHatDisplay-VariableFont_wght.ttf");
+        }
+
+        @font-face {
+            font-family: "Fraunces";
+            src: url("../fonts/Fraunces-VariableFont_SOFT\,WONK\,opsz\,wght.ttf");
+        }
+
+        @font-face {
+            font-family: "Poppins";
+            src: url("../fonts/Poppins-Regular.ttf");
+        }
+
+        [data-theme='light'] {
+            --PRIMARY-COLOR: black;
+            --SECONDARY-COLOR: white;
+        }
+
+        [data-theme='dark'] {
+            --PRIMARY-COLOR: white;
+            --SECONDARY-COLOR: black;
+        }
+
+        html,
+        body {
+            margin: 0;
+            /* block-size: 100dvh; */
+            background-color: #f3f3f3;
+
+        }
+
+        ul {
+            margin: 0;
+            padding: 0;
+        }
+
+        li {
+            list-style-type: none;
+            margin: 0;
+        }
+
+        h1,
+        h2,
+        h3,
+        h4,
+        img,
+        figure,
+        p {
+            margin: 0;
+            padding: 0;
+        }
+
+        :root {
+            font-size: 16px;
+            --RED: hsl(0, 78%, 62%);
+            --CYAN: hsl(180, 63%, 84%);
+            --ORANGE: hsl(53, 97%, 64%);
+            --BLUE: hsl(212, 89%, 82%);
+            --GREY: rgba(0, 0, 0, 0.1);
+            --DARKER-GREY: rgba(0, 0, 0, 0.3);
+            --COL1: #db0a5b;
+            --COL2: #fef160;
+            --COL3: #23cba7;
+            --COL4: #3e6ceb;
+            --COL5: #d9c8ec;
+
+            --BORDER-RADIUS: .5rem;
+            --HERO-CONTENT-WIDTH: min(100ch, 100%);
+            --CONTENT-WIDTH: min(65ch, 100%);
+            --SPACING: 1.5rem;
+            --SPACING-SM: calc(0.5*var(--SPACING));
+            /* --PRIMARY-COLOR: black;
+            --SECONDARY-COLOR: white; */
+            --FOOTER-GREY: #f5f5f7;
+            --GRADIENT: conic-gradient(from 180deg at 50% 70%, hsla(0, 0%, 98%, 1) 0deg, #eec32d 72.0000010728836deg, #ec4b4b 144.0000021457672deg, #709ab9 216.00000858306885deg, #4dffbf 288.0000042915344deg, hsla(0, 0%, 98%, 1) 1turn);
+        }
+
+        main {}
+
+        .calendar {
+            display: flex;
+            flex-direction: column;
+            gap: 8rem;
+
+        }
+
+        .month {
+            display: grid;
+            grid-template-columns: repeat(7, 1fr);
+
+            >header {
+                grid-column: 1/-1;
+                display: grid;
+                grid-template-columns: repeat(7, 1fr);
+                padding-block-end: var(--SPACING);
+                border-bottom: 1px solid black;
+
+
+                >h2 {
+                    font-size: 3rem;
+                    padding-block: var(--SPACING);
+                    font-weight: 600;
+                    grid-column: 1/-1;
+                }
+
+                .cell {
+                    text-align: right;
+                    grid-column: span 1;
+                }
+            }
+        }
+
+        .day {
+            grid-column: span 1;
+            aspect-ratio: 1;
+        }
+
+        .day--normal {
+            border-right: 1px solid black;
+            border-bottom: 1px solid black;
+            padding: var(--SPACING-SM);
+            cursor: pointer;
+        }
+
+        .day--normal:hover {
+            background-color: rgba(0, 0, 0, 0.1);
+        }
+
+
+        .day--empty {
+            background-color: rgba(0, 0, 0, 0.1);
+        }
+
+
+        .modal{
+            display: none;
+            position: fixed;
+            inset: 0;
+            block-size: 100vh;
+            inline-size: 100vw;
+            background-color: rgba(0, 0, 0, 0.3);
+        }
+
+        .modal__menu{
+            position: absolute;
+            inline-size: 40rem;
+            background-color: white;
+            block-size: 100vh;
+            right: 0;
+        }
+    </style>
+
+<body>
+
+    <div class="modal" id="modal">
+        <div class="modal__menu"></div>
+    </div>
+    <main class="calendar" id="calendar">
+
+    </main>
+    <script>
+        const cal = document.getElementById("calendar");
+        const modal = document.getElementById("modal");
+
+        window.addEventListener("load", () => {
+            init(16);
+        });
+
+
+
+        window.addEventListener("click", function(e){
+            if(e.target.dataset.date && e.target.dataset.month){
+                console.log("beep");
+
+                modal.style.display = "block";
+                document.body.style.overflow = "hidden";
+            }else{
+                console.log("boop");
+            }
+        });
+
+        window.addEventListener("keydown", function(e){
+            if(e.keyCode === 27){
+                modal.style.display = "none";
+                document.body.style.overflow = "scroll";
+            }
+        })
+
+        function init(months) {            
+
+            const today = new Date();
+            let startMonth = today.getMonth() - 1;
+
+            for (let i = startMonth; i < months; i++) {
+                const copyOfToday = new Date(today.valueOf());
+
+                //i have to do this otherwise, if you're in 28/29/30/31 territory then february turns into march.
+                copyOfToday.setDate(1);
+                copyOfToday.setMonth(i);
+                console.log(copyOfToday.getMonth());
+                console.log(copyOfToday.getDate());
+                cal.append(makeMonth(copyOfToday));
+            }
+
+        };
+
+        function makeMonth(incomingDate) {
+            const date = new Date(incomingDate.valueOf());
+            const month = document.createElement("month");
+            month.classList.add("month");
+            let fragment = new DocumentFragment();
+            // console.log(date);
+            const firstDateOfMonth = getFirstDayOfMonth(date).getDate();
+            const firstDAYOfMonth = getFirstDayOfMonth(date).getDay();
+
+            const lastDateOfMonth = getLastDayOfMonth(date).getDate();
+            const lastDAYOfMonth = getLastDayOfMonth(date).getDay();        
+
+            fragment.append(makeMonthHeader(getFirstDayOfMonth(date).getMonth()));
+
+            for (let i = 0; i < firstDAYOfMonth; i++) {
+                fragment.append(makeEmptyDay());
+            }
+
+            for (let i = 1; i <= lastDateOfMonth; i++) {
+                // console.log(lastDateOfMonth)
+                fragment.append(makeDay(i, getFirstDayOfMonth(date).getMonth()));
+            }
+
+            for (let i = 0; i < 6 - lastDAYOfMonth; i++) {
+                // console.log(lastDAYOfMonth);              
+                fragment.append(makeEmptyDay());
+            }
+
+            month.append(fragment);
+            return month;
+        }
+
+        function makeMonthHeader(index) {
+            const header = document.createElement("header");
+            header.append(makeMonthHeaderHeading(index));
+            header.append(makeMonthHeaderCells());
+            return header;
+        }
+
+        function makeMonthHeaderCells() {
+            const frag = document.createDocumentFragment();
+
+            for (let i = 1; i <= 7; i++) {
+                let cellText = "";
+                const cell = document.createElement("div");
+
+                cell.classList.add("cell");
+                switch (i) {
+                    case 1:
+                        cellText = "Sun";
+                        break;
+                    case 2:
+                        cellText = "Mon";
+                        break;
+                    case 3:
+                        cellText = "Tues";
+                        break;
+                    case 4:
+                        cellText = "Wed";
+                        break;
+                    case 5:
+                        cellText = "Thr";
+                        break;
+                    case 6:
+                        cellText = "Fri";
+                        break;
+                    case 7:
+                        cellText = "Sat"
+                        break;
+                }
+                cell.textContent = cellText;
+                frag.append(cell);
+            }
+
+            return frag;
+        }
+
+        function makeMonthHeaderHeading(index) {
+            const heading = document.createElement("h2");
+            let text = "";
+            switch (index) {
+                case 0:
+                    text = "January";
+                    break;
+                case 1:
+                    text = "February";
+                    break;
+                case 2:
+                    text = "March";
+                    break;
+                case 3:
+                    text = "April";
+                    break;
+                case 4:
+                    text = "May";
+                    break;
+                case 5:
+                    text = "June";
+                    break;
+                case 6:
+                    text = "July";
+                    break;
+                case 7:
+                    text = "August";
+                    break;
+                case 8:
+                    text = "September";
+                    break;
+                case 9:
+                    text = "October";
+                    break;
+                case 10:
+                    text = "November";
+                    break;
+                case 11:
+                    text = "December";
+                    break;
+            }
+            heading.textContent = text;
+            return heading;
+        }
+
+        function getFirstDayOfMonth(date) {
+            let firstDayOfMonth = new Date(date);
+            firstDayOfMonth.setDate(1);
+            // console.log(firstDayOfMonth);
+            return firstDayOfMonth;
+        }
+
+        function getLastDayOfMonth(date) {
+            let copyOfMonth = new Date(date.valueOf());
+            copyOfMonth.setMonth(date.getMonth() + 1);
+            copyOfMonth.setDate(1);
+            let firstDayOfNextMonth = copyOfMonth;
+            firstDayOfNextMonth.setDate(0);
+            // console.log(firstDayOfNextMonth);
+            return firstDayOfNextMonth;
+        }
+
+        function makeDay(date, monthNumber) {
+            const day = document.createElement("div");
+            day.dataset.date = date;
+            day.dataset.month = monthNumber;
+            day.textContent = date;
+            day.classList.add("day");
+            day.classList.add("day--normal");
+            return day;
+        }
+
+        function makeEmptyDay() {
+            const empty = document.createElement("div");
+            empty.classList.add("day");
+            empty.classList.add("day--empty");
+            return empty;
+        }
+
+    </script>
+
+
+</body>
+
+</html>

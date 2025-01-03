@@ -1,4 +1,22 @@
 {
+    "2025":[
+        {
+            "month": 1,
+            "day": 1,
+            "year": 2025,
+            "link": "/2025/0101.html",
+            "visible": true,
+            "description": "RSS Feed consuming and rendering following a tutorial.  Had to look up how to truncate a string with JS.  Had to look up how to regex out html tags in the description tag for xml.  I learned that dev.to has RSS feeds for users without CORS, so I used one of them.",
+            "lesson": "",
+            "screenshot": "",
+            "reference": [
+                "https://stackoverflow.com/a/1301525",
+                "https://www.geeksforgeeks.org/how-to-fetch-and-parse-rss-feeds-in-javascript/",
+                "https://dev.to/geekgalgroks/building-an-rss-reader-in-javascript-1ep0",
+                "https://stackoverflow.com/a/27596298"
+            ]
+        }
+    ],
     "2024": [
         {
             "month": 1,
@@ -303,7 +321,181 @@
                 "https://stackoverflow.com/a/45599391/3782597",
                 "/2023/1218.html"
             ]
+        },
+        {
+            "month": 4,
+            "day": 17,
+            "year": 2024,
+            "link": "/2024/0417.html",
+            "visible": true,
+            "description": "Expanding Cards on Click.  Based on a Twitter Thing I saw.  Animations and Transitions are clunky.  There's room for improvement in future iterations regarding the styling and accessing cards beyond the first.",
+            "lesson": "",
+            "screenshot": "",
+            "reference": [                
+                "https://twitter.com/MSchwaibold/status/1749468721926533401"
+            ]
+        },
+        {
+            "month": 4,
+            "day": 20,
+            "year": 2024,
+            "link": "/2024/0420.html",
+            "visible": true,
+            "description": "Instagram Stories Lab.  I was unsure of how to do the stacking within the Grid.  Overscroll-Behaviour: contain;  is also useful for making sure that scroll actions for a given element do not extend to a parent element.",
+            "lesson": "Overscroll-Behaviour: contain;  is also useful for making sure that scroll actions for a given element do not extend to a parent element.",
+            "screenshot": "",
+            "reference": [                
+                "https://web.dev/articles/codelab-building-a-stories-component",
+                "https://web.dev/articles/building/a-stories-component"
+            ]
+        },
+        {
+            "month": 5,
+            "day": 5,
+            "year": 2024,
+            "link": "/2024/0505.html",
+            "visible": true,
+            "description": "Image Gallery with Lazy Loading. Scroll Driven Animation for progress bar at the top.",
+            "lesson": "",
+            "screenshot": "",
+            "reference": [                
+                "https://blog.openreplay.com/lazy-loading-in-javascript/",
+                "https://www.youtube.com/watch?v=fQSe12G5eEU"
+            ]
+        },
+        {
+            "month": 5,
+            "day": 7,
+            "year": 2024,
+            "link": "/2024/0505.html",
+            "visible": true,
+            "description": "Image Gallery with Modal.",
+            "lesson": "",
+            "screenshot": "",
+            "reference": [                
+                
+            ]
+        },
+        {
+            "month": 5,
+            "day": 10,
+            "year": 2024,
+            "link": "/2024/0510.html",
+            "visible": true,
+            "description": "File Download Variations [Same Origin / Cross-Origin Comparison]",
+            "lesson": "",
+            "screenshot": "",
+            "reference": [                
+                "https://javascript.plainenglish.io/javascript-create-file-c36f8bccb3be",
+                "https://blog.logrocket.com/programmatically-downloading-files-browser/#csv-generation-json-array",
+                "https://www.tutorialspoint.com/how-to-trigger-a-file-download-when-clicking-an-html-button-or-javascript"
+            ]
+        },
+        {
+            "month": 5,
+            "day": 26,
+            "year": 2024,
+            "link": "/2024/0526.html",
+            "visible": true,
+            "description": "Writing Mode for Vertical Text. I couldn't get the pattern to repeat beyond the Codepen Example.",
+            "lesson": "",
+            "screenshot": "",
+            "reference": [                
+                "https://codepen.io/argyleink/pen/abrmJjV"
+            ]
+        },
+        {
+            "month": 12,
+            "day": 16,
+            "year": 2024,
+            "link": "/2024/1216.html",
+            "visible": true,
+            "description": "A page on a page with some filler text.",
+            "lesson": "",
+            "screenshot": "",
+            "reference": [                
+                
+            ]
+        },
+        {
+            "month": 12,
+            "day": 16,
+            "year": 2024,
+            "link": "/2024/1216a.html",
+            "visible": true,
+            "description": "A page on a page with some filler text.  With grid and borders.",
+            "lesson": "",
+            "screenshot": "",
+            "reference": [                
+                
+            ]
+        },
+        {
+            "month": 12,
+            "day": 17,
+            "year": 2024,
+            "link": "/2024/1217.html",
+            "visible": true,
+            "description": "Calendar thing based on a codepen.  I used position sticky.",
+            "lesson": "",
+            "screenshot": "",
+            "reference": [                
+                "https://codepen.io/argyleink/pen/PovOMYy"
+            ]
+        },
+        {
+            "month": 12,
+            "day": 19,
+            "year": 2024,
+            "link": "/2024/1219.html",
+            "visible": true,
+            "description": "Calendar thing AGAIN based on a codepen. This time with data attributes for each day.",
+            "lesson": "",
+            "screenshot": "",
+            "reference": [                
+                "https://codepen.io/argyleink/pen/PovOMYy"
+            ]
+        },
+        {
+            "month": 12,
+            "day": 23,
+            "year": 2024,
+            "link": "/2024/1223.html",
+            "visible": true,
+            "description": "Calendar thing AGAIN based on a codepen. Data Attributes for Each Day. Random Number of Prepended Empty spaces and a corresponding number of ending empty spaces.  I used nested CSS selectors too.",
+            "lesson": "",
+            "screenshot": "",
+            "reference": [                
+                "https://codepen.io/argyleink/pen/PovOMYy"
+            ]
+        },
+        {
+            "month": 12,
+            "day": 26,
+            "year": 2024,
+            "link": "/2024/1226.html",
+            "visible": true,
+            "description": "Calendar thing AGAIN based on a codepen. Data Attributes for Each Day. I used nested CSS selectors again. Dates are accurate and not randomly generated.  Assignment for Date objects is copy by reference and not by value.",
+            "lesson": "",
+            "screenshot": "",
+            "reference": [                
+                "https://codepen.io/argyleink/pen/PovOMYy"
+            ]
+        },
+        {
+            "month": 12,
+            "day": 29,
+            "year": 2024,
+            "link": "/2024/1229.html",
+            "visible": true,
+            "description": "Calendar thing AGAIN based on a codepen. Data Attributes for Each Day. I used nested CSS selectors again. Dates are accurate and not randomly generated.  Assignment for Date objects is copy by reference and not by value.  Modal onclick of each day.  Better/Less clunky implementation of the Calendar.  Hit the off by one bug/mistake again.",
+            "lesson": "",
+            "screenshot": "",
+            "reference": [                
+                "https://codepen.io/argyleink/pen/PovOMYy"
+            ]
         }
+
     ],
     "2023": [
         {

@@ -1,0 +1,262 @@
+<!DOCTYPE html>
+<html lang="en" data-theme="light">
+
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <link rel="preconnect" href="https://fonts.gstatic.com">
+    <!-- <link rel="icon" type="../image/png" sizes="32x32" href="../images/favicon-32x32.png"> -->
+    <title>4/20/24</title>
+    <style>
+        @import "https://unpkg.com/open-props";
+
+        * {
+            box-sizing: border-box;
+            /* font-size: 16px; */
+            font-family: 'Inter', 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
+        }
+
+        ::-webkit-scrollbar {
+            width: 0.8rem;
+            height: 0.5rem;
+        }
+
+        ::-webkit-scrollbar {
+            display: none;
+            /* Safari and Chrome */
+        }
+
+        /* Track */
+        ::-webkit-scrollbar-track {
+            background: black;
+        }
+
+        /* Handle */
+        ::-webkit-scrollbar-thumb {
+            background: var(--COL3);
+        }
+
+        /* Handle on hover */
+        ::-webkit-scrollbar-thumb:hover {
+            background: var(--COL2);
+        }
+
+        @font-face {
+            font-family: "Inter";
+            src: url("../fonts/Inter-VariableFont_slnt\,wght.ttf");
+        }
+
+        @font-face {
+            font-family: "RedHat";
+            src: url("../fonts/RedHatDisplay-VariableFont_wght.ttf");
+        }
+
+        @font-face {
+            font-family: "Fraunces";
+            src: url("../fonts/Fraunces-VariableFont_SOFT\,WONK\,opsz\,wght.ttf");
+        }
+
+        @font-face {
+            font-family: "Poppins";
+            src: url("../fonts/Poppins-Regular.ttf");
+        }
+
+        [data-theme='light'] {
+            --PRIMARY-COLOR: black;
+            --SECONDARY-COLOR: white;
+        }
+
+        [data-theme='dark'] {
+            --PRIMARY-COLOR: white;
+            --SECONDARY-COLOR: black;
+        }
+
+        html,
+        body {
+            margin: 0;
+            /* block-size: 100dvh; */
+            background-color: #f3f3f3;
+
+        }
+
+        ul {
+            margin: 0;
+            padding: 0;
+        }
+
+        li {
+            list-style-type: none;
+            margin: 0;
+        }
+
+        h1,
+        h2,
+        h3,
+        h4,
+        img,
+        figure,
+        p {
+            margin: 0;
+            padding: 0;
+        }
+
+        :root {
+            font-size: 16px;
+            --RED: hsl(0, 78%, 62%);
+            --CYAN: hsl(180, 63%, 84%);
+            --ORANGE: hsl(53, 97%, 64%);
+            --BLUE: hsl(212, 89%, 82%);
+            --GREY: rgba(0, 0, 0, 0.1);
+            --DARKER-GREY: rgba(0, 0, 0, 0.3);
+            --COL1: #db0a5b;
+            --COL2: #fef160;
+            --COL3: #23cba7;
+            --COL4: #3e6ceb;
+            --COL5: #d9c8ec;
+
+            --BORDER-RADIUS: .5rem;
+            --HERO-CONTENT-WIDTH: min(100ch, 100%);
+            --CONTENT-WIDTH: min(65ch, 100%);
+            --SPACING: 1.5rem;
+            --SPACING-SM: calc(0.5*var(--SPACING));
+            /* --PRIMARY-COLOR: black;
+            --SECONDARY-COLOR: white; */
+            --FOOTER-GREY: #f5f5f7;
+            --GRADIENT: conic-gradient(from 180deg at 50% 70%, hsla(0, 0%, 98%, 1) 0deg, #eec32d 72.0000010728836deg, #ec4b4b 144.0000021457672deg, #709ab9 216.00000858306885deg, #4dffbf 288.0000042915344deg, hsla(0, 0%, 98%, 1) 1turn);
+        }
+
+        body {
+            padding: 1rem;
+        }
+
+        main {
+            inline-size: var(--CONTENT-WIDTH);
+            margin: 0 auto;
+            block-size: 100dvh;
+            display: grid;
+            grid-template-rows: 5fr 1fr;
+        }
+
+        
+
+        form {
+            grid-row: 2/span 1;
+        }
+
+        .form__row {
+            inline-size: 100%;
+            margin-block: .5rem;            
+        }
+
+        .form__row input[type='text']{
+            inline-size: 100%;
+            padding: 1rem 1rem;
+            font-size: 1.2rem;
+            border-radius: 2rem;
+            border: 1px solid black;
+        }
+
+        .form__row input[type='submit']{
+            color: white;
+            background-color: black;
+            padding: .5rem 1rem;
+            border: 2px solid black;
+            font-weight: 600;
+            font-size: 1.2rem;
+            border-radius: 2rem;
+            cursor: pointer;
+        }
+
+        .form__row input[type='submit']:hover{
+            background-color: white;
+            color: black;
+        }
+
+        .list{
+            grid-row: 1/span 1;
+            border: 1px solid black;
+            border-radius: 2rem;
+            inline-size: 100%;
+            overflow: scroll;
+        }
+
+        .list__item{
+            background-color: white;
+            padding: 1.5rem 1rem;
+            border-bottom: 1px solid black;
+            cursor: pointer;
+        }
+
+        .list__item:hover{
+            background-color: #f3f3f3;
+        }
+    </style>
+
+<body>
+    <main>
+        <ul class="list" id="main-list">
+
+        </ul>
+        <form id="main-form">
+            <div class="form__row">
+                <input type="text" id="main-form__text-input">
+            </div>
+            <div class="form__row">
+                <input type="submit" value="Submit">
+            </div>
+
+        </form>
+    </main>
+    <script>
+
+
+        const mainForm = document.getElementById("main-form");
+        const mainFormTextInput = document.getElementById("main-form__text-input");
+        const mainList = document.getElementById("main-list");
+
+        const list = [
+            "Swing for the fences.",
+            "Socks come in pairs.",
+            "Water evaporates",
+            "Computers used to be big.",
+            "Sometimes cats pick humans instead of the other way around.",
+            "Cars are a liability.",
+            "Gloves come in pairs too."
+        ]
+
+        window.addEventListener("load", () => {
+            for(let i = 0; i < list.length; i++){
+                mainList.appendChild(makeListItem(list[i]));
+            }
+            mainFormTextInput.focus();
+        });
+
+        function makeListItem(data){
+            const listItem = document.createElement("li");
+            listItem.classList.add("list__item");
+            listItem.textContent = data;
+            return listItem;
+        }
+
+        mainForm.addEventListener("submit", e => {
+            e.preventDefault();
+
+            if(mainFormTextInput.value === ""){
+                return;
+            }
+            list.push(mainFormTextInput.value);
+            mainList.appendChild(makeListItem(mainFormTextInput.value));
+
+            mainFormTextInput.value = "";
+
+            mainList.scrollTop = mainList.scrollHeight;
+
+
+        });
+    </script>
+
+
+</body>
+
+</html>

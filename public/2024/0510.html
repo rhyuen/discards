@@ -1,0 +1,348 @@
+<!DOCTYPE html>
+<html lang="en" data-theme="light">
+
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <link rel="preconnect" href="https://fonts.gstatic.com">
+    <!-- <link rel="icon" type="../image/png" sizes="32x32" href="../images/favicon-32x32.png"> -->
+    <title>4/20/24</title>
+    <style>
+        @import "https://unpkg.com/open-props";
+
+        * {
+            box-sizing: border-box;
+            /* font-size: 16px; */
+            font-family: 'Inter', 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
+        }
+
+        ::-webkit-scrollbar {
+            width: 0.8rem;
+            height: 0.5rem;
+        }
+
+        ::-webkit-scrollbar {
+            display: none;
+            /* Safari and Chrome */
+        }
+
+        /* Track */
+        ::-webkit-scrollbar-track {
+            background: black;
+        }
+
+        /* Handle */
+        ::-webkit-scrollbar-thumb {
+            background: var(--COL3);
+        }
+
+        /* Handle on hover */
+        ::-webkit-scrollbar-thumb:hover {
+            background: var(--COL2);
+        }
+
+        @font-face {
+            font-family: "Inter";
+            src: url("../fonts/Inter-VariableFont_slnt\,wght.ttf");
+        }
+
+        @font-face {
+            font-family: "RedHat";
+            src: url("../fonts/RedHatDisplay-VariableFont_wght.ttf");
+        }
+
+        @font-face {
+            font-family: "Fraunces";
+            src: url("../fonts/Fraunces-VariableFont_SOFT\,WONK\,opsz\,wght.ttf");
+        }
+
+        @font-face {
+            font-family: "Poppins";
+            src: url("../fonts/Poppins-Regular.ttf");
+        }
+
+        [data-theme='light'] {
+            --PRIMARY-COLOR: black;
+            --SECONDARY-COLOR: white;
+        }
+
+        [data-theme='dark'] {
+            --PRIMARY-COLOR: white;
+            --SECONDARY-COLOR: black;
+        }
+
+        html,
+        body {
+            margin: 0;
+            /* block-size: 100dvh; */
+            background-color: white;
+
+        }
+
+        ul {
+            margin: 0;
+            padding: 0;
+        }
+
+        li {
+            list-style-type: none;
+            margin: 0;
+        }
+
+        h1,
+        h2,
+        h3,
+        h4,
+        img,
+        figure,
+        p {
+            margin: 0;
+            padding: 0;
+        }
+
+        :root {
+            font-size: 16px;
+            --RED: hsl(0, 78%, 62%);
+            --CYAN: hsl(180, 63%, 84%);
+            --ORANGE: hsl(53, 97%, 64%);
+            --BLUE: hsl(212, 89%, 82%);
+            --GREY: rgba(0, 0, 0, 0.1);
+            --DARKER-GREY: rgba(0, 0, 0, 0.3);
+            --COL1: #db0a5b;
+            --COL2: #fef160;
+            --COL3: #23cba7;
+            --COL4: #3e6ceb;
+            --COL5: #d9c8ec;
+
+            --BORDER-RADIUS: .5rem;
+            --HERO-CONTENT-WIDTH: min(100ch, 100%);
+            --CONTENT-WIDTH: min(65ch, 100%);
+            --SPACING: 1.5rem;
+            --SPACING-SM: calc(0.5*var(--SPACING));
+            /* --PRIMARY-COLOR: black;
+            --SECONDARY-COLOR: white; */
+            --FOOTER-GREY: #f5f5f7;
+            --GRADIENT: conic-gradient(from 180deg at 50% 70%, hsla(0, 0%, 98%, 1) 0deg, #eec32d 72.0000010728836deg, #ec4b4b 144.0000021457672deg, #709ab9 216.00000858306885deg, #4dffbf 288.0000042915344deg, hsla(0, 0%, 98%, 1) 1turn);
+        }
+
+        main {
+            padding: var(--SPACING);
+            margin: 0 auto;
+            inline-size: var(--CONTENT-WIDTH);
+        }
+
+        .main__item {
+            margin-block: calc(2*var(--SPACING));
+
+
+        }
+
+        a {
+            font-weight: 800;
+
+        }
+
+        .main__item__body {
+            border-radius: .5rem;
+
+            margin-block: var(--SPACING);
+            padding-block: var(--SPACING);
+            padding-inline: var(--SPACING-SM);
+            background-color: var(--GREY);
+        }
+
+        .main__item__body h3 {
+            margin-block: var(--SPACING-SM);
+        }
+    </style>
+
+<body>
+    <main>
+        <h1>File Download Variations</h1>
+        <div class="main__item">
+            <h2>Same Origin File Open</h2>
+            <a href="../static/nature-air-quality.pdf">Link to PDF</a>
+            <div class="main__item__body">
+                <h3>Results</h3>
+                <p>Works as expected. Navigates the current location to the Same-Origin PDF.</p>
+            </div>
+        </div>
+        <div class="main__item">
+            <h2>Same Origin File Download</h2>
+            <a href="../static/nature-air-quality.pdf" download="airqualitypdf.pdf">Download PDF</a>
+            <div class="main__item__body">
+                <h3>Results</h3>
+                <p>Works as expected. Prompts the OS/Browser to Download the PDF.</p>
+            </div>
+        </div>
+        <div class="main__item">
+            <h2>Cross Origin Link with Download Attribute</h2>
+            <a href="https://picsum.photos/id/870/200/300?grayscale&blur=2" download="unsplash.png">Download Image</a>
+            <div class="main__item__body">
+                <h3>Results</h3>
+                <p>Doesn't Open Windows System window to save the file. Instead it navigates to the file.</p>
+            </div>
+        </div>
+        <div class="main__item">
+            <h2>Cross Origin Link with Download Attribute with Nested Button</h2>
+            <a href="https://picsum.photos/id/870/200/300?grayscale&blur=2" Download="test_image">
+                <button type="button"> Download Image</button>
+            </a>
+            <div class="main__item__body">
+                <h3>Results</h3>
+                <p>Doesn't Open Windows System window to save the file. Instead it navigates to the file. However, in
+                    this <a
+                        href="https://www.tutorialspoint.com/how-to-trigger-a-file-download-when-clicking-an-html-button-or-javascript">example</a>,
+                    it does force the system prompt, so I'm guessing it's a server thing that prevents this from working
+                    all the time.</p>
+            </div>
+        </div>
+        <div class="main__item">
+            <h2>Javascript window.open() Cross-Origin</h2>
+            <button id="button-one">Download Image</button>
+            <div class="main__item__body">
+                <h3>Results</h3>
+                <p>Doesn't Open Windows System window. <br />
+                    Opens New Tab to the file.</p>
+            </div>
+        </div>
+
+        <div class="main__item">
+            <h2>Javascript window.open() Same-Origin</h2>
+            <button id="button-two">Download Image</button>
+            <div class="main__item__body">
+                <h3>Results</h3>
+                <p>Doesn't Open Windows System window. <br />
+                    Opens New Tab to the Local file.</p>
+            </div>
+        </div>
+
+        <div class="main__item">
+            <h2>Download Dynamic Text File (uses encodeURIComponent())</h2>
+            <input type="text" placeholder="Some text goes here." id="text-input">
+            <button id="text-input-download-button">Download Textfile</button>
+            <div class="main__item__body">
+                <h3>Results</h3>
+                <p>Creates Prompt and File</p>
+                <p>No text in the file.</p>
+                <p>Doesn't Work I guess.</p>
+                <p>Update: The error I made was getting the value for the BUTTON on not the INPUT.</p>
+                <div id="appender"></div>
+            </div>
+        </div>
+
+        <div class="main__item">
+            <h2>Download Dynamic Text File Again (uses new File())</h2>
+            <input type="text" placeholder="Some text goes here." id="text-input-2">
+            <button id="text-input-download-button-2">Download Textfile</button>
+            <div class="main__item__body">
+                <h3>Results</h3>
+                <p>Works as advertised.</p>
+                <div id="appender-2"></div>
+            </div>
+        </div>
+
+        <div class="main__item">
+            <h2>Fetch to save Cross-Origin Resource</h2>
+            <button id="cross-origin-image-download">Download Image</button>
+            <div class="main__item__body">
+                <h3>Results</h3>
+                <p>It works as advertised.</p>
+                <p>File Prompt Works</p>
+                <p>File Saves</p>
+                <p>Fetch => Blob => URL.createObjectUrl() => Link triggered by JS</p>
+                <div id="appender-3"></div>
+            </div>
+        </div>
+
+
+    </main>
+
+    <script type="module">
+        const buttonOne = document.getElementById("button-one");
+
+        buttonOne.addEventListener("click", handleDownload);
+
+        function handleDownload() {
+            console.log("hi");
+            window.open("https://picsum.photos/id/870/200/300?grayscale&blur=2");
+        }
+
+        function handleSameOriginDownload() {
+            console.log("Same Origin Download");
+            window.open("../static/nature-air-quality.pdf");
+        }
+
+
+        const buttonTwo = document.getElementById("button-two");
+        buttonTwo.addEventListener("click", handleSameOriginDownload);
+
+
+        const textInput = document.getElementById("text-input");
+        const textInputDownloadButton = document.getElementById("text-input-download-button");
+        textInputDownloadButton.addEventListener("click", () => {
+            const userInput = textInput.value;
+
+            const hiddenLink = document.createElement("a");
+            hiddenLink.href = `data:text/plain; charset=utf-8, ${encodeURIComponent(userInput)}`;
+            hiddenLink.download = "latestwords.txt";
+            const mountpoint = document.getElementById("appender");
+            mountpoint.append(hiddenLink);
+            hiddenLink.click();
+            mountpoint.remove(hiddenLink);
+
+        });
+
+        const textInputTwo = document.getElementById("text-input-2");
+        const textInputDownloadButtonTwo = document.getElementById("text-input-download-button-2");
+        textInputDownloadButtonTwo.addEventListener("click", () => {
+            const userInputTwo = textInputTwo.value;
+            console.log(userInputTwo);
+
+            const hiddenLink = document.createElement("a");
+
+            const createdFile = new File([userInputTwo], "note.txt", {
+                type: "text/plain"
+            })
+
+            const url = URL.createObjectURL(createdFile);
+
+            hiddenLink.href = url;
+            hiddenLink.download = createdFile.name;
+            const mountpoint = document.getElementById("appender-2");
+            mountpoint.append(hiddenLink);
+            hiddenLink.click();
+            mountpoint.remove(hiddenLink);
+
+        });
+
+
+        const crossOriginImageDownloadButton = document.getElementById("cross-origin-image-download");
+        crossOriginImageDownloadButton.addEventListener("click", function () {
+            const url = "https://picsum.photos/id/872/500/500";
+
+            fetch(url)
+                .then(res => res.blob())
+                .then(res => {
+                    console.log(res);
+                    const mountpoint = document.getElementById("appender-3");
+                    let link = document.createElement('a');
+                    link.href = window.URL.createObjectURL(new Blob([res]));
+                    link.download = "anotherimagefromtheinternet.png";                    
+                    mountpoint.appendChild(link);
+                    link.click();
+                    mountpoint.remove(link);
+                }).catch(e => {
+                    console.log(e);
+                });
+        })
+
+
+
+    </script>
+
+
+</body>
+
+</html>

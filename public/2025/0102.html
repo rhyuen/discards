@@ -213,7 +213,7 @@
 
 
         window.addEventListener("DOMContentLoaded", () => {
-            const url = "/public/markdown/250102.md";
+            const url = "../markdown/250102.md";
             fetch(url).then(res => {
                 if (!res.ok) {
                     throw new Error("error with markdown file");

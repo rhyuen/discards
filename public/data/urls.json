@@ -15,6 +15,59 @@
                 "https://dev.to/geekgalgroks/building-an-rss-reader-in-javascript-1ep0",
                 "https://stackoverflow.com/a/27596298"
             ]
+        },
+        {
+            "month": 1,
+            "day": 2,
+            "year": 2025,
+            "link": "/2025/0102.html",
+            "visible": true,
+            "description": "Markdown rendered from a local file again.",
+            "lesson": "",
+            "screenshot": "",
+            "reference": [
+                ""             
+            ]
+        },
+        {
+            "month": 1,
+            "day": 3,
+            "year": 2025,
+            "link": "/2025/0103.html",
+            "visible": true,
+            "description": "RSS Feed consumed from a serverless proxy.",
+            "lesson": "",
+            "screenshot": "",
+            "reference": [
+                
+            ]
+        },
+        {
+            "month": 1,
+            "day": 9,
+            "year": 2025,
+            "link": "/2025/0109.html",
+            "visible": true,
+            "description": "Multiple RSS Feeds consumed from a serverless proxy.  One column for each source.",
+            "lesson": "",
+            "screenshot": "",
+            "reference": [
+                
+            ]
+        },
+        {
+            "month": 1,
+            "day": 10,
+            "year": 2025,
+            "link": "/2025/0110.html",
+            "visible": true,
+            "description": "Multiple RSS Feeds ordered in reverse chronological order. Date strings converted to date objects for sorting.  XML descriptions converted using a temporary textarea value javascript trick to remove HTML entities.  I had to look up how to sort by date in js again.",
+            "lesson": "",
+            "screenshot": "",
+            "reference": [
+                "https://stackoverflow.com/a/42182294",
+                "https://stackoverflow.com/a/10124053"                
+            ]
         }
     ],
     "2024": [

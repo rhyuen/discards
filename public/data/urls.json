@@ -68,6 +68,20 @@
                 "https://stackoverflow.com/a/42182294",
                 "https://stackoverflow.com/a/10124053"                
             ]
+        },
+        {
+            "month": 1,
+            "day": 12,
+            "year": 2025,
+            "link": "/2025/0112.html",
+            "visible": true,
+            "description": "Extended from 0110.  Added Author names and RSS Images.  Finished on 01/14.",
+            "lesson": "",
+            "screenshot": "",
+            "reference": [
+                "https://stackoverflow.com/a/42182294",
+                "https://stackoverflow.com/a/10124053"                
+            ]
         }
     ],
     "2024": [

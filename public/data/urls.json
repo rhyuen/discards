@@ -75,12 +75,122 @@
             "year": 2025,
             "link": "/2025/0112.html",
             "visible": true,
-            "description": "Extended from 0110.  Added Author names and RSS Images.  Finished on 01/14.",
+            "description": "Extended from 0110.  Added Author names and RSS Images.  Finished on 01/14.  The last reference was useful in getting the URL attribute from the 'enclosure' element.",
             "lesson": "",
             "screenshot": "",
             "reference": [
                 "https://stackoverflow.com/a/42182294",
-                "https://stackoverflow.com/a/10124053"                
+                "https://stackoverflow.com/a/10124053",
+                "https://stackoverflow.com/questions/47276522/how-can-i-access-a-property-of-an-html-element"               
+            ]
+        },
+        {
+            "month": 1,
+            "day": 15,
+            "year": 2025,
+            "link": "/2025/0115.html",
+            "visible": true,
+            "description": "Stories.  Infinite Unsplash images loaded on demand.  Rotation on click. Does not Rotate Left or Right based on location of click.",
+            "lesson": "",
+            "screenshot": "",
+            "reference": [                
+                "https://web.dev/articles/codelab-building-a-stories-component"                
+            ]
+        },
+        {
+            "month": 1,
+            "day": 16,
+            "year": 2025,
+            "link": "/2025/0116.html",
+            "visible": true,
+            "description": "Stories.  Infinite Unsplash images loaded on demand.  Rotation based on click.",
+            "lesson": "",
+            "screenshot": "",
+            "reference": [                
+                "https://web.dev/articles/codelab-building-a-stories-component"                
+            ]
+        },
+        {
+            "month": 1,
+            "day": 19,
+            "year": 2025,
+            "link": "/2025/0119.html",
+            "visible": true,
+            "description": "Stories.  Infinite Unsplash images loaded on demand.  Slides off screen based on click.  Gallery of saved images.  Lifted gradients from a codepen.",
+            "lesson": "",
+            "screenshot": "",
+            "reference": [                
+                "https://web.dev/articles/codelab-building-a-stories-component",
+                "https://codepen.io/jh3y/pen/rNobvdp"
+            ]
+        },
+        {
+            "month": 1,
+            "day": 21,
+            "year": 2025,
+            "link": "/2025/0121.html",
+            "visible": true,
+            "description": "Starting style practice. Making DOM elements transition from display: none using '@starting-style'. However, the main point was to get the images to stop stuttering when they're added to the stacked grid.  This doesn't seem to resolve the issue.",
+            "lesson": "",
+            "screenshot": "",
+            "reference": [                
+                "https://developer.chrome.com/blog/entry-exit-animations#the_starting-style_rule_for_entry_animations",
+                "https://codepen.io/jh3y/pen/rNobvdp"
+            ]
+        },
+        {
+            "month": 1,
+            "day": 27,
+            "year": 2025,
+            "link": "/2025/0127.html",
+            "visible": true,
+            "description": "Using and image and the grid-area component stacking trick.  Attempting to use @starting-style to get the images being appended to not stutter.  It doesn't work.",
+            "lesson": "",
+            "screenshot": "",
+            "reference": [                
+                "https://developer.chrome.com/blog/entry-exit-animations#the_starting-style_rule_for_entry_animations",
+                "https://codepen.io/jh3y/pen/rNobvdp"
+            ]
+        },
+        {
+            "month": 1,
+            "day": 28,
+            "year": 2025,
+            "link": "/2025/0128.html",
+            "visible": true,
+            "description": "Using Figure and Image and the grid-area component stacking trick.  Attempting to use @starting-style to get the images being appended to not stutter.  It doesn't work.",
+            "lesson": "",
+            "screenshot": "",
+            "reference": [                
+                "https://developer.chrome.com/blog/entry-exit-animations#the_starting-style_rule_for_entry_animations",
+                "https://codepen.io/jh3y/pen/rNobvdp"
+            ]
+        },
+        {
+            "month": 1,
+            "day": 30,
+            "year": 2025,
+            "link": "/2025/0130.html",
+            "visible": true,
+            "description": "Uses background image and grid-area stacking.  Still doesn't stop the dynamic image loading from stuttering.",
+            "lesson": "",
+            "screenshot": "",
+            "reference": [                
+                "https://developer.chrome.com/blog/entry-exit-animations#the_starting-style_rule_for_entry_animations",
+                "https://codepen.io/jh3y/pen/rNobvdp"
+            ]
+        },
+        {
+            "month": 1,
+            "day": 31,
+            "year": 2025,
+            "link": "/2025/0131.html",
+            "visible": true,
+            "description": "Masonry Grid using Starting Style to make images load in smoothly.  It didn't work the way I wanted.",
+            "lesson": "",
+            "screenshot": "",
+            "reference": [                
+                "https://developer.chrome.com/blog/entry-exit-animations#the_starting-style_rule_for_entry_animations"               
             ]
         }
     ],

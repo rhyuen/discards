@@ -1,0 +1,381 @@
+<!DOCTYPE html>
+<html lang="en" data-theme="light">
+
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <link rel="preconnect" href="https://fonts.gstatic.com">
+    <!-- <link rel="icon" type="../image/png" sizes="32x32" href="../images/favicon-32x32.png"> -->
+    <title>4/20/24</title>
+    <style>
+        @import "https://unpkg.com/open-props";
+
+        * {
+            box-sizing: border-box;
+            /* font-size: 16px; */
+            font-family: 'Inter', 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
+        }
+
+        ::-webkit-scrollbar {
+            width: 0.8rem;
+            height: 0.5rem;
+        }
+
+        ::-webkit-scrollbar {
+            display: none;
+            /* Safari and Chrome */
+        }
+
+        /* Track */
+        ::-webkit-scrollbar-track {
+            background: black;
+        }
+
+        /* Handle */
+        ::-webkit-scrollbar-thumb {
+            background: var(--COL3);
+        }
+
+        /* Handle on hover */
+        ::-webkit-scrollbar-thumb:hover {
+            background: var(--COL2);
+        }
+
+        @font-face {
+            font-family: "Inter";
+            src: url("../fonts/Inter-VariableFont_slnt\,wght.ttf");
+        }
+
+        @font-face {
+            font-family: "RedHat";
+            src: url("../fonts/RedHatDisplay-VariableFont_wght.ttf");
+        }
+
+        @font-face {
+            font-family: "Fraunces";
+            src: url("../fonts/Fraunces-VariableFont_SOFT\,WONK\,opsz\,wght.ttf");
+        }
+
+        @font-face {
+            font-family: "Poppins";
+            src: url("../fonts/Poppins-Regular.ttf");
+        }
+
+        [data-theme='light'] {
+            --PRIMARY-COLOR: black;
+            --SECONDARY-COLOR: white;
+        }
+
+        [data-theme='dark'] {
+            --PRIMARY-COLOR: white;
+            --SECONDARY-COLOR: black;
+        }
+
+        html,
+        body {
+            margin: 0;
+            /* block-size: 100dvh; */
+            background-color: #f3f3f3;
+
+        }
+
+        ul {
+            margin: 0;
+            padding: 0;
+        }
+
+        li {
+            list-style-type: none;
+            margin: 0;
+        }
+
+        h1,
+        h2,
+        h3,
+        h4,
+        img,
+        figure,
+        p {
+            margin: 0;
+            padding: 0;
+        }
+
+        :root {
+            font-size: 16px;
+            --RED: hsl(0, 78%, 62%);
+            --CYAN: hsl(180, 63%, 84%);
+            --ORANGE: hsl(53, 97%, 64%);
+            --BLUE: hsl(212, 89%, 82%);
+            --GREY: rgba(0, 0, 0, 0.1);
+            --DARKER-GREY: rgba(0, 0, 0, 0.3);
+            --COL1: #db0a5b;
+            --COL2: #fef160;
+            --COL3: #23cba7;
+            --COL4: #3e6ceb;
+            --COL5: #d9c8ec;
+
+            --BORDER-RADIUS: .5rem;
+            --HERO-CONTENT-WIDTH: min(100ch, 100%);
+            --CONTENT-WIDTH: min(65ch, 100%);
+            --SPACING: 1.5rem;
+            --SPACING-SM: calc(0.5*var(--SPACING));
+            /* --PRIMARY-COLOR: black;
+            --SECONDARY-COLOR: white; */
+            --FOOTER-GREY: #f5f5f7;
+            --GRADIENT: conic-gradient(from 180deg at 50% 70%, hsla(0, 0%, 98%, 1) 0deg, #eec32d 72.0000010728836deg, #ec4b4b 144.0000021457672deg, #709ab9 216.00000858306885deg, #4dffbf 288.0000042915344deg, hsla(0, 0%, 98%, 1) 1turn);
+        }
+
+        main {
+            block-size: 100dvh;
+
+            inline-size: 100vw;
+            background: linear-gradient(to bottom, white, rgb(209, 246, 246));
+            display: grid;
+            place-items: center;
+        }
+
+        .container {
+            display: flex;
+            aspect-ratio: 6/10;
+            flex-direction: column;
+            max-block-size: 90vh;
+        }
+
+        .container__nav {
+            display: flex;
+            block-size: 5rem;
+            align-items: center;
+            margin-block-end: var(--SPACING-SM);
+            border: 2px solid rgb(209, 246, 246);
+            border-radius: .5rem;
+
+
+            >button {
+                flex-grow: 1;
+                background-color: white;
+                border: none;
+                font-size: 1.2rem;
+                font-weight: 600;
+                block-size: 4.5rem;
+                cursor: pointer;
+                border-radius: .5rem;
+                transition: all .4s ease-in-out
+            }
+
+            >button:hover {
+                background-color: #c3f8ed;
+
+            }
+        }
+
+        .container__viewer {
+            display: grid;
+            grid: [content] 1fr/[content] 1fr;
+            background: var(--GREY);
+            border-radius: .5rem;
+
+            aspect-ratio: 9/16;
+            inline-size: 30rem;
+            max-block-size: 55rem;
+
+        }
+
+        .container__viewer--gallery {
+            display: none;
+            background: white;
+            padding: var(--SPACING-SM);
+        }
+
+        .gallery__content {
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(8rem, 1fr));
+            grid-template-rows: auto;
+            gap: var(--SPACING-SM);
+            max-block-size: 100%;
+            overflow-y: scroll;
+
+        }
+
+        .container__viewer--gallery__item {
+            grid-column: span 1;
+            background-color: rgb(209, 246, 246);
+            /* inline-size: 100%; */
+            /* block-size: 100%; */
+            border-radius: .5rem;
+            background-size: cover;
+            aspect-ratio: 1;
+        }
+
+
+        @starting-style {
+            .container__viewer__item {
+                display: none;
+                opacity: 0;
+            }
+        }
+
+
+        .container__viewer__item {
+            background-image: url("https://picsum.photos/400/500?random=1");
+            background-size: cover;
+            /* background-repeat: no-repeat; */
+            grid-area: content;
+            border-radius: .5rem;
+            transition:
+                transform .5s ease-in-out,
+                opacity .5s ease-in-out,
+                display .5s ease-in-out allow-discrete;
+            display: block;
+            cursor: pointer;
+        }
+
+        .container__viewer__item:hover {
+            transform: scale(0.98) translateX(10rem);
+        }
+
+        .container__viewer__item--hover-right {
+            transform: scale(0.98) translateX(10rem);
+        }
+
+        .container__viewer__item--hover-left {
+            transform: scale(0.98) translateX(-10rem);
+        }
+
+        .container__viewer__item--viewed {
+            pointer-events: none;
+            opacity: 0;
+        }
+    </style>
+
+<body>
+    <main>
+        <div class="container">
+            <div class="container__nav">
+                <button id="view-button">View</button>
+                <button id="saved-button">Saved</button>
+            </div>
+            <div class="container__viewer" id="viewer">
+
+            </div>
+            <div class="container__viewer container__viewer--gallery" id="gallery">
+                <div class="gallery__content" id="gallery-content">
+
+                </div>
+            </div>
+        </div>
+    </main>
+
+    <script>
+        const viewer = document.getElementById('viewer');
+        const gallery = document.getElementById("gallery");
+        const galleryContent = document.getElementById("gallery-content");
+        const savedButton = document.getElementById("saved-button");
+        const viewButton = document.getElementById("view-button");
+
+        let SEED = 1;
+
+        window.addEventListener("DOMContentLoaded", () => {
+            init();
+        });
+
+        function init() {
+            let LIMIT = 5;
+            for (let i = 0; i < LIMIT; i++) {
+                viewer.append(makeViewerItem());
+            }
+        }
+
+        let savedItems = [
+            "https://picsum.photos/600/600?random=24",
+            "https://picsum.photos/600/600?random=25",
+            "https://picsum.photos/600/600?random=26",
+            "https://picsum.photos/600/600?random=27",
+            "https://picsum.photos/600/600?random=28",
+            "https://picsum.photos/600/600?random=34",
+            "https://picsum.photos/600/600?random=35",
+            "https://picsum.photos/600/600?random=46",
+            "https://picsum.photos/600/600?random=37",
+            "https://picsum.photos/600/600?random=38",
+            "https://picsum.photos/600/600?random=54",
+            "https://picsum.photos/600/600?random=55",
+            "https://picsum.photos/600/600?random=56",
+            "https://picsum.photos/600/600?random=57",
+            "https://picsum.photos/600/600?random=58"
+        ];
+
+        savedButton.addEventListener("click", () => {
+            gallery.style.display = "block";
+            viewer.style.display = "none";
+            galleryContent.innerHTML = "";
+            fillGallery();
+        });
+
+        viewButton.addEventListener("click", () => {
+            gallery.style.display = "none";
+            viewer.style.display = "grid";
+        });
+
+
+        function fillGallery() {
+            for (let i = 0; i < savedItems.length; i++) {
+                galleryContent.append(makeGalleryItem(savedItems[i]));
+            }
+        }
+
+        function makeGalleryItem(link) {
+            const item = document.createElement("div");
+            item.classList.add("container__viewer--gallery__item");
+            console.log(link);
+            // item.style.backgroundImage = "url('https://picsum.photos/400/500?random=23')";
+            item.style.backgroundImage = `url('${link}')`;
+            console.log(item);
+            return item;
+        }
+
+
+
+        function makeViewerItem() {
+            const viewerItem = document.createElement("div");
+            viewerItem.classList.add("container__viewer__item");
+            let backgroundImageURL = `https://picsum.photos/400/500?random=${SEED}`;
+            viewerItem.style.backgroundImage = `url(${backgroundImageURL})`;
+            viewerItem.addEventListener("click", function (e) {
+
+                savedItems.push(backgroundImageURL);
+
+                viewerItem.classList.add("container__viewer__item--viewed");
+
+                if ((viewer.getElementsByClassName("container__viewer__item").length - viewer.getElementsByClassName("container__viewer__item--viewed").length) <= 2) {
+                    console.log(viewer.getElementsByClassName("container__viewer__item").length);
+                    console.log(viewer.getElementsByClassName("container__viewer__item--viewed").length);
+                    let LIMIT = 5;
+                    for (let i = 0; i < LIMIT; i++) {
+                        viewer.append(makeViewerItem());
+                    }
+                }
+            });
+
+            // viewerItem.addEventListener("mouseover", function(e){
+            //     const median = viewerItem.offsetLeft + (viewerItem.clientWidth/2);
+            //     if(e.clientX > median){
+            //         viewerItem.classList.add("container__viewer__item--hover-right");
+            //     }else{
+            //         viewerItem.classList.add("container__viewer__item--hover-left");
+            //     }
+            // });
+
+            // viewerItem.addEventListener("mouseleave", function(){
+            //     viewerItem.classList.remove("container__viewer__item--hover-right");
+            //     viewerItem.classList.remove("container__viewer__item--hover-left");
+
+            // })
+            SEED++;
+            return viewerItem;
+        }
+    </script>
+
+
+</body>
+
+</html>
